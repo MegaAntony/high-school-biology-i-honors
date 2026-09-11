@@ -2,6 +2,10 @@
 ### South Forsyth High School • Dr. Sarah Irwin (Room #371) • 2026/2027
 *Aligned to the Georgia Standards of Excellence (GSE) **SB1 through SB6***
 
+> 🌐 **Live Web Dashboard:** [megaantony.github.io/high-school-biology-i-honors](https://megaantony.github.io/high-school-biology-i-honors/)  
+> 📘 **Full Academic Year Plan & Ingestion Playbook:** [`ACADEMIC_YEAR_PLAN_AND_UNIT_PLAYBOOK.md`](ACADEMIC_YEAR_PLAN_AND_UNIT_PLAYBOOK.md)  
+> 📅 **Semester 1 Daily Schedule:** [`schedule/semester-1.md`](schedule/semester-1.md)
+
 ---
 
 ## 🏛️ Repository Architecture (V2)
