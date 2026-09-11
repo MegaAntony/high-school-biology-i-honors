@@ -35,6 +35,7 @@ Biology-Honors-V2/
 ├── Georgia_Standards-Biology I Honors.md      # Official state curriculum standards (SB1–SB6)
 ├── ACADEMIC_YEAR_PLAN_AND_UNIT_PLAYBOOK.md    # 36-Week Roadmap & 6-Phase New Unit Ingestion Guide
 ├── AGENT.md                                   # This agent onboarding & context file
+├── WEEKEND_CLEANUP_PLAN.md                    # Weekend Legacy Directories Cleanup Guide
 ├── README.md                                  # Repository overview and quick-launch bar
 ├── .gitignore                                 # Ignores .DS_Store, node_modules, temp files
 │

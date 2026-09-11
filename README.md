@@ -19,6 +19,7 @@ Biology-Honors-V2/
 ├── Georgia_Standards-Biology I Honors.md      # Full State Standards (SB1 through SB6)
 ├── ACADEMIC_YEAR_PLAN_AND_UNIT_PLAYBOOK.md    # 📘 Full Year Plan & New Unit Ingestion Guide
 ├── AGENT.md                                   # 🤖 AI Agent Onboarding & Operations Manual
+├── WEEKEND_CLEANUP_PLAN.md                    # 🧹 Weekend Legacy Directories Cleanup Guide
 │
 ├── schedule/                                  # 📅 TACTICAL WEEKLY PREP (Where are we now?)
 │   ├── semester-1.md                          # S1 Master Calendar (Weeks 1–18 with direct links)
