@@ -13,6 +13,7 @@ Biology-Honors-V2/
 ├── index.html                                 # Web Dashboard (Launch tests & browse units)
 ├── notInLocal.html                            # Master Cloud Links (Canvas, Blooket, YouTube, Studio)
 ├── Georgia_Standards-Biology I Honors.md      # Full State Standards (SB1 through SB6)
+├── ACADEMIC_YEAR_PLAN_AND_UNIT_PLAYBOOK.md    # 📘 Full Year Plan & New Unit Ingestion Guide
 │
 ├── schedule/                                  # 📅 TACTICAL WEEKLY PREP (Where are we now?)
 │   ├── semester-1.md                          # S1 Master Calendar (Weeks 1–18 with direct links)
