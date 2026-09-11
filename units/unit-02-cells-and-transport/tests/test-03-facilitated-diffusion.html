@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biology I Honors - Unit 2 Test 03: Facilitated Diffusion & Protein Transporters</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+
+  <!-- TOP HEADER -->
+  <header class="bg-gradient-to-r from-blue-700 via-indigo-700 to-emerald-700 text-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="w-10 h-10 rounded-xl bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition border border-white/20" title="Back to All Tests">
+          <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="bg-white/20 text-xs px-2.5 py-1 rounded-full font-semibold uppercase tracking-wider">Biology I Honors</span>
+            <span class="bg-emerald-400 text-slate-900 text-xs px-2.5 py-1 rounded-full font-bold">Unit 2 • Test 03</span>
+          </div>
+          <h1 class="text-xl sm:text-2xl font-black tracking-tight mt-1 text-white">Facilitated Diffusion & Transporters</h1>
+        </div>
+      </div>
+
+      <!-- Quick Stats Top -->
+      <div class="flex items-center gap-4 bg-white/10 backdrop-blur px-4 py-2 rounded-xl border border-white/15">
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Answered</div>
+          <div id="statAnswered" class="text-xl font-bold">0/20</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Accuracy</div>
+          <div id="statScore" class="text-xl font-bold text-emerald-300">0%</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <button onclick="resetQuiz()" class="text-xs bg-white/20 hover:bg-white/30 text-white px-3 py-2 rounded-lg font-medium transition flex items-center gap-1.5 cursor-pointer">
+          <i class="fa-solid fa-rotate-right"></i> Reset
+        </button>
+      </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="w-full bg-slate-900/30 h-2">
+      <div id="quizProgressBar" class="bg-emerald-400 h-2 transition-all duration-300" style="width: 0%"></div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-6xl mx-auto px-4 py-8">
+
+    <!-- Anti-Guess Note Banner -->
+    <div class="bg-emerald-50 border border-emerald-200 text-emerald-950 p-4 rounded-2xl mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-semibold shadow-sm">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-shield-halved text-emerald-600 text-base shrink-0"></i>
+        <span><strong>Anti-Guess Edition:</strong> All 4 options per question have balanced lengths and realistic curriculum distractors so you cannot guess by length alone.</span>
+      </div>
+      <a href="index.html" class="text-emerald-800 underline hover:text-emerald-950 whitespace-nowrap">View All 20 Tests</a>
+    </div>
+
+    <!-- CONTROLS & FILTER BAR -->
+    <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 mb-8">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-sm font-bold text-slate-700 mb-2">Filter by Topic:</h2>
+          <div class="flex flex-wrap gap-2" id="topicFilters">
+            <button onclick="filterTopic('All')" class="topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-sm transition cursor-pointer">All Topics (20)</button>
+            <button onclick="filterTopic('Facilitated Diffusion Basics')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Facilitated Diffusion Basics</button>
+            <button onclick="filterTopic('Channel vs. Carrier Proteins')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Channel vs. Carrier Proteins</button>
+            <button onclick="filterTopic('Transport Kinetics & Saturation')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Transport Kinetics & Saturation</button>
+            <button onclick="filterTopic('Gated Ion Channels')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Gated Ion Channels</button>
+            <button onclick="filterTopic('Glucose Transport (GLUT)')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Glucose Transport (GLUT)</button>
+            <button onclick="filterTopic('Aquaporin Function')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Aquaporin Function</button>
+
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 pt-2 lg:pt-0 border-t lg:border-t-0 border-slate-100">
+          <button onclick="toggleAllClues()" id="toggleCluesBtn" class="text-xs bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-regular fa-lightbulb"></i> <span id="clueToggleText">Show All Hints</span>
+          </button>
+          <button onclick="filterMissed()" id="filterMissedBtn" class="text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-solid fa-triangle-exclamation"></i> Review Missed (<span id="missedCount">0</span>)
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTIONS LIST -->
+    <div id="questionsContainer" class="space-y-6"></div>
+
+    <!-- SCORE SUMMARY CARD -->
+    <div id="scoreSummaryCard" class="mt-12 bg-white rounded-3xl p-8 border-2 border-indigo-100 shadow-xl hidden">
+      <div class="text-center max-w-xl mx-auto">
+        <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl">
+          <i class="fa-solid fa-trophy"></i>
+        </div>
+        <h2 class="text-2xl font-black text-slate-800">Test 03 Complete!</h2>
+        <p class="text-slate-500 text-sm mt-1">Here is your detailed mastery score for Facilitated Diffusion & Protein Transporters.</p>
+        
+        <div class="grid grid-cols-3 gap-4 my-6 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Total Questions</div>
+            <div class="text-2xl font-black text-slate-800" id="finalTotal">20</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Correct</div>
+            <div class="text-2xl font-black text-emerald-600" id="finalCorrect">0</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Score Rate</div>
+            <div class="text-2xl font-black text-blue-600" id="finalPercent">0%</div>
+          </div>
+        </div>
+
+        <div id="masteryRating" class="p-4 rounded-2xl font-bold text-sm mb-6"></div>
+
+        <div class="flex items-center justify-center gap-4">
+          <button onclick="resetQuiz()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-indigo-200 transition cursor-pointer">
+            Retake Entire Test
+          </button>
+          <a href="index.html" class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-emerald-200 transition">
+            Back to Tests Hub
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-500 mt-12">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p>© 2026 Biology I Honors • South Forsyth High School</p>
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="hover:text-indigo-600 transition font-medium">All 20 Tests Hub</a>
+        <a href="../../index.html" class="hover:text-indigo-600 transition font-medium">Main Portal</a>
+        <a href="https://github.com/MegaAntony/biology-honors" target="_blank" class="hover:text-indigo-600 transition"><i class="fa-brands fa-github mr-1"></i>GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT ENGINE -->
+  <script>
+    const questionsData = [
+  {
+    "id": 1,
+    "topic": "Facilitated Diffusion Basics",
+    "question": "Which statement best defines facilitated diffusion across a eukaryotic plasma membrane?",
+    "options": [
+      "The active pumping of molecules against an electrochemical gradient using the chemical energy released by ATP hydrolysis.",
+      "The vesicular engulfment of large macromolecules and extracellular fluids into internal food vacuoles.",
+      "The unassisted passage of small, nonpolar diatomic gases directly through the hydrophobic hydrocarbon core.",
+      "The passive transport of polar or charged solutes down their concentration gradient via specific transmembrane proteins without consuming ATP."
+    ],
+    "answer": 3,
+    "clue": "It is passive (no ATP), moves down a gradient, and relies on a specialized protein helper.",
+    "explanation": "**Facilitated diffusion** is a passive transport process where polar or charged substances move down their concentration gradient through specific channel or carrier proteins without cellular energy (ATP)."
+  },
+  {
+    "id": 2,
+    "topic": "Channel vs. Carrier Proteins",
+    "question": "How does the mechanism of a carrier protein fundamentally differ from that of a channel protein during facilitated transport?",
+    "options": [
+      "Carrier proteins require mitochondrial ATP for every cycle, whereas channel proteins never consume metabolic energy.",
+      "Carrier proteins transport only small nonpolar gases, whereas channel proteins transport only large organelles.",
+      "Channel proteins permanently denature upon solute binding, while carrier proteins remain indestructible.",
+      "Carrier proteins alternate between two conformational shapes to move solutes across, whereas channel proteins provide an open hydrophilic pore."
+    ],
+    "answer": 3,
+    "clue": "Think of a revolving door that changes orientation versus an open hallway corridor.",
+    "explanation": "**Carrier proteins** bind their substrate and undergo a conformational shape change that translocates the solute across the membrane. **Channel proteins** provide a continuous hydrophilic tunnel through which specific ions or water pass rapidly."
+  },
+  {
+    "id": 3,
+    "topic": "Transport Kinetics & Saturation",
+    "question": "Why does the rate of facilitated diffusion level off (reach a plateau) at high extracellular solute concentrations, whereas simple diffusion continues increasing linearly?",
+    "options": [
+      "High solute concentrations deplete all available cellular ATP molecules in the cytoplasm.",
+      "The nonpolar fatty acid tails freeze into a rigid solid when solute concentrations exceed normal levels.",
+      "All membrane transport proteins become fully occupied (saturated), reaching their maximum transport velocity (Vmax).",
+      "The cell membrane dissolves completely due to high osmotic shear forces."
+    ],
+    "answer": 2,
+    "clue": "There are a finite number of protein doors available in the membrane at any given moment.",
+    "explanation": "Because there are a finite number of transport proteins in the membrane, facilitated diffusion exhibits **saturation kinetics**. When all binding sites or channels are occupied, the transport rate reaches a plateau ({max}$). Simple diffusion has no proteins to saturate."
+  },
+  {
+    "id": 4,
+    "topic": "Gated Ion Channels",
+    "question": "What is a \"gated channel\" protein, and what triggers it to open or close?",
+    "options": [
+      "A protein that opens or closes in response to specific chemical, electrical, or physical stimuli.",
+      "An irreversible pore that permanently seals itself shut after passing exactly one ion.",
+      "A channel that hydrolyzes ATP molecules to forcibly push water against its water potential.",
+      "A structural glycoprotein that remains open continuously under all physiological conditions."
+    ],
+    "answer": 0,
+    "clue": "Like a security gate that requires a passcode (ligand) or electrical badge (voltage) to open.",
+    "explanation": "**Gated channels** transition between open and closed conformations in response to specific stimuli, such as electrical charge shifts across the membrane (voltage-gated), chemical binding of a ligand (ligand-gated), or mechanical pressure."
+  },
+  {
+    "id": 5,
+    "topic": "Ion Selectivity",
+    "question": "Potassium ion (K+) channels allow potassium to cross 10,000 times faster than sodium ions (Na+), even though sodium is physically smaller. What structural feature accounts for this exquisite selectivity?",
+    "options": [
+      "The channel contains active molecular pumps that selectively consume ATP only in the presence of sodium ions.",
+      "Sodium ions are completely nonpolar and therefore diffuse directly through the lipid bilayer instead.",
+      "Potassium channels have positive electrical charges that attract negatively charged potassium cations.",
+      "A precise selectivity filter with carbonyl oxygens that mimic potassium's hydration shell, which sodium is too small to engage properly."
+    ],
+    "answer": 3,
+    "clue": "The spacing of oxygen atoms in the filter matches the exact atomic radius of dehydrated potassium.",
+    "explanation": "The **selectivity filter** in the K+ channel possesses carbonyl oxygen atoms arranged at the exact spacing needed to replace potassium's hydration shell. Sodium is slightly smaller, so it cannot interact optimally with all oxygens, making its dehydration energetically unfavorable."
+  },
+  {
+    "id": 6,
+    "topic": "Glucose Transport (GLUT)",
+    "question": "How does D-glucose enter human red blood cells and muscle fibers down its concentration gradient?",
+    "options": [
+      "By vesicular endocytosis into phagocytic lysosomes.",
+      "By unassisted simple diffusion through the nonpolar tail bilayer.",
+      "By facilitated diffusion mediated by specific GLUT carrier proteins.",
+      "By primary active transport using sodium-potassium ATPases."
+    ],
+    "answer": 2,
+    "clue": "GLUT stands for Glucose Transporter\u2014a classic carrier protein.",
+    "explanation": "Glucose is a large polar molecule that enters cells down its concentration gradient via **facilitated diffusion through GLUT carrier proteins** (such as GLUT1 in erythrocytes and insulin-responsive GLUT4 in muscle/fat)."
+  },
+  {
+    "id": 7,
+    "topic": "Aquaporin Function",
+    "question": "Why are aquaporins classified as facilitated diffusion channels rather than active transport pumps?",
+    "options": [
+      "They synthesize water molecules from hydrogen and oxygen within their central pore.",
+      "They transport water molecules passively down their concentration/osmotic gradient without energy expenditure.",
+      "They require the continuous hydrolysis of ATP for every water molecule that enters the pore.",
+      "They exclusively pump water against its concentration gradient from low water to high water."
+    ],
+    "answer": 1,
+    "clue": "Water flows through aquaporins passively down its free-energy gradient.",
+    "explanation": "**Aquaporins** are passive channel proteins that allow water molecules to travel through single-file down their concentration (osmotic) gradient at rates up to 3 billion molecules per second with **zero ATP consumption**."
+  },
+  {
+    "id": 8,
+    "topic": "Thermodynamics & Energetics",
+    "question": "From a thermodynamic perspective, what provides the energy that powers facilitated diffusion across the plasma membrane?",
+    "options": [
+      "The hydrolysis of guanosine triphosphate (GTP) by cytoplasmic ribosomes.",
+      "Electromagnetic radiation captured by mitochondrial pigments.",
+      "The potential energy stored in the concentration or electrochemical gradient of the solute itself.",
+      "Nuclear fission of phosphate atoms within the phospholipid backbone."
+    ],
+    "answer": 2,
+    "clue": "Concentration differences represent stored potential energy (like water behind a dam).",
+    "explanation": "Facilitated diffusion is powered entirely by the **potential energy of the concentration gradient**. Solutes move spontaneously from high free energy (high concentration) to lower free energy (low concentration)."
+  },
+  {
+    "id": 9,
+    "topic": "Clinical Application: Cystic Fibrosis",
+    "question": "Cystic fibrosis is caused by a genetic mutation in the CFTR gene, which encodes a transmembrane channel. What is the normal physiological function of the CFTR protein?",
+    "options": [
+      "Facilitating the passive transport of chloride ions (Cl-) across epithelial cell membranes to regulate mucus hydration.",
+      "Pumping ribosomal subunits out of the nucleus during translation.",
+      "Oxidizing glucose into pyruvate during cytoplasmic glycolysis.",
+      "Binding extracellular cholesterol to form protective steroid walls."
+    ],
+    "answer": 0,
+    "clue": "Think of chloride ion transport and how salt movement influences water balance in mucus.",
+    "explanation": "The **CFTR protein** is a regulated chloride (Cl-) ion channel. Defective CFTR prevents chloride from exiting epithelial cells into airways, reducing osmotic water flow and causing thick, sticky, dehydrating mucus."
+  },
+  {
+    "id": 10,
+    "topic": "Stereospecificity",
+    "question": "The GLUT1 transporter facilitates the diffusion of D-glucose thousands of times faster than L-glucose, despite both molecules sharing the identical chemical formula (C6H12O6). What does this demonstrate?",
+    "options": [
+      "Carrier proteins possess stereospecific binding sites that recognize precise three-dimensional molecular geometry.",
+      "L-glucose is completely nonpolar and thus diffuses directly through the lipid bilayer.",
+      "Carrier proteins only transport molecules that contain odd numbers of carbon atoms.",
+      "D-glucose actively destroys the cell membrane to create temporary holes."
+    ],
+    "answer": 0,
+    "clue": "Enzymes and transport proteins recognize 3D optical isomers like a lock and key.",
+    "explanation": "Transport proteins exhibit **stereospecificity**: the binding pocket has amino acid residues oriented to fit the exact three-dimensional shape of D-glucose, but not its mirror-image enantiomer (L-glucose)."
+  },
+  {
+    "id": 11,
+    "topic": "Membrane Potential & Electrochemical Gradients",
+    "question": "When charged ions (like Na+ or Ca2+) cross through channel proteins, their net direction of facilitated diffusion is determined by the combined effect of which two forces?",
+    "options": [
+      "Gravitational force and atmospheric barometric pressure.",
+      "The rate of cellular protein synthesis and lipid degradation.",
+      "Nuclear pore diameter and endoplasmic reticulum volume.",
+      "The chemical concentration gradient and the electrical membrane potential (electrochemical gradient)."
+    ],
+    "answer": 3,
+    "clue": "Consider both the difference in solute concentration and the difference in electrical charge across the membrane.",
+    "explanation": "For charged ions, passive movement is governed by the **electrochemical gradient**, which combines the chemical force (solute concentration difference) and the electrical force (the negative or positive charge difference across the membrane)."
+  },
+  {
+    "id": 12,
+    "topic": "Action Potentials & Nerve Cells",
+    "question": "During the rising phase of a neuronal action potential, sodium ions surge into the neuron through voltage-gated channels. What type of transport is this rapid influx?",
+    "options": [
+      "Primary active transport requiring one ATP molecule per sodium ion.",
+      "Receptor-mediated endocytosis of extracellular sodium vesicles.",
+      "Facilitated diffusion down sodium's steep inward electrochemical gradient.",
+      "Simple diffusion passing directly through the nonpolar tails of phospholipids."
+    ],
+    "answer": 2,
+    "clue": "Sodium rushes in passively through open protein channels because it is high outside and the cell interior is negative.",
+    "explanation": "The rush of sodium into a depolarizing neuron is **facilitated diffusion** through voltage-gated Na+ channels down a steep electrochemical gradient. No ATP is consumed during this rapid influx."
+  },
+  {
+    "id": 13,
+    "topic": "Competitive Inhibition",
+    "question": "If a non-transportable structural analog (similar molecule) binds reversibly to the solute binding pocket of a carrier protein, what effect will this have on transport rate?",
+    "options": [
+      "It will act as a competitive inhibitor, lowering the apparent rate of transport for the normal substrate.",
+      "It will cause the carrier protein to immediately switch to active transport.",
+      "It will permanently mutate the carrier protein into an open aquaporin pore.",
+      "It will double the transport rate by forcing adjacent phospholipids to widen."
+    ],
+    "answer": 0,
+    "clue": "Similar to competitive enzyme inhibition, competing for the same binding site blocks the true substrate.",
+    "explanation": "Because carrier proteins have specific substrate binding sites, competing molecules can bind and block the site, acting as **competitive inhibitors** that reduce the transport rate of the normal substrate."
+  },
+  {
+    "id": 14,
+    "topic": "Channel vs. Carrier Speed",
+    "question": "Why can channel proteins typically translocate solutes at vastly higher rates (millions of ions per second) than carrier proteins (hundreds to thousands of molecules per second)?",
+    "options": [
+      "Channel proteins are powered by high-energy nuclear radiation.",
+      "Channels do not require time-consuming conformational shape changes for each individual solute passed.",
+      "Carrier proteins are made of carbohydrates, while channel proteins are made of lipids.",
+      "Channels only transport gases, while carrier proteins only transport water."
+    ],
+    "answer": 1,
+    "clue": "An open tunnel lets many pass rapidly; a revolving door must turn for each passenger.",
+    "explanation": "**Channel proteins** provide an open hydrophilic passageway allowing ions to stream through continuously without structural rearrangements, whereas **carrier proteins** must physically change shape for every cycle, making them much slower."
+  },
+  {
+    "id": 15,
+    "topic": "Facilitated Diffusion Basics",
+    "question": "Which of the following substances CANNOT cross the cell membrane via facilitated diffusion and MUST instead use simple diffusion or bulk transport?",
+    "options": [
+      "Whole bacterial cells (engulfed by white blood cells)",
+      "Chloride ions (Cl-)",
+      "D-glucose",
+      "Water molecules (H2O)"
+    ],
+    "answer": 0,
+    "clue": "An entire cell or large bacterium is far too big to fit inside any transmembrane transport protein.",
+    "explanation": "**Whole bacterial cells** are macroscopic particles that must be taken in via **phagocytosis (bulk endocytosis)**; they are millions of times too large to pass through transmembrane transport channels or carriers."
+  },
+  {
+    "id": 16,
+    "topic": "Temperature Effects",
+    "question": "What happens to the rate of facilitated diffusion when physiological temperature decreases from 37\u00b0C to 10\u00b0C?",
+    "options": [
+      "It increases because cooler membranes allow carrier proteins to flip much faster.",
+      "It decreases due to reduced molecular kinetic energy and restricted conformational flexibility of transport proteins.",
+      "It remains completely unchanged because transport proteins are immune to thermal physics.",
+      "It immediately reverses direction, pumping all glucose out into the extracellular fluid."
+    ],
+    "answer": 1,
+    "clue": "Cold slows down molecular movement and makes proteins and lipids less flexible.",
+    "explanation": "Lower temperatures **reduce thermal kinetic energy** and stiffen the lipid bilayer, which slows both solute diffusion rates and the required **conformational shape changes** of carrier proteins."
+  },
+  {
+    "id": 17,
+    "topic": "Carrier Protein Characteristics",
+    "question": "Which term best describes the maximum rate at which carrier proteins can transport solute when all their binding sites are continuously occupied?",
+    "options": [
+      "Dynamic equilibrium point",
+      "Transport Maximum (Tmax or Vmax)",
+      "Activation energy threshold",
+      "Osmotic potential limit"
+    ],
+    "answer": 1,
+    "clue": "The ceiling or maximum velocity of transport.",
+    "explanation": "When all carrier protein binding sites are filled with substrate, the system reaches its **Transport Maximum ({max}$ or {max}$)**, where adding more substrate cannot increase transport velocity."
+  },
+  {
+    "id": 18,
+    "topic": "Insulin & Facilitated Diffusion",
+    "question": "How does the hormone insulin increase glucose uptake into skeletal muscle and adipose cells after a carbohydrate-rich meal?",
+    "options": [
+      "It directly hydrolyzes glucose molecules into small gases that diffuse through phospholipids.",
+      "It stimulates the translocation and insertion of intracellular vesicles containing GLUT4 transporters into the plasma membrane.",
+      "It dissolves the cell membrane so that glucose can pour into the cytoplasm without barriers.",
+      "It acts as an active transport pump that consumes ATP to pull glucose against its gradient."
+    ],
+    "answer": 1,
+    "clue": "Insulin causes more \"glucose doors\" (GLUT4) to be added to the cell surface.",
+    "explanation": "Insulin signaling triggers vesicles harboring **GLUT4 glucose transporters** to fuse with the plasma membrane, vastly increasing the number of available carrier proteins to facilitate glucose uptake down its gradient."
+  },
+  {
+    "id": 19,
+    "topic": "Facilitated Diffusion vs. Active Transport",
+    "question": "A scientist measures the intracellular and extracellular concentrations of an amino acid. Outside the cell, the concentration is 50 mM; inside the cell, it is 5 mM. Transport into the cell occurs via a membrane protein without consuming ATP. What type of transport is occurring?",
+    "options": [
+      "Primary active transport",
+      "Simple nonpolar diffusion",
+      "Facilitated diffusion",
+      "Receptor-mediated exocytosis"
+    ],
+    "answer": 2,
+    "clue": "It moves from high (50 mM) to low (5 mM) through a membrane protein without ATP.",
+    "explanation": "Because the solute moves down its concentration gradient (50 mM to 5 mM) through a membrane protein without requiring cellular energy (ATP), this is textbook **facilitated diffusion**."
+  },
+  {
+    "id": 20,
+    "topic": "Transport Protein Structure",
+    "question": "What structural property must the central pore of an integral channel protein possess to facilitate the diffusion of polar molecules across the membrane?",
+    "options": [
+      "It must be lined with hydrophobic, nonpolar amino acid residues like leucine and isoleucine.",
+      "It must be composed of solid calcium carbonate crystals that repel water dipoles.",
+      "It must be lined with nonpolar fatty acid tails that prevent water from entering.",
+      "It must be lined with hydrophilic (polar or charged) amino acid residues that interact favorably with the solute."
+    ],
+    "answer": 3,
+    "clue": "To let polar solutes pass comfortably, the inside of the tunnel must be polar (water-friendly).",
+    "explanation": "The interior lining of a channel protein consists of **hydrophilic (polar and charged) amino acid side chains**, providing a welcoming aqueous environment for polar solutes and ions while the exterior of the protein interacts with the hydrophobic lipid core."
+  }
+];
+    const STORAGE_KEY = 'bio_unit2_test03_state_clean';
+
+    let userState = {
+      answers: {},
+      showClues: {},
+      allCluesVisible: false,
+      currentFilter: 'All',
+      missedOnly: false
+    };
+
+    function safeLoad() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (parsed && typeof parsed === 'object') {
+            userState = Object.assign(userState, parsed);
+          }
+        }
+      } catch (e) {
+        console.warn('localStorage not accessible:', e);
+      }
+    }
+
+    function safeSave() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(userState));
+      } catch (e) {
+        console.warn('Could not save to localStorage:', e);
+      }
+    }
+
+    function init() {
+      safeLoad();
+      renderQuestions();
+      updateStats();
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById('questionsContainer');
+      if (!container) return;
+      container.innerHTML = '';
+
+      let filteredQuestions = questionsData.filter(q => {
+        if (userState.currentFilter !== 'All' && q.topic !== userState.currentFilter) return false;
+        if (userState.missedOnly) {
+          const userAns = userState.answers[q.id];
+          if (userAns === undefined || userAns === q.answer) return false;
+        }
+        return true;
+      });
+
+      if (filteredQuestions.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-12 bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
+            <i class="fa-solid fa-circle-check text-emerald-500 text-4xl mb-3"></i>
+            <h3 class="text-lg font-bold text-slate-800">No Questions In This Filter</h3>
+            <p class="text-slate-500 text-sm mt-1">Try selecting 'All Topics' or clearing the missed review filter.</p>
+          </div>
+        `;
+        return;
+      }
+
+      filteredQuestions.forEach((q) => {
+        const isAnswered = userState.answers[q.id] !== undefined;
+        const selectedOption = userState.answers[q.id];
+        const isCorrect = isAnswered && selectedOption === q.answer;
+        const isClueVisible = userState.allCluesVisible || userState.showClues[q.id];
+
+        const card = document.createElement('div');
+        card.className = `bg-white rounded-2xl p-6 border transition-all duration-200 shadow-sm ${
+          isAnswered
+            ? isCorrect
+              ? 'border-emerald-300 ring-1 ring-emerald-200/50 bg-emerald-50/20'
+              : 'border-rose-300 ring-1 ring-rose-200/50 bg-rose-50/20'
+            : 'border-slate-200 hover:border-slate-300'
+        }`;
+        card.id = `q-card-${q.id}`;
+
+        let optionsHtml = q.options.map((opt, oIdx) => {
+          let btnClass = "border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50/40 text-slate-700 cursor-pointer";
+          let iconHtml = `<span class="w-6 h-6 rounded-full border border-slate-300 text-xs font-semibold flex items-center justify-center mr-3 text-slate-500 shrink-0 mt-0.5">${String.fromCharCode(65 + oIdx)}</span>`;
+
+          if (isAnswered) {
+            if (oIdx === q.answer) {
+              btnClass = "bg-emerald-50 border-emerald-500 text-emerald-950 font-semibold ring-1 ring-emerald-400 cursor-default";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-emerald-600 text-white text-xs font-bold flex items-center justify-center mr-3 shrink-0 mt-0.5"><i class="fa-solid fa-check"></i></span>`;
+            } else if (oIdx === selectedOption && !isCorrect) {
+              btnClass = "bg-rose-50 border-rose-400 text-rose-950 font-semibold ring-1 ring-rose-300 cursor-default";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-rose-600 text-white text-xs font-bold flex items-center justify-center mr-3 shrink-0 mt-0.5"><i class="fa-solid fa-xmark"></i></span>`;
+            } else {
+              btnClass = "opacity-50 border-slate-200 text-slate-400 cursor-not-allowed";
+            }
+          }
+
+          return `
+            <button 
+              type="button"
+              onclick="selectAnswer(${q.id}, ${oIdx})" 
+              ${isAnswered ? 'disabled' : ''} 
+              class="w-full text-left p-3.5 rounded-xl text-sm transition flex items-start ${btnClass} my-2 leading-relaxed">
+              ${iconHtml}
+              <span class="flex-1">${opt}</span>
+            </button>
+          `;
+        }).join('');
+
+        card.innerHTML = `
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <div class="flex items-center gap-2">
+              <span class="bg-indigo-100 text-indigo-800 text-xs font-black px-2.5 py-0.5 rounded-md">Q${q.id}</span>
+              <span class="bg-slate-100 text-slate-600 text-xs font-semibold px-2.5 py-0.5 rounded-md">${q.topic}</span>
+            </div>
+
+            <button type="button" onclick="toggleClue(${q.id})" class="text-xs text-amber-700 bg-amber-50 hover:bg-amber-100 border border-amber-200 px-3 py-1 rounded-lg font-medium transition flex items-center gap-1 cursor-pointer">
+              <i class="fa-regular fa-lightbulb"></i>
+              ${isClueVisible ? 'Hide Hint' : 'Need a Clue?'}
+            </button>
+          </div>
+
+          <h3 class="text-base font-bold text-slate-900 leading-relaxed mb-4">${q.question}</h3>
+
+          <div id="clue-${q.id}" class="${isClueVisible ? 'block' : 'hidden'} mb-4 p-3.5 bg-amber-50/80 border border-amber-200 rounded-xl text-amber-900 text-xs flex items-start gap-2.5">
+            <i class="fa-solid fa-lightbulb text-amber-600 mt-0.5"></i>
+            <div><span class="font-bold">Study Hint:</span> ${q.clue}</div>
+          </div>
+
+          <div class="space-y-1">${optionsHtml}</div>
+
+          ${isAnswered ? `
+            <div class="mt-5 p-4 rounded-xl text-sm border ${
+              isCorrect 
+                ? 'bg-emerald-50/70 border-emerald-200 text-emerald-950' 
+                : 'bg-rose-50/70 border-rose-200 text-slate-800'
+            }">
+              <div class="flex items-center gap-2 font-bold mb-2 ${isCorrect ? 'text-emerald-800' : 'text-rose-800'}">
+                <i class="${isCorrect ? 'fa-solid fa-circle-check text-emerald-600' : 'fa-solid fa-circle-xmark text-rose-600'}"></i>
+                <span>${isCorrect ? 'Correct! Excellent work.' : 'Incorrect. Let\'s break it down:'}</span>
+              </div>
+              <p class="text-xs leading-relaxed text-slate-700 mb-2">${q.explanation}</p>
+              <div class="text-xs font-semibold text-indigo-700 pt-2 border-t border-slate-200/60 flex items-center justify-between">
+                <span>Correct Option: ${String.fromCharCode(65 + q.answer)} (${q.options[q.answer]})</span>
+                <button type="button" onclick="retryQuestion(${q.id})" class="text-slate-500 hover:text-slate-800 font-medium underline ml-2 cursor-pointer">Try Again</button>
+              </div>
+            </div>
+          ` : ''}
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function selectAnswer(qId, optionIdx) {
+      if (userState.answers[qId] !== undefined) return;
+      userState.answers[qId] = optionIdx;
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function retryQuestion(qId) {
+      delete userState.answers[qId];
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function toggleClue(qId) {
+      userState.showClues[qId] = !userState.showClues[qId];
+      safeSave();
+      renderQuestions();
+    }
+
+    function toggleAllClues() {
+      userState.allCluesVisible = !userState.allCluesVisible;
+      const btnText = document.getElementById('clueToggleText');
+      if (btnText) btnText.innerText = userState.allCluesVisible ? 'Hide All Hints' : 'Show All Hints';
+      safeSave();
+      renderQuestions();
+    }
+
+    function filterTopic(topic) {
+      userState.currentFilter = topic;
+      userState.missedOnly = false;
+      document.querySelectorAll('.topic-btn').forEach(b => {
+        b.classList.remove('bg-blue-600', 'text-white', 'shadow-sm');
+        b.classList.add('bg-slate-100', 'text-slate-600');
+        if (b.innerText.includes(topic) || (topic === 'All' && b.innerText.includes('All Topics'))) {
+          b.classList.add('bg-blue-600', 'text-white', 'shadow-sm');
+          b.classList.remove('bg-slate-100', 'text-slate-600');
+        }
+      });
+      renderQuestions();
+    }
+
+    function filterMissed() {
+      userState.missedOnly = !userState.missedOnly;
+      const btn = document.getElementById('filterMissedBtn');
+      if (btn) {
+        if (userState.missedOnly) {
+          btn.classList.add('bg-rose-600', 'text-white');
+          btn.classList.remove('bg-rose-50', 'text-rose-800');
+        } else {
+          btn.classList.remove('bg-rose-600', 'text-white');
+          btn.classList.add('bg-rose-50', 'text-rose-800');
+        }
+      }
+      renderQuestions();
+    }
+
+    function updateStats() {
+      const answeredKeys = Object.keys(userState.answers);
+      const totalAnswered = answeredKeys.length;
+      let totalCorrect = 0;
+      let missedCount = 0;
+
+      answeredKeys.forEach(k => {
+        const q = questionsData.find(item => item.id == k);
+        if (q) {
+          if (userState.answers[k] === q.answer) totalCorrect++;
+          else missedCount++;
+        }
+      });
+
+      const accuracy = totalAnswered > 0 ? Math.round((totalCorrect / totalAnswered) * 100) : 0;
+      const progressPercent = Math.round((totalAnswered / questionsData.length) * 100);
+
+      const elAns = document.getElementById('statAnswered');
+      const elScore = document.getElementById('statScore');
+      const elBar = document.getElementById('quizProgressBar');
+      const elMissed = document.getElementById('missedCount');
+
+      if (elAns) elAns.innerText = `${totalAnswered}/${questionsData.length}`;
+      if (elScore) elScore.innerText = `${accuracy}%`;
+      if (elBar) elBar.style.width = `${progressPercent}%`;
+      if (elMissed) elMissed.innerText = missedCount;
+
+      const summaryCard = document.getElementById('scoreSummaryCard');
+      if (summaryCard) {
+        if (totalAnswered === questionsData.length) {
+          summaryCard.classList.remove('hidden');
+          document.getElementById('finalTotal').innerText = questionsData.length;
+          document.getElementById('finalCorrect').innerText = totalCorrect;
+          document.getElementById('finalPercent').innerText = `${accuracy}%`;
+          
+          const ratingBox = document.getElementById('masteryRating');
+          if (accuracy >= 90) {
+            ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-emerald-100 text-emerald-900 border border-emerald-300";
+            ratingBox.innerHTML = "🌟 <strong>Mastery Level: Advanced Honors (A+)</strong> — Outstanding mastery of Facilitated Diffusion & Transporters!";
+          } else if (accuracy >= 80) {
+            ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-blue-100 text-blue-900 border border-blue-300";
+            ratingBox.innerHTML = "👍 <strong>Mastery Level: Proficient (B)</strong> — Solid comprehension! Review the missed questions above to reach perfection.";
+          } else {
+            ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-amber-100 text-amber-900 border border-amber-300";
+            ratingBox.innerHTML = "💡 <strong>Mastery Level: Developing</strong> — Review channel vs carrier mechanisms and saturation kinetics.";
+          }
+        } else {
+          summaryCard.classList.add('hidden');
+        }
+      }
+    }
+
+    function resetQuiz() {
+      if (confirm('Are you sure you want to reset all answers and start fresh?')) {
+        userState.answers = {};
+        userState.showClues = {};
+        userState.allCluesVisible = false;
+        userState.missedOnly = false;
+        userState.currentFilter = 'All';
+        safeSave();
+        renderQuestions();
+        updateStats();
+      }
+    }
+
+    if (document.readyState !== 'loading') {
+      init();
+    } else {
+      document.addEventListener('DOMContentLoaded', init);
+    }
+  </script>
+</body>
+</html>

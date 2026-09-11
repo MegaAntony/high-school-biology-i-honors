@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biology I Honors - Osmosis & Tonicity Practice Exam</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+
+  <!-- TOP HEADER -->
+  <header class="bg-gradient-to-r from-blue-700 via-indigo-700 to-emerald-700 text-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="w-10 h-10 rounded-xl bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition border border-white/20" title="Back to All Tests">
+          <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="bg-white/20 text-xs px-2.5 py-1 rounded-full font-semibold uppercase tracking-wider">Biology I Honors</span>
+            <span class="bg-emerald-400 text-slate-900 text-xs px-2.5 py-1 rounded-full font-bold">Document Exam 01</span>
+          </div>
+          <h1 class="text-xl sm:text-2xl font-black tracking-tight mt-1 text-white">Osmosis & Tonicity Practice Exam</h1>
+          <p class="text-xs text-blue-100 mt-0.5">Source Document: <code class="bg-black/20 px-1.5 py-0.5 rounded">23-24 Osmosis Tonicity Practice Questions with Answers.pptx.pdf</code></p>
+        </div>
+      </div>
+
+      <!-- Quick Stats Top -->
+      <div class="flex items-center gap-4 bg-white/10 backdrop-blur px-4 py-2 rounded-xl border border-white/15">
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Answered</div>
+          <div id="statAnswered" class="text-xl font-bold">0/20</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Accuracy</div>
+          <div id="statScore" class="text-xl font-bold text-emerald-300">0%</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <button onclick="resetQuiz()" class="text-xs bg-white/20 hover:bg-white/30 text-white px-3 py-2 rounded-lg font-medium transition flex items-center gap-1.5 cursor-pointer">
+          <i class="fa-solid fa-rotate-right"></i> Reset
+        </button>
+      </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="w-full bg-slate-900/30 h-2">
+      <div id="quizProgressBar" class="bg-emerald-400 h-2 transition-all duration-300" style="width: 0%"></div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-6xl mx-auto px-4 py-8">
+
+    <!-- Anti-Guess Note Banner -->
+    <div class="bg-emerald-50 border border-emerald-200 text-emerald-950 p-4 rounded-2xl mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-semibold shadow-sm">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-shield-halved text-emerald-600 text-base shrink-0"></i>
+        <span><strong>Document Mastery Assessment:</strong> All questions are rigorously aligned directly with the contents of <code class="bg-emerald-100 px-1 py-0.5 rounded">23-24 Osmosis Tonicity Practice Questions with Answers.pptx.pdf</code>.</span>
+      </div>
+      <a href="index.html" class="text-emerald-800 underline hover:text-emerald-950 whitespace-nowrap">View All Tests</a>
+    </div>
+
+    <!-- CONTROLS & FILTER BAR -->
+    <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 mb-8">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-sm font-bold text-slate-700 mb-2">Filter by Topic:</h2>
+          <div class="flex flex-wrap gap-2" id="topicFilters">
+            <button onclick="filterTopic('All')" class="topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-sm transition cursor-pointer">All Topics (20)</button>
+            <button onclick="filterTopic('Dishwater Wrinkles')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Dishwater Wrinkles</button>
+            <button onclick="filterTopic('Aquarium Osmoregulation')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Aquarium Osmoregulation</button>
+            <button onclick="filterTopic('Fundamental Osmosis Rule')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Fundamental Osmosis Rule</button>
+            <button onclick="filterTopic('Red Blood Cell Permeability')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Red Blood Cell Permeability</button>
+            <button onclick="filterTopic('Marine Dehydration')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Marine Dehydration</button>
+            <button onclick="filterTopic('Cell Volume Response')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Cell Volume Response</button>
+            <button onclick="filterTopic('Dialysis Tubing Bags')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Dialysis Tubing Bags</button>
+            <button onclick="filterTopic('Saline Concentration Shock')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Saline Concentration Shock</button>
+            <button onclick="filterTopic('Aquatic Herbicide Mechanism')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Aquatic Herbicide Mechanism</button>
+            <button onclick="filterTopic('Red Blood Cell In 1% Saline')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Red Blood Cell In 1% Saline</button>
+            <button onclick="filterTopic('Three-Flask Tonicity Assay')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Three-Flask Tonicity Assay</button>
+            <button onclick="filterTopic('Water Potential Gradient')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Water Potential Gradient</button>
+            <button onclick="filterTopic('Plant Turgor Pressure')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Plant Turgor Pressure</button>
+            <button onclick="filterTopic('Plasmolysis Dynamics')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Plasmolysis Dynamics</button>
+            <button onclick="filterTopic('Dynamic Equilibrium')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Dynamic Equilibrium</button>
+            <button onclick="filterTopic('U-Tube Osmometer Kinetics')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">U-Tube Osmometer Kinetics</button>
+            <button onclick="filterTopic('IV Fluid Safety')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">IV Fluid Safety</button>
+            <button onclick="filterTopic('Crenation Terminology')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Crenation Terminology</button>
+            <button onclick="filterTopic('Tonicity Relativity')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Tonicity Relativity</button>
+            <button onclick="filterTopic('Osmotic Pressure Concept')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Osmotic Pressure Concept</button>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 pt-2 lg:pt-0 border-t lg:border-t-0 border-slate-100">
+          <button onclick="toggleAllClues()" id="toggleCluesBtn" class="text-xs bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-regular fa-lightbulb"></i> <span id="clueToggleText">Show All Hints</span>
+          </button>
+          <button onclick="filterMissed()" id="filterMissedBtn" class="text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-solid fa-triangle-exclamation"></i> Review Missed (<span id="missedCount">0</span>)
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTIONS LIST -->
+    <div id="questionsContainer" class="space-y-6"></div>
+
+    <!-- SCORE SUMMARY CARD -->
+    <div id="scoreSummaryCard" class="mt-12 bg-white rounded-3xl p-8 border-2 border-indigo-100 shadow-xl hidden">
+      <div class="text-center max-w-xl mx-auto">
+        <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl">
+          <i class="fa-solid fa-trophy"></i>
+        </div>
+        <h2 class="text-2xl font-black text-slate-800">Test Complete!</h2>
+        <p class="text-slate-500 text-sm mt-1">Here is your detailed mastery score for Osmosis & Tonicity Practice Exam.</p>
+        
+        <div class="grid grid-cols-3 gap-4 my-6 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Total Questions</div>
+            <div class="text-2xl font-black text-slate-800" id="finalTotal">20</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Correct</div>
+            <div class="text-2xl font-black text-emerald-600" id="finalCorrect">0</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Score Rate</div>
+            <div class="text-2xl font-black text-blue-600" id="finalPercent">0%</div>
+          </div>
+        </div>
+
+        <div id="masteryRating" class="p-4 rounded-2xl font-bold text-sm mb-6"></div>
+
+        <div class="flex items-center justify-center gap-4">
+          <button onclick="resetQuiz()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-indigo-200 transition cursor-pointer">
+            Retake Entire Test
+          </button>
+          <a href="index.html" class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-emerald-200 transition">
+            Back to Tests Hub
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-500 mt-12">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p>© 2026 Biology I Honors • South Forsyth High School</p>
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="hover:text-indigo-600 transition font-medium">All Tests Hub</a>
+        <a href="../README.md" class="hover:text-indigo-600 transition font-medium">Weekly Agenda</a>
+        <a href="https://github.com/MegaAntony/biology-honors" target="_blank" class="hover:text-indigo-600 transition"><i class="fa-brands fa-github mr-1"></i>GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT ENGINE -->
+  <script>
+    const questionsData = [
+  {
+    "id": 1,
+    "topic": "Dishwater Wrinkles",
+    "question": "If you soak your hands in dishwater, you may notice that your skin absorbs water and swells into wrinkles. This occurs because your skin cells are _______________ relative to the _______________ dishwater.",
+    "options": [
+      "hypotonic to the hypertonic dishwater, driving water rapidly outward from the epithelial tissue layer into the tub",
+      "hypertonic to the hypotonic dishwater, pulling free water molecules inward across epidermal cell boundaries",
+      "isotonic to the hypotonic dishwater, establishing dynamic equilibrium with zero net movement of water particles",
+      "hypotonic to the isotonic dishwater, forcing water to flow against its concentration gradient into the dermis"
+    ],
+    "answer": 1,
+    "clue": "Water moves from lower solute concentration (hypotonic) toward higher solute concentration (hypertonic).",
+    "explanation": "Dishwater contains very low solute concentrations, making it **hypotonic** relative to the internal cytoplasm of your epidermal cells (**hypertonic**). Water diffuses down its concentration gradient into the skin cells, causing them to absorb water, swell, and wrinkle."
+  },
+  {
+    "id": 2,
+    "topic": "Aquarium Osmoregulation",
+    "question": "An ocean fish is inadvertently introduced into a freshwater aquarium. Shortly after entering the tank, the fish swells up and dies. Based on tonicity principles, what transition did the unfortunate fish experience?",
+    "options": [
+      "The marine fish transitioned from an isotonic marine habitat into a strongly hypotonic freshwater environment.",
+      "The marine fish transitioned from a hypertonic marine habitat into an isotonic freshwater environment.",
+      "The marine fish transitioned from a hypotonic marine habitat into a hypertonic freshwater environment.",
+      "The marine fish transitioned from an isotonic marine habitat into a hypertonic freshwater environment."
+    ],
+    "answer": 0,
+    "clue": "Ocean water is salty (isotonic to adapted marine organisms), whereas freshwater lacks salt (hypotonic).",
+    "explanation": "Marine fish maintain internal fluids that are roughly **isotonic** to ocean seawater. When plunged into freshwater (**hypotonic**), water rapidly rushes into the fish's cells by osmosis, causing severe cellular swelling, tissue lysis, and mortality."
+  },
+  {
+    "id": 3,
+    "topic": "Fundamental Osmosis Rule",
+    "question": "In the process of osmosis across a selectively permeable membrane, free water molecules always migrate toward the _______________ solution, which corresponds to the solution with the _______________ solute concentration.",
+    "options": [
+      "isotonic solution; precisely equal solute concentration to minimize thermodynamic energy expenditure",
+      "hypertonic solution; greater solute concentration where free water concentration is comparatively lower",
+      "hypertonic solution; lesser solute concentration where electrostatic attraction of solutes repels water",
+      "hypotonic solution; greater solute concentration where aquaporins selectively restrict solute passage"
+    ],
+    "answer": 1,
+    "clue": "Water diffuses toward the side with more dissolved particles (hypertonic).",
+    "explanation": "Osmosis is the diffusion of water from an area of higher free water concentration (low solute) to an area of lower free water concentration (high solute). Therefore, water always migrates toward the **hypertonic** solution with the **greater** solute concentration."
+  },
+  {
+    "id": 4,
+    "topic": "Red Blood Cell Permeability",
+    "question": "The internal solute concentration of a red blood cell is approximately 2%. Sucrose cannot penetrate the membrane, but water and urea diffuse freely. Osmosis causes red blood cells to shrink the most when immersed in which environment?",
+    "options": [
+      "A hypertonic sucrose solution, because non-penetrating sucrose maintains an effective osmotic gradient pulling water out",
+      "A hypertonic urea solution, because urea rapidly diffuses out of the cell and drags water molecules along with it",
+      "A hypotonic sucrose solution, because external water potential is elevated above the cytoplasm of the red blood cell",
+      "A pure distilled water beaker, because absence of external solute creates an irreversible outward driving pressure"
+    ],
+    "answer": 0,
+    "clue": "Only non-penetrating solutes can maintain an osmotic gradient to permanently draw water out of a cell.",
+    "explanation": "Because sucrose cannot cross the membrane, a **hypertonic sucrose solution** permanently maintains a lower water potential outside, pulling water out and causing maximal cell shrinkage. Urea, being membrane-permeable, equilibrates across the membrane and does not maintain a sustained osmotic gradient."
+  },
+  {
+    "id": 5,
+    "topic": "Marine Dehydration",
+    "question": "Why is drinking ocean seawater (~3.5% salt) lethal to stranded shipwreck survivors rather than hydrating?",
+    "options": [
+      "Seawater contains highly concentrated toxic iodine compounds that immediately denature kidney filtration enzymes.",
+      "Seawater is hypertonic to body tissues, drawing water out of internal cells by osmosis and accelerating dehydration.",
+      "Seawater is isotonic to human blood plasma, causing the body to absorb excessive volume and burst pulmonary veins.",
+      "Seawater introduces massive sodium loads that permanently halt mitochondrial ATP synthesis in intestinal linings."
+    ],
+    "answer": 1,
+    "clue": "Human physiological salinity is ~0.9%, whereas ocean seawater is ~3.5%.",
+    "explanation": "Seawater (~3.5% salt) is strongly **hypertonic** relative to human body fluids (0.9% salt). Ingesting it draws water out of blood vessels and mucosal cells into the gut by osmosis, resulting in severe systemic dehydration."
+  },
+  {
+    "id": 6,
+    "topic": "Cell Volume Response",
+    "question": "If the internal fluid volume and mass of a cell increase noticeably after immersion in a beaker, the external solution is classified as:",
+    "options": [
+      "hypertonic to the cell, because excessive external solute attracts water molecules across surface aquaporins",
+      "isotonic to the cell, because dynamic equilibrium requires net influx of fluid to balance hydrostatic pressure",
+      "hypotonic to the cell, because higher external water concentration drives net inward diffusion across the membrane",
+      "chemically inert to the cell, because biological membranes forbid bidirectional solvent movement without ATP"
+    ],
+    "answer": 2,
+    "clue": "A cell gains water volume only when surrounded by a solution that has lower solute concentration.",
+    "explanation": "A cell expands in volume when there is a net influx of water. This occurs when the external solution is **hypotonic** (lower solute concentration / higher water potential) relative to the cell's cytoplasm."
+  },
+  {
+    "id": 7,
+    "topic": "Dialysis Tubing Bags",
+    "question": "Dialysis Bag A contains 50% glucose and Bag B contains 20% glucose. Both bags are submerged into separate beakers containing 100% pure water. The membrane permits water passage but blocks glucose. What will happen?",
+    "options": [
+      "Bag A will gain weight while Bag B will lose weight due to differences in glucose membrane solubility.",
+      "Bag B will gain weight while Bag A will remain unchanged because 50% glucose saturates membrane pore channels.",
+      "Both bags will gain weight because pure water is hypotonic to both internal glucose solutions.",
+      "Both bags will lose weight because hydrostatic pressure forces water outward into the surrounding beaker."
+    ],
+    "answer": 2,
+    "clue": "Pure water (0% solute) is hypotonic to both 50% and 20% solute concentrations.",
+    "explanation": "Because pure water (100% water) is hypotonic to both Bag A (50% water) and Bag B (80% water), water diffuses inward across the membrane into both bags. Therefore, **both bags will gain weight** (Bag A gains more total mass due to a steeper gradient)."
+  },
+  {
+    "id": 8,
+    "topic": "Saline Concentration Shock",
+    "question": "Normal physiological saline (0.9% NaCl) is isotonic to human red blood cells. What morphological change occurs if red blood cells are suspended in a 9% NaCl solution?",
+    "options": [
+      "The cells will swell rapidly and burst via cytolysis due to excessive influx of sodium and chloride ions.",
+      "The cells will lose water via osmosis and shrivel into a crenated morphology due to the hypertonic environment.",
+      "The cells will maintain their normal biconcave disc shape because active sodium pumps prevent fluid loss.",
+      "The cells will enlarge slightly but avoid bursting because red blood cell membranes are reinforced with cellulose."
+    ],
+    "answer": 1,
+    "clue": "9% NaCl is ten times more concentrated than the cell interior (0.9%).",
+    "explanation": "A 9% NaCl solution is strongly **hypertonic** compared to the 0.9% cytoplasm of red blood cells. Water rapidly diffuses out of the cells into the solution, causing the cells to **shrivel and shrink** (crenation)."
+  },
+  {
+    "id": 9,
+    "topic": "Aquatic Herbicide Mechanism",
+    "question": "Wallway is an aquatic herbicide composed of concentrated marine salt solution. When sprayed on freshwater weeds, it breaks cell walls and eradicates the plants. Why do the freshwater weed cells die?",
+    "options": [
+      "The cells absorb massive quantities of freshwater, swell beyond wall limits, and burst via cytolysis.",
+      "The cells lose water to the hypertonic marine salt solution, undergo severe plasmolysis, and shrink fatally.",
+      "The cells remain exactly the same volume but experience chemical poisoning from chloride ions in chloroplasts.",
+      "The cells are crushed mechanically under the atmospheric weight of the displaced surface water layer."
+    ],
+    "answer": 1,
+    "clue": "Marine salt creates an extremely hypertonic environment around freshwater plant cells.",
+    "explanation": "Marine salt solution is hypertonic to freshwater plant tissues. Water exits the plant cells via osmosis, causing the cytoplasm and central vacuole to pull away from the cell wall (**plasmolysis**) and **shrink**, dehydrating the cells."
+  },
+  {
+    "id": 10,
+    "topic": "Red Blood Cell In 1% Saline",
+    "question": "A human erythrocyte (0.9% internal solute) is placed into a 1.0% NaCl solution. Assuming the membrane is permeable to water but impermeable to NaCl, what is the fate of the cell?",
+    "options": [
+      "It will swell and lyse because the membrane is impermeable to water while freely admitting sodium ions.",
+      "It will shrink because water diffuses outward across the membrane toward the higher external solute concentration.",
+      "It will maintain its exact volume because a 0.1% concentration differential is below the threshold for osmosis.",
+      "It will actively pump out water using contractile vacuoles to preserve physiological internal osmotic pressure."
+    ],
+    "answer": 1,
+    "clue": "1.0% solute outside is slightly higher than 0.9% solute inside.",
+    "explanation": "Since 1.0% NaCl is slightly **hypertonic** to the 0.9% RBC interior, water moves down its concentration gradient out of the cell, causing the cell to **shrink**."
+  },
+  {
+    "id": 11,
+    "topic": "Three-Flask Tonicity Assay",
+    "question": "Human red blood cells (0.9% internal NaCl) are placed into three test flasks: Flask X (0.5% NaCl), Flask Y (0.9% NaCl), and Flask Z (1.5% NaCl). Which sequence correctly predicts the cellular outcome in Flasks X, Y, and Z?",
+    "options": [
+      "Flask X: Contract (crenate) | Flask Y: Unchanged (normal) | Flask Z: Swell (lyse)",
+      "Flask X: Swell (lyse) | Flask Y: Unchanged (normal) | Flask Z: Contract (crenate)",
+      "Flask X: Unchanged (normal) | Flask Y: Swell (lyse) | Flask Z: Contract (crenate)",
+      "Flask X: Swell (lyse) | Flask Y: Contract (crenate) | Flask Z: Unchanged (normal)"
+    ],
+    "answer": 1,
+    "clue": "0.5% is hypotonic (swell); 0.9% is isotonic (unchanged); 1.5% is hypertonic (contract).",
+    "explanation": "Flask X is hypotonic (water enters $\\rightarrow$ **swell**); Flask Y is isotonic (equal exchange $\\rightarrow$ **unchanged**); Flask Z is hypertonic (water leaves $\\rightarrow$ **contract**)."
+  },
+  {
+    "id": 12,
+    "topic": "Water Potential Gradient",
+    "question": "In plant physiology, water potential ($\\Psi$) quantifies the tendency of water to move. Water always flows spontaneously from regions of:",
+    "options": [
+      "lower water potential (more negative) to higher water potential (less negative) without input of energy",
+      "higher water potential (less negative) to lower water potential (more negative) down its energy gradient",
+      "higher solute concentration to lower solute concentration until hydrostatic backpressure reaches zero",
+      "lower free energy state to higher free energy state via carrier-mediated conformational shifts"
+    ],
+    "answer": 1,
+    "clue": "Pure water has a water potential of 0 (highest). Adding solute lowers water potential (makes it negative).",
+    "explanation": "Water flows spontaneously from areas of **higher water potential** (closer to 0, less negative, lower solute) to areas of **lower water potential** (more negative, higher solute concentration)."
+  },
+  {
+    "id": 13,
+    "topic": "Plant Turgor Pressure",
+    "question": "What structural feature allows healthy terrestrial plant cells to remain firm and upright in a hypotonic environment without undergoing osmotic lysis?",
+    "options": [
+      "Contractile vacuoles that continuously expel incoming water through calcium-dependent protein channels",
+      "A rigid cellulose cell wall that exerts opposing wall pressure against the expanding central vacuole",
+      "Abundant cholesterol molecules in the plasma membrane that prevent phospholipid bilayer stretching",
+      "Active sodium-potassium pumps that transport solutes out of the cytoplasm to eliminate the osmotic gradient"
+    ],
+    "answer": 1,
+    "clue": "Plant cells have a rigid cellulose wall outside their membrane.",
+    "explanation": "In hypotonic water, plant central vacuoles absorb water and push the plasma membrane against the **rigid cellulose cell wall**. The wall exerts mechanical back-pressure (**turgor pressure**), preventing lysis and keeping herbaceous stems upright."
+  },
+  {
+    "id": 14,
+    "topic": "Plasmolysis Dynamics",
+    "question": "When an Elodea leaf cell is placed in a 10% NaCl hypertonic solution, microscopic examination reveals that:",
+    "options": [
+      "the rigid outer cellulose cell wall collapses inward and completely flattens the internal cytoplasm",
+      "the plasma membrane pulls away from the rigid cell wall as the central vacuole loses water and shrinks",
+      "chloroplasts swell to twice their normal volume and rupture through the outer membrane into the wall",
+      "the nuclear envelope disintegrates due to hyperosmotic pressure differentials across nuclear pores"
+    ],
+    "answer": 1,
+    "clue": "The cell wall stays rigid, but the interior plasma membrane shrivels away from it.",
+    "explanation": "In hypertonic salt water, water leaves the plant central vacuole. The plasma membrane detaches and retracts from the intact rigid cellulose cell wall\u2014a definitive cytological phenomenon called **plasmolysis**."
+  },
+  {
+    "id": 15,
+    "topic": "Dynamic Equilibrium",
+    "question": "When a cell reaches dynamic equilibrium in an isotonic environment, which statement accurately reflects molecular activity?",
+    "options": [
+      "All water molecules cease moving across the membrane entirely to preserve internal pressure stability.",
+      "Water molecules continue diffusing across the membrane in both directions at equal, balanced rates.",
+      "Solutes are actively pumped across the membrane at twice the rate of passive water diffusion.",
+      "Aquaporin channels close permanently to prevent any further alteration of internal osmolarity."
+    ],
+    "answer": 1,
+    "clue": "'Dynamic' means motion continues; 'equilibrium' means rates in opposite directions are equal.",
+    "explanation": "In an isotonic solution, **dynamic equilibrium** is reached: water molecules do not stop moving; rather, they diffuse in and out across the plasma membrane at **identical rates**, resulting in zero net change in volume."
+  },
+  {
+    "id": 16,
+    "topic": "U-Tube Osmometer Kinetics",
+    "question": "In a U-tube apparatus with a central membrane permeable only to water, Side 1 contains 0.1 M glucose and Side 2 contains 0.8 M glucose. Over time, what fluid level change is observed?",
+    "options": [
+      "Side 1 fluid level rises while Side 2 fluid level drops until glucose concentrations equalize via diffusion.",
+      "Side 2 fluid level rises while Side 1 fluid level drops as water diffuses toward the higher solute concentration.",
+      "Both liquid levels remain exactly level because hydrostatic gravity balances chemical concentration forces.",
+      "Glucose molecules migrate to Side 1 until both columns contain an identical 0.45 M glucose concentration."
+    ],
+    "answer": 1,
+    "clue": "Water moves toward the side with more solute (Side 2).",
+    "explanation": "Because the membrane is impermeable to glucose, water moves by osmosis from high water concentration (Side 1: 0.1 M) toward low water concentration (Side 2: 0.8 M). Consequently, the fluid level on **Side 2 rises** while **Side 1 drops**."
+  },
+  {
+    "id": 17,
+    "topic": "IV Fluid Safety",
+    "question": "A hospital patient requires intravenous hydration. Why must medical staff infuse isotonic saline (0.9% NaCl) rather than pure sterile distilled water?",
+    "options": [
+      "Distilled water is hypertonic to blood cells, causing erythrocytes to shrivel and block capillary beds.",
+      "Distilled water is hypotonic to blood cells, causing erythrocytes to absorb water, swell, and fatally lyse.",
+      "Distilled water is chemically acidic and denatures hemoglobin transport proteins within seconds of injection.",
+      "Distilled water triggers rapid coagulation by precipitating fibrinogen proteins out of circulating blood plasma."
+    ],
+    "answer": 1,
+    "clue": "Pure distilled water has 0% solute, making it strongly hypotonic to human cells.",
+    "explanation": "Pure distilled water is strongly **hypotonic** relative to human blood cells (0.9% solute). Infusing pure water would cause red blood cells to rapidly absorb water by osmosis, swell, and burst (**hemolysis / cytolysis**), which can be fatal."
+  },
+  {
+    "id": 18,
+    "topic": "Crenation Terminology",
+    "question": "Which term specifically describes the physical wrinkling and shrinkage of an animal red blood cell when placed in a hypertonic environment?",
+    "options": [
+      "Plasmolysis",
+      "Cytolysis",
+      "Crenation",
+      "Turgidity"
+    ],
+    "answer": 2,
+    "clue": "Plasmolysis applies to plant cells; crenation applies to animal cells.",
+    "explanation": "**Crenation** is the term specifically used for the shriveling and scalloped wrinkling of animal red blood cells in hypertonic solutions. Plasmolysis refers to plant cells, and cytolysis refers to cell bursting."
+  },
+  {
+    "id": 19,
+    "topic": "Tonicity Relativity",
+    "question": "An egg with its shell dissolved in vinegar is placed into corn syrup (a thick solution of ~80% sugar). Relative to the egg's internal contents (~90% water), the corn syrup is:",
+    "options": [
+      "hypotonic, driving water molecules inward and causing the decalcified egg to swell to maximum volume",
+      "hypertonic, driving water molecules outward and causing the decalcified egg to shrivel and lose mass",
+      "isotonic, maintaining equal exchange of syrup and cytoplasmic sugars across the naked shell membrane",
+      "hydrophobic, dissolving the underlying plasma membrane and causing cytoplasmic proteins to spill out"
+    ],
+    "answer": 1,
+    "clue": "Corn syrup has very high sugar and low water compared to the egg.",
+    "explanation": "Corn syrup has a very high solute concentration and low water content, making it strongly **hypertonic** to the egg. Water diffuses out of the egg into the syrup by osmosis, causing the egg to shrivel and lose weight."
+  },
+  {
+    "id": 20,
+    "topic": "Osmotic Pressure Concept",
+    "question": "Osmotic pressure is formally defined as:",
+    "options": [
+      "the pressure that must be applied to a solution to prevent the inward osmotic flow of its pure solvent across a semipermeable membrane",
+      "the mechanical force exerted by the plasma membrane when stretching outward during phagocytic vesicle formation",
+      "the electrical voltage generated across the lipid bilayer by unequal transport of sodium and potassium cations",
+      "the total kinetic energy of dissolved solute particles colliding against the nonpolar interior leaflet of the membrane"
+    ],
+    "answer": 0,
+    "clue": "It is the external pressure required to halt osmosis completely.",
+    "explanation": "**Osmotic pressure** is the precise external hydrostatic pressure needed to be applied to a solution to completely stop the inward flow of water across a semipermeable membrane."
+  }
+];
+
+    const STORAGE_KEY = 'bio1_doc_test_01_osmosis';
+
+    let userState = {
+      answers: {},
+      showClues: {},
+      allCluesVisible: false,
+      currentFilter: 'All',
+      missedOnly: false
+    };
+
+    function safeLoad() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          userState = JSON.parse(saved);
+        }
+      } catch (e) {
+        console.warn('localStorage not accessible:', e);
+      }
+    }
+
+    function safeSave() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(userState));
+      } catch (e) {
+        console.warn('Could not save to localStorage:', e);
+      }
+    }
+
+    function init() {
+      safeLoad();
+      renderQuestions();
+      updateStats();
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById('questionsContainer');
+      if (!container) return;
+      container.innerHTML = '';
+
+      let filteredQuestions = questionsData.filter(q => {
+        if (userState.currentFilter !== 'All' && q.topic !== userState.currentFilter) return false;
+        if (userState.missedOnly) {
+          const userAns = userState.answers[q.id];
+          if (userAns === undefined || userAns === q.answer) return false;
+        }
+        return true;
+      });
+
+      if (filteredQuestions.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-12 bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
+            <i class="fa-solid fa-circle-check text-emerald-500 text-4xl mb-3"></i>
+            <h3 class="text-lg font-bold text-slate-800">No Questions In This Filter</h3>
+            <p class="text-slate-500 text-sm mt-1">Try selecting 'All Topics' or clearing the missed review filter.</p>
+          </div>
+        `;
+        return;
+      }
+
+      filteredQuestions.forEach((q) => {
+        const isAnswered = userState.answers[q.id] !== undefined;
+        const selectedOption = userState.answers[q.id];
+        const isCorrect = isAnswered && selectedOption === q.answer;
+        const isClueVisible = userState.allCluesVisible || userState.showClues[q.id];
+
+        const card = document.createElement('div');
+        card.className = `bg-white rounded-2xl p-6 border transition-all duration-200 shadow-sm ${
+          isAnswered
+            ? isCorrect
+              ? 'border-emerald-300 ring-1 ring-emerald-200/50 bg-emerald-50/20'
+              : 'border-rose-300 ring-1 ring-rose-200/50 bg-rose-50/20'
+            : 'border-slate-200 hover:border-slate-300'
+        }`;
+        card.id = `q-card-${q.id}`;
+
+        let optionsHtml = q.options.map((opt, oIdx) => {
+          let btnClass = "border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50/40 text-slate-700 cursor-pointer";
+          let iconHtml = `<span class="w-6 h-6 rounded-full border border-slate-300 text-xs font-semibold flex items-center justify-center mr-3 text-slate-500 shrink-0 mt-0.5">${String.fromCharCode(65 + oIdx)}</span>`;
+
+          if (isAnswered) {
+            if (oIdx === q.answer) {
+              btnClass = "bg-emerald-50 border-emerald-500 text-emerald-950 font-semibold ring-1 ring-emerald-400 cursor-default";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-emerald-600 text-white text-xs font-bold flex items-center justify-center mr-3 shrink-0 mt-0.5"><i class="fa-solid fa-check"></i></span>`;
+            } else if (oIdx === selectedOption && !isCorrect) {
+              btnClass = "bg-rose-50 border-rose-400 text-rose-950 font-semibold ring-1 ring-rose-300 cursor-default";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-rose-600 text-white text-xs font-bold flex items-center justify-center mr-3 shrink-0 mt-0.5"><i class="fa-solid fa-xmark"></i></span>`;
+            } else {
+              btnClass = "opacity-50 border-slate-200 text-slate-400 cursor-not-allowed";
+            }
+          }
+
+          return `
+            <button 
+              type="button"
+              onclick="selectAnswer(${q.id}, ${oIdx})" 
+              ${isAnswered ? 'disabled' : ''} 
+              class="w-full text-left p-3.5 rounded-xl text-sm transition flex items-start ${btnClass} my-2 leading-relaxed">
+              ${iconHtml}
+              <span class="flex-1">${opt}</span>
+            </button>
+          `;
+        }).join('');
+
+        card.innerHTML = `
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <div class="flex items-center gap-2">
+              <span class="bg-indigo-100 text-indigo-800 text-xs font-black px-2.5 py-0.5 rounded-md">Q${q.id}</span>
+              <span class="bg-slate-100 text-slate-600 text-xs font-semibold px-2.5 py-0.5 rounded-md">${q.topic}</span>
+            </div>
+
+            <button type="button" onclick="toggleClue(${q.id})" class="text-xs text-amber-700 bg-amber-50 hover:bg-amber-100 border border-amber-200 px-3 py-1 rounded-lg font-medium transition flex items-center gap-1 cursor-pointer">
+              <i class="fa-regular fa-lightbulb"></i>
+              ${isClueVisible ? 'Hide Hint' : 'Need a Clue?'}
+            </button>
+          </div>
+
+          <h3 class="text-base font-bold text-slate-900 leading-relaxed mb-4">${q.question}</h3>
+
+          <div id="clue-${q.id}" class="${isClueVisible ? 'block' : 'hidden'} mb-4 p-3.5 bg-amber-50/80 border border-amber-200 rounded-xl text-amber-900 text-xs flex items-start gap-2.5">
+            <i class="fa-solid fa-lightbulb text-amber-600 mt-0.5"></i>
+            <div><span class="font-bold">Study Hint:</span> ${q.clue}</div>
+          </div>
+
+          <div class="space-y-1">${optionsHtml}</div>
+
+          ${isAnswered ? `
+            <div class="mt-5 p-4 rounded-xl text-sm border ${
+              isCorrect 
+                ? 'bg-emerald-50/70 border-emerald-200 text-emerald-950' 
+                : 'bg-rose-50/70 border-rose-200 text-slate-800'
+            }">
+              <div class="flex items-center gap-2 font-bold mb-2 ${isCorrect ? 'text-emerald-800' : 'text-rose-800'}">
+                <i class="${isCorrect ? 'fa-solid fa-circle-check text-emerald-600' : 'fa-solid fa-circle-xmark text-rose-600'}"></i>
+                <span>${isCorrect ? 'Correct! Excellent work.' : 'Incorrect. Let\'s break it down:'}</span>
+              </div>
+              <p class="text-xs leading-relaxed text-slate-700 mb-2">${q.explanation}</p>
+              <div class="text-xs font-semibold text-indigo-700 pt-2 border-t border-slate-200/60 flex items-center justify-between">
+                <span>Correct Option: ${String.fromCharCode(65 + q.answer)} (${q.options[q.answer]})</span>
+                <button type="button" onclick="retryQuestion(${q.id})" class="text-slate-500 hover:text-slate-800 font-medium underline ml-2 cursor-pointer">Try Again</button>
+              </div>
+            </div>
+          ` : ''}
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function selectAnswer(qId, optionIdx) {
+      if (userState.answers[qId] !== undefined) return;
+      userState.answers[qId] = optionIdx;
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function retryQuestion(qId) {
+      delete userState.answers[qId];
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function toggleClue(qId) {
+      userState.showClues[qId] = !userState.showClues[qId];
+      safeSave();
+      renderQuestions();
+    }
+
+    function toggleAllClues() {
+      userState.allCluesVisible = !userState.allCluesVisible;
+      document.getElementById('clueToggleText').innerText = userState.allCluesVisible ? "Hide All Hints" : "Show All Hints";
+      safeSave();
+      renderQuestions();
+    }
+
+    function filterTopic(topic) {
+      userState.currentFilter = topic;
+      userState.missedOnly = false;
+      document.querySelectorAll('.topic-btn').forEach(btn => {
+        if (btn.innerText.includes(topic) || (topic === 'All' && btn.innerText.includes('All Topics'))) {
+          btn.className = "topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-sm transition cursor-pointer";
+        } else {
+          btn.className = "topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer";
+        }
+      });
+      renderQuestions();
+    }
+
+    function filterMissed() {
+      userState.missedOnly = !userState.missedOnly;
+      const btn = document.getElementById('filterMissedBtn');
+      if (userState.missedOnly) {
+        btn.className = "text-xs bg-rose-600 text-white border border-rose-600 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer shadow-sm";
+      } else {
+        btn.className = "text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer";
+      }
+      renderQuestions();
+    }
+
+    function updateStats() {
+      const answeredCount = Object.keys(userState.answers).length;
+      let correctCount = 0;
+      let missedCount = 0;
+
+      questionsData.forEach(q => {
+        if (userState.answers[q.id] !== undefined) {
+          if (userState.answers[q.id] === q.answer) {
+            correctCount++;
+          } else {
+            missedCount++;
+          }
+        }
+      });
+
+      const total = questionsData.length;
+      document.getElementById('statAnswered').innerText = `${answeredCount}/${total}`;
+      document.getElementById('missedCount').innerText = missedCount;
+
+      const accuracy = answeredCount === 0 ? 0 : Math.round((correctCount / answeredCount) * 100);
+      document.getElementById('statScore').innerText = `${accuracy}%`;
+      document.getElementById('quizProgressBar').style.width = `${(answeredCount / total) * 100}%`;
+
+      const scoreCard = document.getElementById('scoreSummaryCard');
+      if (answeredCount === total && total > 0) {
+        scoreCard.classList.remove('hidden');
+        document.getElementById('finalTotal').innerText = total;
+        document.getElementById('finalCorrect').innerText = correctCount;
+        document.getElementById('finalPercent').innerText = `${accuracy}%`;
+
+        const ratingBox = document.getElementById('masteryRating');
+        if (accuracy >= 90) {
+          ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-emerald-50 border border-emerald-300 text-emerald-900";
+          ratingBox.innerHTML = '<i class="fa-solid fa-certificate mr-2 text-emerald-600"></i>Mastery Achieved! Outstanding understanding of this document.';
+        } else if (accuracy >= 75) {
+          ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-blue-50 border border-blue-300 text-blue-900";
+          ratingBox.innerHTML = '<i class="fa-solid fa-thumbs-up mr-2 text-blue-600"></i>Proficient! Good foundation; review missed items before testing.';
+        } else {
+          ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-amber-50 border border-amber-300 text-amber-900";
+          ratingBox.innerHTML = '<i class="fa-solid fa-book-open mr-2 text-amber-600"></i>Review Recommended! Use the Markdown companion notes to reinforce weak areas.';
+        }
+      } else {
+        scoreCard.classList.add('hidden');
+      }
+    }
+
+    function resetQuiz() {
+      if (confirm("Are you sure you want to reset all answers and hints for this test?")) {
+        userState.answers = {};
+        userState.showClues = {};
+        userState.allCluesVisible = false;
+        userState.currentFilter = 'All';
+        userState.missedOnly = false;
+        safeSave();
+        document.getElementById('clueToggleText').innerText = "Show All Hints";
+        document.getElementById('filterMissedBtn').className = "text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer";
+        filterTopic('All');
+        renderQuestions();
+        updateStats();
+      }
+    }
+
+    window.onload = init;
+  </script>
+</body>
+</html>

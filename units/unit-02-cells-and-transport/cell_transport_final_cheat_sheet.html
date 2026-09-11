@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cell Transport Final Cheat Sheet - Biology I Honors</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap');
+
+    @page {
+      size: letter portrait;
+      margin: 0.35in;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #0f172a;
+      background-color: #f8fafc;
+      line-height: 1.35;
+      font-size: 10.5px;
+      padding: 16px;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    .no-print {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      padding: 9px 14px;
+      border-radius: 6px;
+      margin-bottom: 14px;
+    }
+
+    .btn-print {
+      background: #0f172a;
+      color: white;
+      border: none;
+      padding: 7px 16px;
+      font-size: 11.5px;
+      font-weight: 700;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-print:hover {
+      background: #334155;
+    }
+
+    header {
+      border-bottom: 2px solid #0f172a;
+      padding-bottom: 8px;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    h1 {
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      color: #0f172a;
+      text-transform: uppercase;
+    }
+
+    .subtitle {
+      font-size: 10.5px;
+      font-weight: 600;
+      color: #475569;
+      margin-top: 2px;
+    }
+
+    .badge {
+      font-size: 9px;
+      font-weight: 800;
+      text-transform: uppercase;
+      background: #0f172a;
+      color: white;
+      padding: 3px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+
+    /* Clean 1-Column Stack */
+    .stack-1col {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .card {
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 10px 12px;
+      background: #ffffff;
+    }
+
+    .card-accent-emerald {
+      border-left: 4px solid #059669;
+      background: #f0fdf4;
+    }
+
+    .card-accent-blue {
+      border-left: 4px solid #2563eb;
+      background: #eff6ff;
+    }
+
+    .card-accent-purple {
+      border-left: 4px solid #7c3aed;
+      background: #faf5ff;
+    }
+
+    .card-accent-amber {
+      border-left: 4px solid #d97706;
+      background: #fffbeb;
+    }
+
+    .card-accent-rose {
+      border-left: 4px solid #dc2626;
+      background: #fef2f2;
+    }
+
+    h2 {
+      font-size: 12px;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    li {
+      margin-bottom: 4px;
+      position: relative;
+      padding-left: 14px;
+      font-size: 10.5px;
+      line-height: 1.4;
+    }
+
+    li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #475569;
+      font-weight: bold;
+    }
+
+    strong {
+      color: #0f172a;
+      font-weight: 700;
+    }
+
+    .code-term {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      background: rgba(0,0,0,0.06);
+      padding: 1px 4px;
+      border-radius: 3px;
+      font-weight: 700;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10.5px;
+      margin-top: 3px;
+      background: #ffffff;
+    }
+
+    th, td {
+      border: 1px solid #cbd5e1;
+      padding: 5px 8px;
+      text-align: left;
+    }
+
+    th {
+      background: #f8fafc;
+      font-weight: 800;
+      color: #0f172a;
+      text-transform: uppercase;
+      font-size: 9px;
+      letter-spacing: 0.03em;
+    }
+
+    .highlight {
+      background: #fef08a;
+      padding: 0 3px;
+      border-radius: 2px;
+      font-weight: 700;
+    }
+
+    .trap-item {
+      margin-bottom: 6px;
+      padding: 6px 9px;
+      border-radius: 5px;
+      background: #fff1f2;
+      border: 1px solid #fecdd3;
+    }
+
+    .trap-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .trap-title {
+      font-weight: 800;
+      color: #9f1239;
+      font-size: 10.5px;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    footer {
+      margin-top: 10px;
+      padding-top: 6px;
+      border-top: 1px solid #e2e8f0;
+      text-align: center;
+      font-size: 9px;
+      color: #64748b;
+      font-weight: 600;
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+        padding: 0;
+        font-size: 9.5px;
+      }
+      .container {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        max-width: 100%;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .card {
+        page-break-inside: avoid;
+        padding: 7px 9px;
+      }
+      header {
+        margin-bottom: 6px;
+        padding-bottom: 3px;
+      }
+      .stack-1col {
+        gap: 6px;
+      }
+      h1 {
+        font-size: 15px;
+      }
+      h2 {
+        font-size: 10.5px;
+        margin-bottom: 3px;
+      }
+      li {
+        margin-bottom: 2px;
+        font-size: 9px;
+      }
+      table {
+        font-size: 9px;
+      }
+      th, td {
+        padding: 3px 5px;
+      }
+      .trap-item {
+        padding: 4px 6px;
+        margin-bottom: 3px;
+      }
+      footer {
+        margin-top: 6px;
+        padding-top: 3px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Screen-only Print Bar -->
+    <div class="no-print">
+      <div>
+        <strong>Printable 1-Column Exam Cheat Sheet</strong>
+        <span style="color: #64748b; font-size: 11px; margin-left: 8px;">Unit 2 Part 1: Cell Membrane & Transport</span>
+      </div>
+      <button class="btn-print" onclick="window.print()">
+        🖨️ Print / Save as PDF
+      </button>
+    </div>
+
+    <header>
+      <div>
+        <h1>⚡ Cell Transport Final Mastery Cheat Sheet</h1>
+        <div class="subtitle">Biology I Honors • South Forsyth High School • Standards SB1.a & SB1.d</div>
+      </div>
+      <div class="badge">1-Column Edition</div>
+    </header>
+
+    <div class="stack-1col">
+
+      <!-- 1. The Numbers to Remember -->
+      <div class="card card-accent-emerald">
+        <h2>🔢 1. The Numbers to Remember</h2>
+        <ul>
+          <li><strong class="code-term">3 - 2 - 1 No-K:</strong> Sodium-Potassium pump exports <strong>3 Na⁺ OUT</strong>, imports <strong>2 K⁺ IN</strong>, and hydrolyzes <strong>1 ATP</strong>.</li>
+          <li><strong class="code-term">0.9% Saline:</strong> Normal vertebrate blood/body fluid is <strong>0.9% salt (99.1% water)</strong>. This is <strong>isotonic</strong>.</li>
+          <li><strong class="code-term">0 ATP:</strong> All passive transport (<span class="highlight">Simple Diffusion, Facilitated Diffusion, Osmosis</span>) uses <strong>ZERO energy</strong> and moves <strong>HIGH → LOW</strong>.</li>
+          <li><strong class="code-term">ATP Required:</strong> All active transport (<span class="highlight">Protein Pumps, Phagocytosis, Pinocytosis, Exocytosis, Endocytosis</span>) requires <strong>ATP</strong> and moves <strong>LOW → HIGH</strong> (or bulk engulfment).</li>
+        </ul>
+      </div>
+
+      <!-- 2. What Happens to the Cells? -->
+      <div class="card card-accent-blue">
+        <h2>💧 2. What Happens to the Cells?</h2>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 25%;">Environment</th>
+              <th style="width: 37%;">Animal Cell (RBC)</th>
+              <th style="width: 38%;">Plant Cell (Elodea)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Hypotonic</strong><br><span style="font-size: 8.5px; color: #64748b;">(Pure / Distilled water, 0% salt)</span></td>
+              <td><strong style="color: #b91c1c;">Lysis / Bursts</strong><br><span style="font-size: 8.5px; color: #475569;">Water rushes in until rupture</span></td>
+              <td><strong style="color: #047857;">Turgid (Healthy Firm)</strong><br><em style="font-size: 8.5px; color: #047857;">Rigid cell wall prevents bursting!</em></td>
+            </tr>
+            <tr>
+              <td><strong>Isotonic</strong><br><span style="font-size: 8.5px; color: #64748b;">(0.9% Saline / Normal fluid)</span></td>
+              <td><strong>Normal / Homeostasis</strong><br><span style="font-size: 8.5px; color: #475569;">Dynamic equilibrium (Net flow = 0)</span></td>
+              <td><strong style="color: #b45309;">Flaccid</strong><br><span style="font-size: 8.5px; color: #64748b;">Limp / drooping (normal cell shape, no turgor)</span></td>
+            </tr>
+            <tr>
+              <td><strong>Hypertonic</strong><br><span style="font-size: 8.5px; color: #64748b;">(Saltwater / Sugar syrup)</span></td>
+              <td><strong style="color: #b91c1c;">Crenation (Shrivels)</strong><br><span style="font-size: 8.5px; color: #475569;">Water rushes out of cell</span></td>
+              <td><strong style="color: #b91c1c;">Plasmolysis</strong><br><span style="font-size: 8.5px; color: #475569;">Cell membrane pulls away from wall; wilts</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 3. TRACIE: Membrane Protein Functions -->
+      <div class="card card-accent-purple">
+        <h2>🧩 3. Membrane Proteins: TRACIE</h2>
+        <ul>
+          <li><strong>T – Transport:</strong> Protein channels and carrier pumps that facilitate movement of polar/charged molecules across the bilayer.</li>
+          <li><strong>R – Receptors:</strong> Signal transduction (e.g., peptide hormones bind surface receptors, triggering internal cellular responses).</li>
+          <li><strong>A – Anchorage:</strong> Cytoskeleton attachment internally and extracellular matrix (ECM) anchoring externally for structural stability.</li>
+          <li><strong>C – Cell Recognition:</strong> Glycoproteins and glycolipids serving as identification markers (e.g., ABO blood groups, immune self vs. non-self).</li>
+          <li><strong>I – Intercellular Joinings:</strong> Tight junctions, desmosomes, and gap junctions that bind neighboring cells together.</li>
+          <li><strong>E – Enzymatic Activity:</strong> Catalytic active sites localized on the membrane to accelerate sequential metabolic pathway steps.</li>
+        </ul>
+      </div>
+
+      <!-- 4. Instant Scenario Matchers -->
+      <div class="card card-accent-amber">
+        <h2>🎯 4. Instant Scenario Matchers</h2>
+        <ul>
+          <li><strong>White blood cell engulfing bacteria:</strong> Active Transport | <span class="highlight">Endocytosis (Phagocytosis)</span></li>
+          <li><strong>Pancreas secreting insulin vesicles into bloodstream:</strong> Active Transport | <span class="highlight">Exocytosis</span></li>
+          <li><strong>O₂ and CO₂ gas exchange across alveolar capillaries:</strong> Passive Transport | <span class="highlight">Simple Diffusion (0 ATP)</span></li>
+          <li><strong>Glucose entering muscle cells via GLUT carrier:</strong> Passive Transport | <span class="highlight">Facilitated Diffusion</span></li>
+          <li><strong>Rapid water flow into kidney/RBC via aquaporins:</strong> Passive Transport | <span class="highlight">Osmosis (Facilitated Diffusion of H₂O)</span></li>
+          <li><strong>Freshwater Paramecium pumping out excess water:</strong> Active Transport | <span class="highlight">Contractile Vacuole (Uses ATP)</span></li>
+          <li><strong>Gargling warm salt water for a sore throat / Slug salted:</strong> Osmosis | <span class="highlight">Hypertonic exterior draws water OUT</span></li>
+          <li><strong>Eating salty chips makes you thirsty:</strong> Blood becomes hypertonic → Osmoreceptors trigger thirst & ADH</li>
+        </ul>
+      </div>
+
+      <!-- 5. The 4 Biggest Traps to Avoid -->
+      <div class="card card-accent-rose">
+        <h2>⚠️ 5. The 4 Biggest Teacher Traps to Avoid</h2>
+        
+        <div class="trap-item">
+          <span class="trap-title">1. "Permeable ONLY to X" Trap</span>
+          If a membrane is selectively permeable <em>only to starch</em> or <em>only to water</em>, other solutes (like glucose or salt) <strong>CANNOT move</strong>, even if they have a 90% concentration gradient! Only permeable substances move.
+        </div>
+
+        <div class="trap-item">
+          <span class="trap-title">2. Plant Cells Bursting Trap</span>
+          Plant cells placed in pure distilled water <strong>NEVER burst</strong>. Their rigid <strong>cellulose cell wall</strong> creates opposing turgor pressure that halts net water influx. Animal cells burst (lysis); plant cells become turgid.
+        </div>
+
+        <div class="trap-item">
+          <span class="trap-title">3. Dynamic Equilibrium Trap</span>
+          Molecules <strong>DO NOT stop moving</strong> when equilibrium is reached! Molecular motion is continuous and <em>dynamic</em>—particles cross in both directions at <strong>equal rates</strong> (Net flux = 0).
+        </div>
+
+        <div class="trap-item">
+          <span class="trap-title">4. Dialysis Tubing & Macromolecule Trap</span>
+          In dialysis experiments: Iodine (Lugol's) is small and diffuses <strong>IN</strong> (turning starch purple/black). Starch is a large polymer and <strong>CANNOT cross</strong> the bag. Glucose is small and diffuses <strong>OUT</strong> (detected by Benedict's test).
+        </div>
+
+      </div>
+
+    </div>
+
+    <footer>
+      Biology I Honors • Unit 2 (Part 1) Cell Transport Assessment • South Forsyth High School • 100% Mastery
+    </footer>
+  </div>
+
+</body>
+</html>

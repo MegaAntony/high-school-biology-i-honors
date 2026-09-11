@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biology I Honors - Unit 2 Test 04: Osmosis Fundamentals & Aquaporins</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+
+  <!-- TOP HEADER -->
+  <header class="bg-gradient-to-r from-blue-700 via-indigo-700 to-emerald-700 text-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="w-10 h-10 rounded-xl bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition border border-white/20" title="Back to All Tests">
+          <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="bg-white/20 text-xs px-2.5 py-1 rounded-full font-semibold uppercase tracking-wider">Biology I Honors</span>
+            <span class="bg-emerald-400 text-slate-900 text-xs px-2.5 py-1 rounded-full font-bold">Unit 2 • Test 04</span>
+          </div>
+          <h1 class="text-xl sm:text-2xl font-black tracking-tight mt-1 text-white">Osmosis Fundamentals & Aquaporins</h1>
+        </div>
+      </div>
+
+      <!-- Quick Stats Top -->
+      <div class="flex items-center gap-4 bg-white/10 backdrop-blur px-4 py-2 rounded-xl border border-white/15">
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Answered</div>
+          <div id="statAnswered" class="text-xl font-bold">0/20</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Accuracy</div>
+          <div id="statScore" class="text-xl font-bold text-emerald-300">0%</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <button onclick="resetQuiz()" class="text-xs bg-white/20 hover:bg-white/30 text-white px-3 py-2 rounded-lg font-medium transition flex items-center gap-1.5 cursor-pointer">
+          <i class="fa-solid fa-rotate-right"></i> Reset
+        </button>
+      </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="w-full bg-slate-900/30 h-2">
+      <div id="quizProgressBar" class="bg-emerald-400 h-2 transition-all duration-300" style="width: 0%"></div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-6xl mx-auto px-4 py-8">
+
+    <!-- Anti-Guess Note Banner -->
+    <div class="bg-emerald-50 border border-emerald-200 text-emerald-950 p-4 rounded-2xl mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-semibold shadow-sm">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-shield-halved text-emerald-600 text-base shrink-0"></i>
+        <span><strong>Anti-Guess Edition:</strong> All 4 options per question have balanced lengths and realistic curriculum distractors so you cannot guess by length alone.</span>
+      </div>
+      <a href="index.html" class="text-emerald-800 underline hover:text-emerald-950 whitespace-nowrap">View All 20 Tests</a>
+    </div>
+
+    <!-- CONTROLS & FILTER BAR -->
+    <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 mb-8">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-sm font-bold text-slate-700 mb-2">Filter by Topic:</h2>
+          <div class="flex flex-wrap gap-2" id="topicFilters">
+            <button onclick="filterTopic('All')" class="topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-sm transition cursor-pointer">All Topics (20)</button>
+            <button onclick="filterTopic('Osmosis Definition')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Osmosis Definition</button>
+            <button onclick="filterTopic('Free Water & Hydration Shells')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Free Water & Hydration Shells</button>
+            <button onclick="filterTopic('U-Tube Osmometer Experiment')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">U-Tube Osmometer Experiment</button>
+            <button onclick="filterTopic('Aquaporin Structure & Function')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Aquaporin Structure & Function</button>
+            <button onclick="filterTopic('Water Potential Principles')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Water Potential Principles</button>
+            <button onclick="filterTopic('Dialysis Tubing Investigation')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Dialysis Tubing Investigation</button>
+
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 pt-2 lg:pt-0 border-t lg:border-t-0 border-slate-100">
+          <button onclick="toggleAllClues()" id="toggleCluesBtn" class="text-xs bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-regular fa-lightbulb"></i> <span id="clueToggleText">Show All Hints</span>
+          </button>
+          <button onclick="filterMissed()" id="filterMissedBtn" class="text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-solid fa-triangle-exclamation"></i> Review Missed (<span id="missedCount">0</span>)
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTIONS LIST -->
+    <div id="questionsContainer" class="space-y-6"></div>
+
+    <!-- SCORE SUMMARY CARD -->
+    <div id="scoreSummaryCard" class="mt-12 bg-white rounded-3xl p-8 border-2 border-indigo-100 shadow-xl hidden">
+      <div class="text-center max-w-xl mx-auto">
+        <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl">
+          <i class="fa-solid fa-trophy"></i>
+        </div>
+        <h2 class="text-2xl font-black text-slate-800">Test 04 Complete!</h2>
+        <p class="text-slate-500 text-sm mt-1">Here is your detailed mastery score for Osmosis Fundamentals & Aquaporins.</p>
+        
+        <div class="grid grid-cols-3 gap-4 my-6 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Total Questions</div>
+            <div class="text-2xl font-black text-slate-800" id="finalTotal">20</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Correct</div>
+            <div class="text-2xl font-black text-emerald-600" id="finalCorrect">0</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Score Rate</div>
+            <div class="text-2xl font-black text-blue-600" id="finalPercent">0%</div>
+          </div>
+        </div>
+
+        <div id="masteryRating" class="p-4 rounded-2xl font-bold text-sm mb-6"></div>
+
+        <div class="flex items-center justify-center gap-4">
+          <button onclick="resetQuiz()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-indigo-200 transition cursor-pointer">
+            Retake Entire Test
+          </button>
+          <a href="index.html" class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-emerald-200 transition">
+            Back to Tests Hub
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-500 mt-12">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p>© 2026 Biology I Honors • South Forsyth High School</p>
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="hover:text-indigo-600 transition font-medium">All 20 Tests Hub</a>
+        <a href="../../index.html" class="hover:text-indigo-600 transition font-medium">Main Portal</a>
+        <a href="https://github.com/MegaAntony/biology-honors" target="_blank" class="hover:text-indigo-600 transition"><i class="fa-brands fa-github mr-1"></i>GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT ENGINE -->
+  <script>
+    const questionsData = [
+  {
+    "id": 1,
+    "topic": "Osmosis Definition",
+    "question": "Which statement provides the most precise biological definition of osmosis?",
+    "options": [
+      "The net passive diffusion of water molecules across a selectively permeable membrane toward a region of higher solute concentration.",
+      "The active transport of mineral salts across a phospholipid bilayer using ATP-driven molecular pumps.",
+      "The bulk movement of solvent and solute particles together through large intercellular gap junctions.",
+      "The enzymatic conversion of glucose and oxygen into water molecules within mitochondrial cristae."
+    ],
+    "answer": 0,
+    "clue": "Osmosis specifically refers to water diffusing through a selectively permeable membrane.",
+    "explanation": "**Osmosis** is the specialized passive diffusion of **water molecules** across a selectively permeable membrane from an area of higher free water concentration (lower solute) to lower free water concentration (higher solute)."
+  },
+  {
+    "id": 2,
+    "topic": "Free Water & Hydration Shells",
+    "question": "Why does adding a soluble solute like sucrose to pure water decrease the concentration of \"free water\" molecules available to diffuse?",
+    "options": [
+      "Sucrose molecules physically destroy water molecules through catabolic hydrolysis reactions.",
+      "Sucrose evaporates water vapor into the air by releasing latent heat of vaporization.",
+      "Water molecules form hydrogen-bonded hydration shells around the polar solute, restricting their freedom to cross the membrane.",
+      "Solute particles alter the atomic nucleus of oxygen, converting water into nonpolar methane."
+    ],
+    "answer": 2,
+    "clue": "Water dipoles cluster around polar or charged solute particles, immobilizing them.",
+    "explanation": "When a solute dissolves, water molecules cluster around it to form **hydration shells**. These bound water molecules are restrained and cannot cross membrane pores, reducing the effective concentration of **free water**."
+  },
+  {
+    "id": 3,
+    "topic": "U-Tube Osmometer Experiment",
+    "question": "A U-tube is divided by a membrane permeable to water but impermeable to glucose. Side A has 10% glucose and Side B has 2% glucose. What will happen over time?",
+    "options": [
+      "Glucose will diffuse from Side A to Side B until both sides contain 6% glucose.",
+      "Water will move from Side A to Side B, causing the liquid level on Side B to rise.",
+      "The liquid level will remain completely identical because glucose molecules block all water movement.",
+      "Water will move from Side B to Side A, causing the liquid level on Side A to rise."
+    ],
+    "answer": 3,
+    "clue": "Water moves to \"dilute the solute\"\u2014from low solute (Side B) to high solute (Side A).",
+    "explanation": "Because the membrane blocks glucose, water moves passively down its own concentration gradient from **Side B (higher water, 2% glucose) to Side A (lower water, 10% glucose)**, raising the fluid level on Side A until osmotic pressure balances hydrostatic pressure."
+  },
+  {
+    "id": 4,
+    "topic": "Aquaporin Structure & Function",
+    "question": "What crucial functional role do aquaporins perform in biological tissues such as human kidney collecting ducts?",
+    "options": [
+      "They synthesize ATP by harnessing the gravitational pull of descending water columns.",
+      "They pump sodium and potassium ions against their concentration gradients to prevent dehydration.",
+      "They provide specialized transmembrane water channels that dramatically accelerate osmotic water reabsorption.",
+      "They prevent any water from ever crossing the plasma membrane under any circumstance."
+    ],
+    "answer": 2,
+    "clue": "Aquaporins facilitate massive, rapid water flow across kidney and red blood cell membranes.",
+    "explanation": "**Aquaporins** allow billions of water molecules per second to cross membranes single-file. In kidney collecting ducts, aquaporins (regulated by antidiuretic hormone / ADH) allow massive water reabsorption to prevent dehydration."
+  },
+  {
+    "id": 5,
+    "topic": "Aquaporin Proton Exclusion",
+    "question": "Aquaporins allow water molecules to pass rapidly while strictly blocking protons (H+ / hydronium ions). Why is proton exclusion vital for cell survival?",
+    "options": [
+      "Allowing protons to leak would dissipate the vital electrochemical proton gradient across membranes needed for ATP synthesis.",
+      "Protons would immediately freeze all intracellular water into solid crystalline ice sheets.",
+      "Protons turn the cytoplasm into a solid wax by hydrogenating unsaturated phospholipid tails.",
+      "Proton leakage causes ribosomes to produce nonfunctional lipid hormones instead of proteins."
+    ],
+    "answer": 0,
+    "clue": "Mitochondria and chloroplasts rely on tight proton gradients to power ATP synthase.",
+    "explanation": "If protons could leak through aquaporins via \"proton hopping,\" the cell would lose its **proton-motive force** and membrane potential, collapsing ATP production in mitochondria and chloroplasts."
+  },
+  {
+    "id": 6,
+    "topic": "Osmotic Pressure",
+    "question": "Which statement correctly defines \"osmotic pressure\" in a solution?",
+    "options": [
+      "The atmospheric barometric pressure pushing down on the surface of an open beaker.",
+      "The mechanical tension generated by cytoplasmic microfilaments during cell division.",
+      "The frictional heat produced when water molecules collide with nonpolar hydrocarbon tails.",
+      "The pressure that must be applied to a solution to prevent the inward net flow of water across a semipermeable membrane."
+    ],
+    "answer": 3,
+    "clue": "The opposing force required to halt osmosis completely.",
+    "explanation": "**Osmotic pressure** is the hydrostatic pressure required to completely stop the net inward osmotic flow of pure water across a semipermeable membrane into a solution. Higher solute concentration = higher osmotic pressure."
+  },
+  {
+    "id": 7,
+    "topic": "Water Potential Principles",
+    "question": "In plant biology, water potential (\u03a8) governs water movement. Which rule determines the spontaneous direction of water flow?",
+    "options": [
+      "Water always flows from an area of higher (less negative) water potential to an area of lower (more negative) water potential.",
+      "Water always flows from an area of lower water potential to an area of higher water potential.",
+      "Water potential only affects gas molecules and has zero influence on liquid water movement.",
+      "Water moves only when water potential on both sides is exactly equal to positive 100 MPa."
+    ],
+    "answer": 0,
+    "clue": "Like water flowing downhill from high elevation to low elevation.",
+    "explanation": "Water moves spontaneously down its free energy gradient from **higher water potential ($\\Psi$) to lower (more negative) water potential**. Pure water at atmospheric pressure has $\\Psi = 0$; adding solutes makes $\\Psi$ negative."
+  },
+  {
+    "id": 8,
+    "topic": "Solute Potential Equation",
+    "question": "The solute potential component of water potential is calculated as \u03a8s = -iCRT. What is the effect of increasing the molar concentration of solute (C)?",
+    "options": [
+      "It increases \u03a8s toward positive infinity, making water flow outward instantly.",
+      "It has no effect on \u03a8s because temperature (T) is the only active variable in the formula.",
+      "It makes \u03a8s more negative, thereby lowering the overall water potential of the solution.",
+      "It permanently converts the ionization constant (i) into a negative integer."
+    ],
+    "answer": 2,
+    "clue": "Adding solute always makes solute potential more negative.",
+    "explanation": "Because of the negative sign in $\\Psi_s = -iCRT$, increasing solute concentration ($) causes $\\Psi_s$ to become **more negative**, which lowers the total water potential ($\\Psi$) of the solution."
+  },
+  {
+    "id": 9,
+    "topic": "Ionization Constant (i)",
+    "question": "Why does a 1.0 M solution of sodium chloride (NaCl) exert approximately twice the osmotic effect of a 1.0 M solution of glucose?",
+    "options": [
+      "Glucose is a heavy polysaccharide that evaporates water rapidly.",
+      "NaCl molecules are actively pumped across membranes by aquaporin channels.",
+      "Glucose molecules bind covalently to water, neutralizing all osmotic forces.",
+      "NaCl dissociates in water into two distinct ions (Na+ and Cl-), yielding twice as many solute particles per liter."
+    ],
+    "answer": 3,
+    "clue": "Count the number of particles produced when the compound dissolves in water.",
+    "explanation": "NaCl is an ionic compound that **dissociates into 2 ions** (^+$ and ^-$), giving an ionization constant  = 2$. Glucose does not dissociate ( = 1$). Osmosis depends on the total number of solute particles, not their mass."
+  },
+  {
+    "id": 10,
+    "topic": "Dialysis Tubing Investigation",
+    "question": "A dialysis tubing bag containing 20% sucrose solution is submerged in a beaker of 100% distilled water. The tubing is impermeable to sucrose. What will happen to the mass of the bag after 60 minutes?",
+    "options": [
+      "The mass will decrease because sucrose molecules will escape into the distilled water.",
+      "The mass will increase because water will move into the bag by osmosis down its concentration gradient.",
+      "The mass will remain completely unchanged because dialysis membranes block all liquids.",
+      "The mass will drop to zero as the dialysis tubing dissolves in pure water."
+    ],
+    "answer": 1,
+    "clue": "Water enters to dilute the concentrated 20% sucrose inside the bag.",
+    "explanation": "Water potential is higher outside in pure water ($\\Psi = 0$) than inside the bag ($\\Psi < 0$). Water rushes into the dialysis bag via osmosis, causing its **mass and volume to increase**."
+  },
+  {
+    "id": 11,
+    "topic": "Dynamic Equilibrium in Osmosis",
+    "question": "When two solutions separated by a water-permeable membrane achieve osmotic equilibrium, what occurs at the molecular level?",
+    "options": [
+      "Water molecules stop moving entirely, freezing the liquid interface.",
+      "Water molecules continue crossing the membrane in both directions at equal rates, resulting in zero net change in volume.",
+      "All solute molecules suddenly precipitate out of solution as dry crystals.",
+      "Water molecules decompose into oxygen gas and hydrogen gas bubbles."
+    ],
+    "answer": 1,
+    "clue": "Equilibrium is dynamic: movement continues with zero net change.",
+    "explanation": "At **osmotic equilibrium**, water molecules continue moving randomly in both directions across the membrane at identical rates ({in} = Rate_{out}$), meaning **net water movement is zero**."
+  },
+  {
+    "id": 12,
+    "topic": "Aquaporin Discovery",
+    "question": "In the early 1990s, Peter Agre discovered the first aquaporin channel (CHIP28). What experimental observation proved its water-channel function when injected into frog oocytes (eggs)?",
+    "options": [
+      "The oocytes failed to divide and died immediately from lack of oxygen.",
+      "The oocytes formed a thick outer shell of cellulose that repelled all solutes.",
+      "The oocytes began performing photosynthesis under fluorescent light.",
+      "The oocytes rapidly took in water and burst within minutes when placed in a hypotonic solution."
+    ],
+    "answer": 3,
+    "clue": "Injecting the channel caused massive rapid water inflow in hypotonic water until the cells popped.",
+    "explanation": "Frog eggs expressing aquaporins swelled and **burst within minutes** when placed in hypotonic water, whereas control eggs lacking aquaporins swelled very slowly, proving aquaporins drastically increase water permeability."
+  },
+  {
+    "id": 13,
+    "topic": "Osmolarity vs. Osmolality",
+    "question": "What is the biological definition of \"osmolarity\" in cellular physiology?",
+    "options": [
+      "The total number of moles of solute particles per liter of solution.",
+      "The total mass of lipid molecules per square micrometer of membrane.",
+      "The rate at which enzymes synthesize sucrose from carbon dioxide.",
+      "The voltage difference between the nucleolus and the cytoplasm."
+    ],
+    "answer": 0,
+    "clue": "Think of particle molarity per liter of solution.",
+    "explanation": "**Osmolarity** is the measure of solute concentration defined as the number of **osmoles (Osm) of solute particles per liter of solution**. It determines whether water will enter or exit cells."
+  },
+  {
+    "id": 14,
+    "topic": "Osmosis vs. Diffusion",
+    "question": "What is the fundamental difference between simple diffusion and osmosis?",
+    "options": [
+      "Diffusion requires metabolic ATP, whereas osmosis is entirely passive.",
+      "Diffusion occurs only in animal cells, whereas osmosis occurs exclusively in plant cells.",
+      "Diffusion refers to the movement of solute particles, whereas osmosis specifically describes the movement of water across a selectively permeable membrane.",
+      "Diffusion always moves substances against gradients, whereas osmosis moves down gradients."
+    ],
+    "answer": 2,
+    "clue": "One is general solute movement; the other is water crossing a semipermeable barrier.",
+    "explanation": "**Diffusion** describes the movement of any particles from high to low concentration. **Osmosis** is specifically the passive diffusion of **water molecules across a selectively permeable membrane**."
+  },
+  {
+    "id": 15,
+    "topic": "Plant Cell Turgor Pressure",
+    "question": "How does osmosis enable non-woody plant stems and leaves to remain upright against gravity?",
+    "options": [
+      "Water leaves plant cells, causing cell membranes to shrink and pull stems upward.",
+      "Chloroplasts actively pump sand grains into cell walls to harden plant stems.",
+      "Mitochondria consume all intracellular water to create negative gravitational pull.",
+      "Water enters plant cells by osmosis, inflating the central vacuole and pressing the plasma membrane against the rigid cell wall (turgor pressure)."
+    ],
+    "answer": 3,
+    "clue": "Water pushes against the cell wall like air inflating a tire.",
+    "explanation": "When plant cells take in water by osmosis, the swelling vacuole exerts **turgor pressure** against the cell wall. This internal pressure provides mechanical rigidity that keeps herbaceous plant tissues upright."
+  },
+  {
+    "id": 16,
+    "topic": "Osmotic Rule of Thumb",
+    "question": "Which classroom rule of thumb accurately predicts the direction of net water movement across a membrane?",
+    "options": [
+      "\"Solutes always follow water into dry areas.\"",
+      "\"Water moves toward the side with higher solute concentration to dilute the solute.\"",
+      "\"Water only moves when active transport pumps consume ATP.\"",
+      "\"Solutes and water always move in identical directions at identical velocities.\""
+    ],
+    "answer": 1,
+    "clue": "Remember: \"Dilute the solute!\" Water moves to where the solute concentration is higher.",
+    "explanation": "The classic rule **\"Dilute the Solute\"** reminds students that water moves down its own gradient toward regions of **higher solute concentration** to equalize osmotic balance."
+  },
+  {
+    "id": 17,
+    "topic": "Osmosis in Pure Water",
+    "question": "What is the solute potential (\u03a8s) of pure distilled water at atmospheric pressure and room temperature?",
+    "options": [
+      "-10.0 MPa",
+      "+5.0 MPa",
+      "0.0 MPa",
+      "-100.0 bars"
+    ],
+    "answer": 2,
+    "clue": "Zero solute means zero solute depression.",
+    "explanation": "By scientific definition, pure distilled water in an open container at atmospheric pressure has a **solute potential ($\\Psi_s$) of exactly 0.0 MPa**. Adding any solute lowers $\\Psi_s$ into negative numbers."
+  },
+  {
+    "id": 18,
+    "topic": "Marine Invertebrate Osmoregulation",
+    "question": "Many marine invertebrates (like starfish and jellyfish) are osmoconformers. What does this mean regarding their internal fluid osmolarity?",
+    "options": [
+      "Their internal solute concentration is roughly equal (isosmotic) to the surrounding seawater, minimizing net water gain or loss.",
+      "They pump all salts out of their bodies to maintain completely pure distilled water inside.",
+      "They store huge volumes of air in their tissues to float above seawater solutes.",
+      "They actively convert seawater salt ions into glucose molecules to prevent osmosis."
+    ],
+    "answer": 0,
+    "clue": "Conforming means matching the external osmolarity of seawater.",
+    "explanation": "**Osmoconformers** match their internal tissue osmolarity to the osmolarity of their seawater environment (approx. 1000 mOsm/L), maintaining dynamic equilibrium and avoiding osmotic stress."
+  },
+  {
+    "id": 19,
+    "topic": "Osmotic Water Flux Rate",
+    "question": "Which of the following factors would INCREASE the rate of osmotic water movement across an artificial cell membrane?",
+    "options": [
+      "Decreasing the temperature of the aqueous solutions to near freezing.",
+      "Inserting thousands of functional aquaporin channel proteins into the membrane.",
+      "Decreasing the concentration difference between the inside and outside solutions.",
+      "Thickening the phospholipid bilayer with long saturated waxes."
+    ],
+    "answer": 1,
+    "clue": "More protein water channels provide more pathways for water flux.",
+    "explanation": "Adding **aquaporins** provides direct, low-resistance hydrophilic conduits that increase the hydraulic permeability of the membrane, vastly increasing the rate of osmotic water flux."
+  },
+  {
+    "id": 20,
+    "topic": "Permeability & Osmosis",
+    "question": "Why is a selectively permeable membrane an absolute requirement for osmosis to occur between two solutions of unequal concentration?",
+    "options": [
+      "The membrane actively breaks water molecules down into hydrogen and oxygen gases.",
+      "Without a selective barrier that blocks solute passage, the solute would simply diffuse down its own gradient, eliminating the osmotic gradient.",
+      "The membrane is required to generate electrical sparks that power water movement.",
+      "Water molecules can only exist in liquid form when touching phospholipid heads."
+    ],
+    "answer": 1,
+    "clue": "If solute could move freely, solute would diffuse and no fluid level change would occur.",
+    "explanation": "For osmosis to occur, the membrane must be **semipermeable** (impermeable to the solute but permeable to water). If the solute could cross freely, it would diffuse to equilibrium, and no net water movement or pressure change would occur."
+  }
+];
+    const STORAGE_KEY = 'bio_unit2_test04_state_clean';
+
+    let userState = {
+      answers: {},
+      showClues: {},
+      allCluesVisible: false,
+      currentFilter: 'All',
+      missedOnly: false
+    };
+
+    function safeLoad() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (parsed && typeof parsed === 'object') {
+            userState = Object.assign(userState, parsed);
+          }
+        }
+      } catch (e) {
+        console.warn('localStorage not accessible:', e);
+      }
+    }
+
+    function safeSave() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(userState));
+      } catch (e) {
+        console.warn('Could not save to localStorage:', e);
+      }
+    }
+
+    function init() {
+      safeLoad();
+      renderQuestions();
+      updateStats();
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById('questionsContainer');
+      if (!container) return;
+      container.innerHTML = '';
+
+      let filteredQuestions = questionsData.filter(q => {
+        if (userState.currentFilter !== 'All' && q.topic !== userState.currentFilter) return false;
+        if (userState.missedOnly) {
+          const userAns = userState.answers[q.id];
+          if (userAns === undefined || userAns === q.answer) return false;
+        }
+        return true;
+      });
+
+      if (filteredQuestions.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-12 bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
+            <i class="fa-solid fa-circle-check text-emerald-500 text-4xl mb-3"></i>
+            <h3 class="text-lg font-bold text-slate-800">No Questions In This Filter</h3>
+            <p class="text-slate-500 text-sm mt-1">Try selecting 'All Topics' or clearing the missed review filter.</p>
+          </div>
+        `;
+        return;
+      }
+
+      filteredQuestions.forEach((q) => {
+        const isAnswered = userState.answers[q.id] !== undefined;
+        const selectedOption = userState.answers[q.id];
+        const isCorrect = isAnswered && selectedOption === q.answer;
+        const isClueVisible = userState.allCluesVisible || userState.showClues[q.id];
+
+        const card = document.createElement('div');
+        card.className = `bg-white rounded-2xl p-6 border transition-all duration-200 shadow-sm ${
+          isAnswered
+            ? isCorrect
+              ? 'border-emerald-300 ring-1 ring-emerald-200/50 bg-emerald-50/20'
+              : 'border-rose-300 ring-1 ring-rose-200/50 bg-rose-50/20'
+            : 'border-slate-200 hover:border-slate-300'
+        }`;
+        card.id = `q-card-${q.id}`;
+
+        let optionsHtml = q.options.map((opt, oIdx) => {
+          let btnClass = "border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50/40 text-slate-700 cursor-pointer";
+          let iconHtml = `<span class="w-6 h-6 rounded-full border border-slate-300 text-xs font-semibold flex items-center justify-center mr-3 text-slate-500 shrink-0 mt-0.5">${String.fromCharCode(65 + oIdx)}</span>`;
+
+          if (isAnswered) {
+            if (oIdx === q.answer) {
+              btnClass = "bg-emerald-50 border-emerald-500 text-emerald-950 font-semibold ring-1 ring-emerald-400 cursor-default";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-emerald-600 text-white text-xs font-bold flex items-center justify-center mr-3 shrink-0 mt-0.5"><i class="fa-solid fa-check"></i></span>`;
+            } else if (oIdx === selectedOption && !isCorrect) {
+              btnClass = "bg-rose-50 border-rose-400 text-rose-950 font-semibold ring-1 ring-rose-300 cursor-default";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-rose-600 text-white text-xs font-bold flex items-center justify-center mr-3 shrink-0 mt-0.5"><i class="fa-solid fa-xmark"></i></span>`;
+            } else {
+              btnClass = "opacity-50 border-slate-200 text-slate-400 cursor-not-allowed";
+            }
+          }
+
+          return `
+            <button 
+              type="button"
+              onclick="selectAnswer(${q.id}, ${oIdx})" 
+              ${isAnswered ? 'disabled' : ''} 
+              class="w-full text-left p-3.5 rounded-xl text-sm transition flex items-start ${btnClass} my-2 leading-relaxed">
+              ${iconHtml}
+              <span class="flex-1">${opt}</span>
+            </button>
+          `;
+        }).join('');
+
+        card.innerHTML = `
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <div class="flex items-center gap-2">
+              <span class="bg-indigo-100 text-indigo-800 text-xs font-black px-2.5 py-0.5 rounded-md">Q${q.id}</span>
+              <span class="bg-slate-100 text-slate-600 text-xs font-semibold px-2.5 py-0.5 rounded-md">${q.topic}</span>
+            </div>
+
+            <button type="button" onclick="toggleClue(${q.id})" class="text-xs text-amber-700 bg-amber-50 hover:bg-amber-100 border border-amber-200 px-3 py-1 rounded-lg font-medium transition flex items-center gap-1 cursor-pointer">
+              <i class="fa-regular fa-lightbulb"></i>
+              ${isClueVisible ? 'Hide Hint' : 'Need a Clue?'}
+            </button>
+          </div>
+
+          <h3 class="text-base font-bold text-slate-900 leading-relaxed mb-4">${q.question}</h3>
+
+          <div id="clue-${q.id}" class="${isClueVisible ? 'block' : 'hidden'} mb-4 p-3.5 bg-amber-50/80 border border-amber-200 rounded-xl text-amber-900 text-xs flex items-start gap-2.5">
+            <i class="fa-solid fa-lightbulb text-amber-600 mt-0.5"></i>
+            <div><span class="font-bold">Study Hint:</span> ${q.clue}</div>
+          </div>
+
+          <div class="space-y-1">${optionsHtml}</div>
+
+          ${isAnswered ? `
+            <div class="mt-5 p-4 rounded-xl text-sm border ${
+              isCorrect 
+                ? 'bg-emerald-50/70 border-emerald-200 text-emerald-950' 
+                : 'bg-rose-50/70 border-rose-200 text-slate-800'
+            }">
+              <div class="flex items-center gap-2 font-bold mb-2 ${isCorrect ? 'text-emerald-800' : 'text-rose-800'}">
+                <i class="${isCorrect ? 'fa-solid fa-circle-check text-emerald-600' : 'fa-solid fa-circle-xmark text-rose-600'}"></i>
+                <span>${isCorrect ? 'Correct! Excellent work.' : 'Incorrect. Let\'s break it down:'}</span>
+              </div>
+              <p class="text-xs leading-relaxed text-slate-700 mb-2">${q.explanation}</p>
+              <div class="text-xs font-semibold text-indigo-700 pt-2 border-t border-slate-200/60 flex items-center justify-between">
+                <span>Correct Option: ${String.fromCharCode(65 + q.answer)} (${q.options[q.answer]})</span>
+                <button type="button" onclick="retryQuestion(${q.id})" class="text-slate-500 hover:text-slate-800 font-medium underline ml-2 cursor-pointer">Try Again</button>
+              </div>
+            </div>
+          ` : ''}
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function selectAnswer(qId, optionIdx) {
+      if (userState.answers[qId] !== undefined) return;
+      userState.answers[qId] = optionIdx;
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function retryQuestion(qId) {
+      delete userState.answers[qId];
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function toggleClue(qId) {
+      userState.showClues[qId] = !userState.showClues[qId];
+      safeSave();
+      renderQuestions();
+    }
+
+    function toggleAllClues() {
+      userState.allCluesVisible = !userState.allCluesVisible;
+      const btnText = document.getElementById('clueToggleText');
+      if (btnText) btnText.innerText = userState.allCluesVisible ? 'Hide All Hints' : 'Show All Hints';
+      safeSave();
+      renderQuestions();
+    }
+
+    function filterTopic(topic) {
+      userState.currentFilter = topic;
+      userState.missedOnly = false;
+      document.querySelectorAll('.topic-btn').forEach(b => {
+        b.classList.remove('bg-blue-600', 'text-white', 'shadow-sm');
+        b.classList.add('bg-slate-100', 'text-slate-600');
+        if (b.innerText.includes(topic) || (topic === 'All' && b.innerText.includes('All Topics'))) {
+          b.classList.add('bg-blue-600', 'text-white', 'shadow-sm');
+          b.classList.remove('bg-slate-100', 'text-slate-600');
+        }
+      });
+      renderQuestions();
+    }
+
+    function filterMissed() {
+      userState.missedOnly = !userState.missedOnly;
+      const btn = document.getElementById('filterMissedBtn');
+      if (btn) {
+        if (userState.missedOnly) {
+          btn.classList.add('bg-rose-600', 'text-white');
+          btn.classList.remove('bg-rose-50', 'text-rose-800');
+        } else {
+          btn.classList.remove('bg-rose-600', 'text-white');
+          btn.classList.add('bg-rose-50', 'text-rose-800');
+        }
+      }
+      renderQuestions();
+    }
+
+    function updateStats() {
+      const answeredKeys = Object.keys(userState.answers);
+      const totalAnswered = answeredKeys.length;
+      let totalCorrect = 0;
+      let missedCount = 0;
+
+      answeredKeys.forEach(k => {
+        const q = questionsData.find(item => item.id == k);
+        if (q) {
+          if (userState.answers[k] === q.answer) totalCorrect++;
+          else missedCount++;
+        }
+      });
+
+      const accuracy = totalAnswered > 0 ? Math.round((totalCorrect / totalAnswered) * 100) : 0;
+      const progressPercent = Math.round((totalAnswered / questionsData.length) * 100);
+
+      const elAns = document.getElementById('statAnswered');
+      const elScore = document.getElementById('statScore');
+      const elBar = document.getElementById('quizProgressBar');
+      const elMissed = document.getElementById('missedCount');
+
+      if (elAns) elAns.innerText = `${totalAnswered}/${questionsData.length}`;
+      if (elScore) elScore.innerText = `${accuracy}%`;
+      if (elBar) elBar.style.width = `${progressPercent}%`;
+      if (elMissed) elMissed.innerText = missedCount;
+
+      const summaryCard = document.getElementById('scoreSummaryCard');
+      if (summaryCard) {
+        if (totalAnswered === questionsData.length) {
+          summaryCard.classList.remove('hidden');
+          document.getElementById('finalTotal').innerText = questionsData.length;
+          document.getElementById('finalCorrect').innerText = totalCorrect;
+          document.getElementById('finalPercent').innerText = `${accuracy}%`;
+          
+          const ratingBox = document.getElementById('masteryRating');
+          if (accuracy >= 90) {
+            ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-emerald-100 text-emerald-900 border border-emerald-300";
+            ratingBox.innerHTML = "🌟 <strong>Mastery Level: Advanced Honors (A+)</strong> — Outstanding mastery of Osmosis & Aquaporin Dynamics!";
+          } else if (accuracy >= 80) {
+            ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-blue-100 text-blue-900 border border-blue-300";
+            ratingBox.innerHTML = "👍 <strong>Mastery Level: Proficient (B)</strong> — Solid comprehension! Review the missed questions above to reach perfection.";
+          } else {
+            ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-amber-100 text-amber-900 border border-amber-300";
+            ratingBox.innerHTML = "💡 <strong>Mastery Level: Developing</strong> — Review water potential equations and U-tube osmometer scenarios.";
+          }
+        } else {
+          summaryCard.classList.add('hidden');
+        }
+      }
+    }
+
+    function resetQuiz() {
+      if (confirm('Are you sure you want to reset all answers and start fresh?')) {
+        userState.answers = {};
+        userState.showClues = {};
+        userState.allCluesVisible = false;
+        userState.missedOnly = false;
+        userState.currentFilter = 'All';
+        safeSave();
+        renderQuestions();
+        updateStats();
+      }
+    }
+
+    if (document.readyState !== 'loading') {
+      init();
+    } else {
+      document.addEventListener('DOMContentLoaded', init);
+    }
+  </script>
+</body>
+</html>

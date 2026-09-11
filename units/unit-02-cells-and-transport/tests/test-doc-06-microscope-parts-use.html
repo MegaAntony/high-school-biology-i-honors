@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biology I Honors - Microscope Parts, Care & Optics Exam</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+
+  <!-- TOP HEADER -->
+  <header class="bg-gradient-to-r from-blue-700 via-indigo-700 to-emerald-700 text-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="w-10 h-10 rounded-xl bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition border border-white/20" title="Back to All Tests">
+          <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="bg-white/20 text-xs px-2.5 py-1 rounded-full font-semibold uppercase tracking-wider">Biology I Honors</span>
+            <span class="bg-emerald-400 text-slate-900 text-xs px-2.5 py-1 rounded-full font-bold">Document Exam 06</span>
+          </div>
+          <h1 class="text-xl sm:text-2xl font-black tracking-tight mt-1 text-white">Microscope Parts, Care & Optics Exam</h1>
+          <p class="text-xs text-blue-100 mt-0.5">Source Document: <code class="bg-black/20 px-1.5 py-0.5 rounded">Microscope Parts & Use PPT.pdf</code></p>
+        </div>
+      </div>
+
+      <!-- Quick Stats Top -->
+      <div class="flex items-center gap-4 bg-white/10 backdrop-blur px-4 py-2 rounded-xl border border-white/15">
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Answered</div>
+          <div id="statAnswered" class="text-xl font-bold">0/20</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Accuracy</div>
+          <div id="statScore" class="text-xl font-bold text-emerald-300">0%</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <button onclick="resetQuiz()" class="text-xs bg-white/20 hover:bg-white/30 text-white px-3 py-2 rounded-lg font-medium transition flex items-center gap-1.5 cursor-pointer">
+          <i class="fa-solid fa-rotate-right"></i> Reset
+        </button>
+      </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="w-full bg-slate-900/30 h-2">
+      <div id="quizProgressBar" class="bg-emerald-400 h-2 transition-all duration-300" style="width: 0%"></div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-6xl mx-auto px-4 py-8">
+
+    <!-- Anti-Guess Note Banner -->
+    <div class="bg-emerald-50 border border-emerald-200 text-emerald-950 p-4 rounded-2xl mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-semibold shadow-sm">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-shield-halved text-emerald-600 text-base shrink-0"></i>
+        <span><strong>Document Mastery Assessment:</strong> All questions are rigorously aligned directly with the contents of <code class="bg-emerald-100 px-1 py-0.5 rounded">Microscope Parts & Use PPT.pdf</code>.</span>
+      </div>
+      <a href="index.html" class="text-emerald-800 underline hover:text-emerald-950 whitespace-nowrap">View All Tests</a>
+    </div>
+
+    <!-- CONTROLS & FILTER BAR -->
+    <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 mb-8">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-sm font-bold text-slate-700 mb-2">Filter by Topic:</h2>
+          <div class="flex flex-wrap gap-2" id="topicFilters">
+            <button onclick="filterTopic('All')" class="topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-sm transition cursor-pointer">All Topics (20)</button>
+            <button onclick="filterTopic('Microscope Transport Rule')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Microscope Transport Rule</button>
+            <button onclick="filterTopic('Lens Cleaning Protocol')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Lens Cleaning Protocol</button>
+            <button onclick="filterTopic('Starting Objective Power')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Starting Objective Power</button>
+            <button onclick="filterTopic('Eyepiece Pointer Arrow')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Eyepiece Pointer Arrow</button>
+            <button onclick="filterTopic('Coarse vs. Fine Focus Knobs')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Coarse vs. Fine Focus Knobs</button>
+            <button onclick="filterTopic('High-Power Focusing Hazard')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">High-Power Focusing Hazard</button>
+            <button onclick="filterTopic('Total Magnification Formula')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Total Magnification Formula</button>
+            <button onclick="filterTopic('Scanning Power Calculation')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Scanning Power Calculation</button>
+            <button onclick="filterTopic('Low Power Calculation')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Low Power Calculation</button>
+            <button onclick="filterTopic('High Power Calculation')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">High Power Calculation</button>
+            <button onclick="filterTopic('Resolution Definition')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Resolution Definition</button>
+            <button onclick="filterTopic('Magnification vs. Resolution')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Magnification vs. Resolution</button>
+            <button onclick="filterTopic('Compound Light Microscope')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Compound Light Microscope</button>
+            <button onclick="filterTopic('Transmission Electron Microscope (TEM)')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Transmission Electron Microscope (TEM)</button>
+            <button onclick="filterTopic('Scanning Electron Microscope (SEM)')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Scanning Electron Microscope (SEM)</button>
+            <button onclick="filterTopic('Diaphragm / Iris Function')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Diaphragm / Iris Function</button>
+            <button onclick="filterTopic('Centering Before Switching Objectives')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Centering Before Switching Objectives</button>
+            <button onclick="filterTopic('Single Cell Layer Rule')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Single Cell Layer Rule</button>
+            <button onclick="filterTopic('Microscope Tool Comparison')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Microscope Tool Comparison</button>
+            <button onclick="filterTopic('Objective Lens Identification')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Objective Lens Identification</button>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 pt-2 lg:pt-0 border-t lg:border-t-0 border-slate-100">
+          <button onclick="toggleAllClues()" id="toggleCluesBtn" class="text-xs bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-regular fa-lightbulb"></i> <span id="clueToggleText">Show All Hints</span>
+          </button>
+          <button onclick="filterMissed()" id="filterMissedBtn" class="text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-solid fa-triangle-exclamation"></i> Review Missed (<span id="missedCount">0</span>)
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTIONS LIST -->
+    <div id="questionsContainer" class="space-y-6"></div>
+
+    <!-- SCORE SUMMARY CARD -->
+    <div id="scoreSummaryCard" class="mt-12 bg-white rounded-3xl p-8 border-2 border-indigo-100 shadow-xl hidden">
+      <div class="text-center max-w-xl mx-auto">
+        <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl">
+          <i class="fa-solid fa-trophy"></i>
+        </div>
+        <h2 class="text-2xl font-black text-slate-800">Test Complete!</h2>
+        <p class="text-slate-500 text-sm mt-1">Here is your detailed mastery score for Microscope Parts, Care & Optics Exam.</p>
+        
+        <div class="grid grid-cols-3 gap-4 my-6 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Total Questions</div>
+            <div class="text-2xl font-black text-slate-800" id="finalTotal">20</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Correct</div>
+            <div class="text-2xl font-black text-emerald-600" id="finalCorrect">0</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Score Rate</div>
+            <div class="text-2xl font-black text-blue-600" id="finalPercent">0%</div>
+          </div>
+        </div>
+
+        <div id="masteryRating" class="p-4 rounded-2xl font-bold text-sm mb-6"></div>
+
+        <div class="flex items-center justify-center gap-4">
+          <button onclick="resetQuiz()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-indigo-200 transition cursor-pointer">
+            Retake Entire Test
+          </button>
+          <a href="index.html" class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-emerald-200 transition">
+            Back to Tests Hub
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-500 mt-12">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p>© 2026 Biology I Honors • South Forsyth High School</p>
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="hover:text-indigo-600 transition font-medium">All Tests Hub</a>
+        <a href="../README.md" class="hover:text-indigo-600 transition font-medium">Weekly Agenda</a>
+        <a href="https://github.com/MegaAntony/biology-honors" target="_blank" class="hover:text-indigo-600 transition"><i class="fa-brands fa-github mr-1"></i>GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT ENGINE -->
+  <script>
+    const questionsData = [
+  {
+    "id": 1,
+    "topic": "Microscope Transport Rule",
+    "question": "What is the mandatory, standard laboratory protocol for safely carrying a compound light microscope?",
+    "options": [
+      "Carry it with one hand gripping the revolving nosepiece while keeping the stage tilted downward.",
+      "Always carry it using two hands: one hand firmly gripping the arm and the other supporting the base.",
+      "Carry it suspended by its electrical cord to prevent fingerprints from smudging the objective lenses.",
+      "Carry it balanced on the flat stage platform while walking rapidly between laboratory stations."
+    ],
+    "answer": 1,
+    "clue": "Two hands: one on the arm, one under the base.",
+    "explanation": "Standard laboratory safety mandates carrying a microscope with **two hands**: dominant hand firmly grasping the structural **arm** and the other hand cupped securely under the weighted **base**, held vertically close to the chest."
+  },
+  {
+    "id": 2,
+    "topic": "Lens Cleaning Protocol",
+    "question": "What material is exclusively permitted for cleaning the glass optical lenses (eyepiece and objectives) of a microscope?",
+    "options": [
+      "Standard absorbent laboratory paper towels moistened with warm tap water",
+      "Specialized optical lens paper designed specifically not to scratch optical glass coatings",
+      "Cotton laboratory lab coats or clean cotton t-shirt fabric",
+      "Fine abrasive sandpaper to buff away dried oil immersion residues"
+    ],
+    "answer": 1,
+    "clue": "Only use specialized lens paper; paper towels contain scratching wood fibers.",
+    "explanation": "Optical glass lenses must be cleaned **ONLY with specialized lens paper**. Paper towels, Kimwipes, and clothing fibers contain abrasive wood pulp and dust particles that will permanently scratch delicate anti-reflective optical coatings."
+  },
+  {
+    "id": 3,
+    "topic": "Starting Objective Power",
+    "question": "When placing a new slide on the microscope stage to locate a specimen, which objective lens must always be clicked into place first?",
+    "options": [
+      "High-power objective (40X)",
+      "Oil immersion objective (100X)",
+      "Scanning / Lowest-power objective (4X)",
+      "Medium / Intermediate-power objective (10X)"
+    ],
+    "answer": 2,
+    "clue": "Always start on the lowest power (scanning, red ring, 4X).",
+    "explanation": "Always begin focusing on the **lowest-power scanning objective (4X)**. It offers the widest field of view and largest depth of focus, allowing you to quickly locate and center the specimen without crashing the lens into the glass slide."
+  },
+  {
+    "id": 4,
+    "topic": "Eyepiece Pointer Arrow",
+    "question": "When looking into the ocular lens (eyepiece) of a student compound light microscope, what is the purpose of the dark pointer line visible across the field of view?",
+    "options": [
+      "It indicates that the microscope bulb has burned out and requires immediate replacement.",
+      "It serves as a reference pointer allowing the viewer to pinpoint and discuss specific structures on the slide.",
+      "It measures the exact thickness of the specimen in nanometers using laser refraction.",
+      "It demonstrates that the glass coverslip has cracked under excessive coarse adjustment pressure."
+    ],
+    "answer": 1,
+    "clue": "The pointer points to specific cells so you can show them to your teacher or lab partner.",
+    "explanation": "The internal dark needle in the ocular lens is a **reference pointer (arrow)** designed to help students and instructors locate, align, and discuss specific cellular structures within the field of view."
+  },
+  {
+    "id": 5,
+    "topic": "Coarse vs. Fine Focus Knobs",
+    "question": "What is the structural and mechanical distinction between the coarse adjustment knob and the fine adjustment knob?",
+    "options": [
+      "The coarse knob is the larger knob that moves the stage significantly; the fine knob is the smaller knob that moves the stage infinitesimally.",
+      "The coarse knob rotates the revolving nosepiece; the fine knob adjusts the iris diaphragm aperture opening.",
+      "The coarse knob regulates substage illumination brightness; the fine knob shifts the mechanical stage clips laterally.",
+      "The coarse knob is used exclusively on 40X high power; the fine knob is used exclusively on 4X scanning power."
+    ],
+    "answer": 0,
+    "clue": "Coarse = large knob, big stage movements; Fine = small knob, micro adjustments.",
+    "explanation": "The **coarse adjustment knob** is the larger knob designed to move the stage up and down rapidly over large distances to find general focus. The **fine adjustment knob** is the smaller knob that moves the stage infinitesimally for precision sharpening."
+  },
+  {
+    "id": 6,
+    "topic": "High-Power Focusing Hazard",
+    "question": "Why is it strictly forbidden to touch or turn the coarse adjustment knob when viewing a specimen under the 40X high-power objective lens?",
+    "options": [
+      "Turning the coarse knob on high power reverses the electrical polarity of the substage light bulb.",
+      "The 40X objective sits less than a millimeter above the slide; using coarse focus can drive the lens through the glass, cracking the slide and destroying the lens.",
+      "Coarse adjustment causes the eyepiece tube to unscrew and disconnect from the revolving nosepiece.",
+      "Coarse focus on high power permanently magnetizes the mechanical stage clips, locking them in place."
+    ],
+    "answer": 1,
+    "clue": "The high-power lens is long and close to the glass; coarse focus will smash it into the slide.",
+    "explanation": "Under **40X high power**, the objective lens sits fractions of a millimeter above the glass coverslip. Turning the coarse adjustment knob will drive the long lens directly into the slide, **cracking the glass slide and permanently gouging the expensive lens optical surface**. Only the **fine focus knob** should ever be touched on high power."
+  },
+  {
+    "id": 7,
+    "topic": "Total Magnification Formula",
+    "question": "What is the mathematical formula used to calculate the total magnification of an image viewed through a compound light microscope?",
+    "options": [
+      "$\\text{Total Magnification} = \\text{Ocular Lens Power} + \\text{Objective Lens Power}$",
+      "$\\text{Total Magnification} = \\text{Ocular Lens Power} \\times \\text{Objective Lens Power}$",
+      "$\\text{Total Magnification} = \\frac{\\text{Objective Lens Power}}{\\text{Ocular Lens Power}}$",
+      "$\\text{Total Magnification} = \\text{Objective Lens Power} \\times \\text{Field Diameter (mm)}$"
+    ],
+    "answer": 1,
+    "clue": "Multiply the eyepiece power by the objective lens power.",
+    "explanation": "Total magnification is calculated by **multiplying** the ocular lens magnification by the objective lens magnification: $\\text{Total Magnification} = \\text{Ocular Lens} \\times \\text{Objective Lens}$."
+  },
+  {
+    "id": 8,
+    "topic": "Scanning Power Calculation",
+    "question": "If you are viewing a specimen through a standard 10X eyepiece using the shortest red scanning objective (4X), what is the total magnification?",
+    "options": [
+      "14X",
+      "40X",
+      "400X",
+      "4,000X"
+    ],
+    "answer": 1,
+    "clue": "10 times 4 = 40.",
+    "explanation": "$\\text{Total Magnification} = 10\\text{X (Eyepiece)} \\times 4\\text{X (Scanning)} = \\mathbf{40\\text{X}}$."
+  },
+  {
+    "id": 9,
+    "topic": "Low Power Calculation",
+    "question": "If you are observing cheek cells using a 10X eyepiece and the yellow low-power objective lens (10X), what is the total magnification?",
+    "options": [
+      "20X",
+      "100X",
+      "1,000X",
+      "10,000X"
+    ],
+    "answer": 1,
+    "clue": "10 times 10 = 100.",
+    "explanation": "$\\text{Total Magnification} = 10\\text{X (Eyepiece)} \\times 10\\text{X (Low Power)} = \\mathbf{100\\text{X}}$."
+  },
+  {
+    "id": 10,
+    "topic": "High Power Calculation",
+    "question": "If you click into the longest blue objective lens (40X) while looking through a 10X ocular lens, what is the total magnification achieved?",
+    "options": [
+      "50X",
+      "400X",
+      "4,000X",
+      "40,000X"
+    ],
+    "answer": 1,
+    "clue": "10 times 40 = 400.",
+    "explanation": "$\\text{Total Magnification} = 10\\text{X (Eyepiece)} \\times 40\\text{X (High Power)} = \\mathbf{400\\text{X}}$."
+  },
+  {
+    "id": 11,
+    "topic": "Resolution Definition",
+    "question": "In microscopy, how is resolution (resolving power) scientifically defined?",
+    "options": [
+      "The ratio between the diameter of the field of view and the thickness of the glass coverslip",
+      "The minimum distance by which two distinct points must be separated for them to be recognized as separate objects",
+      "The total percentage of ambient light transmitted through the condenser lens into the iris diaphragm",
+      "The speed at which light photons travel through the objective lens into the ocular prism"
+    ],
+    "answer": 1,
+    "clue": "Resolution is the ability to distinguish two close points as separate and distinct.",
+    "explanation": "**Resolution** is the minimum distance between two adjacent points at which they can still be distinguished as separate, distinct entities. High resolution produces crisp clarity, preventing the image from blurring into a blob."
+  },
+  {
+    "id": 12,
+    "topic": "Magnification vs. Resolution",
+    "question": "Why is increasing magnification alone useless if a microscope lacks sufficient resolution?",
+    "options": [
+      "Because excessive magnification reverses the orientation of the ocular prism, turning the image upside down",
+      "Because increasing magnification without resolving power merely produces a larger, blurrier image ('empty magnification')",
+      "Because high magnification forces all visible photons to polarize into ultraviolet wavelengths",
+      "Because high magnification causes the specimen slide to overheat and vaporize immediately"
+    ],
+    "answer": 1,
+    "clue": "Bigger without clearer is just a big blurry smudge ('empty magnification').",
+    "explanation": "Without resolving power, simply magnifying an image creates **'empty magnification'**\u2014the specimen appears larger, but no additional detail can be distinguished, resulting in a large, uninformative, blurry blob."
+  },
+  {
+    "id": 13,
+    "topic": "Compound Light Microscope",
+    "question": "What are the core operating characteristics of a standard compound light microscope?",
+    "options": [
+      "It passes visible light photons through a specimen, can view living organisms, but has limited resolving detail (~1000X).",
+      "It bounces secondary electrons off metal-coated dead specimens to generate three-dimensional holographic surfaces.",
+      "It fires high-energy electron beams through ultra-thin frozen specimens in a vacuum to achieve 1,000,000X magnification.",
+      "It utilizes ultraviolet radiation to excite fluorescent dyes without requiring optical glass lenses."
+    ],
+    "answer": 0,
+    "clue": "Light microscopes use light, can view living cells, but have lower magnification than electron microscopes.",
+    "explanation": "A **compound light microscope** passes visible light through a thin specimen. Its major advantage is that it can observe **living specimens** and dynamic cellular processes in real time, though its resolution and magnification are capped by the wavelength of visible light (~1,000X\u20131,500X)."
+  },
+  {
+    "id": 14,
+    "topic": "Transmission Electron Microscope (TEM)",
+    "question": "How does a Transmission Electron Microscope (TEM) form images, and what specimen constraint is required?",
+    "options": [
+      "It reflects visible sunlight off wet living specimens to yield vibrant full-color three-dimensional surface models.",
+      "It transmits an electron beam through ultra-thinly sliced, dehydrated, dead specimens to reveal internal 2D ultrastructure.",
+      "It detects magnetic radiation emitted by active neuronal synapses within living mammalian brain tissue.",
+      "It passes infrared laser light through intact whole organisms to measure total body heat loss."
+    ],
+    "answer": 1,
+    "clue": "TEM transmits electrons THROUGH thin slices of dead cells to see inside organelles (2D).",
+    "explanation": "A **TEM** passes a beam of high-energy electrons *through* an ultra-thinly sliced, fixed, **dead specimen** in a vacuum. It provides extraordinary resolving power (up to 1,000,000X) to reveal the 2D internal ultrastructure of organelles (cristae, ribosomes, nuclear pores)."
+  },
+  {
+    "id": 15,
+    "topic": "Scanning Electron Microscope (SEM)",
+    "question": "What unique visual and physical feature characterizes images produced by a Scanning Electron Microscope (SEM)?",
+    "options": [
+      "It produces striking, high-magnification three-dimensional (3-D) surface topography images.",
+      "It displays live cellular mitosis in vibrant, natural biological colors inside an aqueous chamber.",
+      "It generates two-dimensional internal cross-sections of the mitochondrial matrix at 1,000,000X.",
+      "It measures the precise osmotic pressure exerted against the plant cell wall in atmospheres."
+    ],
+    "answer": 0,
+    "clue": "SEM sweeps over the surface to produce stunning 3D exterior images.",
+    "explanation": "A **Scanning Electron Microscope (SEM)** sweeps an electron beam over the gold-coated surface of a dead specimen, detecting scattered secondary electrons to create realistic, high-depth-of-field **three-dimensional (3D) images** of external surfaces."
+  },
+  {
+    "id": 16,
+    "topic": "Diaphragm / Iris Function",
+    "question": "What is the function of the rotating disc located immediately beneath the microscope stage (the diaphragm/iris)?",
+    "options": [
+      "It adjusts the amount, angle, and contrast of light passing through the central stage aperture to the specimen.",
+      "It clamps the glass slide firmly to prevent lateral vibrations during high-power magnification.",
+      "It switches the ocular lens magnification power between 10X, 20X, and 100X.",
+      "It cools the electrical substage bulb to prevent thermal breakage of the condenser lens."
+    ],
+    "answer": 0,
+    "clue": "The diaphragm controls how much light shines up through the slide.",
+    "explanation": "The **diaphragm (iris)** regulates the diameter of the light beam reaching the specimen. Adjusting it alters lighting contrast, brightness, and depth of field, which is essential for viewing transparent, unstained biological specimens."
+  },
+  {
+    "id": 17,
+    "topic": "Centering Before Switching Objectives",
+    "question": "Why must you always center the target specimen in the middle of your field of view before rotating to a higher power objective?",
+    "options": [
+      "Because switching objectives turns off the substage illuminator if the specimen is off-center",
+      "Because the field of view shrinks significantly at higher magnification; an uncentered specimen will be pushed outside the field of view",
+      "Because off-center specimens cause the stage clips to slide off the mechanical stage platform",
+      "Because higher objectives reverse the optical refraction index of the glass coverslip"
+    ],
+    "answer": 1,
+    "clue": "Higher power zooms in on the center; if your cell is on the edge, it will disappear.",
+    "explanation": "As magnification increases, the **field of view shrinks dramatically** (zooming in on the center). If your specimen is near the perimeter on low power, it will fall completely outside the viewing area when you switch to high power."
+  },
+  {
+    "id": 18,
+    "topic": "Single Cell Layer Rule",
+    "question": "In slide preparation, why must the biological specimen placed on the glass slide be only one or two cell layers thick?",
+    "options": [
+      "Because thick specimens cause the coverslip to melt under normal room temperature conditions",
+      "Because light photons must pass directly through the specimen for the objective lens to resolve an image",
+      "Because thick multi-layered tissues emit dangerous radioactive isotopes under blue light exposure",
+      "Because cellular stains like methylene blue only adhere to cells that are completely isolated from other tissues"
+    ],
+    "answer": 1,
+    "clue": "A compound light microscope requires light to shine THROUGH the specimen.",
+    "explanation": "A compound light microscope is a **transmitted-light microscope**: illumination must pass *through* the specimen to enter the objective. If the tissue is too thick, light cannot penetrate, and the specimen appears as an opaque, dark silhouette."
+  },
+  {
+    "id": 19,
+    "topic": "Microscope Tool Comparison",
+    "question": "If a research scientist wants to study the real-time swimming behavior of live freshwater Amoeba engulfing Paramecia, which microscope must be used?",
+    "options": [
+      "Transmission Electron Microscope (TEM)",
+      "Scanning Electron Microscope (SEM)",
+      "Compound Light Microscope",
+      "X-ray Crystallography Diffractometer"
+    ],
+    "answer": 2,
+    "clue": "Electron microscopes require dead specimens in a high vacuum; only light microscopes view live cells.",
+    "explanation": "Both TEM and SEM require fixing, dehydrating, and placing specimens inside a high vacuum chamber coated with heavy metals, which kills cells instantly. Only a **Compound Light Microscope** can observe **living organisms** in real time."
+  },
+  {
+    "id": 20,
+    "topic": "Objective Lens Identification",
+    "question": "On a standard classroom compound microscope, how can you visually identify the scanning power, low power, and high power objective lenses without reading the numbers?",
+    "options": [
+      "By lens length and color ring: Scanning (4X) is the shortest with a red ring; High power (40X) is the longest with a blue ring.",
+      "By lens diameter: High power is three times wider than the scanning objective lens.",
+      "By weight: High power objectives are made of solid lead and weigh ten times more than low power objectives.",
+      "By location: The scanning objective is permanently fixed to the base of the microscope stage."
+    ],
+    "answer": 0,
+    "clue": "Shortest = lowest power (red, 4X); Longest = highest power (blue, 40X).",
+    "explanation": "Objective lenses are color-coded and vary systematically in length: **Scanning (4X)** is the shortest lens with a **red ring**; **Low power (10X)** is intermediate with a **yellow ring**; and **High power (40X)** is the longest lens with a **blue ring**."
+  }
+];
+
+    const STORAGE_KEY = 'bio1_doc_test_06_microscope';
+
+    let userState = {
+      answers: {},
+      showClues: {},
+      allCluesVisible: false,
+      currentFilter: 'All',
+      missedOnly: false
+    };
+
+    function safeLoad() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          userState = JSON.parse(saved);
+        }
+      } catch (e) {
+        console.warn('localStorage not accessible:', e);
+      }
+    }
+
+    function safeSave() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(userState));
+      } catch (e) {
+        console.warn('Could not save to localStorage:', e);
+      }
+    }
+
+    function init() {
+      safeLoad();
+      renderQuestions();
+      updateStats();
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById('questionsContainer');
+      if (!container) return;
+      container.innerHTML = '';
+
+      let filteredQuestions = questionsData.filter(q => {
+        if (userState.currentFilter !== 'All' && q.topic !== userState.currentFilter) return false;
+        if (userState.missedOnly) {
+          const userAns = userState.answers[q.id];
+          if (userAns === undefined || userAns === q.answer) return false;
+        }
+        return true;
+      });
+
+      if (filteredQuestions.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-12 bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
+            <i class="fa-solid fa-circle-check text-emerald-500 text-4xl mb-3"></i>
+            <h3 class="text-lg font-bold text-slate-800">No Questions In This Filter</h3>
+            <p class="text-slate-500 text-sm mt-1">Try selecting 'All Topics' or clearing the missed review filter.</p>
+          </div>
+        `;
+        return;
+      }
+
+      filteredQuestions.forEach((q) => {
+        const isAnswered = userState.answers[q.id] !== undefined;
+        const selectedOption = userState.answers[q.id];
+        const isCorrect = isAnswered && selectedOption === q.answer;
+        const isClueVisible = userState.allCluesVisible || userState.showClues[q.id];
+
+        const card = document.createElement('div');
+        card.className = `bg-white rounded-2xl p-6 border transition-all duration-200 shadow-sm ${
+          isAnswered
+            ? isCorrect
+              ? 'border-emerald-300 ring-1 ring-emerald-200/50 bg-emerald-50/20'
+              : 'border-rose-300 ring-1 ring-rose-200/50 bg-rose-50/20'
+            : 'border-slate-200 hover:border-slate-300'
+        }`;
+        card.id = `q-card-${q.id}`;
+
+        let optionsHtml = q.options.map((opt, oIdx) => {
+          let btnClass = "border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50/40 text-slate-700 cursor-pointer";
+          let iconHtml = `<span class="w-6 h-6 rounded-full border border-slate-300 text-xs font-semibold flex items-center justify-center mr-3 text-slate-500 shrink-0 mt-0.5">${String.fromCharCode(65 + oIdx)}</span>`;
+
+          if (isAnswered) {
+            if (oIdx === q.answer) {
+              btnClass = "bg-emerald-50 border-emerald-500 text-emerald-950 font-semibold ring-1 ring-emerald-400 cursor-default";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-emerald-600 text-white text-xs font-bold flex items-center justify-center mr-3 shrink-0 mt-0.5"><i class="fa-solid fa-check"></i></span>`;
+            } else if (oIdx === selectedOption && !isCorrect) {
+              btnClass = "bg-rose-50 border-rose-400 text-rose-950 font-semibold ring-1 ring-rose-300 cursor-default";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-rose-600 text-white text-xs font-bold flex items-center justify-center mr-3 shrink-0 mt-0.5"><i class="fa-solid fa-xmark"></i></span>`;
+            } else {
+              btnClass = "opacity-50 border-slate-200 text-slate-400 cursor-not-allowed";
+            }
+          }
+
+          return `
+            <button 
+              type="button"
+              onclick="selectAnswer(${q.id}, ${oIdx})" 
+              ${isAnswered ? 'disabled' : ''} 
+              class="w-full text-left p-3.5 rounded-xl text-sm transition flex items-start ${btnClass} my-2 leading-relaxed">
+              ${iconHtml}
+              <span class="flex-1">${opt}</span>
+            </button>
+          `;
+        }).join('');
+
+        card.innerHTML = `
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <div class="flex items-center gap-2">
+              <span class="bg-indigo-100 text-indigo-800 text-xs font-black px-2.5 py-0.5 rounded-md">Q${q.id}</span>
+              <span class="bg-slate-100 text-slate-600 text-xs font-semibold px-2.5 py-0.5 rounded-md">${q.topic}</span>
+            </div>
+
+            <button type="button" onclick="toggleClue(${q.id})" class="text-xs text-amber-700 bg-amber-50 hover:bg-amber-100 border border-amber-200 px-3 py-1 rounded-lg font-medium transition flex items-center gap-1 cursor-pointer">
+              <i class="fa-regular fa-lightbulb"></i>
+              ${isClueVisible ? 'Hide Hint' : 'Need a Clue?'}
+            </button>
+          </div>
+
+          <h3 class="text-base font-bold text-slate-900 leading-relaxed mb-4">${q.question}</h3>
+
+          <div id="clue-${q.id}" class="${isClueVisible ? 'block' : 'hidden'} mb-4 p-3.5 bg-amber-50/80 border border-amber-200 rounded-xl text-amber-900 text-xs flex items-start gap-2.5">
+            <i class="fa-solid fa-lightbulb text-amber-600 mt-0.5"></i>
+            <div><span class="font-bold">Study Hint:</span> ${q.clue}</div>
+          </div>
+
+          <div class="space-y-1">${optionsHtml}</div>
+
+          ${isAnswered ? `
+            <div class="mt-5 p-4 rounded-xl text-sm border ${
+              isCorrect 
+                ? 'bg-emerald-50/70 border-emerald-200 text-emerald-950' 
+                : 'bg-rose-50/70 border-rose-200 text-slate-800'
+            }">
+              <div class="flex items-center gap-2 font-bold mb-2 ${isCorrect ? 'text-emerald-800' : 'text-rose-800'}">
+                <i class="${isCorrect ? 'fa-solid fa-circle-check text-emerald-600' : 'fa-solid fa-circle-xmark text-rose-600'}"></i>
+                <span>${isCorrect ? 'Correct! Excellent work.' : 'Incorrect. Let\'s break it down:'}</span>
+              </div>
+              <p class="text-xs leading-relaxed text-slate-700 mb-2">${q.explanation}</p>
+              <div class="text-xs font-semibold text-indigo-700 pt-2 border-t border-slate-200/60 flex items-center justify-between">
+                <span>Correct Option: ${String.fromCharCode(65 + q.answer)} (${q.options[q.answer]})</span>
+                <button type="button" onclick="retryQuestion(${q.id})" class="text-slate-500 hover:text-slate-800 font-medium underline ml-2 cursor-pointer">Try Again</button>
+              </div>
+            </div>
+          ` : ''}
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function selectAnswer(qId, optionIdx) {
+      if (userState.answers[qId] !== undefined) return;
+      userState.answers[qId] = optionIdx;
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function retryQuestion(qId) {
+      delete userState.answers[qId];
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function toggleClue(qId) {
+      userState.showClues[qId] = !userState.showClues[qId];
+      safeSave();
+      renderQuestions();
+    }
+
+    function toggleAllClues() {
+      userState.allCluesVisible = !userState.allCluesVisible;
+      document.getElementById('clueToggleText').innerText = userState.allCluesVisible ? "Hide All Hints" : "Show All Hints";
+      safeSave();
+      renderQuestions();
+    }
+
+    function filterTopic(topic) {
+      userState.currentFilter = topic;
+      userState.missedOnly = false;
+      document.querySelectorAll('.topic-btn').forEach(btn => {
+        if (btn.innerText.includes(topic) || (topic === 'All' && btn.innerText.includes('All Topics'))) {
+          btn.className = "topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-sm transition cursor-pointer";
+        } else {
+          btn.className = "topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer";
+        }
+      });
+      renderQuestions();
+    }
+
+    function filterMissed() {
+      userState.missedOnly = !userState.missedOnly;
+      const btn = document.getElementById('filterMissedBtn');
+      if (userState.missedOnly) {
+        btn.className = "text-xs bg-rose-600 text-white border border-rose-600 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer shadow-sm";
+      } else {
+        btn.className = "text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer";
+      }
+      renderQuestions();
+    }
+
+    function updateStats() {
+      const answeredCount = Object.keys(userState.answers).length;
+      let correctCount = 0;
+      let missedCount = 0;
+
+      questionsData.forEach(q => {
+        if (userState.answers[q.id] !== undefined) {
+          if (userState.answers[q.id] === q.answer) {
+            correctCount++;
+          } else {
+            missedCount++;
+          }
+        }
+      });
+
+      const total = questionsData.length;
+      document.getElementById('statAnswered').innerText = `${answeredCount}/${total}`;
+      document.getElementById('missedCount').innerText = missedCount;
+
+      const accuracy = answeredCount === 0 ? 0 : Math.round((correctCount / answeredCount) * 100);
+      document.getElementById('statScore').innerText = `${accuracy}%`;
+      document.getElementById('quizProgressBar').style.width = `${(answeredCount / total) * 100}%`;
+
+      const scoreCard = document.getElementById('scoreSummaryCard');
+      if (answeredCount === total && total > 0) {
+        scoreCard.classList.remove('hidden');
+        document.getElementById('finalTotal').innerText = total;
+        document.getElementById('finalCorrect').innerText = correctCount;
+        document.getElementById('finalPercent').innerText = `${accuracy}%`;
+
+        const ratingBox = document.getElementById('masteryRating');
+        if (accuracy >= 90) {
+          ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-emerald-50 border border-emerald-300 text-emerald-900";
+          ratingBox.innerHTML = '<i class="fa-solid fa-certificate mr-2 text-emerald-600"></i>Mastery Achieved! Outstanding understanding of this document.';
+        } else if (accuracy >= 75) {
+          ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-blue-50 border border-blue-300 text-blue-900";
+          ratingBox.innerHTML = '<i class="fa-solid fa-thumbs-up mr-2 text-blue-600"></i>Proficient! Good foundation; review missed items before testing.';
+        } else {
+          ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-amber-50 border border-amber-300 text-amber-900";
+          ratingBox.innerHTML = '<i class="fa-solid fa-book-open mr-2 text-amber-600"></i>Review Recommended! Use the Markdown companion notes to reinforce weak areas.';
+        }
+      } else {
+        scoreCard.classList.add('hidden');
+      }
+    }
+
+    function resetQuiz() {
+      if (confirm("Are you sure you want to reset all answers and hints for this test?")) {
+        userState.answers = {};
+        userState.showClues = {};
+        userState.allCluesVisible = false;
+        userState.currentFilter = 'All';
+        userState.missedOnly = false;
+        safeSave();
+        document.getElementById('clueToggleText').innerText = "Show All Hints";
+        document.getElementById('filterMissedBtn').className = "text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer";
+        filterTopic('All');
+        renderQuestions();
+        updateStats();
+      }
+    }
+
+    window.onload = init;
+  </script>
+</body>
+</html>

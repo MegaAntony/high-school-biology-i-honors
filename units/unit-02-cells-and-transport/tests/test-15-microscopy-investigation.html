@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biology I Honors - Unit 2 Test 15: Microscopy & Cytological Investigation Stations</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+
+  <!-- TOP HEADER -->
+  <header class="bg-gradient-to-r from-teal-700 via-cyan-700 to-indigo-700 text-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="w-10 h-10 rounded-xl bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition border border-white/20" title="Back to All Tests">
+          <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="bg-white/20 text-xs px-2.5 py-1 rounded-full font-semibold uppercase tracking-wider">Biology I Honors</span>
+            <span class="bg-amber-300 text-slate-900 text-xs px-2.5 py-1 rounded-full font-bold">Unit 2 • Test 15</span>
+          </div>
+          <h1 class="text-xl sm:text-2xl font-black tracking-tight mt-1 text-white">Microscopy & Cell Investigation Stations</h1>
+        </div>
+      </div>
+
+      <!-- Quick Stats Top -->
+      <div class="flex items-center gap-4 bg-white/10 backdrop-blur px-4 py-2 rounded-xl border border-white/15">
+        <div class="text-center">
+          <div class="text-xs uppercase text-teal-200 font-semibold">Answered</div>
+          <div id="statAnswered" class="text-xl font-bold">0/20</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <div class="text-center">
+          <div class="text-xs uppercase text-teal-200 font-semibold">Accuracy</div>
+          <div id="statScore" class="text-xl font-bold text-amber-300">0%</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <button onclick="resetQuiz()" class="text-xs bg-white/20 hover:bg-white/30 text-white px-3 py-2 rounded-lg font-medium transition flex items-center gap-1.5 cursor-pointer">
+          <i class="fa-solid fa-rotate-right"></i> Reset
+        </button>
+      </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="w-full bg-slate-900/30 h-2">
+      <div id="quizProgressBar" class="bg-emerald-400 h-2 transition-all duration-300" style="width: 0%"></div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-6xl mx-auto px-4 py-8">
+
+    <!-- Anti-Guess Note Banner -->
+    <div class="bg-teal-50 border border-teal-200 text-teal-950 p-4 rounded-2xl mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-semibold shadow-sm">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-microscope text-teal-600 text-base shrink-0"></i>
+        <span><strong>Laboratory & Investigation Stations Mastery:</strong> Complete Tier 3 by conquering microscope optics, magnification calculations, station pathology, and cytological diagnostics!</span>
+      </div>
+      <a href="index.html" class="text-teal-900 underline hover:text-teal-950 whitespace-nowrap">View All 20 Tests</a>
+    </div>
+
+    <!-- CONTROLS & FILTER BAR -->
+    <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 mb-8">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-sm font-bold text-slate-700 mb-2">Filter by Topic:</h2>
+          <div class="flex flex-wrap gap-2" id="topicFilters">
+            <button onclick="filterTopic('All')" class="topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-teal-600 text-white shadow-sm transition cursor-pointer">All Topics (20)</button>
+            <button onclick="filterTopic('Field of View (FOV) & Illumination')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Field of View (FOV) & Illumination</button>
+            <button onclick="filterTopic('Field of View Cell Size Estimation')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Field of View Cell Size Estimation</button>
+            <button onclick="filterTopic('High-Power Focusing Protocol')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">High-Power Focusing Protocol</button>
+            <button onclick="filterTopic('Iris Diaphragm & Contrast Control')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Iris Diaphragm & Contrast Control</button>
+            <button onclick="filterTopic('Microscope Care & Optical Cleaning')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Microscope Care & Optical Cleaning</button>
+            <button onclick="filterTopic('Microscope Modalities: LM vs TEM vs SEM')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Microscope Modalities: LM vs TEM vs SEM</button>
+            <button onclick="filterTopic('Microscopic Inversion & Orientation')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Microscopic Inversion & Orientation</button>
+            <button onclick="filterTopic('Resolution vs Magnification')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Resolution vs Magnification</button>
+            <button onclick="filterTopic('Station 1: Macromolecules & Organelle Links')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Station 1: Macromolecules & Organelle Links</button>
+            <button onclick="filterTopic('Station 2: Specialized Human Cells')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Station 2: Specialized Human Cells</button>
+            <button onclick="filterTopic('Station 3: Cystic Fibrosis Pathophysiology')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Station 3: Cystic Fibrosis Pathophysiology</button>
+            <button onclick="filterTopic('Station 3: I-Cell Disease & Golgi Sorting')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Station 3: I-Cell Disease & Golgi Sorting</button>
+            <button onclick="filterTopic('Station 3: Tay-Sachs & Lysosomal Storage')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Station 3: Tay-Sachs & Lysosomal Storage</button>
+            <button onclick="filterTopic('Station 4: Cellular Transport Classification')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Station 4: Cellular Transport Classification</button>
+            <button onclick="filterTopic('Station 5: Dinoflagellates & Red Tides')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Station 5: Dinoflagellates & Red Tides</button>
+            <button onclick="filterTopic('Station 5: Protist Specializations')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Station 5: Protist Specializations</button>
+            <button onclick="filterTopic('Station 6: Endomembrane Secretory Pathway')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Station 6: Endomembrane Secretory Pathway</button>
+            <button onclick="filterTopic('Station 7: Cytological Diagnostic Key')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Station 7: Cytological Diagnostic Key</button>
+            <button onclick="filterTopic('Total Magnification Calculation')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Total Magnification Calculation</button>
+            <button onclick="filterTopic('Wet Mount Preparation Protocol')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Wet Mount Preparation Protocol</button>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 pt-2 lg:pt-0 border-t lg:border-t-0 border-slate-100">
+          <button onclick="toggleAllClues()" id="toggleCluesBtn" class="text-xs bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-regular fa-lightbulb"></i> <span id="clueToggleText">Show All Hints</span>
+          </button>
+          <button onclick="filterMissed()" id="filterMissedBtn" class="text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-solid fa-triangle-exclamation"></i> Missed Only (<span id="missedCount">0</span>)
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTIONS CONTAINER -->
+    <div id="questionsContainer" class="space-y-6">
+      <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- SCORE SUMMARY CARD (Hidden until finished) -->
+    <div id="scoreSummaryCard" class="hidden mt-10 bg-white rounded-3xl p-8 border border-slate-200 shadow-xl text-center max-w-2xl mx-auto">
+      <div class="w-16 h-16 bg-teal-100 text-teal-600 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+        <i class="fa-solid fa-award"></i>
+      </div>
+      <h3 class="text-2xl font-black text-slate-800 mb-2">Test Completed!</h3>
+      <p class="text-slate-600 text-sm mb-6">Unit 2 Test 15: Microscopy & Cytological Investigation Stations (Tier 3 Finished!)</p>
+      
+      <div class="grid grid-cols-3 gap-4 mb-6">
+        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100">
+          <div class="text-xs text-slate-500 font-semibold uppercase">Total Questions</div>
+          <div id="finalTotal" class="text-2xl font-black text-slate-800 mt-1">20</div>
+        </div>
+        <div class="bg-emerald-50 p-4 rounded-2xl border border-emerald-100">
+          <div class="text-xs text-emerald-600 font-semibold uppercase">Correct</div>
+          <div id="finalCorrect" class="text-2xl font-black text-emerald-700 mt-1">0</div>
+        </div>
+        <div class="bg-blue-50 p-4 rounded-2xl border border-blue-100">
+          <div class="text-xs text-blue-600 font-semibold uppercase">Score</div>
+          <div id="finalPercent" class="text-2xl font-black text-blue-700 mt-1">0%</div>
+        </div>
+      </div>
+
+      <div id="masteryRating" class="p-4 rounded-2xl font-bold text-sm mb-6"></div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+        <button onclick="resetQuiz()" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition cursor-pointer">
+          <i class="fa-solid fa-rotate-right mr-1.5"></i> Retake Test
+        </button>
+        <a href="test-16-nucleus-endomembrane.html" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs shadow-md transition text-center">
+          Proceed to Tier 4: Test 16 <i class="fa-solid fa-arrow-right ml-1.5"></i>
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    const questionsData = [
+  {
+    "id": 1,
+    "topic": "Microscope Care & Optical Cleaning",
+    "question": "A student notices a smudge on the 40X high-power objective lens. Which protocol is required to clean the optical glass without permanently damaging the microscope?",
+    "options": [
+      "Gently wipe the optical glass surface using only specialized, lint-free optical lens paper",
+      "Scrub the lens vigorously using a dry abrasive laboratory paper towel and ethanol",
+      "Polish the lens surface using the soft hem of a standard cotton laboratory coat",
+      "Rinse the entire revolving nosepiece and lenses directly under running tap water"
+    ],
+    "answer": 0,
+    "clue": "Which cleaning paper is specifically manufactured free of abrasive wood pulp fibers to prevent scratching coated glass?",
+    "explanation": "Option A is correct. Optical lenses are coated with delicate anti-reflective fluorite films. Standard paper towels, Kimwipes, and clothing contain abrasive cellulose wood pulp and mineral fibers that will permanently scratch the lens coating, degrading resolution. Only specialized, grit-free optical lens paper should be used to clean microscope optics."
+  },
+  {
+    "id": 2,
+    "topic": "High-Power Focusing Protocol",
+    "question": "A biology student switches the revolving nosepiece from the 10X low-power objective to the 40X high-power objective. Why is it a critical laboratory safety violation to adjust the coarse focus knob on high power?",
+    "options": [
+      "The coarse focus knob is wired to the illuminator and will blow the halogen bulb fuse",
+      "The 40X objective sits less than 1 mm above the glass coverslip; coarse adjustment can drive the lens into the slide, shattering the glass and destroying the precision lens",
+      "Coarse focus rotation causes immediate demagnetization of the revolving nosepiece ball bearings",
+      "The coarse focus knob only moves the ocular lens, which has no effect on image focus"
+    ],
+    "answer": 1,
+    "clue": "How close is the 40X objective lens to the glass slide, and how far does the coarse focus move the stage?",
+    "explanation": "Option B is correct. On high power (40X), the working distance between the objective lens tip and the glass coverslip is less than 1 mm. The coarse focus knob moves the stage by large mechanical increments; even a slight turn can smash the objective lens into the slide, cracking the slide, ruining the specimen, and gouging or shattering the multi-element glass lens."
+  },
+  {
+    "id": 3,
+    "topic": "Total Magnification Calculation",
+    "question": "A student views an Elodea leaf cell using a compound light microscope equipped with a standard 10X ocular eyepiece and clicks the blue-ringed high-power objective (40X) into position. What is the total magnification of the observed image?",
+    "options": [
+      "50X",
+      "40X",
+      "400X",
+      "4,000X"
+    ],
+    "answer": 2,
+    "clue": "Total Magnification = Ocular Lens Power \u00d7 Objective Lens Power.",
+    "explanation": "Option C is correct. Total magnification is the product of the ocular eyepiece magnification and the objective lens magnification: Total Magnification = 10X (ocular) \u00d7 40X (objective) = 400X. The specimen image appearing in the student's eye is enlarged 400 times its physical diameter."
+  },
+  {
+    "id": 4,
+    "topic": "Microscopic Inversion & Orientation",
+    "question": "A student mounts a slide with the lowercase letter \"e\" oriented normally. When viewed through the compound light microscope, the student notices that the image moves to the right when the slide is physically nudged to the left. How does the letter \"e\" appear through the oculars, and why?",
+    "options": [
+      "It appears completely normal and right-side up because modern prisms cancel all image distortion",
+      "It appears enlarged and tilted exactly 45 degrees clockwise due to refraction through the cover slip",
+      "It appears mirrored horizontally but retains its normal vertical orientation",
+      "It appears upside down and backwards (inverted and reversed) because light rays cross as they pass through the dual convex lens system"
+    ],
+    "answer": 3,
+    "clue": "Recall the dual-lens inversion principle: up becomes down, and left becomes right.",
+    "explanation": "Option D is correct. A compound light microscope uses two converging convex lens systems (objective and ocular). Light rays refracted by convex lenses cross the optical focal point, inverting the image vertically (upside down) and reversing it horizontally (backwards). This is why moving the stage left moves the visual field right, and pushing it forward moves the field toward the viewer."
+  },
+  {
+    "id": 5,
+    "topic": "Field of View (FOV) & Illumination",
+    "question": "When transitioning from the 4X scanning objective to the 40X high-power objective, what simultaneous changes occur to the diameter of the field of view (FOV) and the perceived image brightness?",
+    "options": [
+      "The field of view diameter decreases 10-fold and the field appears noticeably dimmer, requiring the iris diaphragm to be opened",
+      "The field of view diameter expands 10-fold and the image becomes blindingly bright",
+      "The field of view diameter remains exactly constant while the field goes completely dark",
+      "Both field of view diameter and brightness double due to concentration of photon rays"
+    ],
+    "answer": 0,
+    "clue": "As you zoom in closer to a tiny portion of the slide, do you see more or less of the total area, and does less light enter the smaller aperture?",
+    "explanation": "Option A is correct. Increasing magnification from 4X to 40X (a 10-fold increase) reduces the diameter of the visible field of view by exactly 10-fold (e.g., from ~4.5 mm to ~0.45 mm). Because the high-power objective lens has a much smaller aperture opening, it captures a smaller fraction of available photons, making the image noticeably dimmer and requiring the user to adjust the iris diaphragm or illuminator rheostat."
+  },
+  {
+    "id": 6,
+    "topic": "Resolution vs Magnification",
+    "question": "In optical physics, why is resolving power (resolution) considered more fundamental than magnification when analyzing fine cellular ultrastructure?",
+    "options": [
+      "Magnification changes the chemical composition of the glass slide, whereas resolution does not",
+      "Resolution defines the minimum distance between two distinct points that can be distinguished; without sufficient resolution, increasing magnification merely yields a blurry, enlarged image (empty magnification)",
+      "Resolution determines how many electrons are absorbed by the eyepiece lens",
+      "Magnification cannot exceed 10X under any circumstances in modern biology"
+    ],
+    "answer": 1,
+    "clue": "What happens when you digital-zoom an out-of-focus low-res photo on a smartphone?",
+    "explanation": "Option B is correct. Magnification simply increases the apparent visual size of an object. Resolution is the ability of an optical system to distinguish two closely spaced points as distinct structures (limited by the wavelength of light: d = \u03bb / 2NA). Increasing magnification without adequate resolution leads to \"empty magnification,\" where an object appears larger but without any additional discernable detail."
+  },
+  {
+    "id": 7,
+    "topic": "Microscope Modalities: LM vs TEM vs SEM",
+    "question": "A researcher needs to examine the 3D surface topography of pollen grains and the external microvilli of intestinal cells with exceptional depth of field. Which microscope modality is best suited for this investigation?",
+    "options": [
+      "A standard brightfield compound light microscope at 100X magnification",
+      "A transmission electron microscope (TEM) passing electrons through 50-nm ultra-thin resin sections",
+      "A scanning electron microscope (SEM) that detects secondary electrons knocked off the heavy metal-coated specimen surface",
+      "A dissecting stereomicroscope utilizing red laser illumination"
+    ],
+    "answer": 2,
+    "clue": "Which electron microscope scans the surface of specimens to generate stunning 3D exterior images?",
+    "explanation": "Option C is correct. The scanning electron microscope (SEM) sweeps a focused beam of high-energy electrons across the surface of a specimen coated with a thin layer of gold or platinum. Secondary electrons ejected from the surface are detected to render high-resolution, high-depth-of-field 3D images of surface architecture. TEM visualizes internal 2D ultrastructure, while light microscopy lacks the required resolution and depth of field."
+  },
+  {
+    "id": 8,
+    "topic": "Wet Mount Preparation Protocol",
+    "question": "When preparing a temporary wet mount of cheek epithelial cells stained with methylene blue, a student must lower the coverslip at a 45-degree angle until it contacts the droplet before releasing it. What is the primary purpose of this technique?",
+    "options": [
+      "To activate the chemical dye bonds of methylene blue via electrostatic friction",
+      "To break open the cell membranes so that cytoplasmic organelles float free",
+      "To flatten the glass slide into a concave curvature for wide-angle optics",
+      "To drive out air and prevent the formation of trapped air bubbles that obscure cellular specimens"
+    ],
+    "answer": 3,
+    "clue": "What dark-ringed circular artifacts form on a wet mount if the coverslip is dropped flat onto water?",
+    "explanation": "Option D is correct. Lowering the glass coverslip slowly at a 45\u00b0 angle allows the liquid droplet to spread along the contact edge by surface tension, pushing air forward and preventing air from becoming trapped underneath. Trapped air bubbles appear under the microscope as thick, black-ringed circular artifacts that interfere with viewing the cellular specimen."
+  },
+  {
+    "id": 9,
+    "topic": "Station 1: Macromolecules & Organelle Links",
+    "question": "At Station 1, students analyze the macromolecular constituents of cellular structures. Which pairing correctly connects a biochemical polymer to its primary organelle or cellular structure?",
+    "options": [
+      "Cellulose (polysaccharide carbohydrate) \u2014 primary structural component of plant cell walls",
+      "Phospholipids (lipids) \u2014 catalytic engines that synthesize ribosomal RNA in the nucleolus",
+      "Polypeptides (proteins) \u2014 the primary long-term storage repository of genetic inheritance in the nucleus",
+      "Nucleic acids (DNA/RNA) \u2014 structural fibrous mesh forming the animal extracellular basement membrane"
+    ],
+    "answer": 0,
+    "clue": "Which carbohydrate polymer gives plant cell walls rigid tensile strength?",
+    "explanation": "Option A is correct. Cellulose is a linear unbranched polymer of \u03b2-glucose linked by \u03b2-1,4-glycosidic bonds, forming hydrogen-bonded microfibrils that provide tensile strength to plant cell walls. Option B misassigns phospholipids to rRNA synthesis (performed by RNA polymerase I in the nucleolus). Option C misassigns proteins to genetic storage (DNA). Option D misassigns nucleic acids to the ECM (collagen and proteoglycans)."
+  },
+  {
+    "id": 10,
+    "topic": "Station 2: Specialized Human Cells",
+    "question": "During Station 2, students examine four specialized human cell types. Which structural adaptation is correctly matched with its physiological necessity?",
+    "options": [
+      "Macrophage: Lacks all lysosomes to prevent accidental degradation of ingested viral particles",
+      "Sperm Cell (Spermatozoon): Features a midpiece packed with mitochondria to generate continuous ATP for flagellar swimming",
+      "Red Blood Cell (Erythrocyte): Retains a massive nucleus to transcribe hemoglobin continuously throughout its 120-day life",
+      "Motor Neuron: Completely covered in cellulose microfibrils to insulate electrical action potentials"
+    ],
+    "answer": 1,
+    "clue": "Which organelle supplies the high ATP demand required by dynein motor arms in the sperm tail?",
+    "explanation": "Option B is correct. A mammalian sperm cell possesses a densely packed spiral of mitochondria within its midpiece, strategically located adjacent to the axoneme base to deliver a continuous supply of ATP to dynein motor proteins powering flagellar propulsion. Option A is false (macrophages are rich in lysosomes). Option C is false (mammalian RBCs enucleate). Option D is false (neurons use myelin lipid sheaths, not plant cellulose)."
+  },
+  {
+    "id": 11,
+    "topic": "Station 3: Cystic Fibrosis Pathophysiology",
+    "question": "At Station 3, students investigate Cystic Fibrosis. A genetic mutation in the CFTR gene impairs an integral cell membrane channel protein. Why does the failure of this membrane protein cause patients to develop dangerously thick, dehydrated airway mucus?",
+    "options": [
+      "Mitochondria begin pumping solid calcium carbonate crystals directly into bronchial airways",
+      "Lysosomes burst inside pulmonary cells, liquefying airway surface cilia",
+      "Chloride ions cannot be transported out of epithelial cells; without salt export, water fails to follow by osmosis, leaving the mucus dehydrated and sticky",
+      "The Golgi apparatus stops adding carbohydrate tags to all respiratory enzymes, triggering apoptosis"
+    ],
+    "answer": 2,
+    "clue": "Remember the fundamental osmotic rule: water follows solute (salt). If chloride is trapped inside the cell, where does water go?",
+    "explanation": "Option C is correct. The CFTR protein is an ATP-gated chloride channel in the apical membrane of epithelial cells. Defective CFTR prevents normal Cl- secretion into the airway lumen. Because water moves osmotically toward higher solute concentrations, the lack of salt secretion prevents water from hydrating the mucus layer, creating thick, dehydrated, viscous secretions that trap bacteria and plug airways."
+  },
+  {
+    "id": 12,
+    "topic": "Station 3: Tay-Sachs & Lysosomal Storage",
+    "question": "In Tay-Sachs disease, an infant inherits a defect in the gene encoding hexosaminidase A. Which organelle fails to perform its normal function, and what cytological consequence directly causes neurodegeneration?",
+    "options": [
+      "Rough ER; it misfolds collagen fibers that accumulate in skin dermis",
+      "Mitochondria; they stop producing NADH during the Krebs cycle",
+      "Chloroplasts; they fail to convert solar photons into NADPH in retinal cells",
+      "Lysosomes; they cannot degrade GM2 ganglioside lipids, which accumulate to toxic levels and cause neurons to swell and die"
+    ],
+    "answer": 3,
+    "clue": "Tay-Sachs is a classic \"lysosomal storage disease\" involving lipid breakdown in the central nervous system.",
+    "explanation": "Option D is correct. Tay-Sachs disease is a fatal autosomal recessive lysosomal storage disorder. Absence of the hydrolytic enzyme hexosaminidase A prevents the normal breakdown of GM2 gangliosides (membrane glycolipids) in neuronal lysosomes. The undigested lipids accumulate relentlessly, distending the lysosomes, distorting cellular architecture, and causing widespread neuronal apoptosis and early childhood death."
+  },
+  {
+    "id": 13,
+    "topic": "Station 3: I-Cell Disease & Golgi Sorting",
+    "question": "At Station 3, a rare metabolic condition known as I-cell disease (mucolipidosis II) is analyzed. What organelle malfunction causes digestive enzymes to be mistakenly dumped into the bloodstream instead of being sent to lysosomes?",
+    "options": [
+      "The Golgi apparatus fails to phosphorylate mannose residues (mannose-6-phosphate) on newly synthesized lysosomal enzymes, causing them to be secreted by default",
+      "The nucleus mistakenly transcribes lysosomal genes into ribosomal RNA instead of mRNA",
+      "The plasma membrane actively imports blood waste products directly into the nucleolus",
+      "Mitochondria fuse with ribosomes to synthesize bacterial peptidoglycan polymers"
+    ],
+    "answer": 0,
+    "clue": "Which organelle acts as the molecular \"post office\" that tags proteins with shipping labels like mannose-6-phosphate?",
+    "explanation": "Option A is correct. In I-cell disease, a deficient Golgi phosphotransferase fails to attach mannose-6-phosphate (M6P) recognition tags onto acid hydrolases in the cis-Golgi. Without the M6P shipping label, the trans-Golgi sorting receptors fail to package these enzymes into clathrin-coated lysosomal vesicles. Instead, they travel via default constitutive secretory vesicles and are emptied into extracellular fluids, leaving empty, nonfunctional lysosomes that accumulate large inclusion bodies."
+  },
+  {
+    "id": 14,
+    "topic": "Station 4: Cellular Transport Classification",
+    "question": "At Station 4, students classify cellular transport processes shown in six unlabeled diagrams. Which diagram description represents an ACTIVE transport process requiring ATP hydrolysis?",
+    "options": [
+      "Diagram A: Oxygen molecules diffusing across the phospholipid bilayer from high to low concentration",
+      "Diagram F: An integral transmembrane pump moving 3 Na\u207a ions outward and 2 K\u207a ions inward against their respective electrochemical gradients",
+      "Diagram B: Glucose molecules moving through a GLUT carrier protein down a steep concentration gradient",
+      "Diagram C: Water molecules passing through aquaporin channels down an osmotic water potential gradient"
+    ],
+    "answer": 1,
+    "clue": "Which mechanism moves ions against their gradients and consumes cellular metabolic energy (ATP)?",
+    "explanation": "Option B is correct. Diagram F depicts the primary active sodium-potassium pump (Na+/K+ ATPase), which hydrolyzes one molecule of ATP to pump 3 Na+ out of the cell and 2 K+ into the cell, both against steep concentration gradients. Diagrams A (simple diffusion), B (facilitated diffusion), and C (osmosis) are all passive transport mechanisms powered purely by ambient kinetic energy."
+  },
+  {
+    "id": 15,
+    "topic": "Station 5: Protist Specializations",
+    "question": "At Station 5, students observe living Paramecium and Euglena under high power. Which pairing correctly matches the protist to its specialized structural adaptation and physiological role?",
+    "options": [
+      "Paramecium \u2014 uses a long single flagellum to perform oxygenic photosynthesis in dark caves",
+      "Euglena \u2014 relies on a peptidoglycan cell wall and rigid chitin spines to avoid phagocytosis",
+      "Euglena \u2014 mixotrophic organism possessing green chloroplasts for photosynthesis, an eyespot to detect light, and a motile flagellum",
+      "Paramecium \u2014 lacks contractile vacuoles and allows internal ion concentrations to equilibrate with pond water"
+    ],
+    "answer": 2,
+    "clue": "Which organism can produce its own food in sunlight using chloroplasts and swim toward light using an eyespot and flagellum?",
+    "explanation": "Option C is correct. Euglena is a mixotrophic protist: it possesses chloroplasts to perform autotrophic photosynthesis in the light, but can switch to heterotrophic nutrient absorption in the dark. It swims using an anterior flagellum guided by a pigmented eyespot (stigma) that detects light direction. Paramecium uses thousands of coordinated cilia and contains contractile vacuoles for osmoregulation."
+  },
+  {
+    "id": 16,
+    "topic": "Station 5: Dinoflagellates & Red Tides",
+    "question": "Noctiluca scintillans (\"sea sparkle\") is a marine dinoflagellate noted for stunning bioluminescence. What ecological catastrophe can occur when dense blooms of related dinoflagellates proliferate in coastal waters?",
+    "options": [
+      "They freeze the ocean surface by rapidly absorbing all ambient thermal radiation",
+      "They synthesize cellulose blankets that block underwater acoustic sonar systems",
+      "They convert marine salt water into pure distilled freshwater, lysing ocean fish",
+      "They form toxic \"red tides\" that produce harmful neurotoxins and deplete dissolved oxygen, causing massive fish kills"
+    ],
+    "answer": 3,
+    "clue": "What colorful coastal phenomenon occurs when rapid algal/dinoflagellate blooms turn water reddish-brown and release potent toxins?",
+    "explanation": "Option D is correct. Massive population blooms of marine dinoflagellates (known as harmful algal blooms or \"red tides\") produce potent toxins (such as saxitoxin and brevetoxin) that accumulate in shellfish and kill marine organisms. Furthermore, when the bloom dies, bacterial decomposition of the biomass consumes virtually all dissolved oxygen, creating hypoxic \"dead zones\" that suffocate fish."
+  },
+  {
+    "id": 17,
+    "topic": "Station 6: Endomembrane Secretory Pathway",
+    "question": "Station 6 traces the chronological pathway of an exported secretory protein (such as insulin). What is the exact sequence of organelles and compartments through which this polypeptide travels?",
+    "options": [
+      "Nucleus (mRNA transcription) \u2192 Ribosome on Rough ER (translation) \u2192 Transport Vesicle \u2192 Golgi Apparatus (processing/sorting) \u2192 Secretory Vesicle \u2192 Plasma Membrane (exocytosis)",
+      "Plasma Membrane \u2192 Lysosome \u2192 Smooth ER \u2192 Nucleolus \u2192 Centriole \u2192 Exocytosis",
+      "Mitochondria \u2192 Chloroplast \u2192 Golgi Apparatus \u2192 Rough ER \u2192 Nucleus",
+      "Ribosome in Cytosol \u2192 Central Vacuole \u2192 Peroxisome \u2192 Nuclear Pore \u2192 Endocytosis"
+    ],
+    "answer": 0,
+    "clue": "Follow the genetic message from transcription in the nucleus to translation on the rough ER, through the Golgi, and out the membrane.",
+    "explanation": "Option A is correct. The secretory pathway follows a strict chronological order: (1) DNA is transcribed into mRNA in the nucleus; (2) mRNA is translated by a ribosome bound to the Rough ER, where the polypeptide enters the lumen and folds; (3) transport vesicles shuttle it to the cis-face of the Golgi apparatus; (4) the Golgi modifies, glycosylates, and sorts the protein; (5) secretory vesicles bud from the trans-Golgi; (6) the vesicle fuses with the plasma membrane, releasing cargo via exocytosis."
+  },
+  {
+    "id": 18,
+    "topic": "Station 7: Cytological Diagnostic Key",
+    "question": "At Station 7, students examine an unknown microscopic slide. They observe rectangular cells with distinct outer boundaries, abundant green spherical organelles circulating along the periphery, and a large clear central compartment. How should this specimen be classified?",
+    "options": [
+      "Gram-negative bacterial bacilli (prokaryotic)",
+      "Eukaryotic plant cell (such as Elodea leaf mesophyll)",
+      "Human stratified squamous epithelial cheek cell (animal)",
+      "Unicellular Amoeba proteus displaying amoeboid pseudopodia"
+    ],
+    "answer": 1,
+    "clue": "Which cell type is rectangular with rigid cellulose walls, green chloroplasts, and a large central vacuole?",
+    "explanation": "Option B is correct. The presence of rigid rectangular cell walls (cellulose), numerous green photosynthesizing chloroplasts undergoing cytoplasmic streaming (cyclosis), and an expansive central vacuole restricting the cytoplasm to the periphery are diagnostic hallmarks of eukaryotic plant cells (specifically Elodea aquatic leaf tissue)."
+  },
+  {
+    "id": 19,
+    "topic": "Field of View Cell Size Estimation",
+    "question": "Under a 100X low-power field of view with a measured diameter of 2.0 mm (2,000 \u03bcm), a student counts approximately 10 identical eukaryotic plant cells lined up end-to-end across the center of the field. What is the estimated length of a single cell?",
+    "options": [
+      "20 \u03bcm",
+      "100 \u03bcm",
+      "200 \u03bcm",
+      "2,000 \u03bcm"
+    ],
+    "answer": 2,
+    "clue": "Cell Length = Diameter of Field of View / Number of Cells fitting across the diameter.",
+    "explanation": "Option C is correct. To estimate cell size under the microscope: Cell Length = Field Diameter / Number of Cells = 2,000 \u03bcm / 10 cells = 200 \u03bcm per cell. This is a standard quantitative microscopy skill taught in honors biology laboratory investigations."
+  },
+  {
+    "id": 20,
+    "topic": "Iris Diaphragm & Contrast Control",
+    "question": "A student attempts to observe living, unstained Amoeba in pond water under the 10X objective but sees only a bright, washed-out glare with invisible cell outlines. What optical adjustment will dramatically increase contrast and reveal the transparent cellular boundaries?",
+    "options": [
+      "Immediately turn the coarse focus knob three complete revolutions clockwise",
+      "Switch the light illuminator switch off and view the slide in total darkness",
+      "Soak the objective lenses in hydrochloric acid to remove glare coatings",
+      "Partially close the iris diaphragm to reduce the aperture cone of light, sharpening edges and increasing contrast and depth of field"
+    ],
+    "answer": 3,
+    "clue": "Which substage control adjusts the cone of light and depth of field to enhance contrast in transparent specimens?",
+    "explanation": "Option D is correct. Living, unstained biological specimens (like Amoeba or Paramecium) have refractive indices very close to water and are nearly transparent. Fully open diaphragms flood the specimen with light, washing out faint cellular borders. Partially closing the iris diaphragm narrows the cone of light rays, increasing optical diffraction, sharpening borders, and maximizing contrast and depth of field."
+  }
+];
+
+    const STORAGE_KEY = 'bio_unit2_test15_state_clean';
+
+    let userState = {
+      answers: {},
+      showClues: {},
+      allCluesVisible: false,
+      currentFilter: 'All',
+      missedOnly: false
+    };
+
+    function init() {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        try {
+          const parsed = JSON.parse(saved);
+          if (parsed && typeof parsed === 'object') {
+            userState.answers = parsed.answers || {};
+            userState.showClues = parsed.showClues || {};
+          }
+        } catch(e) {
+          console.error("Could not load state", e);
+        }
+      }
+      renderQuestions();
+      updateStats();
+    }
+
+    function safeSave() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({
+          answers: userState.answers,
+          showClues: userState.showClues
+        }));
+      } catch(e) {
+        console.error("Save failed", e);
+      }
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById('questionsContainer');
+      if (!container) return;
+
+      let list = questionsData;
+
+      if (userState.currentFilter !== 'All') {
+        list = list.filter(q => q.topic === userState.currentFilter);
+      }
+
+      if (userState.missedOnly) {
+        list = list.filter(q => {
+          const ans = userState.answers[q.id];
+          return ans !== undefined && ans !== q.answer;
+        });
+      }
+
+      if (list.length === 0) {
+        container.innerHTML = `
+          <div class="bg-white rounded-2xl p-12 text-center border border-slate-200 text-slate-500">
+            <i class="fa-solid fa-clipboard-check text-4xl text-teal-400 mb-3"></i>
+            <p class="font-bold text-base text-slate-700">No questions match this filter.</p>
+            <p class="text-xs mt-1">Try selecting "All Topics" or toggle off "Missed Only".</p>
+          </div>
+        `;
+        return;
+      }
+
+      const letters = ['A', 'B', 'C', 'D'];
+
+      container.innerHTML = list.map((q) => {
+        const userSelected = userState.answers[q.id];
+        const isAnswered = userSelected !== undefined;
+        const isCorrect = isAnswered && userSelected === q.answer;
+        const isClueVisible = userState.allCluesVisible || !!userState.showClues[q.id];
+
+        let statusBadge = '';
+        if (isAnswered) {
+          if (isCorrect) {
+            statusBadge = '<span class="inline-flex items-center gap-1 text-xs font-bold px-2.5 py-1 rounded-md bg-emerald-100 text-emerald-800 border border-emerald-300"><i class="fa-solid fa-check"></i> Correct</span>';
+          } else {
+            statusBadge = '<span class="inline-flex items-center gap-1 text-xs font-bold px-2.5 py-1 rounded-md bg-rose-100 text-rose-800 border border-rose-300"><i class="fa-solid fa-xmark"></i> Incorrect</span>';
+          }
+        }
+
+        const optionsHtml = q.options.map((optText, optIdx) => {
+          let btnClass = "w-full text-left p-4 rounded-xl border font-medium text-sm transition flex items-start gap-3 cursor-pointer ";
+          let badgeClass = "w-6 h-6 rounded-lg text-xs font-bold flex items-center justify-center shrink-0 border ";
+
+          if (!isAnswered) {
+            btnClass += "bg-white hover:bg-slate-50 border-slate-200 hover:border-slate-300 text-slate-700";
+            badgeClass += "bg-slate-100 border-slate-300 text-slate-600";
+          } else {
+            if (optIdx === q.answer) {
+              btnClass += "bg-emerald-50 border-emerald-500 text-emerald-950 font-semibold ring-2 ring-emerald-400/20";
+              badgeClass += "bg-emerald-600 border-emerald-600 text-white";
+            } else if (optIdx === userSelected) {
+              btnClass += "bg-rose-50 border-rose-500 text-rose-950 ring-2 ring-rose-400/20";
+              badgeClass += "bg-rose-600 border-rose-600 text-white";
+            } else {
+              btnClass += "bg-white border-slate-200 text-slate-400 opacity-60";
+              badgeClass += "bg-slate-100 border-slate-200 text-slate-400";
+            }
+          }
+
+          return `
+            <button onclick="selectOption(${q.id}, ${optIdx})" class="${btnClass}" ${isAnswered ? 'disabled' : ''}>
+              <span class="${badgeClass}">${letters[optIdx]}</span>
+              <span class="pt-0.5 leading-relaxed">${optText}</span>
+            </button>
+          `;
+        }).join('');
+
+        let clueBox = '';
+        if (isClueVisible) {
+          clueBox = `
+            <div class="mt-4 p-3.5 bg-amber-50/90 rounded-xl border border-amber-200/80 text-amber-950 text-xs leading-relaxed flex items-start gap-2.5">
+              <i class="fa-regular fa-lightbulb text-amber-600 text-sm mt-0.5 shrink-0"></i>
+              <div>
+                <strong class="font-bold text-amber-900">Study Hint:</strong> ${q.clue}
+              </div>
+            </div>
+          `;
+        }
+
+        let explanationBox = '';
+        if (isAnswered) {
+          explanationBox = `
+            <div class="mt-4 p-4 rounded-xl border ${isCorrect ? 'bg-emerald-50/90 border-emerald-200 text-emerald-950' : 'bg-slate-100 border-slate-300 text-slate-800'} text-xs leading-relaxed">
+              <div class="flex items-center gap-1.5 font-bold mb-1.5 ${isCorrect ? 'text-emerald-900' : 'text-slate-900'}">
+                <i class="fa-solid ${isCorrect ? 'fa-circle-check text-emerald-600' : 'fa-circle-info text-blue-600'}"></i>
+                <span>${isCorrect ? 'Outstanding! Rigorous Laboratory Analysis:' : 'Conceptual Breakdown & Correction:'}</span>
+              </div>
+              <p class="text-slate-700 leading-relaxed font-normal">${q.explanation}</p>
+            </div>
+          `;
+        }
+
+        return `
+          <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 transition">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 border border-slate-200">Question ${q.id} of 20</span>
+                <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-teal-50 text-teal-700 border border-teal-200">${q.topic}</span>
+              </div>
+              <div>${statusBadge}</div>
+            </div>
+
+            <h3 class="text-base sm:text-lg font-bold text-slate-900 leading-snug mb-5">${q.question}</h3>
+
+            <div class="space-y-3">
+              ${optionsHtml}
+            </div>
+
+            <div class="flex items-center justify-between pt-4 mt-4 border-t border-slate-100">
+              <button onclick="toggleClueSingle(${q.id})" class="text-xs text-slate-500 hover:text-amber-700 font-medium flex items-center gap-1.5 transition cursor-pointer">
+                <i class="fa-regular fa-lightbulb text-amber-500"></i>
+                <span>${isClueVisible ? 'Hide Hint' : 'Show Hint'}</span>
+              </button>
+
+              ${isAnswered ? `
+                <button onclick="clearSingleAnswer(${q.id})" class="text-xs text-slate-400 hover:text-rose-600 font-medium flex items-center gap-1 transition cursor-pointer">
+                  <i class="fa-solid fa-arrow-rotate-left text-xs"></i> Retry
+                </button>
+              ` : '<span class="text-[11px] text-slate-400 italic">Select the best response</span>'}
+            </div>
+
+            ${clueBox}
+            ${explanationBox}
+          </div>
+        `;
+      }).join('');
+    }
+
+    function selectOption(qId, optIdx) {
+      if (userState.answers[qId] !== undefined) return;
+      userState.answers[qId] = optIdx;
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function clearSingleAnswer(qId) {
+      delete userState.answers[qId];
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function toggleClueSingle(qId) {
+      if (userState.allCluesVisible) {
+        userState.showClues[qId] = false;
+      } else {
+        userState.showClues[qId] = !userState.showClues[qId];
+      }
+      safeSave();
+      renderQuestions();
+    }
+
+    function toggleAllClues() {
+      userState.allCluesVisible = !userState.allCluesVisible;
+      const btnText = document.getElementById('clueToggleText');
+      if (btnText) {
+        btnText.textContent = userState.allCluesVisible ? 'Hide All Hints' : 'Show All Hints';
+      }
+      renderQuestions();
+    }
+
+    function filterTopic(topic) {
+      userState.currentFilter = topic;
+      userState.missedOnly = false;
+      document.querySelectorAll('.topic-btn').forEach(btn => {
+        if (btn.textContent.includes(topic) || (topic === 'All' && btn.textContent.includes('All Topics'))) {
+          btn.className = 'topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-teal-600 text-white shadow-sm transition cursor-pointer';
+        } else {
+          btn.className = 'topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer';
+        }
+      });
+      renderQuestions();
+    }
+
+    function filterMissed() {
+      userState.missedOnly = !userState.missedOnly;
+      const btn = document.getElementById('filterMissedBtn');
+      if (userState.missedOnly) {
+        btn.className = 'text-xs bg-rose-600 text-white border border-rose-600 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer shadow-sm';
+      } else {
+        btn.className = 'text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer';
+      }
+      renderQuestions();
+    }
+
+    function updateStats() {
+      const total = questionsData.length;
+      const answeredKeys = Object.keys(userState.answers);
+      const answeredCount = answeredKeys.length;
+      let correctCount = 0;
+      let missedCount = 0;
+
+      answeredKeys.forEach(k => {
+        const q = questionsData.find(item => item.id == k);
+        if (q) {
+          if (userState.answers[k] === q.answer) {
+            correctCount++;
+          } else {
+            missedCount++;
+          }
+        }
+      });
+
+      const pct = answeredCount > 0 ? Math.round((correctCount / answeredCount) * 100) : 0;
+      const progressPct = Math.round((answeredCount / total) * 100);
+
+      const statAns = document.getElementById('statAnswered');
+      const statScore = document.getElementById('statScore');
+      const progBar = document.getElementById('quizProgressBar');
+      const missedCountSpan = document.getElementById('missedCount');
+
+      if (statAns) statAns.textContent = `${answeredCount}/${total}`;
+      if (statScore) statScore.textContent = `${pct}%`;
+      if (progBar) progBar.style.width = `${progressPct}%`;
+      if (missedCountSpan) missedCountSpan.textContent = missedCount;
+
+      const summaryCard = document.getElementById('scoreSummaryCard');
+      if (answeredCount === total && total > 0) {
+        if (summaryCard) {
+          summaryCard.classList.remove('hidden');
+          document.getElementById('finalTotal').textContent = total;
+          document.getElementById('finalCorrect').textContent = correctCount;
+          document.getElementById('finalPercent').textContent = `${pct}%`;
+
+          const rating = document.getElementById('masteryRating');
+          if (pct >= 90) {
+            rating.className = 'p-4 rounded-2xl font-bold text-sm mb-6 bg-emerald-100 text-emerald-900 border border-emerald-300';
+            rating.innerHTML = '🌟 Master Level! Flawless knowledge of microscope mechanics, field size math, station pathology, and cytological diagnostics!';
+          } else if (pct >= 75) {
+            rating.className = 'p-4 rounded-2xl font-bold text-sm mb-6 bg-blue-100 text-blue-900 border border-blue-300';
+            rating.innerHTML = '👍 Solid Understanding! Review missed questions on iris diaphragm contrast, organelle genetic diseases, and secretory vesicles.';
+          } else {
+            rating.className = 'p-4 rounded-2xl font-bold text-sm mb-6 bg-amber-100 text-amber-900 border border-amber-300';
+            rating.innerHTML = '📚 Keep reviewing! Review the core rules: never coarse focus on 40X, calculate Total Mag as Ocular × Objective, and understand CFTR / Tay-Sachs defects.';
+          }
+        }
+      } else {
+        if (summaryCard) summaryCard.classList.add('hidden');
+      }
+    }
+
+    function resetQuiz() {
+      if (confirm('Are you sure you want to reset all answers and progress for this test?')) {
+        userState.answers = {};
+        userState.showClues = {};
+        userState.allCluesVisible = false;
+        userState.missedOnly = false;
+        safeSave();
+        renderQuestions();
+        updateStats();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  </script>
+</body>
+</html>

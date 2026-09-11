@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biology I Honors - Unit 2 Test 06: Molecular Pumps & Ion Gradients</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+
+  <!-- TOP HEADER -->
+  <header class="bg-gradient-to-r from-blue-700 via-indigo-700 to-emerald-700 text-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="w-10 h-10 rounded-xl bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition border border-white/20" title="Back to All Tests">
+          <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="bg-white/20 text-xs px-2.5 py-1 rounded-full font-semibold uppercase tracking-wider">Biology I Honors</span>
+            <span class="bg-indigo-300 text-slate-900 text-xs px-2.5 py-1 rounded-full font-bold">Unit 2 • Test 06</span>
+          </div>
+          <h1 class="text-xl sm:text-2xl font-black tracking-tight mt-1 text-white">Molecular Pumps & Ion Gradients</h1>
+        </div>
+      </div>
+
+      <!-- Quick Stats Top -->
+      <div class="flex items-center gap-4 bg-white/10 backdrop-blur px-4 py-2 rounded-xl border border-white/15">
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Answered</div>
+          <div id="statAnswered" class="text-xl font-bold">0/20</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Accuracy</div>
+          <div id="statScore" class="text-xl font-bold text-emerald-300">0%</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <button onclick="resetQuiz()" class="text-xs bg-white/20 hover:bg-white/30 text-white px-3 py-2 rounded-lg font-medium transition flex items-center gap-1.5 cursor-pointer">
+          <i class="fa-solid fa-rotate-right"></i> Reset
+        </button>
+      </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="w-full bg-slate-900/30 h-2">
+      <div id="quizProgressBar" class="bg-emerald-400 h-2 transition-all duration-300" style="width: 0%"></div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-6xl mx-auto px-4 py-8">
+
+    <!-- Anti-Guess Note Banner -->
+    <div class="bg-indigo-50 border border-indigo-200 text-indigo-950 p-4 rounded-2xl mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-semibold shadow-sm">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-bolt text-indigo-600 text-base shrink-0"></i>
+        <span><strong>Tier 2 Kickoff:</strong> Active transport requires ATP energy to transport ions uphill against their concentration gradients!</span>
+      </div>
+      <a href="index.html" class="text-indigo-800 underline hover:text-indigo-950 whitespace-nowrap">View All 20 Tests</a>
+    </div>
+
+    <!-- CONTROLS & FILTER BAR -->
+    <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 mb-8">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-sm font-bold text-slate-700 mb-2">Filter by Topic:</h2>
+          <div class="flex flex-wrap gap-2" id="topicFilters">
+            <button onclick="filterTopic('All')" class="topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-sm transition cursor-pointer">All Topics (20)</button>
+            <button onclick="filterTopic('ATP Binding Domain Localization')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">ATP Binding Domain Localization</button>
+            <button onclick="filterTopic('ATP Hydrolysis & Active Transport')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">ATP Hydrolysis & Active Transport</button>
+            <button onclick="filterTopic('Active vs Passive Transport Hallmarks')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Active vs Passive Transport Hallmarks</button>
+            <button onclick="filterTopic('Antiporter vs Symporter Classification')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Antiporter vs Symporter Classification</button>
+            <button onclick="filterTopic('Calcium ATPase Function')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Calcium ATPase Function</button>
+            <button onclick="filterTopic('Cellular Energy Allocation')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Cellular Energy Allocation</button>
+            <button onclick="filterTopic('Conformational Phosphorylation Cycle')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Conformational Phosphorylation Cycle</button>
+            <button onclick="filterTopic('Cyanide & ATP Inhibition Effects')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Cyanide & ATP Inhibition Effects</button>
+            <button onclick="filterTopic('Dephosphorylation & Potassium Import')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Dephosphorylation & Potassium Import</button>
+            <button onclick="filterTopic('Digitalis / Ouabain Pharmacological Action')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Digitalis / Ouabain Pharmacological Action</button>
+            <button onclick="filterTopic('Electrochemical Gradient Components')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Electrochemical Gradient Components</button>
+            <button onclick="filterTopic('Electrogenic Nature & Membrane Potential')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Electrogenic Nature & Membrane Potential</button>
+            <button onclick="filterTopic('Experimental Temperature Reduction')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Experimental Temperature Reduction</button>
+            <button onclick="filterTopic('Ion Gradient Directions')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Ion Gradient Directions</button>
+            <button onclick="filterTopic('Lysosomal Acidification')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Lysosomal Acidification</button>
+            <button onclick="filterTopic('Osmotic Balance & Cell Volume Control')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Osmotic Balance & Cell Volume Control</button>
+            <button onclick="filterTopic('Proton Pumps in Plants, Fungi & Bacteria')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Proton Pumps in Plants, Fungi & Bacteria</button>
+            <button onclick="filterTopic('Resting Membrane Potential Magnitude')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Resting Membrane Potential Magnitude</button>
+            <button onclick="filterTopic('Secondary Active Transport Coupling')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Secondary Active Transport Coupling</button>
+            <button onclick="filterTopic('Sodium-Potassium Pump Stoichiometry')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Sodium-Potassium Pump Stoichiometry</button>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 pt-2 lg:pt-0 border-t lg:border-t-0 border-slate-100">
+          <button onclick="toggleAllClues()" id="toggleCluesBtn" class="text-xs bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-regular fa-lightbulb"></i> <span id="clueToggleText">Show All Hints</span>
+          </button>
+          <button onclick="filterMissed()" id="filterMissedBtn" class="text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-solid fa-triangle-exclamation"></i> Review Missed (<span id="missedCount">0</span>)
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTIONS LIST -->
+    <div id="questionsContainer" class="space-y-6"></div>
+
+    <!-- SCORE SUMMARY CARD -->
+    <div id="scoreSummaryCard" class="mt-12 bg-white rounded-3xl p-8 border-2 border-indigo-100 shadow-xl hidden">
+      <div class="text-center max-w-xl mx-auto">
+        <div class="w-16 h-16 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl">
+          <i class="fa-solid fa-trophy"></i>
+        </div>
+        <h2 class="text-2xl font-black text-slate-800">Test 06 Complete!</h2>
+        <p class="text-slate-500 text-sm mt-1">Here is your detailed mastery score for Molecular Pumps & Ion Gradients.</p>
+        
+        <div class="grid grid-cols-3 gap-4 my-6 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Total Questions</div>
+            <div class="text-2xl font-black text-slate-800" id="finalTotal">20</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Correct</div>
+            <div class="text-2xl font-black text-emerald-600" id="finalCorrect">0</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Score Rate</div>
+            <div class="text-2xl font-black text-blue-600" id="finalPercent">0%</div>
+          </div>
+        </div>
+
+        <div id="masteryRating" class="p-4 rounded-2xl font-bold text-sm mb-6"></div>
+
+        <div class="flex items-center justify-center gap-4">
+          <button onclick="resetQuiz()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-indigo-200 transition cursor-pointer">
+            Retake Entire Test
+          </button>
+          <a href="index.html" class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-emerald-200 transition">
+            Back to Tests Hub
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-500 mt-12">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p>© 2026 Biology I Honors • South Forsyth High School</p>
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="hover:text-indigo-600 transition font-medium">All 20 Tests Hub</a>
+        <a href="../../index.html" class="hover:text-indigo-600 transition font-medium">Main Portal</a>
+        <a href="https://github.com/MegaAntony/biology-honors" target="_blank" class="hover:text-indigo-600 transition"><i class="fa-brands fa-github mr-1"></i>GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT ENGINE -->
+  <script>
+    const questionsData = [
+  {
+    "id": 1,
+    "topic": "ATP Hydrolysis & Active Transport",
+    "question": "What fundamental thermodynamic property defines molecular pumps as active transport mechanisms rather than passive transport?",
+    "options": [
+      "They couple the hydrolysis of ATP directly to move ions uphill against their concentration gradient.",
+      "They rely entirely on thermal Brownian motion to diffuse ions down their concentration gradient.",
+      "They operate without any transmembrane conformational shifts or physical protein folding.",
+      "They dissolve phospholipid fatty acid tails to allow unhindered hydrophilic ion passage."
+    ],
+    "answer": 0,
+    "clue": "Active transport requires metabolic energy input (ATP) to move solutes from low to high concentration.",
+    "explanation": "Active transport moves chemical species **uphill against their concentration or electrochemical gradient**, an endergonic process that requires direct metabolic energy coupling via **ATP hydrolysis**."
+  },
+  {
+    "id": 2,
+    "topic": "Sodium-Potassium Pump Stoichiometry",
+    "question": "In each complete catalytic cycle of the animal cell Na+/K+ ATPase pump, what is the exact net stoichiometry of ions transported across the membrane?",
+    "options": [
+      "2 Na+ pumped out of the cell and 3 K+ pumped into the cell per molecule of ATP consumed.",
+      "3 Na+ pumped out of the cell and 2 K+ pumped into the cell per molecule of ATP consumed.",
+      "3 Na+ pumped into the cell and 3 K+ pumped out of the cell without ATP consumption.",
+      "1 Na+ pumped out of the cell and 1 K+ pumped into the cell with 2 ATP molecules consumed."
+    ],
+    "answer": 1,
+    "clue": "Remember: 3 Na+ leave (OUT), 2 K+ enter (IN) per single ATP used.",
+    "explanation": "The Na+/K+ ATPase pump exports **3 sodium ions (3 Na+)** to the extracellular space and imports **2 potassium ions (2 K+)** into the cytosol for every single ATP molecule hydrolyzed."
+  },
+  {
+    "id": 3,
+    "topic": "Electrogenic Nature & Membrane Potential",
+    "question": "Why is the Na+/K+ ATPase classified as an \"electrogenic pump\" in animal cell physiology?",
+    "options": [
+      "It generates thermal electricity by rapidly combusting cytoplasmic glucose and glycogen reserves.",
+      "It equalizes electrical voltage across the bilayer by moving equal positive charges in both directions.",
+      "It exports 3 positive charges for every 2 positive charges imported, creating a net negative interior charge.",
+      "It produces lightning-fast magnetic fields that repel positively charged calcium ions from the nucleus."
+    ],
+    "answer": 2,
+    "clue": "Pumping 3 cations out while bringing only 2 cations in leaves a net loss of positive charge inside.",
+    "explanation": "Because the pump moves **3 Na+ ions out** for every **2 K+ ions in**, there is a net export of one positive charge (+1) per cycle. This directly contributes to maintaining a **negative electrical potential** inside the resting cell membrane."
+  },
+  {
+    "id": 4,
+    "topic": "Conformational Phosphorylation Cycle",
+    "question": "What direct chemical event triggers the conformational change in the Na+/K+ pump that forces the release of 3 Na+ ions to the extracellular fluid?",
+    "options": [
+      "Binding of atmospheric nitrogen to the peripheral carbohydrate glycoproteins.",
+      "Hydrolysis of cellular RNA molecules into single nucleotide monomers.",
+      "Condensation synthesis of a new phospholipid inside the transport pore.",
+      "Phosphorylation of a specific aspartic acid residue by the terminal phosphate of ATP."
+    ],
+    "answer": 3,
+    "clue": "ATP transfers its third phosphate group directly onto the pump protein (phosphorylation).",
+    "explanation": "When 3 cytoplasmic Na+ bind to high-affinity intracellular sites, **ATP transfers its terminal phosphate group** to the pump protein (**phosphorylation**). This induces a conformational shift that opens the pump extracellularly and lowers Na+ affinity."
+  },
+  {
+    "id": 5,
+    "topic": "Dephosphorylation & Potassium Import",
+    "question": "During the second half of the Na+/K+ cycle, what biochemical event triggers the release of the 2 imported K+ ions into the intracellular cytoplasm?",
+    "options": [
+      "Dephosphorylation (hydrolytic release of the inorganic phosphate group) returning the pump to its original shape.",
+      "Absorption of high-energy ultraviolet light by neighboring carotenoid pigments.",
+      "Formation of covalent peptide bonds between sodium ions and ribosomal subunits.",
+      "Complete breakdown of the nuclear envelope into individual phospholipid micelles."
+    ],
+    "answer": 0,
+    "clue": "Removing the phosphate group (dephosphorylation) resets the transporter back to its inward-facing conformation.",
+    "explanation": "Binding of 2 extracellular K+ stimulates the **release of the bound inorganic phosphate group (dephosphorylation)**. This conformational relaxation restores the pump to its original inward-facing shape, releasing K+ into the cytosol."
+  },
+  {
+    "id": 6,
+    "topic": "Cellular Energy Allocation",
+    "question": "Why do resting human nerve and brain cells dedicate upwards of 50% to 70% of their total ATP production strictly to running Na+/K+ pumps?",
+    "options": [
+      "To continuously digest expired organelles before they can trigger apoptosis.",
+      "To continuously restore and maintain resting membrane potentials necessary for repeated action potentials.",
+      "To manufacture vast layers of waterproof wax along the inner perimeter of the cell membrane.",
+      "To mechanically vibrate the plasma membrane and circulate cytoplasmic fluid throughout the tissue."
+    ],
+    "answer": 1,
+    "clue": "Neurons generate electrical signals by letting ions flow down gradients; pumps must continually restore those gradients.",
+    "explanation": "Neurons depend on steep **Na+ and K+ gradients** across their membranes to fire action potentials (nerve impulses). During signaling, ions flow down gradients; the cell must spend enormous amounts of **ATP constantly pumping them back** to maintain excitability."
+  },
+  {
+    "id": 7,
+    "topic": "Osmotic Balance & Cell Volume Control",
+    "question": "How does the continuous activity of the Na+/K+ pump protect animal cells from swelling and undergoing osmotic lysis under normal physiological conditions?",
+    "options": [
+      "It compresses the cytoplasmic fluid into a solid crystalline matrix that cannot absorb water.",
+      "It secretes a thick cellulose cell wall directly beneath the plasma membrane.",
+      "It synthesizes dense crystal barriers that block aquaporins from transporting water.",
+      "It prevents the intracellular accumulation of sodium ions, preventing excess water from entering via osmosis."
+    ],
+    "answer": 3,
+    "clue": "If sodium accumulated inside, water would follow by osmosis and burst the cell.",
+    "explanation": "Animal cells contain high concentrations of trapped organic molecules and proteins. By constantly **pumping Na+ out**, the cell prevents internal solute accumulation that would otherwise draw excess water inward via osmosis and cause **osmotic lysis**."
+  },
+  {
+    "id": 8,
+    "topic": "Proton Pumps in Plants, Fungi & Bacteria",
+    "question": "While animal cells primarily use Na+/K+ pumps as their main electrogenic pump, which primary active transport pump serves this master role in plants, fungi, and bacteria?",
+    "options": [
+      "A sucrose-synthesizing enzyme complex located in the thylakoid stroma.",
+      "A fatty acid synthetase that pumps lipid triglycerides directly into soil water.",
+      "A ribose channel protein that freely diffuses pentose sugars out of the cytoplasm.",
+      "A proton pump (H+ ATPase) that actively expels hydrogen ions into the extracellular space."
+    ],
+    "answer": 3,
+    "clue": "Plants and bacteria pump hydrogen ions (H+ / protons) outside to establish electrochemical gradients.",
+    "explanation": "In plants, fungi, and prokaryotes, the major electrogenic pump is the **proton pump (H+ ATPase)**. It hydrolyzes ATP to pump H+ (protons) out of the cell, generating a steep voltage and pH gradient used for nutrient uptake."
+  },
+  {
+    "id": 9,
+    "topic": "Secondary Active Transport Coupling",
+    "question": "The sodium-glucose cotransporter (symporter) in intestinal epithelial cells transports glucose against its concentration gradient into the cell without hydrolyzing ATP directly. How is this transport powered?",
+    "options": [
+      "By the gravitational settling of heavy dissolved sugar crystals into intestinal villi.",
+      "By radiant solar photon energy collected through cutaneous skin melanocytes.",
+      "By the potential energy released as Na+ moves down its steep concentration gradient created by the Na+/K+ pump.",
+      "By spontaneous radioactive decay of potassium isotopes inside the intestinal lumen."
+    ],
+    "answer": 2,
+    "clue": "Secondary active transport piggybacks on the steep sodium gradient built by primary active transport.",
+    "explanation": "This is **secondary active transport (cotransport)**. The Na+/K+ pump spends ATP to build a steep Na+ concentration gradient outside. The cotransporter then couples the downhill \"rush\" of Na+ back into the cell to pull glucose **uphill** against its gradient."
+  },
+  {
+    "id": 10,
+    "topic": "Calcium ATPase Function",
+    "question": "What essential role does the calcium pump (Ca2+ ATPase / SERCA) play in muscle fibers and eukaryotic cell signaling?",
+    "options": [
+      "It uses ATP to actively pump Ca2+ out of the cytosol into the sarcoplasmic reticulum or extracellular fluid.",
+      "It converts excess calcium ions into organic glucose molecules during prolonged fasting.",
+      "It breaks down calcium atoms into helium nuclei and gamma radiation inside peroxisomes.",
+      "It deposits calcium carbonate shells along the exterior boundary of human erythrocytes."
+    ],
+    "answer": 0,
+    "clue": "Cytosolic calcium must be kept extremely low; pumps push Ca2+ out or into storage so muscle can relax.",
+    "explanation": "Cytosolic Ca2+ concentration must remain extremely low (~10,000 times lower than extracellular fluids) for signaling and muscle relaxation. The **Ca2+ ATPase pump** hydrolyzes ATP to actively pump Ca2+ out of the cytoplasm and into the **sarcoplasmic reticulum**."
+  },
+  {
+    "id": 11,
+    "topic": "Cyanide & ATP Inhibition Effects",
+    "question": "A cell physiologist exposes cultured cardiac muscle cells to sodium cyanide, a metabolic poison that blocks ATP synthesis in mitochondria. What immediate effect will this have on the Na+/K+ pumps?",
+    "options": [
+      "The pumps will double their transport velocity using ambient kinetic thermal vibrations.",
+      "The pumps will cease operating once cellular ATP is depleted, causing sodium to accumulate inside the cells.",
+      "The pumps will convert spontaneously into aquaporins and facilitate bulk water filtration.",
+      "The pumps will start producing new ATP molecules from ambient extracellular sodium ions."
+    ],
+    "answer": 1,
+    "clue": "Without ATP, active molecular pumps stop running because they have no fuel source.",
+    "explanation": "Cyanide halts aerobic respiration and mitochondrial ATP production. Because molecular pumps are **active transporters strictly dependent on ATP hydrolysis**, they **shut down** when ATP is depleted, causing Na+ to accumulate inside and K+ to leak out."
+  },
+  {
+    "id": 12,
+    "topic": "Digitalis / Ouabain Pharmacological Action",
+    "question": "Ouabain and digitalis are cardioactive glycoside medications that bind specifically to the extracellular side of the Na+/K+ ATPase pump. What is their mechanism of action at the molecular level?",
+    "options": [
+      "They shred the phospholipid bilayer into individual free fatty acid droplets.",
+      "They accelerate ATP synthesis five-fold by phosphorylating mitochondrial ribosomes.",
+      "They lock the pump in its phosphorylated state, inhibiting the dephosphorylation step and stopping ion cycling.",
+      "They physically enlarge the pore diameter so that giant globular proteins diffuse out of the cell."
+    ],
+    "answer": 2,
+    "clue": "They bind to the pump and inhibit its cycle, preventing dephosphorylation and blocking ion pumping.",
+    "explanation": "Ouabain and digitalis **inhibit the Na+/K+ ATPase** by locking it in its phosphorylated conformation, preventing K+ binding and dephosphorylation. This halts the pump, elevates intracellular Na+, and modulates cardiac muscle contractility."
+  },
+  {
+    "id": 13,
+    "topic": "Ion Gradient Directions",
+    "question": "Under normal homeostatic conditions in a resting living animal cell, where are the highest relative concentrations of sodium (Na+) and potassium (K+) found?",
+    "options": [
+      "High Na+ inside the cytoplasm and high K+ outside in the extracellular fluid.",
+      "Equal concentrations of both Na+ and K+ on both sides of the plasma membrane.",
+      "Zero Na+ anywhere in the body, with K+ restricted strictly to the mitochondrial matrix.",
+      "High Na+ outside in the extracellular fluid and high K+ inside the cytoplasm."
+    ],
+    "answer": 3,
+    "clue": "Remember the salty ocean environment: outside is salty (Na+), inside is rich in potassium (K+).",
+    "explanation": "Because the Na+/K+ pump constantly pumps 3 Na+ out and 2 K+ in, a healthy resting animal cell maintains a **high Na+ concentration extracellularly** and a **high K+ concentration intracellularly** (in the cytosol)."
+  },
+  {
+    "id": 14,
+    "topic": "Electrochemical Gradient Components",
+    "question": "When an ion moves across a biological membrane via a pump or channel, what two distinct forces combine to create its overall \"electrochemical gradient\"?",
+    "options": [
+      "A chemical concentration gradient and an electrical charge voltage gradient across the membrane.",
+      "Nuclear magnetic resonance forces and subatomic gravitational pull from the earth.",
+      "Cytoskeletal tension forces and the osmotic buoyancy of dissolved ribosomal subunits.",
+      "Atmospheric barometric pressure and the rate of lipid bilayer saponification."
+    ],
+    "answer": 0,
+    "clue": "\"Electro-\" refers to charge/voltage differences; \"-chemical\" refers to concentration differences.",
+    "explanation": "An **electrochemical gradient** consists of two components: (1) a **chemical gradient** (difference in solute concentration across the membrane) and (2) an **electrical gradient** (difference in electrical charge/membrane potential across the bilayer)."
+  },
+  {
+    "id": 15,
+    "topic": "Lysosomal Acidification",
+    "question": "Lysosomes require an internal lumen pH of approximately 4.5 to 5.0 to activate their hydrolytic digestive enzymes. How do lysosomes maintain this acidic internal environment?",
+    "options": [
+      "By utilizing nuclear pores to import condensed sulfuric acid crystals directly from chromatin.",
+      "By using V-type H+ ATPase proton pumps to actively pump protons (H+) from the cytosol into the lysosomal lumen.",
+      "By allowing ambient cellular water to spontaneously decompose into hydrogen gas and ozone.",
+      "By absorbing alkaline bicarbonate ions from neighboring extracellular capillary beds."
+    ],
+    "answer": 1,
+    "clue": "Proton pumps hydrolyze ATP to pump H+ ions into the lysosome, driving down pH (making it acidic).",
+    "explanation": "Membrane-bound **V-type proton pumps (H+ ATPases)** use ATP energy to pump H+ ions against their concentration gradient from the neutral cytosol (pH ~7.2) into the **lysosomal lumen**, maintaining the acidic pH (~4.5-5.0) required for acid hydrolases."
+  },
+  {
+    "id": 16,
+    "topic": "Antiporter vs Symporter Classification",
+    "question": "How does an antiporter molecular transport protein differ structurally and functionally from a symporter molecular transport protein?",
+    "options": [
+      "An antiporter hydrolyzes ATP while a symporter can only burn ribosomal nucleotides for energy.",
+      "An antiporter is made of carbohydrates, while a symporter is made purely of saturated fatty acids.",
+      "An antiporter transports two different substances in opposite directions, whereas a symporter transports them in the same direction.",
+      "An antiporter operates strictly inside the nucleus, while a symporter exists solely on the outer cell wall."
+    ],
+    "answer": 2,
+    "clue": "\"Anti-\" means opposite directions (e.g. Na+/K+); \"sym-\" means same direction (e.g. Na+/glucose).",
+    "explanation": "In active and coupled transport: a **symporter** moves two substances across the membrane in the **same direction**, whereas an **antiporter** (like the Na+/K+ pump or Na+/Ca2+ exchanger) transports them in **opposite directions**."
+  },
+  {
+    "id": 17,
+    "topic": "ATP Binding Domain Localization",
+    "question": "On which face of the plasma membrane is the ATP-binding catalytic domain of the Na+/K+ ATPase molecular pump physically located, and why?",
+    "options": [
+      "On the extracellular outer surface, because ATP is synthesized in the extracellular bloodstream.",
+      "Floating freely between the phospholipid tail monolayers, unattached to either water-facing surface.",
+      "Exclusively on the carbohydrate glycocalyx protruding high above the outer surface of the cell.",
+      "On the intracellular cytoplasmic surface, because ATP is synthesized internally by cellular metabolism."
+    ],
+    "answer": 3,
+    "clue": "Cells produce ATP inside the cytoplasm/mitochondria, so the pump's ATP catalytic site must face the inside.",
+    "explanation": "ATP is manufactured inside the cell by glycolysis and mitochondrial cellular respiration. Therefore, the **nucleotide-binding and catalytic phosphorylation domains** of the Na+/K+ pump are located on the **intracellular (cytoplasmic) face** of the membrane."
+  },
+  {
+    "id": 18,
+    "topic": "Experimental Temperature Reduction",
+    "question": "If a researcher lowers the temperature of an in vitro cell culture from 37\u00b0C to 2\u00b0C, why does the transport rate of Na+/K+ molecular pumps plummet close to zero?",
+    "options": [
+      "Enzymatic ATP hydrolysis slows dramatically and bilayer fluidity drops, impeding required protein conformational changes.",
+      "Cold temperatures cause the sodium ions to turn into solid metallic crystals that plug the channel.",
+      "The low temperature causes potassium ions to lose their valence electrons and form covalent bonds.",
+      "The cell membrane instantly vaporizes into the atmosphere upon reaching temperatures below 5\u00b0C."
+    ],
+    "answer": 0,
+    "clue": "Pumps are enzymes that undergo conformational changes; cold temperatures freeze lipids and reduce enzyme reaction rates.",
+    "explanation": "Molecular pumps are **enzymes (ATPases)** embedded in fluid bilayers. Freezing or chilling temperatures drastically reduce enzyme catalytic velocity (**ATP hydrolysis**) and stiffen the lipid bilayer, preventing the flexible **conformational shape changes** necessary for pumping."
+  },
+  {
+    "id": 19,
+    "topic": "Resting Membrane Potential Magnitude",
+    "question": "What is the typical resting membrane potential of a healthy, non-signaling human neuron or skeletal muscle cell?",
+    "options": [
+      "+500 mV to +1000 mV relative to the extracellular environment.",
+      "-60 mV to -90 mV relative to the extracellular environment.",
+      "Exactly 0.0 mV with no voltage difference whatsoever across the membrane.",
+      "+12 V like an automobile lead-acid battery."
+    ],
+    "answer": 1,
+    "clue": "The inside of a resting animal cell is moderately negative compared to the outside, around -70 mV.",
+    "explanation": "In resting animal cells (such as neurons and muscle cells), the interior of the cell is electrically negative relative to the outside, typically maintaining a **resting membrane potential of -60 mV to -90 mV** (commonly -70 mV)."
+  },
+  {
+    "id": 20,
+    "topic": "Active vs Passive Transport Hallmarks",
+    "question": "Which combination of characteristics unambiguously distinguishes primary active transport via molecular pumps from facilitated diffusion through channel proteins?",
+    "options": [
+      "Requires membrane proteins, moves down concentration gradient, operates without energy input.",
+      "Occurs only across nonpolar waxes, requires daylight photons, produces cellular glucose.",
+      "Requires ATP hydrolysis, moves solutes against concentration gradient, creates/maintains solute disequilibria.",
+      "Does not involve proteins, transports exclusively water molecules, moves toward equilibrium."
+    ],
+    "answer": 2,
+    "clue": "Look for: requires ATP, moves against (uphill) gradient, creates concentration differences.",
+    "explanation": "The hallmark criteria of **primary active transport** are: (1) direct requirement for **energy input (ATP hydrolysis)**, (2) movement of solutes **against their gradient** (uphill from low to high), and (3) establishing or maintaining **concentration and electrical disequilibria**."
+  }
+];
+    const STORAGE_KEY = 'bio_unit2_test06_state_clean';
+
+    let userState = {
+      answers: {},
+      showClues: {},
+      allCluesVisible: false,
+      currentFilter: 'All',
+      missedOnly: false
+    };
+
+    function safeLoad() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (parsed && typeof parsed === 'object') {
+            userState = Object.assign(userState, parsed);
+          }
+        }
+      } catch (e) {
+        console.warn('localStorage not accessible:', e);
+      }
+    }
+
+    function safeSave() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(userState));
+      } catch (e) {
+        console.warn('Could not save to localStorage:', e);
+      }
+    }
+
+    function init() {
+      safeLoad();
+      renderQuestions();
+      updateStats();
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById('questionsContainer');
+      if (!container) return;
+      container.innerHTML = '';
+
+      let filteredQuestions = questionsData.filter(q => {
+        if (userState.currentFilter !== 'All' && q.topic !== userState.currentFilter) return false;
+        if (userState.missedOnly) {
+          const userAns = userState.answers[q.id];
+          if (userAns === undefined || userAns === q.answer) return false;
+        }
+        return true;
+      });
+
+      if (filteredQuestions.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-12 bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
+            <i class="fa-solid fa-circle-check text-emerald-500 text-4xl mb-3"></i>
+            <h3 class="text-lg font-bold text-slate-800">No Questions In This Filter</h3>
+            <p class="text-slate-500 text-sm mt-1">Try selecting 'All Topics' or clearing the missed review filter.</p>
+          </div>
+        `;
+        return;
+      }
+
+      filteredQuestions.forEach((q) => {
+        const isAnswered = userState.answers[q.id] !== undefined;
+        const selectedOption = userState.answers[q.id];
+        const isCorrect = isAnswered && selectedOption === q.answer;
+        const isClueVisible = userState.allCluesVisible || userState.showClues[q.id];
+
+        const card = document.createElement('div');
+        card.className = `bg-white rounded-2xl p-6 border transition-all duration-200 shadow-sm ${
+          isAnswered
+            ? isCorrect
+              ? 'border-emerald-300 ring-1 ring-emerald-200/50 bg-emerald-50/20'
+              : 'border-rose-300 ring-1 ring-rose-200/50 bg-rose-50/20'
+            : 'border-slate-200 hover:border-slate-300'
+        }`;
+        card.id = `q-card-${q.id}`;
+
+        let optionsHtml = q.options.map((opt, oIdx) => {
+          let btnClass = "border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50/40 text-slate-700 cursor-pointer";
+          let iconHtml = `<span class="w-6 h-6 rounded-full border border-slate-300 text-xs font-semibold flex items-center justify-center mr-3 text-slate-500 shrink-0 mt-0.5">${String.fromCharCode(65 + oIdx)}</span>`;
+
+          if (isAnswered) {
+            if (oIdx === q.answer) {
+              btnClass = "bg-emerald-50 border-emerald-500 text-emerald-950 font-semibold ring-1 ring-emerald-400 cursor-default";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-emerald-600 text-white text-xs font-bold flex items-center justify-center mr-3 shrink-0 mt-0.5"><i class="fa-solid fa-check"></i></span>`;
+            } else if (oIdx === selectedOption && !isCorrect) {
+              btnClass = "bg-rose-50 border-rose-400 text-rose-950 font-semibold ring-1 ring-rose-300 cursor-default";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-rose-600 text-white text-xs font-bold flex items-center justify-center mr-3 shrink-0 mt-0.5"><i class="fa-solid fa-xmark"></i></span>`;
+            } else {
+              btnClass = "opacity-50 border-slate-200 text-slate-400 cursor-not-allowed";
+            }
+          }
+
+          return `
+            <button 
+              type="button"
+              onclick="selectAnswer(${q.id}, ${oIdx})" 
+              ${isAnswered ? 'disabled' : ''} 
+              class="w-full text-left p-3.5 rounded-xl text-sm transition flex items-start ${btnClass} my-2 leading-relaxed">
+              ${iconHtml}
+              <span class="flex-1">${opt}</span>
+            </button>
+          `;
+        }).join('');
+
+        card.innerHTML = `
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <div class="flex items-center gap-2">
+              <span class="bg-indigo-100 text-indigo-800 text-xs font-black px-2.5 py-0.5 rounded-md">Q${q.id}</span>
+              <span class="bg-slate-100 text-slate-600 text-xs font-semibold px-2.5 py-0.5 rounded-md">${q.topic}</span>
+            </div>
+
+            <button type="button" onclick="toggleClue(${q.id})" class="text-xs text-amber-700 bg-amber-50 hover:bg-amber-100 border border-amber-200 px-3 py-1 rounded-lg font-medium transition flex items-center gap-1 cursor-pointer">
+              <i class="fa-regular fa-lightbulb"></i>
+              ${isClueVisible ? 'Hide Hint' : 'Need a Clue?'}
+            </button>
+          </div>
+
+          <h3 class="text-base font-bold text-slate-900 leading-relaxed mb-4">${q.question}</h3>
+
+          <div id="clue-${q.id}" class="${isClueVisible ? 'block' : 'hidden'} mb-4 p-3.5 bg-amber-50/80 border border-amber-200 rounded-xl text-amber-900 text-xs flex items-start gap-2.5">
+            <i class="fa-solid fa-lightbulb text-amber-600 mt-0.5"></i>
+            <div><span class="font-bold">Study Hint:</span> ${q.clue}</div>
+          </div>
+
+          <div class="space-y-1">${optionsHtml}</div>
+
+          ${isAnswered ? `
+            <div class="mt-5 p-4 rounded-xl text-sm border ${
+              isCorrect 
+                ? 'bg-emerald-50/70 border-emerald-200 text-emerald-950' 
+                : 'bg-rose-50/70 border-rose-200 text-slate-800'
+            }">
+              <div class="flex items-center gap-2 font-bold mb-2 ${isCorrect ? 'text-emerald-800' : 'text-rose-800'}">
+                <i class="${isCorrect ? 'fa-solid fa-circle-check text-emerald-600' : 'fa-solid fa-circle-xmark text-rose-600'}"></i>
+                <span>${isCorrect ? 'Correct! Excellent work.' : 'Incorrect. Let\'s break it down:'}</span>
+              </div>
+              <p class="text-xs leading-relaxed text-slate-700 mb-2">${q.explanation}</p>
+              <div class="text-xs font-semibold text-indigo-700 pt-2 border-t border-slate-200/60 flex items-center justify-between">
+                <span>Correct Option: ${String.fromCharCode(65 + q.answer)} (${q.options[q.answer]})</span>
+                <button type="button" onclick="retryQuestion(${q.id})" class="text-slate-500 hover:text-slate-800 font-medium underline ml-2 cursor-pointer">Try Again</button>
+              </div>
+            </div>
+          ` : ''}
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function selectAnswer(qId, optionIdx) {
+      if (userState.answers[qId] !== undefined) return;
+      userState.answers[qId] = optionIdx;
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function retryQuestion(qId) {
+      delete userState.answers[qId];
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function toggleClue(qId) {
+      userState.showClues[qId] = !userState.showClues[qId];
+      const el = document.getElementById(`clue-${qId}`);
+      if (el) {
+        el.classList.toggle('hidden');
+        el.classList.toggle('block');
+      }
+    }
+
+    function toggleAllClues() {
+      userState.allCluesVisible = !userState.allCluesVisible;
+      const btnText = document.getElementById('clueToggleText');
+      if (btnText) {
+        btnText.textContent = userState.allCluesVisible ? 'Hide All Hints' : 'Show All Hints';
+      }
+      renderQuestions();
+    }
+
+    function filterTopic(topic) {
+      userState.currentFilter = topic;
+      userState.missedOnly = false;
+      document.querySelectorAll('.topic-btn').forEach(btn => {
+        if (btn.textContent.includes(topic) || (topic === 'All' && btn.textContent.includes('All Topics'))) {
+          btn.className = 'topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-sm transition cursor-pointer';
+        } else {
+          btn.className = 'topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer';
+        }
+      });
+      renderQuestions();
+    }
+
+    function filterMissed() {
+      userState.missedOnly = !userState.missedOnly;
+      const btn = document.getElementById('filterMissedBtn');
+      if (userState.missedOnly) {
+        btn.className = 'text-xs bg-rose-600 text-white border border-rose-600 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer shadow-sm';
+      } else {
+        btn.className = 'text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer';
+      }
+      renderQuestions();
+    }
+
+    function updateStats() {
+      const total = questionsData.length;
+      const answeredKeys = Object.keys(userState.answers);
+      const answeredCount = answeredKeys.length;
+      let correctCount = 0;
+      let missedCount = 0;
+
+      answeredKeys.forEach(k => {
+        const q = questionsData.find(item => item.id == k);
+        if (q) {
+          if (userState.answers[k] === q.answer) {
+            correctCount++;
+          } else {
+            missedCount++;
+          }
+        }
+      });
+
+      const pct = answeredCount > 0 ? Math.round((correctCount / answeredCount) * 100) : 0;
+      const progressPct = Math.round((answeredCount / total) * 100);
+
+      const statAns = document.getElementById('statAnswered');
+      const statScore = document.getElementById('statScore');
+      const progBar = document.getElementById('quizProgressBar');
+      const missedCountSpan = document.getElementById('missedCount');
+
+      if (statAns) statAns.textContent = `${answeredCount}/${total}`;
+      if (statScore) statScore.textContent = `${pct}%`;
+      if (progBar) progBar.style.width = `${progressPct}%`;
+      if (missedCountSpan) missedCountSpan.textContent = missedCount;
+
+      const summaryCard = document.getElementById('scoreSummaryCard');
+      if (answeredCount === total && total > 0) {
+        if (summaryCard) {
+          summaryCard.classList.remove('hidden');
+          document.getElementById('finalTotal').textContent = total;
+          document.getElementById('finalCorrect').textContent = correctCount;
+          document.getElementById('finalPercent').textContent = `${pct}%`;
+
+          const rating = document.getElementById('masteryRating');
+          if (pct >= 90) {
+            rating.className = 'p-4 rounded-2xl font-bold text-sm mb-6 bg-emerald-100 text-emerald-900 border border-emerald-300';
+            rating.innerHTML = '🌟 Master Level! Outstanding command of molecular pumps and electrochemical gradients!';
+          } else if (pct >= 75) {
+            rating.className = 'p-4 rounded-2xl font-bold text-sm mb-6 bg-blue-100 text-blue-900 border border-blue-300';
+            rating.innerHTML = '👍 Solid Mastery! Review missed questions to lock in a 100% on active transport.';
+          } else {
+            rating.className = 'p-4 rounded-2xl font-bold text-sm mb-6 bg-amber-100 text-amber-900 border border-amber-300';
+            rating.innerHTML = '📚 Keep practicing! Pay special attention to ATP hydrolysis and ion stoichiometry (3 Na+ out, 2 K+ in).';
+          }
+        }
+      } else {
+        if (summaryCard) summaryCard.classList.add('hidden');
+      }
+    }
+
+    function resetQuiz() {
+      if (confirm('Are you sure you want to reset all answers and progress for this test?')) {
+        userState.answers = {};
+        userState.showClues = {};
+        userState.allCluesVisible = false;
+        userState.missedOnly = false;
+        safeSave();
+        renderQuestions();
+        updateStats();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  </script>
+</body>
+</html>

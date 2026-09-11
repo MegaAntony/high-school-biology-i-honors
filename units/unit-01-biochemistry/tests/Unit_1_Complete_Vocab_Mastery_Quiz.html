@@ -1,0 +1,1874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biology I Honors - Unit 1 Complete Vocabulary Mastery Quiz (v2 - Anti-Guess Edition)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;600&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    .code-font { font-family: 'Fira Code', monospace; }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 min-h-screen flex flex-col">
+
+  <!-- TOP HEADER -->
+  <header class="bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 text-white shadow-xl sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="bg-blue-500/30 text-blue-200 text-xs px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider border border-blue-400/30">Biology I Honors</span>
+          <span class="bg-emerald-500 text-slate-950 text-xs px-2.5 py-0.5 rounded-full font-black uppercase tracking-wider">v2 Anti-Guess • 78 Terms</span>
+        </div>
+        <h1 class="text-2xl font-black tracking-tight mt-1 flex items-center gap-2.5">
+          <i class="fa-solid fa-book-bookmark text-emerald-400"></i> Complete Vocabulary Mastery Quiz (v2)
+        </h1>
+      </div>
+
+      <!-- Quick Stats & Actions -->
+      <div class="flex items-center gap-4 bg-white/10 backdrop-blur px-5 py-2.5 rounded-2xl border border-white/15">
+        <div class="text-center">
+          <div class="text-[10px] uppercase text-blue-200 font-bold tracking-wider">Progress</div>
+          <div id="statAnswered" class="text-lg font-black">0/78</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <div class="text-center">
+          <div class="text-[10px] uppercase text-blue-200 font-bold tracking-wider">Accuracy</div>
+          <div id="statScore" class="text-lg font-black text-emerald-300">0%</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <button onclick="resetQuiz()" class="text-xs bg-white/15 hover:bg-white/25 text-white px-3 py-2 rounded-xl font-bold transition flex items-center gap-1.5">
+          <i class="fa-solid fa-arrow-rotate-left"></i> Reset
+        </button>
+      </div>
+    </div>
+
+    <!-- Live Progress Bar -->
+    <div class="w-full bg-slate-950/60 h-2">
+      <div id="quizProgressBar" class="bg-gradient-to-r from-emerald-400 to-teal-400 h-2 transition-all duration-300" style="width: 0%"></div>
+    </div>
+  </header>
+
+  <!-- MAIN WRAPPER -->
+  <main class="max-w-7xl mx-auto px-4 py-8 flex-1 w-full grid grid-cols-1 lg:grid-cols-4 gap-8">
+
+    <!-- SIDEBAR -->
+    <aside class="lg:col-span-1 space-y-6">
+      
+      <!-- Search Box -->
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200">
+        <h2 class="text-xs font-black uppercase text-slate-400 tracking-wider mb-2">Search Terms</h2>
+        <div class="relative">
+          <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-slate-400 text-sm"></i>
+          <input 
+            type="text" 
+            id="searchInput" 
+            oninput="handleSearch()"
+            placeholder="Search any vocab word..." 
+            class="w-full pl-9 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 text-slate-800 placeholder-slate-400 font-medium"
+          />
+        </div>
+      </div>
+
+      <!-- Categories -->
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200">
+        <h2 class="text-xs font-black uppercase text-slate-400 tracking-wider mb-3">Topic Modules</h2>
+        <div class="space-y-1.5" id="categoryFilterList">
+          <button onclick="filterCategory('All')" class="cat-btn active-cat w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-bold transition flex items-center justify-between bg-indigo-600 text-white shadow-sm">
+            <span><i class="fa-solid fa-layer-group mr-2"></i> All Vocabulary</span>
+            <span class="bg-white/20 px-2 py-0.5 rounded-md text-[10px]">78</span>
+          </button>
+          <button onclick="filterCategory('Characteristics of Life')" class="cat-btn w-full text-left px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 transition flex items-center justify-between">
+            <span><i class="fa-solid fa-dna mr-2 text-rose-500"></i> Characteristics of Life</span>
+            <span class="text-slate-400 text-[10px]">8</span>
+          </button>
+          <button onclick="filterCategory('Experimental Design')" class="cat-btn w-full text-left px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 transition flex items-center justify-between">
+            <span><i class="fa-solid fa-chart-line mr-2 text-blue-500"></i> Scientific Method & Graphs</span>
+            <span class="text-slate-400 text-[10px]">8</span>
+          </button>
+          <button onclick="filterCategory('Properties of Water')" class="cat-btn w-full text-left px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 transition flex items-center justify-between">
+            <span><i class="fa-solid fa-droplet mr-2 text-cyan-500"></i> Properties of Water</span>
+            <span class="text-slate-400 text-[10px]">13</span>
+          </button>
+          <button onclick="filterCategory('Reactions & Polymers')" class="cat-btn w-full text-left px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 transition flex items-center justify-between">
+            <span><i class="fa-solid fa-atom mr-2 text-amber-500"></i> Reactions & Polymers</span>
+            <span class="text-slate-400 text-[10px]">8</span>
+          </button>
+          <button onclick="filterCategory('Carbohydrates')" class="cat-btn w-full text-left px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 transition flex items-center justify-between">
+            <span><i class="fa-solid fa-wheat-awn mr-2 text-yellow-600"></i> Carbohydrates</span>
+            <span class="text-slate-400 text-[10px]">9</span>
+          </button>
+          <button onclick="filterCategory('Lipids')" class="cat-btn w-full text-left px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 transition flex items-center justify-between">
+            <span><i class="fa-solid fa-bacon mr-2 text-orange-500"></i> Lipids</span>
+            <span class="text-slate-400 text-[10px]">11</span>
+          </button>
+          <button onclick="filterCategory('Proteins & Enzymes')" class="cat-btn w-full text-left px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 transition flex items-center justify-between">
+            <span><i class="fa-solid fa-egg mr-2 text-emerald-600"></i> Proteins & Enzymes</span>
+            <span class="text-slate-400 text-[10px]">14</span>
+          </button>
+          <button onclick="filterCategory('Nucleic Acids')" class="cat-btn w-full text-left px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 transition flex items-center justify-between">
+            <span><i class="fa-solid fa-fingerprint mr-2 text-purple-600"></i> Nucleic Acids</span>
+            <span class="text-slate-400 text-[10px]">7</span>
+          </button>
+        </div>
+
+        <div class="mt-5 pt-4 border-t border-slate-100 flex flex-col gap-2">
+          <button onclick="toggleMissedOnly()" id="missedToggleBtn" class="w-full py-2.5 px-3 rounded-xl text-xs font-bold bg-rose-50 text-rose-800 border border-rose-200 hover:bg-rose-100 transition flex items-center justify-center gap-2">
+            <i class="fa-solid fa-circle-exclamation"></i> Review Missed (<span id="missedCount">0</span>)
+          </button>
+          <button onclick="toggleGlobalHints()" id="globalHintBtn" class="w-full py-2.5 px-3 rounded-xl text-xs font-bold bg-amber-50 text-amber-800 border border-amber-200 hover:bg-amber-100 transition flex items-center justify-center gap-2">
+            <i class="fa-regular fa-lightbulb"></i> <span id="globalHintText">Show All Clues</span>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <section class="lg:col-span-3 space-y-6">
+      
+      <!-- Anti-Guess Note Banner -->
+      <div class="bg-indigo-50 border border-indigo-200 text-indigo-950 p-4 rounded-2xl flex items-center justify-between text-xs font-semibold">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-shield-halved text-indigo-600 text-base"></i>
+          <span><strong>v2 Anti-Guess Edition:</strong> All distractor terms are matched by domain and category length, with balanced randomized option positions!</span>
+        </div>
+        <a href="Unit_1_Complete_Vocab_Mastery_Quiz.html" class="text-indigo-800 underline hover:text-indigo-950 ml-4 whitespace-nowrap">Switch to v1</a>
+      </div>
+
+      <!-- Top banner -->
+      <div class="flex items-center justify-between bg-white px-6 py-4 rounded-2xl border border-slate-200 shadow-sm">
+        <div>
+          <span class="text-xs font-bold uppercase text-slate-400 tracking-wider">Current Filter:</span>
+          <h2 id="currentFilterLabel" class="text-lg font-black text-slate-800">All Vocabulary (78 Terms)</h2>
+        </div>
+        <div class="text-xs text-slate-500 font-medium">
+          Showing <span id="visibleCount" class="font-bold text-slate-800">78</span> questions
+        </div>
+      </div>
+
+      <!-- Questions List -->
+      <div id="questionsFeed" class="space-y-6"></div>
+
+      <!-- Scorecard -->
+      <div id="scoreSummaryCard" class="bg-white rounded-3xl p-8 border-2 border-indigo-200 shadow-xl hidden text-center">
+        <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4 text-3xl">
+          <i class="fa-solid fa-award"></i>
+        </div>
+        <h2 class="text-2xl font-black text-slate-900">Vocabulary Mastery Complete!</h2>
+        <p class="text-slate-500 text-sm mt-1">You have reviewed all 78 key vocabulary terms for Unit 1 Biology.</p>
+        
+        <div class="grid grid-cols-3 gap-4 my-6 max-w-md mx-auto bg-slate-50 p-4 rounded-2xl border border-slate-200">
+          <div>
+            <div class="text-xs font-bold text-slate-400 uppercase">Total Words</div>
+            <div class="text-2xl font-black text-slate-800">78</div>
+          </div>
+          <div>
+            <div class="text-xs font-bold text-slate-400 uppercase">Correct</div>
+            <div class="text-2xl font-black text-emerald-600" id="finalCorrect">0</div>
+          </div>
+          <div>
+            <div class="text-xs font-bold text-slate-400 uppercase">Mastery</div>
+            <div class="text-2xl font-black text-indigo-600" id="finalScore">0%</div>
+          </div>
+        </div>
+
+        <div id="finalRatingBanner" class="p-4 rounded-2xl font-bold text-sm mb-6 max-w-lg mx-auto"></div>
+
+        <button onclick="resetQuiz()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-xl font-bold shadow-lg shadow-indigo-200 transition">
+          Retake Vocabulary Test
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SLIDE-OVER STUDY DRAWER -->
+  <div id="drawerBackdrop" onclick="closeDrawer()" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 transition-opacity opacity-0 pointer-events-none duration-300"></div>
+  
+  <div id="learnDrawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-white z-50 shadow-2xl border-l border-slate-200 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+    <div class="p-6 border-b border-slate-100 bg-slate-50 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="w-8 h-8 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-sm font-black">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </span>
+        <div>
+          <span class="text-[10px] font-bold uppercase text-indigo-600 tracking-wider">Concept Lesson Card</span>
+          <h3 id="drawerTermTitle" class="text-lg font-black text-slate-900 leading-tight">Vocabulary Term</h3>
+        </div>
+      </div>
+      <button onclick="closeDrawer()" class="w-8 h-8 rounded-xl bg-slate-200/70 hover:bg-slate-300 text-slate-600 flex items-center justify-center transition">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="p-6 overflow-y-auto space-y-5 flex-1 text-sm leading-relaxed">
+      <div>
+        <span class="text-xs text-slate-400 font-semibold uppercase tracking-wider block mb-1">Unit Module:</span>
+        <span id="drawerCategory" class="bg-indigo-50 text-indigo-700 text-xs font-bold px-3 py-1 rounded-lg border border-indigo-100 inline-block">Category</span>
+      </div>
+
+      <div class="bg-blue-50/70 border border-blue-200 p-4 rounded-2xl">
+        <h4 class="text-xs font-black uppercase text-blue-900 tracking-wider mb-1.5 flex items-center gap-1.5">
+          <i class="fa-solid fa-book-open text-blue-600"></i> Formal Definition
+        </h4>
+        <p id="drawerDefinition" class="text-xs text-blue-950 font-medium leading-relaxed"></p>
+      </div>
+
+      <div class="bg-amber-50/70 border border-amber-200 p-4 rounded-2xl">
+        <h4 class="text-xs font-black uppercase text-amber-900 tracking-wider mb-1.5 flex items-center gap-1.5">
+          <i class="fa-solid fa-lightbulb text-amber-600"></i> Memory Clue / Trick
+        </h4>
+        <p id="drawerClue" class="text-xs text-amber-950 leading-relaxed"></p>
+      </div>
+
+      <div class="bg-emerald-50/70 border border-emerald-200 p-4 rounded-2xl">
+        <h4 class="text-xs font-black uppercase text-emerald-900 tracking-wider mb-1.5 flex items-center gap-1.5">
+          <i class="fa-solid fa-flask-vial text-emerald-600"></i> Biological Example
+        </h4>
+        <p id="drawerExample" class="text-xs text-emerald-950 leading-relaxed"></p>
+      </div>
+
+      <div class="bg-purple-50/70 border border-purple-200 p-4 rounded-2xl">
+        <h4 class="text-xs font-black uppercase text-purple-900 tracking-wider mb-1.5 flex items-center gap-1.5">
+          <i class="fa-solid fa-star text-purple-600"></i> Test Day Key Takeaway
+        </h4>
+        <p id="drawerTakeaway" class="text-xs text-purple-950 font-semibold leading-relaxed"></p>
+      </div>
+    </div>
+
+    <div class="p-4 border-t border-slate-100 bg-slate-50">
+      <button onclick="closeDrawer()" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-2.5 rounded-xl text-xs transition">
+        Got it! Return to Quiz
+      </button>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT ENGINE -->
+  <script>
+    const vocabData = [
+  {
+    "id": 1,
+    "term": "Metabolism",
+    "category": "Characteristics of Life",
+    "question": "Which term describes the sum total of all biochemical reactions and energy transformations occurring within a living organism?",
+    "options": [
+      "Metabolism",
+      "Homeostasis",
+      "Cellular Organization",
+      "Unicellular"
+    ],
+    "answer": 0,
+    "clue": "It includes both the building up (anabolism) and breaking down (catabolism) of substances to manage energy.",
+    "definition": "The complete set of life-sustaining chemical reactions within the cells of organisms that convert food/nutrients into usable energy and cellular building blocks.",
+    "example": "Digesting a sandwich into glucose and then using that glucose to produce ATP in cellular respiration.",
+    "key_takeaway": "Metabolism = Anabolism (building) + Catabolism (breaking down)."
+  },
+  {
+    "id": 2,
+    "term": "Homeostasis",
+    "category": "Characteristics of Life",
+    "question": "An organism's ability to maintain a stable, constant internal environment despite fluctuating external conditions is known as:",
+    "options": [
+      "Unicellular",
+      "Metabolism",
+      "Cellular Organization",
+      "Homeostasis"
+    ],
+    "answer": 3,
+    "clue": "'Homeo-' means same/similar, and '-stasis' means standing still or stable state.",
+    "definition": "The physiological mechanism by which organisms regulate their internal environment (such as body temperature, blood pH, water balance, and glucose levels) within narrow limits.",
+    "example": "Human body shivering when cold to generate heat, or sweating when hot to cool down via evaporative cooling.",
+    "key_takeaway": "Essential for enzyme function; extreme disruption leads to cell death or denaturation."
+  },
+  {
+    "id": 3,
+    "term": "Cellular Organization",
+    "category": "Characteristics of Life",
+    "question": "The foundational principle that all living things are composed of one or more membrane-bound basic units of life is called:",
+    "options": [
+      "Homeostasis",
+      "Metabolism",
+      "Cellular Organization",
+      "Unicellular"
+    ],
+    "answer": 2,
+    "clue": "Organisms can be unicellular (single-celled like bacteria) or multicellular (like humans and trees).",
+    "definition": "The structural rule stating that the cell is the fundamental structural and functional unit of all living organisms.",
+    "example": "Bacteria are single-celled organisms, while animals possess trillions of specialized cells organized into tissues and organs.",
+    "key_takeaway": "Viruses lack cells and therefore fail this core criterion of life."
+  },
+  {
+    "id": 4,
+    "term": "Unicellular",
+    "category": "Characteristics of Life",
+    "question": "An organism that consists of only a single, independent cell that performs all life functions is termed:",
+    "options": [
+      "Metabolism",
+      "Unicellular",
+      "Homeostasis",
+      "Cellular Organization"
+    ],
+    "answer": 1,
+    "clue": "The prefix 'Uni-' means one.",
+    "definition": "An organism composed of a single cell that conducts all vital life processes (e.g., metabolism, reproduction, homeostasis) within that one cell.",
+    "example": "Amoeba, Paramecium, and E. coli bacteria.",
+    "key_takeaway": "Contrast with multicellular organisms which have specialized cells forming tissues."
+  },
+  {
+    "id": 5,
+    "term": "Multicellular",
+    "category": "Characteristics of Life",
+    "question": "Organisms composed of many differentiated, specialized cells working cooperatively are classified as:",
+    "options": [
+      "Multicellular",
+      "Metabolism",
+      "Homeostasis",
+      "Cellular Organization"
+    ],
+    "answer": 0,
+    "clue": "The prefix 'Multi-' means many.",
+    "definition": "Organisms formed from multiple cells that exhibit cell specialization, differentiation, and tissue-level organization.",
+    "example": "Humans, oak trees, mushrooms, and blue whales.",
+    "key_takeaway": "Allows for complex organs and systems (e.g., nervous system, xylem/phloem)."
+  },
+  {
+    "id": 6,
+    "term": "Heredity",
+    "category": "Characteristics of Life",
+    "question": "The biological process whereby genetic traits and DNA are transmitted from parents to their offspring is called:",
+    "options": [
+      "Cellular Organization",
+      "Metabolism",
+      "Homeostasis",
+      "Heredity"
+    ],
+    "answer": 3,
+    "clue": "DNA is the hereditary molecule passed during reproduction.",
+    "definition": "The passing of genetic traits and DNA sequences from parent organisms to progeny during reproduction.",
+    "example": "Inheriting eye color, blood type, or leaf shape from parental genes.",
+    "key_takeaway": "Ensures genetic continuity across generations."
+  },
+  {
+    "id": 7,
+    "term": "Evolution & Adaptation",
+    "category": "Characteristics of Life",
+    "question": "The gradual change in the inherited characteristics and allele frequencies of a population over successive generations is defined as:",
+    "options": [
+      "Homeostasis",
+      "Metabolism",
+      "Evolution & Adaptation",
+      "Cellular Organization"
+    ],
+    "answer": 2,
+    "clue": "Occurs at the population level over time via natural selection.",
+    "definition": "The long-term evolutionary process through which genetic traits of a population change over generations as advantageous adaptations increase survival.",
+    "example": "Finches developing different beak shapes suited to distinct seed types on the Galapagos Islands.",
+    "key_takeaway": "Individuals do not evolve; populations evolve over generations."
+  },
+  {
+    "id": 8,
+    "term": "Response to Stimuli",
+    "category": "Characteristics of Life",
+    "question": "A plant bending toward sunlight (phototropism) or a person pulling their hand away from a hot stove demonstrates which characteristic of life?",
+    "options": [
+      "Metabolism",
+      "Response to Stimuli",
+      "Homeostasis",
+      "Cellular Organization"
+    ],
+    "answer": 1,
+    "clue": "A stimulus is any detectable change in the internal or external environment that triggers a reaction.",
+    "definition": "The ability of an organism to perceive environmental changes (stimuli) and execute physiological or behavioral reactions to survive.",
+    "example": "Pupils constricting in bright light; Venus flytrap snapping shut when sensory hairs are touched.",
+    "key_takeaway": "Enables organisms to find food, avoid predators, and stay within habitable conditions."
+  },
+  {
+    "id": 9,
+    "term": "Independent Variable",
+    "category": "Experimental Design",
+    "question": "In an experiment, the specific factor or condition that is intentionally changed or manipulated by the experimenter is the:",
+    "options": [
+      "Independent Variable",
+      "Dependent Variable",
+      "Control Group",
+      "Experimental Group"
+    ],
+    "answer": 0,
+    "clue": "Think: 'I' change it. Plotted on the X-axis.",
+    "definition": "The variable deliberately manipulated by the researcher to determine its effect on the outcome.",
+    "example": "Testing different dosages of a new medicine (0 mg, 50 mg, 100 mg).",
+    "key_takeaway": "An experiment should test only ONE independent variable at a time."
+  },
+  {
+    "id": 10,
+    "term": "Dependent Variable",
+    "category": "Experimental Design",
+    "question": "The variable that is measured, observed, or recorded as the outcome of an experiment is called the:",
+    "options": [
+      "Experimental Group",
+      "Independent Variable",
+      "Control Group",
+      "Dependent Variable"
+    ],
+    "answer": 3,
+    "clue": "It depends on what was manipulated. Plotted on the Y-axis.",
+    "definition": "The measurable factor that responds to changes in the independent variable.",
+    "example": "Measuring the height of tomato plants in centimeters after applying fertilizer.",
+    "key_takeaway": "Remember DRY MIX: Dependent/Responding/Y-axis."
+  },
+  {
+    "id": 11,
+    "term": "Control Group",
+    "category": "Experimental Design",
+    "question": "The baseline group in an experiment that does not receive the experimental treatment and serves as a standard for comparison is the:",
+    "options": [
+      "Dependent Variable",
+      "Independent Variable",
+      "Control Group",
+      "Experimental Group"
+    ],
+    "answer": 2,
+    "clue": "Used to confirm whether the independent variable is truly responsible for observed effects.",
+    "definition": "The group kept under baseline, unmanipulated conditions to provide a comparison standard against the experimental groups.",
+    "example": "Plants given pure water with zero fertilizer added.",
+    "key_takeaway": "Without a control group, you cannot validate whether the variable caused the result."
+  },
+  {
+    "id": 12,
+    "term": "Experimental Group",
+    "category": "Experimental Design",
+    "question": "The group in a scientific study that receives the specific treatment or variable being tested is the:",
+    "options": [
+      "Independent Variable",
+      "Experimental Group",
+      "Dependent Variable",
+      "Control Group"
+    ],
+    "answer": 1,
+    "clue": "This group receives the experimental independent variable.",
+    "definition": "The test group subjected to the experimental manipulation or treatment.",
+    "example": "Bears given 200 mg of caffeine before solving a puzzle.",
+    "key_takeaway": "Compared directly against the control group."
+  },
+  {
+    "id": 13,
+    "term": "Constants (Controlled Variables)",
+    "category": "Experimental Design",
+    "question": "All factors and experimental conditions that must be kept strictly identical across all groups in an experiment are called:",
+    "options": [
+      "Constants (Controlled Variables)",
+      "Independent Variable",
+      "Dependent Variable",
+      "Control Group"
+    ],
+    "answer": 0,
+    "clue": "They remain constant so they don't skew the results.",
+    "definition": "All parameters maintained uniformly across experimental and control setups to prevent uncontrolled variables from influencing data.",
+    "example": "Using the same pot size, soil brand, water volume, and temperature for every plant in a trial.",
+    "key_takeaway": "Ensures that differences in the dependent variable are solely due to the independent variable."
+  },
+  {
+    "id": 14,
+    "term": "Qualitative Data",
+    "category": "Experimental Design",
+    "question": "Data collected through sensory observation that describes non-numerical qualities, appearances, or behaviors is:",
+    "options": [
+      "Control Group",
+      "Independent Variable",
+      "Dependent Variable",
+      "Qualitative Data"
+    ],
+    "answer": 3,
+    "clue": "Focuses on 'Quality' (color, texture, smell, behavior) rather than numbers.",
+    "definition": "Descriptive, non-numerical data describing physical properties, colors, textures, or smells.",
+    "example": "Observing that a chemical solution turned bright blue and formed bubbles.",
+    "key_takeaway": "Important for initial exploratory biology observations."
+  },
+  {
+    "id": 15,
+    "term": "Quantitative Data",
+    "category": "Experimental Design",
+    "question": "Data expressed in numerical values obtained through counting or standardized measurements with units is:",
+    "options": [
+      "Dependent Variable",
+      "Independent Variable",
+      "Quantitative Data",
+      "Control Group"
+    ],
+    "answer": 2,
+    "clue": "Focuses on 'Quantity' (numbers, grams, milliliters, seconds).",
+    "definition": "Numerical measurements that can be mathematically analyzed, averaged, and graphed.",
+    "example": "A beaker temperature of 38.5\u00b0C or a mass change of 1.45 grams.",
+    "key_takeaway": "Required for statistical tests and precision in laboratory experiments."
+  },
+  {
+    "id": 16,
+    "term": "Hypothesis",
+    "category": "Experimental Design",
+    "question": "A testable, proposed explanation for a scientific phenomenon, often formatted as an 'If... then... because...' statement, is a:",
+    "options": [
+      "Independent Variable",
+      "Hypothesis",
+      "Dependent Variable",
+      "Control Group"
+    ],
+    "answer": 1,
+    "clue": "Must be falsifiable and scientifically testable through experiment.",
+    "definition": "A testable prediction based on prior knowledge and observations that proposes a cause-and-effect relationship.",
+    "example": "'If caffeine concentration is increased, then grizzly bear puzzle completion time will decrease because caffeine stimulates the central nervous system.'",
+    "key_takeaway": "Hypotheses can be supported or rejected by data, but never permanently 'proven'."
+  },
+  {
+    "id": 17,
+    "term": "Polarity",
+    "category": "Properties of Water",
+    "question": "An unequal sharing of electrons within a molecule that creates a partial negative region and a partial positive region is called:",
+    "options": [
+      "Polarity",
+      "Hydrogen Bond",
+      "Cohesion",
+      "Adhesion"
+    ],
+    "answer": 0,
+    "clue": "Water is polar because oxygen pulls electrons stronger than hydrogen.",
+    "definition": "A state of electric charge separation across a covalently bonded molecule due to differences in electronegativity between bonded atoms.",
+    "example": "Water (H\u2082O), where oxygen carries a partial negative charge (\u03b4\u207b) and hydrogens carry partial positive charges (\u03b4\u207a).",
+    "key_takeaway": "Polarity is the underlying cause of all of water's unique emergent properties."
+  },
+  {
+    "id": 18,
+    "term": "Hydrogen Bond",
+    "category": "Properties of Water",
+    "question": "The weak electrostatic attraction between the partially negative oxygen of one water molecule and the partially positive hydrogen of another water molecule is a:",
+    "options": [
+      "Adhesion",
+      "Polarity",
+      "Cohesion",
+      "Hydrogen Bond"
+    ],
+    "answer": 3,
+    "clue": "Forms BETWEEN separate molecules, not within a single molecule.",
+    "definition": "An intermolecular attraction between a partially positive hydrogen atom covalently bonded to an electronegative atom (like O or N) and another electronegative atom.",
+    "example": "Hydrogen bonds linking adjacent H\u2082O molecules, or holding complementary DNA base pairs together.",
+    "key_takeaway": "Individually weak and temporary, but collectively strong in large numbers."
+  },
+  {
+    "id": 19,
+    "term": "Cohesion",
+    "category": "Properties of Water",
+    "question": "The intermolecular attraction that causes water molecules to stick to OTHER water molecules is:",
+    "options": [
+      "Hydrogen Bond",
+      "Polarity",
+      "Cohesion",
+      "Adhesion"
+    ],
+    "answer": 2,
+    "clue": "'Co-' means together with itself (water sticking to water).",
+    "definition": "The tendency of similar molecules to attract and cling to one another through hydrogen bonding.",
+    "example": "Water droplets forming spherical beads on a waxed car hood.",
+    "key_takeaway": "Responsible for creating high surface tension in liquid water."
+  },
+  {
+    "id": 20,
+    "term": "Adhesion",
+    "category": "Properties of Water",
+    "question": "The attraction that causes water molecules to stick to DIFFERENT polar or charged surfaces is called:",
+    "options": [
+      "Polarity",
+      "Adhesion",
+      "Hydrogen Bond",
+      "Cohesion"
+    ],
+    "answer": 1,
+    "clue": "Think of adhesive tape sticking to a wall (water sticking to a different substance).",
+    "definition": "The binding of a cell or molecule to a different kind of molecule or polar surface.",
+    "example": "Water clinging to the glass walls of a graduated cylinder to form a curved meniscus.",
+    "key_takeaway": "Works alongside cohesion to drive capillary action."
+  },
+  {
+    "id": 21,
+    "term": "Capillary Action",
+    "category": "Properties of Water",
+    "question": "The spontaneous movement of liquid water upward through narrow tubes or porous materials against the force of gravity is:",
+    "options": [
+      "Capillary Action",
+      "Polarity",
+      "Hydrogen Bond",
+      "Cohesion"
+    ],
+    "answer": 0,
+    "clue": "Driven by both cohesion (water-water) and adhesion (water-tube wall).",
+    "definition": "The upward flow of liquid through narrow spaces caused by the synergistic forces of adhesion pulling water up polar surfaces and cohesion pulling trailing water molecules behind.",
+    "example": "Water rising from tree roots up xylem vessels to reaching leaves over 300 feet in the air.",
+    "key_takeaway": "Crucial for vascular plant transpiration and fluid circulation."
+  },
+  {
+    "id": 22,
+    "term": "Surface Tension",
+    "category": "Properties of Water",
+    "question": "The elastic-like tension at the surface of liquid water caused by cohesive hydrogen bonds pulling surface molecules inward is:",
+    "options": [
+      "Cohesion",
+      "Polarity",
+      "Hydrogen Bond",
+      "Surface Tension"
+    ],
+    "answer": 3,
+    "clue": "Allows insects like water striders to walk on water without sinking.",
+    "definition": "A physical property resulting from cohesive forces at the liquid's surface, creating a resistant barrier.",
+    "example": "Water forming a dome over the brim of a penny without spilling.",
+    "key_takeaway": "Water has one of the highest surface tensions of any non-metallic liquid."
+  },
+  {
+    "id": 23,
+    "term": "High Specific Heat",
+    "category": "Properties of Water",
+    "question": "The property where water must absorb or release a large amount of thermal energy to change its temperature by 1\u00b0C is known as:",
+    "options": [
+      "Hydrogen Bond",
+      "Polarity",
+      "High Specific Heat",
+      "Cohesion"
+    ],
+    "answer": 2,
+    "clue": "Explains why ocean water warms up very slowly in the summer.",
+    "definition": "The amount of heat energy required to raise the temperature of 1 gram of a substance by 1\u00b0C. Water's high value is due to energy first being used to break hydrogen bonds before kinetic energy can increase.",
+    "example": "Oceans buffering Earth's climate and preventing rapid, lethal temperature spikes in organisms.",
+    "key_takeaway": "Maintains temperature homeostasis in cellular organisms and marine habitats."
+  },
+  {
+    "id": 24,
+    "term": "High Heat of Vaporization",
+    "category": "Properties of Water",
+    "question": "The large quantity of heat energy required for liquid water to convert into gaseous water vapor, providing evaporative cooling, is:",
+    "options": [
+      "Polarity",
+      "High Heat of Vaporization",
+      "Hydrogen Bond",
+      "Cohesion"
+    ],
+    "answer": 1,
+    "clue": "Sweating utilizes this to carry away excess body heat when sweat evaporates.",
+    "definition": "The amount of energy needed to transform a given quantity of a liquid into a gas at its boiling point.",
+    "example": "Evaporative cooling in sweating humans or panting dogs dissipates large amounts of metabolic heat.",
+    "key_takeaway": "Protects terrestrial organisms from fatal overheating."
+  },
+  {
+    "id": 25,
+    "term": "Density of Ice (Crystal Lattice)",
+    "category": "Properties of Water",
+    "question": "Why does solid ice float on top of liquid water?",
+    "options": [
+      "Density of Ice (Crystal Lattice)",
+      "Polarity",
+      "Hydrogen Bond",
+      "Cohesion"
+    ],
+    "answer": 0,
+    "clue": "Frozen water expands and becomes less dense than liquid water.",
+    "definition": "Below 4\u00b0C, water molecules slow down, allowing stable hydrogen bonds to push molecules into a rigid, open crystal lattice with more empty space, decreasing its density.",
+    "example": "Ice floating on lakes, insulating the liquid water underneath so fish and aquatic life survive winter.",
+    "key_takeaway": "If ice sank, oceans and lakes would freeze from the bottom up, destroying aquatic ecosystems."
+  },
+  {
+    "id": 26,
+    "term": "Universal Solvent",
+    "category": "Properties of Water",
+    "question": "Water is often called the 'Universal Solvent' because:",
+    "options": [
+      "Cohesion",
+      "Polarity",
+      "Hydrogen Bond",
+      "Universal Solvent"
+    ],
+    "answer": 3,
+    "clue": "Like dissolves like: polar water dissolves polar and ionic substances.",
+    "definition": "Water's ability to dissolve more substances than any other liquid due to its polar nature and capacity to form hydration shells.",
+    "example": "Blood plasma (mostly water) dissolving glucose, amino acids, salts, and hormones for bodily transport.",
+    "key_takeaway": "Essential for biological transport and cellular chemical reactions."
+  },
+  {
+    "id": 27,
+    "term": "Hydration Shell",
+    "category": "Properties of Water",
+    "question": "When a salt crystal dissolves in water, the sphere of water molecules that surrounds and isolates each individual ion is a:",
+    "options": [
+      "Hydrogen Bond",
+      "Polarity",
+      "Hydration Shell",
+      "Cohesion"
+    ],
+    "answer": 2,
+    "clue": "Partial negative oxygens surround Na\u207a cations, while partial positive hydrogens surround Cl\u207b anions.",
+    "definition": "A sphere of oriented water molecules surrounding a dissolved ion or polar solute.",
+    "example": "Water molecules surrounding dissolved Na\u207a and Cl\u207b in cellular fluid.",
+    "key_takeaway": "Keeps ions separated and dispersed uniformly throughout a solution."
+  },
+  {
+    "id": 28,
+    "term": "Hydrophilic",
+    "category": "Properties of Water",
+    "question": "Substances that are polar or ionic and have a strong affinity for water (dissolving or interacting readily) are termed:",
+    "options": [
+      "Polarity",
+      "Hydrophilic",
+      "Hydrogen Bond",
+      "Cohesion"
+    ],
+    "answer": 1,
+    "clue": "'Hydro-' = water; '-philic' = loving.",
+    "definition": "Molecules with polar covalent or ionic bonds that interact favorably with and dissolve in water.",
+    "example": "Table sugar (sucrose), table salt (NaCl), and glucose.",
+    "key_takeaway": "Forms hydrogen bonds or electrostatic bonds with water."
+  },
+  {
+    "id": 29,
+    "term": "Hydrophobic",
+    "category": "Properties of Water",
+    "question": "Substances composed of nonpolar bonds that repel water and do not dissolve in aqueous solutions are classified as:",
+    "options": [
+      "Hydrophobic",
+      "Polarity",
+      "Hydrogen Bond",
+      "Cohesion"
+    ],
+    "answer": 0,
+    "clue": "'Hydro-' = water; '-phobic' = fearing.",
+    "definition": "Molecules lacking charged or polar groups (predominantly C-H hydrocarbon bonds) that cannot form hydrogen bonds with water and aggregate together.",
+    "example": "Vegetable oil, butter, candle wax, and phospholipid tails.",
+    "key_takeaway": "Insoluble in water; drives cell membrane formation and protein tertiary folding."
+  },
+  {
+    "id": 30,
+    "term": "Organic Compound",
+    "category": "Reactions & Polymers",
+    "question": "A chemical compound that contains carbon covalently bonded to hydrogen (and often O, N, P, S) in living organisms is an:",
+    "options": [
+      "Polymer",
+      "Inorganic Compound",
+      "Monomer",
+      "Organic Compound"
+    ],
+    "answer": 3,
+    "clue": "All living things are made of these carbon-based molecules.",
+    "definition": "Molecules that contain carbon-hydrogen (C-H) covalent bonds and form the chemical basis of living matter.",
+    "example": "Glucose (C\u2086H\u2081\u2082O\u2086), DNA, hemoglobin, and fatty acids.",
+    "key_takeaway": "Water (H\u2082O) and carbon dioxide (CO\u2082) are inorganic because they lack C-H bonds."
+  },
+  {
+    "id": 31,
+    "term": "Inorganic Compound",
+    "category": "Reactions & Polymers",
+    "question": "Molecules that lack carbon-hydrogen (C-H) bonds, such as water (H\u2082O) and table salt (NaCl), are classified as:",
+    "options": [
+      "Monomer",
+      "Organic Compound",
+      "Inorganic Compound",
+      "Polymer"
+    ],
+    "answer": 2,
+    "clue": "Prefix 'In-' means not organic.",
+    "definition": "Chemical substances that do not contain carbon-hydrogen bonds.",
+    "example": "Water (H\u2082O), mineral salts (NaCl, KCl), oxygen gas (O\u2082), and carbon dioxide (CO\u2082).",
+    "key_takeaway": "Vital for life processes as solvents and mineral ions, but not built from organic monomer chains."
+  },
+  {
+    "id": 32,
+    "term": "Monomer",
+    "category": "Reactions & Polymers",
+    "question": "A small, single molecular subunit that can chemically bond with other identical or similar subunits to form a larger chain is a:",
+    "options": [
+      "Organic Compound",
+      "Monomer",
+      "Inorganic Compound",
+      "Polymer"
+    ],
+    "answer": 1,
+    "clue": "'Mono-' means single; '-mer' means part.",
+    "definition": "A single building-block molecule that can be joined with other monomers to create polymers.",
+    "example": "Glucose is a monomer for starch; an amino acid is a monomer for proteins; a nucleotide is a monomer for DNA.",
+    "key_takeaway": "Linked by dehydration synthesis."
+  },
+  {
+    "id": 33,
+    "term": "Polymer",
+    "category": "Reactions & Polymers",
+    "question": "A large macromolecule constructed by covalently linking many repeating monomer subunits together is called a:",
+    "options": [
+      "Polymer",
+      "Organic Compound",
+      "Inorganic Compound",
+      "Monomer"
+    ],
+    "answer": 0,
+    "clue": "'Poly-' means many; '-mer' means parts.",
+    "definition": "A long chain molecule composed of repeating, covalently bonded monomers.",
+    "example": "Polysaccharides (starch/glycogen), polypeptides/proteins, and nucleic acids (DNA/RNA).",
+    "key_takeaway": "Broken down into monomers by hydrolysis."
+  },
+  {
+    "id": 34,
+    "term": "Dehydration Synthesis (Condensation)",
+    "category": "Reactions & Polymers",
+    "question": "A chemical reaction that joins two monomers by removing an -H from one and an -OH from another, releasing a water molecule as a byproduct, is:",
+    "options": [
+      "Monomer",
+      "Organic Compound",
+      "Inorganic Compound",
+      "Dehydration Synthesis (Condensation)"
+    ],
+    "answer": 3,
+    "clue": "'Dehydration' = losing water; 'Synthesis' = putting together.",
+    "definition": "An anabolic chemical reaction in which two molecules are covalently bonded with the simultaneous loss of a water molecule.",
+    "example": "Joining two glucose molecules to form maltose and releasing H\u2082O.",
+    "key_takeaway": "Anabolic reaction that requires energy to build polymers."
+  },
+  {
+    "id": 35,
+    "term": "Hydrolysis",
+    "category": "Reactions & Polymers",
+    "question": "A chemical reaction that breaks covalent bonds in polymers by adding a split water molecule (H\u207a and OH\u207b) is:",
+    "options": [
+      "Inorganic Compound",
+      "Organic Compound",
+      "Hydrolysis",
+      "Monomer"
+    ],
+    "answer": 2,
+    "clue": "'Hydro-' = water; '-lysis' = breaking/splitting.",
+    "definition": "A catabolic chemical process that cleaves covalent bonds in polymers by the chemical addition of water.",
+    "example": "Digesting dietary starch into individual glucose monomers in the small intestine.",
+    "key_takeaway": "Catabolic reaction that releases energy."
+  },
+  {
+    "id": 36,
+    "term": "Anabolic Reaction",
+    "category": "Reactions & Polymers",
+    "question": "A metabolic pathway that synthesizes complex, larger molecules from simpler building blocks, requiring an input of energy, is an:",
+    "options": [
+      "Organic Compound",
+      "Anabolic Reaction",
+      "Inorganic Compound",
+      "Monomer"
+    ],
+    "answer": 1,
+    "clue": "Think of 'Anabolic steroids' used to build muscle mass.",
+    "definition": "Endogonic metabolic reactions that build complex cellular structures from simpler precursors (e.g., protein synthesis).",
+    "example": "Synthesizing glycogen from excess glucose molecules in the liver.",
+    "key_takeaway": "Consumes energy (ATP) and uses dehydration synthesis."
+  },
+  {
+    "id": 37,
+    "term": "Catabolic Reaction",
+    "category": "Reactions & Polymers",
+    "question": "A metabolic pathway that breaks down complex organic molecules into simpler compounds, releasing stored chemical energy, is a:",
+    "options": [
+      "Catabolic Reaction",
+      "Organic Compound",
+      "Inorganic Compound",
+      "Monomer"
+    ],
+    "answer": 0,
+    "clue": "Think: 'Catabolism' breaks down like a catastrophe.",
+    "definition": "Exergonic metabolic reactions that degrade complex molecules into simpler products, releasing energy for cellular work.",
+    "example": "Cellular respiration breaking glucose down into CO\u2082 and H\u2082O to generate ATP.",
+    "key_takeaway": "Releases energy and frequently utilizes hydrolysis."
+  },
+  {
+    "id": 38,
+    "term": "Monosaccharide",
+    "category": "Carbohydrates",
+    "question": "The simplest single-ring carbohydrate monomer with the empirical formula (CH\u2082O)n is a:",
+    "options": [
+      "Glycosidic Linkage",
+      "Glucose",
+      "Disaccharide",
+      "Monosaccharide"
+    ],
+    "answer": 3,
+    "clue": "Examples include glucose, fructose, and galactose.",
+    "definition": "A simple single-sugar unit that cannot be hydrolyzed into simpler sugars.",
+    "example": "Glucose (blood sugar) and fructose (fruit sugar).",
+    "key_takeaway": "Primary fuel for cellular ATP production."
+  },
+  {
+    "id": 39,
+    "term": "Glucose",
+    "category": "Carbohydrates",
+    "question": "A six-carbon hexose monosaccharide (C\u2086H\u2081\u2082O\u2086) that serves as the universal direct fuel for cellular respiration is:",
+    "options": [
+      "Disaccharide",
+      "Monosaccharide",
+      "Glucose",
+      "Glycosidic Linkage"
+    ],
+    "answer": 2,
+    "clue": "Produced by plants during photosynthesis and circulated in human blood.",
+    "definition": "The most important biological monosaccharide hexose sugar used directly in cellular respiration.",
+    "example": "Circulating blood glucose regulated by insulin and glucagon.",
+    "key_takeaway": "Chemical formula: C\u2086H\u2081\u2082O\u2086."
+  },
+  {
+    "id": 40,
+    "term": "Disaccharide",
+    "category": "Carbohydrates",
+    "question": "A double-ring sugar molecule formed by joining two monosaccharides through a glycosidic bond via dehydration synthesis is a:",
+    "options": [
+      "Monosaccharide",
+      "Disaccharide",
+      "Glucose",
+      "Glycosidic Linkage"
+    ],
+    "answer": 1,
+    "clue": "Examples include sucrose (table sugar), lactose (milk sugar), and maltose.",
+    "definition": "A sugar carbohydrate composed of two monosaccharide units joined covalently.",
+    "example": "Sucrose = Glucose + Fructose; Lactose = Glucose + Galactose.",
+    "key_takeaway": "Broken down into monosaccharides by digestive enzymes before absorption."
+  },
+  {
+    "id": 41,
+    "term": "Glycosidic Linkage",
+    "category": "Carbohydrates",
+    "question": "The specific covalent bond formed between two monosaccharides during a dehydration synthesis reaction is a:",
+    "options": [
+      "Glycosidic Linkage",
+      "Monosaccharide",
+      "Glucose",
+      "Disaccharide"
+    ],
+    "answer": 0,
+    "clue": "'Glyco-' relates to sugar.",
+    "definition": "A covalent chemical bond that joins a carbohydrate (sugar) molecule to another group or sugar.",
+    "example": "The bond connecting glucose and fructose in sucrose.",
+    "key_takeaway": "Formed between hydroxyl groups with the release of H\u2082O."
+  },
+  {
+    "id": 42,
+    "term": "Polysaccharide",
+    "category": "Carbohydrates",
+    "question": "A complex carbohydrate polymer composed of hundreds or thousands of monosaccharide units linked together is a:",
+    "options": [
+      "Disaccharide",
+      "Monosaccharide",
+      "Glucose",
+      "Polysaccharide"
+    ],
+    "answer": 3,
+    "clue": "Includes starch, glycogen, cellulose, and chitin.",
+    "definition": "Long macromolecular chains of monosaccharides linked by glycosidic bonds used for energy storage or structural support.",
+    "example": "Starch in potatoes, cellulose in plant stalks, glycogen in muscle.",
+    "key_takeaway": "Insoluble in water compared to simple sugars, making them ideal storage compounds."
+  },
+  {
+    "id": 43,
+    "term": "Starch",
+    "category": "Carbohydrates",
+    "question": "The primary storage polysaccharide found in plant roots, seeds, and tubers composed of linked glucose monomers is:",
+    "options": [
+      "Glucose",
+      "Monosaccharide",
+      "Starch",
+      "Disaccharide"
+    ],
+    "answer": 2,
+    "clue": "Abundant in foods like potatoes, rice, corn, and wheat.",
+    "definition": "A plant storage polysaccharide consisting entirely of glucose monomers (amylose and amylopectin).",
+    "example": "Stored in plant amyloplasts as energy reserves for winter or germination.",
+    "key_takeaway": "Major carbohydrate source in human nutrition."
+  },
+  {
+    "id": 44,
+    "term": "Glycogen",
+    "category": "Carbohydrates",
+    "question": "The extensively branched glucose storage polysaccharide found in animal liver and skeletal muscle cells is:",
+    "options": [
+      "Monosaccharide",
+      "Glycogen",
+      "Glucose",
+      "Disaccharide"
+    ],
+    "answer": 1,
+    "clue": "Often called 'animal starch'; quickly broken down when blood sugar drops.",
+    "definition": "A multi-branched polymer of glucose that serves as energy storage in animals and fungi.",
+    "example": "Stored in liver to release glucose into the bloodstream, and in muscles for sprint energy.",
+    "key_takeaway": "Highly branched structure allows rapid simultaneous enzymatic breakdown."
+  },
+  {
+    "id": 45,
+    "term": "Cellulose",
+    "category": "Carbohydrates",
+    "question": "A structural polysaccharide made of straight \u03b2-glucose chains that provides rigidity to plant cell walls (indigestible dietary fiber for humans) is:",
+    "options": [
+      "Cellulose",
+      "Monosaccharide",
+      "Glucose",
+      "Disaccharide"
+    ],
+    "answer": 0,
+    "clue": "Makes celery crunchy and gives wood and plant stems their structural stiffness.",
+    "definition": "A structural polysaccharide composed of glucose monomers bonded in straight parallel lines cross-linked by hydrogen bonds, forming tough microfibrils.",
+    "example": "Main component of paper, cotton, and plant cell walls.",
+    "key_takeaway": "Humans lack the enzyme (cellulase) to digest beta linkages; passes through as dietary fiber."
+  },
+  {
+    "id": 46,
+    "term": "Chitin",
+    "category": "Carbohydrates",
+    "question": "A structural polysaccharide containing nitrogen found in fungal cell walls and arthropod exoskeletons is:",
+    "options": [
+      "Disaccharide",
+      "Monosaccharide",
+      "Glucose",
+      "Chitin"
+    ],
+    "answer": 3,
+    "clue": "Gives beetle shells their crunch and mushroom walls their structure.",
+    "definition": "A tough, protective polysaccharide containing modified glucose units with nitrogen functional groups.",
+    "example": "Outer shells of crabs, lobsters, spiders, insects, and fungal cell walls.",
+    "key_takeaway": "Keratin is a protein (hair/nails), but chitin is a carbohydrate."
+  },
+  {
+    "id": 47,
+    "term": "Lipid",
+    "category": "Lipids",
+    "question": "A diverse class of hydrophobic, nonpolar biological macromolecules composed primarily of carbon and hydrogen that do not form true repeating monomer polymers is:",
+    "options": [
+      "Fatty Acid",
+      "Triglyceride",
+      "Lipid",
+      "Ester Linkage"
+    ],
+    "answer": 2,
+    "clue": "Includes fats, oils, waxes, phospholipids, and steroids.",
+    "definition": "Hydrophobic organic molecules insoluble in water but soluble in nonpolar organic solvents, used for long-term energy storage, insulation, and membranes.",
+    "example": "Triglycerides, adipose fat tissue, and cell membranes.",
+    "key_takeaway": "Contains more energy per gram (9 kcal/g) than carbs (4 kcal/g) or proteins (4 kcal/g)."
+  },
+  {
+    "id": 48,
+    "term": "Triglyceride",
+    "category": "Lipids",
+    "question": "A fat lipid molecule composed of one 3-carbon glycerol backbone covalently bonded to three fatty acid chains is a:",
+    "options": [
+      "Lipid",
+      "Triglyceride",
+      "Fatty Acid",
+      "Ester Linkage"
+    ],
+    "answer": 1,
+    "clue": "'Tri-' indicates three fatty acids.",
+    "definition": "A lipid formed by ester linkages between a glycerol molecule and three fatty acid chains.",
+    "example": "Dietary fats found in cooking oils, butter, and animal body fat.",
+    "key_takeaway": "Used by animals for long-term energy storage and thermal insulation."
+  },
+  {
+    "id": 49,
+    "term": "Fatty Acid",
+    "category": "Lipids",
+    "question": "A long nonpolar hydrocarbon chain ending in a polar carboxylic acid group (-COOH) is a:",
+    "options": [
+      "Fatty Acid",
+      "Lipid",
+      "Triglyceride",
+      "Ester Linkage"
+    ],
+    "answer": 0,
+    "clue": "Attaches to glycerol to form fats and phospholipids.",
+    "definition": "A carboxylic acid with a long aliphatic hydrocarbon chain, either saturated or unsaturated.",
+    "example": "Palmitic acid (saturated) and Oleic acid (unsaturated).",
+    "key_takeaway": "Hydrocarbon tails can be saturated (straight) or unsaturated (bent)."
+  },
+  {
+    "id": 50,
+    "term": "Ester Linkage",
+    "category": "Lipids",
+    "question": "The specific covalent bond formed between the hydroxyl group of glycerol and the carboxyl group of a fatty acid in lipids is an:",
+    "options": [
+      "Fatty Acid",
+      "Lipid",
+      "Triglyceride",
+      "Ester Linkage"
+    ],
+    "answer": 3,
+    "clue": "Formed during dehydration synthesis in fat molecules.",
+    "definition": "A bond between an alcohol group (-OH) and a carboxylic acid group (-COOH), releasing water.",
+    "example": "The three bonds connecting fatty acids to glycerol in a triglyceride.",
+    "key_takeaway": "Formed by condensation/dehydration reactions."
+  },
+  {
+    "id": 51,
+    "term": "Saturated Fatty Acid",
+    "category": "Lipids",
+    "question": "A fatty acid chain with ONLY single carbon-carbon bonds (no C=C double bonds) that is saturated with hydrogen atoms and solid at room temperature is:",
+    "options": [
+      "Triglyceride",
+      "Lipid",
+      "Saturated Fatty Acid",
+      "Fatty Acid"
+    ],
+    "answer": 2,
+    "clue": "Straight chains pack tightly together (found in butter, lard, animal fats).",
+    "definition": "Fatty acids containing maximum possible hydrogen atoms with no double bonds between carbon atoms in the chain.",
+    "example": "Butter, bacon grease, and coconut oil.",
+    "key_takeaway": "Straight structure allows dense packing; linked to cardiovascular plaque when eaten in excess."
+  },
+  {
+    "id": 52,
+    "term": "Unsaturated Fatty Acid",
+    "category": "Lipids",
+    "question": "A fatty acid that contains one or more carbon-carbon double bonds (C=C), causing kinks in the chain and making it liquid at room temperature (oil), is:",
+    "options": [
+      "Lipid",
+      "Unsaturated Fatty Acid",
+      "Triglyceride",
+      "Fatty Acid"
+    ],
+    "answer": 1,
+    "clue": "Bends/kinks prevent tight packing (olive oil, fish oil).",
+    "definition": "Fatty acids possessing one or more double bonds (C=C) in the hydrocarbon chain, creating kinks that lower the melting point.",
+    "example": "Olive oil, canola oil, and omega-3 fish oils.",
+    "key_takeaway": "Generally considered heart-healthy fats."
+  },
+  {
+    "id": 53,
+    "term": "Phospholipid",
+    "category": "Lipids",
+    "question": "A lipid molecule featuring a hydrophilic phosphate head and two hydrophobic fatty acid tails that forms cell membranes is a:",
+    "options": [
+      "Phospholipid",
+      "Lipid",
+      "Triglyceride",
+      "Fatty Acid"
+    ],
+    "answer": 0,
+    "clue": "Main structural component of all biological membranes.",
+    "definition": "An amphipathic lipid composed of a glycerol molecule bonded to two fatty acid tails and a negatively charged phosphate group.",
+    "example": "Phosphatidylcholine in human cell membranes.",
+    "key_takeaway": "Arranges spontaneously into a bilayer in aqueous environments."
+  },
+  {
+    "id": 54,
+    "term": "Amphipathic",
+    "category": "Lipids",
+    "question": "A molecule that possesses both a hydrophilic (water-soluble) region and a hydrophobic (water-insoluble) region is described as:",
+    "options": [
+      "Fatty Acid",
+      "Lipid",
+      "Triglyceride",
+      "Amphipathic"
+    ],
+    "answer": 3,
+    "clue": "Phospholipids have a polar head and nonpolar tails.",
+    "definition": "Possessing both hydrophilic (polar) and hydrophobic (nonpolar) properties on different parts of the same molecule.",
+    "example": "Phospholipids and detergents/soaps.",
+    "key_takeaway": "Enables the formation of cellular membranes, micelles, and liposomes."
+  },
+  {
+    "id": 55,
+    "term": "Phospholipid Bilayer",
+    "category": "Lipids",
+    "question": "The two-layer membrane structure where hydrophobic fatty acid tails point inward shielded from water and hydrophilic heads face outward toward aqueous fluid is the:",
+    "options": [
+      "Triglyceride",
+      "Lipid",
+      "Phospholipid Bilayer",
+      "Fatty Acid"
+    ],
+    "answer": 2,
+    "clue": "The universal boundary of all living cells.",
+    "definition": "A double layer of phospholipid molecules that encloses the cell cytoplasm, creating a selectively permeable barrier.",
+    "example": "Plasma membrane of animal and plant cells.",
+    "key_takeaway": "Controls what enters and exits the cell."
+  },
+  {
+    "id": 56,
+    "term": "Steroid",
+    "category": "Lipids",
+    "question": "A class of lipids characterized by a carbon skeleton composed of four interconnected/fused carbon rings is a:",
+    "options": [
+      "Lipid",
+      "Steroid",
+      "Triglyceride",
+      "Fatty Acid"
+    ],
+    "answer": 1,
+    "clue": "Examples include cholesterol, testosterone, and estrogen.",
+    "definition": "Lipids defined by a four-ring fused carbon structure without fatty acid chains.",
+    "example": "Cholesterol (membrane fluidity), estrogen, and testosterone (hormones).",
+    "key_takeaway": "Acts as chemical signaling messengers (hormones) and cell membrane stabilizers."
+  },
+  {
+    "id": 57,
+    "term": "Cholesterol",
+    "category": "Lipids",
+    "question": "A critical steroid molecule embedded within animal cell membranes that regulates membrane fluidity and serves as a precursor for steroid hormones is:",
+    "options": [
+      "Cholesterol",
+      "Lipid",
+      "Triglyceride",
+      "Fatty Acid"
+    ],
+    "answer": 0,
+    "clue": "Prevents membranes from becoming too rigid in the cold and too fluid in the heat.",
+    "definition": "A 4-ring steroid lipid found in animal cell membranes that modulates membrane fluidity and serves as the precursor for vitamin D and steroid hormones.",
+    "example": "Embedded between phospholipids in human red blood cell membranes.",
+    "key_takeaway": "Vital for cellular function, but high blood levels can cause arterial plaque."
+  },
+  {
+    "id": 58,
+    "term": "Protein",
+    "category": "Proteins & Enzymes",
+    "question": "A diverse biological macromolecule made of amino acids linked by peptide bonds that performs nearly all cellular work (enzymes, transport, structure, immune defense) is a:",
+    "options": [
+      "Peptide Bond",
+      "Amino Acid",
+      "R-Group (Side Chain)",
+      "Protein"
+    ],
+    "answer": 3,
+    "clue": "The functional workhorses of living cells.",
+    "definition": "A biologically functional molecule consisting of one or more polypeptides folded into a specific 3-dimensional conformation.",
+    "example": "Enzymes, antibodies, keratin (hair/nails), collagen (skin), and hemoglobin.",
+    "key_takeaway": "Protein shape dictates protein function."
+  },
+  {
+    "id": 59,
+    "term": "Amino Acid",
+    "category": "Proteins & Enzymes",
+    "question": "The monomer building block of proteins, featuring a central carbon, an amino group (-NH\u2082), a carboxyl group (-COOH), a hydrogen, and an R-group, is an:",
+    "options": [
+      "R-Group (Side Chain)",
+      "Protein",
+      "Amino Acid",
+      "Peptide Bond"
+    ],
+    "answer": 2,
+    "clue": "There are 20 standard biological varieties.",
+    "definition": "An organic molecule possessing both an amino group and a carboxyl group, serving as the monomer of polypeptides.",
+    "example": "Glycine, alanine, cysteine, and tryptophan.",
+    "key_takeaway": "The 20 different amino acids differ only by their R-group side chains."
+  },
+  {
+    "id": 60,
+    "term": "R-Group (Side Chain)",
+    "category": "Proteins & Enzymes",
+    "question": "The variable chemical group attached to the central carbon of an amino acid that determines its unique chemical properties (polar, nonpolar, acidic, or basic) is the:",
+    "options": [
+      "Protein",
+      "R-Group (Side Chain)",
+      "Amino Acid",
+      "Peptide Bond"
+    ],
+    "answer": 1,
+    "clue": "The only part that differs among the 20 amino acids.",
+    "definition": "The distinct side chain attached to the alpha carbon of an amino acid that dictates its size, charge, polarity, and chemical reactivity.",
+    "example": "Hydrophobic nonpolar R-groups (like leucine) fold into the protein interior; polar R-groups (like serine) face outward toward water.",
+    "key_takeaway": "R-group chemical interactions drive 3D tertiary protein folding."
+  },
+  {
+    "id": 61,
+    "term": "Peptide Bond",
+    "category": "Proteins & Enzymes",
+    "question": "The covalent bond formed between the carboxyl carbon of one amino acid and the amino nitrogen of another via dehydration synthesis is a:",
+    "options": [
+      "Peptide Bond",
+      "Protein",
+      "Amino Acid",
+      "R-Group (Side Chain)"
+    ],
+    "answer": 0,
+    "clue": "Links amino acids into a polypeptide chain.",
+    "definition": "The covalent chemical bond linking two amino acid monomers along a protein backbone.",
+    "example": "Formed inside ribosomes during biological translation.",
+    "key_takeaway": "Strong covalent bond that remains intact during denaturation."
+  },
+  {
+    "id": 62,
+    "term": "Polypeptide",
+    "category": "Proteins & Enzymes",
+    "question": "A continuous, unbranched chain of amino acids linked by peptide bonds that folds into a functional protein is a:",
+    "options": [
+      "R-Group (Side Chain)",
+      "Protein",
+      "Amino Acid",
+      "Polypeptide"
+    ],
+    "answer": 3,
+    "clue": "The polymer form of proteins.",
+    "definition": "A polymer of many amino acids joined together by peptide bonds.",
+    "example": "The polypeptide chains that fold to form insulin or hemoglobin.",
+    "key_takeaway": "Becomes a functional protein once properly folded into its 3D shape."
+  },
+  {
+    "id": 63,
+    "term": "Primary Structure (1\u00b0)",
+    "category": "Proteins & Enzymes",
+    "question": "The fundamental first level of protein structure, consisting of the unique linear sequence of amino acids coded by DNA, is:",
+    "options": [
+      "Amino Acid",
+      "Protein",
+      "Primary Structure (1\u00b0)",
+      "R-Group (Side Chain)"
+    ],
+    "answer": 2,
+    "clue": "Dictated directly by the genetic code in mRNA.",
+    "definition": "The specific linear sequence of amino acids in a polypeptide chain linked by covalent peptide bonds.",
+    "example": "Met-Ala-Ser-Val-Gly-Leu...",
+    "key_takeaway": "A single amino acid mutation (like in sickle cell anemia) can alter all subsequent folding levels."
+  },
+  {
+    "id": 64,
+    "term": "Secondary Structure (2\u00b0)",
+    "category": "Proteins & Enzymes",
+    "question": "Local repetitive folding patterns\u2014specifically Alpha-helices and Beta-pleated sheets\u2014stabilized by hydrogen bonds along the polypeptide backbone represent:",
+    "options": [
+      "Protein",
+      "Secondary Structure (2\u00b0)",
+      "Amino Acid",
+      "R-Group (Side Chain)"
+    ],
+    "answer": 1,
+    "clue": "Coils and folds caused by hydrogen bonding along the backbone (not R-groups).",
+    "definition": "Repetitive coiling (alpha-helix) or folding (beta-pleated sheet) of the polypeptide backbone stabilized by hydrogen bonds between amino and carbonyl groups.",
+    "example": "Alpha-helices in fibrous keratin (hair) or beta-sheets in silk fibers.",
+    "key_takeaway": "Hydrogen bonding does NOT involve the R-groups at this level."
+  },
+  {
+    "id": 65,
+    "term": "Tertiary Structure (3\u00b0)",
+    "category": "Proteins & Enzymes",
+    "question": "The overall three-dimensional globular conformation of a single polypeptide chain formed by interactions between R-groups (hydrophobic interactions, ionic bonds, disulfide bridges) is:",
+    "options": [
+      "Tertiary Structure (3\u00b0)",
+      "Protein",
+      "Amino Acid",
+      "R-Group (Side Chain)"
+    ],
+    "answer": 0,
+    "clue": "Gives a single protein its full 3D shape.",
+    "definition": "The complex 3D geometric shape of a protein resulting from chemical interactions among the various R-group side chains.",
+    "example": "Nonpolar R-groups sequestered in the interior away from water; disulfide bonds between cysteine amino acids.",
+    "key_takeaway": "Critical for creating functional enzyme active sites."
+  },
+  {
+    "id": 66,
+    "term": "Quaternary Structure (4\u00b0)",
+    "category": "Proteins & Enzymes",
+    "question": "The highest level of protein structure, formed when two or more distinct polypeptide subunits assemble into one functional multi-protein complex, is:",
+    "options": [
+      "R-Group (Side Chain)",
+      "Protein",
+      "Amino Acid",
+      "Quaternary Structure (4\u00b0)"
+    ],
+    "answer": 3,
+    "clue": "Hemoglobin has 4 polypeptide subunits working together.",
+    "definition": "The structural association of multiple independent polypeptide chains into a single functional macromolecule.",
+    "example": "Hemoglobin (4 subunits) and Collagen (3 coiled polypeptide strands).",
+    "key_takeaway": "Not all proteins have quaternary structure; only those composed of multiple polypeptides."
+  },
+  {
+    "id": 67,
+    "term": "Denaturation",
+    "category": "Proteins & Enzymes",
+    "question": "The process where extreme heat, pH changes, or chemicals cause a protein to unfold and lose its specific 3D shape and biological activity is:",
+    "options": [
+      "Amino Acid",
+      "Protein",
+      "Denaturation",
+      "R-Group (Side Chain)"
+    ],
+    "answer": 2,
+    "clue": "Frying an egg turns clear albumin protein into an opaque solid.",
+    "definition": "The loss of a protein's secondary, tertiary, and quaternary structure due to environmental stress, rendering it biologically nonfunctional.",
+    "example": "High fever denaturing cellular enzymes, or stomach acid unfolding dietary proteins.",
+    "key_takeaway": "Disrupts hydrogen, ionic, and disulfide bonds, but leaves covalent peptide bonds intact."
+  },
+  {
+    "id": 68,
+    "term": "Enzyme",
+    "category": "Proteins & Enzymes",
+    "question": "A specialized biological protein catalyst that speeds up chemical reactions by lowering the activation energy without being consumed in the reaction is an:",
+    "options": [
+      "Protein",
+      "Enzyme",
+      "Amino Acid",
+      "R-Group (Side Chain)"
+    ],
+    "answer": 1,
+    "clue": "Most enzyme names end in '-ase' (e.g., lactase, amylase, catalase).",
+    "definition": "A biological macromolecule (almost always a protein) that acts as a catalyst, accelerating the rate of specific biochemical reactions without being destroyed.",
+    "example": "Catalase breaking hydrogen peroxide (H\u2082O\u2082) down into water and oxygen gas.",
+    "key_takeaway": "Highly specific; fits with its substrate like a lock and key."
+  },
+  {
+    "id": 69,
+    "term": "Substrate",
+    "category": "Proteins & Enzymes",
+    "question": "The specific reactant molecule upon which an enzyme acts and binds during a chemical reaction is the:",
+    "options": [
+      "Substrate",
+      "Protein",
+      "Amino Acid",
+      "R-Group (Side Chain)"
+    ],
+    "answer": 0,
+    "clue": "The reactant that enters the enzyme's active site.",
+    "definition": "The specific chemical reactant that binds to an enzyme's active site and is converted into product(s).",
+    "example": "Lactose is the substrate for the enzyme lactase.",
+    "key_takeaway": "The enzyme-substrate complex lowers the activation energy barrier."
+  },
+  {
+    "id": 70,
+    "term": "Active Site",
+    "category": "Proteins & Enzymes",
+    "question": "The specific groove or pocket on an enzyme's 3D surface where the substrate binds and the chemical reaction takes place is the:",
+    "options": [
+      "R-Group (Side Chain)",
+      "Protein",
+      "Amino Acid",
+      "Active Site"
+    ],
+    "answer": 3,
+    "clue": "The physical region that fits the substrate shape.",
+    "definition": "The specific catalytic region of an enzyme molecule to which substrates bind and where the reaction is catalyzed.",
+    "example": "The active site pocket of amylase binding starch polymers.",
+    "key_takeaway": "If the enzyme denatures, the active site changes shape and cannot bind substrate."
+  },
+  {
+    "id": 71,
+    "term": "Activation Energy (Ea)",
+    "category": "Proteins & Enzymes",
+    "question": "The minimum threshold energy required to initiate a chemical reaction and break existing chemical bonds is the:",
+    "options": [
+      "Amino Acid",
+      "Protein",
+      "Activation Energy (Ea)",
+      "R-Group (Side Chain)"
+    ],
+    "answer": 2,
+    "clue": "Enzymes speed up reactions by lowering this energy hill.",
+    "definition": "The initial investment of energy required to start a reaction by contorting reactant molecules so bonds can break.",
+    "example": "Striking a match provides activation energy; enzymes lower the required activation energy inside cells.",
+    "key_takeaway": "Enzymes do NOT change the starting or ending energy, only the activation barrier."
+  },
+  {
+    "id": 72,
+    "term": "Nucleic Acid",
+    "category": "Nucleic Acids",
+    "question": "The macromolecule class composed of nucleotide monomers (containing C, H, O, N, P) that stores, transmits, and expresses hereditary genetic information is:",
+    "options": [
+      "Nucleotide",
+      "Nucleic Acid",
+      "DNA (Deoxyribonucleic Acid)",
+      "RNA (Ribonucleic Acid)"
+    ],
+    "answer": 1,
+    "clue": "DNA and RNA are the two main types.",
+    "definition": "Polymers made of nucleotide monomers that store and transmit genetic blueprints for life.",
+    "example": "DNA inside the nucleus and RNA in the cytoplasm.",
+    "key_takeaway": "Directs the synthesis of all cellular proteins."
+  },
+  {
+    "id": 73,
+    "term": "Nucleotide",
+    "category": "Nucleic Acids",
+    "question": "The monomer of nucleic acids, consisting of a 5-carbon pentose sugar, a phosphate group, and a nitrogenous base, is a:",
+    "options": [
+      "Nucleotide",
+      "Nucleic Acid",
+      "DNA (Deoxyribonucleic Acid)",
+      "RNA (Ribonucleic Acid)"
+    ],
+    "answer": 0,
+    "clue": "Building block of DNA and RNA.",
+    "definition": "The monomer subunit of nucleic acids consisting of: 1) a 5-carbon sugar, 2) a phosphate group, and 3) a nitrogenous base.",
+    "example": "Deoxyadenosine triphosphate (dATP) or uracil ribonucleotide.",
+    "key_takeaway": "Joined by phosphodiester bonds."
+  },
+  {
+    "id": 74,
+    "term": "DNA (Deoxyribonucleic Acid)",
+    "category": "Nucleic Acids",
+    "question": "A double-stranded helical nucleic acid containing deoxyribose sugar and bases A, T, C, G that stores hereditary genetic instructions is:",
+    "options": [
+      "RNA (Ribonucleic Acid)",
+      "Nucleic Acid",
+      "Nucleotide",
+      "DNA (Deoxyribonucleic Acid)"
+    ],
+    "answer": 3,
+    "clue": "Double helix found in chromosomes inside the cell nucleus.",
+    "definition": "The double-stranded nucleic acid molecule that contains the master genetic code for the development and functioning of living organisms.",
+    "example": "Chromosomal DNA in human cells.",
+    "key_takeaway": "Uses Thymine (T) and lacks an oxygen at the 2' carbon of its deoxyribose sugar."
+  },
+  {
+    "id": 75,
+    "term": "RNA (Ribonucleic Acid)",
+    "category": "Nucleic Acids",
+    "question": "A single-stranded nucleic acid containing ribose sugar and nitrogenous bases A, U, C, G that functions in protein synthesis is:",
+    "options": [
+      "Nucleotide",
+      "Nucleic Acid",
+      "RNA (Ribonucleic Acid)",
+      "DNA (Deoxyribonucleic Acid)"
+    ],
+    "answer": 2,
+    "clue": "Uses Uracil (U) instead of Thymine (T).",
+    "definition": "A single-stranded nucleic acid containing ribose that transcribes genetic blueprints from DNA and directs protein synthesis at ribosomes.",
+    "example": "mRNA (messenger), tRNA (transfer), and rRNA (ribosomal).",
+    "key_takeaway": "Contains ribose sugar and Uracil (U) instead of Thymine (T)."
+  },
+  {
+    "id": 76,
+    "term": "Phosphodiester Bond",
+    "category": "Nucleic Acids",
+    "question": "The strong covalent bond that links the phosphate group of one nucleotide to the sugar of the adjacent nucleotide in a nucleic acid strand is a:",
+    "options": [
+      "Nucleic Acid",
+      "Phosphodiester Bond",
+      "Nucleotide",
+      "DNA (Deoxyribonucleic Acid)"
+    ],
+    "answer": 1,
+    "clue": "Forms the alternating sugar-phosphate backbone of DNA and RNA.",
+    "definition": "A covalent bond in RNA and DNA that holds a polynucleotide chain together by joining the 3' carbon of one sugar to the 5' phosphate of another.",
+    "example": "The backbone links along a single strand of human chromosome 1.",
+    "key_takeaway": "Covalent backbone bond; contrast with weak hydrogen bonds between opposite base pairs."
+  },
+  {
+    "id": 77,
+    "term": "Nitrogenous Base",
+    "category": "Nucleic Acids",
+    "question": "The nitrogen-containing carbon ring component of a nucleotide (Adenine, Thymine, Guanine, Cytosine, or Uracil) that encodes genetic instructions is the:",
+    "options": [
+      "Nitrogenous Base",
+      "Nucleic Acid",
+      "Nucleotide",
+      "DNA (Deoxyribonucleic Acid)"
+    ],
+    "answer": 0,
+    "clue": "Pairs via hydrogen bonds across the DNA double helix (A-T and C-G).",
+    "definition": "A nitrogen-containing organic molecule that forms part of a nucleotide and acts as the genetic alphabet (A, T, C, G in DNA; A, U, C, G in RNA).",
+    "example": "Adenine pairing with Thymine via 2 hydrogen bonds; Guanine pairing with Cytosine via 3 hydrogen bonds.",
+    "key_takeaway": "The sequence of nitrogenous bases encodes the amino acid sequence of proteins."
+  },
+  {
+    "id": 78,
+    "term": "Deoxyribose vs. Ribose",
+    "category": "Nucleic Acids",
+    "question": "What is the key chemical difference between the 5-carbon pentose sugar in DNA (deoxyribose) and in RNA (ribose)?",
+    "options": [
+      "DNA (Deoxyribonucleic Acid)",
+      "Nucleic Acid",
+      "Nucleotide",
+      "Deoxyribose vs. Ribose"
+    ],
+    "answer": 3,
+    "clue": "'De-oxy' literally means without oxygen at the 2' carbon.",
+    "definition": "Ribose has an -OH hydroxyl group at the 2' carbon, whereas deoxyribose has only an -H hydrogen at the 2' carbon (lacking one oxygen atom).",
+    "example": "Deoxyribose (C\u2085H\u2081\u2080O\u2084) in DNA vs. Ribose (C\u2085H\u2081\u2080O\u2085) in RNA.",
+    "key_takeaway": "The lack of the 2' oxygen makes DNA chemically more stable for long-term genetic preservation."
+  }
+];
+
+    let state = {
+      answers: {},
+      revealedClues: {},
+      globalHints: false,
+      activeCategory: 'All',
+      searchQuery: '',
+      missedOnly: false
+    };
+
+    function init() {
+      const saved = localStorage.getItem('bio_unit1_all_vocab_v2_state');
+      if (saved) {
+        try { state = JSON.parse(saved); } catch(e) {}
+      }
+      render();
+      updateStats();
+    }
+
+    function saveState() {
+      localStorage.setItem('bio_unit1_all_vocab_v2_state', JSON.stringify(state));
+    }
+
+    function render() {
+      const container = document.getElementById('questionsFeed');
+      container.innerHTML = '';
+
+      const filtered = vocabData.filter(item => {
+        if (state.missedOnly) {
+          const ans = state.answers[item.id];
+          if (ans === undefined || ans === item.answer) return false;
+        }
+        if (state.activeCategory !== 'All' && item.category !== state.activeCategory) {
+          return false;
+        }
+        if (state.searchQuery.trim() !== '') {
+          const q = state.searchQuery.toLowerCase();
+          return item.term.toLowerCase().includes(q) || 
+                 item.question.toLowerCase().includes(q) || 
+                 item.definition.toLowerCase().includes(q);
+        }
+        return true;
+      });
+
+      document.getElementById('visibleCount').innerText = filtered.length;
+      document.getElementById('currentFilterLabel').innerText = 
+        state.missedOnly ? `Reviewing Missed Questions (${filtered.length})` :
+        state.activeCategory === 'All' ? `All Vocabulary (${filtered.length} Terms)` : 
+        `${state.activeCategory} (${filtered.length} Terms)`;
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-16 bg-white rounded-3xl border border-slate-200">
+            <i class="fa-solid fa-circle-check text-4xl text-emerald-500 mb-3"></i>
+            <h3 class="text-lg font-bold text-slate-800">No matching vocabulary questions</h3>
+            <p class="text-slate-500 text-xs mt-1">Try resetting the search bar or choosing another category.</p>
+          </div>
+        `;
+        return;
+      }
+
+      filtered.forEach((q) => {
+        const isAnswered = state.answers[q.id] !== undefined;
+        const userChoice = state.answers[q.id];
+        const isCorrect = userChoice === q.answer;
+        const isClueOpen = state.globalHints || state.revealedClues[q.id];
+
+        const card = document.createElement('div');
+        card.className = `bg-white rounded-2xl p-6 border transition-all shadow-sm ${
+          isAnswered
+            ? isCorrect
+              ? 'border-emerald-300 ring-1 ring-emerald-200/50'
+              : 'border-rose-300 ring-1 ring-rose-200/50'
+            : 'border-slate-200 hover:border-slate-300'
+        }`;
+
+        let optionsHtml = q.options.map((opt, oIdx) => {
+          let btnStyle = "border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50/40 text-slate-700";
+          let badge = `<span class="w-6 h-6 rounded-full border border-slate-300 text-xs font-semibold flex items-center justify-center mr-3 text-slate-500">${String.fromCharCode(65 + oIdx)}</span>`;
+
+          if (isAnswered) {
+            if (oIdx === q.answer) {
+              btnStyle = "bg-emerald-50 border-emerald-500 text-emerald-950 font-bold ring-1 ring-emerald-400";
+              badge = `<span class="w-6 h-6 rounded-full bg-emerald-600 text-white text-xs font-bold flex items-center justify-center mr-3"><i class="fa-solid fa-check"></i></span>`;
+            } else if (oIdx === userChoice && !isCorrect) {
+              btnStyle = "bg-rose-50 border-rose-400 text-rose-950 font-bold ring-1 ring-rose-300";
+              badge = `<span class="w-6 h-6 rounded-full bg-rose-600 text-white text-xs font-bold flex items-center justify-center mr-3"><i class="fa-solid fa-xmark"></i></span>`;
+            } else {
+              btnStyle = "opacity-40 border-slate-200 text-slate-400 cursor-not-allowed";
+            }
+          }
+
+          return `
+            <button 
+              onclick="chooseAnswer(${q.id}, ${oIdx})" 
+              ${isAnswered ? 'disabled' : ''} 
+              class="w-full text-left p-3.5 rounded-xl text-sm transition flex items-center ${btnStyle} my-1.5">
+              ${badge}
+              <span class="flex-1">${opt}</span>
+            </button>
+          `;
+        }).join('');
+
+        card.innerHTML = `
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <div class="flex items-center gap-2">
+              <span class="bg-indigo-100 text-indigo-900 text-xs font-black px-2.5 py-0.5 rounded-md">Q${q.id}</span>
+              <span class="bg-slate-100 text-slate-700 text-xs font-bold px-2.5 py-0.5 rounded-md">${q.category}</span>
+              <span class="text-slate-400 text-xs font-medium">• Target Term: <strong>${q.term}</strong></span>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <button onclick="openDrawer(${q.id})" class="text-xs text-indigo-700 bg-indigo-50 hover:bg-indigo-100 border border-indigo-200 px-3 py-1 rounded-lg font-bold transition flex items-center gap-1">
+                <i class="fa-solid fa-graduation-cap"></i> Learn / Clue Link
+              </button>
+              <button onclick="toggleSingleClue(${q.id})" class="text-xs text-amber-700 bg-amber-50 hover:bg-amber-100 border border-amber-200 px-3 py-1 rounded-lg font-bold transition flex items-center gap-1">
+                <i class="fa-regular fa-lightbulb"></i> ${isClueOpen ? 'Hide Hint' : 'Hint'}
+              </button>
+            </div>
+          </div>
+
+          <h3 class="text-base font-semibold text-slate-900 leading-relaxed mb-3">${q.question}</h3>
+
+          <div class="${isClueOpen ? 'block' : 'hidden'} mb-3 p-3 bg-amber-50 border border-amber-200 rounded-xl text-amber-900 text-xs flex items-start gap-2">
+            <i class="fa-solid fa-lightbulb text-amber-600 mt-0.5"></i>
+            <div><strong>Hint:</strong> ${q.clue}</div>
+          </div>
+
+          <div class="space-y-1">${optionsHtml}</div>
+
+          ${isAnswered ? `
+            <div class="mt-4 p-4 rounded-xl text-xs border ${isCorrect ? 'bg-emerald-50/70 border-emerald-200 text-emerald-950' : 'bg-rose-50/70 border-rose-200 text-slate-900'}">
+              <div class="flex items-center justify-between mb-1.5">
+                <div class="font-bold flex items-center gap-1.5 ${isCorrect ? 'text-emerald-800' : 'text-rose-800'}">
+                  <i class="${isCorrect ? 'fa-solid fa-circle-check text-emerald-600' : 'fa-solid fa-circle-xmark text-rose-600'}"></i>
+                  <span>${isCorrect ? 'Correct! Well done.' : 'Incorrect.'}</span>
+                </div>
+                <button onclick="openDrawer(${q.id})" class="text-indigo-600 hover:text-indigo-800 font-bold underline">
+                  <i class="fa-solid fa-book-open"></i> Read Full Concept Card
+                </button>
+              </div>
+              <p class="leading-relaxed text-slate-700 mb-2"><strong>Definition:</strong> ${q.definition}</p>
+              <div class="pt-2 border-t border-slate-200/60 flex items-center justify-between text-slate-500">
+                <span>Correct Answer: <strong class="text-emerald-800">${q.options[q.answer]}</strong></span>
+                <button onclick="retryQuestion(${q.id})" class="text-slate-600 hover:text-slate-900 font-bold underline">Try Again</button>
+              </div>
+            </div>
+          ` : ''}
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function chooseAnswer(qId, oIdx) {
+      state.answers[qId] = oIdx;
+      saveState();
+      render();
+      updateStats();
+    }
+
+    function retryQuestion(qId) {
+      delete state.answers[qId];
+      saveState();
+      render();
+      updateStats();
+    }
+
+    function toggleSingleClue(qId) {
+      state.revealedClues[qId] = !state.revealedClues[qId];
+      saveState();
+      render();
+    }
+
+    function toggleGlobalHints() {
+      state.globalHints = !state.globalHints;
+      document.getElementById('globalHintText').innerText = state.globalHints ? 'Hide All Clues' : 'Show All Clues';
+      saveState();
+      render();
+    }
+
+    function filterCategory(cat) {
+      state.activeCategory = cat;
+      state.missedOnly = false;
+      document.querySelectorAll('.cat-btn').forEach(b => {
+        b.classList.remove('bg-indigo-600', 'text-white', 'shadow-sm');
+        b.classList.add('text-slate-600', 'hover:bg-slate-100');
+        if (b.innerText.includes(cat) || (cat === 'All' && b.innerText.includes('All Vocabulary'))) {
+          b.classList.add('bg-indigo-600', 'text-white', 'shadow-sm');
+          b.classList.remove('text-slate-600', 'hover:bg-slate-100');
+        }
+      });
+      render();
+    }
+
+    function toggleMissedOnly() {
+      state.missedOnly = !state.missedOnly;
+      const btn = document.getElementById('missedToggleBtn');
+      if (state.missedOnly) {
+        btn.classList.add('bg-rose-600', 'text-white');
+        btn.classList.remove('bg-rose-50', 'text-rose-800');
+      } else {
+        btn.classList.remove('bg-rose-600', 'text-white');
+        btn.classList.add('bg-rose-50', 'text-rose-800');
+      }
+      render();
+    }
+
+    function handleSearch() {
+      state.searchQuery = document.getElementById('searchInput').value;
+      render();
+    }
+
+    function openDrawer(qId) {
+      const item = vocabData.find(q => q.id === qId);
+      if (!item) return;
+
+      document.getElementById('drawerTermTitle').innerText = item.term;
+      document.getElementById('drawerCategory').innerText = item.category;
+      document.getElementById('drawerDefinition').innerText = item.definition;
+      document.getElementById('drawerClue').innerText = item.clue;
+      document.getElementById('drawerExample').innerText = item.example;
+      document.getElementById('drawerTakeaway').innerText = item.key_takeaway;
+
+      const drawer = document.getElementById('learnDrawer');
+      const backdrop = document.getElementById('drawerBackdrop');
+      drawer.classList.remove('translate-x-full');
+      backdrop.classList.remove('opacity-0', 'pointer-events-none');
+    }
+
+    function closeDrawer() {
+      const drawer = document.getElementById('learnDrawer');
+      const backdrop = document.getElementById('drawerBackdrop');
+      drawer.classList.add('translate-x-full');
+      backdrop.classList.add('opacity-0', 'pointer-events-none');
+    }
+
+    function updateStats() {
+      const answeredKeys = Object.keys(state.answers);
+      const totalAnswered = answeredKeys.length;
+      let totalCorrect = 0;
+      let totalMissed = 0;
+
+      answeredKeys.forEach(k => {
+        const q = vocabData.find(item => item.id == k);
+        if (q) {
+          if (state.answers[k] === q.answer) totalCorrect++;
+          else totalMissed++;
+        }
+      });
+
+      const accuracy = totalAnswered > 0 ? Math.round((totalCorrect / totalAnswered) * 100) : 0;
+      const progressPercent = Math.round((totalAnswered / vocabData.length) * 100);
+
+      document.getElementById('statAnswered').innerText = `${totalAnswered}/${vocabData.length}`;
+      document.getElementById('statScore').innerText = `${accuracy}%`;
+      document.getElementById('quizProgressBar').style.width = `${progressPercent}%`;
+      document.getElementById('missedCount').innerText = totalMissed;
+
+      const summaryCard = document.getElementById('scoreSummaryCard');
+      if (totalAnswered === vocabData.length) {
+        summaryCard.classList.remove('hidden');
+        document.getElementById('finalCorrect').innerText = totalCorrect;
+        document.getElementById('finalScore').innerText = `${accuracy}%`;
+        
+        const banner = document.getElementById('finalRatingBanner');
+        if (accuracy >= 90) {
+          banner.className = "p-4 rounded-2xl font-bold text-sm mb-6 max-w-lg mx-auto bg-emerald-100 text-emerald-900 border border-emerald-300";
+          banner.innerHTML = "🌟 <strong>A+ Honors Vocabulary Mastery!</strong> You have memorized and understood all Unit 1 vocabulary terms.";
+        } else if (accuracy >= 80) {
+          banner.className = "p-4 rounded-2xl font-bold text-sm mb-6 max-w-lg mx-auto bg-blue-100 text-blue-900 border border-blue-300";
+          banner.innerHTML = "👍 <strong>Proficient Understanding!</strong> Good job. Use the 'Review Missed' filter to master the remaining terms.";
+        } else {
+          banner.className = "p-4 rounded-2xl font-bold text-sm mb-6 max-w-lg mx-auto bg-amber-100 text-amber-900 border border-amber-300";
+          banner.innerHTML = "💡 <strong>Keep Practicing!</strong> Click on 'Learn / Clue Link' on difficult terms to reinforce definitions.";
+        }
+      } else {
+        summaryCard.classList.add('hidden');
+      }
+    }
+
+    function resetQuiz() {
+      if (confirm('Reset your entire vocabulary test progress?')) {
+        state.answers = {};
+        state.revealedClues = {};
+        state.globalHints = false;
+        state.missedOnly = false;
+        saveState();
+        render();
+        updateStats();
+      }
+    }
+
+    window.onload = init;
+  </script>
+</body>
+</html>

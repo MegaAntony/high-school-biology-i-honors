@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biology I Honors - Unit 2 Test 08: Bulk Transport: Exocytosis & Vesicle Fusion</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+
+  <!-- TOP HEADER -->
+  <header class="bg-gradient-to-r from-blue-700 via-indigo-700 to-emerald-700 text-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="w-10 h-10 rounded-xl bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition border border-white/20" title="Back to All Tests">
+          <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="bg-white/20 text-xs px-2.5 py-1 rounded-full font-semibold uppercase tracking-wider">Biology I Honors</span>
+            <span class="bg-indigo-300 text-slate-900 text-xs px-2.5 py-1 rounded-full font-bold">Unit 2 • Test 08</span>
+          </div>
+          <h1 class="text-xl sm:text-2xl font-black tracking-tight mt-1 text-white">Bulk Transport: Exocytosis</h1>
+        </div>
+      </div>
+
+      <!-- Quick Stats Top -->
+      <div class="flex items-center gap-4 bg-white/10 backdrop-blur px-4 py-2 rounded-xl border border-white/15">
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Answered</div>
+          <div id="statAnswered" class="text-xl font-bold">0/20</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Accuracy</div>
+          <div id="statScore" class="text-xl font-bold text-emerald-300">0%</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <button onclick="resetQuiz()" class="text-xs bg-white/20 hover:bg-white/30 text-white px-3 py-2 rounded-lg font-medium transition flex items-center gap-1.5 cursor-pointer">
+          <i class="fa-solid fa-rotate-right"></i> Reset
+        </button>
+      </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="w-full bg-slate-900/30 h-2">
+      <div id="quizProgressBar" class="bg-emerald-400 h-2 transition-all duration-300" style="width: 0%"></div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-6xl mx-auto px-4 py-8">
+
+    <!-- Anti-Guess Note Banner -->
+    <div class="bg-indigo-50 border border-indigo-200 text-indigo-950 p-4 rounded-2xl mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-semibold shadow-sm">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-arrow-up-from-bracket text-indigo-600 text-base shrink-0"></i>
+        <span><strong>Bulk Secretory Transport:</strong> SNARE machinery, calcium-triggered exocytosis, insulin release, and neurotransmitter secretion!</span>
+      </div>
+      <a href="index.html" class="text-indigo-800 underline hover:text-indigo-950 whitespace-nowrap">View All 20 Tests</a>
+    </div>
+
+    <!-- CONTROLS & FILTER BAR -->
+    <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 mb-8">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-sm font-bold text-slate-700 mb-2">Filter by Topic:</h2>
+          <div class="flex flex-wrap gap-2" id="topicFilters">
+            <button onclick="filterTopic('All')" class="topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-sm transition cursor-pointer">All Topics (20)</button>
+            <button onclick="filterTopic('Bacterial Neurotoxins (Botox & Tetanus)')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Bacterial Neurotoxins (Botox & Tetanus)</button>
+            <button onclick="filterTopic('Comparative Transport Synthesis')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Comparative Transport Synthesis</button>
+            <button onclick="filterTopic('Constitutive vs Regulated Exocytosis')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Constitutive vs Regulated Exocytosis</button>
+            <button onclick="filterTopic('Digestive Enzyme Secretion in Stomach/Pancreas')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Digestive Enzyme Secretion in Stomach/Pancreas</button>
+            <button onclick="filterTopic('Endocytosis vs Exocytosis Homeostasis')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Endocytosis vs Exocytosis Homeostasis</button>
+            <button onclick="filterTopic('Endomembrane Secretory Route')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Endomembrane Secretory Route</button>
+            <button onclick="filterTopic('Energy Coupling in Vesicle Transport')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Energy Coupling in Vesicle Transport</button>
+            <button onclick="filterTopic('Exocytosis Direction & Mechanism')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Exocytosis Direction & Mechanism</button>
+            <button onclick="filterTopic('Extracellular Matrix Secretion')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Extracellular Matrix Secretion</button>
+            <button onclick="filterTopic('Kiss-and-Run vs Full Fusion')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Kiss-and-Run vs Full Fusion</button>
+            <button onclick="filterTopic('Membrane Expansion & Lipid Replenishment')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Membrane Expansion & Lipid Replenishment</button>
+            <button onclick="filterTopic('Neurotransmitter Release at Synapse')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Neurotransmitter Release at Synapse</button>
+            <button onclick="filterTopic('Pancreatic Beta Cell Insulin Secretion')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Pancreatic Beta Cell Insulin Secretion</button>
+            <button onclick="filterTopic('Plant Cell Cytokinesis & Cell Plate')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Plant Cell Cytokinesis & Cell Plate</button>
+            <button onclick="filterTopic('Plant Mucilage & Nectar Secretion')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Plant Mucilage & Nectar Secretion</button>
+            <button onclick="filterTopic('Rab GTPase Vesicle Docking')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Rab GTPase Vesicle Docking</button>
+            <button onclick="filterTopic('SNARE Protein Complex Function')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">SNARE Protein Complex Function</button>
+            <button onclick="filterTopic('Synaptotagmin Calcium Sensor')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Synaptotagmin Calcium Sensor</button>
+            <button onclick="filterTopic('Tetanus Toxin Mechanism')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Tetanus Toxin Mechanism</button>
+            <button onclick="filterTopic('Topology of Vesicle vs Plasma Membrane')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Topology of Vesicle vs Plasma Membrane</button>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 pt-2 lg:pt-0 border-t lg:border-t-0 border-slate-100">
+          <button onclick="toggleAllClues()" id="toggleCluesBtn" class="text-xs bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-regular fa-lightbulb"></i> <span id="clueToggleText">Show All Hints</span>
+          </button>
+          <button onclick="filterMissed()" id="filterMissedBtn" class="text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-solid fa-triangle-exclamation"></i> Review Missed (<span id="missedCount">0</span>)
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTIONS LIST -->
+    <div id="questionsContainer" class="space-y-6"></div>
+
+    <!-- SCORE SUMMARY CARD -->
+    <div id="scoreSummaryCard" class="mt-12 bg-white rounded-3xl p-8 border-2 border-indigo-100 shadow-xl hidden">
+      <div class="text-center max-w-xl mx-auto">
+        <div class="w-16 h-16 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl">
+          <i class="fa-solid fa-trophy"></i>
+        </div>
+        <h2 class="text-2xl font-black text-slate-800">Test 08 Complete!</h2>
+        <p class="text-slate-500 text-sm mt-1">Here is your detailed mastery score for Bulk Transport: Exocytosis & Vesicle Fusion.</p>
+        
+        <div class="grid grid-cols-3 gap-4 my-6 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Total Questions</div>
+            <div class="text-2xl font-black text-slate-800" id="finalTotal">20</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Correct</div>
+            <div class="text-2xl font-black text-emerald-600" id="finalCorrect">0</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Score Rate</div>
+            <div class="text-2xl font-black text-blue-600" id="finalPercent">0%</div>
+          </div>
+        </div>
+
+        <div id="masteryRating" class="p-4 rounded-2xl font-bold text-sm mb-6"></div>
+
+        <div class="flex items-center justify-center gap-4">
+          <button onclick="resetQuiz()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-indigo-200 transition cursor-pointer">
+            Retake Entire Test
+          </button>
+          <a href="index.html" class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-emerald-200 transition">
+            Back to Tests Hub
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-500 mt-12">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p>© 2026 Biology I Honors • South Forsyth High School</p>
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="hover:text-indigo-600 transition font-medium">All 20 Tests Hub</a>
+        <a href="../../index.html" class="hover:text-indigo-600 transition font-medium">Main Portal</a>
+        <a href="https://github.com/MegaAntony/biology-honors" target="_blank" class="hover:text-indigo-600 transition"><i class="fa-brands fa-github mr-1"></i>GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT ENGINE -->
+  <script>
+    const questionsData = [
+  {
+    "id": 1,
+    "topic": "Exocytosis Direction & Mechanism",
+    "question": "What fundamental cellular mechanism characterizes exocytosis in eukaryotic cells?",
+    "options": [
+      "An intracellular membrane-bound vesicle fuses with the plasma membrane to expel contents into the extracellular space.",
+      "A channel protein opens to allow large proteins to slip freely down their concentration gradient.",
+      "Solutes dissolve the phospholipid bilayer completely to allow bulk fluid escape into the bloodstream.",
+      "Mitochondria export their circular DNA chromosomes into the cytoplasm without using membranes."
+    ],
+    "answer": 0,
+    "clue": "Think of \"exo-\" meaning exit: vesicles merge with the outer membrane to dump cargo outside.",
+    "explanation": "In **exocytosis**, intracellular transport vesicles move to the cell surface, fuse with the plasma membrane, and release their contents (such as hormones, neurotransmitters, or enzymes) into the **extracellular space**."
+  },
+  {
+    "id": 2,
+    "topic": "Endomembrane Secretory Route",
+    "question": "Which sequence represents the correct chronological pathway taken by a newly synthesized secretory protein destined for exocytosis?",
+    "options": [
+      "Lysosome \u2192 Smooth ER \u2192 Nucleus \u2192 Plasma Membrane.",
+      "Rough ER \u2192 Transport Vesicle \u2192 Golgi Apparatus \u2192 Secretory Vesicle \u2192 Plasma Membrane.",
+      "Golgi Apparatus \u2192 Ribosome \u2192 Mitochondria \u2192 Peroxisome \u2192 Plasma Membrane.",
+      "Plasma Membrane \u2192 Endosome \u2192 Rough ER \u2192 Cytosol \u2192 Golgi Apparatus."
+    ],
+    "answer": 1,
+    "clue": "Start with translation on rough ER ribosomes, package through the Golgi stacks, then ship to membrane.",
+    "explanation": "Secretory proteins are synthesized by ribosomes on the **Rough ER**, transferred via transport vesicles to the **cis-Golgi**, processed and sorted through the **trans-Golgi**, packaged into **secretory vesicles**, and exported via **exocytosis** at the plasma membrane."
+  },
+  {
+    "id": 3,
+    "topic": "Constitutive vs Regulated Exocytosis",
+    "question": "How does regulated exocytosis differ fundamentally from constitutive exocytosis?",
+    "options": [
+      "Regulated exocytosis occurs only in dead cells, whereas constitutive exocytosis occurs only in living cells.",
+      "Regulated exocytosis is entirely passive, whereas constitutive exocytosis requires nuclear fission.",
+      "Regulated exocytosis requires a specific extracellular trigger or chemical signal (such as Ca2+ influx) before fusion occurs.",
+      "Regulated exocytosis transports only water molecules, whereas constitutive exocytosis transports whole organelles."
+    ],
+    "answer": 2,
+    "clue": "Constitutive secretion happens continuously; regulated secretion waits for an incoming trigger signal.",
+    "explanation": "**Constitutive exocytosis** occurs continuously in all eukaryotic cells (replenishing lipids and ECM proteins), whereas **regulated exocytosis** stores secretory products in vesicles that only fuse when triggered by an external stimulus or intracellular signal (like **Ca2+ influx**)."
+  },
+  {
+    "id": 4,
+    "topic": "SNARE Protein Complex Function",
+    "question": "What crucial physical role do SNARE proteins (v-SNAREs and t-SNAREs) play during vesicle exocytosis?",
+    "options": [
+      "They dismantle the nuclear envelope during cellular interphase.",
+      "They break down glucose into pyruvate within the mitochondrial matrix.",
+      "They convert cytoplasmic water into hydrogen peroxide to sanitize the vesicle interior.",
+      "They interlock like a molecular zipper to pull vesicle and target membranes close enough to overcome electrostatic repulsion and fuse."
+    ],
+    "answer": 3,
+    "clue": "SNAREs on the vesicle (v-) and target membrane (t-) coil together to pull membranes into direct contact.",
+    "explanation": "**v-SNAREs** (on the vesicle) and **t-SNAREs** (on the target membrane) form a tight four-helix bundle that \"zips\" together, drawing the two lipid bilayers into extreme proximity to overcome electrostatic repulsion and drive **membrane fusion**."
+  },
+  {
+    "id": 5,
+    "topic": "Neurotransmitter Release at Synapse",
+    "question": "When an electrical action potential arrives at an animal axon terminal, what direct ion event triggers the exocytosis of neurotransmitter vesicles into the synaptic cleft?",
+    "options": [
+      "An influx of calcium ions (Ca2+) through voltage-gated channels into the presynaptic cytoplasm.",
+      "A massive loss of water that causes the presynaptic bulb to dehydrate completely.",
+      "A sudden influx of gaseous nitrogen from atmospheric air into the terminal.",
+      "The instant crystallization of cytoplasmic potassium ions into solid salts."
+    ],
+    "answer": 0,
+    "clue": "Calcium is the universal secondary messenger triggering regulated secretory vesicle fusion.",
+    "explanation": "Depolarization opens **voltage-gated Ca2+ channels** in the presynaptic membrane. The resulting rapid influx of **Ca2+** binds to synaptotagmin, triggering SNARE-mediated fusion of synaptic vesicles and releasing neurotransmitters into the **synaptic cleft**."
+  },
+  {
+    "id": 6,
+    "topic": "Pancreatic Beta Cell Insulin Secretion",
+    "question": "In response to elevated blood glucose levels following a meal, pancreatic beta cells discharge insulin into the bloodstream via which mechanism?",
+    "options": [
+      "Simple passive diffusion through hydrophobic phospholipid fatty acid chains.",
+      "Regulated exocytosis of insulin-containing secretory granules.",
+      "Facilitated diffusion through gated potassium ion channels.",
+      "Bulk endocytosis of surrounding capillary endothelial cells."
+    ],
+    "answer": 1,
+    "clue": "Insulin is a large protein hormone stored in vesicles until elevated glucose levels trigger its discharge.",
+    "explanation": "Insulin is a polypeptide hormone stored in dense-core secretory granules within pancreatic beta cells. High glucose metabolism raises intracellular ATP, closing K+ channels, depolarizing the cell, and causing **regulated exocytosis of insulin** into the blood."
+  },
+  {
+    "id": 7,
+    "topic": "Membrane Expansion & Lipid Replenishment",
+    "question": "What is the immediate topological consequence to the plasma membrane when a secretory vesicle undergoes exocytosis?",
+    "options": [
+      "The vesicle membrane is permanently dissolved into free atmospheric carbon dioxide.",
+      "The plasma membrane surface area decreases because lipids are consumed for energy.",
+      "The vesicle membrane becomes incorporated into and expands the plasma membrane.",
+      "The plasma membrane flips completely inside-out with its inner leaflet facing outwards."
+    ],
+    "answer": 2,
+    "clue": "The vesicle's lipid bilayer merges seamlessly with the cell's outer membrane, adding surface area.",
+    "explanation": "During exocytosis, the vesicle\u2019s lipid bilayer fuses with the plasma membrane, **incorporating the vesicle\u2019s lipids and membrane proteins directly into the plasma membrane**, which increases its surface area and counterbalances endocytosis."
+  },
+  {
+    "id": 8,
+    "topic": "Bacterial Neurotoxins (Botox & Tetanus)",
+    "question": "Botulinum toxin (Botox) prevents muscle contraction and causes flaccid paralysis by specifically targeting which biochemical component of the exocytosis apparatus?",
+    "options": [
+      "It dissolves the mitochondrial cristae, eliminating all ATP production.",
+      "It blocks RNA polymerase from transcribing DNA in the cell nucleus.",
+      "It neutralizes all hemoglobin in neighboring red blood cells.",
+      "It cleaves SNARE proteins in motor neurons, preventing the exocytosis of acetylcholine."
+    ],
+    "answer": 3,
+    "clue": "Botulinum toxin is a protease that cuts SNARE proteins, blocking synaptic vesicle fusion.",
+    "explanation": "**Botulinum toxin** is an endopeptidase that specifically cleaves **SNARE proteins** (such as SNAP-25, syntaxin, or synaptobrevin) in motor neurons. Without functional SNAREs, acetylcholine vesicles cannot fuse via exocytosis, paralyzing muscle contraction."
+  },
+  {
+    "id": 9,
+    "topic": "Plant Cell Cytokinesis & Cell Plate",
+    "question": "How do dividing plant cells use exocytosis during cytokinesis to construct the new cell wall separating daughter cells?",
+    "options": [
+      "Golgi-derived vesicles carry pectins and cell wall precursors to the equatorial plane, fusing to form the cell plate.",
+      "Mitochondria align in a row and burst open to release hardened protein crystals.",
+      "The nuclear envelope stretches across the equator and calcifies into limestone.",
+      "The plasma membrane pinches inward from the outside like an animal cleavage furrow."
+    ],
+    "answer": 0,
+    "clue": "Vesicles from the Golgi fuse along the middle (phragmoplast) to form the dividing cell plate.",
+    "explanation": "During plant cytokinesis, Golgi-derived secretory vesicles carrying cell wall polysaccharides (pectins, hemicelluloses) fuse along the phragmoplast to form the **cell plate**, which matures into the new middle lamella and primary cell walls."
+  },
+  {
+    "id": 10,
+    "topic": "Topology of Vesicle vs Plasma Membrane",
+    "question": "A glycoprotein is synthesized such that its carbohydrate oligosaccharide chain faces the interior lumen of a secretory vesicle. After exocytosis, where will this carbohydrate chain be situated?",
+    "options": [
+      "Projecting outward from the extracellular face of the plasma membrane into the external environment.",
+      "Facing inward toward the cytoplasm, completely shielded from extracellular fluids.",
+      "Embedded invisibly in the nonpolar fatty acid core of the lipid bilayer.",
+      "Expelled as free gas into the surrounding intercellular atmosphere."
+    ],
+    "answer": 0,
+    "clue": "The inside of a vesicle becomes the outside of the cell when the vesicle opens outwards.",
+    "explanation": "Topologically, the **lumen of an endomembrane vesicle is equivalent to the exterior of the cell**. When the vesicle fuses with the plasma membrane, its inner leaflet becomes the outer leaflet, and its luminal glycoproteins face the **extracellular environment**."
+  },
+  {
+    "id": 11,
+    "topic": "Extracellular Matrix Secretion",
+    "question": "Fibroblast cells in animal connective tissues continuously secrete large quantities of collagen, proteoglycans, and fibronectin. Which transport mechanism is responsible for this export?",
+    "options": [
+      "Simple passive diffusion through aquaporin channels",
+      "Constitutive exocytosis via post-Golgi secretory vesicles",
+      "Receptor-mediated endocytosis via clathrin pits",
+      "Facilitated diffusion through gated sodium channels"
+    ],
+    "answer": 1,
+    "clue": "Large extracellular matrix proteins are constantly shipped out by non-stop constitutive exocytosis.",
+    "explanation": "Collagen and other **extracellular matrix (ECM)** structural proteins are far too large for channel or carrier proteins. Fibroblasts export them continuously into the interstitial space via **constitutive exocytosis**."
+  },
+  {
+    "id": 12,
+    "topic": "Energy Coupling in Vesicle Transport",
+    "question": "Before a secretory vesicle can fuse with the plasma membrane, what provides the mechanical force to transport the vesicle along microtubule tracks from the Golgi?",
+    "options": [
+      "Passive thermal Brownian vibration without any energy expenditure.",
+      "Gravitational attraction toward the lower hemisphere of the cell body.",
+      "Motor proteins (kinesins) hydrolyzing ATP as they step along microtubule tracks.",
+      "Nuclear magnetic resonance generated by chromatin compaction."
+    ],
+    "answer": 2,
+    "clue": "Motor proteins like kinesin burn ATP to \"walk\" vesicles along microtubule highways.",
+    "explanation": "Secretory vesicles are actively transported from the Golgi to the cell periphery by **motor proteins (such as kinesins)** that hydrolyze **ATP** to walk processively along cytoskeletal **microtubule** tracks."
+  },
+  {
+    "id": 13,
+    "topic": "Synaptotagmin Calcium Sensor",
+    "question": "In regulated synaptic transmission, what specific role does the vesicle protein synaptotagmin fulfill?",
+    "options": [
+      "It manufactures new ATP from ADP and inorganic phosphate during vesicle docking.",
+      "It acts as the primary calcium (Ca2+) sensor that binds incoming Ca2+ and triggers final SNARE pore opening.",
+      "It unzips chromosomal DNA to allow viral genome integration.",
+      "It digests the neurotransmitter molecules before they reach the synaptic cleft."
+    ],
+    "answer": 1,
+    "clue": "Synaptotagmin has calcium-binding domains that act as the master trigger for membrane fusion.",
+    "explanation": "**Synaptotagmin** is a transmembrane vesicle protein with C2 domains that bind **Ca2+**. Upon calcium binding, synaptotagmin interacts with phospholipids and the SNARE complex, catalyzing rapid, synchronized **membrane fusion and pore opening**."
+  },
+  {
+    "id": 14,
+    "topic": "Digestive Enzyme Secretion in Stomach/Pancreas",
+    "question": "Pancreatic acinar cells synthesize powerful digestive enzymes (such as trypsinogen and amylase) and store them in zymogen granules. How are these enzymes released into pancreatic ducts?",
+    "options": [
+      "By simple diffusion through open membrane porins.",
+      "By active transport through individual Na+/K+ molecular pumps.",
+      "By regulated exocytosis following hormonal stimulation by cholecystokinin (CCK).",
+      "By allowing acinar cells to burst open and disintegrate permanently."
+    ],
+    "answer": 2,
+    "clue": "Zymogen granules are secretory vesicles that wait for hormonal stimulation (CCK) to fuse and release enzymes.",
+    "explanation": "Digestive enzymes are stored safely as inactive proenzymes inside membrane-bound **zymogen granules**. In response to digestive hormones like CCK and acetylcholine, these granules undergo **regulated exocytosis**, discharging enzymes into the pancreatic duct."
+  },
+  {
+    "id": 15,
+    "topic": "Endocytosis vs Exocytosis Homeostasis",
+    "question": "If an active secretory cell performs exocytosis at a much higher rate than endocytosis over an extended period, what will be the immediate physical consequence?",
+    "options": [
+      "The cell will run out of DNA and halt protein synthesis completely.",
+      "The cell membrane will continuously expand in surface area and the cell may become distorted in shape.",
+      "The cytoplasm will turn entirely into gaseous oxygen and vaporize.",
+      "All mitochondria will migrate outside the cell and live independently."
+    ],
+    "answer": 1,
+    "clue": "Exocytosis adds vesicle membranes to the surface; if not balanced by endocytosis, the surface area grows.",
+    "explanation": "Because every exocytic event adds vesicle bilayer directly into the cell membrane, an imbalance where **exocytosis outpaces endocytosis** causes an increase in total **plasma membrane surface area**, altering cell geometry."
+  },
+  {
+    "id": 16,
+    "topic": "Rab GTPase Vesicle Docking",
+    "question": "Which family of peripheral membrane proteins coordinates vesicle targeting, tethering, and docking to the correct target membrane before SNARE pairing?",
+    "options": [
+      "Keratin filaments",
+      "Collagen fibers",
+      "Cellulose synthases",
+      "Rab GTPases"
+    ],
+    "answer": 3,
+    "clue": "These small GTPases act as molecular address labels guiding vesicles to their exact destinations.",
+    "explanation": "**Rab GTPases** are master regulators of intracellular vesicle trafficking. Specific Rab proteins decorate different vesicle classes and recruit tethering factors that bind the correct target membrane, ensuring vesicles dock with high spatial specificity."
+  },
+  {
+    "id": 17,
+    "topic": "Plant Mucilage & Nectar Secretion",
+    "question": "Carnivorous plants (like sundews and Venus flytraps) secrete sticky digestive mucilage and enzymes from specialized leaf glands. Which cellular organelle produces the secretory vesicles responsible for this exocytosis?",
+    "options": [
+      "The central vacuole",
+      "The nucleolus",
+      "The chloroplast thylakoid",
+      "The Golgi apparatus (dictyosome)"
+    ],
+    "answer": 3,
+    "clue": "The Golgi apparatus (often called a dictyosome in plants) packages polysaccharides and proteins for export.",
+    "explanation": "In plant cells, the **Golgi apparatus (dictyosomes)** is highly active in synthesizing, packaging, and processing complex polysaccharides and digestive enzymes into secretory vesicles for **exocytosis** at glandular surfaces."
+  },
+  {
+    "id": 18,
+    "topic": "Kiss-and-Run vs Full Fusion",
+    "question": "In specialized neurobiology investigations, what distinguishes \"kiss-and-run\" exocytosis from conventional full-collapse vesicle fusion?",
+    "options": [
+      "In kiss-and-run, the vesicle forms a transient fusion pore to release neurotransmitter and rapidly reseals without flattening into the membrane.",
+      "In kiss-and-run, the vesicle permanently destroys the post-synaptic neuron by injecting digestive acid.",
+      "In kiss-and-run, the vesicle is expelled intact into the synaptic cleft where it swims like a bacterium.",
+      "In kiss-and-run, transport occurs without any phospholipid participation or membrane contact."
+    ],
+    "answer": 0,
+    "clue": "\"Kiss-and-run\" means it briefly touches, opens a tiny transient pore to release cargo, and disconnects.",
+    "explanation": "In **kiss-and-run exocytosis**, the secretory vesicle opens a transient fusion pore to discharge neurotransmitters, then rapidly pinches shut and detaches to be refilled, rather than completely flattening and merging into the target membrane (**full fusion**)."
+  },
+  {
+    "id": 19,
+    "topic": "Tetanus Toxin Mechanism",
+    "question": "How does Tetanus toxin (tetanospasmin) produce spastic paralysis and violent, uncontrolled muscle spasms?",
+    "options": [
+      "It prevents red blood cells from transporting oxygen to peripheral tissues.",
+      "It dissolves bone tissue by accelerating osteoclast acid secretion.",
+      "It hydrolyzes muscle glycogen stores into gaseous carbon monoxide.",
+      "It cleaves synaptobrevin (v-SNARE) in inhibitory interneurons, blocking the exocytosis of GABA and glycine."
+    ],
+    "answer": 3,
+    "clue": "Tetanus toxin destroys SNARE proteins in inhibitory neurons, so motor neurons fire non-stop.",
+    "explanation": "**Tetanus toxin** travels retrogradely into spinal inhibitory interneurons and cleaves the v-SNARE **synaptobrevin**. This halts the **exocytosis of inhibitory neurotransmitters (GABA and glycine)**, leaving excitatory motor neurons firing unopposed and causing rigid **spastic paralysis**."
+  },
+  {
+    "id": 20,
+    "topic": "Comparative Transport Synthesis",
+    "question": "Which definitive criterion confirms that a transported protein crossed the cell membrane boundary via exocytosis rather than through an active transport pump?",
+    "options": [
+      "The transport was powered by thermal brownian movement without requiring ATP.",
+      "The protein moved through an intracellular channel made entirely of nucleic acids.",
+      "The protein was released along with a permanent integration of a transport vesicle membrane into the bilayer.",
+      "The protein moved directly across the hydrophobic bilayer core without any vesicle involvement."
+    ],
+    "answer": 2,
+    "clue": "Exocytosis is bulk vesicular transport: the vesicle bilayer integrates into the plasma membrane upon release.",
+    "explanation": "Unlike molecular pumps (which transport single molecules or ions through internal protein tunnels), **exocytosis involves the fusion of an entire membrane-bound vesicle**, depositing its cargo extracellularly while integrating its lipid bilayer into the plasma membrane."
+  }
+];
+    const STORAGE_KEY = 'bio_unit2_test08_state_clean';
+
+    let userState = {
+      answers: {},
+      showClues: {},
+      allCluesVisible: false,
+      currentFilter: 'All',
+      missedOnly: false
+    };
+
+    function safeLoad() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (parsed && typeof parsed === 'object') {
+            userState = Object.assign(userState, parsed);
+          }
+        }
+      } catch (e) {
+        console.warn('localStorage not accessible:', e);
+      }
+    }
+
+    function safeSave() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(userState));
+      } catch (e) {
+        console.warn('Could not save to localStorage:', e);
+      }
+    }
+
+    function init() {
+      safeLoad();
+      renderQuestions();
+      updateStats();
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById('questionsContainer');
+      if (!container) return;
+      container.innerHTML = '';
+
+      let filteredQuestions = questionsData.filter(q => {
+        if (userState.currentFilter !== 'All' && q.topic !== userState.currentFilter) return false;
+        if (userState.missedOnly) {
+          const userAns = userState.answers[q.id];
+          if (userAns === undefined || userAns === q.answer) return false;
+        }
+        return true;
+      });
+
+      if (filteredQuestions.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-12 bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
+            <i class="fa-solid fa-circle-check text-emerald-500 text-4xl mb-3"></i>
+            <h3 class="text-lg font-bold text-slate-800">No Questions In This Filter</h3>
+            <p class="text-slate-500 text-sm mt-1">Try selecting 'All Topics' or clearing the missed review filter.</p>
+          </div>
+        `;
+        return;
+      }
+
+      filteredQuestions.forEach((q) => {
+        const isAnswered = userState.answers[q.id] !== undefined;
+        const selectedOption = userState.answers[q.id];
+        const isCorrect = isAnswered && selectedOption === q.answer;
+        const isClueVisible = userState.allCluesVisible || userState.showClues[q.id];
+
+        const card = document.createElement('div');
+        card.className = `bg-white rounded-2xl p-6 border transition-all duration-200 shadow-sm ${
+          isAnswered
+            ? isCorrect
+              ? 'border-emerald-300 ring-1 ring-emerald-200/50 bg-emerald-50/20'
+              : 'border-rose-300 ring-1 ring-rose-200/50 bg-rose-50/20'
+            : 'border-slate-200 hover:border-slate-300'
+        }`;
+        card.id = `q-card-${q.id}`;
+
+        let optionsHtml = q.options.map((opt, oIdx) => {
+          let btnClass = "border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50/40 text-slate-700 cursor-pointer";
+          let iconHtml = `<span class="w-6 h-6 rounded-full border border-slate-300 text-xs font-semibold flex items-center justify-center mr-3 text-slate-500 shrink-0 mt-0.5">${String.fromCharCode(65 + oIdx)}</span>`;
+
+          if (isAnswered) {
+            if (oIdx === q.answer) {
+              btnClass = "bg-emerald-50 border-emerald-500 text-emerald-950 font-semibold ring-1 ring-emerald-400 cursor-default";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-emerald-600 text-white text-xs font-bold flex items-center justify-center mr-3 shrink-0 mt-0.5"><i class="fa-solid fa-check"></i></span>`;
+            } else if (oIdx === selectedOption && !isCorrect) {
+              btnClass = "bg-rose-50 border-rose-400 text-rose-950 font-semibold ring-1 ring-rose-300 cursor-default";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-rose-600 text-white text-xs font-bold flex items-center justify-center mr-3 shrink-0 mt-0.5"><i class="fa-solid fa-xmark"></i></span>`;
+            } else {
+              btnClass = "opacity-50 border-slate-200 text-slate-400 cursor-not-allowed";
+            }
+          }
+
+          return `
+            <button 
+              type="button"
+              onclick="selectAnswer(${q.id}, ${oIdx})" 
+              ${isAnswered ? 'disabled' : ''} 
+              class="w-full text-left p-3.5 rounded-xl text-sm transition flex items-start ${btnClass} my-2 leading-relaxed">
+              ${iconHtml}
+              <span class="flex-1">${opt}</span>
+            </button>
+          `;
+        }).join('');
+
+        card.innerHTML = `
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <div class="flex items-center gap-2">
+              <span class="bg-indigo-100 text-indigo-800 text-xs font-black px-2.5 py-0.5 rounded-md">Q${q.id}</span>
+              <span class="bg-slate-100 text-slate-600 text-xs font-semibold px-2.5 py-0.5 rounded-md">${q.topic}</span>
+            </div>
+
+            <button type="button" onclick="toggleClue(${q.id})" class="text-xs text-amber-700 bg-amber-50 hover:bg-amber-100 border border-amber-200 px-3 py-1 rounded-lg font-medium transition flex items-center gap-1 cursor-pointer">
+              <i class="fa-regular fa-lightbulb"></i>
+              ${isClueVisible ? 'Hide Hint' : 'Need a Clue?'}
+            </button>
+          </div>
+
+          <h3 class="text-base font-bold text-slate-900 leading-relaxed mb-4">${q.question}</h3>
+
+          <div id="clue-${q.id}" class="${isClueVisible ? 'block' : 'hidden'} mb-4 p-3.5 bg-amber-50/80 border border-amber-200 rounded-xl text-amber-900 text-xs flex items-start gap-2.5">
+            <i class="fa-solid fa-lightbulb text-amber-600 mt-0.5"></i>
+            <div><span class="font-bold">Study Hint:</span> ${q.clue}</div>
+          </div>
+
+          <div class="space-y-1">${optionsHtml}</div>
+
+          ${isAnswered ? `
+            <div class="mt-5 p-4 rounded-xl text-sm border ${
+              isCorrect 
+                ? 'bg-emerald-50/70 border-emerald-200 text-emerald-950' 
+                : 'bg-rose-50/70 border-rose-200 text-slate-800'
+            }">
+              <div class="flex items-center gap-2 font-bold mb-2 ${isCorrect ? 'text-emerald-800' : 'text-rose-800'}">
+                <i class="${isCorrect ? 'fa-solid fa-circle-check text-emerald-600' : 'fa-solid fa-circle-xmark text-rose-600'}"></i>
+                <span>${isCorrect ? 'Correct! Excellent work.' : 'Incorrect. Let\'s break it down:'}</span>
+              </div>
+              <p class="text-xs leading-relaxed text-slate-700 mb-2">${q.explanation}</p>
+              <div class="text-xs font-semibold text-indigo-700 pt-2 border-t border-slate-200/60 flex items-center justify-between">
+                <span>Correct Option: ${String.fromCharCode(65 + q.answer)} (${q.options[q.answer]})</span>
+                <button type="button" onclick="retryQuestion(${q.id})" class="text-slate-500 hover:text-slate-800 font-medium underline ml-2 cursor-pointer">Try Again</button>
+              </div>
+            </div>
+          ` : ''}
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function selectAnswer(qId, optionIdx) {
+      if (userState.answers[qId] !== undefined) return;
+      userState.answers[qId] = optionIdx;
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function retryQuestion(qId) {
+      delete userState.answers[qId];
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function toggleClue(qId) {
+      userState.showClues[qId] = !userState.showClues[qId];
+      const el = document.getElementById(`clue-${qId}`);
+      if (el) {
+        el.classList.toggle('hidden');
+        el.classList.toggle('block');
+      }
+    }
+
+    function toggleAllClues() {
+      userState.allCluesVisible = !userState.allCluesVisible;
+      const btnText = document.getElementById('clueToggleText');
+      if (btnText) {
+        btnText.textContent = userState.allCluesVisible ? 'Hide All Hints' : 'Show All Hints';
+      }
+      renderQuestions();
+    }
+
+    function filterTopic(topic) {
+      userState.currentFilter = topic;
+      userState.missedOnly = false;
+      document.querySelectorAll('.topic-btn').forEach(btn => {
+        if (btn.textContent.includes(topic) || (topic === 'All' && btn.textContent.includes('All Topics'))) {
+          btn.className = 'topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-sm transition cursor-pointer';
+        } else {
+          btn.className = 'topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer';
+        }
+      });
+      renderQuestions();
+    }
+
+    function filterMissed() {
+      userState.missedOnly = !userState.missedOnly;
+      const btn = document.getElementById('filterMissedBtn');
+      if (userState.missedOnly) {
+        btn.className = 'text-xs bg-rose-600 text-white border border-rose-600 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer shadow-sm';
+      } else {
+        btn.className = 'text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer';
+      }
+      renderQuestions();
+    }
+
+    function updateStats() {
+      const total = questionsData.length;
+      const answeredKeys = Object.keys(userState.answers);
+      const answeredCount = answeredKeys.length;
+      let correctCount = 0;
+      let missedCount = 0;
+
+      answeredKeys.forEach(k => {
+        const q = questionsData.find(item => item.id == k);
+        if (q) {
+          if (userState.answers[k] === q.answer) {
+            correctCount++;
+          } else {
+            missedCount++;
+          }
+        }
+      });
+
+      const pct = answeredCount > 0 ? Math.round((correctCount / answeredCount) * 100) : 0;
+      const progressPct = Math.round((answeredCount / total) * 100);
+
+      const statAns = document.getElementById('statAnswered');
+      const statScore = document.getElementById('statScore');
+      const progBar = document.getElementById('quizProgressBar');
+      const missedCountSpan = document.getElementById('missedCount');
+
+      if (statAns) statAns.textContent = `${answeredCount}/${total}`;
+      if (statScore) statScore.textContent = `${pct}%`;
+      if (progBar) progBar.style.width = `${progressPct}%`;
+      if (missedCountSpan) missedCountSpan.textContent = missedCount;
+
+      const summaryCard = document.getElementById('scoreSummaryCard');
+      if (answeredCount === total && total > 0) {
+        if (summaryCard) {
+          summaryCard.classList.remove('hidden');
+          document.getElementById('finalTotal').textContent = total;
+          document.getElementById('finalCorrect').textContent = correctCount;
+          document.getElementById('finalPercent').textContent = `${pct}%`;
+
+          const rating = document.getElementById('masteryRating');
+          if (pct >= 90) {
+            rating.className = 'p-4 rounded-2xl font-bold text-sm mb-6 bg-emerald-100 text-emerald-900 border border-emerald-300';
+            rating.innerHTML = '🌟 Master Level! Outstanding command of exocytosis, SNARE proteins, and secretory pathways!';
+          } else if (pct >= 75) {
+            rating.className = 'p-4 rounded-2xl font-bold text-sm mb-6 bg-blue-100 text-blue-900 border border-blue-300';
+            rating.innerHTML = '👍 Solid Mastery! Review missed questions to reinforce vesicle fusion dynamics.';
+          } else {
+            rating.className = 'p-4 rounded-2xl font-bold text-sm mb-6 bg-amber-100 text-amber-900 border border-amber-300';
+            rating.innerHTML = '📚 Keep practicing! Focus on constitutive vs regulated exocytosis and calcium signaling triggers.';
+          }
+        }
+      } else {
+        if (summaryCard) summaryCard.classList.add('hidden');
+      }
+    }
+
+    function resetQuiz() {
+      if (confirm('Are you sure you want to reset all answers and progress for this test?')) {
+        userState.answers = {};
+        userState.showClues = {};
+        userState.allCluesVisible = false;
+        userState.missedOnly = false;
+        safeSave();
+        renderQuestions();
+        updateStats();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  </script>
+</body>
+</html>

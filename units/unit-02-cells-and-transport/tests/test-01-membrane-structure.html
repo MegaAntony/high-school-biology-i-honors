@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biology I Honors - Unit 2 Test 01: Membrane Structure & Bilayer Architecture</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+
+  <!-- TOP HEADER -->
+  <header class="bg-gradient-to-r from-blue-700 via-indigo-700 to-emerald-700 text-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="w-10 h-10 rounded-xl bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition border border-white/20" title="Back to All Tests">
+          <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="bg-white/20 text-xs px-2.5 py-1 rounded-full font-semibold uppercase tracking-wider">Biology I Honors</span>
+            <span class="bg-emerald-400 text-slate-900 text-xs px-2.5 py-1 rounded-full font-bold">Unit 2 • Test 01</span>
+          </div>
+          <h1 class="text-xl sm:text-2xl font-black tracking-tight mt-1 text-white">Membrane Structure & Bilayer Architecture</h1>
+        </div>
+      </div>
+
+      <!-- Quick Stats Top -->
+      <div class="flex items-center gap-4 bg-white/10 backdrop-blur px-4 py-2 rounded-xl border border-white/15">
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Answered</div>
+          <div id="statAnswered" class="text-xl font-bold">0/20</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Accuracy</div>
+          <div id="statScore" class="text-xl font-bold text-emerald-300">0%</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <button onclick="resetQuiz()" class="text-xs bg-white/20 hover:bg-white/30 text-white px-3 py-2 rounded-lg font-medium transition flex items-center gap-1.5 cursor-pointer">
+          <i class="fa-solid fa-rotate-right"></i> Reset
+        </button>
+      </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="w-full bg-slate-900/30 h-2">
+      <div id="quizProgressBar" class="bg-emerald-400 h-2 transition-all duration-300" style="width: 0%"></div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-6xl mx-auto px-4 py-8">
+
+    <!-- Anti-Guess Note Banner -->
+    <div class="bg-emerald-50 border border-emerald-200 text-emerald-950 p-4 rounded-2xl mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-semibold shadow-sm">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-shield-halved text-emerald-600 text-base shrink-0"></i>
+        <span><strong>Anti-Guess Edition:</strong> All 4 options per question have balanced lengths and realistic curriculum distractors so you cannot guess by length alone.</span>
+      </div>
+      <a href="index.html" class="text-emerald-800 underline hover:text-emerald-950 whitespace-nowrap">View All 20 Tests</a>
+    </div>
+
+    <!-- CONTROLS & FILTER BAR -->
+    <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 mb-8">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-sm font-bold text-slate-700 mb-2">Filter by Topic:</h2>
+          <div class="flex flex-wrap gap-2" id="topicFilters">
+            <button onclick="filterTopic('All')" class="topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-sm transition cursor-pointer">All Topics (20)</button>
+            <button onclick="filterTopic('Phospholipid Bilayer')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Phospholipid Bilayer</button>
+            <button onclick="filterTopic('Membrane Permeability')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Membrane Permeability</button>
+            <button onclick="filterTopic('Membrane Proteins')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Membrane Proteins</button>
+            <button onclick="filterTopic('Fluid Mosaic Model')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Fluid Mosaic Model</button>
+
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 pt-2 lg:pt-0 border-t lg:border-t-0 border-slate-100">
+          <button onclick="toggleAllClues()" id="toggleCluesBtn" class="text-xs bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-regular fa-lightbulb"></i> <span id="clueToggleText">Show All Hints</span>
+          </button>
+          <button onclick="filterMissed()" id="filterMissedBtn" class="text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-solid fa-triangle-exclamation"></i> Review Missed (<span id="missedCount">0</span>)
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTIONS LIST -->
+    <div id="questionsContainer" class="space-y-6"></div>
+
+    <!-- SCORE SUMMARY CARD -->
+    <div id="scoreSummaryCard" class="mt-12 bg-white rounded-3xl p-8 border-2 border-indigo-100 shadow-xl hidden">
+      <div class="text-center max-w-xl mx-auto">
+        <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl">
+          <i class="fa-solid fa-trophy"></i>
+        </div>
+        <h2 class="text-2xl font-black text-slate-800">Test 01 Complete!</h2>
+        <p class="text-slate-500 text-sm mt-1">Here is your detailed mastery score for Membrane Structure & Bilayer Architecture.</p>
+        
+        <div class="grid grid-cols-3 gap-4 my-6 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Total Questions</div>
+            <div class="text-2xl font-black text-slate-800" id="finalTotal">20</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Correct</div>
+            <div class="text-2xl font-black text-emerald-600" id="finalCorrect">0</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Score Rate</div>
+            <div class="text-2xl font-black text-blue-600" id="finalPercent">0%</div>
+          </div>
+        </div>
+
+        <div id="masteryRating" class="p-4 rounded-2xl font-bold text-sm mb-6"></div>
+
+        <div class="flex items-center justify-center gap-4">
+          <button onclick="resetQuiz()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-indigo-200 transition cursor-pointer">
+            Retake Entire Test
+          </button>
+          <a href="index.html" class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-emerald-200 transition">
+            Back to Tests Hub
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-500 mt-12">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p>© 2026 Biology I Honors • South Forsyth High School</p>
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="hover:text-indigo-600 transition font-medium">All 20 Tests Hub</a>
+        <a href="../../index.html" class="hover:text-indigo-600 transition font-medium">Main Portal</a>
+        <a href="https://github.com/MegaAntony/biology-honors" target="_blank" class="hover:text-indigo-600 transition"><i class="fa-brands fa-github mr-1"></i>GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT ENGINE -->
+  <script>
+    const questionsData = [
+  {
+    "id": 1,
+    "topic": "Phospholipid Bilayer",
+    "question": "Which statement accurately describes the amphipathic structure of a phospholipid molecule found in biological membranes?",
+    "options": [
+      "It contains three hydrophobic fatty acid chains bonded to a hydrophilic glycerol backbone without phosphate.",
+      "It is entirely nonpolar throughout its entire structure.",
+      "It is composed of a nonpolar phosphate group linked to two polar carbohydrate chains that attract water.",
+      "It consists of a hydrophilic phosphate head and two hydrophobic fatty acid tails."
+    ],
+    "answer": 3,
+    "clue": "Think about which part interacts with water inside and outside the cell versus which part avoids water.",
+    "explanation": "Phospholipids are **amphipathic**: the glycerol-phosphate head is polar/hydrophilic (interacts with water), while the two hydrocarbon fatty acid tails are nonpolar/hydrophobic (face inward away from water)."
+  },
+  {
+    "id": 2,
+    "topic": "Membrane Permeability",
+    "question": "Which of the following substances can diffuse most readily across the phospholipid bilayer without the assistance of transport proteins?",
+    "options": [
+      "Glucose",
+      "Sodium ions (Na+)",
+      "Oxygen gas (O2)",
+      "Large polypeptide enzymes"
+    ],
+    "answer": 2,
+    "clue": "Small, uncharged, nonpolar molecules easily slip between phospholipid tails.",
+    "explanation": "**Oxygen (O2)** is small and nonpolar, allowing it to dissolve directly into the hydrophobic core of the bilayer and diffuse freely down its concentration gradient without membrane proteins."
+  },
+  {
+    "id": 3,
+    "topic": "Fluid Mosaic Model",
+    "question": "Why is the currently accepted model of the plasma membrane termed the \"Fluid Mosaic Model\"?",
+    "options": [
+      "The membrane is completely solid at physiological temperatures but contains liquid water reservoirs trapped between lipid layers.",
+      "The phospholipids and embedded proteins drift laterally within the plane of the membrane, creating a dynamic, mosaic-like pattern.",
+      "Membrane carbohydrates constantly dissolve in the extracellular fluid to generate microscopic currents.",
+      "Phospholipids flip-flop from the outer leaflet to the inner leaflet hundreds of times per second."
+    ],
+    "answer": 1,
+    "clue": "Consider how icebergs float and drift across an ocean.",
+    "explanation": "The membrane is **fluid** because phospholipids and many proteins can move laterally within the bilayer. It is a **mosaic** because of the diverse collage of proteins, cholesterol, and carbohydrates embedded throughout."
+  },
+  {
+    "id": 4,
+    "topic": "Cholesterol Function",
+    "question": "How does cholesterol function as a \"fluidity buffer\" within animal cell plasma membranes?",
+    "options": [
+      "It synthesizes additional phospholipid molecules whenever ambient temperature drops.",
+      "It permanently locks all membrane proteins into stationary positions.",
+      "It prevents overly dense lipid packing in the cold while restraining excessive phospholipid movement at warm temperatures.",
+      "It converts saturated fatty acid tails directly into unsaturated tails when heated."
+    ],
+    "answer": 2,
+    "clue": "Cholesterol stabilizes the membrane across fluctuating body temperatures.",
+    "explanation": "At warm temperatures (e.g., 37\u00b0C), **cholesterol** restricts phospholipid movement, preventing the membrane from becoming too fluid. At cold temperatures, it hinders close packing of fatty acid chains, preventing membrane solidification."
+  },
+  {
+    "id": 5,
+    "topic": "Membrane Permeability",
+    "question": "Why are simple ions like K+, Na+, and Cl- virtually unable to diffuse directly through the pure phospholipid bilayer?",
+    "options": [
+      "Their electrostatic charge and surrounding hydration shells prevent them from entering the hydrophobic hydrocarbon interior.",
+      "Their atomic mass is greater than that of uncharged disaccharides.",
+      "They covalently bind to polar phosphate heads upon initial contact.",
+      "They are actively destroyed by enzymes embedded on the exterior leaflet."
+    ],
+    "answer": 0,
+    "clue": "Consider how charged particles interact with nonpolar lipid interiors.",
+    "explanation": "Ions are surrounded by a **hydration shell** of polar water molecules and carry a charge. The nonpolar, hydrophobic interior of the phospholipid bilayer strongly repels charged particles, requiring specialized ion channels for transport."
+  },
+  {
+    "id": 6,
+    "topic": "Membrane Proteins",
+    "question": "What structural distinction separates integral membrane proteins from peripheral membrane proteins?",
+    "options": [
+      "Peripheral proteins are made of nucleic acids, whereas integral proteins are polypeptides.",
+      "Integral proteins penetrate the hydrophobic core of the lipid bilayer, while peripheral proteins are loosely bound to the membrane surface.",
+      "Integral proteins function exclusively on the extracellular surface, while peripheral proteins exist solely inside the cytoplasm.",
+      "Integral proteins are easily washed off with mild salt solutions without disrupting bilayer integrity."
+    ],
+    "answer": 1,
+    "clue": "Think of \"integral\" as integrated into the membrane core.",
+    "explanation": "**Integral proteins** penetrate the hydrophobic interior of the lipid bilayer (often spanning it completely as transmembrane proteins). **Peripheral proteins** are not embedded in the lipid core and instead adhere loosely to membrane surfaces or to integral proteins."
+  },
+  {
+    "id": 7,
+    "topic": "Carbohydrates & Glycocalyx",
+    "question": "What is the primary physiological function of oligosaccharides linked to glycoproteins and glycolipids on the extracellular surface of the plasma membrane?",
+    "options": [
+      "Serving as high-energy fuel reserves oxidized during ATP synthesis",
+      "Pumping protons against their concentration gradient into lysosomes",
+      "Providing rigid tensile strength that substitutes for a cellulose wall",
+      "Functioning as identification tags that facilitate cell-cell recognition and immune identification"
+    ],
+    "answer": 3,
+    "clue": "How does your immune system distinguish your own blood cells from foreign pathogens or mismatched blood types?",
+    "explanation": "Membrane carbohydrates (glycoproteins and glycolipids) act as cellular **fingerprints / recognition tags**. They allow cells of an organism to recognize each other (such as sorting cells into tissues in an embryo and distinguishing self from non-self in immunity)."
+  },
+  {
+    "id": 8,
+    "topic": "Fatty Acid Saturation",
+    "question": "Winter wheat plants survive freezing temperatures by altering the lipid composition of their cell membranes. Which adaptation maintains membrane fluidity in freezing conditions?",
+    "options": [
+      "Increasing the proportion of saturated fatty acid tails with straight, tightly packable chains",
+      "Removing all integral transmembrane proteins from the lipid bilayer",
+      "Increasing the proportion of unsaturated fatty acids with cis-double-bond kinks that prevent tight packing",
+      "Replacing phospholipids entirely with cellulose and starch polymers"
+    ],
+    "answer": 2,
+    "clue": "Kinks in hydrocarbon tails keep the membrane fluid like vegetable oil rather than solid like butter.",
+    "explanation": "**Unsaturated fatty acids** possess cis double bonds that produce kinks in the carbon chains. These kinks prevent adjacent phospholipids from packing tightly together, lowering the temperature required for the membrane to solidify."
+  },
+  {
+    "id": 9,
+    "topic": "Phospholipid Bilayer",
+    "question": "When phospholipids are placed into an aqueous solution and agitated, they spontaneously form spherical vesicles called liposomes. What thermodynamic force drives this self-assembly?",
+    "options": [
+      "Covalent bond formation catalyzed by cytoplasmic ATP synthases",
+      "Hydrophobic exclusion, where water molecules maximize hydrogen bonding with polar heads while nonpolar tails cluster away from water",
+      "Active pumping of water into the interior by channel proteins",
+      "Electrostatic repulsion between adjacent hydrophilic heads forcing them into a hollow sphere"
+    ],
+    "answer": 1,
+    "clue": "Water molecules prefer to hydrogen-bond with each other, excluding nonpolar hydrocarbons.",
+    "explanation": "Bilayer formation is driven by the **hydrophobic effect**: water molecules form extensive hydrogen bonds with one another and with polar phosphate heads, while excluding nonpolar fatty acid tails, causing tails to sequester together in the interior."
+  },
+  {
+    "id": 10,
+    "topic": "Membrane Permeability",
+    "question": "Although water is a polar molecule, small amounts can slowly cross a synthetic phospholipid bilayer without proteins. However, living cells transport water at extremely rapid rates using which membrane component?",
+    "options": [
+      "Desmosomes",
+      "Aquaporins",
+      "Sodium-potassium ATPase",
+      "Cholesterol esters"
+    ],
+    "answer": 1,
+    "clue": "Specialized water channel proteins discovered by Peter Agre (Nobel Prize 2003).",
+    "explanation": "**Aquaporins** are specialized transmembrane channel proteins that facilitate the massive, rapid movement of water molecules across biological membranes in tissues such as kidney tubules and red blood cells."
+  },
+  {
+    "id": 11,
+    "topic": "Membrane Proteins",
+    "question": "Which of the following is NOT a primary biological function fulfilled by membrane proteins?",
+    "options": [
+      "Facilitated transport of polar nutrients across the bilayer",
+      "Signal transduction via receptor conformational change",
+      "Enzymatic catalysis of localized biochemical pathways",
+      "Direct storage of genomic DNA sequences for cell division"
+    ],
+    "answer": 3,
+    "clue": "Which organelle stores genetic information?",
+    "explanation": "Membrane proteins participate in transport, enzymatic activity, signal transduction, cell-cell recognition, intercellular joining, and attachment to the cytoskeleton/ECM. **Genomic DNA storage** is exclusively carried out in the nucleus (eukaryotes) or nucleoid (prokaryotes)."
+  },
+  {
+    "id": 12,
+    "topic": "Membrane Permeability",
+    "question": "Order the following chemical species from MOST permeable to LEAST permeable across a protein-free phospholipid bilayer: (1) Ca2+, (2) N2, (3) Glucose, (4) H2O.",
+    "options": [
+      "N2 > H2O > Glucose > Ca2+",
+      "Ca2+ > Glucose > H2O > N2",
+      "H2O > N2 > Ca2+ > Glucose",
+      "Glucose > N2 > H2O > Ca2+"
+    ],
+    "answer": 0,
+    "clue": "Nonpolar small gas > small uncharged polar > large uncharged polar > charged ion.",
+    "explanation": "Permeability order: (1) **N2** (small nonpolar gas, most permeable) > (2) **H2O** (small uncharged polar molecule) > (3) **Glucose** (large uncharged polar hexose) > (4) **Ca2+** (charged ion, least permeable due to charge and hydration shell)."
+  },
+  {
+    "id": 13,
+    "topic": "Fluid Mosaic Model",
+    "question": "In the landmark 1970 Frye-Edidin experiment, human and mouse cells with distinct membrane surface proteins were fused together. What observed result provided decisive evidence that membrane proteins move laterally?",
+    "options": [
+      "The mouse proteins were degraded immediately by human lysosomal enzymes.",
+      "Mouse and human membrane proteins remained strictly segregated on opposite halves forever.",
+      "The hybrid cell lost all surface proteins and burst due to osmotic lysis.",
+      "Mouse and human membrane proteins became completely intermixed over the entire hybrid cell surface within 40 minutes."
+    ],
+    "answer": 3,
+    "clue": "If proteins are fixed in place, they stay on their own side; if fluid, they intermingle.",
+    "explanation": "Within 40 minutes at 37\u00b0C, the labeled human and mouse proteins were **completely and uniformly intermixed**, demonstrating conclusively that membrane proteins drift laterally through the fluid lipid bilayer."
+  },
+  {
+    "id": 14,
+    "topic": "Membrane Asymmetry",
+    "question": "Biological membranes exhibit distinct \"sidedness\" (asymmetry). Which observation best illustrates this fundamental property?",
+    "options": [
+      "Phospholipids on the cytosolic leaflet lack phosphate heads entirely.",
+      "Peripheral proteins are found only in animal cells and never in plant cells.",
+      "Carbohydrate chains are located exclusively on the extracellular leaflet, never facing the cytosol.",
+      "Cholesterol is restricted exclusively to prokaryotic outer envelopes."
+    ],
+    "answer": 2,
+    "clue": "When vesicles fuse with the plasma membrane, which side ends up on the outside?",
+    "explanation": "Because glycoproteins and glycolipids are synthesized and modified inside the lumen of the ER and Golgi, vesicle fusion places all **carbohydrates exclusively on the outer (extracellular) surface** of the plasma membrane."
+  },
+  {
+    "id": 15,
+    "topic": "Phospholipid Bilayer",
+    "question": "If a cell membrane were composed exclusively of saturated fatty acid tails with no double bonds and zero cholesterol, what would happen if the ambient temperature dropped significantly?",
+    "options": [
+      "The membrane would become excessively fluid and disintegrate.",
+      "The membrane would pack tightly into a rigid, non-functional gel/solid, halting transport.",
+      "The membrane would spontaneously invert, exposing hydrophobic tails to the extracellular water.",
+      "The membrane would begin actively manufacturing glucose molecules."
+    ],
+    "answer": 1,
+    "clue": "Think about butter (saturated) hardening in the refrigerator.",
+    "explanation": "Saturated fatty acids have straight tails that pack tightly together. In cold conditions, lack of unsaturated kinks and absence of cholesterol causes the membrane to **solidify into a rigid crystalline gel**, blocking membrane transport and inactivating enzymes."
+  },
+  {
+    "id": 16,
+    "topic": "Membrane Proteins",
+    "question": "A pharmaceutical drug binds to an extracellular membrane protein and triggers a cascade of enzymatic activations inside the cytoplasm without ever entering the cell itself. What type of protein is this drug targeting?",
+    "options": [
+      "A structural cytoskeletal keratin filament",
+      "A passive aquaporin channel allowing bulk water flow",
+      "A peripheral lipid anchor synthesizing cholesterol",
+      "A transmembrane receptor protein engaged in signal transduction"
+    ],
+    "answer": 3,
+    "clue": "A relay system where an external message is converted into an internal cellular response.",
+    "explanation": "**Transmembrane receptor proteins** bind specific external signaling molecules (ligands) on their extracellular domain, causing a conformational shape change that transmits the signal across the membrane to activate intracellular pathways."
+  },
+  {
+    "id": 17,
+    "topic": "Phospholipid Bilayer",
+    "question": "Which portion of an integral transmembrane alpha-helix protein is in direct physical contact with the interior core of the phospholipid bilayer?",
+    "options": [
+      "Hydrophilic amino acid side chains with acidic and basic R-groups",
+      "Negatively charged phosphate ions bonded to lysine residues",
+      "Hydrophobic amino acid side chains with nonpolar R-groups (such as leucine and valine)",
+      "Branched oligosaccharide carbohydrate polymers"
+    ],
+    "answer": 2,
+    "clue": "Nonpolar regions of proteins interact favorably with nonpolar fatty acid tails.",
+    "explanation": "The segments of integral proteins embedded within the lipid bilayer consist of nonpolar, **hydrophobic amino acids** (e.g., leucine, isoleucine, valine, phenylalanine) coiled into alpha-helices that interact comfortably with the hydrophobic fatty acid tails."
+  },
+  {
+    "id": 18,
+    "topic": "Membrane Transport Overview",
+    "question": "How does a carrier protein fundamentally differ from a simple channel protein in membrane transport?",
+    "options": [
+      "Channel proteins require cellular ATP hydrolysis for every molecule passed, whereas carrier proteins never require energy.",
+      "Carrier proteins transport only hydrophobic gases, while channel proteins transport only large proteins.",
+      "A carrier protein undergoes a specific conformational shape change to shuttle its solute across, while a channel protein provides an open hydrophilic pore.",
+      "Channel proteins bind irreversibly to their substrates and stay closed permanently."
+    ],
+    "answer": 2,
+    "clue": "Think of a revolving door (carrier) versus a continuous hallway tunnel (channel).",
+    "explanation": "**Channel proteins** provide a continuous hydrophilic tunnel for specific ions or water (aquaporins). **Carrier proteins** bind their specific solute, which induces a subtle conformational shape change that translocates the solute binding site across the membrane."
+  },
+  {
+    "id": 19,
+    "topic": "Selective Permeability",
+    "question": "Which environmental condition would cause an animal cell plasma membrane to become destructively permeable and lose integrity due to excessive fluidity?",
+    "options": [
+      "Extremely low temperatures near freezing",
+      "High ambient temperatures accompanied by an absence of stabilizing cholesterol",
+      "Exposure to isotonic 0.9% saline buffer solution",
+      "An abundance of tightly packed saturated fatty acid tails"
+    ],
+    "answer": 1,
+    "clue": "What happens to lipids when heated without a stabilizer?",
+    "explanation": "**Excessive heat** increases the kinetic energy of phospholipids. Without cholesterol to restrain their movement, the membrane becomes overly fluid, loose, and leaky, losing its selective permeability barrier."
+  },
+  {
+    "id": 20,
+    "topic": "Fluid Mosaic Model",
+    "question": "Why do phospholipids in a membrane rarely \"flip-flop\" spontaneously from one monolayer (leaflet) to the other, while lateral movement occurs constantly?",
+    "options": [
+      "Cytoplasmic actin filaments permanently anchor both phospholipid layers with covalent bonds.",
+      "Cholesterol molecules form an impassable solid wall between the inner and outer monolayers.",
+      "Thermal kinetic energy only exists in two horizontal dimensions within cells.",
+      "The polar hydrophilic head would have to travel through the hydrophobic interior core, which is energetically unfavorable."
+    ],
+    "answer": 3,
+    "clue": "What happens when a charged, water-loving head tries to pass through oily, water-hating tails?",
+    "explanation": "A transverse \"flip-flop\" requires a polar, hydrophilic phosphate head to cross the completely nonpolar, hydrophobic interior core of the bilayer, which is **thermodynamically unfavorable** and occurs less than once per month without specialized flippase enzymes."
+  }
+];
+    const STORAGE_KEY = 'bio_unit2_test01_state_clean';
+
+    let userState = {
+      answers: {},
+      showClues: {},
+      allCluesVisible: false,
+      currentFilter: 'All',
+      missedOnly: false
+    };
+
+    function safeLoad() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (parsed && typeof parsed === 'object') {
+            userState = Object.assign(userState, parsed);
+          }
+        }
+      } catch (e) {
+        console.warn('localStorage not accessible:', e);
+      }
+    }
+
+    function safeSave() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(userState));
+      } catch (e) {
+        console.warn('Could not save to localStorage:', e);
+      }
+    }
+
+    function init() {
+      safeLoad();
+      renderQuestions();
+      updateStats();
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById('questionsContainer');
+      if (!container) return;
+      container.innerHTML = '';
+
+      let filteredQuestions = questionsData.filter(q => {
+        if (userState.currentFilter !== 'All' && q.topic !== userState.currentFilter) return false;
+        if (userState.missedOnly) {
+          const userAns = userState.answers[q.id];
+          if (userAns === undefined || userAns === q.answer) return false;
+        }
+        return true;
+      });
+
+      if (filteredQuestions.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-12 bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
+            <i class="fa-solid fa-circle-check text-emerald-500 text-4xl mb-3"></i>
+            <h3 class="text-lg font-bold text-slate-800">No Questions In This Filter</h3>
+            <p class="text-slate-500 text-sm mt-1">Try selecting 'All Topics' or clearing the missed review filter.</p>
+          </div>
+        `;
+        return;
+      }
+
+      filteredQuestions.forEach((q) => {
+        const isAnswered = userState.answers[q.id] !== undefined;
+        const selectedOption = userState.answers[q.id];
+        const isCorrect = isAnswered && selectedOption === q.answer;
+        const isClueVisible = userState.allCluesVisible || userState.showClues[q.id];
+
+        const card = document.createElement('div');
+        card.className = `bg-white rounded-2xl p-6 border transition-all duration-200 shadow-sm ${
+          isAnswered
+            ? isCorrect
+              ? 'border-emerald-300 ring-1 ring-emerald-200/50 bg-emerald-50/20'
+              : 'border-rose-300 ring-1 ring-rose-200/50 bg-rose-50/20'
+            : 'border-slate-200 hover:border-slate-300'
+        }`;
+        card.id = `q-card-${q.id}`;
+
+        let optionsHtml = q.options.map((opt, oIdx) => {
+          let btnClass = "border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50/40 text-slate-700 cursor-pointer";
+          let iconHtml = `<span class="w-6 h-6 rounded-full border border-slate-300 text-xs font-semibold flex items-center justify-center mr-3 text-slate-500 shrink-0 mt-0.5">${String.fromCharCode(65 + oIdx)}</span>`;
+
+          if (isAnswered) {
+            if (oIdx === q.answer) {
+              btnClass = "bg-emerald-50 border-emerald-500 text-emerald-950 font-semibold ring-1 ring-emerald-400 cursor-default";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-emerald-600 text-white text-xs font-bold flex items-center justify-center mr-3 shrink-0 mt-0.5"><i class="fa-solid fa-check"></i></span>`;
+            } else if (oIdx === selectedOption && !isCorrect) {
+              btnClass = "bg-rose-50 border-rose-400 text-rose-950 font-semibold ring-1 ring-rose-300 cursor-default";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-rose-600 text-white text-xs font-bold flex items-center justify-center mr-3 shrink-0 mt-0.5"><i class="fa-solid fa-xmark"></i></span>`;
+            } else {
+              btnClass = "opacity-50 border-slate-200 text-slate-400 cursor-not-allowed";
+            }
+          }
+
+          return `
+            <button 
+              type="button"
+              onclick="selectAnswer(${q.id}, ${oIdx})" 
+              ${isAnswered ? 'disabled' : ''} 
+              class="w-full text-left p-3.5 rounded-xl text-sm transition flex items-start ${btnClass} my-2 leading-relaxed">
+              ${iconHtml}
+              <span class="flex-1">${opt}</span>
+            </button>
+          `;
+        }).join('');
+
+        card.innerHTML = `
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <div class="flex items-center gap-2">
+              <span class="bg-indigo-100 text-indigo-800 text-xs font-black px-2.5 py-0.5 rounded-md">Q${q.id}</span>
+              <span class="bg-slate-100 text-slate-600 text-xs font-semibold px-2.5 py-0.5 rounded-md">${q.topic}</span>
+            </div>
+
+            <button type="button" onclick="toggleClue(${q.id})" class="text-xs text-amber-700 bg-amber-50 hover:bg-amber-100 border border-amber-200 px-3 py-1 rounded-lg font-medium transition flex items-center gap-1 cursor-pointer">
+              <i class="fa-regular fa-lightbulb"></i>
+              ${isClueVisible ? 'Hide Hint' : 'Need a Clue?'}
+            </button>
+          </div>
+
+          <h3 class="text-base font-bold text-slate-900 leading-relaxed mb-4">${q.question}</h3>
+
+          <div id="clue-${q.id}" class="${isClueVisible ? 'block' : 'hidden'} mb-4 p-3.5 bg-amber-50/80 border border-amber-200 rounded-xl text-amber-900 text-xs flex items-start gap-2.5">
+            <i class="fa-solid fa-lightbulb text-amber-600 mt-0.5"></i>
+            <div><span class="font-bold">Study Hint:</span> ${q.clue}</div>
+          </div>
+
+          <div class="space-y-1">${optionsHtml}</div>
+
+          ${isAnswered ? `
+            <div class="mt-5 p-4 rounded-xl text-sm border ${
+              isCorrect 
+                ? 'bg-emerald-50/70 border-emerald-200 text-emerald-950' 
+                : 'bg-rose-50/70 border-rose-200 text-slate-800'
+            }">
+              <div class="flex items-center gap-2 font-bold mb-2 ${isCorrect ? 'text-emerald-800' : 'text-rose-800'}">
+                <i class="${isCorrect ? 'fa-solid fa-circle-check text-emerald-600' : 'fa-solid fa-circle-xmark text-rose-600'}"></i>
+                <span>${isCorrect ? 'Correct! Excellent work.' : 'Incorrect. Let\'s break it down:'}</span>
+              </div>
+              <p class="text-xs leading-relaxed text-slate-700 mb-2">${q.explanation}</p>
+              <div class="text-xs font-semibold text-indigo-700 pt-2 border-t border-slate-200/60 flex items-center justify-between">
+                <span>Correct Option: ${String.fromCharCode(65 + q.answer)} (${q.options[q.answer]})</span>
+                <button type="button" onclick="retryQuestion(${q.id})" class="text-slate-500 hover:text-slate-800 font-medium underline ml-2 cursor-pointer">Try Again</button>
+              </div>
+            </div>
+          ` : ''}
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function selectAnswer(qId, optionIdx) {
+      if (userState.answers[qId] !== undefined) return;
+      userState.answers[qId] = optionIdx;
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function retryQuestion(qId) {
+      delete userState.answers[qId];
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function toggleClue(qId) {
+      userState.showClues[qId] = !userState.showClues[qId];
+      safeSave();
+      renderQuestions();
+    }
+
+    function toggleAllClues() {
+      userState.allCluesVisible = !userState.allCluesVisible;
+      const btnText = document.getElementById('clueToggleText');
+      if (btnText) btnText.innerText = userState.allCluesVisible ? 'Hide All Hints' : 'Show All Hints';
+      safeSave();
+      renderQuestions();
+    }
+
+    function filterTopic(topic) {
+      userState.currentFilter = topic;
+      userState.missedOnly = false;
+      document.querySelectorAll('.topic-btn').forEach(b => {
+        b.classList.remove('bg-blue-600', 'text-white', 'shadow-sm');
+        b.classList.add('bg-slate-100', 'text-slate-600');
+        if (b.innerText.includes(topic) || (topic === 'All' && b.innerText.includes('All Topics'))) {
+          b.classList.add('bg-blue-600', 'text-white', 'shadow-sm');
+          b.classList.remove('bg-slate-100', 'text-slate-600');
+        }
+      });
+      renderQuestions();
+    }
+
+    function filterMissed() {
+      userState.missedOnly = !userState.missedOnly;
+      const btn = document.getElementById('filterMissedBtn');
+      if (btn) {
+        if (userState.missedOnly) {
+          btn.classList.add('bg-rose-600', 'text-white');
+          btn.classList.remove('bg-rose-50', 'text-rose-800');
+        } else {
+          btn.classList.remove('bg-rose-600', 'text-white');
+          btn.classList.add('bg-rose-50', 'text-rose-800');
+        }
+      }
+      renderQuestions();
+    }
+
+    function updateStats() {
+      const answeredKeys = Object.keys(userState.answers);
+      const totalAnswered = answeredKeys.length;
+      let totalCorrect = 0;
+      let missedCount = 0;
+
+      answeredKeys.forEach(k => {
+        const q = questionsData.find(item => item.id == k);
+        if (q) {
+          if (userState.answers[k] === q.answer) totalCorrect++;
+          else missedCount++;
+        }
+      });
+
+      const accuracy = totalAnswered > 0 ? Math.round((totalCorrect / totalAnswered) * 100) : 0;
+      const progressPercent = Math.round((totalAnswered / questionsData.length) * 100);
+
+      const elAns = document.getElementById('statAnswered');
+      const elScore = document.getElementById('statScore');
+      const elBar = document.getElementById('quizProgressBar');
+      const elMissed = document.getElementById('missedCount');
+
+      if (elAns) elAns.innerText = `${totalAnswered}/${questionsData.length}`;
+      if (elScore) elScore.innerText = `${accuracy}%`;
+      if (elBar) elBar.style.width = `${progressPercent}%`;
+      if (elMissed) elMissed.innerText = missedCount;
+
+      const summaryCard = document.getElementById('scoreSummaryCard');
+      if (summaryCard) {
+        if (totalAnswered === questionsData.length) {
+          summaryCard.classList.remove('hidden');
+          document.getElementById('finalTotal').innerText = questionsData.length;
+          document.getElementById('finalCorrect').innerText = totalCorrect;
+          document.getElementById('finalPercent').innerText = `${accuracy}%`;
+          
+          const ratingBox = document.getElementById('masteryRating');
+          if (accuracy >= 90) {
+            ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-emerald-100 text-emerald-900 border border-emerald-300";
+            ratingBox.innerHTML = "🌟 <strong>Mastery Level: Advanced Honors (A+)</strong> — Outstanding mastery of Membrane Structure & Bilayer Architecture!";
+          } else if (accuracy >= 80) {
+            ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-blue-100 text-blue-900 border border-blue-300";
+            ratingBox.innerHTML = "👍 <strong>Mastery Level: Proficient (B)</strong> — Solid comprehension! Review the missed questions above to reach perfection.";
+          } else {
+            ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-amber-100 text-amber-900 border border-amber-300";
+            ratingBox.innerHTML = "💡 <strong>Mastery Level: Developing</strong> — Review the core concepts and retry missed questions.";
+          }
+        } else {
+          summaryCard.classList.add('hidden');
+        }
+      }
+    }
+
+    function resetQuiz() {
+      if (confirm('Are you sure you want to reset all answers and start fresh?')) {
+        userState.answers = {};
+        userState.showClues = {};
+        userState.allCluesVisible = false;
+        userState.missedOnly = false;
+        userState.currentFilter = 'All';
+        safeSave();
+        renderQuestions();
+        updateStats();
+      }
+    }
+
+    if (document.readyState !== 'loading') {
+      init();
+    } else {
+      document.addEventListener('DOMContentLoaded', init);
+    }
+  </script>
+</body>
+</html>

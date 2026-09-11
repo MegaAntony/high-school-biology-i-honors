@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biology I Honors - Unit 2 Part 1: Cell Membrane & Transport 100% Comprehensive Master Exam</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+
+  <!-- TOP HEADER -->
+  <header class="bg-gradient-to-r from-blue-700 via-indigo-700 to-emerald-700 text-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="w-10 h-10 rounded-xl bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition border border-white/20" title="Back to All Tests">
+          <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="bg-white/20 text-xs px-2.5 py-1 rounded-full font-semibold uppercase tracking-wider">Biology I Honors</span>
+            <span class="bg-emerald-400 text-slate-900 text-xs px-2.5 py-1 rounded-full font-bold">Unit 2 Part 1 • 100% Mastery</span>
+          </div>
+          <h1 class="text-xl sm:text-2xl font-black tracking-tight mt-1 text-white">Unit 2 Part 1: Cell Membrane & Transport 100% Comprehensive Master Exam</h1>
+          <p class="text-xs text-blue-100 mt-0.5">Source Document: <code class="bg-black/20 px-1.5 py-0.5 rounded">Unit 2 Part 1 Cell Transport Student Packet 26-27.pdf & HB Unit 2 (Part 1) PPT</code></p>
+        </div>
+      </div>
+
+      <!-- Quick Stats Top -->
+      <div class="flex items-center gap-4 bg-white/10 backdrop-blur px-4 py-2 rounded-xl border border-white/15">
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Answered</div>
+          <div id="statAnswered" class="text-xl font-bold">0/55</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Accuracy</div>
+          <div id="statScore" class="text-xl font-bold text-emerald-300">0%</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <button onclick="resetQuiz()" class="text-xs bg-white/20 hover:bg-white/30 text-white px-3 py-2 rounded-lg font-medium transition flex items-center gap-1.5 cursor-pointer">
+          <i class="fa-solid fa-rotate-right"></i> Reset
+        </button>
+      </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="w-full bg-slate-900/30 h-2">
+      <div id="quizProgressBar" class="bg-emerald-400 h-2 transition-all duration-300" style="width: 0%"></div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-6xl mx-auto px-4 py-8">
+
+    <!-- Anti-Guess Note Banner -->
+    <div class="bg-emerald-50 border border-emerald-200 text-emerald-950 p-4 rounded-2xl mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-semibold shadow-sm">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-shield-halved text-emerald-600 text-base shrink-0"></i>
+        <span><strong>Document Mastery Assessment:</strong> All questions are rigorously aligned directly with the contents of <code class="bg-emerald-100 px-1 py-0.5 rounded">Unit 2 Part 1 Cell Transport Student Packet 26-27.pdf & HB Unit 2 (Part 1) PPT</code>.</span>
+      </div>
+      <a href="index.html" class="text-emerald-800 underline hover:text-emerald-950 whitespace-nowrap">View All Tests</a>
+    </div>
+
+    <!-- CONTROLS & FILTER BAR -->
+    <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 mb-8">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-sm font-bold text-slate-700 mb-2">Filter by Topic:</h2>
+          <div class="flex flex-wrap gap-2" id="topicFilters">
+            <button onclick="filterTopic('All')" class="topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-sm transition cursor-pointer">All Topics (55)</button>
+            <button onclick="filterTopic('Membrane Chemistry')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Membrane Chemistry</button>
+            <button onclick="filterTopic('Fluid Mosaic Model')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Fluid Mosaic Model</button>
+            <button onclick="filterTopic('Membrane Fluidity')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Membrane Fluidity</button>
+            <button onclick="filterTopic('Selective Permeability')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Selective Permeability</button>
+            <button onclick="filterTopic('Cell Recognition')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Cell Recognition</button>
+            <button onclick="filterTopic('TRACIE Anchorage')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">TRACIE Anchorage</button>
+            <button onclick="filterTopic('Passive Energetics')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Passive Energetics</button>
+            <button onclick="filterTopic('Equilibrium Dynamics')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Equilibrium Dynamics</button>
+            <button onclick="filterTopic('Diffusion Rates')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Diffusion Rates</button>
+            <button onclick="filterTopic('The Permeability Trap (Page 5)')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">The Permeability Trap (Page 5)</button>
+            <button onclick="filterTopic('Facilitated Diffusion')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Facilitated Diffusion</button>
+            <button onclick="filterTopic('Transporters')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Transporters</button>
+            <button onclick="filterTopic('Osmosis Fundamentals')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Osmosis Fundamentals</button>
+            <button onclick="filterTopic('Aquaporins')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Aquaporins</button>
+            <button onclick="filterTopic('Tonicity Definitions')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Tonicity Definitions</button>
+            <button onclick="filterTopic('Animal Osmosis')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Animal Osmosis</button>
+            <button onclick="filterTopic('Plant Osmosis')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Plant Osmosis</button>
+            <button onclick="filterTopic('Plasmolysis')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Plasmolysis</button>
+            <button onclick="filterTopic('Houseplant Fertilizer (Page 20)')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Houseplant Fertilizer (Page 20)</button>
+            <button onclick="filterTopic('U-Tube Osmometer')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">U-Tube Osmometer</button>
+            <button onclick="filterTopic('Dialysis Tubing Lab')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Dialysis Tubing Lab</button>
+            <button onclick="filterTopic('Gel Deco Cube Lab')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Gel Deco Cube Lab</button>
+            <button onclick="filterTopic('Gel Lab Blotting Protocol')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Gel Lab Blotting Protocol</button>
+            <button onclick="filterTopic('Clinical Case Study CER')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Clinical Case Study CER</button>
+            <button onclick="filterTopic('Clinical Brain Edema Treatment')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Clinical Brain Edema Treatment</button>
+            <button onclick="filterTopic('Freshwater Fish in Ocean')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Freshwater Fish in Ocean</button>
+            <button onclick="filterTopic('Active Transport')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Active Transport</button>
+            <button onclick="filterTopic('Sodium-Potassium Pump')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Sodium-Potassium Pump</button>
+            <button onclick="filterTopic('Membrane Potential')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Membrane Potential</button>
+            <button onclick="filterTopic('Phagocytosis')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Phagocytosis</button>
+            <button onclick="filterTopic('Pinocytosis')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Pinocytosis</button>
+            <button onclick="filterTopic('Receptor-Mediated Endocytosis')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Receptor-Mediated Endocytosis</button>
+            <button onclick="filterTopic('Exocytosis Secretion')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Exocytosis Secretion</button>
+            <button onclick="filterTopic('Throat Osmosis')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Throat Osmosis</button>
+            <button onclick="filterTopic('Slug Desiccation')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Slug Desiccation</button>
+            <button onclick="filterTopic('Contractile Vacuoles')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Contractile Vacuoles</button>
+            <button onclick="filterTopic('Strawberry Osmosis')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Strawberry Osmosis</button>
+            <button onclick="filterTopic('Clinical IV Fluids')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Clinical IV Fluids</button>
+            <button onclick="filterTopic('Cholera Toxin Scenario')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Cholera Toxin Scenario</button>
+            <button onclick="filterTopic('Potato Lab Data')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Potato Lab Data</button>
+            <button onclick="filterTopic('Skin Wrinkling in Dishwater')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Skin Wrinkling in Dishwater</button>
+            <button onclick="filterTopic('Marine Fish in Freshwater')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Marine Fish in Freshwater</button>
+            <button onclick="filterTopic('Penetrating vs Non-Penetrating Solutes')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Penetrating vs Non-Penetrating Solutes</button>
+            <button onclick="filterTopic('Solute vs Solvent (Gimkit)')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Solute vs Solvent (Gimkit)</button>
+            <button onclick="filterTopic('Dynamic Equilibrium in Saline')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Dynamic Equilibrium in Saline</button>
+            <button onclick="filterTopic('Cystic Fibrosis CFTR Channel')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Cystic Fibrosis CFTR Channel</button>
+            <button onclick="filterTopic('Plant Cell Flaccidity in Isotonic Fluid')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Plant Cell Flaccidity in Isotonic Fluid</button>
+            <button onclick="filterTopic('Strawberries in Pure Water')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Strawberries in Pure Water</button>
+            <button onclick="filterTopic('Airborne Simple Diffusion')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Airborne Simple Diffusion</button>
+            <button onclick="filterTopic('TRACIE Intercellular Joinings')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">TRACIE Intercellular Joinings</button>
+            <button onclick="filterTopic('Salty Snack & Thirst Osmoreceptors')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Salty Snack & Thirst Osmoreceptors</button>
+            <button onclick="filterTopic('Homeostasis Definition & Triad')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Homeostasis Definition & Triad</button>
+            <button onclick="filterTopic('Percent Change in Mass Formula')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Percent Change in Mass Formula</button>
+            <button onclick="filterTopic('TRACIE Enzymatic Activity')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">TRACIE Enzymatic Activity</button>
+            <button onclick="filterTopic('Gummy Bear Gelatin Trapping')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Gummy Bear Gelatin Trapping</button>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 pt-2 lg:pt-0 border-t lg:border-t-0 border-slate-100">
+          <button onclick="toggleAllClues()" id="toggleCluesBtn" class="text-xs bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-regular fa-lightbulb"></i> <span id="clueToggleText">Show All Hints</span>
+          </button>
+          <button onclick="filterMissed()" id="filterMissedBtn" class="text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-solid fa-triangle-exclamation"></i> Review Missed (<span id="missedCount">0</span>)
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTIONS LIST -->
+    <div id="questionsContainer" class="space-y-6"></div>
+
+    <!-- SCORE SUMMARY CARD -->
+    <div id="scoreSummaryCard" class="mt-12 bg-white rounded-3xl p-8 border-2 border-indigo-100 shadow-xl hidden">
+      <div class="text-center max-w-xl mx-auto">
+        <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl">
+          <i class="fa-solid fa-trophy"></i>
+        </div>
+        <h2 class="text-2xl font-black text-slate-800">Test Complete!</h2>
+        <p class="text-slate-500 text-sm mt-1">Here is your detailed mastery score for Unit 2 Part 1: Cell Membrane & Transport 100% Comprehensive Master Exam.</p>
+        
+        <div class="grid grid-cols-3 gap-4 my-6 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Total Questions</div>
+            <div class="text-2xl font-black text-slate-800" id="finalTotal">55</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Correct</div>
+            <div class="text-2xl font-black text-emerald-600" id="finalCorrect">0</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Score Rate</div>
+            <div class="text-2xl font-black text-blue-600" id="finalPercent">0%</div>
+          </div>
+        </div>
+
+        <div id="masteryRating" class="p-4 rounded-2xl font-bold text-sm mb-6"></div>
+
+        <div class="flex items-center justify-center gap-4">
+          <button onclick="resetQuiz()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-indigo-200 transition cursor-pointer">
+            Retake Entire Test
+          </button>
+          <a href="index.html" class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-emerald-200 transition">
+            Back to Tests Hub
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-500 mt-12">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p>© 2026 Biology I Honors • South Forsyth High School</p>
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="hover:text-indigo-600 transition font-medium">All Tests Hub</a>
+        <a href="../README.md" class="hover:text-indigo-600 transition font-medium">Weekly Agenda</a>
+        <a href="https://github.com/MegaAntony/biology-honors" target="_blank" class="hover:text-indigo-600 transition"><i class="fa-brands fa-github mr-1"></i>GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT ENGINE -->
+  <script>
+    const questionsData = [
+  {
+    "id": 1,
+    "topic": "Membrane Chemistry",
+    "question": "Why do phospholipids spontaneously arrange into a bilayer with their phosphate heads facing the aqueous exterior and interior while their fatty acid tails face inward?",
+    "options": [
+      "The phosphate heads are polar and hydrophilic, interacting favorably with water, while the fatty acid tails are nonpolar and hydrophobic.",
+      "The phosphate heads are nonpolar and form covalent ester bonds with extracellular water molecules, whereas the tails are ionic.",
+      "The phosphate heads are charged and repel each other to generate membrane tension, while the fatty acid tails form rigid hydrogen bonds.",
+      "The phosphate heads are uncharged lipids that dissolve in cytosolic fluids, while the tails are actively phosphorylated by ATP enzymes."
+    ],
+    "answer": 0,
+    "clue": "Phosphate groups are polar and love water; hydrocarbon tails are nonpolar and hate water.",
+    "explanation": "Phospholipids are amphipathic molecules. Their hydrophilic, polar phosphate heads face outward toward the aqueous extracellular and intracellular fluids, while their hydrophobic, nonpolar fatty acid tails face inward away from water to minimize thermodynamic free energy."
+  },
+  {
+    "id": 2,
+    "topic": "Fluid Mosaic Model",
+    "question": "Why is the structure of the biological plasma membrane described scientifically as a 'Fluid Mosaic Model'?",
+    "options": [
+      "Phospholipids form a rigid, crystalline lattice studded with permanently stationary proteins that never change spatial positions.",
+      "Phospholipids and proteins move laterally within the bilayer leaflet, which is studded with a diverse array of biomolecules.",
+      "The membrane is dissolved completely in extracellular water and reforms dynamically only during active transport cycles.",
+      "The membrane consists solely of solid structural proteins that enclose fluid triglycerides inside the internal cytoplasmic compartment."
+    ],
+    "answer": 1,
+    "clue": "'Fluid' refers to lateral motion of lipids/proteins; 'mosaic' refers to the diverse pattern of embedded biomolecules.",
+    "explanation": "The plasma membrane is described as 'fluid' because phospholipids and unanchored proteins move laterally within each leaflet, and 'mosaic' because the bilayer is studded with an assortment of proteins, steroids, and carbohydrate chains."
+  },
+  {
+    "id": 3,
+    "topic": "Membrane Fluidity",
+    "question": "How do cholesterol molecules interspersed between phospholipid tails contribute to cellular homeostasis in mammalian plasma membranes?",
+    "options": [
+      "Cholesterol hydrolyzes ATP to pump sodium ions out of the cytoplasm during cold temperature thermal stress.",
+      "Cholesterol binds directly to extracellular hormones to catalyze their passive diffusion across the inner hydrophobic leaflet.",
+      "Cholesterol acts as a bidirectional fluidity buffer, preventing excessive fluidity at high temps and preventing freezing at low temps.",
+      "Cholesterol forms hydrophilic aqueous channels that allow large polysaccharides to diffuse down their concentration gradient."
+    ],
+    "answer": 2,
+    "clue": "Cholesterol buffers membrane fluidity across high and low temperature fluctuations.",
+    "explanation": "Cholesterol acts as a temperature buffer: at high temperatures, its rigid steroid rings restrain phospholipid movement, preventing the membrane from becoming overly fluid; at low temperatures, it prevents tight packing of fatty acid tails, preventing freezing."
+  },
+  {
+    "id": 4,
+    "topic": "Selective Permeability",
+    "question": "Which of the following molecules crosses the phospholipid bilayer directly via simple diffusion without requiring a transport protein or energy?",
+    "options": [
+      "Large, polar monosaccharide molecules such as glucose ($C_6H_{12}O_6$) moving down their concentration gradient.",
+      "Small, positively charged inorganic electrolytes such as sodium ($Na^+$) and potassium ($K^+$) ions.",
+      "Highly charged, high-molecular-weight structural polymers such as glycogen, cellulose, and extracellular collagen.",
+      "Small, nonpolar gas molecules such as oxygen ($O_2$) and carbon dioxide ($CO_2$) diffusing down their concentration gradient."
+    ],
+    "answer": 3,
+    "clue": "Only small, uncharged nonpolar molecules pass directly through the hydrophobic core.",
+    "explanation": "The hydrophobic interior of the phospholipid bilayer acts as a selective barrier. Small, nonpolar molecules ($O_2, CO_2, N_2$) diffuse directly across, whereas large polar molecules (glucose) and charged ions ($Na^+, K^+$) cannot cross without transport proteins."
+  },
+  {
+    "id": 5,
+    "topic": "Cell Recognition",
+    "question": "Which membrane components protrude from the external surface of the plasma membrane to serve as unique biochemical identification markers and immune tags?",
+    "options": [
+      "Oligosaccharide carbohydrate chains covalently attached to surface proteins (glycoproteins) and lipids (glycolipids).",
+      "Hydrophobic cholesterol steroid rings embedded deeply within the inner core of the phospholipid bilayer.",
+      "Cytoskeletal actin microfilaments anchored to peripheral proteins on the internal cytoplasmic surface.",
+      "Hydrophobic alpha-helical transmembrane domains that anchor sodium-potassium ATPase pumps."
+    ],
+    "answer": 0,
+    "clue": "Carbohydrate chains (oligosaccharides) attached to surface proteins/lipids serve as ID badges.",
+    "explanation": "Short branched carbohydrate chains (oligosaccharides) covalently linked to surface proteins or lipids face exclusively toward the extracellular space to act as identification tags for cell-cell recognition and immune system self-surveillance."
+  },
+  {
+    "id": 6,
+    "topic": "TRACIE Anchorage",
+    "question": "What is the structural role of peripheral membrane proteins located on the cytoplasmic face of the plasma membrane?",
+    "options": [
+      "They permanently span the entire lipid bilayer to act as open hydrophilic conduits for bulk water transport.",
+      "They anchor internal cytoskeletal filaments to provide mechanical stability and maintain characteristic cellular geometry.",
+      "They synthesize ATP by utilizing the proton concentration gradient established during mitochondrial respiration.",
+      "They secrete digestive lysosomal enzymes directly into the extracellular fluid to clear environmental cellular debris."
+    ],
+    "answer": 1,
+    "clue": "Peripheral proteins on the inner leaflet anchor cytoskeletal microfilaments.",
+    "explanation": "Peripheral membrane proteins do not penetrate the hydrophobic core; they attach to the surface of the membrane or to integral proteins. On the cytoplasmic face, they anchor actin microfilaments of the cytoskeleton to preserve cell shape."
+  },
+  {
+    "id": 7,
+    "topic": "Passive Energetics",
+    "question": "Why does passive cellular transport occur without the expenditure of metabolic cellular energy (0 ATP)?",
+    "options": [
+      "The transport process relies exclusively on metabolic energy provided by the constant breakdown of extracellular glucose.",
+      "The cell uses mechanical muscle contractions rather than biochemical ATP hydrolysis to force solutes across the membrane.",
+      "The movement is driven entirely by the inherent thermal kinetic energy of particles moving down their concentration gradient.",
+      "Solute molecules lose their mass during transit, eliminating all thermodynamic resistance across the lipid bilayer."
+    ],
+    "answer": 2,
+    "clue": "Molecules possess thermal kinetic energy that causes them to spontaneously spread out from high to low concentration.",
+    "explanation": "Passive transport (diffusion, osmosis, facilitated diffusion) requires no metabolic energy (0 ATP) because molecules move down their concentration gradient powered entirely by their own thermal kinetic energy until dynamic equilibrium is reached."
+  },
+  {
+    "id": 8,
+    "topic": "Equilibrium Dynamics",
+    "question": "When a solute reaches dynamic equilibrium across a selectively permeable membrane, what is happening at the molecular level?",
+    "options": [
+      "All molecular movement ceases completely because the concentration gradient has been completely eliminated.",
+      "Solutes are actively transported in one direction by carrier proteins while water diffuses in the opposite direction.",
+      "Solute particles bind irreversibly to the phospholipid heads, locking the membrane in an impermeable barrier state.",
+      "Solute molecules continue to move across the membrane in both directions at equal rates, resulting in zero net change in concentration."
+    ],
+    "answer": 3,
+    "clue": "Dynamic equilibrium means movement never stops, but opposing flow rates are equal.",
+    "explanation": "Dynamic equilibrium is a balanced steady state where molecules continue to cross the membrane in both directions, but because the rate of entry equals the rate of exit, the net concentration on either side remains completely constant."
+  },
+  {
+    "id": 9,
+    "topic": "Diffusion Rates",
+    "question": "Which set of environmental conditions would maximize the rate of simple diffusion of a substance across a biological membrane?",
+    "options": [
+      "High kinetic temperature, a steep concentration gradient, and small, lightweight solute particles.",
+      "Low ambient temperature, a gentle concentration gradient, and large, heavy solute particles.",
+      "Freezing temperature, an isotonic concentration gradient, and high environmental viscosity.",
+      "Moderate temperature, zero concentration difference across leaflets, and highly charged polar molecules."
+    ],
+    "answer": 0,
+    "clue": "Hotter particles move faster, steeper gradients drive stronger movement, and smaller particles experience less resistance.",
+    "explanation": "Fick's laws of diffusion establish that the rate of diffusion increases when temperature is high (more thermal kinetic motion), the concentration gradient is steep (greater driving force), and particle size/mass is small (lower drag)."
+  },
+  {
+    "id": 10,
+    "topic": "The Permeability Trap (Page 5)",
+    "question": "A cell model containing 60% glucose and 10% starch is submerged in an environment of 10% glucose and 60% starch. The membrane is permeable ONLY to starch. What will occur?",
+    "options": [
+      "Glucose will diffuse out of the cell and starch will diffuse into the cell until concentrations are equal.",
+      "Starch will diffuse into the cell down its gradient, while glucose remains trapped and does not cross the membrane.",
+      "Water will diffuse out of the cell by osmosis until glucose reaches dynamic equilibrium on both sides.",
+      "Both glucose and starch will be transported into the cell via ATP-dependent carrier pumps."
+    ],
+    "answer": 1,
+    "clue": "Read carefully: if the membrane is permeable ONLY to starch, glucose cannot move regardless of its gradient!",
+    "explanation": "Because the problem explicitly specifies the membrane is permeable ONLY to starch, glucose cannot cross. Starch moves down its concentration gradient from high concentration outside (60%) into the cell (10%)."
+  },
+  {
+    "id": 11,
+    "topic": "Facilitated Diffusion",
+    "question": "How does glucose move into animal cells down its concentration gradient after a carbohydrate-rich meal?",
+    "options": [
+      "It dissolves directly through the hydrophobic hydrocarbon tails via simple diffusion without protein assistance.",
+      "It is engulfed into the cytoplasm via clathrin-mediated pinocytosis requiring the continuous hydrolysis of ATP.",
+      "It passes through specific transmembrane carrier proteins (such as GLUT) that undergo reversible conformational shape changes.",
+      "It is pumped across the membrane by the sodium-potassium ATPase pump in exchange for extracellular potassium ions."
+    ],
+    "answer": 2,
+    "clue": "Glucose is too large and polar for simple diffusion, requiring GLUT carrier proteins.",
+    "explanation": "Glucose is a large, uncharged polar molecule ($180\\text{ g/mol}$) that cannot cross the hydrophobic core of the bilayer. It enters cells down its concentration gradient via facilitated diffusion through specific GLUT carrier proteins that alternate between two conformations."
+  },
+  {
+    "id": 12,
+    "topic": "Transporters",
+    "question": "How do channel proteins differ functionally from carrier proteins during facilitated diffusion across the plasma membrane?",
+    "options": [
+      "Channel proteins require ATP hydrolysis for each solute transported, whereas carrier proteins operate entirely without energy.",
+      "Channel proteins only move nonpolar lipids, whereas carrier proteins exclusively transport small diatomic respiratory gases.",
+      "Channel proteins pump solutes against their concentration gradient, whereas carrier proteins move solutes down gradients.",
+      "Channel proteins provide open hydrophilic pores for rapid passive flow, whereas carrier proteins bind solute and change shape."
+    ],
+    "answer": 3,
+    "clue": "Channels form continuous tunnels; carriers bind solute and undergo conformational flipping.",
+    "explanation": "Channel proteins form continuous open hydrophilic tunnels that allow rapid transit of specific ions or water. Carrier proteins bind their specific substrate, which induces a conformational change that translocates the solute across the membrane."
+  },
+  {
+    "id": 13,
+    "topic": "Osmosis Fundamentals",
+    "question": "Which statement scientifically defines osmosis in biological systems?",
+    "options": [
+      "The passive diffusion of free water molecules across a selectively permeable membrane toward regions of higher solute concentration.",
+      "The active pumping of dissolved solute ions against their concentration gradient using specialized transport proteins.",
+      "The bulk movement of cytoplasm and organelles through gap junctions connecting neighboring epithelial cells.",
+      "The spontaneous dissolution of nonpolar lipid droplets within the aqueous cytoplasm of human hepatocytes."
+    ],
+    "answer": 0,
+    "clue": "Osmosis is the diffusion of water across a semipermeable membrane toward higher solute concentration.",
+    "explanation": "Osmosis is specifically the passive movement of water molecules across a selectively permeable membrane from an area of higher free water concentration (lower solute concentration / higher water potential) to an area of lower free water concentration (higher solute concentration)."
+  },
+  {
+    "id": 14,
+    "topic": "Aquaporins",
+    "question": "What is the biological importance of aquaporins in the plasma membranes of kidney tubule and red blood cells?",
+    "options": [
+      "They hydrolyze ATP to pump sodium and chloride ions out of the filtrate to maintain blood volume.",
+      "They allow billions of water molecules to diffuse across the hydrophobic membrane core per second in single file.",
+      "They prevent water from entering animal cells, ensuring that red blood cells remain in a permanently dehydrated state.",
+      "They bind to peptide hormones to initiate the intracellular synthesis of structural cell wall polysaccharides."
+    ],
+    "answer": 1,
+    "clue": "Aquaporins are specialized water channel proteins providing rapid water transit across the hydrophobic bilayer.",
+    "explanation": "While small amounts of water can slowly traverse the lipid bilayer due to membrane vibrations, specialized tetrameric channel proteins called aquaporins facilitate the transit of up to 3 billion water molecules per second per channel in single file."
+  },
+  {
+    "id": 15,
+    "topic": "Tonicity Definitions",
+    "question": "If Solution X contains 5% sucrose and Solution Y contains 20% sucrose, which of the following statements correctly describes Solution X relative to Solution Y?",
+    "options": [
+      "Solution X is hypertonic to Solution Y because Solution X contains a lower percentage of dissolved solute particles.",
+      "Solution X is isotonic to Solution Y because both solutions contain sucrose molecules dissolved in aqueous solvent.",
+      "Solution X is hypotonic to Solution Y because Solution X contains a lower solute concentration and higher free water concentration.",
+      "Solution X has lower water potential than Solution Y because solute particles displace water molecules in solution."
+    ],
+    "answer": 2,
+    "clue": "Lower solute percentage means hypotonic; higher solute percentage means hypertonic.",
+    "explanation": "Solution X has 5% solute (95% water) and Solution Y has 20% solute (80% water). Because Solution X has a lower solute concentration and a higher water concentration than Solution Y, Solution X is hypotonic relative to Solution Y."
+  },
+  {
+    "id": 16,
+    "topic": "Animal Osmosis",
+    "question": "What happens when a human red blood cell (erythrocyte) with an internal solute concentration of 0.9% NaCl is placed into pure distilled water (0% NaCl)?",
+    "options": [
+      "Solute particles diffuse out of the cell until the external distilled water reaches a concentration of 0.9% NaCl.",
+      "The cell rapidly loses internal water volume, collapsing into a shriveled, scalloped structure termed a crenated cell.",
+      "The cell wall exerts turgor pressure against the plasma membrane, maintaining normal biconcave disc geometry.",
+      "Water rushes into the cell down its osmotic gradient, causing the membrane to stretch and burst in a process called hemolysis (cytolysis)."
+    ],
+    "answer": 3,
+    "clue": "Distilled water is hypotonic; water enters animal cells lacking cell walls until they burst (lysis).",
+    "explanation": "A red blood cell contains approximately 0.9% dissolved solutes (99.1% water). In pure distilled water (100% water), water rushes into the cell down its osmotic gradient. Lacking a rigid cell wall, the animal cell membrane stretches until it lyses (hemolysis)."
+  },
+  {
+    "id": 17,
+    "topic": "Plant Osmosis",
+    "question": "Why do plant cells thrive in a hypotonic environment (such as rainwater), whereas animal cells burst under identical osmotic conditions?",
+    "options": [
+      "Plant cells possess a rigid cellulose cell wall that resists expansion and exerts wall pressure to prevent cytolysis.",
+      "Plant cells actively pump out excess water using specialized high-speed contractile vacuoles powered by ATP.",
+      "Plant plasma membranes are completely impermeable to water molecules, preventing any osmotic influx.",
+      "Plant cells store high concentrations of sodium ions in their central vacuole to reverse the direction of osmosis."
+    ],
+    "answer": 0,
+    "clue": "Plant cells have rigid cellulose cell walls that exert opposing turgor pressure.",
+    "explanation": "Plant cells are enclosed by a strong, non-living cell wall composed of cellulose microfibrils. In hypotonic environments, water enters the central vacuole, pushing the plasma membrane against the cell wall. The resulting wall pressure creates healthy structural turgor."
+  },
+  {
+    "id": 18,
+    "topic": "Plasmolysis",
+    "question": "A freshwater elodea leaf is mounted in a 10% sodium chloride solution on a microscope slide. What cytological observation will the student make?",
+    "options": [
+      "The chloroplasts swell to twice their normal diameter and rupture due to rapid osmotic water absorption.",
+      "Water exits the central vacuole by osmosis, causing the cytoplasm and plasma membrane to pull away from the rigid cell wall.",
+      "The cell wall collapses inward, crushing the central vacuole and tearing the outer nuclear envelope.",
+      "Sodium ions diffuse into the cell and bind to chlorophyll molecules, turning the leaf from dark green to translucent yellow."
+    ],
+    "answer": 1,
+    "clue": "Hypertonic saltwater draws water out of plant cells; the cytoplasm shrinks away from the cell wall (plasmolysis).",
+    "explanation": "In a hypertonic saline environment (10% NaCl), the external water potential is far lower than the cell's cytoplasm. Water exits the central vacuole via osmosis, causing the protoplast to shrink and pull away from the rigid cell wall, leaving the cell plasmolyzed."
+  },
+  {
+    "id": 19,
+    "topic": "Houseplant Fertilizer (Page 20)",
+    "question": "A student applies a double concentration of chemical fertilizer to Plant Y. Within 24 hours, the plant wilts severely despite the soil being wet. What caused this?",
+    "options": [
+      "Fertilizer ions diffused into the roots and physically blocked xylem vessels, stopping capillary action.",
+      "The plant absorbed excessive fertilizer by pinocytosis, triggering root cells to swell and undergo cytolysis.",
+      "The concentrated fertilizer made the soil hypertonic, drawing water OUT of root cells via osmosis and causing plasmolysis.",
+      "Excess fertilizer stimulated root cells to pump all internal glucose into the soil via active transport."
+    ],
+    "answer": 2,
+    "clue": "Concentrated fertilizer creates a hypertonic soil solution that sucks water out of root cells.",
+    "explanation": "Heavily concentrated fertilizer makes the surrounding soil solution strongly hypertonic relative to the root cells. Water diffuses OUT of the root cells down its concentration gradient via osmosis, causing loss of turgor pressure (plasmolysis) and severe wilting."
+  },
+  {
+    "id": 20,
+    "topic": "U-Tube Osmometer",
+    "question": "A U-shaped tube is divided at its base by a membrane permeable to water but impermeable to sucrose. Side A has 10% sucrose, and Side B has 40% sucrose. Both start at 10 cm. Over time, what happens to the heights?",
+    "options": [
+      "The liquid height of Side A will rise to 13 cm, while the height of Side B will decrease to 7 cm.",
+      "Both sides will remain exactly at 10 cm because sucrose cannot cross the selectively permeable membrane.",
+      "Side B will drain completely dry as all water evaporates toward the lower solute concentration on Side A.",
+      "The liquid height of Side A will fall to 7 cm, while the height of Side B will increase to 13 cm."
+    ],
+    "answer": 3,
+    "clue": "Water moves toward the higher solute concentration (Side B has 40% sucrose).",
+    "explanation": "Side A has 10% sucrose (90% water); Side B has 40% sucrose (60% water). Because sucrose cannot cross the semipermeable barrier, water moves by osmosis from Side A into Side B. Consequently, Side A loses volume (falls to 7 cm) while Side B gains volume (rises to 13 cm)."
+  },
+  {
+    "id": 21,
+    "topic": "Dialysis Tubing Lab",
+    "question": "A dialysis tubing bag containing 20% glucose and 5% soluble starch is placed in a beaker of water and iodine. The bag is permeable to water, glucose, and iodine, but impermeable to starch. What occurs after 60 minutes?",
+    "options": [
+      "Glucose will diffuse out into the beaker, and iodine will diffuse into the bag, turning the inside of the bag dark blue-black.",
+      "Starch will diffuse out into the beaker, turning the surrounding beaker solution dark blue-black.",
+      "Water will exit the dialysis bag, causing its total mass to decrease by more than 50%.",
+      "Iodine will be actively pumped out of the beaker into the dialysis bag by embedded membrane transport proteins."
+    ],
+    "answer": 0,
+    "clue": "Small iodine molecules diffuse into the bag and turn starch blue-black; large starch cannot exit.",
+    "explanation": "The synthetic dialysis pores are large enough to allow small water, glucose, and iodine molecules to pass, but too small for large, branched starch polysaccharides. Iodine enters the bag and turns starch blue-black; glucose leaves the bag into the beaker."
+  },
+  {
+    "id": 22,
+    "topic": "Gel Deco Cube Lab",
+    "question": "In an osmosis lab, students submerge identical gel cubes into three solutions: 0% distilled water, tap water, and 20% salt water. Which cube demonstrates the greatest positive percentage change in mass (% \u0394Mass)?",
+    "options": [
+      "The cube placed in 20% salt water because high solute concentrations force salt into the cube's interior.",
+      "The cube placed in 0% distilled water because the steepest hypotonic gradient drives maximum water influx.",
+      "The cube placed in tap water because mineral ions actively attract water into the gel matrix.",
+      "All three cubes will exhibit identical 0% changes in mass because gel polymers are completely impermeable to water."
+    ],
+    "answer": 1,
+    "clue": "Distilled water has 100% water (0% solute), producing the strongest osmotic influx into the cube.",
+    "explanation": "Distilled water (0% solute) establishes the steepest hypotonic concentration gradient relative to the solute-rich gel cube, producing the greatest net influx of water molecules and the highest positive percentage change in mass (% \u0394Mass)."
+  },
+  {
+    "id": 23,
+    "topic": "Gel Lab Blotting Protocol",
+    "question": "Why is it an essential experimental procedure to gently blot the surface of gel cubes with a paper towel before weighing them on the electronic balance?",
+    "options": [
+      "To transfer surface ions onto the paper towel so the balance does not register electromagnetic interference.",
+      "To cool the cube down to room temperature so that thermal expansion does not artificially alter the volume reading.",
+      "To remove external clinging fluid so the balance measures only internal absorbed water, minimizing experimental error.",
+      "To stimulate the gelatin polymers to undergo endocytosis of remaining surface solute particles."
+    ],
+    "answer": 2,
+    "clue": "Blotting removes external droplets so you only measure water actually inside the cube.",
+    "explanation": "Gently blotting the cube with a paper towel removes clinging surface liquid droplets that are not inside the cube, ensuring that the measured mass reflects only the water that actually crossed the membrane."
+  },
+  {
+    "id": 24,
+    "topic": "Clinical Case Study CER",
+    "question": "In the tragic case of Jennifer Strange ('Hold your wee for a Wii'), how did consuming nearly 2 gallons of pure water without urinating lead to fatal cerebral edema?",
+    "options": [
+      "Excessive blood sodium caused water to leave brain neurons, desiccating the central nervous system.",
+      "Water molecules blocked voltage-gated potassium channels, permanently paralyzing peripheral motor neurons.",
+      "Pure water dissolved the phospholipid bilayer of cardiac muscle cells, causing acute cardiovascular arrest.",
+      "Blood plasma became severely hypotonic (hyponatremia), driving massive osmotic water influx into brain cells inside the rigid skull."
+    ],
+    "answer": 3,
+    "clue": "Diluted blood (hyponatremia) is hypotonic to brain neurons; water rushes in, swelling cells inside the unyielding skull.",
+    "explanation": "Rapid ingestion of extreme volumes of water dilutes extracellular blood sodium (hyponatremia), making blood plasma hypotonic relative to intracellular fluids. Water moves into brain cells via osmosis; enclosed inside the rigid skull, swelling produces fatal cerebral edema."
+  },
+  {
+    "id": 25,
+    "topic": "Clinical Brain Edema Treatment",
+    "question": "When emergency room physicians treat a patient suffering from life-threatening cerebral edema (brain swelling), why do they administer an IV of hypertonic 3% saline?",
+    "options": [
+      "Hypertonic saline makes the bloodstream hypertonic to swollen brain tissue, drawing excess fluid out of neurons via osmosis.",
+      "Hypertonic saline supplies sodium ions to power the active transport of glucose into damaged astrocytes.",
+      "Hypertonic saline stimulates the kidneys to undergo phagocytosis of excess circulatory plasma volume.",
+      "Hypertonic saline hydrolyzes neuronal ATP, temporarily stopping action potentials to prevent brain exhaustion."
+    ],
+    "answer": 0,
+    "clue": "A hypertonic IV raises blood solute levels to draw water OUT of swollen brain cells by osmosis.",
+    "explanation": "Administering hypertonic 3% saline raises the solute concentration of blood plasma above that of the swollen brain tissue. By osmosis, water diffuses out of the brain cells and into the blood vessels, reducing intracranial pressure."
+  },
+  {
+    "id": 26,
+    "topic": "Freshwater Fish in Ocean",
+    "question": "What happens if a freshwater fish is placed into the ocean (marine saltwater)?",
+    "options": [
+      "The fish absorbs excess ocean water by osmosis and its cells burst from acute cytolysis.",
+      "The ocean is hypertonic to the fish's cells; water leaves the fish's tissues via osmosis, causing severe dehydration and death.",
+      "The fish's gills undergo rapid pinocytosis to filter out all sodium ions, maintaining normal homeostasis.",
+      "The fish's scales become completely impermeable to all water and solute molecules, leaving it unaffected."
+    ],
+    "answer": 1,
+    "clue": "Marine saltwater is hypertonic to freshwater organisms, pulling water out of their tissues.",
+    "explanation": "The internal cells of a freshwater fish are hypotonic relative to hypertonic seawater. Water rapidly diffuses OUT of the fish's body by osmosis into the ocean, causing severe cellular dehydration and death."
+  },
+  {
+    "id": 27,
+    "topic": "Active Transport",
+    "question": "Which characteristic definitively distinguishes active transport from passive transport across biological membranes?",
+    "options": [
+      "Active transport moves substances exclusively down their concentration gradient without requiring membrane transport proteins.",
+      "Active transport can only move nonpolar gas molecules such as molecular nitrogen and carbon dioxide.",
+      "Active transport always moves solutes from regions of low concentration to high concentration using metabolic energy (ATP).",
+      "Active transport occurs spontaneously whenever a cell reaches perfect dynamic equilibrium with its environment."
+    ],
+    "answer": 2,
+    "clue": "Active transport moves substances AGAINST the gradient (Low to High) and requires ATP.",
+    "explanation": "Active transport moves chemical substances against their concentration gradient (from low to high concentration), a thermodynamically non-spontaneous process that requires coupling to metabolic energy (ATP hydrolysis)."
+  },
+  {
+    "id": 28,
+    "topic": "Sodium-Potassium Pump",
+    "question": "During one complete catalytic cycle of the sodium-potassium ATPase pump, what is the exact molecular exchange and energy expenditure?",
+    "options": [
+      "2 Na+ ions are pumped out and 3 K+ ions are pumped in using the energy from 2 molecules of GTP.",
+      "3 Na+ ions and 2 K+ ions are pumped out simultaneously down their electrochemical gradients without ATP.",
+      "1 Na+ ion is pumped out and 1 K+ ion is pumped in using passive facilitated diffusion channels.",
+      "3 Na+ ions are pumped out and 2 K+ ions are pumped in powered by the hydrolysis of 1 molecule of ATP."
+    ],
+    "answer": 3,
+    "clue": "Remember 3 Na+ OUT, 2 K+ IN, 1 ATP used ('3-2-1').",
+    "explanation": "The Na+/K+ ATPase uses the energy from hydrolyzing 1 molecule of ATP to actively export 3 Na+ ions out of the cytoplasm and import 2 K+ ions into the cell, both moving against their respective concentration gradients."
+  },
+  {
+    "id": 29,
+    "topic": "Membrane Potential",
+    "question": "How does the continuous activity of the sodium-potassium pump contribute to the electrical charge across the plasma membrane of animal cells?",
+    "options": [
+      "It exports 3 positive charges for every 2 positive charges imported, making the inside of the cell slightly negative relative to the outside.",
+      "It pumps equal numbers of positive charges in both directions, keeping the interior of the cell completely neutral (0 mV).",
+      "It transports negative chloride ions into the extracellular fluid to make the outside of the cell strongly negative.",
+      "It hydrolyzes ATP into positively charged adenosine, which accumulates on the outer leaflet of the bilayer."
+    ],
+    "answer": 0,
+    "clue": "Pumping 3 positives out and 2 positives in creates a net negative charge inside the cell.",
+    "explanation": "By exporting 3 positive sodium charges while importing only 2 positive potassium charges per cycle, the pump creates a net loss of 1 positive charge from the inside, generating an electrical membrane potential (negative interior relative to exterior)."
+  },
+  {
+    "id": 30,
+    "topic": "Phagocytosis",
+    "question": "When a human macrophage (white blood cell) encounters an invading bacterial pathogen, by which mechanism does it engulf and eliminate the microbe?",
+    "options": [
+      "Simple diffusion across the bilayer followed by cytoplasmic enzymatic denaturation.",
+      "Phagocytosis ('cell eating'), extending pseudopodia around the bacterium to form a phagosome that fuses with a lysosome.",
+      "Pinocytosis ('cell drinking'), taking in microdroplets of extracellular fluid containing bacterial toxins.",
+      "Exocytosis, secreting the intact bacterial genome across the plasma membrane into adjacent lymphatic capillaries."
+    ],
+    "answer": 1,
+    "clue": "'Cell eating' of solid bacterial invaders using pseudopodia is phagocytosis.",
+    "explanation": "Phagocytosis is a specialized form of endocytosis ('cell eating') where the cell extends amoeboid pseudopodia around large particulate matter (such as whole bacteria), enclosing it in a membranous phagosome that fuses with an acidic lysosome."
+  },
+  {
+    "id": 31,
+    "topic": "Pinocytosis",
+    "question": "How does pinocytosis differ biologically from phagocytosis?",
+    "options": [
+      "Pinocytosis is an active transport mechanism, whereas phagocytosis is completely passive.",
+      "Pinocytosis releases vesicles outside the cell, whereas phagocytosis internalizes vesicles into the nucleus.",
+      "Pinocytosis non-specifically internalizes small droplets of extracellular fluid and dissolved solutes, whereas phagocytosis engulfs large solid particles.",
+      "Pinocytosis occurs only in plant cells with cell walls, whereas phagocytosis occurs exclusively in prokaryotes."
+    ],
+    "answer": 2,
+    "clue": "Pinocytosis is 'cell drinking' of fluid droplets; phagocytosis is 'cell eating' of solid particles.",
+    "explanation": "While phagocytosis is targeted engulfment of large, visible solids (cellular debris or bacteria), pinocytosis ('cell drinking') is the continuous, non-specific invagination of the plasma membrane to sample surrounding extracellular fluid and dissolved solutes."
+  },
+  {
+    "id": 32,
+    "topic": "Receptor-Mediated Endocytosis",
+    "question": "Why is receptor-mediated endocytosis significantly more efficient at importing specific molecules (like LDL cholesterol) than non-specific pinocytosis?",
+    "options": [
+      "Receptors break down the target molecule into simple elements before moving them through ion channels.",
+      "The process occurs down a steep concentration gradient and therefore requires no ATP expenditure.",
+      "Receptors dissolve the surrounding lipid bilayer to let macromolecules diffuse directly into the nucleoplasm.",
+      "Target ligands bind with high affinity to specific surface receptors concentrated in clathrin-coated membrane pits."
+    ],
+    "answer": 3,
+    "clue": "Surface receptors cluster in clathrin-coated pits to selectively bind target molecules.",
+    "explanation": "Receptor-mediated endocytosis is highly selective. Specific extracellular molecules bind to cell surface receptors clustered in membrane regions coated on their cytoplasmic side with the protein clathrin, triggering rapid endocytic vesicle budding."
+  },
+  {
+    "id": 33,
+    "topic": "Exocytosis Secretion",
+    "question": "What is the intracellular origin and ultimate pathway of secretory vesicles destined for exocytosis (such as insulin secretion by pancreatic beta cells)?",
+    "options": [
+      "Rough Endoplasmic Reticulum -> Transport Vesicle -> Golgi Apparatus -> Secretory Vesicle -> Plasma Membrane fusion.",
+      "Lysosome -> Peroxisome -> Mitochondria -> Passive release through aquaporins.",
+      "Nucleus -> Cytoskeleton -> Smooth Endoplasmic Reticulum -> Direct diffusion across phospholipid heads.",
+      "Central Vacuole -> Chloroplast stroma -> Ribosomal pore -> Extracellular fluid."
+    ],
+    "answer": 0,
+    "clue": "Protein synthesis on Rough ER -> Golgi packaging -> secretory vesicle fusion with outer membrane.",
+    "explanation": "Secretory proteins (such as insulin) are synthesized by bound ribosomes on the Rough ER, packaged into transport vesicles that fuse with the cis face of the Golgi apparatus for sorting/modification, and bud from the trans Golgi as secretory vesicles that fuse with the plasma membrane."
+  },
+  {
+    "id": 34,
+    "topic": "Throat Osmosis",
+    "question": "Why does a physician recommend gargling with warm hypertonic salt water to relieve the discomfort of a swollen, inflamed sore throat?",
+    "options": [
+      "Salt ions diffuse rapidly into swollen throat cells, providing electrolyte energy to speed up mitosis.",
+      "The hypertonic salt water draws excess fluid out of swollen throat cells via osmosis, reducing edema and pressure.",
+      "Salt water enters throat cells by pinocytosis, coating internal cell walls to protect against viral replication.",
+      "The warm salt solution hydrolyzes cellular ATP, temporarily paralyzing pain receptors in mucosal membranes."
+    ],
+    "answer": 1,
+    "clue": "Hypertonic saltwater pulls water out of swollen cells to reduce edema and pain.",
+    "explanation": "Inflamed mucosal tissues in a sore throat are swollen with excess interstitial fluid (edema). Warm salt water creates a temporary hypertonic bath that draws excess water out of the inflamed throat cells by osmosis, relieving tissue swelling and pain."
+  },
+  {
+    "id": 35,
+    "topic": "Slug Desiccation",
+    "question": "What biological transport mechanism explains why pouring granular table salt directly onto an agricultural slug is rapidly fatal to the animal?",
+    "options": [
+      "Salt particles enter slug epithelial cells via phagocytosis, causing immediate lysosomal rupture.",
+      "Salt ions block oxygen diffusion across the slug\u2019s skin, leading to immediate anaerobic lactic acid poisoning.",
+      "Water rapidly diffuses out of the slug\u2019s moist, hypertonic tissues into the hypertonic external salt crystal layer, causing fatal dehydration.",
+      "Sodium ions trigger rapid endocytosis of environmental toxins across the slug's chitinous exoskeleton."
+    ],
+    "answer": 2,
+    "clue": "Dry salt on a moist slug creates an extreme hypertonic gradient that rapidly sucks water out of cells.",
+    "explanation": "A terrestrial slug possesses moist, mucus-covered external epithelial tissues. Pouring dry salt crystals over the slug creates an overwhelmingly hypertonic exterior environment, drawing internal body water out by osmosis and causing rapid desiccation and death."
+  },
+  {
+    "id": 36,
+    "topic": "Contractile Vacuoles",
+    "question": "A freshwater single-celled protist (Paramecium caudatum) lives in a pond environment that is strongly hypotonic to its internal cytoplasm. What organelle prevents it from undergoing cytolysis?",
+    "options": [
+      "A large food vacuole that stores excess water as crystalline ice.",
+      "A thick cellulose cell wall that permanently seals the organism against all fluid entry.",
+      "A cluster of chloroplasts that consumes water molecules during rapid continuous photosynthesis.",
+      "An ATP-driven contractile vacuole that constantly collects and expels excess incoming water."
+    ],
+    "answer": 3,
+    "clue": "Freshwater protozoans have contractile vacuoles that pump out incoming osmotic water.",
+    "explanation": "Freshwater protists like Paramecium are hypertonic to their pond water environment, causing water to continuously enter via osmosis. Because they lack a rigid plant cell wall, they utilize ATP-powered contractile vacuoles to collect and pump out excess incoming water."
+  },
+  {
+    "id": 37,
+    "topic": "Strawberry Osmosis",
+    "question": "When fresh sliced strawberries are sprinkled with granular table sugar and left on the counter for 20 minutes, a thick, sweet liquid pool forms around the fruit. What caused this?",
+    "options": [
+      "The high sugar concentration created a hypertonic exterior, drawing water out of strawberry cells via osmosis.",
+      "Sugar molecules diffused into the strawberry cells and pushed strawberry juice out through carrier proteins.",
+      "The strawberry cells underwent exocytosis in response to extracellular chemical signals from sucrose.",
+      "Mechanical abrasion from sharp sugar granules severed the cell walls, allowing cytoplasm to drain by gravity."
+    ],
+    "answer": 0,
+    "clue": "External sugar creates a hypertonic solution; water leaves strawberry cells by osmosis.",
+    "explanation": "Adding granular sugar to strawberries creates a concentrated, hypertonic syrup layer on the fruit exterior. Water diffuses out of the strawberry cells down its concentration gradient via osmosis, creating the sweet syrup pool."
+  },
+  {
+    "id": 38,
+    "topic": "Clinical IV Fluids",
+    "question": "Why do emergency room doctors always administer an isotonic 0.9% physiological saline IV drip rather than pure sterile distilled water (0% saline) to dehydrated patients?",
+    "options": [
+      "Pure water is too dense to flow through clinical IV tubing and would block vascular access catheters.",
+      "Distilled water would create a severely hypotonic bloodstream, causing patient red blood cells to swell and lyse.",
+      "Saline solution provides the essential carbohydrate calories needed to power active transport in cardiac tissue.",
+      "Distilled water would draw all electrolytes out of the kidneys by active transport, causing acute renal failure."
+    ],
+    "answer": 1,
+    "clue": "Pure water is hypotonic to red blood cells, which would cause them to take on water and burst (hemolysis).",
+    "explanation": "Human blood cells are in dynamic osmotic equilibrium with normal physiological plasma (0.9% saline). Infusing pure distilled water would create a hypotonic bloodstream, causing red blood cells to absorb water, swell, and burst (fatal intravascular hemolysis)."
+  },
+  {
+    "id": 39,
+    "topic": "Cholera Toxin Scenario",
+    "question": "Cholera toxin locks open chloride ion channels in intestinal cells, flooding the intestinal lumen with salt ions. Why does this cause severe, life-threatening dehydration?",
+    "options": [
+      "The salt ions enter blood vessels and trigger mass phagocytosis of red blood cells.",
+      "Chloride ions stop all ATP production, halting both simple diffusion and facilitated transport throughout the gut.",
+      "The salty lumen becomes hypertonic to intestinal cells, drawing massive amounts of water out of the body via osmosis.",
+      "The toxin causes intestinal microvilli to turn inside out and secrete cellular enzymes into the peritoneal cavity."
+    ],
+    "answer": 2,
+    "clue": "High salt in the intestine creates a hypertonic lumen that sucks water out of cells by osmosis.",
+    "explanation": "Flooding the intestinal lumen with chloride and sodium ions makes the digestive tract strongly hypertonic. Water rapidly leaves intestinal epithelial cells by osmosis to balance the gradient, resulting in severe watery diarrhea and acute systemic dehydration."
+  },
+  {
+    "id": 40,
+    "topic": "Potato Lab Data",
+    "question": "A student places three potato cores of equal mass (10.0 g) into beakers containing 0%, 1%, and 10% sucrose solutions. After 2 hours, the final masses are Core 1: 12.4 g (+24%), Core 2: 10.0 g (0%), Core 3: 7.8 g (-22%). Which conclusion is supported by this data?",
+    "options": [
+      "Core 1 was in 10% sucrose (hypertonic); Core 2 was in 0% sucrose; Core 3 was in 1% sucrose.",
+      "Core 1 was in 1% sucrose; Core 2 was in 10% sucrose; Core 3 was in 0% sucrose.",
+      "Sucrose molecules crossed the potato cell membranes by active transport to balance internal water masses.",
+      "Core 1 was in 0% sucrose (hypotonic); Core 2 was in 1% sucrose (isotonic); Core 3 was in 10% sucrose (hypertonic)."
+    ],
+    "answer": 3,
+    "clue": "Gaining mass means hypotonic (0% sucrose); zero change means isotonic (1%); losing mass means hypertonic (10%).",
+    "explanation": "Core 1 gained mass (+24%), proving it was in a hypotonic medium (0% sucrose). Core 2 experienced zero mass change (0%), demonstrating an isotonic equilibrium (1% sucrose). Core 3 lost mass (-22%), proving it was in a hypertonic medium (10% sucrose)."
+  },
+  {
+    "id": 41,
+    "topic": "Skin Wrinkling in Dishwater",
+    "question": "When a person soaks their hands in warm dishwater for an extended period, the fingertips swell and wrinkle. What explains this phenomenon?",
+    "options": [
+      "Skin cells are hypertonic to hypotonic dishwater; water diffuses into epidermal cells by osmosis.",
+      "Skin cells are hypotonic to hypertonic dishwater; soap ions force water out of keratinocytes.",
+      "Dishwater enzymes actively digest dead skin cells, causing peripheral desquamation.",
+      "Detergent molecules enter finger epithelial cells via pinocytosis, forcing lipids out."
+    ],
+    "answer": 0,
+    "clue": "Dishwater is hypotonic compared to your skin cells, so water diffuses into the cells.",
+    "explanation": "Epidermal skin cells contain dissolved solutes and proteins, making them hypertonic relative to the surrounding hypotonic dishwater. Water moves down its osmotic gradient into the cells, causing them to absorb water and swell into wrinkled ridges."
+  },
+  {
+    "id": 42,
+    "topic": "Marine Fish in Freshwater",
+    "question": "A marine clownfish adapted to the ocean is accidentally placed into a freshwater aquarium. Within hours, the fish swells and dies. What caused this?",
+    "options": [
+      "The fish went from an isotonic environment into a hypertonic environment, causing rapid plasmolysis.",
+      "The fish went from an isotonic environment into a hypotonic environment, causing cells to swell and lyse.",
+      "The fish was unable to perform cellular respiration because freshwater lacks dissolved organic gases.",
+      "The freshwater dissolved the phospholipid heads of the fish's gills via hydrolysis."
+    ],
+    "answer": 1,
+    "clue": "Marine fish tissues are adapted to saltwater; freshwater is hypotonic, causing massive water influx and lysis.",
+    "explanation": "Marine fish tissues are adapted to be roughly isotonic with salty ocean water. When placed into freshwater (0% salt), the surrounding water is strongly hypotonic. Water rushes into the fish's cells via osmosis, causing massive cellular swelling, lysis, and death."
+  },
+  {
+    "id": 43,
+    "topic": "Penetrating vs Non-Penetrating Solutes",
+    "question": "A red blood cell with 2% internal solutes is placed in two solutions: hypertonic sucrose and hypertonic urea. The membrane is impermeable to sucrose, but permeable to urea. Which solution causes greater sustained cellular shrinkage?",
+    "options": [
+      "The hypertonic urea solution, because urea carries a charge that actively repels intracellular water.",
+      "Both solutions cause identical shrinkage because both have identical total initial solute molarity.",
+      "The hypertonic sucrose solution, because sucrose cannot cross the membrane, maintaining an osmotic draw.",
+      "Neither solution causes shrinkage because animal red blood cells are completely impermeable to water."
+    ],
+    "answer": 2,
+    "clue": "Non-penetrating solutes like sucrose stay outside, permanently pulling water out.",
+    "explanation": "Because sucrose cannot penetrate the membrane, it remains trapped in the extracellular space, maintaining a persistent osmotic gradient that continuously draws water out of the cell. In contrast, urea diffuses across the membrane until it reaches equilibrium, eliminating the osmotic gradient."
+  },
+  {
+    "id": 44,
+    "topic": "Solute vs Solvent (Gimkit)",
+    "question": "In biological transport and solution chemistry, what is the precise scientific distinction between a solute and a solvent?",
+    "options": [
+      "The solute is the liquid doing the dissolving, while the solvent is the dissolved solid particle.",
+      "The solute only undergoes active transport, while the solvent exclusively traverses carrier proteins.",
+      "The solute is always nonpolar and hydrophobic, while the solvent is always ionic and acidic.",
+      "The solute is the substance being dissolved, while the solvent is the dissolving medium (such as water)."
+    ],
+    "answer": 3,
+    "clue": "Solute dissolves in the solvent (e.g., salt in water makes a saline solution).",
+    "explanation": "A solution is a homogeneous mixture composed of one or more solutes dissolved within a solvent. The solute is the substance being dissolved (e.g., glucose, sodium ions), and the solvent is the liquid agent that dissolves the solute (water is the universal biological solvent)."
+  },
+  {
+    "id": 45,
+    "topic": "Dynamic Equilibrium in Saline",
+    "question": "Human erythrocytes (red blood cells) are suspended in an isotonic 0.9% NaCl physiological saline solution. Which statement accurately describes molecular water motion?",
+    "options": [
+      "Water molecules continuously enter and exit the red blood cells at equal rates, maintaining constant cell volume.",
+      "Water molecules cease all physical motion across the membrane because the osmotic pressure is zero.",
+      "Water molecules move exclusively into the cell until internal turgor pressure balances sodium pump activity.",
+      "Water molecules are rapidly converted into metabolic ATP inside mitochondria to prevent cytoplasmic swelling."
+    ],
+    "answer": 0,
+    "clue": "Dynamic equilibrium means water keeps moving back and forth across the membrane at identical rates.",
+    "explanation": "In an isotonic environment, the system is in dynamic equilibrium. Water molecules continue to diffuse across the phospholipid bilayer and aquaporins in both directions, but because the rate of water influx equals the rate of water efflux, there is zero net volume change."
+  },
+  {
+    "id": 46,
+    "topic": "Cystic Fibrosis CFTR Channel",
+    "question": "In individuals with cystic fibrosis, a genetic mutation causes the CFTR chloride channel protein to misfold and fail to transport chloride ions out of respiratory cells. What direct osmotic consequence leads to thick, sticky mucus in the lungs?",
+    "options": [
+      "Trapped intracellular chloride ions cause water to rush into the cells via endocytosis, desiccating lung cilia.",
+      "Because chloride ions cannot exit the cells, water does not follow by osmosis into the extracellular airway, leaving mucus severely dehydrated.",
+      "Excess chloride ions in the cytoplasm hydrolyze all cellular ATP, preventing the synthesis of respiratory surfactant proteins.",
+      "The mutated CFTR channel allows extracellular bacteria to diffuse directly into bronchial epithelial cells via pinocytosis."
+    ],
+    "answer": 1,
+    "clue": "Water follows salt by osmosis; if chloride ions cannot leave, water stays trapped inside the cells.",
+    "explanation": "Normally, chloride ions are pumped out into airway secretions, creating an osmotic gradient that draws water out to thin the mucus. When CFTR channels fail, chloride and water remain trapped inside the epithelial cells, leaving the extracellular mucus dehydrated, thick, and sticky."
+  },
+  {
+    "id": 47,
+    "topic": "Plant Cell Flaccidity in Isotonic Fluid",
+    "question": "Why is an isotonic environment considered suboptimal or unfavorable for most terrestrial plant cells, even though animal cells thrive in it?",
+    "options": [
+      "In an isotonic solution, water is actively pumped out of plant vacuoles, tearing the nuclear envelope.",
+      "Isotonic solutions dissolve the pectin middle lamella of the cell wall, causing plant stems to break under gravity.",
+      "Without net water influx, the central vacuole is not fully pressurized, leaving the cell flaccid and causing the plant to droop.",
+      "Plant cells in isotonic fluids undergo rapid cytolysis because the rigid cellulose cell wall exerts excessive inward pressure."
+    ],
+    "answer": 2,
+    "clue": "Plant cells require hypotonic water influx to stay firm and turgid; isotonic water balance leaves them limp (flaccid).",
+    "explanation": "Plant cells depend on high turgor pressure to maintain upright posture against gravity. In an isotonic solution, net water movement is zero; the central vacuole is not pressurized against the cell wall, leaving the cell limp or flaccid and causing the plant stem to wilt."
+  },
+  {
+    "id": 48,
+    "topic": "Strawberries in Pure Water",
+    "question": "Fresh strawberries placed into a bowl of pure distilled water become swollen, waterlogged, and mushy after several hours. What transport process explains this structural change?",
+    "options": [
+      "Strawberry cells actively export sucrose into the water via exocytosis, dissolving the fruit's extracellular matrix.",
+      "Distilled water dissolves the lipid bilayer through simple diffusion, allowing cellular contents to leak out into the bowl.",
+      "Strawberry enzymes hydrolyze pure water molecules into oxygen gas, creating high gas pressure inside the fruit tissues.",
+      "Distilled water is hypotonic to strawberry cells; water diffuses down its gradient into the cells by osmosis, over-stretching them."
+    ],
+    "answer": 3,
+    "clue": "Pure water is hypotonic to fruit cells, causing water to diffuse inward until cells overfill and soften.",
+    "explanation": "Pure distilled water (100% water) is hypotonic to the sugar-rich strawberry cells. Water moves by osmosis down its concentration gradient into the strawberry cells, swelling them until tissues become over-saturated and mushy."
+  },
+  {
+    "id": 49,
+    "topic": "Airborne Simple Diffusion",
+    "question": "The aroma of baked chocolate chip cookies or BBQ chicken spreads from the kitchen throughout the entire house. What physical process governs this movement?",
+    "options": [
+      "Simple diffusion, where airborne volatile odor molecules spread spontaneously from high concentration to low concentration.",
+      "Facilitated diffusion of aroma particles across air currents using convection currents as protein carriers.",
+      "Active transport of scent molecules powered by atmospheric thermal ATP hydrolysis in the room.",
+      "Osmotic movement of airborne water vapor carrying suspended odor droplets toward hypertonic furniture."
+    ],
+    "answer": 0,
+    "clue": "Odor molecules spread out naturally from an area of high concentration to areas of low concentration without energy.",
+    "explanation": "Aroma molecules are volatile gaseous particles that move randomly via Brownian motion. They spontaneously disperse from the region of highest concentration (the kitchen oven) to areas of lower concentration throughout the house via simple diffusion without any energy input."
+  },
+  {
+    "id": 50,
+    "topic": "TRACIE Intercellular Joinings",
+    "question": "In the TRACIE functional model of membrane proteins, what is the specific biological role of 'Intercellular Joinings' in animal epithelial tissue?",
+    "options": [
+      "They hydrolyze extracellular polysaccharides into monosaccharides to provide immediate metabolic energy for active transport.",
+      "They form specialized junctional protein complexes (such as tight junctions and desmosomes) that hook adjacent cells together.",
+      "They act as lipid enzymes that synthesize new phospholipids to repair mechanical tears in the plasma membrane.",
+      "They serve as high-affinity receptors that bind to neurotransmitters and convert them into electrical action potentials."
+    ],
+    "answer": 1,
+    "clue": "'I' in TRACIE stands for Intercellular Joinings, connecting adjacent cells together into tissues.",
+    "explanation": "The 'I' in the TRACIE membrane mnemonic stands for Intercellular Joinings. Membrane proteins of adjacent cells hook together in various forms of junctions (tight junctions to prevent leakage, desmosomes to provide mechanical anchorage, and gap junctions for intercellular communication)."
+  },
+  {
+    "id": 51,
+    "topic": "Salty Snack & Thirst Osmoreceptors",
+    "question": "After consuming a large bag of salty potato chips, a student experiences intense physiological thirst. What cellular osmotic event triggers this sensation?",
+    "options": [
+      "Absorbed salt ions bind to tongue taste buds, triggering local enzymatic hydrolysis of salivary amylase.",
+      "Sodium ions enter kidney tubule cells by pinocytosis, physically obstructing the release of adrenal aldosterone.",
+      "Extracellular blood plasma becomes hypertonic, drawing water out of hypothalamic osmoreceptor cells via osmosis.",
+      "Blood pressure drops precipitously as water exits red blood cells via active transport pumps."
+    ],
+    "answer": 2,
+    "clue": "High salt in the blood makes plasma hypertonic, pulling water out of brain osmoreceptors so they shrink.",
+    "explanation": "Ingested sodium is absorbed into the bloodstream, elevating extracellular solute concentration (hypertonic blood plasma). Water moves out of brain osmoreceptor cells in the hypothalamus via osmosis down its concentration gradient. The resulting cellular shrinkage fires neural signals that trigger the perception of thirst and release ADH to conserve water."
+  },
+  {
+    "id": 52,
+    "topic": "Homeostasis Definition & Triad",
+    "question": "Which of the following scientifically defines cellular and organismal homeostasis, and correctly identifies three physiological examples?",
+    "options": [
+      "The complete cessation of chemical reactions at equilibrium; exemplified by rigor mortis, bone ossification, and enamel formation.",
+      "The unidirectional movement of water across semipermeable membranes; exemplified by plasmolysis, cytolysis, and turgor pressure.",
+      "The active synthesis of metabolic macromolecules from simple monomers; exemplified by transcription, translation, and replication.",
+      "The maintenance of a dynamic, stable internal environment despite external fluctuations; exemplified by thermoregulation, blood glucose regulation, and osmoregulation."
+    ],
+    "answer": 3,
+    "clue": "Homeostasis is a dynamic steady state (e.g., sweating/shivering, insulin/glucagon, water balance).",
+    "explanation": "Homeostasis refers to an organism's ability to maintain relatively constant internal physiological conditions despite changes in the external environment. Three foundational biological examples are thermoregulation (sweating/shivering), blood glucose control (insulin/glucagon), and osmoregulation (kidney filtration and water balance)."
+  },
+  {
+    "id": 53,
+    "topic": "Percent Change in Mass Formula",
+    "question": "In an osmosis lab, a gel cube has an initial mass of 5.0 g. After soaking in distilled water for 24 hours, its final mass is 8.2 g. What is the calculated percent change in mass (% \u0394Mass)?",
+    "options": [
+      "+64.0%, calculated as (Final Mass - Initial Mass) divided by Initial Mass multiplied by 100%.",
+      "+32.0%, calculated as (Final Mass - Initial Mass) divided by Final Mass multiplied by 100%.",
+      "+164.0%, calculated as Final Mass divided by Initial Mass multiplied by 100%.",
+      "+3.2%, calculated as Final Mass minus Initial Mass."
+    ],
+    "answer": 0,
+    "clue": "Formula is: [(Final - Initial) / Initial] * 100%. Here: [(8.2 - 5.0) / 5.0] * 100% = (3.2 / 5.0) * 100% = +64%.",
+    "explanation": "The standard biological formula for percent change in mass is: % \u0394Mass = [(Final Mass - Initial Mass) / Initial Mass] * 100%. Substituting the data: [(8.2 g - 5.0 g) / 5.0 g] * 100% = (3.2 / 5.0) * 100% = +64.0%."
+  },
+  {
+    "id": 54,
+    "topic": "TRACIE Enzymatic Activity",
+    "question": "In the TRACIE functional model of biological membranes, what is the specific role of membrane proteins functioning in 'Enzymatic Activity'?",
+    "options": [
+      "They permanently fuse the two lipid leaflets together to prevent all lateral diffusion of phospholipids.",
+      "They act as localized biocatalysts with their active sites oriented toward adjacent solutions to carry out sequential metabolic steps.",
+      "They generate electrical action potentials by passively conducting diatomic gas molecules down concentration gradients.",
+      "They bind to incoming bacterial invaders and phagocytose them into intracellular digestive peroxisomes."
+    ],
+    "answer": 1,
+    "clue": "The 'E' in TRACIE stands for Enzymatic Activity, catalyzing chemical reactions at the membrane surface.",
+    "explanation": "The 'E' in TRACIE represents Enzymatic Activity. Many membrane-bound proteins are enzymes whose catalytic active sites face either the extracellular or intracellular fluid (e.g., digestive enzymes like lactase on intestinal microvilli), allowing them to catalyze chemical reactions at the cell surface."
+  },
+  {
+    "id": 55,
+    "topic": "Gummy Bear Gelatin Trapping",
+    "question": "In the Gummy Bear Mystery (Amoeba Sisters), why does a gummy bear submerged in ice water swell massively without its sugar molecules dissolving and diffusing out into the water?",
+    "options": [
+      "Sugar molecules are actively transported into the center of the gummy bear by embedded molecular pump proteins.",
+      "Ice water has zero kinetic energy, which completely paralyzes all diffusion of sugar molecules out of the bear.",
+      "The structural cross-linked gelatin protein polymer matrix physically traps large sugar solutes while allowing small water molecules to diffuse in by osmosis.",
+      "The outer surface of the gummy bear forms a rigid cellulose cell wall upon contact with cold water."
+    ],
+    "answer": 2,
+    "clue": "The gelatin matrix acts like a semipermeable net, trapping sugar inside while letting water enter.",
+    "explanation": "A gummy bear is a gel made of cross-linked gelatin protein polymers packed with sugar solutes. The microscopic pores in the gelatin matrix are permeable to small water molecules but restrict the outward diffusion of trapped sugar molecules. Water enters by osmosis down its concentration gradient, swelling the gelatin matrix without losing sugar."
+  }
+];
+
+    const STORAGE_KEY = 'unit2_part1_100_percent_mastery';
+
+    let userState = {
+      answers: {},
+      showClues: {},
+      allCluesVisible: false,
+      currentFilter: 'All',
+      missedOnly: false
+    };
+
+    function safeLoad() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          userState = JSON.parse(saved);
+        }
+      } catch (e) {
+        console.warn('localStorage not accessible:', e);
+      }
+    }
+
+    function safeSave() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(userState));
+      } catch (e) {
+        console.warn('Could not save to localStorage:', e);
+      }
+    }
+
+    function init() {
+      safeLoad();
+      renderQuestions();
+      updateStats();
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById('questionsContainer');
+      if (!container) return;
+      container.innerHTML = '';
+
+      let filteredQuestions = questionsData.filter(q => {
+        if (userState.currentFilter !== 'All' && q.topic !== userState.currentFilter) return false;
+        if (userState.missedOnly) {
+          const userAns = userState.answers[q.id];
+          if (userAns === undefined || userAns === q.answer) return false;
+        }
+        return true;
+      });
+
+      if (filteredQuestions.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-12 bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
+            <i class="fa-solid fa-circle-check text-emerald-500 text-4xl mb-3"></i>
+            <h3 class="text-lg font-bold text-slate-800">No Questions In This Filter</h3>
+            <p class="text-slate-500 text-sm mt-1">Try selecting 'All Topics' or clearing the missed review filter.</p>
+          </div>
+        `;
+        return;
+      }
+
+      filteredQuestions.forEach((q) => {
+        const isAnswered = userState.answers[q.id] !== undefined;
+        const selectedOption = userState.answers[q.id];
+        const isCorrect = isAnswered && selectedOption === q.answer;
+        const isClueVisible = userState.allCluesVisible || userState.showClues[q.id];
+
+        const card = document.createElement('div');
+        card.className = `bg-white rounded-2xl p-6 border transition-all duration-200 shadow-sm ${
+          isAnswered
+            ? isCorrect
+              ? 'border-emerald-300 ring-1 ring-emerald-200/50 bg-emerald-50/20'
+              : 'border-rose-300 ring-1 ring-rose-200/50 bg-rose-50/20'
+            : 'border-slate-200 hover:border-slate-300'
+        }`;
+        card.id = `q-card-${q.id}`;
+
+        let optionsHtml = q.options.map((opt, oIdx) => {
+          let btnClass = "border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50/40 text-slate-700 cursor-pointer";
+          let iconHtml = `<span class="w-6 h-6 rounded-full border border-slate-300 text-xs font-semibold flex items-center justify-center mr-3 text-slate-500 shrink-0 mt-0.5">${String.fromCharCode(65 + oIdx)}</span>`;
+
+          if (isAnswered) {
+            if (oIdx === q.answer) {
+              btnClass = "bg-emerald-50 border-emerald-500 text-emerald-950 font-semibold ring-1 ring-emerald-400 cursor-default";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-emerald-600 text-white text-xs font-bold flex items-center justify-center mr-3 shrink-0 mt-0.5"><i class="fa-solid fa-check"></i></span>`;
+            } else if (oIdx === selectedOption && !isCorrect) {
+              btnClass = "bg-rose-50 border-rose-400 text-rose-950 font-semibold ring-1 ring-rose-300 cursor-default";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-rose-600 text-white text-xs font-bold flex items-center justify-center mr-3 shrink-0 mt-0.5"><i class="fa-solid fa-xmark"></i></span>`;
+            } else {
+              btnClass = "opacity-50 border-slate-200 text-slate-400 cursor-not-allowed";
+            }
+          }
+
+          return `
+            <button 
+              type="button"
+              onclick="selectAnswer(${q.id}, ${oIdx})" 
+              ${isAnswered ? 'disabled' : ''} 
+              class="w-full text-left p-3.5 rounded-xl text-sm transition flex items-start ${btnClass} my-2 leading-relaxed">
+              ${iconHtml}
+              <span class="flex-1">${opt}</span>
+            </button>
+          `;
+        }).join('');
+
+        card.innerHTML = `
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <div class="flex items-center gap-2">
+              <span class="bg-indigo-100 text-indigo-800 text-xs font-black px-2.5 py-0.5 rounded-md">Q${q.id}</span>
+              <span class="bg-slate-100 text-slate-600 text-xs font-semibold px-2.5 py-0.5 rounded-md">${q.topic}</span>
+            </div>
+
+            <button type="button" onclick="toggleClue(${q.id})" class="text-xs text-amber-700 bg-amber-50 hover:bg-amber-100 border border-amber-200 px-3 py-1 rounded-lg font-medium transition flex items-center gap-1 cursor-pointer">
+              <i class="fa-regular fa-lightbulb"></i>
+              ${isClueVisible ? 'Hide Hint' : 'Need a Clue?'}
+            </button>
+          </div>
+
+          <h3 class="text-base font-bold text-slate-900 leading-relaxed mb-4">${q.question}</h3>
+
+          <div id="clue-${q.id}" class="${isClueVisible ? 'block' : 'hidden'} mb-4 p-3.5 bg-amber-50/80 border border-amber-200 rounded-xl text-amber-900 text-xs flex items-start gap-2.5">
+            <i class="fa-solid fa-lightbulb text-amber-600 mt-0.5"></i>
+            <div><span class="font-bold">Study Hint:</span> ${q.clue}</div>
+          </div>
+
+          <div class="space-y-1">${optionsHtml}</div>
+
+          ${isAnswered ? `
+            <div class="mt-5 p-4 rounded-xl text-sm border ${
+              isCorrect 
+                ? 'bg-emerald-50/70 border-emerald-200 text-emerald-950' 
+                : 'bg-rose-50/70 border-rose-200 text-slate-800'
+            }">
+              <div class="flex items-center gap-2 font-bold mb-2 ${isCorrect ? 'text-emerald-800' : 'text-rose-800'}">
+                <i class="${isCorrect ? 'fa-solid fa-circle-check text-emerald-600' : 'fa-solid fa-circle-xmark text-rose-600'}"></i>
+                <span>${isCorrect ? 'Correct! Excellent work.' : 'Incorrect. Let\'s break it down:'}</span>
+              </div>
+              <p class="text-xs leading-relaxed text-slate-700 mb-2">${q.explanation}</p>
+              <div class="text-xs font-semibold text-indigo-700 pt-2 border-t border-slate-200/60 flex items-center justify-between">
+                <span>Correct Option: ${String.fromCharCode(65 + q.answer)} (${q.options[q.answer]})</span>
+                <button type="button" onclick="retryQuestion(${q.id})" class="text-slate-500 hover:text-slate-800 font-medium underline ml-2 cursor-pointer">Try Again</button>
+              </div>
+            </div>
+          ` : ''}
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function selectAnswer(qId, optionIdx) {
+      if (userState.answers[qId] !== undefined) return;
+      userState.answers[qId] = optionIdx;
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function retryQuestion(qId) {
+      delete userState.answers[qId];
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function toggleClue(qId) {
+      userState.showClues[qId] = !userState.showClues[qId];
+      safeSave();
+      renderQuestions();
+    }
+
+    function toggleAllClues() {
+      userState.allCluesVisible = !userState.allCluesVisible;
+      document.getElementById('clueToggleText').innerText = userState.allCluesVisible ? "Hide All Hints" : "Show All Hints";
+      safeSave();
+      renderQuestions();
+    }
+
+    function filterTopic(topic) {
+      userState.currentFilter = topic;
+      userState.missedOnly = false;
+      document.querySelectorAll('.topic-btn').forEach(btn => {
+        if (btn.innerText.includes(topic) || (topic === 'All' && btn.innerText.includes('All Topics'))) {
+          btn.className = "topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-sm transition cursor-pointer";
+        } else {
+          btn.className = "topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer";
+        }
+      });
+      renderQuestions();
+    }
+
+    function filterMissed() {
+      userState.missedOnly = !userState.missedOnly;
+      const btn = document.getElementById('filterMissedBtn');
+      if (userState.missedOnly) {
+        btn.className = "text-xs bg-rose-600 text-white border border-rose-600 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer shadow-sm";
+      } else {
+        btn.className = "text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer";
+      }
+      renderQuestions();
+    }
+
+    function updateStats() {
+      const answeredCount = Object.keys(userState.answers).length;
+      let correctCount = 0;
+      let missedCount = 0;
+
+      questionsData.forEach(q => {
+        if (userState.answers[q.id] !== undefined) {
+          if (userState.answers[q.id] === q.answer) {
+            correctCount++;
+          } else {
+            missedCount++;
+          }
+        }
+      });
+
+      const total = questionsData.length;
+      document.getElementById('statAnswered').innerText = `${answeredCount}/${total}`;
+      document.getElementById('missedCount').innerText = missedCount;
+
+      const accuracy = answeredCount === 0 ? 0 : Math.round((correctCount / answeredCount) * 100);
+      document.getElementById('statScore').innerText = `${accuracy}%`;
+      document.getElementById('quizProgressBar').style.width = `${(answeredCount / total) * 100}%`;
+
+      const scoreCard = document.getElementById('scoreSummaryCard');
+      if (answeredCount === total && total > 0) {
+        scoreCard.classList.remove('hidden');
+        document.getElementById('finalTotal').innerText = total;
+        document.getElementById('finalCorrect').innerText = correctCount;
+        document.getElementById('finalPercent').innerText = `${accuracy}%`;
+
+        const ratingBox = document.getElementById('masteryRating');
+        if (accuracy >= 90) {
+          ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-emerald-50 border border-emerald-300 text-emerald-900";
+          ratingBox.innerHTML = '<i class="fa-solid fa-certificate mr-2 text-emerald-600"></i>Mastery Achieved! Outstanding understanding of this document.';
+        } else if (accuracy >= 75) {
+          ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-blue-50 border border-blue-300 text-blue-900";
+          ratingBox.innerHTML = '<i class="fa-solid fa-thumbs-up mr-2 text-blue-600"></i>Proficient! Good foundation; review missed items before testing.';
+        } else {
+          ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-amber-50 border border-amber-300 text-amber-900";
+          ratingBox.innerHTML = '<i class="fa-solid fa-book-open mr-2 text-amber-600"></i>Review Recommended! Use the Markdown companion notes to reinforce weak areas.';
+        }
+      } else {
+        scoreCard.classList.add('hidden');
+      }
+    }
+
+    function resetQuiz() {
+      if (confirm("Are you sure you want to reset all answers and hints for this test?")) {
+        userState.answers = {};
+        userState.showClues = {};
+        userState.allCluesVisible = false;
+        userState.currentFilter = 'All';
+        userState.missedOnly = false;
+        safeSave();
+        document.getElementById('clueToggleText').innerText = "Show All Hints";
+        document.getElementById('filterMissedBtn').className = "text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer";
+        filterTopic('All');
+        renderQuestions();
+        updateStats();
+      }
+    }
+
+    window.onload = init;
+  </script>
+</body>
+</html>

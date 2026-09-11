@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biology I Honors - Unit 2 Test 13: Plant Cells vs. Animal Cells Specialization</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+
+  <!-- TOP HEADER -->
+  <header class="bg-gradient-to-r from-emerald-700 via-teal-700 to-indigo-700 text-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="w-10 h-10 rounded-xl bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition border border-white/20" title="Back to All Tests">
+          <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="bg-white/20 text-xs px-2.5 py-1 rounded-full font-semibold uppercase tracking-wider">Biology I Honors</span>
+            <span class="bg-amber-300 text-slate-900 text-xs px-2.5 py-1 rounded-full font-bold">Unit 2 • Test 13</span>
+          </div>
+          <h1 class="text-xl sm:text-2xl font-black tracking-tight mt-1 text-white">Plant vs. Animal Specialization</h1>
+        </div>
+      </div>
+
+      <!-- Quick Stats Top -->
+      <div class="flex items-center gap-4 bg-white/10 backdrop-blur px-4 py-2 rounded-xl border border-white/15">
+        <div class="text-center">
+          <div class="text-xs uppercase text-emerald-200 font-semibold">Answered</div>
+          <div id="statAnswered" class="text-xl font-bold">0/20</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <div class="text-center">
+          <div class="text-xs uppercase text-emerald-200 font-semibold">Accuracy</div>
+          <div id="statScore" class="text-xl font-bold text-amber-300">0%</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <button onclick="resetQuiz()" class="text-xs bg-white/20 hover:bg-white/30 text-white px-3 py-2 rounded-lg font-medium transition flex items-center gap-1.5 cursor-pointer">
+          <i class="fa-solid fa-rotate-right"></i> Reset
+        </button>
+      </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="w-full bg-slate-900/30 h-2">
+      <div id="quizProgressBar" class="bg-emerald-400 h-2 transition-all duration-300" style="width: 0%"></div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-6xl mx-auto px-4 py-8">
+
+    <!-- Anti-Guess Note Banner -->
+    <div class="bg-emerald-50 border border-emerald-200 text-emerald-950 p-4 rounded-2xl mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-semibold shadow-sm">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-leaf text-emerald-600 text-base shrink-0"></i>
+        <span><strong>Comparative Cytology & Tissue Specialization:</strong> Rigorous examination of organelle divergences, junctions, and specialized plant/animal cell types.</span>
+      </div>
+      <a href="index.html" class="text-emerald-900 underline hover:text-emerald-950 whitespace-nowrap">View All 20 Tests</a>
+    </div>
+
+    <!-- CONTROLS & FILTER BAR -->
+    <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 mb-8">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-sm font-bold text-slate-700 mb-2">Filter by Topic:</h2>
+          <div class="flex flex-wrap gap-2" id="topicFilters">
+            <button onclick="filterTopic('All')" class="topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-emerald-600 text-white shadow-sm transition cursor-pointer">All Topics (20)</button>
+            <button onclick="filterTopic('Adipocyte Structural Organization')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Adipocyte Structural Organization</button>
+            <button onclick="filterTopic('Animal Intercellular Junctions')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Animal Intercellular Junctions</button>
+            <button onclick="filterTopic('Cell Wall & Vacuole Architecture')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Cell Wall & Vacuole Architecture</button>
+            <button onclick="filterTopic('Central Vacuole Enzymatic Hydrolysis')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Central Vacuole Enzymatic Hydrolysis</button>
+            <button onclick="filterTopic('Centrosomes & Centrioles')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Centrosomes & Centrioles</button>
+            <button onclick="filterTopic('Ciliated Epithelial Architecture')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Ciliated Epithelial Architecture</button>
+            <button onclick="filterTopic('Erythrocyte Specialization')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Erythrocyte Specialization</button>
+            <button onclick="filterTopic('Extracellular Matrix vs Plant Cell Wall')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Extracellular Matrix vs Plant Cell Wall</button>
+            <button onclick="filterTopic('Guard Cell Stomatal Mechanics')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Guard Cell Stomatal Mechanics</button>
+            <button onclick="filterTopic('Hypotonic Environmental Response')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Hypotonic Environmental Response</button>
+            <button onclick="filterTopic('Intercellular Communication Channels')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Intercellular Communication Channels</button>
+            <button onclick="filterTopic('Neuronal Axonal Transport')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Neuronal Axonal Transport</button>
+            <button onclick="filterTopic('Palisade Mesophyll Specialization')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Palisade Mesophyll Specialization</button>
+            <button onclick="filterTopic('Pancreatic Acinar Cell Organelle Abundance')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Pancreatic Acinar Cell Organelle Abundance</button>
+            <button onclick="filterTopic('Plant vs Animal Contrast Matrix')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Plant vs Animal Contrast Matrix</button>
+            <button onclick="filterTopic('Plastid Differentiation & Specialization')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Plastid Differentiation & Specialization</button>
+            <button onclick="filterTopic('Root Hair Specialization')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Root Hair Specialization</button>
+            <button onclick="filterTopic('Spermatozoon Acrosome Specialization')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Spermatozoon Acrosome Specialization</button>
+            <button onclick="filterTopic('Vacuolar vs Plastid Pigments')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Vacuolar vs Plastid Pigments</button>
+            <button onclick="filterTopic('Vascular Specialization: Xylem vs Phloem')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Vascular Specialization: Xylem vs Phloem</button>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 pt-2 lg:pt-0 border-t lg:border-t-0 border-slate-100">
+          <button onclick="toggleAllClues()" id="toggleCluesBtn" class="text-xs bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-regular fa-lightbulb"></i> <span id="clueToggleText">Show All Hints</span>
+          </button>
+          <button onclick="filterMissed()" id="filterMissedBtn" class="text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-solid fa-triangle-exclamation"></i> Missed Only (<span id="missedCount">0</span>)
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTIONS CONTAINER -->
+    <div id="questionsContainer" class="space-y-6">
+      <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- SCORE SUMMARY CARD (Hidden until finished) -->
+    <div id="scoreSummaryCard" class="hidden mt-10 bg-white rounded-3xl p-8 border border-slate-200 shadow-xl text-center max-w-2xl mx-auto">
+      <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+        <i class="fa-solid fa-award"></i>
+      </div>
+      <h3 class="text-2xl font-black text-slate-800 mb-2">Test Completed!</h3>
+      <p class="text-slate-600 text-sm mb-6">Unit 2 Test 13: Plant Cells vs. Animal Cells Specialization</p>
+      
+      <div class="grid grid-cols-3 gap-4 mb-6">
+        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100">
+          <div class="text-xs text-slate-500 font-semibold uppercase">Total Questions</div>
+          <div id="finalTotal" class="text-2xl font-black text-slate-800 mt-1">20</div>
+        </div>
+        <div class="bg-emerald-50 p-4 rounded-2xl border border-emerald-100">
+          <div class="text-xs text-emerald-600 font-semibold uppercase">Correct</div>
+          <div id="finalCorrect" class="text-2xl font-black text-emerald-700 mt-1">0</div>
+        </div>
+        <div class="bg-blue-50 p-4 rounded-2xl border border-blue-100">
+          <div class="text-xs text-blue-600 font-semibold uppercase">Score</div>
+          <div id="finalPercent" class="text-2xl font-black text-blue-700 mt-1">0%</div>
+        </div>
+      </div>
+
+      <div id="masteryRating" class="p-4 rounded-2xl font-bold text-sm mb-6"></div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+        <button onclick="resetQuiz()" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition cursor-pointer">
+          <i class="fa-solid fa-rotate-right mr-1.5"></i> Retake Test
+        </button>
+        <a href="test-14-surface-area-volume.html" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-md transition text-center">
+          Proceed to Test 14 <i class="fa-solid fa-arrow-right ml-1.5"></i>
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    const questionsData = [
+  {
+    "id": 1,
+    "topic": "Cell Wall & Vacuole Architecture",
+    "question": "Which of the following cellular features is uniquely present in typical mature plant cells but completely absent from all normal animal cells?",
+    "options": [
+      "A large central vacuole surrounded by a tonoplast and a rigid primary wall of cellulose",
+      "Double-membrane mitochondria carrying their own circular genome and 70S ribosomes",
+      "A complex endomembrane system featuring rough endoplasmic reticulum and Golgi bodies",
+      "Dynamic cytoskeletal microfilaments composed of actin polymers facilitating motility"
+    ],
+    "answer": 0,
+    "clue": "Think about what gives leafy plant cells structural rigidity and water-mediated turgor pressure.",
+    "explanation": "Option A is correct because mature plant cells possess a cellulose cell wall and an expansive central vacuole enclosed by the tonoplast membrane, both of which are absent in animal cells. Options B, C, and D describe universal eukaryotic organelles and cytoskeletal structures shared by both plant and animal cells."
+  },
+  {
+    "id": 2,
+    "topic": "Centrosomes & Centrioles",
+    "question": "During mitotic cell division in animal cells, the primary microtubule-organizing centers (MTOCs) contain a pair of barrel-shaped structures. How does mitotic spindle assembly in typical angiosperms (flowering plants) compare?",
+    "options": [
+      "Plant cells also contain paired centrioles within their centrosomes to nucleate microtubules",
+      "Angiosperms lack centrioles completely, instead organizing spindle microtubules from dispersed nuclear envelope-associated MTOCs",
+      "Plant cells synthesize temporary centrioles strictly inside the nucleolus prior to prophase",
+      "Plant cells do not form microtubule spindles at all, relying solely on actin microfilaments"
+    ],
+    "answer": 1,
+    "clue": "Do flowering plants have 9+3 triplet microtubule centrioles, or do they organize spindles without them?",
+    "explanation": "Option B is correct because higher plant cells (gymnosperms and angiosperms) do not possess centrioles or distinct centrosome bodies; instead, their mitotic spindle fibers are nucleated from acentrosomal microtubule-organizing centers distributed along the nuclear envelope and cortical cytoplasm. Option A is incorrect because angiosperms lack centrioles. Options C and D are biologically false."
+  },
+  {
+    "id": 3,
+    "topic": "Intercellular Communication Channels",
+    "question": "Direct intercellular cytoplasmic continuity is vital for tissue coordination. What structures provide this direct pathway in plant tissues versus animal tissues, respectively?",
+    "options": [
+      "Tight junctions in plants and desmosomes in animals",
+      "Gap junctions in plants and plasmodesmata in animals",
+      "Plasmodesmata in plants and gap junctions (connexons) in animals",
+      "Hemidesmosomes in plants and middle lamellae in animals"
+    ],
+    "answer": 2,
+    "clue": "Plants require cytoplasmic tunnels that cross thick cell walls; animal cells use hexameric protein connexon channels.",
+    "explanation": "Option C is correct. Plant cells communicate and share cytoplasm/solutes across cell walls via plasmodesmata (which contain a continuous plasma membrane and a central desmotubule from the ER). Animal cells use gap junctions composed of connexon protein rings to allow ions and small molecules to pass directly between adjacent cells. Options A, B, and D invert or misassign these cellular junctions."
+  },
+  {
+    "id": 4,
+    "topic": "Erythrocyte Specialization",
+    "question": "Mammalian mature red blood cells (erythrocytes) undergo an extreme developmental specialization involving the loss of their nucleus and mitochondria. What is the primary evolutionary advantage of this structural adaptation?",
+    "options": [
+      "It enables red blood cells to synthesize their own hemoglobin continuously in circulation",
+      "It prevents red blood cells from consuming any glucose during cellular homeostasis",
+      "It allows red blood cells to replicate rapidly by binary fission within the bloodstream",
+      "It maximizes internal cytoplasmic volume for hemoglobin packing and prevents RBCs from consuming the oxygen they transport"
+    ],
+    "answer": 3,
+    "clue": "Consider how ejecting bulky organelles impacts oxygen carrying capacity and oxygen consumption via oxidative phosphorylation.",
+    "explanation": "Option D is correct. Enucleation and the extrusion of all mitochondria in mature mammalian erythrocytes create maximum physical space for over 250 million hemoglobin molecules per cell, while also guaranteeing that the erythrocyte metabolizes via anaerobic glycolysis only, ensuring it does not consume any of the O2 it is tasked with delivering to tissues."
+  },
+  {
+    "id": 5,
+    "topic": "Root Hair Specialization",
+    "question": "Root hair cells are specialized epidermal cells responsible for absorbing soil water and mineral nutrients. Which cytological modification directly optimizes this physiological function?",
+    "options": [
+      "An elongated, slender cytoplasmic extension that dramatically elevates the cell surface area-to-volume (SA:V) ratio",
+      "A dense, impermeable suberin layer covering the entire outer surface to block passive osmosis",
+      "A complete absence of central vacuoles to ensure mineral salts remain solid crystals",
+      "Multiple layers of chloroplasts arranged along the periphery to generate ATP via light reactions"
+    ],
+    "answer": 0,
+    "clue": "What structural modification increases contact with surrounding soil moisture?",
+    "explanation": "Option A is correct. Root hairs are slender lateral tubular outgrowths of epidermal cells. This extended geometry increases the surface area-to-volume ratio by several orders of magnitude, providing a vast surface for aquaporins and ion transporters to absorb water and dissolved minerals from soil micropores. Roots are underground and non-photosynthetic, ruling out D."
+  },
+  {
+    "id": 6,
+    "topic": "Neuronal Axonal Transport",
+    "question": "A motor neuron possesses extended dendrites and an axon reaching up to a meter in length. How does this cell maintain organelle distribution and supply neurotransmitters to distal synaptic terminals?",
+    "options": [
+      "Neurotransmitters diffuse freely without any cytoskeletal involvement over several meters",
+      "Active axonal transport powered by kinesin and dynein motor proteins walking along microtubule tracks",
+      "Axons undergo continuous perivisceral peristaltic contractions that squeeze vesicles forward",
+      "Mitochondria and vesicles are assembled exclusively inside the synaptic cleft by local ribosomes"
+    ],
+    "answer": 1,
+    "clue": "Which motor proteins use ATP to travel in anterograde and retrograde directions along tubulin tracks?",
+    "explanation": "Option B is correct. Because diffusion over macroscopic distances (like a 1-meter axon) would take years, neurons depend on active axonal transport along microtubules. Kinesins drive anterograde transport (soma to axon terminal), carrying vesicles, mitochondria, and proteins, while dyneins drive retrograde transport back to the cell body."
+  },
+  {
+    "id": 7,
+    "topic": "Guard Cell Stomatal Mechanics",
+    "question": "Guard cells regulate stomatal pores in plant leaves. When light stimulates active H+ pumping and inward K+ uptake into guard cells, what sequence of physical events causes the stomata to open?",
+    "options": [
+      "Water exits the guard cells via osmosis, rendering them flaccid and pulling the pore open",
+      "The intracellular K+ concentration drops, triggering enzymatic lysis of the inner cell wall",
+      "Water flows into guard cells down its osmotic gradient; turgor pressure against the thicker inner radial microfibrils bows them outward",
+      "Active transport pumps pump cellulose outward into the pore, plugging the stomatal aperture"
+    ],
+    "answer": 2,
+    "clue": "How do solute influx, water uptake, and differential cell wall thickness cause curved bowing?",
+    "explanation": "Option C is correct. Accumulation of K+ and accompanying anions makes the interior hypertonic. Water follows by osmosis through aquaporins, increasing turgor pressure. Because the inner cell wall bordering the pore is markedly thicker and radially reinforced with cellulose microfibrils, the cells bow outward as they inflate, opening the stomatal pore."
+  },
+  {
+    "id": 8,
+    "topic": "Central Vacuole Enzymatic Hydrolysis",
+    "question": "While animal cells utilize primary and secondary lysosomes for macromolecular degradation, what organelle carries out homologous acid-hydrolase degradative functions in mature vegetative plant cells?",
+    "options": [
+      "The nucleolus",
+      "The primary cell wall",
+      "The amyloplast",
+      "The central vacuole"
+    ],
+    "answer": 3,
+    "clue": "Which large plant organelle maintains an acidic lumen with proton pumps and hydrolytic enzymes?",
+    "explanation": "Option D is correct. In plant cells, the large central vacuole is functionally homologous to the animal lysosome. Its lumen is actively acidified by V-type H+-ATPases in the tonoplast and contains a variety of acid hydrolases (proteases, nucleases, glycosidases) that break down cellular macromolecules and recycle aged organelles."
+  },
+  {
+    "id": 9,
+    "topic": "Ciliated Epithelial Architecture",
+    "question": "Epithelial cells lining the human respiratory trachea feature motile cilia on their apical surface. What is the fundamental internal architecture of these motile cilia?",
+    "options": [
+      "A \"9+2\" arrangement of microtubule doublets powered by dynein arms anchored to a basal body (centriole-derived)",
+      "A solid bundle of actin microfilaments linked by myosin cross-bridges directly anchored to the nuclear envelope",
+      "A single helical flagellin filament that rotates in a membrane-embedded stator motor driven by H+ flux",
+      "A cluster of intermediate keratin filaments held under tension by extracellular desmosomes"
+    ],
+    "answer": 0,
+    "clue": "What is the classic eukaryotic axoneme configuration found in cilia and flagella?",
+    "explanation": "Option A is correct. Eukaryotic motile cilia and flagella share the classic axoneme architecture consisting of 9 peripheral doublet microtubules surrounding 2 central singlet microtubules (9+2 pattern). ATP-driven dynein motor arms produce bending motions, and the structure is anchored in the cytoplasm by a basal body (which has a 9+0 triplet structure like a centriole)."
+  },
+  {
+    "id": 10,
+    "topic": "Vascular Specialization: Xylem vs Phloem",
+    "question": "In vascular plants, xylem vessel elements and phloem sieve-tube elements exhibit distinct cytological adaptations. Which statement accurately compares their functional states at maturity?",
+    "options": [
+      "Both xylem and phloem elements remain alive, with complete nuclei and dense cytoplasm at functional maturity",
+      "Xylem vessel elements are dead and hollowed at maturity to conduct water, whereas sieve-tube elements remain alive but lack nuclei and rely on companion cells",
+      "Phloem sieve tubes are completely dead hollow cylinders, whereas xylem vessels are alive and actively pump sucrose",
+      "Both vessel elements and sieve tubes shed their cell walls to form open, continuous liquid syncytia"
+    ],
+    "answer": 1,
+    "clue": "Which cells undergo programmed cell death to leave behind empty lignified conduits, and which rely on companion cells?",
+    "explanation": "Option B is correct. Mature xylem vessel elements and tracheids undergo programmed cell death (apoptosis), clearing their cytoplasm and leaving behind rigid, lignified secondary cell walls that form open hollow conduits for negative-pressure water transport. In contrast, phloem sieve-tube elements remain living, retaining a plasma membrane and modified cytoplasm (lacking a nucleus, vacuole, and ribosomes), supported metabolically by adjacent companion cells."
+  },
+  {
+    "id": 11,
+    "topic": "Vacuolar vs Plastid Pigments",
+    "question": "Red, purple, and blue water-soluble pigments called anthocyanins contribute to flower and fruit color. In which cellular compartment are anthocyanins stored, contrasting with lipid-soluble carotenoids?",
+    "options": [
+      "Anchored within the thylakoid lipid bilayer of chloroplasts",
+      "Dissolved in the hydrophobic core of the plasma membrane",
+      "Dissolved in the aqueous solution of the central vacuole",
+      "Stored in secretory vesicles inside the trans-Golgi cisternae"
+    ],
+    "answer": 2,
+    "clue": "Are water-soluble pigments stored in an aqueous organelle or in hydrophobic plastid membranes?",
+    "explanation": "Option C is correct. Anthocyanins are hydrophilic, water-soluble flavonoids synthesized on the cytoplasmic surface of the ER and actively imported into the aqueous lumen of the central vacuole. In contrast, carotenoids and chlorophylls are hydrophobic, lipid-soluble pigments embedded in the membranes of chromoplasts and chloroplasts."
+  },
+  {
+    "id": 12,
+    "topic": "Extracellular Matrix vs Plant Cell Wall",
+    "question": "Animal tissues lack rigid cell walls but maintain structural cohesion through an extracellular matrix (ECM). What is the primary structural fibrous glycoprotein in the animal ECM, analogous to cellulose in plant walls?",
+    "options": [
+      "Pectin",
+      "Lignin",
+      "Peptidoglycan",
+      "Collagen"
+    ],
+    "answer": 3,
+    "clue": "What triple-helix structural protein is the most abundant protein in the human body?",
+    "explanation": "Option D is correct. Collagen is the primary structural fibrous glycoprotein of the animal extracellular matrix (ECM), providing high tensile strength to tissues such as skin, tendon, cartilage, and bone, analogous to how cellulose microfibrils provide tensile strength in plant cell walls. Pectin and lignin are plant wall components, while peptidoglycan is bacterial."
+  },
+  {
+    "id": 13,
+    "topic": "Hypotonic Environmental Response",
+    "question": "When exposed to an extreme hypotonic environment (pure distilled water), why do animal erythrocytes undergo cytolysis while plant parenchyma cells remain intact and become turgid?",
+    "options": [
+      "Plant cells possess a rigid, inelastic cellulose cell wall that exerts turgor pressure (wall pressure) opposing further water influx",
+      "Plant cells actively close all aquaporin water channels to prevent any entry of water molecules",
+      "Animal cell membranes are composed solely of carbohydrate polymers that dissolve when water contacts them",
+      "Plant cells actively pump pure water out of the cell across the tonoplast by exocytosis"
+    ],
+    "answer": 0,
+    "clue": "What outer rigid structure resists osmotic swelling and pushes back against incoming water?",
+    "explanation": "Option A is correct. In a hypotonic environment, water rushes down its water potential gradient into both cell types. The animal erythrocyte has only a delicate plasma membrane, which stretches until it ruptures (cytolysis/hemolysis). The plant cell has a stiff cellulose cell wall that resists expansion, generating mechanical turgor pressure (wall pressure) that halts net water entry once internal pressure balances the osmotic gradient."
+  },
+  {
+    "id": 14,
+    "topic": "Plastid Differentiation & Specialization",
+    "question": "Plastids in plant cells derive from proplastids and differentiate into distinct functional types. Which pairing correctly matches the plastid type to its primary physiological role?",
+    "options": [
+      "Chromoplast \u2014 synthesizes and stores starch granules in non-photosynthetic roots",
+      "Amyloplast \u2014 non-pigmented plastid specialized for starch storage and graviperception in roots",
+      "Chloroplast \u2014 synthesizes carotenoid crystals to color bright red tomato fruits",
+      "Leucoplast \u2014 specializes in capturing photon energy to drive light-dependent water photolysis"
+    ],
+    "answer": 1,
+    "clue": "Amylase digests starch; which plastid stores amylose/amylopectin?",
+    "explanation": "Option B is correct. Amyloplasts are specialized leucoplasts (colorless plastids) that synthesize and store starch (amylose/amylopectin) in roots, tubers, and seeds; dense amyloplasts (statoliths) also settle under gravity to mediate gravitropism in root caps. Chromoplasts synthesize carotenoid pigments (red/orange/yellow), while chloroplasts perform photosynthesis."
+  },
+  {
+    "id": 15,
+    "topic": "Pancreatic Acinar Cell Organelle Abundance",
+    "question": "Pancreatic acinar cells synthesize and secrete massive quantities of digestive enzymes (proteins) into the pancreatic duct. Which organelle profile would you expect to dominate the cytoplasm of these specialized animal cells?",
+    "options": [
+      "Predominantly smooth ER for steroid lipid synthesis and few ribosomes",
+      "Huge numbers of chloroplasts and large empty central vacuoles",
+      "Extensive rough endoplasmic reticulum, abundant Golgi stacks, and numerous zymogen secretory granules",
+      "A complete absence of Golgi apparatus and reliance on nuclear pores for bulk vesicle extrusion"
+    ],
+    "answer": 2,
+    "clue": "Which organelles are part of the secretory pathway responsible for synthesizing, modifying, and packaging proteins for export?",
+    "explanation": "Option C is correct. Because pancreatic acinar cells are specialized protein secretory factories, their cytoplasm is packed with rough endoplasmic reticulum (studded with ribosomes translating digestive zymogens), prominent Golgi complexes (for protein processing and sorting), and abundant apical secretory zymogen granules ready for regulated exocytosis."
+  },
+  {
+    "id": 16,
+    "topic": "Animal Intercellular Junctions",
+    "question": "In animal tissues, which specialized intercellular junction forms a continuous water-tight barrier preventing the leakage of extracellular fluid between neighboring epithelial cells?",
+    "options": [
+      "Gap junctions",
+      "Plasmodesmata",
+      "Desmosomes",
+      "Tight junctions (zonula occludens)"
+    ],
+    "answer": 3,
+    "clue": "Which junction uses claudin and occludin proteins to stitch neighboring cell membranes together into an impermeable seal?",
+    "explanation": "Option D is correct. Tight junctions (zonula occludens) consist of interlocking transmembrane proteins (claudins and occludins) that stitch neighboring plasma membranes together, forming an impermeable, water-tight seal across epithelial layers (e.g., intestinal mucosa, blood-brain barrier). Desmosomes act as spot-welds anchoring intermediate filaments, while gap junctions provide communicative channels."
+  },
+  {
+    "id": 17,
+    "topic": "Spermatozoon Acrosome Specialization",
+    "question": "A mature mammalian sperm cell (spermatozoon) has a uniquely streamlined structure. Which organelle is modified into the apical \"acrosome\" cap filled with hydrolytic enzymes for egg penetration?",
+    "options": [
+      "The Golgi apparatus",
+      "The central vacuole",
+      "The rough endoplasmic reticulum",
+      "The nucleolus"
+    ],
+    "answer": 0,
+    "clue": "Which organelle buds off vesicle enzymes that merge to form the sperm's penetrating cap during spermiogenesis?",
+    "explanation": "Option A is correct. During spermiogenesis, the Golgi apparatus undergoes a dramatic reorganization: Golgi-derived proacrosomal granules coalesce into a single large vesicle that caps the anterior nucleus, becoming the acrosome. The acrosome contains hyaluronidase and acrosin to digest through the protective zona pellucida of the ovum."
+  },
+  {
+    "id": 18,
+    "topic": "Adipocyte Structural Organization",
+    "question": "White adipose tissue (fat cells) is specialized for long-term energy storage. What is the defining architectural feature of a mature white adipocyte?",
+    "options": [
+      "Dozens of small chloroplasts actively synthesizing triacylglycerol polymers",
+      "A single massive unilocular lipid droplet that pushes the cytoplasm and nucleus into a thin peripheral rim",
+      "A heavily folded primary cell wall that traps extracellular droplets of fatty acids",
+      "A completely empty interior lacking a plasma membrane or any organelle structures"
+    ],
+    "answer": 1,
+    "clue": "Look up \"signet ring cell\"\u2014what flattens the nucleus against the cell membrane?",
+    "explanation": "Option B is correct. Mature white adipocytes are \"unilocular\": nearly the entire cellular volume (up to 90%) is occupied by a single enormous droplet of triglycerides. This massive lipid core squeezes the cytoplasm, mitochondria, and nucleus against the plasma membrane, creating the characteristic \"signet ring\" histological appearance."
+  },
+  {
+    "id": 19,
+    "topic": "Palisade Mesophyll Specialization",
+    "question": "In dicot plant leaves, palisade mesophyll cells are densely packed vertically beneath the upper epidermis. What specific cytological feature makes them the primary site of photosynthesis in the leaf?",
+    "options": [
+      "Complete absence of cell walls to permit unobstructed penetration of solar photons",
+      "Loss of mitochondria so that ATP is generated only by cytoplasmic substrate-level phosphorylation",
+      "High density of 50 to 100+ chloroplasts per cell and columnar orientation aligned with incoming light",
+      "An open hollow core filled with air instead of cytoplasm to facilitate rapid CO2 diffusion"
+    ],
+    "answer": 2,
+    "clue": "Why are these columnar cells directly under the sunlit leaf surface packed with green plastids?",
+    "explanation": "Option C is correct. Palisade mesophyll cells are elongated columnar cells situated directly beneath the transparent upper epidermis. Each cell contains an extraordinary concentration of 50 to 100+ chloroplasts arranged around the periphery of the central vacuole to maximize light interception while facilitating CO2 absorption."
+  },
+  {
+    "id": 20,
+    "topic": "Plant vs Animal Contrast Matrix",
+    "question": "A student creates a master comparison table contrasting typical plant and animal cells. Which row of the table contains an ERROR?",
+    "options": [
+      "Cell Wall: Present (cellulose microfibrils) in plants vs. Absent in animals",
+      "Cytokinesis: Phragmoplast/cell plate formation in plants vs. Actin contractile cleavage furrow in animals",
+      "Intercellular Channels: Plasmodesmata traversing cell walls in plants vs. Gap junctions (connexons) in animals",
+      "Carbohydrate Energy Storage: Plants store excess glucose as branched glycogen; animals store excess glucose as insoluble amylose starch"
+    ],
+    "answer": 3,
+    "clue": "Which carbohydrate polymer is animal starch (stored in liver and muscle), and which is plant starch?",
+    "explanation": "Option D is correct because it states the inverse of reality (the ERROR). Plants store excess glucose as starch (composed of amylose and amylopectin), whereas animals store excess glucose as glycogen (primarily in the liver and skeletal muscle). Options A, B, and C are all completely factual cytological contrasts."
+  }
+];
+
+    const STORAGE_KEY = 'bio_unit2_test13_state_clean';
+
+    let userState = {
+      answers: {},
+      showClues: {},
+      allCluesVisible: false,
+      currentFilter: 'All',
+      missedOnly: false
+    };
+
+    function init() {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        try {
+          const parsed = JSON.parse(saved);
+          if (parsed && typeof parsed === 'object') {
+            userState.answers = parsed.answers || {};
+            userState.showClues = parsed.showClues || {};
+          }
+        } catch(e) {
+          console.error("Could not load state", e);
+        }
+      }
+      renderQuestions();
+      updateStats();
+    }
+
+    function safeSave() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({
+          answers: userState.answers,
+          showClues: userState.showClues
+        }));
+      } catch(e) {
+        console.error("Save failed", e);
+      }
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById('questionsContainer');
+      if (!container) return;
+
+      let list = questionsData;
+
+      if (userState.currentFilter !== 'All') {
+        list = list.filter(q => q.topic === userState.currentFilter);
+      }
+
+      if (userState.missedOnly) {
+        list = list.filter(q => {
+          const ans = userState.answers[q.id];
+          return ans !== undefined && ans !== q.answer;
+        });
+      }
+
+      if (list.length === 0) {
+        container.innerHTML = `
+          <div class="bg-white rounded-2xl p-12 text-center border border-slate-200 text-slate-500">
+            <i class="fa-solid fa-clipboard-check text-4xl text-emerald-400 mb-3"></i>
+            <p class="font-bold text-base text-slate-700">No questions match this filter.</p>
+            <p class="text-xs mt-1">Try selecting "All Topics" or toggle off "Missed Only".</p>
+          </div>
+        `;
+        return;
+      }
+
+      const letters = ['A', 'B', 'C', 'D'];
+
+      container.innerHTML = list.map((q) => {
+        const userSelected = userState.answers[q.id];
+        const isAnswered = userSelected !== undefined;
+        const isCorrect = isAnswered && userSelected === q.answer;
+        const isClueVisible = userState.allCluesVisible || !!userState.showClues[q.id];
+
+        let statusBadge = '';
+        if (isAnswered) {
+          if (isCorrect) {
+            statusBadge = '<span class="inline-flex items-center gap-1 text-xs font-bold px-2.5 py-1 rounded-md bg-emerald-100 text-emerald-800 border border-emerald-300"><i class="fa-solid fa-check"></i> Correct</span>';
+          } else {
+            statusBadge = '<span class="inline-flex items-center gap-1 text-xs font-bold px-2.5 py-1 rounded-md bg-rose-100 text-rose-800 border border-rose-300"><i class="fa-solid fa-xmark"></i> Incorrect</span>';
+          }
+        }
+
+        const optionsHtml = q.options.map((optText, optIdx) => {
+          let btnClass = "w-full text-left p-4 rounded-xl border font-medium text-sm transition flex items-start gap-3 cursor-pointer ";
+          let badgeClass = "w-6 h-6 rounded-lg text-xs font-bold flex items-center justify-center shrink-0 border ";
+
+          if (!isAnswered) {
+            btnClass += "bg-white hover:bg-slate-50 border-slate-200 hover:border-slate-300 text-slate-700";
+            badgeClass += "bg-slate-100 border-slate-300 text-slate-600";
+          } else {
+            if (optIdx === q.answer) {
+              btnClass += "bg-emerald-50 border-emerald-500 text-emerald-950 font-semibold ring-2 ring-emerald-400/20";
+              badgeClass += "bg-emerald-600 border-emerald-600 text-white";
+            } else if (optIdx === userSelected) {
+              btnClass += "bg-rose-50 border-rose-500 text-rose-950 ring-2 ring-rose-400/20";
+              badgeClass += "bg-rose-600 border-rose-600 text-white";
+            } else {
+              btnClass += "bg-white border-slate-200 text-slate-400 opacity-60";
+              badgeClass += "bg-slate-100 border-slate-200 text-slate-400";
+            }
+          }
+
+          return `
+            <button onclick="selectOption(${q.id}, ${optIdx})" class="${btnClass}" ${isAnswered ? 'disabled' : ''}>
+              <span class="${badgeClass}">${letters[optIdx]}</span>
+              <span class="pt-0.5 leading-relaxed">${optText}</span>
+            </button>
+          `;
+        }).join('');
+
+        let clueBox = '';
+        if (isClueVisible) {
+          clueBox = `
+            <div class="mt-4 p-3.5 bg-amber-50/90 rounded-xl border border-amber-200/80 text-amber-950 text-xs leading-relaxed flex items-start gap-2.5">
+              <i class="fa-regular fa-lightbulb text-amber-600 text-sm mt-0.5 shrink-0"></i>
+              <div>
+                <strong class="font-bold text-amber-900">Study Hint:</strong> ${q.clue}
+              </div>
+            </div>
+          `;
+        }
+
+        let explanationBox = '';
+        if (isAnswered) {
+          explanationBox = `
+            <div class="mt-4 p-4 rounded-xl border ${isCorrect ? 'bg-emerald-50/90 border-emerald-200 text-emerald-950' : 'bg-slate-100 border-slate-300 text-slate-800'} text-xs leading-relaxed">
+              <div class="flex items-center gap-1.5 font-bold mb-1.5 ${isCorrect ? 'text-emerald-900' : 'text-slate-900'}">
+                <i class="fa-solid ${isCorrect ? 'fa-circle-check text-emerald-600' : 'fa-circle-info text-blue-600'}"></i>
+                <span>${isCorrect ? 'Outstanding! Rigorous Analysis:' : 'Conceptual Breakdown & Correction:'}</span>
+              </div>
+              <p class="text-slate-700 leading-relaxed font-normal">${q.explanation}</p>
+            </div>
+          `;
+        }
+
+        return `
+          <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 transition">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 border border-slate-200">Question ${q.id} of 20</span>
+                <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200">${q.topic}</span>
+              </div>
+              <div>${statusBadge}</div>
+            </div>
+
+            <h3 class="text-base sm:text-lg font-bold text-slate-900 leading-snug mb-5">${q.question}</h3>
+
+            <div class="space-y-3">
+              ${optionsHtml}
+            </div>
+
+            <div class="flex items-center justify-between pt-4 mt-4 border-t border-slate-100">
+              <button onclick="toggleClueSingle(${q.id})" class="text-xs text-slate-500 hover:text-amber-700 font-medium flex items-center gap-1.5 transition cursor-pointer">
+                <i class="fa-regular fa-lightbulb text-amber-500"></i>
+                <span>${isClueVisible ? 'Hide Hint' : 'Show Hint'}</span>
+              </button>
+
+              ${isAnswered ? `
+                <button onclick="clearSingleAnswer(${q.id})" class="text-xs text-slate-400 hover:text-rose-600 font-medium flex items-center gap-1 transition cursor-pointer">
+                  <i class="fa-solid fa-arrow-rotate-left text-xs"></i> Retry
+                </button>
+              ` : '<span class="text-[11px] text-slate-400 italic">Select the best response</span>'}
+            </div>
+
+            ${clueBox}
+            ${explanationBox}
+          </div>
+        `;
+      }).join('');
+    }
+
+    function selectOption(qId, optIdx) {
+      if (userState.answers[qId] !== undefined) return;
+      userState.answers[qId] = optIdx;
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function clearSingleAnswer(qId) {
+      delete userState.answers[qId];
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function toggleClueSingle(qId) {
+      if (userState.allCluesVisible) {
+        userState.showClues[qId] = false;
+      } else {
+        userState.showClues[qId] = !userState.showClues[qId];
+      }
+      safeSave();
+      renderQuestions();
+    }
+
+    function toggleAllClues() {
+      userState.allCluesVisible = !userState.allCluesVisible;
+      const btnText = document.getElementById('clueToggleText');
+      if (btnText) {
+        btnText.textContent = userState.allCluesVisible ? 'Hide All Hints' : 'Show All Hints';
+      }
+      renderQuestions();
+    }
+
+    function filterTopic(topic) {
+      userState.currentFilter = topic;
+      userState.missedOnly = false;
+      document.querySelectorAll('.topic-btn').forEach(btn => {
+        if (btn.textContent.includes(topic) || (topic === 'All' && btn.textContent.includes('All Topics'))) {
+          btn.className = 'topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-emerald-600 text-white shadow-sm transition cursor-pointer';
+        } else {
+          btn.className = 'topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer';
+        }
+      });
+      renderQuestions();
+    }
+
+    function filterMissed() {
+      userState.missedOnly = !userState.missedOnly;
+      const btn = document.getElementById('filterMissedBtn');
+      if (userState.missedOnly) {
+        btn.className = 'text-xs bg-rose-600 text-white border border-rose-600 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer shadow-sm';
+      } else {
+        btn.className = 'text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer';
+      }
+      renderQuestions();
+    }
+
+    function updateStats() {
+      const total = questionsData.length;
+      const answeredKeys = Object.keys(userState.answers);
+      const answeredCount = answeredKeys.length;
+      let correctCount = 0;
+      let missedCount = 0;
+
+      answeredKeys.forEach(k => {
+        const q = questionsData.find(item => item.id == k);
+        if (q) {
+          if (userState.answers[k] === q.answer) {
+            correctCount++;
+          } else {
+            missedCount++;
+          }
+        }
+      });
+
+      const pct = answeredCount > 0 ? Math.round((correctCount / answeredCount) * 100) : 0;
+      const progressPct = Math.round((answeredCount / total) * 100);
+
+      const statAns = document.getElementById('statAnswered');
+      const statScore = document.getElementById('statScore');
+      const progBar = document.getElementById('quizProgressBar');
+      const missedCountSpan = document.getElementById('missedCount');
+
+      if (statAns) statAns.textContent = `${answeredCount}/${total}`;
+      if (statScore) statScore.textContent = `${pct}%`;
+      if (progBar) progBar.style.width = `${progressPct}%`;
+      if (missedCountSpan) missedCountSpan.textContent = missedCount;
+
+      const summaryCard = document.getElementById('scoreSummaryCard');
+      if (answeredCount === total && total > 0) {
+        if (summaryCard) {
+          summaryCard.classList.remove('hidden');
+          document.getElementById('finalTotal').textContent = total;
+          document.getElementById('finalCorrect').textContent = correctCount;
+          document.getElementById('finalPercent').textContent = `${pct}%`;
+
+          const rating = document.getElementById('masteryRating');
+          if (pct >= 90) {
+            rating.className = 'p-4 rounded-2xl font-bold text-sm mb-6 bg-emerald-100 text-emerald-900 border border-emerald-300';
+            rating.innerHTML = '🌟 Master Level! Flawless knowledge of plant and animal cytology, tissue specializations, and organelles!';
+          } else if (pct >= 75) {
+            rating.className = 'p-4 rounded-2xl font-bold text-sm mb-6 bg-blue-100 text-blue-900 border border-blue-300';
+            rating.innerHTML = '👍 Solid Understanding! Review missed questions on plastids, intercellular junctions, and vascular anatomy.';
+          } else {
+            rating.className = 'p-4 rounded-2xl font-bold text-sm mb-6 bg-amber-100 text-amber-900 border border-amber-300';
+            rating.innerHTML = '📚 Keep reviewing! Focus on the key distinctions: chloroplasts/cell walls/vacuoles in plants vs. lysosomes/centrioles/collagen in animals.';
+          }
+        }
+      } else {
+        if (summaryCard) summaryCard.classList.add('hidden');
+      }
+    }
+
+    function resetQuiz() {
+      if (confirm('Are you sure you want to reset all answers and progress for this test?')) {
+        userState.answers = {};
+        userState.showClues = {};
+        userState.allCluesVisible = false;
+        userState.missedOnly = false;
+        safeSave();
+        renderQuestions();
+        updateStats();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  </script>
+</body>
+</html>

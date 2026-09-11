@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biology I Honors - Unit 2 Test 07: Bulk Transport: Endocytosis & Phagocytosis</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+
+  <!-- TOP HEADER -->
+  <header class="bg-gradient-to-r from-blue-700 via-indigo-700 to-emerald-700 text-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="w-10 h-10 rounded-xl bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition border border-white/20" title="Back to All Tests">
+          <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="bg-white/20 text-xs px-2.5 py-1 rounded-full font-semibold uppercase tracking-wider">Biology I Honors</span>
+            <span class="bg-indigo-300 text-slate-900 text-xs px-2.5 py-1 rounded-full font-bold">Unit 2 • Test 07</span>
+          </div>
+          <h1 class="text-xl sm:text-2xl font-black tracking-tight mt-1 text-white">Bulk Transport: Endocytosis</h1>
+        </div>
+      </div>
+
+      <!-- Quick Stats Top -->
+      <div class="flex items-center gap-4 bg-white/10 backdrop-blur px-4 py-2 rounded-xl border border-white/15">
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Answered</div>
+          <div id="statAnswered" class="text-xl font-bold">0/20</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Accuracy</div>
+          <div id="statScore" class="text-xl font-bold text-emerald-300">0%</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <button onclick="resetQuiz()" class="text-xs bg-white/20 hover:bg-white/30 text-white px-3 py-2 rounded-lg font-medium transition flex items-center gap-1.5 cursor-pointer">
+          <i class="fa-solid fa-rotate-right"></i> Reset
+        </button>
+      </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="w-full bg-slate-900/30 h-2">
+      <div id="quizProgressBar" class="bg-emerald-400 h-2 transition-all duration-300" style="width: 0%"></div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-6xl mx-auto px-4 py-8">
+
+    <!-- Anti-Guess Note Banner -->
+    <div class="bg-indigo-50 border border-indigo-200 text-indigo-950 p-4 rounded-2xl mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-semibold shadow-sm">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-circle-dot text-indigo-600 text-base shrink-0"></i>
+        <span><strong>Bulk Vesicular Transport:</strong> Mastering phagocytosis, pinocytosis, and receptor-mediated clathrin endocytosis!</span>
+      </div>
+      <a href="index.html" class="text-indigo-800 underline hover:text-indigo-950 whitespace-nowrap">View All 20 Tests</a>
+    </div>
+
+    <!-- CONTROLS & FILTER BAR -->
+    <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 mb-8">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-sm font-bold text-slate-700 mb-2">Filter by Topic:</h2>
+          <div class="flex flex-wrap gap-2" id="topicFilters">
+            <button onclick="filterTopic('All')" class="topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-sm transition cursor-pointer">All Topics (20)</button>
+            <button onclick="filterTopic('Atherosclerosis & Familial Hypercholesterolemia')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Atherosclerosis & Familial Hypercholesterolemia</button>
+            <button onclick="filterTopic('Bulk Transport Energy Requirements')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Bulk Transport Energy Requirements</button>
+            <button onclick="filterTopic('Bulk Transport vs Channel Transport Comparison')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Bulk Transport vs Channel Transport Comparison</button>
+            <button onclick="filterTopic('Comparative Transport Classification')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Comparative Transport Classification</button>
+            <button onclick="filterTopic('Cytoskeletal Filaments in Phagocytosis')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Cytoskeletal Filaments in Phagocytosis</button>
+            <button onclick="filterTopic('Dynamin Protein Function')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Dynamin Protein Function</button>
+            <button onclick="filterTopic('Endocytosis in Unicellular Organisms')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Endocytosis in Unicellular Organisms</button>
+            <button onclick="filterTopic('Endosome Sorting Compartments')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Endosome Sorting Compartments</button>
+            <button onclick="filterTopic('Macropinocytosis Distinctive Features')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Macropinocytosis Distinctive Features</button>
+            <button onclick="filterTopic('Membrane Surface Area Dynamics')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Membrane Surface Area Dynamics</button>
+            <button onclick="filterTopic('Pathogen Exploitation of Endocytosis')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Pathogen Exploitation of Endocytosis</button>
+            <button onclick="filterTopic('Phagocytosis Mechanism & Examples')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Phagocytosis Mechanism & Examples</button>
+            <button onclick="filterTopic('Phagolysosome Formation & Digestion')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Phagolysosome Formation & Digestion</button>
+            <button onclick="filterTopic('Pinocytosis Characteristics')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Pinocytosis Characteristics</button>
+            <button onclick="filterTopic('Receptor Recycling to Plasma Membrane')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Receptor Recycling to Plasma Membrane</button>
+            <button onclick="filterTopic('Receptor-Mediated Endocytosis Specificity')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Receptor-Mediated Endocytosis Specificity</button>
+            <button onclick="filterTopic('Size Limit of Transported Materials')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Size Limit of Transported Materials</button>
+            <button onclick="filterTopic('Toxin & Heavy Metal Inhibition')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Toxin & Heavy Metal Inhibition</button>
+            <button onclick="filterTopic('Transcytosis Mechanism')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Transcytosis Mechanism</button>
+            <button onclick="filterTopic('Vesicle Trafficking Energy Molecule')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Vesicle Trafficking Energy Molecule</button>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 pt-2 lg:pt-0 border-t lg:border-t-0 border-slate-100">
+          <button onclick="toggleAllClues()" id="toggleCluesBtn" class="text-xs bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-regular fa-lightbulb"></i> <span id="clueToggleText">Show All Hints</span>
+          </button>
+          <button onclick="filterMissed()" id="filterMissedBtn" class="text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-solid fa-triangle-exclamation"></i> Review Missed (<span id="missedCount">0</span>)
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTIONS LIST -->
+    <div id="questionsContainer" class="space-y-6"></div>
+
+    <!-- SCORE SUMMARY CARD -->
+    <div id="scoreSummaryCard" class="mt-12 bg-white rounded-3xl p-8 border-2 border-indigo-100 shadow-xl hidden">
+      <div class="text-center max-w-xl mx-auto">
+        <div class="w-16 h-16 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl">
+          <i class="fa-solid fa-trophy"></i>
+        </div>
+        <h2 class="text-2xl font-black text-slate-800">Test 07 Complete!</h2>
+        <p class="text-slate-500 text-sm mt-1">Here is your detailed mastery score for Bulk Transport: Endocytosis & Phagocytosis.</p>
+        
+        <div class="grid grid-cols-3 gap-4 my-6 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Total Questions</div>
+            <div class="text-2xl font-black text-slate-800" id="finalTotal">20</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Correct</div>
+            <div class="text-2xl font-black text-emerald-600" id="finalCorrect">0</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Score Rate</div>
+            <div class="text-2xl font-black text-blue-600" id="finalPercent">0%</div>
+          </div>
+        </div>
+
+        <div id="masteryRating" class="p-4 rounded-2xl font-bold text-sm mb-6"></div>
+
+        <div class="flex items-center justify-center gap-4">
+          <button onclick="resetQuiz()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-indigo-200 transition cursor-pointer">
+            Retake Entire Test
+          </button>
+          <a href="index.html" class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-emerald-200 transition">
+            Back to Tests Hub
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-500 mt-12">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p>© 2026 Biology I Honors • South Forsyth High School</p>
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="hover:text-indigo-600 transition font-medium">All 20 Tests Hub</a>
+        <a href="../../index.html" class="hover:text-indigo-600 transition font-medium">Main Portal</a>
+        <a href="https://github.com/MegaAntony/biology-honors" target="_blank" class="hover:text-indigo-600 transition"><i class="fa-brands fa-github mr-1"></i>GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT ENGINE -->
+  <script>
+    const questionsData = [
+  {
+    "id": 1,
+    "topic": "Bulk Transport Energy Requirements",
+    "question": "Why is endocytosis universally classified as an active transport process rather than a passive mechanism?",
+    "options": [
+      "It requires cellular ATP energy to power actin cytoskeleton rearrangement and vesicle pinching.",
+      "It allows molecules to slip spontaneously down concentration gradients without any protein interaction.",
+      "It occurs strictly along the nonpolar core without engaging the phospholipid hydrophilic heads.",
+      "It operates only when chloroplasts synthesize excess starch granules during photosynthesis."
+    ],
+    "answer": 0,
+    "clue": "Deforming the membrane and moving large vesicles demands ATP and motor proteins.",
+    "explanation": "Endocytosis moves large molecules or volumes of fluid inward by engulfing them in membrane vesicles. This requires substantial cellular energy (**ATP**) to remodel the **actin cytoskeleton** and dynamically alter the plasma membrane."
+  },
+  {
+    "id": 2,
+    "topic": "Phagocytosis Mechanism & Examples",
+    "question": "Which biological scenario represents a classic, physiological example of phagocytosis in action?",
+    "options": [
+      "A human red blood cell absorbing dissolved potassium ions via facilitated diffusion.",
+      "A human white blood cell (macrophage) extending pseudopodia to engulf an invading bacterial pathogen.",
+      "A plant leaf cell taking in gaseous carbon dioxide through an open stomatal pore.",
+      "A muscle cell discharging calcium ions back into the extracellular interstitial fluid."
+    ],
+    "answer": 1,
+    "clue": "Phagocytosis is \"cell eating\": amoebas or macrophages engulfing solid particles or bacteria.",
+    "explanation": "**Phagocytosis** (\"cell eating\") involves projecting membrane extensions called **pseudopodia** around large solid particles or whole foreign cells (such as macrophages engulfing bacteria) to package them into a phagosome."
+  },
+  {
+    "id": 3,
+    "topic": "Pinocytosis Characteristics",
+    "question": "How does pinocytosis differ functionally from receptor-mediated endocytosis?",
+    "options": [
+      "Pinocytosis requires ribosomal translation while receptor-mediated uptake occurs without proteins.",
+      "Pinocytosis transports exclusively gaseous oxygen directly across nuclear pores into chromatin.",
+      "Pinocytosis nonspecifically samples droplets of extracellular fluid and any solutes dissolved in them.",
+      "Pinocytosis is restricted exclusively to autotrophic plant cells with lignified cell walls."
+    ],
+    "answer": 2,
+    "clue": "Pinocytosis is non-specific \"cell drinking\" of surrounding fluid droplets.",
+    "explanation": "**Pinocytosis** (\"cell drinking\") is a **nonspecific** bulk uptake process where the cell invaginates its membrane to swallow tiny droplets of extracellular fluid and whatever random solutes happen to be dissolved within them."
+  },
+  {
+    "id": 4,
+    "topic": "Receptor-Mediated Endocytosis Specificity",
+    "question": "What specialized coat protein lines the cytoplasmic face of invaginating membrane pits during receptor-mediated endocytosis?",
+    "options": [
+      "Hemoglobin",
+      "Cellulose",
+      "Keratin",
+      "Clathrin"
+    ],
+    "answer": 3,
+    "clue": "This protein forms a distinctive triskelion basket/cage around coated pits and vesicles.",
+    "explanation": "**Clathrin** is the peripheral coat protein that polymerizes into a basket-like cage on the cytoplasmic face of the plasma membrane, forming **clathrin-coated pits** that pinch off to internalize specific receptor-ligand complexes."
+  },
+  {
+    "id": 5,
+    "topic": "Atherosclerosis & Familial Hypercholesterolemia",
+    "question": "In humans with the genetic condition familial hypercholesterolemia, why does deadly LDL cholesterol accumulate to extreme levels in the bloodstream?",
+    "options": [
+      "Cellular LDL receptors are defective or absent, preventing receptor-mediated endocytosis of cholesterol.",
+      "Their liver cells reverse all membrane pumps and synthesize salt crystals instead of bile salts.",
+      "Their white blood cells perform too much phagocytosis and consume all blood plasma proteins.",
+      "Their red blood cells burst spontaneously from excess aquaporin-mediated water uptake."
+    ],
+    "answer": 0,
+    "clue": "Cells cannot bring LDL inside if the specific receptor proteins on their surface are broken or missing.",
+    "explanation": "Cholesterol travels in the blood as **low-density lipoproteins (LDLs)**. Normal human cells take up LDL via **receptor-mediated endocytosis**. In **familial hypercholesterolemia**, defective or missing LDL receptors prevent this uptake, causing dangerous cholesterol buildup in arteries."
+  },
+  {
+    "id": 6,
+    "topic": "Phagolysosome Formation & Digestion",
+    "question": "Once a macrophage engulfs a bacterium into an intracellular vesicle called a phagosome, how is the pathogen destroyed?",
+    "options": [
+      "The phagosome moves to the cell exterior and expels the living bacterium unchanged.",
+      "The phagosome fuses with a hydrolytic enzyme-filled lysosome to form a phagolysosome.",
+      "The phagosome is converted directly into a photosynthetic chloroplast to make glucose.",
+      "The phagosome merges with the nuclear membrane to incorporate the bacterial DNA."
+    ],
+    "answer": 1,
+    "clue": "Lysosomes hold powerful digestive enzymes that fuse with incoming food/pathogen vesicles.",
+    "explanation": "The phagosome fuses with a **lysosome** to form a **phagolysosome**. The lysosome\u2019s acidic hydrolytic enzymes and reactive oxygen species digest and dismantle the trapped pathogen into harmless molecular fragments."
+  },
+  {
+    "id": 7,
+    "topic": "Membrane Surface Area Dynamics",
+    "question": "If a eukaryotic cell conducts high levels of endocytosis without performing exocytosis, what will happen to its plasma membrane surface area?",
+    "options": [
+      "The plasma membrane surface area will decrease as patches of membrane are pinched off internally.",
+      "The plasma membrane surface area will expand exponentially until the cell divides.",
+      "The plasma membrane will immediately transform into a double-membraned mitochondrion.",
+      "The surface area will remain exactly identical because endocytosis adds external lipid."
+    ],
+    "answer": 0,
+    "clue": "Endocytosis pinches pieces of the outer membrane off into internal vesicles, removing outer membrane.",
+    "explanation": "Because endocytosis **internalizes pieces of the outer plasma membrane** to create intracellular vesicles, relentless endocytosis without compensating exocytosis leads to a **decrease in the surface area** of the cell membrane."
+  },
+  {
+    "id": 8,
+    "topic": "Dynamin Protein Function",
+    "question": "What role does the GTPase enzyme dynamin perform during receptor-mediated clathrin-dependent endocytosis?",
+    "options": [
+      "It dissolves the bacterial cell wall before the macrophage touches the microbe.",
+      "It synthesizes new phospholipid heads from dissolved amino acids in the blood.",
+      "It constructs ribosome subunits on the external carbohydrate glycocalyx surface.",
+      "It forms a constricted helical collar around the neck of the invaginated pit and pinches off the vesicle."
+    ],
+    "answer": 3,
+    "clue": "Dynamin wraps around the narrow \"neck\" of the bud and severs it from the outer membrane.",
+    "explanation": "**Dynamin** is a mechanochemical GTPase that assembles into a spiral collar around the narrow neck of the invaginating pit. Hydrolysis of GTP provides the force to **pinch off and sever the vesicle** from the plasma membrane."
+  },
+  {
+    "id": 9,
+    "topic": "Cytoskeletal Filaments in Phagocytosis",
+    "question": "Which major cytoskeletal element polymerizes to push out the pseudopodia that surround particles during phagocytosis?",
+    "options": [
+      "Keratin intermediate filaments",
+      "Cellulose microfibrils",
+      "Actin microfilaments",
+      "Collagen fibers"
+    ],
+    "answer": 2,
+    "clue": "Dynamic microfilaments made of actin polymerize under the membrane to push forward amoeboid extensions.",
+    "explanation": "The protrusion of **pseudopodia** during phagocytosis is driven by the dynamic polymerization and cross-linking of **actin microfilaments** beneath the plasma membrane, coupled with motor proteins like myosin."
+  },
+  {
+    "id": 10,
+    "topic": "Endosome Sorting Compartments",
+    "question": "After clathrin-coated vesicles lose their clathrin coats in the cytoplasm, what intracellular compartment do they typically fuse with first to sort cargo and receptors?",
+    "options": [
+      "The dense central nucleolus within the eukaryotic nucleus.",
+      "The inner thylakoid lumen of neighboring chloroplast stacks.",
+      "The early endosome, where mildly acidic pH releases cargo from their membrane receptors.",
+      "The outer wax cuticle along the leaf epidermis."
+    ],
+    "answer": 2,
+    "clue": "Endosomes act as internal sorting hubs where receptor-ligand pairs are separated by lower pH.",
+    "explanation": "Uncoated vesicles fuse with the **early endosome**. The moderately acidic pH (~6.0-6.5) inside the early endosome causes receptors to release their ligands; receptors can then be **recycled back to the plasma membrane** while ligands proceed to lysosomes."
+  },
+  {
+    "id": 11,
+    "topic": "Macropinocytosis Distinctive Features",
+    "question": "How does macropinocytosis differ from conventional micro-pinocytosis in animal cells?",
+    "options": [
+      "It moves only single uncharged hydrogen atoms through nuclear pores.",
+      "It involves large sheet-like membrane ruffles (lamellipodia) that collapse to trap large fluid volumes (macropinosomes).",
+      "It is completely passive and does not require ATP hydrolysis or cytoskeletal involvement.",
+      "It only occurs when animal cells are immersed in boiling salt solutions."
+    ],
+    "answer": 1,
+    "clue": "\"Macro-\" means big: actin ruffles fold back on the membrane to trap large droplets of fluid.",
+    "explanation": "**Macropinocytosis** is an actin-driven process in which wave-like membrane ruffles (**lamellipodia**) extend outward and fold back on the plasma membrane, engulfing relatively large volumes of extracellular fluid in large vesicles called **macropinosomes**."
+  },
+  {
+    "id": 12,
+    "topic": "Comparative Transport Classification",
+    "question": "A student creates a concept chart comparing transport types. Which row correctly aligns the transport mechanism with its properties?",
+    "options": [
+      "Facilitated diffusion: Requires ATP, uses vesicles, moves against gradient.",
+      "Phagocytosis: No energy required, moves nonpolar gases, uses channel proteins.",
+      "Osmosis: Requires ATP hydrolysis, moves proteins, fuses with lysosomes.",
+      "Receptor-mediated endocytosis: Requires ATP, uses coated vesicles, highly selective for specific ligands."
+    ],
+    "answer": 3,
+    "clue": "Endocytosis needs ATP, creates vesicles, and receptor-mediated uptake is highly selective.",
+    "explanation": "**Receptor-mediated endocytosis** requires metabolic energy (**ATP**), packages molecules into **coated vesicles**, and is **highly selective** because it requires specific binding between extracellular ligands and cell-surface receptors."
+  },
+  {
+    "id": 13,
+    "topic": "Pathogen Exploitation of Endocytosis",
+    "question": "How do certain dangerous viruses, such as Influenza and SARS-CoV-2, exploit host endocytosis pathways to invade cells?",
+    "options": [
+      "They burn host ATP using extracellular sodium-potassium channels.",
+      "They inject miniature molecular pumps to drain all water from host cytoplasm.",
+      "They eat the host cell wall using photosynthetic enzymes secreted by their mitochondria.",
+      "They bind to specific cell surface receptor proteins to trick the host cell into internalizing them via endocytosis."
+    ],
+    "answer": 3,
+    "clue": "Viruses have spike or coat proteins that masquerade as normal ligands to trigger endocytosis.",
+    "explanation": "Many enveloped viruses possess surface proteins (e.g., viral spike glycoproteins) that bind specifically to host membrane receptors (e.g., ACE2 for SARS-CoV-2), tricking the host into **internalizing the virus via receptor-mediated endocytosis**."
+  },
+  {
+    "id": 14,
+    "topic": "Size Limit of Transported Materials",
+    "question": "Which category of transport is the ONLY biological option when a cell needs to internalize intact whole prokaryotic cells, yeast cells, or massive cellular debris?",
+    "options": [
+      "Simple diffusion through phospholipids",
+      "Bulk transport via phagocytosis",
+      "Facilitated diffusion through aquaporins",
+      "Active transport via Na+/K+ pumps"
+    ],
+    "answer": 1,
+    "clue": "Pumps and channels only move individual ions and small monomers; large objects need phagocytosis.",
+    "explanation": "Pumps, carrier proteins, and channels can only transport small ions or individual molecules (like glucose or amino acids). Entire cells or massive debris can **only** be transported via **bulk transport (specifically phagocytosis)**."
+  },
+  {
+    "id": 15,
+    "topic": "Endocytosis in Unicellular Organisms",
+    "question": "How do single-celled protozoans like Amoeba proteus utilize phagocytosis for their survival in freshwater ponds?",
+    "options": [
+      "To extract oxygen gas directly from dissolved nitrogen molecules.",
+      "To build rigid limestone armor around their nuclear envelopes.",
+      "As their primary feeding strategy (holozoic nutrition) to capture live prey such as paramecia.",
+      "To expel excess genetic material into the water during cell division."
+    ],
+    "answer": 2,
+    "clue": "Amoebas are heterotrophic predators: they eat other microscopic organisms via phagocytosis.",
+    "explanation": "Free-living amoebae are heterotrophs that rely on **phagocytosis as their primary feeding mechanism**, engulfing other microscopic organisms (such as bacteria, algae, or paramecia) to digest them in food vacuoles."
+  },
+  {
+    "id": 16,
+    "topic": "Vesicle Trafficking Energy Molecule",
+    "question": "In addition to ATP required for actin polymerization, which guanine nucleotide acts as a molecular switch regulating vesicle formation and coat recruitment during endocytosis?",
+    "options": [
+      "Cytosine triphosphate (CTP)",
+      "Uracil monophosphate (UMP)",
+      "Thymine diphosphate (TDP)",
+      "Guanosine triphosphate (GTP)"
+    ],
+    "answer": 3,
+    "clue": "G-proteins and dynamin hydrolyze GTP to drive vesicle budding and fission.",
+    "explanation": "Small GTP-binding proteins (G-proteins such as Rab, Arf, and dynamin) use the binding and hydrolysis of **guanosine triphosphate (GTP)** as a regulatory timer and molecular motor during vesicle coating, pinching, and targeting."
+  },
+  {
+    "id": 17,
+    "topic": "Toxin & Heavy Metal Inhibition",
+    "question": "If a researcher treats cultured human cells with cytochalasin B, a drug that prevents actin filament polymerization, which transport process will be completely paralyzed?",
+    "options": [
+      "Pseudopod extension and phagocytic engulfment",
+      "Simple diffusion of carbon dioxide across the lipid bilayer",
+      "Osmotic flow of water through open aquaporin channel proteins",
+      "Passive facilitated diffusion of oxygen into mitochondria"
+    ],
+    "answer": 0,
+    "clue": "Phagocytosis requires actin microfilaments to push out pseudopodia; blocking actin blocks phagocytosis.",
+    "explanation": "**Actin polymerization** is mandatory for extending pseudopodia and generating phagocytic cups. Treating cells with **cytochalasin B** depolymerizes actin, immediately paralyzing **phagocytosis and macropinocytosis** without affecting simple passive diffusion."
+  },
+  {
+    "id": 18,
+    "topic": "Receptor Recycling to Plasma Membrane",
+    "question": "Why is receptor recycling back to the plasma membrane following endocytosis critical for cellular homeostatic efficiency?",
+    "options": [
+      "It enables the cell to continuously capture external ligands without having to constantly synthesize brand-new receptor proteins.",
+      "It prevents the cell from ever producing any waste products or carbon dioxide.",
+      "It converts worn-out membrane lipids into high-energy glycogen polymers.",
+      "It allows the cell to change its genetic code to match incoming food sources."
+    ],
+    "answer": 0,
+    "clue": "Reusing receptor proteins saves significant energy and amino acids compared to building new ones each time.",
+    "explanation": "Synthesizing complex transmembrane glycoprotein receptors requires significant metabolic energy, transcription, and translation. By **recycling empty receptors** back to the cell surface via transport vesicles, cells can capture ligands repeatedly and efficiently."
+  },
+  {
+    "id": 19,
+    "topic": "Transcytosis Mechanism",
+    "question": "What physiological process describes when a substance is taken into one side of a polarized epithelial cell by endocytosis, shuttled across the cytoplasm in a vesicle, and discharged on the other side by exocytosis?",
+    "options": [
+      "Active saponification",
+      "Transcytosis",
+      "Plasmolysis",
+      "Simple coagulation"
+    ],
+    "answer": 1,
+    "clue": "\"Trans-\" across + \"cytosis\" cell: moving cargo straight through the cell from one side to the other.",
+    "explanation": "**Transcytosis** is the receptor-mediated combination of endocytosis on one membrane face, vesicular transport across the interior, and exocytosis on the opposite membrane face (e.g., maternal antibodies crossing intestinal or placental barriers)."
+  },
+  {
+    "id": 20,
+    "topic": "Bulk Transport vs Channel Transport Comparison",
+    "question": "Which of the following is a definitive difference between channel-mediated transport and bulk transport via endocytosis?",
+    "options": [
+      "Channel transport creates vesicles while endocytosis never uses membranes.",
+      "Channel transport requires ATP while endocytosis is completely passive.",
+      "Endocytosis alters the physical continuity of the plasma membrane, whereas channels maintain membrane integrity.",
+      "Endocytosis only occurs in prokaryotes because bacteria lack nuclear membranes."
+    ],
+    "answer": 2,
+    "clue": "Endocytosis pinches off a piece of the bilayer into a bubble; channels are just static protein doorways.",
+    "explanation": "Channel proteins provide continuous hydrophilic pathways across the membrane without changing its macro-architecture. In contrast, **bulk endocytosis involves pinching, invaginating, and fusing phospholipid bilayers**, physically altering membrane topology and surface area."
+  }
+];
+    const STORAGE_KEY = 'bio_unit2_test07_state_clean';
+
+    let userState = {
+      answers: {},
+      showClues: {},
+      allCluesVisible: false,
+      currentFilter: 'All',
+      missedOnly: false
+    };
+
+    function safeLoad() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (parsed && typeof parsed === 'object') {
+            userState = Object.assign(userState, parsed);
+          }
+        }
+      } catch (e) {
+        console.warn('localStorage not accessible:', e);
+      }
+    }
+
+    function safeSave() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(userState));
+      } catch (e) {
+        console.warn('Could not save to localStorage:', e);
+      }
+    }
+
+    function init() {
+      safeLoad();
+      renderQuestions();
+      updateStats();
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById('questionsContainer');
+      if (!container) return;
+      container.innerHTML = '';
+
+      let filteredQuestions = questionsData.filter(q => {
+        if (userState.currentFilter !== 'All' && q.topic !== userState.currentFilter) return false;
+        if (userState.missedOnly) {
+          const userAns = userState.answers[q.id];
+          if (userAns === undefined || userAns === q.answer) return false;
+        }
+        return true;
+      });
+
+      if (filteredQuestions.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-12 bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
+            <i class="fa-solid fa-circle-check text-emerald-500 text-4xl mb-3"></i>
+            <h3 class="text-lg font-bold text-slate-800">No Questions In This Filter</h3>
+            <p class="text-slate-500 text-sm mt-1">Try selecting 'All Topics' or clearing the missed review filter.</p>
+          </div>
+        `;
+        return;
+      }
+
+      filteredQuestions.forEach((q) => {
+        const isAnswered = userState.answers[q.id] !== undefined;
+        const selectedOption = userState.answers[q.id];
+        const isCorrect = isAnswered && selectedOption === q.answer;
+        const isClueVisible = userState.allCluesVisible || userState.showClues[q.id];
+
+        const card = document.createElement('div');
+        card.className = `bg-white rounded-2xl p-6 border transition-all duration-200 shadow-sm ${
+          isAnswered
+            ? isCorrect
+              ? 'border-emerald-300 ring-1 ring-emerald-200/50 bg-emerald-50/20'
+              : 'border-rose-300 ring-1 ring-rose-200/50 bg-rose-50/20'
+            : 'border-slate-200 hover:border-slate-300'
+        }`;
+        card.id = `q-card-${q.id}`;
+
+        let optionsHtml = q.options.map((opt, oIdx) => {
+          let btnClass = "border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50/40 text-slate-700 cursor-pointer";
+          let iconHtml = `<span class="w-6 h-6 rounded-full border border-slate-300 text-xs font-semibold flex items-center justify-center mr-3 text-slate-500 shrink-0 mt-0.5">${String.fromCharCode(65 + oIdx)}</span>`;
+
+          if (isAnswered) {
+            if (oIdx === q.answer) {
+              btnClass = "bg-emerald-50 border-emerald-500 text-emerald-950 font-semibold ring-1 ring-emerald-400 cursor-default";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-emerald-600 text-white text-xs font-bold flex items-center justify-center mr-3 shrink-0 mt-0.5"><i class="fa-solid fa-check"></i></span>`;
+            } else if (oIdx === selectedOption && !isCorrect) {
+              btnClass = "bg-rose-50 border-rose-400 text-rose-950 font-semibold ring-1 ring-rose-300 cursor-default";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-rose-600 text-white text-xs font-bold flex items-center justify-center mr-3 shrink-0 mt-0.5"><i class="fa-solid fa-xmark"></i></span>`;
+            } else {
+              btnClass = "opacity-50 border-slate-200 text-slate-400 cursor-not-allowed";
+            }
+          }
+
+          return `
+            <button 
+              type="button"
+              onclick="selectAnswer(${q.id}, ${oIdx})" 
+              ${isAnswered ? 'disabled' : ''} 
+              class="w-full text-left p-3.5 rounded-xl text-sm transition flex items-start ${btnClass} my-2 leading-relaxed">
+              ${iconHtml}
+              <span class="flex-1">${opt}</span>
+            </button>
+          `;
+        }).join('');
+
+        card.innerHTML = `
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <div class="flex items-center gap-2">
+              <span class="bg-indigo-100 text-indigo-800 text-xs font-black px-2.5 py-0.5 rounded-md">Q${q.id}</span>
+              <span class="bg-slate-100 text-slate-600 text-xs font-semibold px-2.5 py-0.5 rounded-md">${q.topic}</span>
+            </div>
+
+            <button type="button" onclick="toggleClue(${q.id})" class="text-xs text-amber-700 bg-amber-50 hover:bg-amber-100 border border-amber-200 px-3 py-1 rounded-lg font-medium transition flex items-center gap-1 cursor-pointer">
+              <i class="fa-regular fa-lightbulb"></i>
+              ${isClueVisible ? 'Hide Hint' : 'Need a Clue?'}
+            </button>
+          </div>
+
+          <h3 class="text-base font-bold text-slate-900 leading-relaxed mb-4">${q.question}</h3>
+
+          <div id="clue-${q.id}" class="${isClueVisible ? 'block' : 'hidden'} mb-4 p-3.5 bg-amber-50/80 border border-amber-200 rounded-xl text-amber-900 text-xs flex items-start gap-2.5">
+            <i class="fa-solid fa-lightbulb text-amber-600 mt-0.5"></i>
+            <div><span class="font-bold">Study Hint:</span> ${q.clue}</div>
+          </div>
+
+          <div class="space-y-1">${optionsHtml}</div>
+
+          ${isAnswered ? `
+            <div class="mt-5 p-4 rounded-xl text-sm border ${
+              isCorrect 
+                ? 'bg-emerald-50/70 border-emerald-200 text-emerald-950' 
+                : 'bg-rose-50/70 border-rose-200 text-slate-800'
+            }">
+              <div class="flex items-center gap-2 font-bold mb-2 ${isCorrect ? 'text-emerald-800' : 'text-rose-800'}">
+                <i class="${isCorrect ? 'fa-solid fa-circle-check text-emerald-600' : 'fa-solid fa-circle-xmark text-rose-600'}"></i>
+                <span>${isCorrect ? 'Correct! Excellent work.' : 'Incorrect. Let\'s break it down:'}</span>
+              </div>
+              <p class="text-xs leading-relaxed text-slate-700 mb-2">${q.explanation}</p>
+              <div class="text-xs font-semibold text-indigo-700 pt-2 border-t border-slate-200/60 flex items-center justify-between">
+                <span>Correct Option: ${String.fromCharCode(65 + q.answer)} (${q.options[q.answer]})</span>
+                <button type="button" onclick="retryQuestion(${q.id})" class="text-slate-500 hover:text-slate-800 font-medium underline ml-2 cursor-pointer">Try Again</button>
+              </div>
+            </div>
+          ` : ''}
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function selectAnswer(qId, optionIdx) {
+      if (userState.answers[qId] !== undefined) return;
+      userState.answers[qId] = optionIdx;
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function retryQuestion(qId) {
+      delete userState.answers[qId];
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function toggleClue(qId) {
+      userState.showClues[qId] = !userState.showClues[qId];
+      const el = document.getElementById(`clue-${qId}`);
+      if (el) {
+        el.classList.toggle('hidden');
+        el.classList.toggle('block');
+      }
+    }
+
+    function toggleAllClues() {
+      userState.allCluesVisible = !userState.allCluesVisible;
+      const btnText = document.getElementById('clueToggleText');
+      if (btnText) {
+        btnText.textContent = userState.allCluesVisible ? 'Hide All Hints' : 'Show All Hints';
+      }
+      renderQuestions();
+    }
+
+    function filterTopic(topic) {
+      userState.currentFilter = topic;
+      userState.missedOnly = false;
+      document.querySelectorAll('.topic-btn').forEach(btn => {
+        if (btn.textContent.includes(topic) || (topic === 'All' && btn.textContent.includes('All Topics'))) {
+          btn.className = 'topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-sm transition cursor-pointer';
+        } else {
+          btn.className = 'topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer';
+        }
+      });
+      renderQuestions();
+    }
+
+    function filterMissed() {
+      userState.missedOnly = !userState.missedOnly;
+      const btn = document.getElementById('filterMissedBtn');
+      if (userState.missedOnly) {
+        btn.className = 'text-xs bg-rose-600 text-white border border-rose-600 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer shadow-sm';
+      } else {
+        btn.className = 'text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer';
+      }
+      renderQuestions();
+    }
+
+    function updateStats() {
+      const total = questionsData.length;
+      const answeredKeys = Object.keys(userState.answers);
+      const answeredCount = answeredKeys.length;
+      let correctCount = 0;
+      let missedCount = 0;
+
+      answeredKeys.forEach(k => {
+        const q = questionsData.find(item => item.id == k);
+        if (q) {
+          if (userState.answers[k] === q.answer) {
+            correctCount++;
+          } else {
+            missedCount++;
+          }
+        }
+      });
+
+      const pct = answeredCount > 0 ? Math.round((correctCount / answeredCount) * 100) : 0;
+      const progressPct = Math.round((answeredCount / total) * 100);
+
+      const statAns = document.getElementById('statAnswered');
+      const statScore = document.getElementById('statScore');
+      const progBar = document.getElementById('quizProgressBar');
+      const missedCountSpan = document.getElementById('missedCount');
+
+      if (statAns) statAns.textContent = `${answeredCount}/${total}`;
+      if (statScore) statScore.textContent = `${pct}%`;
+      if (progBar) progBar.style.width = `${progressPct}%`;
+      if (missedCountSpan) missedCountSpan.textContent = missedCount;
+
+      const summaryCard = document.getElementById('scoreSummaryCard');
+      if (answeredCount === total && total > 0) {
+        if (summaryCard) {
+          summaryCard.classList.remove('hidden');
+          document.getElementById('finalTotal').textContent = total;
+          document.getElementById('finalCorrect').textContent = correctCount;
+          document.getElementById('finalPercent').textContent = `${pct}%`;
+
+          const rating = document.getElementById('masteryRating');
+          if (pct >= 90) {
+            rating.className = 'p-4 rounded-2xl font-bold text-sm mb-6 bg-emerald-100 text-emerald-900 border border-emerald-300';
+            rating.innerHTML = '🌟 Master Level! Flawless knowledge of bulk transport, phagocytosis, and endocytosis!';
+          } else if (pct >= 75) {
+            rating.className = 'p-4 rounded-2xl font-bold text-sm mb-6 bg-blue-100 text-blue-900 border border-blue-300';
+            rating.innerHTML = '👍 Solid Understanding! Review missed questions to reinforce vesicle coat mechanisms.';
+          } else {
+            rating.className = 'p-4 rounded-2xl font-bold text-sm mb-6 bg-amber-100 text-amber-900 border border-amber-300';
+            rating.innerHTML = '📚 Keep reviewing! Remember: phagocytosis is cell eating, pinocytosis is cell drinking, and receptor-mediated endocytosis uses clathrin.';
+          }
+        }
+      } else {
+        if (summaryCard) summaryCard.classList.add('hidden');
+      }
+    }
+
+    function resetQuiz() {
+      if (confirm('Are you sure you want to reset all answers and progress for this test?')) {
+        userState.answers = {};
+        userState.showClues = {};
+        userState.allCluesVisible = false;
+        userState.missedOnly = false;
+        safeSave();
+        renderQuestions();
+        updateStats();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  </script>
+</body>
+</html>

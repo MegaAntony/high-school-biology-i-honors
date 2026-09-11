@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biology I Honors - Transport Situation Cards Real-World Scenarios Exam</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+
+  <!-- TOP HEADER -->
+  <header class="bg-gradient-to-r from-blue-700 via-indigo-700 to-emerald-700 text-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="w-10 h-10 rounded-xl bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition border border-white/20" title="Back to All Tests">
+          <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="bg-white/20 text-xs px-2.5 py-1 rounded-full font-semibold uppercase tracking-wider">Biology I Honors</span>
+            <span class="bg-emerald-400 text-slate-900 text-xs px-2.5 py-1 rounded-full font-bold">Document Exam 07</span>
+          </div>
+          <h1 class="text-xl sm:text-2xl font-black tracking-tight mt-1 text-white">Transport Situation Cards Real-World Scenarios Exam</h1>
+          <p class="text-xs text-blue-100 mt-0.5">Source Document: <code class="bg-black/20 px-1.5 py-0.5 rounded">Transport Situation Cards (Scenarios) PPT with Key.pdf</code></p>
+        </div>
+      </div>
+
+      <!-- Quick Stats Top -->
+      <div class="flex items-center gap-4 bg-white/10 backdrop-blur px-4 py-2 rounded-xl border border-white/15">
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Answered</div>
+          <div id="statAnswered" class="text-xl font-bold">0/20</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Accuracy</div>
+          <div id="statScore" class="text-xl font-bold text-emerald-300">0%</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <button onclick="resetQuiz()" class="text-xs bg-white/20 hover:bg-white/30 text-white px-3 py-2 rounded-lg font-medium transition flex items-center gap-1.5 cursor-pointer">
+          <i class="fa-solid fa-rotate-right"></i> Reset
+        </button>
+      </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="w-full bg-slate-900/30 h-2">
+      <div id="quizProgressBar" class="bg-emerald-400 h-2 transition-all duration-300" style="width: 0%"></div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-6xl mx-auto px-4 py-8">
+
+    <!-- Anti-Guess Note Banner -->
+    <div class="bg-emerald-50 border border-emerald-200 text-emerald-950 p-4 rounded-2xl mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-semibold shadow-sm">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-shield-halved text-emerald-600 text-base shrink-0"></i>
+        <span><strong>Document Mastery Assessment:</strong> All questions are rigorously aligned directly with the contents of <code class="bg-emerald-100 px-1 py-0.5 rounded">Transport Situation Cards (Scenarios) PPT with Key.pdf</code>.</span>
+      </div>
+      <a href="index.html" class="text-emerald-800 underline hover:text-emerald-950 whitespace-nowrap">View All Tests</a>
+    </div>
+
+    <!-- CONTROLS & FILTER BAR -->
+    <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 mb-8">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-sm font-bold text-slate-700 mb-2">Filter by Topic:</h2>
+          <div class="flex flex-wrap gap-2" id="topicFilters">
+            <button onclick="filterTopic('All')" class="topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-sm transition cursor-pointer">All Topics (20)</button>
+            <button onclick="filterTopic('Scenario #1: Tsunami Garden')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Scenario #1: Tsunami Garden</button>
+            <button onclick="filterTopic('Scenario #2: O2 Gas Exchange')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Scenario #2: O2 Gas Exchange</button>
+            <button onclick="filterTopic('Scenario #3: LDL Cholesterol Uptake')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Scenario #3: LDL Cholesterol Uptake</button>
+            <button onclick="filterTopic('Scenario #4: Glucose Transporters')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Scenario #4: Glucose Transporters</button>
+            <button onclick="filterTopic('Scenario #5: Neurotransmitter Release')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Scenario #5: Neurotransmitter Release</button>
+            <button onclick="filterTopic('Scenario #6: Sea Turtle in Lake Lanier')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Scenario #6: Sea Turtle in Lake Lanier</button>
+            <button onclick="filterTopic('Scenario #7: Pinocytosis Fluid Uptake')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Scenario #7: Pinocytosis Fluid Uptake</button>
+            <button onclick="filterTopic('Scenario #8: Plant Cell Wall Secretion')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Scenario #8: Plant Cell Wall Secretion</button>
+            <button onclick="filterTopic('Scenario #9: Sodium-Potassium ATPase')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Scenario #9: Sodium-Potassium ATPase</button>
+            <button onclick="filterTopic('Scenario #10: CO2 Gas Diffusion')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Scenario #10: CO2 Gas Diffusion</button>
+            <button onclick="filterTopic('Scenario #11: Macrophage Phagocytosis')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Scenario #11: Macrophage Phagocytosis</button>
+            <button onclick="filterTopic('Scenario #12: Cologne in Room')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Scenario #12: Cologne in Room</button>
+            <button onclick="filterTopic('Scenario #13: Sugared Strawberries')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Scenario #13: Sugared Strawberries</button>
+            <button onclick="filterTopic('Scenario #14: Insulin Secretion')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Scenario #14: Insulin Secretion</button>
+            <button onclick="filterTopic('Scenario #15: Baking Cookies Aroma')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Scenario #15: Baking Cookies Aroma</button>
+            <button onclick="filterTopic('Scenario #16: Salty Potato Chips Thirst')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Scenario #16: Salty Potato Chips Thirst</button>
+            <button onclick="filterTopic('Scenario #17: Solute Down Gradient via Channel')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Scenario #17: Solute Down Gradient via Channel</button>
+            <button onclick="filterTopic('Scenario #18: Strawberry Soaked in Pure Water')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Scenario #18: Strawberry Soaked in Pure Water</button>
+            <button onclick="filterTopic('Scenario #19: Seawater Intoxication')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Scenario #19: Seawater Intoxication</button>
+            <button onclick="filterTopic('Scenario #20: Salt Poured on a Snail')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Scenario #20: Salt Poured on a Snail</button>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 pt-2 lg:pt-0 border-t lg:border-t-0 border-slate-100">
+          <button onclick="toggleAllClues()" id="toggleCluesBtn" class="text-xs bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-regular fa-lightbulb"></i> <span id="clueToggleText">Show All Hints</span>
+          </button>
+          <button onclick="filterMissed()" id="filterMissedBtn" class="text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-solid fa-triangle-exclamation"></i> Review Missed (<span id="missedCount">0</span>)
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTIONS LIST -->
+    <div id="questionsContainer" class="space-y-6"></div>
+
+    <!-- SCORE SUMMARY CARD -->
+    <div id="scoreSummaryCard" class="mt-12 bg-white rounded-3xl p-8 border-2 border-indigo-100 shadow-xl hidden">
+      <div class="text-center max-w-xl mx-auto">
+        <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl">
+          <i class="fa-solid fa-trophy"></i>
+        </div>
+        <h2 class="text-2xl font-black text-slate-800">Test Complete!</h2>
+        <p class="text-slate-500 text-sm mt-1">Here is your detailed mastery score for Transport Situation Cards Real-World Scenarios Exam.</p>
+        
+        <div class="grid grid-cols-3 gap-4 my-6 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Total Questions</div>
+            <div class="text-2xl font-black text-slate-800" id="finalTotal">20</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Correct</div>
+            <div class="text-2xl font-black text-emerald-600" id="finalCorrect">0</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Score Rate</div>
+            <div class="text-2xl font-black text-blue-600" id="finalPercent">0%</div>
+          </div>
+        </div>
+
+        <div id="masteryRating" class="p-4 rounded-2xl font-bold text-sm mb-6"></div>
+
+        <div class="flex items-center justify-center gap-4">
+          <button onclick="resetQuiz()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-indigo-200 transition cursor-pointer">
+            Retake Entire Test
+          </button>
+          <a href="index.html" class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-emerald-200 transition">
+            Back to Tests Hub
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-500 mt-12">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p>© 2026 Biology I Honors • South Forsyth High School</p>
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="hover:text-indigo-600 transition font-medium">All Tests Hub</a>
+        <a href="../README.md" class="hover:text-indigo-600 transition font-medium">Weekly Agenda</a>
+        <a href="https://github.com/MegaAntony/biology-honors" target="_blank" class="hover:text-indigo-600 transition"><i class="fa-brands fa-github mr-1"></i>GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT ENGINE -->
+  <script>
+    const questionsData = [
+  {
+    "id": 1,
+    "topic": "Scenario #1: Tsunami Garden",
+    "question": "A tsunami causes sea salt water to wash into a coastal flowerbed; shortly thereafter, the garden plants wilt and die. What transport type, specific form, and osmotic outcome occur?",
+    "options": [
+      "Active Transport | Exocytosis | Water moves into cells, causing cells to burst",
+      "Passive Transport | Osmosis | Hypertonic solution; water moves OUT of cells, causing plasmolysis",
+      "Passive Transport | Facilitated Diffusion | Isotonic solution; no net water movement",
+      "Active Transport | Sodium-Potassium Pump | Hypotonic solution; cells become turgid"
+    ],
+    "answer": 1,
+    "clue": "Saltwater creates a hypertonic environment that draws water out of plant root cells.",
+    "explanation": "Saltwater is **hypertonic** to plant cells. Water diffuses **OUT** of the cells via **osmosis** (passive transport), causing the cytoplasm to pull away from cell walls (**plasmolysis**), leading to wilting and plant death."
+  },
+  {
+    "id": 2,
+    "topic": "Scenario #2: O2 Gas Exchange",
+    "question": "What type and specific form of cellular transport describe the movement of oxygen ($O_2$) molecules into and out of cells during respiration?",
+    "options": [
+      "Passive Transport | Simple Diffusion directly through the phospholipid bilayer",
+      "Active Transport | Receptor-mediated endocytosis via clathrin-coated pits",
+      "Passive Transport | Facilitated diffusion through gated sodium channel proteins",
+      "Active Transport | Molecular carrier pumps utilizing cellular ATP hydrolysis"
+    ],
+    "answer": 0,
+    "clue": "Oxygen is a small nonpolar gas that passes directly through the lipid bilayer.",
+    "explanation": "Oxygen ($O_2$) is a small, uncharged nonpolar gas molecule that moves down its concentration gradient directly through the phospholipid bilayer via **passive simple diffusion** without requiring energy or transport proteins."
+  },
+  {
+    "id": 3,
+    "topic": "Scenario #3: LDL Cholesterol Uptake",
+    "question": "Low-density lipoproteins (LDL) outside the cell bind to specific receptor proteins on the membrane, which are internalized through specialized coated pits. What transport mechanism is this?",
+    "options": [
+      "Passive Transport | Osmosis through specialized lipid pore channels",
+      "Active Transport | Receptor-Mediated Endocytosis",
+      "Passive Transport | Facilitated diffusion using carrier proteins",
+      "Active Transport | Bulk exocytosis via Golgi-derived vesicles"
+    ],
+    "answer": 1,
+    "clue": "Receptors in coated pits bind specific targets to bring them into the cell.",
+    "explanation": "This is **Receptor-Mediated Endocytosis** (active transport): specialized receptor proteins clustered in clathrin-coated pits bind target LDL particles, triggering ATP-dependent membrane invagination and vesicle formation."
+  },
+  {
+    "id": 4,
+    "topic": "Scenario #4: Glucose Transporters",
+    "question": "Glucose molecules move across the cell membrane down their concentration gradient through embedded carrier or channel proteins because they are too large to pass through the lipid bilayer. This is classified as:",
+    "options": [
+      "Active Transport | Phagocytosis",
+      "Passive Transport | Facilitated Diffusion",
+      "Passive Transport | Simple Diffusion",
+      "Active Transport | Sodium-Potassium ATPase Pump"
+    ],
+    "answer": 1,
+    "clue": "Moving down a gradient using a helper protein without energy is facilitated diffusion.",
+    "explanation": "Glucose enters cells down its concentration gradient through specialized transmembrane carrier proteins without cellular energy expenditure, which defines **facilitated diffusion** (passive transport)."
+  },
+  {
+    "id": 5,
+    "topic": "Scenario #5: Neurotransmitter Release",
+    "question": "Nerve cells secrete chemical neurotransmitters across synapses in order to send signals to adjacent neurons. What transport mechanism carries out this secretion?",
+    "options": [
+      "Active Transport | Exocytosis",
+      "Passive Transport | Simple Diffusion",
+      "Active Transport | Pinocytosis",
+      "Passive Transport | Osmosis"
+    ],
+    "answer": 0,
+    "clue": "Vesicles inside neurons fuse with the outer membrane to secrete chemicals outward.",
+    "explanation": "Neurotransmitters are packaged into synaptic vesicles that migrate to and fuse with the presynaptic plasma membrane, releasing their contents outside the cell via **exocytosis** (active transport requiring ATP)."
+  },
+  {
+    "id": 6,
+    "topic": "Scenario #6: Sea Turtle in Lake Lanier",
+    "question": "What would happen to the body cells of an ocean sea turtle if it were placed into Lake Lanier (a freshwater lake)?",
+    "options": [
+      "Cells are in an isotonic solution; water exchanges at equal rates with no change in cell volume.",
+      "Cells are in a hypertonic solution; water diffuses out of cells, causing severe dehydration.",
+      "Cells are in a hypotonic solution; water diffuses INTO cells by osmosis, causing cells to swell.",
+      "Cells actively pump out sodium ions to maintain high internal osmotic backpressure."
+    ],
+    "answer": 2,
+    "clue": "Freshwater has much less salt than the turtle's marine internal tissues (hypotonic).",
+    "explanation": "Freshwater in Lake Lanier is strongly **hypotonic** compared to the sea turtle's marine-adapted internal fluids. Water flows **INTO** the turtle's cells via **osmosis**, causing the cells to swell."
+  },
+  {
+    "id": 7,
+    "topic": "Scenario #7: Pinocytosis Fluid Uptake",
+    "question": "Cells take in small droplets of extracellular fluid and dissolved solutes by pinching off tiny microvesicles around them. This form of active transport is specifically called:",
+    "options": [
+      "Endocytosis (specifically Pinocytosis / 'Cell Drinking')",
+      "Endocytosis (specifically Phagocytosis / 'Cell Eating')",
+      "Facilitated diffusion through open aquaporin channel pores",
+      "Exocytosis of waste droplets across the plasma membrane"
+    ],
+    "answer": 0,
+    "clue": "'Cell drinking' of liquid droplets is pinocytosis.",
+    "explanation": "**Pinocytosis ('cell drinking')** is the non-specific endocytic uptake of extracellular fluid microdroplets and dissolved solutes into small intracellular vesicles using ATP."
+  },
+  {
+    "id": 8,
+    "topic": "Scenario #8: Plant Cell Wall Secretion",
+    "question": "Plant cells secrete structural carbohydrates (pectin, hemicellulose) and enzymes via vesicles to build and extend their cell walls. What form of transport is this?",
+    "options": [
+      "Active Transport | Exocytosis",
+      "Passive Transport | Simple Diffusion",
+      "Active Transport | Receptor-Mediated Endocytosis",
+      "Passive Transport | Facilitated Diffusion"
+    ],
+    "answer": 0,
+    "clue": "Secreting building materials outward via vesicles is exocytosis.",
+    "explanation": "Exporting newly synthesized polysaccharides and wall-building proteins outside the cell using Golgi-derived secretory vesicles is **exocytosis** (active transport)."
+  },
+  {
+    "id": 9,
+    "topic": "Scenario #9: Sodium-Potassium ATPase",
+    "question": "A membrane transport protein utilizes ATP to move 3 sodium ions ($Na^+$) out of a cell while pumping 2 potassium ions ($K^+$) into the cell. This is classified as:",
+    "options": [
+      "Passive Transport | Facilitated diffusion through dual-ion channels",
+      "Active Transport | Molecular Protein Pump (Sodium-Potassium Pump)",
+      "Active Transport | Bulk endocytosis via clathrin-coated vesicles",
+      "Passive Transport | Simple diffusion down an electrical gradient"
+    ],
+    "answer": 1,
+    "clue": "Pumping ions against their gradients using ATP is an active molecular protein pump.",
+    "explanation": "The **Sodium-Potassium Pump ($Na^+/K^+$ ATPase)** is primary active transport: it directly hydrolyzes ATP to pump ions against their steep electrochemical gradients."
+  },
+  {
+    "id": 10,
+    "topic": "Scenario #10: CO2 Gas Diffusion",
+    "question": "Carbon dioxide ($CO_2$) molecules produced during cellular respiration move out of metabolically active cells into the bloodstream. This movement represents:",
+    "options": [
+      "Passive Transport | Simple Diffusion directly through the bilayer",
+      "Active Transport | Exocytosis via specialized respiratory vesicles",
+      "Passive Transport | Facilitated diffusion using aquaporin channel proteins",
+      "Active Transport | Proton-coupled active antiport pumps"
+    ],
+    "answer": 0,
+    "clue": "CO2 is a small nonpolar gas that diffuses down its gradient directly through the lipids.",
+    "explanation": "Carbon dioxide ($CO_2$) is a small, uncharged nonpolar gas that diffuses down its concentration gradient directly across the lipid bilayer via **passive simple diffusion**."
+  },
+  {
+    "id": 11,
+    "topic": "Scenario #11: Macrophage Phagocytosis",
+    "question": "A white blood cell (macrophage) extends pseudopodia to surround, engulf, and destroy an invading bacterial pathogen. What transport form is this?",
+    "options": [
+      "Active Transport | Endocytosis (specifically Phagocytosis / 'Cell Eating')",
+      "Passive Transport | Facilitated diffusion through lysosomal pores",
+      "Active Transport | Pinocytosis ('Cell Drinking')",
+      "Passive Transport | Simple diffusion across the bacterial capsule"
+    ],
+    "answer": 0,
+    "clue": "Engulfing whole solid particles like bacteria is phagocytosis.",
+    "explanation": "Engulfing whole bacterial cells or large solid debris using cellular pseudopodia is **phagocytosis** ('cell eating'), a specialized form of active endocytosis."
+  },
+  {
+    "id": 12,
+    "topic": "Scenario #12: Cologne in Room",
+    "question": "Someone sprays cologne in one corner of a classroom; after several minutes, students seated in the opposite corner can smell the fragrance. What process occurred?",
+    "options": [
+      "Active Transport | Exocytosis through atmospheric vapor channels",
+      "Passive Transport | Simple Diffusion of gas molecules from high to low concentration",
+      "Passive Transport | Osmosis across ambient moisture gradients",
+      "Active Transport | Bulk convection requiring chemical ATP input"
+    ],
+    "answer": 1,
+    "clue": "Molecules spreading out spontaneously in air from high to low concentration is simple diffusion.",
+    "explanation": "Scent molecules disperse through the ambient air driven strictly by thermal kinetic motion from an area of high concentration (spray nozzle) to low concentration via **simple diffusion**."
+  },
+  {
+    "id": 13,
+    "topic": "Scenario #13: Sugared Strawberries",
+    "question": "Fresh strawberries are sprinkled with dry table sugar and refrigerated overnight. The next morning, the strawberries are sitting in a pool of sweet juice. What happened?",
+    "options": [
+      "The sugar entered strawberry cells via active transport, causing cells to burst and leak cytoplasm.",
+      "The sugar created a hypertonic exterior; water moved OUT of strawberry cells by osmosis, causing cells to shrink.",
+      "The strawberry cells were in a hypotonic environment, absorbing sugar and swelling until cell walls ruptured.",
+      "Cold refrigerator temperatures caused strawberry membrane phospholipids to dissolve completely."
+    ],
+    "answer": 1,
+    "clue": "Dry sugar on the surface creates a hypertonic environment that draws juice out.",
+    "explanation": "Adding dry sugar creates an extremely **hypertonic** environment on the strawberry surface. Water diffuses **OUT** of strawberry cells down its water potential gradient via **osmosis**, collecting in the bowl and leaving the strawberry cells shriveled."
+  },
+  {
+    "id": 14,
+    "topic": "Scenario #14: Insulin Secretion",
+    "question": "The hormone insulin (a large peptide produced in the pancreas) is packaged into vesicles and released into the bloodstream to regulate glucose. What transport form is this?",
+    "options": [
+      "Active Transport | Exocytosis",
+      "Passive Transport | Facilitated Diffusion",
+      "Active Transport | Receptor-Mediated Endocytosis",
+      "Passive Transport | Simple Diffusion"
+    ],
+    "answer": 0,
+    "clue": "Vesicle fusion releasing peptide hormones into blood is exocytosis.",
+    "explanation": "Large proteins like insulin cannot cross the lipid bilayer directly; they are exported from pancreatic beta cells via secretory vesicles that fuse with the plasma membrane during **exocytosis** (active transport)."
+  },
+  {
+    "id": 15,
+    "topic": "Scenario #15: Baking Cookies Aroma",
+    "question": "Fresh cookies are baked in the kitchen, and the delicious aroma gradually spreads throughout the entire house. This dispersion is an example of:",
+    "options": [
+      "Passive Transport | Simple Diffusion",
+      "Active Transport | Exocytosis",
+      "Passive Transport | Osmosis",
+      "Active Transport | Endocytosis"
+    ],
+    "answer": 0,
+    "clue": "Scent molecules spreading down their concentration gradient in air is simple diffusion.",
+    "explanation": "Volatile aromatic particles move spontaneously down their concentration gradient from the kitchen (high concentration) throughout the house (low concentration) via **simple diffusion**."
+  },
+  {
+    "id": 16,
+    "topic": "Scenario #16: Salty Potato Chips Thirst",
+    "question": "Why do you experience intense thirst after eating a large bag of salty potato chips?",
+    "options": [
+      "Ingested salt makes extracellular blood fluids hypertonic; water diffuses out of body cells, shrinking them and triggering thirst osmoreceptors.",
+      "Salt molecules bind to taste buds and trigger active endocytosis of saliva into tongue muscle cells.",
+      "Salt makes body fluids hypotonic, causing brain neurons to swell and signal kidney filtration failure.",
+      "Sodium ions denature aquaporin proteins in the stomach, completely halting gastrointestinal water absorption."
+    ],
+    "answer": 0,
+    "clue": "Salt in blood makes fluids hypertonic, pulling water out of cells and triggering thirst.",
+    "explanation": "Absorbed sodium increases blood and extracellular fluid solute concentration, making it **hypertonic** to your body cells. Water exits cells by **osmosis**, shrinking hypothalamic osmoreceptor cells that trigger neural **thirst signals** to restore hydration."
+  },
+  {
+    "id": 17,
+    "topic": "Scenario #17: Solute Down Gradient via Channel",
+    "question": "Hydrophilic solute ions move down ('with') their concentration gradient through transmembrane channel proteins without cellular energy expenditure. What is this?",
+    "options": [
+      "Passive Transport | Facilitated Diffusion",
+      "Active Transport | Molecular Protein Pump",
+      "Passive Transport | Simple Diffusion",
+      "Active Transport | Pinocytosis"
+    ],
+    "answer": 0,
+    "clue": "Down gradient + channel protein + no energy = facilitated diffusion.",
+    "explanation": "Movement of solutes down their concentration gradient through open channel proteins without consuming ATP is **facilitated diffusion** (passive transport)."
+  },
+  {
+    "id": 18,
+    "topic": "Scenario #18: Strawberry Soaked in Pure Water",
+    "question": "A strawberry is left submerged in a bowl of pure distilled water overnight. The next morning, it is plump and swollen, with weakened mushy cell walls. What happened?",
+    "options": [
+      "The strawberry was in an isotonic solution; sugar molecules exchanged at dynamic equilibrium.",
+      "The strawberry was in a hypertonic solution; water exited cells, causing severe plasmolysis.",
+      "The strawberry was in a hypotonic solution; water diffused INTO cells by osmosis, causing cells to swell and mush.",
+      "The strawberry cells performed active exocytosis, pumping sugars into the pure water bowl."
+    ],
+    "answer": 2,
+    "clue": "Pure water has no solute (hypotonic), so water rushes into the strawberry cells.",
+    "explanation": "Pure water is strongly **hypotonic** relative to the sugar-rich cells of the strawberry. Water moves **INTO** the strawberry cells via **osmosis**, causing maximum swelling that stretches and weakens fruit cell walls, making tissue soft and mushy."
+  },
+  {
+    "id": 19,
+    "topic": "Scenario #19: Seawater Intoxication",
+    "question": "Drinking salty ocean seawater causes severe nausea, abdominal cramping, and rapid dehydration. What osmotic process takes place in the gastrointestinal tract?",
+    "options": [
+      "Seawater is hypotonic; water rushes into intestinal epithelial cells, causing them to swell and burst.",
+      "Seawater is hypertonic; water diffuses OUT of intestinal and vascular cells into the gut lumen, causing severe cell shrinkage and dehydration.",
+      "Seawater is isotonic; salt molecules diffuse into red blood cells until dynamic equilibrium halts circulation.",
+      "Seawater triggers active pinocytosis of sodium cations that permanently paralyzes the stomach lining."
+    ],
+    "answer": 1,
+    "clue": "Hypertonic seawater pulls water out of intestinal tissues into the gut.",
+    "explanation": "Seawater (~3.5% salt) is strongly **hypertonic** compared to human body tissues (0.9% salt). Water diffuses **OUT** of intestinal cells and blood into the gut lumen via **osmosis**, causing cell shrinkage, diarrhea, and lethal dehydration."
+  },
+  {
+    "id": 20,
+    "topic": "Scenario #20: Salt Poured on a Snail",
+    "question": "Snails possess thin, moist, permeable skin used for respiration and hydration. What happens at the cellular level if dry salt is poured onto a snail?",
+    "options": [
+      "The salt creates a hypertonic surface; water rapidly diffuses OUT of snail cells by osmosis, causing severe shrinkage and fatal desiccation.",
+      "The salt creates a hypotonic surface; water rushes into snail cells, causing the snail to swell and burst.",
+      "The salt molecules diffuse into the snail's shell and dissolve its calcium carbonate framework within seconds.",
+      "The snail actively engulfs the salt grains via phagocytosis, converting sodium ions into protective mucus."
+    ],
+    "answer": 0,
+    "clue": "Dry salt creates an extreme hypertonic gradient, pulling water out through the snail's skin.",
+    "explanation": "Pouring dry salt onto a snail's moist skin creates an extreme **hypertonic** external environment. Water rapidly exits the snail's cells via **osmosis**, causing cells to shrivel and dehydrating the snail to death."
+  }
+];
+
+    const STORAGE_KEY = 'bio1_doc_test_07_situation_cards';
+
+    let userState = {
+      answers: {},
+      showClues: {},
+      allCluesVisible: false,
+      currentFilter: 'All',
+      missedOnly: false
+    };
+
+    function safeLoad() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          userState = JSON.parse(saved);
+        }
+      } catch (e) {
+        console.warn('localStorage not accessible:', e);
+      }
+    }
+
+    function safeSave() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(userState));
+      } catch (e) {
+        console.warn('Could not save to localStorage:', e);
+      }
+    }
+
+    function init() {
+      safeLoad();
+      renderQuestions();
+      updateStats();
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById('questionsContainer');
+      if (!container) return;
+      container.innerHTML = '';
+
+      let filteredQuestions = questionsData.filter(q => {
+        if (userState.currentFilter !== 'All' && q.topic !== userState.currentFilter) return false;
+        if (userState.missedOnly) {
+          const userAns = userState.answers[q.id];
+          if (userAns === undefined || userAns === q.answer) return false;
+        }
+        return true;
+      });
+
+      if (filteredQuestions.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-12 bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
+            <i class="fa-solid fa-circle-check text-emerald-500 text-4xl mb-3"></i>
+            <h3 class="text-lg font-bold text-slate-800">No Questions In This Filter</h3>
+            <p class="text-slate-500 text-sm mt-1">Try selecting 'All Topics' or clearing the missed review filter.</p>
+          </div>
+        `;
+        return;
+      }
+
+      filteredQuestions.forEach((q) => {
+        const isAnswered = userState.answers[q.id] !== undefined;
+        const selectedOption = userState.answers[q.id];
+        const isCorrect = isAnswered && selectedOption === q.answer;
+        const isClueVisible = userState.allCluesVisible || userState.showClues[q.id];
+
+        const card = document.createElement('div');
+        card.className = `bg-white rounded-2xl p-6 border transition-all duration-200 shadow-sm ${
+          isAnswered
+            ? isCorrect
+              ? 'border-emerald-300 ring-1 ring-emerald-200/50 bg-emerald-50/20'
+              : 'border-rose-300 ring-1 ring-rose-200/50 bg-rose-50/20'
+            : 'border-slate-200 hover:border-slate-300'
+        }`;
+        card.id = `q-card-${q.id}`;
+
+        let optionsHtml = q.options.map((opt, oIdx) => {
+          let btnClass = "border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50/40 text-slate-700 cursor-pointer";
+          let iconHtml = `<span class="w-6 h-6 rounded-full border border-slate-300 text-xs font-semibold flex items-center justify-center mr-3 text-slate-500 shrink-0 mt-0.5">${String.fromCharCode(65 + oIdx)}</span>`;
+
+          if (isAnswered) {
+            if (oIdx === q.answer) {
+              btnClass = "bg-emerald-50 border-emerald-500 text-emerald-950 font-semibold ring-1 ring-emerald-400 cursor-default";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-emerald-600 text-white text-xs font-bold flex items-center justify-center mr-3 shrink-0 mt-0.5"><i class="fa-solid fa-check"></i></span>`;
+            } else if (oIdx === selectedOption && !isCorrect) {
+              btnClass = "bg-rose-50 border-rose-400 text-rose-950 font-semibold ring-1 ring-rose-300 cursor-default";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-rose-600 text-white text-xs font-bold flex items-center justify-center mr-3 shrink-0 mt-0.5"><i class="fa-solid fa-xmark"></i></span>`;
+            } else {
+              btnClass = "opacity-50 border-slate-200 text-slate-400 cursor-not-allowed";
+            }
+          }
+
+          return `
+            <button 
+              type="button"
+              onclick="selectAnswer(${q.id}, ${oIdx})" 
+              ${isAnswered ? 'disabled' : ''} 
+              class="w-full text-left p-3.5 rounded-xl text-sm transition flex items-start ${btnClass} my-2 leading-relaxed">
+              ${iconHtml}
+              <span class="flex-1">${opt}</span>
+            </button>
+          `;
+        }).join('');
+
+        card.innerHTML = `
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <div class="flex items-center gap-2">
+              <span class="bg-indigo-100 text-indigo-800 text-xs font-black px-2.5 py-0.5 rounded-md">Q${q.id}</span>
+              <span class="bg-slate-100 text-slate-600 text-xs font-semibold px-2.5 py-0.5 rounded-md">${q.topic}</span>
+            </div>
+
+            <button type="button" onclick="toggleClue(${q.id})" class="text-xs text-amber-700 bg-amber-50 hover:bg-amber-100 border border-amber-200 px-3 py-1 rounded-lg font-medium transition flex items-center gap-1 cursor-pointer">
+              <i class="fa-regular fa-lightbulb"></i>
+              ${isClueVisible ? 'Hide Hint' : 'Need a Clue?'}
+            </button>
+          </div>
+
+          <h3 class="text-base font-bold text-slate-900 leading-relaxed mb-4">${q.question}</h3>
+
+          <div id="clue-${q.id}" class="${isClueVisible ? 'block' : 'hidden'} mb-4 p-3.5 bg-amber-50/80 border border-amber-200 rounded-xl text-amber-900 text-xs flex items-start gap-2.5">
+            <i class="fa-solid fa-lightbulb text-amber-600 mt-0.5"></i>
+            <div><span class="font-bold">Study Hint:</span> ${q.clue}</div>
+          </div>
+
+          <div class="space-y-1">${optionsHtml}</div>
+
+          ${isAnswered ? `
+            <div class="mt-5 p-4 rounded-xl text-sm border ${
+              isCorrect 
+                ? 'bg-emerald-50/70 border-emerald-200 text-emerald-950' 
+                : 'bg-rose-50/70 border-rose-200 text-slate-800'
+            }">
+              <div class="flex items-center gap-2 font-bold mb-2 ${isCorrect ? 'text-emerald-800' : 'text-rose-800'}">
+                <i class="${isCorrect ? 'fa-solid fa-circle-check text-emerald-600' : 'fa-solid fa-circle-xmark text-rose-600'}"></i>
+                <span>${isCorrect ? 'Correct! Excellent work.' : 'Incorrect. Let\'s break it down:'}</span>
+              </div>
+              <p class="text-xs leading-relaxed text-slate-700 mb-2">${q.explanation}</p>
+              <div class="text-xs font-semibold text-indigo-700 pt-2 border-t border-slate-200/60 flex items-center justify-between">
+                <span>Correct Option: ${String.fromCharCode(65 + q.answer)} (${q.options[q.answer]})</span>
+                <button type="button" onclick="retryQuestion(${q.id})" class="text-slate-500 hover:text-slate-800 font-medium underline ml-2 cursor-pointer">Try Again</button>
+              </div>
+            </div>
+          ` : ''}
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function selectAnswer(qId, optionIdx) {
+      if (userState.answers[qId] !== undefined) return;
+      userState.answers[qId] = optionIdx;
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function retryQuestion(qId) {
+      delete userState.answers[qId];
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function toggleClue(qId) {
+      userState.showClues[qId] = !userState.showClues[qId];
+      safeSave();
+      renderQuestions();
+    }
+
+    function toggleAllClues() {
+      userState.allCluesVisible = !userState.allCluesVisible;
+      document.getElementById('clueToggleText').innerText = userState.allCluesVisible ? "Hide All Hints" : "Show All Hints";
+      safeSave();
+      renderQuestions();
+    }
+
+    function filterTopic(topic) {
+      userState.currentFilter = topic;
+      userState.missedOnly = false;
+      document.querySelectorAll('.topic-btn').forEach(btn => {
+        if (btn.innerText.includes(topic) || (topic === 'All' && btn.innerText.includes('All Topics'))) {
+          btn.className = "topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-sm transition cursor-pointer";
+        } else {
+          btn.className = "topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer";
+        }
+      });
+      renderQuestions();
+    }
+
+    function filterMissed() {
+      userState.missedOnly = !userState.missedOnly;
+      const btn = document.getElementById('filterMissedBtn');
+      if (userState.missedOnly) {
+        btn.className = "text-xs bg-rose-600 text-white border border-rose-600 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer shadow-sm";
+      } else {
+        btn.className = "text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer";
+      }
+      renderQuestions();
+    }
+
+    function updateStats() {
+      const answeredCount = Object.keys(userState.answers).length;
+      let correctCount = 0;
+      let missedCount = 0;
+
+      questionsData.forEach(q => {
+        if (userState.answers[q.id] !== undefined) {
+          if (userState.answers[q.id] === q.answer) {
+            correctCount++;
+          } else {
+            missedCount++;
+          }
+        }
+      });
+
+      const total = questionsData.length;
+      document.getElementById('statAnswered').innerText = `${answeredCount}/${total}`;
+      document.getElementById('missedCount').innerText = missedCount;
+
+      const accuracy = answeredCount === 0 ? 0 : Math.round((correctCount / answeredCount) * 100);
+      document.getElementById('statScore').innerText = `${accuracy}%`;
+      document.getElementById('quizProgressBar').style.width = `${(answeredCount / total) * 100}%`;
+
+      const scoreCard = document.getElementById('scoreSummaryCard');
+      if (answeredCount === total && total > 0) {
+        scoreCard.classList.remove('hidden');
+        document.getElementById('finalTotal').innerText = total;
+        document.getElementById('finalCorrect').innerText = correctCount;
+        document.getElementById('finalPercent').innerText = `${accuracy}%`;
+
+        const ratingBox = document.getElementById('masteryRating');
+        if (accuracy >= 90) {
+          ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-emerald-50 border border-emerald-300 text-emerald-900";
+          ratingBox.innerHTML = '<i class="fa-solid fa-certificate mr-2 text-emerald-600"></i>Mastery Achieved! Outstanding understanding of this document.';
+        } else if (accuracy >= 75) {
+          ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-blue-50 border border-blue-300 text-blue-900";
+          ratingBox.innerHTML = '<i class="fa-solid fa-thumbs-up mr-2 text-blue-600"></i>Proficient! Good foundation; review missed items before testing.';
+        } else {
+          ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-amber-50 border border-amber-300 text-amber-900";
+          ratingBox.innerHTML = '<i class="fa-solid fa-book-open mr-2 text-amber-600"></i>Review Recommended! Use the Markdown companion notes to reinforce weak areas.';
+        }
+      } else {
+        scoreCard.classList.add('hidden');
+      }
+    }
+
+    function resetQuiz() {
+      if (confirm("Are you sure you want to reset all answers and hints for this test?")) {
+        userState.answers = {};
+        userState.showClues = {};
+        userState.allCluesVisible = false;
+        userState.currentFilter = 'All';
+        userState.missedOnly = false;
+        safeSave();
+        document.getElementById('clueToggleText').innerText = "Show All Hints";
+        document.getElementById('filterMissedBtn').className = "text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer";
+        filterTopic('All');
+        renderQuestions();
+        updateStats();
+      }
+    }
+
+    window.onload = init;
+  </script>
+</body>
+</html>

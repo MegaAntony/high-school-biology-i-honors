@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biology I Honors - Unit 2 Test 12: Prokaryotes vs. Eukaryotes Comparative Analysis</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+
+  <!-- TOP HEADER -->
+  <header class="bg-gradient-to-r from-blue-700 via-indigo-700 to-emerald-700 text-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="w-10 h-10 rounded-xl bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition border border-white/20" title="Back to All Tests">
+          <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="bg-white/20 text-xs px-2.5 py-1 rounded-full font-semibold uppercase tracking-wider">Biology I Honors</span>
+            <span class="bg-amber-300 text-slate-900 text-xs px-2.5 py-1 rounded-full font-bold">Unit 2 • Test 12</span>
+          </div>
+          <h1 class="text-xl sm:text-2xl font-black tracking-tight mt-1 text-white">Prokaryotes vs. Eukaryotes</h1>
+        </div>
+      </div>
+
+      <!-- Quick Stats Top -->
+      <div class="flex items-center gap-4 bg-white/10 backdrop-blur px-4 py-2 rounded-xl border border-white/15">
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Answered</div>
+          <div id="statAnswered" class="text-xl font-bold">0/20</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Accuracy</div>
+          <div id="statScore" class="text-xl font-bold text-emerald-300">0%</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <button onclick="resetQuiz()" class="text-xs bg-white/20 hover:bg-white/30 text-white px-3 py-2 rounded-lg font-medium transition flex items-center gap-1.5 cursor-pointer">
+          <i class="fa-solid fa-rotate-right"></i> Reset
+        </button>
+      </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="w-full bg-slate-900/30 h-2">
+      <div id="quizProgressBar" class="bg-emerald-400 h-2 transition-all duration-300" style="width: 0%"></div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-6xl mx-auto px-4 py-8">
+
+    <!-- Anti-Guess Note Banner -->
+    <div class="bg-amber-50 border border-amber-200 text-amber-950 p-4 rounded-2xl mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-semibold shadow-sm">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-bacteria text-amber-600 text-base shrink-0"></i>
+        <span><strong>Comparative Cytology:</strong> Master the architectural contrasts between Bacteria, Archaea, and complex Eukaryotes!</span>
+      </div>
+      <a href="index.html" class="text-amber-900 underline hover:text-amber-950 whitespace-nowrap">View All 20 Tests</a>
+    </div>
+
+    <!-- CONTROLS & FILTER BAR -->
+    <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 mb-8">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-sm font-bold text-slate-700 mb-2">Filter by Topic:</h2>
+          <div class="flex flex-wrap gap-2" id="topicFilters">
+            <button onclick="filterTopic('All')" class="topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-sm transition cursor-pointer">All Topics (20)</button>
+            <button onclick="filterTopic('Antibiotic Selective Toxicity Mechanism')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Antibiotic Selective Toxicity Mechanism</button>
+            <button onclick="filterTopic('Archaea: Extremophiles & Unique Lipids')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Archaea: Extremophiles & Unique Lipids</button>
+            <button onclick="filterTopic('Bacterial Capsule & Glycocalyx')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Bacterial Capsule & Glycocalyx</button>
+            <button onclick="filterTopic('Bacterial Endospores for Survival')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Bacterial Endospores for Survival</button>
+            <button onclick="filterTopic('Cell Division: Binary Fission vs Mitosis')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Cell Division: Binary Fission vs Mitosis</button>
+            <button onclick="filterTopic('Cell Wall Peptidoglycan Composition')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Cell Wall Peptidoglycan Composition</button>
+            <button onclick="filterTopic('Cellular Dimensions & Surface-to-Volume Ratio')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Cellular Dimensions & Surface-to-Volume Ratio</button>
+            <button onclick="filterTopic('Cellular Respiration Location in Prokaryotes')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Cellular Respiration Location in Prokaryotes</button>
+            <button onclick="filterTopic('Comparative Structure Checklist')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Comparative Structure Checklist</button>
+            <button onclick="filterTopic('Endosymbiotic Theory Evidence (Chloroplasts)')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Endosymbiotic Theory Evidence (Chloroplasts)</button>
+            <button onclick="filterTopic('Endosymbiotic Theory Evidence (Mitochondria)')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Endosymbiotic Theory Evidence (Mitochondria)</button>
+            <button onclick="filterTopic('Flagellar Architecture: Rotary vs 9+2 Axoneme')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Flagellar Architecture: Rotary vs 9+2 Axoneme</button>
+            <button onclick="filterTopic('Gram-Positive vs Gram-Negative Walls')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Gram-Positive vs Gram-Negative Walls</button>
+            <button onclick="filterTopic('Membrane-Bound Organelle Partitioning')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Membrane-Bound Organelle Partitioning</button>
+            <button onclick="filterTopic('Nuclear Architecture & Genetic Material')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Nuclear Architecture & Genetic Material</button>
+            <button onclick="filterTopic('Pili (Fimbriae) & Bacterial Conjugation')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Pili (Fimbriae) & Bacterial Conjugation</button>
+            <button onclick="filterTopic('Plasmids & Horizontal Gene Transfer')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Plasmids & Horizontal Gene Transfer</button>
+            <button onclick="filterTopic('Prokaryote vs Eukaryote Synthesis Table')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Prokaryote vs Eukaryote Synthesis Table</button>
+            <button onclick="filterTopic('Ribosomal Sedimentation Coefficients (70S vs 80S)')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Ribosomal Sedimentation Coefficients (70S vs 80S)</button>
+            <button onclick="filterTopic('Three Domains of Life System (Carl Woese)')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Three Domains of Life System (Carl Woese)</button>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 pt-2 lg:pt-0 border-t lg:border-t-0 border-slate-100">
+          <button onclick="toggleAllClues()" id="toggleCluesBtn" class="text-xs bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-regular fa-lightbulb"></i> <span id="clueToggleText">Show All Hints</span>
+          </button>
+          <button onclick="filterMissed()" id="filterMissedBtn" class="text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-solid fa-triangle-exclamation"></i> Review Missed (<span id="missedCount">0</span>)
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTIONS LIST -->
+    <div id="questionsContainer" class="space-y-6"></div>
+
+    <!-- SCORE SUMMARY CARD -->
+    <div id="scoreSummaryCard" class="mt-12 bg-white rounded-3xl p-8 border-2 border-indigo-100 shadow-xl hidden">
+      <div class="text-center max-w-xl mx-auto">
+        <div class="w-16 h-16 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl">
+          <i class="fa-solid fa-trophy"></i>
+        </div>
+        <h2 class="text-2xl font-black text-slate-800">Test 12 Complete!</h2>
+        <p class="text-slate-500 text-sm mt-1">Here is your detailed mastery score for Prokaryotes vs. Eukaryotes Comparative Analysis.</p>
+        
+        <div class="grid grid-cols-3 gap-4 my-6 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Total Questions</div>
+            <div class="text-2xl font-black text-slate-800" id="finalTotal">20</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Correct</div>
+            <div class="text-2xl font-black text-emerald-600" id="finalCorrect">0</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Score Rate</div>
+            <div class="text-2xl font-black text-blue-600" id="finalPercent">0%</div>
+          </div>
+        </div>
+
+        <div id="masteryRating" class="p-4 rounded-2xl font-bold text-sm mb-6"></div>
+
+        <div class="flex items-center justify-center gap-4">
+          <button onclick="resetQuiz()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-indigo-200 transition cursor-pointer">
+            Retake Entire Test
+          </button>
+          <a href="index.html" class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-emerald-200 transition">
+            Back to Tests Hub
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-500 mt-12">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p>© 2026 Biology I Honors • South Forsyth High School</p>
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="hover:text-indigo-600 transition font-medium">All 20 Tests Hub</a>
+        <a href="../../index.html" class="hover:text-indigo-600 transition font-medium">Main Portal</a>
+        <a href="https://github.com/MegaAntony/biology-honors" target="_blank" class="hover:text-indigo-600 transition"><i class="fa-brands fa-github mr-1"></i>GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT ENGINE -->
+  <script>
+    const questionsData = [
+  {
+    "id": 1,
+    "topic": "Nuclear Architecture & Genetic Material",
+    "question": "What is the primary defining structural distinction regarding genetic material organization between prokaryotic cells and eukaryotic cells?",
+    "options": [
+      "Prokaryotes organize genetic material in an unbound nucleoid with a circular naked chromosome, whereas eukaryotes house linear DNA wrapped around histone proteins inside a double-membraned nucleus.",
+      "Prokaryotes store genetic material strictly as single-stranded RNA, whereas eukaryotes use only double-stranded polypeptides.",
+      "Prokaryotes contain thousands of linear chromosomes, whereas eukaryotes possess only a single naked plasmid ring.",
+      "Prokaryotes have a triple-membraned nucleus, whereas eukaryotes contain no DNA anywhere in the cell."
+    ],
+    "answer": 0,
+    "clue": "Prokaryote = \"before nucleus\" (naked circular DNA in nucleoid); Eukaryote = \"true nucleus\" (linear DNA with histones in nuclear envelope).",
+    "explanation": "**Prokaryotes** (Bacteria and Archaea) lack a nuclear membrane; their DNA consists of a **single circular chromosome located in an unbound nucleoid region** without histone packaging. **Eukaryotes** house **linear chromosomes wrapped around histone proteins inside a double-membraned nucleus**."
+  },
+  {
+    "id": 2,
+    "topic": "Ribosomal Sedimentation Coefficients (70S vs 80S)",
+    "question": "How do the cytoplasmic ribosomes of bacteria differ structurally from the cytoplasmic ribosomes of eukaryotic cells?",
+    "options": [
+      "Bacterial ribosomes are 70S (composed of 50S and 30S subunits), whereas eukaryotic cytoplasmic ribosomes are 80S (composed of 60S and 40S subunits).",
+      "Bacterial ribosomes are 80S and surrounded by a phospholipid bilayer, whereas eukaryotic ribosomes are 70S and naked.",
+      "Bacterial ribosomes synthesize only lipids, whereas eukaryotic ribosomes synthesize only carbohydrates.",
+      "Bacterial ribosomes contain DNA, whereas eukaryotic ribosomes contain only free ATP molecules."
+    ],
+    "answer": 0,
+    "clue": "Bacteria have lighter 70S ribosomes (30S+50S); eukaryotic cytosol has heavier 80S ribosomes (40S+60S).",
+    "explanation": "Bacterial ribosomes are **70S** (composed of **30S and 50S** subunits), while eukaryotic cytoplasmic ribosomes are **80S** (composed of **40S and 60S** subunits). This structural difference allows antibiotics (like tetracycline and erythromycin) to target bacterial ribosomes without harming host human ribosomes."
+  },
+  {
+    "id": 3,
+    "topic": "Cell Wall Peptidoglycan Composition",
+    "question": "Which chemical polymer forms the structural backbone of true eubacterial cell walls, and is completely absent in plant and animal cells?",
+    "options": [
+      "Chitin",
+      "Peptidoglycan (murein)",
+      "Cellulose",
+      "Collagen"
+    ],
+    "answer": 1,
+    "clue": "Alternating sugars (NAG and NAM) cross-linked by short peptide chains.",
+    "explanation": "**Peptidoglycan (murein)** is a unique mesh polymer made of alternating N-acetylglucosamine (NAG) and N-acetylmuramic acid (NAM) cross-linked by short peptides. It forms the rigid cell wall of **Eubacteria**, but is never found in plants (cellulose), fungi (chitin), or animal cells (no cell wall)."
+  },
+  {
+    "id": 4,
+    "topic": "Membrane-Bound Organelle Partitioning",
+    "question": "Which cellular structure is found in eukaryotic cells but is universally ABSENT from all prokaryotic cells?",
+    "options": [
+      "Endoplasmic reticulum and Golgi apparatus",
+      "Plasma membrane composed of phospholipids",
+      "Cytoplasmic cytosol containing enzymes",
+      "Ribosomes for protein synthesis"
+    ],
+    "answer": 0,
+    "clue": "Prokaryotes have no internal membrane-bound compartments like the ER or Golgi.",
+    "explanation": "Prokaryotes lack **membrane-bound organelles**; they do not have an **endoplasmic reticulum, Golgi apparatus, mitochondria, lysosomes, or peroxisomes**. However, they do have a plasma membrane, cytoplasm, and non-membrane-bound ribosomes."
+  },
+  {
+    "id": 5,
+    "topic": "Cell Division: Binary Fission vs Mitosis",
+    "question": "How does cellular replication in prokaryotic bacteria compare mechanistically with cell division in eukaryotic somatic cells?",
+    "options": [
+      "Prokaryotes replicate via meiosis, whereas eukaryotes divide exclusively by budding.",
+      "Prokaryotes replicate via rapid binary fission without a mitotic spindle, whereas eukaryotes undergo mitosis involving spindle fibers and chromosome condensation.",
+      "Both prokaryotes and eukaryotes assemble identical tubulin spindle apparati during prophase.",
+      "Neither cell type divides; both grow continuously larger until they reach macroscopic size."
+    ],
+    "answer": 1,
+    "clue": "Bacteria divide by simple binary fission (copy circular DNA and pinch); eukaryotes use mitosis with spindle fibers.",
+    "explanation": "Bacterial reproduction occurs by **binary fission**, where the single circular chromosome duplicates and the cell pinches inward using FtsZ protein rings without forming a mitotic spindle. Eukaryotes require complex **mitosis** with microtubule spindle fibers to separate linear sister chromatids."
+  },
+  {
+    "id": 6,
+    "topic": "Plasmids & Horizontal Gene Transfer",
+    "question": "What are bacterial plasmids, and what biological advantage do they frequently confer on prokaryotic host cells?",
+    "options": [
+      "Large histone proteins that organize eukaryotic nuclear chromosomes.",
+      "Small, circular, extrachromosomal DNA rings that often carry accessory genes such as antibiotic resistance.",
+      "Microscopic photosynthetic organelles that manufacture sucrose inside animal cells.",
+      "Toxic waste vesicles that cause the bacterial cell to lyse spontaneously."
+    ],
+    "answer": 1,
+    "clue": "Extra tiny loops of DNA that carry non-essential survival perks like penicillin resistance.",
+    "explanation": "**Plasmids** are small, autonomous, circular double-stranded DNA molecules independent of the bacterial chromosome. They frequently carry adaptive accessory genes, such as **antibiotic resistance genes (R-factors)**, and can be shared between bacteria via conjugation."
+  },
+  {
+    "id": 7,
+    "topic": "Flagellar Architecture: Rotary vs 9+2 Axoneme",
+    "question": "How does the motor mechanism and molecular structure of a bacterial flagellum differ from a eukaryotic sperm flagellum?",
+    "options": [
+      "A bacterial flagellum bends in wave-like S-curves using ATP, whereas a eukaryotic flagellum rotates rigidly using gravity.",
+      "A bacterial flagellum contains hundreds of mitochondria, whereas a eukaryotic flagellum is composed of pure cellulose.",
+      "Both flagella are completely identical in amino acid sequence and both rotate in full 360-degree circles using actin.",
+      "A bacterial flagellum is made of flagellin and rotates like a propeller powered by proton motive force, whereas a eukaryotic flagellum has a 9+2 microtubule axoneme with dynein arms powered by ATP."
+    ],
+    "answer": 3,
+    "clue": "Prokaryotic flagella spin like boat motors using H+ ions; eukaryotic flagella whip like waves (9+2 microtubules) using ATP.",
+    "explanation": "A **bacterial flagellum** is composed of **flagellin** protein subunits anchored to a basal rotary motor that spins 360\u00b0 driven by a **proton (H+) gradient**. A **eukaryotic flagellum** is an extension of the cytoskeleton with a **\"9+2\" arrangement of microtubules** that bends in wave-like undulations powered by **ATP and dynein motor proteins**."
+  },
+  {
+    "id": 8,
+    "topic": "Endosymbiotic Theory Evidence (Mitochondria)",
+    "question": "According to the Endosymbiotic Theory championed by Lynn Margulis, which set of empirical evidence confirms that mitochondria evolved from engulfed ancestral aerobic prokaryotes?",
+    "options": [
+      "Mitochondria contain chloroplast pigments and fix carbon dioxide using sunlight.",
+      "Mitochondria have thick peptidoglycan walls, linear chromosomes with histones, and 80S ribosomes.",
+      "Mitochondria lack their own DNA and are manufactured entirely from scratch by the Golgi apparatus.",
+      "Mitochondria contain circular naked DNA, 70S ribosomes, duplicate by binary fission, and have a double membrane."
+    ],
+    "answer": 3,
+    "clue": "Look for prokaryotic traits inside mitochondria: circular DNA, 70S ribosomes, binary fission, and double membrane.",
+    "explanation": "The **Endosymbiotic Theory** is supported by extensive evidence: mitochondria possess **their own circular, non-histone DNA**, contain bacterial-like **70S ribosomes**, replicate independently via **binary fission**, and possess a **double membrane** where the inner leaflet resembles a bacterial membrane."
+  },
+  {
+    "id": 9,
+    "topic": "Endosymbiotic Theory Evidence (Chloroplasts)",
+    "question": "From which specific group of free-living photosynthetic prokaryotes did modern eukaryotic chloroplasts endosymbiotically evolve?",
+    "options": [
+      "Gram-positive spore-forming bacilli",
+      "Methanogenic anaerobic Archaea",
+      "Cyanobacteria (blue-green photosynthetic bacteria)",
+      "Filamentous pathogenic fungi"
+    ],
+    "answer": 2,
+    "clue": "Oxygen-producing photosynthetic bacteria that possess chlorophyll a and thylakoid membranes.",
+    "explanation": "**Chloroplasts** evolved from engulfed ancestral **cyanobacteria** (photosynthetic blue-green prokaryotes) through primary endosymbiosis, bringing chlorophyll-based thylakoid photosynthetic machinery into ancestral eukaryotic host cells."
+  },
+  {
+    "id": 10,
+    "topic": "Cellular Dimensions & Surface-to-Volume Ratio",
+    "question": "Why are most prokaryotic cells restricted to a diameter of 1 to 5 micrometers, whereas eukaryotic cells typically range from 10 to 100 micrometers?",
+    "options": [
+      "Eukaryotes have no cell membranes, which allows them to expand indefinitely.",
+      "Prokaryotes have heavier cell walls that crush the cell if it grows larger than 5 micrometers.",
+      "Eukaryotes are small unicellular spheres that cannot absorb liquids from their surroundings.",
+      "Prokaryotes lack internal membrane systems and rely entirely on simple diffusion across their outer membrane, requiring a high surface area-to-volume ratio."
+    ],
+    "answer": 3,
+    "clue": "Without internal compartments, prokaryotes need a high SA:V ratio so diffusion can reach every part of the cell quickly.",
+    "explanation": "Prokaryotes lack internal endomembranes and motor-driven transport networks, relying entirely on **passive diffusion** throughout the cytoplasm. To maintain fast diffusion rates and adequate nutrient intake, they must remain small to maintain a **high surface area-to-volume ratio**."
+  },
+  {
+    "id": 11,
+    "topic": "Three Domains of Life System (Carl Woese)",
+    "question": "In Carl Woese's Three-Domain Tree of Life based on 16S ribosomal RNA sequencing, which two domains consist entirely of prokaryotic organisms?",
+    "options": [
+      "Plantae and Animalia",
+      "Fungi and Protista",
+      "Bacteria and Archaea",
+      "Eukarya and Chordata"
+    ],
+    "answer": 2,
+    "clue": "Prokaryotes are split into two major domains: Bacteria and Archaea.",
+    "explanation": "In Woese's phylogenetic system, all cellular life is classified into three domains: **Domain Bacteria** (true bacteria) and **Domain Archaea** (extremophilic prokaryotes), both of which are **prokaryotic**, while **Domain Eukarya** encompasses all eukaryotic kingdoms."
+  },
+  {
+    "id": 12,
+    "topic": "Archaea: Extremophiles & Unique Lipids",
+    "question": "How do the plasma membranes of prokaryotic Archaea differ biochemically from the membranes of both Bacteria and Eukaryotes?",
+    "options": [
+      "Archaea have unbranched fatty acids linked by ester bonds that disintegrate at temperatures above 10\u00b0C.",
+      "Archaea contain no lipids whatsoever and are held together purely by solid calcium carbonate.",
+      "Archaea membranes are identical to human membranes and are composed of 90% cholesterol.",
+      "Archaea have branched isoprenoid hydrocarbon chains linked to glycerol by ether bonds, sometimes forming heat-resistant monolayers."
+    ],
+    "answer": 3,
+    "clue": "Ether linkages and branched isoprene chains allow archaea to survive extreme heat, acid, and salt.",
+    "explanation": "**Archaea** feature distinct membrane biochemistry: **branched isoprenoid chains linked to glycerol via ether bonds** (rather than unbranched fatty acids linked by ester bonds as in bacteria and eukaryotes). Some hyperthermophiles even possess a monolayer that prevents heat denaturation."
+  },
+  {
+    "id": 13,
+    "topic": "Bacterial Capsule & Glycocalyx",
+    "question": "Many pathogenic bacteria (such as Streptococcus pneumoniae) possess an outer polysaccharide capsule. What survival advantage does this capsule provide inside a host organism?",
+    "options": [
+      "It prevents the bacterium from absorbing water in hypotonic solutions.",
+      "It manufactures red blood cells to feed the bacterium.",
+      "It protects the bacterium from phagocytosis by host immune macrophages and prevents desiccation.",
+      "It provides ATP by harvesting sunlight through chlorophyll pigments."
+    ],
+    "answer": 2,
+    "clue": "A smooth slippery sugar coat shields bacteria from being swallowed by white blood cells.",
+    "explanation": "The bacterial **capsule (glycocalyx)** is a thick, slippery polysaccharide layer that **prevents phagocytosis by white blood cells (macrophages)**, promotes adherence to host tissues, and protects against drying out (desiccation)."
+  },
+  {
+    "id": 14,
+    "topic": "Pili (Fimbriae) & Bacterial Conjugation",
+    "question": "What specialized surface appendages allow Gram-negative bacteria to adhere to surfaces and transfer plasmid DNA directly to recipient cells?",
+    "options": [
+      "Cilia and stereocilia",
+      "Pili (fimbriae) and sex pili",
+      "Pseudopodia and lamellipodia",
+      "Microvilli and tight junctions"
+    ],
+    "answer": 1,
+    "clue": "Hair-like protein tubes that stick to surfaces and form conjugation bridges between bacteria.",
+    "explanation": "**Fimbriae** allow bacteria to attach to host tissues or surfaces. A specialized **sex pilus (conjugation bridge)** connects two bacterial cells, allowing the horizontal transfer of plasmid DNA from donor to recipient (**conjugation**)."
+  },
+  {
+    "id": 15,
+    "topic": "Cellular Respiration Location in Prokaryotes",
+    "question": "Since aerobic prokaryotic bacteria lack mitochondria, where are the electron transport chain complexes and ATP synthase enzymes located in these cells?",
+    "options": [
+      "Embedded directly in the bacterial plasma membrane and its internal invaginations (mesosomes).",
+      "Floating freely as individual molecules in the empty central vacuole.",
+      "Locked permanently inside the dense circular nucleoid chromosome.",
+      "Dissolved in the extracellular rainwater outside the cell wall."
+    ],
+    "answer": 0,
+    "clue": "The plasma membrane of the bacterium functions as its respiratory membrane, pumping protons outside.",
+    "explanation": "Aerobic bacteria embed their **electron transport chain and ATP synthase enzymes directly into their plasma membrane**. They pump protons (H+) into the periplasmic space between the membrane and cell wall to drive chemiosmotic ATP synthesis, exactly like the inner mitochondrial membrane."
+  },
+  {
+    "id": 16,
+    "topic": "Gram-Positive vs Gram-Negative Walls",
+    "question": "What structural difference between Gram-positive and Gram-negative bacteria causes Gram-positive cells to retain the crystal violet stain (purple) while Gram-negative cells decolorize and counterstain pink?",
+    "options": [
+      "Gram-positive cells lack cell walls entirely, whereas Gram-negative cells have pure cellulose walls.",
+      "Gram-positive cells have a thick, multilayered peptidoglycan wall that traps crystal violet, whereas Gram-negative cells have a thin peptidoglycan layer surrounded by an outer lipopolysaccharide (LPS) membrane.",
+      "Gram-positive cells are filled with purple chloroplasts, whereas Gram-negative cells contain pink hemoglobin.",
+      "Gram-positive cells are multicellular animals, whereas Gram-negative cells are single-celled protozoans."
+    ],
+    "answer": 1,
+    "clue": "Gram-positive = thick peptidoglycan mesh (retains purple); Gram-negative = thin peptidoglycan + outer LPS membrane (washes out).",
+    "explanation": "**Gram-positive bacteria** possess a **thick peptidoglycan layer** (retaining crystal violet-iodine complexes). **Gram-negative bacteria** have a **thin peptidoglycan layer covered by an outer membrane containing lipopolysaccharides (LPS)**, which washes out the purple dye during alcohol decolorization and counterstains pink with safranin."
+  },
+  {
+    "id": 17,
+    "topic": "Comparative Structure Checklist",
+    "question": "A student creates a Venn diagram comparing a generalized bacterium with a human liver cell. Which feature belongs EXCLUSIVELY in the overlapping center intersection (shared by both)?",
+    "options": [
+      "Endoplasmic reticulum and 80S ribosomes",
+      "Peptidoglycan cell wall and circular chromosome",
+      "Plasma membrane, ribosomes, genetic material (DNA), and cytoplasm",
+      "Mitochondria, Golgi apparatus, and nuclear envelope"
+    ],
+    "answer": 2,
+    "clue": "All cells without exception share 4 basic structures: membrane, DNA, ribosomes, and cytoplasm.",
+    "explanation": "Every living cell on Earth\u2014prokaryotic or eukaryotic\u2014shares four universal foundational components: (1) **a phospholipid plasma membrane**, (2) **cytoplasm/cytosol**, (3) **genetic material (DNA)**, and (4) **ribosomes** for protein synthesis."
+  },
+  {
+    "id": 18,
+    "topic": "Bacterial Endospores for Survival",
+    "question": "Under harsh, nutrient-depleted environmental conditions, certain Gram-positive bacteria (like Bacillus and Clostridium) produce tough, dormant structures called endospores. What is the biological function of an endospore?",
+    "options": [
+      "To reproduce sexually and generate four diverse daughter cells.",
+      "To synthesize large amounts of antibiotic molecules to eliminate competing fungi.",
+      "To swim rapidly toward sugar gradients in freshwater ponds.",
+      "To protect the bacterial genome against extreme heat, radiation, dehydration, and chemical disinfectants for centuries until favorable conditions return."
+    ],
+    "answer": 3,
+    "clue": "Endospores are survival bunkers that protect bacterial DNA from boiling, drying, and radiation.",
+    "explanation": "**Endospores** are hyper-resistant, dehydrated, dormant structures encasing a copy of the bacterial chromosome in a multi-layered protein and dipicolinic acid coat. They are **not for reproduction, but for extreme survival** against desiccation, boiling heat, UV radiation, and disinfectants."
+  },
+  {
+    "id": 19,
+    "topic": "Antibiotic Selective Toxicity Mechanism",
+    "question": "Why do beta-lactam antibiotics like penicillin effectively kill invading bacterial pathogens in a human patient without causing toxicity to human host cells?",
+    "options": [
+      "Penicillin inhibits bacterial enzymes that cross-link peptidoglycan cell walls, a structure entirely absent in human animal cells.",
+      "Penicillin destroys all 80S ribosomes in the human body while leaving 70S ribosomes untouched.",
+      "Penicillin neutralizes the nuclear envelope of bacteria, which humans do not have.",
+      "Penicillin dissolves only circular DNA molecules while leaving linear DNA unaffected."
+    ],
+    "answer": 0,
+    "clue": "Penicillin targets peptidoglycan cell walls; human cells do not have cell walls or peptidoglycan.",
+    "explanation": "Penicillin inhibits transpeptidase enzymes that cross-link **peptidoglycan in bacterial cell walls**, causing bacteria to lyse under osmotic pressure. Because **human cells lack cell walls and peptidoglycan**, the drug exhibits **selective toxicity**, killing bacteria without harming host tissues."
+  },
+  {
+    "id": 20,
+    "topic": "Prokaryote vs Eukaryote Synthesis Table",
+    "question": "Which row in the comparative matrix correctly aligns the cellular characteristic with prokaryotic and eukaryotic organisms?",
+    "options": [
+      "Prokaryotes: Histone proteins present; Eukaryotes: Histones absent.",
+      "Prokaryotes: 80S ribosomes in cytosol; Eukaryotes: 70S ribosomes in cytosol.",
+      "Prokaryotes: Binary fission; Eukaryotes: Mitosis and meiosis with spindle fibers.",
+      "Prokaryotes: Multiple membrane-bound organelles; Eukaryotes: Zero organelles."
+    ],
+    "answer": 2,
+    "clue": "Prokaryotes divide by binary fission; eukaryotes divide by mitosis and meiosis.",
+    "explanation": "Prokaryotes divide by **binary fission** without spindle apparatuses or histones, while eukaryotes divide by **mitosis and meiosis** utilizing microtubule spindle apparatuses to segregate histone-wrapped linear chromosomes."
+  }
+];
+    const STORAGE_KEY = 'bio_unit2_test12_state_clean';
+
+    let userState = {
+      answers: {},
+      showClues: {},
+      allCluesVisible: false,
+      currentFilter: 'All',
+      missedOnly: false
+    };
+
+    function safeLoad() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (parsed && typeof parsed === 'object') {
+            userState = Object.assign(userState, parsed);
+          }
+        }
+      } catch (e) {
+        console.warn('localStorage not accessible:', e);
+      }
+    }
+
+    function safeSave() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(userState));
+      } catch (e) {
+        console.warn('Could not save to localStorage:', e);
+      }
+    }
+
+    function init() {
+      safeLoad();
+      renderQuestions();
+      updateStats();
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById('questionsContainer');
+      if (!container) return;
+      container.innerHTML = '';
+
+      let filteredQuestions = questionsData.filter(q => {
+        if (userState.currentFilter !== 'All' && q.topic !== userState.currentFilter) return false;
+        if (userState.missedOnly) {
+          const userAns = userState.answers[q.id];
+          if (userAns === undefined || userAns === q.answer) return false;
+        }
+        return true;
+      });
+
+      if (filteredQuestions.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-12 bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
+            <i class="fa-solid fa-circle-check text-emerald-500 text-4xl mb-3"></i>
+            <h3 class="text-lg font-bold text-slate-800">No Questions In This Filter</h3>
+            <p class="text-slate-500 text-sm mt-1">Try selecting 'All Topics' or clearing the missed review filter.</p>
+          </div>
+        `;
+        return;
+      }
+
+      filteredQuestions.forEach((q) => {
+        const isAnswered = userState.answers[q.id] !== undefined;
+        const selectedOption = userState.answers[q.id];
+        const isCorrect = isAnswered && selectedOption === q.answer;
+        const isClueVisible = userState.allCluesVisible || userState.showClues[q.id];
+
+        const card = document.createElement('div');
+        card.className = `bg-white rounded-2xl p-6 border transition-all duration-200 shadow-sm ${
+          isAnswered
+            ? isCorrect
+              ? 'border-emerald-300 ring-1 ring-emerald-200/50 bg-emerald-50/20'
+              : 'border-rose-300 ring-1 ring-rose-200/50 bg-rose-50/20'
+            : 'border-slate-200 hover:border-slate-300'
+        }`;
+        card.id = `q-card-${q.id}`;
+
+        let optionsHtml = q.options.map((opt, oIdx) => {
+          let btnClass = "border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50/40 text-slate-700 cursor-pointer";
+          let iconHtml = `<span class="w-6 h-6 rounded-full border border-slate-300 text-xs font-semibold flex items-center justify-center mr-3 text-slate-500 shrink-0 mt-0.5">${String.fromCharCode(65 + oIdx)}</span>`;
+
+          if (isAnswered) {
+            if (oIdx === q.answer) {
+              btnClass = "bg-emerald-50 border-emerald-500 text-emerald-950 font-semibold ring-1 ring-emerald-400 cursor-default";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-emerald-600 text-white text-xs font-bold flex items-center justify-center mr-3 shrink-0 mt-0.5"><i class="fa-solid fa-check"></i></span>`;
+            } else if (oIdx === selectedOption && !isCorrect) {
+              btnClass = "bg-rose-50 border-rose-400 text-rose-950 font-semibold ring-1 ring-rose-300 cursor-default";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-rose-600 text-white text-xs font-bold flex items-center justify-center mr-3 shrink-0 mt-0.5"><i class="fa-solid fa-xmark"></i></span>`;
+            } else {
+              btnClass = "opacity-50 border-slate-200 text-slate-400 cursor-not-allowed";
+            }
+          }
+
+          return `
+            <button 
+              type="button"
+              onclick="selectAnswer(${q.id}, ${oIdx})" 
+              ${isAnswered ? 'disabled' : ''} 
+              class="w-full text-left p-3.5 rounded-xl text-sm transition flex items-start ${btnClass} my-2 leading-relaxed">
+              ${iconHtml}
+              <span class="flex-1">${opt}</span>
+            </button>
+          `;
+        }).join('');
+
+        card.innerHTML = `
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <div class="flex items-center gap-2">
+              <span class="bg-indigo-100 text-indigo-800 text-xs font-black px-2.5 py-0.5 rounded-md">Q${q.id}</span>
+              <span class="bg-slate-100 text-slate-600 text-xs font-semibold px-2.5 py-0.5 rounded-md">${q.topic}</span>
+            </div>
+
+            <button type="button" onclick="toggleClue(${q.id})" class="text-xs text-amber-700 bg-amber-50 hover:bg-amber-100 border border-amber-200 px-3 py-1 rounded-lg font-medium transition flex items-center gap-1 cursor-pointer">
+              <i class="fa-regular fa-lightbulb"></i>
+              ${isClueVisible ? 'Hide Hint' : 'Need a Clue?'}
+            </button>
+          </div>
+
+          <h3 class="text-base font-bold text-slate-900 leading-relaxed mb-4">${q.question}</h3>
+
+          <div id="clue-${q.id}" class="${isClueVisible ? 'block' : 'hidden'} mb-4 p-3.5 bg-amber-50/80 border border-amber-200 rounded-xl text-amber-900 text-xs flex items-start gap-2.5">
+            <i class="fa-solid fa-lightbulb text-amber-600 mt-0.5"></i>
+            <div><span class="font-bold">Study Hint:</span> ${q.clue}</div>
+          </div>
+
+          <div class="space-y-1">${optionsHtml}</div>
+
+          ${isAnswered ? `
+            <div class="mt-5 p-4 rounded-xl text-sm border ${
+              isCorrect 
+                ? 'bg-emerald-50/70 border-emerald-200 text-emerald-950' 
+                : 'bg-rose-50/70 border-rose-200 text-slate-800'
+            }">
+              <div class="flex items-center gap-2 font-bold mb-2 ${isCorrect ? 'text-emerald-800' : 'text-rose-800'}">
+                <i class="${isCorrect ? 'fa-solid fa-circle-check text-emerald-600' : 'fa-solid fa-circle-xmark text-rose-600'}"></i>
+                <span>${isCorrect ? 'Correct! Excellent work.' : 'Incorrect. Let\'s break it down:'}</span>
+              </div>
+              <p class="text-xs leading-relaxed text-slate-700 mb-2">${q.explanation}</p>
+              <div class="text-xs font-semibold text-indigo-700 pt-2 border-t border-slate-200/60 flex items-center justify-between">
+                <span>Correct Option: ${String.fromCharCode(65 + q.answer)} (${q.options[q.answer]})</span>
+                <button type="button" onclick="retryQuestion(${q.id})" class="text-slate-500 hover:text-slate-800 font-medium underline ml-2 cursor-pointer">Try Again</button>
+              </div>
+            </div>
+          ` : ''}
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function selectAnswer(qId, optionIdx) {
+      if (userState.answers[qId] !== undefined) return;
+      userState.answers[qId] = optionIdx;
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function retryQuestion(qId) {
+      delete userState.answers[qId];
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function toggleClue(qId) {
+      userState.showClues[qId] = !userState.showClues[qId];
+      const el = document.getElementById(`clue-${qId}`);
+      if (el) {
+        el.classList.toggle('hidden');
+        el.classList.toggle('block');
+      }
+    }
+
+    function toggleAllClues() {
+      userState.allCluesVisible = !userState.allCluesVisible;
+      const btnText = document.getElementById('clueToggleText');
+      if (btnText) {
+        btnText.textContent = userState.allCluesVisible ? 'Hide All Hints' : 'Show All Hints';
+      }
+      renderQuestions();
+    }
+
+    function filterTopic(topic) {
+      userState.currentFilter = topic;
+      userState.missedOnly = false;
+      document.querySelectorAll('.topic-btn').forEach(btn => {
+        if (btn.textContent.includes(topic) || (topic === 'All' && btn.textContent.includes('All Topics'))) {
+          btn.className = 'topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-sm transition cursor-pointer';
+        } else {
+          btn.className = 'topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer';
+        }
+      });
+      renderQuestions();
+    }
+
+    function filterMissed() {
+      userState.missedOnly = !userState.missedOnly;
+      const btn = document.getElementById('filterMissedBtn');
+      if (userState.missedOnly) {
+        btn.className = 'text-xs bg-rose-600 text-white border border-rose-600 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer shadow-sm';
+      } else {
+        btn.className = 'text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer';
+      }
+      renderQuestions();
+    }
+
+    function updateStats() {
+      const total = questionsData.length;
+      const answeredKeys = Object.keys(userState.answers);
+      const answeredCount = answeredKeys.length;
+      let correctCount = 0;
+      let missedCount = 0;
+
+      answeredKeys.forEach(k => {
+        const q = questionsData.find(item => item.id == k);
+        if (q) {
+          if (userState.answers[k] === q.answer) {
+            correctCount++;
+          } else {
+            missedCount++;
+          }
+        }
+      });
+
+      const pct = answeredCount > 0 ? Math.round((correctCount / answeredCount) * 100) : 0;
+      const progressPct = Math.round((answeredCount / total) * 100);
+
+      const statAns = document.getElementById('statAnswered');
+      const statScore = document.getElementById('statScore');
+      const progBar = document.getElementById('quizProgressBar');
+      const missedCountSpan = document.getElementById('missedCount');
+
+      if (statAns) statAns.textContent = `${answeredCount}/${total}`;
+      if (statScore) statScore.textContent = `${pct}%`;
+      if (progBar) progBar.style.width = `${progressPct}%`;
+      if (missedCountSpan) missedCountSpan.textContent = missedCount;
+
+      const summaryCard = document.getElementById('scoreSummaryCard');
+      if (answeredCount === total && total > 0) {
+        if (summaryCard) {
+          summaryCard.classList.remove('hidden');
+          document.getElementById('finalTotal').textContent = total;
+          document.getElementById('finalCorrect').textContent = correctCount;
+          document.getElementById('finalPercent').textContent = `${pct}%`;
+
+          const rating = document.getElementById('masteryRating');
+          if (pct >= 90) {
+            rating.className = 'p-4 rounded-2xl font-bold text-sm mb-6 bg-emerald-100 text-emerald-900 border border-emerald-300';
+            rating.innerHTML = '🌟 Master Level! Flawless knowledge of prokaryotic vs. eukaryotic cellular architecture, evolution, and biochemistry!';
+          } else if (pct >= 75) {
+            rating.className = 'p-4 rounded-2xl font-bold text-sm mb-6 bg-blue-100 text-blue-900 border border-blue-300';
+            rating.innerHTML = '👍 Solid Understanding! Review missed questions on 70S/80S ribosomes, flagella motors, and peptidoglycan walls.';
+          } else {
+            rating.className = 'p-4 rounded-2xl font-bold text-sm mb-6 bg-amber-100 text-amber-900 border border-amber-300';
+            rating.innerHTML = '📚 Keep reviewing! Focus on the fundamental rules: prokaryotes have no membrane-bound organelles, no nucleus, and circular DNA.';
+          }
+        }
+      } else {
+        if (summaryCard) summaryCard.classList.add('hidden');
+      }
+    }
+
+    function resetQuiz() {
+      if (confirm('Are you sure you want to reset all answers and progress for this test?')) {
+        userState.answers = {};
+        userState.showClues = {};
+        userState.allCluesVisible = false;
+        userState.missedOnly = false;
+        safeSave();
+        renderQuestions();
+        updateStats();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  </script>
+</body>
+</html>

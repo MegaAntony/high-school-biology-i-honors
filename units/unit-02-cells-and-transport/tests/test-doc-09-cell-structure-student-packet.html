@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biology I Honors - Unit 2 Part 2 Student Packet Exam</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+
+  <!-- TOP HEADER -->
+  <header class="bg-gradient-to-r from-blue-700 via-indigo-700 to-emerald-700 text-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="w-10 h-10 rounded-xl bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition border border-white/20" title="Back to All Tests">
+          <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="bg-white/20 text-xs px-2.5 py-1 rounded-full font-semibold uppercase tracking-wider">Biology I Honors</span>
+            <span class="bg-emerald-400 text-slate-900 text-xs px-2.5 py-1 rounded-full font-bold">Document Exam 09</span>
+          </div>
+          <h1 class="text-xl sm:text-2xl font-black tracking-tight mt-1 text-white">Unit 2 Part 2 Student Packet Exam</h1>
+          <p class="text-xs text-blue-100 mt-0.5">Source Document: <code class="bg-black/20 px-1.5 py-0.5 rounded">Unit 2 Part 2 Cell Structure Student Packet 26-27.pdf</code></p>
+        </div>
+      </div>
+
+      <!-- Quick Stats Top -->
+      <div class="flex items-center gap-4 bg-white/10 backdrop-blur px-4 py-2 rounded-xl border border-white/15">
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Answered</div>
+          <div id="statAnswered" class="text-xl font-bold">0/20</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Accuracy</div>
+          <div id="statScore" class="text-xl font-bold text-emerald-300">0%</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <button onclick="resetQuiz()" class="text-xs bg-white/20 hover:bg-white/30 text-white px-3 py-2 rounded-lg font-medium transition flex items-center gap-1.5 cursor-pointer">
+          <i class="fa-solid fa-rotate-right"></i> Reset
+        </button>
+      </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="w-full bg-slate-900/30 h-2">
+      <div id="quizProgressBar" class="bg-emerald-400 h-2 transition-all duration-300" style="width: 0%"></div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-6xl mx-auto px-4 py-8">
+
+    <!-- Anti-Guess Note Banner -->
+    <div class="bg-emerald-50 border border-emerald-200 text-emerald-950 p-4 rounded-2xl mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-semibold shadow-sm">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-shield-halved text-emerald-600 text-base shrink-0"></i>
+        <span><strong>Document Mastery Assessment:</strong> All questions are rigorously aligned directly with the contents of <code class="bg-emerald-100 px-1 py-0.5 rounded">Unit 2 Part 2 Cell Structure Student Packet 26-27.pdf</code>.</span>
+      </div>
+      <a href="index.html" class="text-emerald-800 underline hover:text-emerald-950 whitespace-nowrap">View All Tests</a>
+    </div>
+
+    <!-- CONTROLS & FILTER BAR -->
+    <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 mb-8">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-sm font-bold text-slate-700 mb-2">Filter by Topic:</h2>
+          <div class="flex flex-wrap gap-2" id="topicFilters">
+            <button onclick="filterTopic('All')" class="topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-sm transition cursor-pointer">All Topics (20)</button>
+            <button onclick="filterTopic('Cell Theory Historical Timeline')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Cell Theory Historical Timeline</button>
+            <button onclick="filterTopic('Universal Cell Components')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Universal Cell Components</button>
+            <button onclick="filterTopic('Prokaryotes vs. Eukaryotes: Organelles')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Prokaryotes vs. Eukaryotes: Organelles</button>
+            <button onclick="filterTopic('Plant vs. Animal Cell Specialization')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Plant vs. Animal Cell Specialization</button>
+            <button onclick="filterTopic('Viral Structure & Non-Living Nature')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Viral Structure & Non-Living Nature</button>
+            <button onclick="filterTopic('Bacteriophage Anatomy')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Bacteriophage Anatomy</button>
+            <button onclick="filterTopic('Organelle Distribution Matrix')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Organelle Distribution Matrix</button>
+            <button onclick="filterTopic('Practice Questions: Rough ER Partner')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Practice Questions: Rough ER Partner</button>
+            <button onclick="filterTopic('Practice Questions: Membrane Lipid Construction')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Practice Questions: Membrane Lipid Construction</button>
+            <button onclick="filterTopic('Hexagon Systems: Protein Factory Pipeline')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Hexagon Systems: Protein Factory Pipeline</button>
+            <button onclick="filterTopic('Analysis Question: Mitochondria Density')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Analysis Question: Mitochondria Density</button>
+            <button onclick="filterTopic('Analysis Question: Eukaryotic Compartmentalization')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Analysis Question: Eukaryotic Compartmentalization</button>
+            <button onclick="filterTopic('Microscope Protocol: Coarse Knob Rule')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Microscope Protocol: Coarse Knob Rule</button>
+            <button onclick="filterTopic('Slide Lab Question: Stains')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Slide Lab Question: Stains</button>
+            <button onclick="filterTopic('Station 1: Cell Membrane Macromolecule')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Station 1: Cell Membrane Macromolecule</button>
+            <button onclick="filterTopic('Station 1: Cytoskeleton Composition')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Station 1: Cytoskeleton Composition</button>
+            <button onclick="filterTopic('Station 2: Red Blood Cell Shape & Function')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Station 2: Red Blood Cell Shape & Function</button>
+            <button onclick="filterTopic('Station 3: Tay-Sachs Enzyme Defect')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Station 3: Tay-Sachs Enzyme Defect</button>
+            <button onclick="filterTopic('Station 5: Euglena Dual Nutrition')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Station 5: Euglena Dual Nutrition</button>
+            <button onclick="filterTopic('Station 6: Ribosome Failure Consequence')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Station 6: Ribosome Failure Consequence</button>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 pt-2 lg:pt-0 border-t lg:border-t-0 border-slate-100">
+          <button onclick="toggleAllClues()" id="toggleCluesBtn" class="text-xs bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-regular fa-lightbulb"></i> <span id="clueToggleText">Show All Hints</span>
+          </button>
+          <button onclick="filterMissed()" id="filterMissedBtn" class="text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-solid fa-triangle-exclamation"></i> Review Missed (<span id="missedCount">0</span>)
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTIONS LIST -->
+    <div id="questionsContainer" class="space-y-6"></div>
+
+    <!-- SCORE SUMMARY CARD -->
+    <div id="scoreSummaryCard" class="mt-12 bg-white rounded-3xl p-8 border-2 border-indigo-100 shadow-xl hidden">
+      <div class="text-center max-w-xl mx-auto">
+        <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl">
+          <i class="fa-solid fa-trophy"></i>
+        </div>
+        <h2 class="text-2xl font-black text-slate-800">Test Complete!</h2>
+        <p class="text-slate-500 text-sm mt-1">Here is your detailed mastery score for Unit 2 Part 2 Student Packet Exam.</p>
+        
+        <div class="grid grid-cols-3 gap-4 my-6 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Total Questions</div>
+            <div class="text-2xl font-black text-slate-800" id="finalTotal">20</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Correct</div>
+            <div class="text-2xl font-black text-emerald-600" id="finalCorrect">0</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Score Rate</div>
+            <div class="text-2xl font-black text-blue-600" id="finalPercent">0%</div>
+          </div>
+        </div>
+
+        <div id="masteryRating" class="p-4 rounded-2xl font-bold text-sm mb-6"></div>
+
+        <div class="flex items-center justify-center gap-4">
+          <button onclick="resetQuiz()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-indigo-200 transition cursor-pointer">
+            Retake Entire Test
+          </button>
+          <a href="index.html" class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-emerald-200 transition">
+            Back to Tests Hub
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-500 mt-12">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p>© 2026 Biology I Honors • South Forsyth High School</p>
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="hover:text-indigo-600 transition font-medium">All Tests Hub</a>
+        <a href="../README.md" class="hover:text-indigo-600 transition font-medium">Weekly Agenda</a>
+        <a href="https://github.com/MegaAntony/biology-honors" target="_blank" class="hover:text-indigo-600 transition"><i class="fa-brands fa-github mr-1"></i>GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT ENGINE -->
+  <script>
+    const questionsData = [
+  {
+    "id": 1,
+    "topic": "Cell Theory Historical Timeline",
+    "question": "Which sequence correctly arranges the historical milestones of cell discovery in chronological order?",
+    "options": [
+      "Hooke names 'cells' (1665) $\\rightarrow$ Leeuwenhoek observes 'animalcules' (1674) $\\rightarrow$ Schleiden/Schwann formulate cellular nature of life (1838-1839) $\\rightarrow$ Virchow proposes all cells arise from cells (1855)",
+      "Virchow proposes cells arise from cells (1665) $\\rightarrow$ Hooke observes cork (1838) $\\rightarrow$ Leeuwenhoek discovers bacteria (1839) $\\rightarrow$ Schleiden names animalcules (1855)",
+      "Schleiden studies plants (1665) $\\rightarrow$ Schwann studies animals (1674) $\\rightarrow$ Hooke discovers mitosis (1838) $\\rightarrow$ Leeuwenhoek discovers viruses (1855)",
+      "Leeuwenhoek grinds lenses (1665) $\\rightarrow$ Hooke discovers ribosomes (1838) $\\rightarrow$ Virchow discovers chloroplasts (1839) $\\rightarrow$ Schwann names cells (1855)"
+    ],
+    "answer": 0,
+    "clue": "Hooke (1665) came first, then Leeuwenhoek (1674), then Schleiden/Schwann (1838-39), then Virchow (1855).",
+    "explanation": "The proper chronological timeline is: **Robert Hooke** observes cork chambers and coins 'cells' (1665) $\\rightarrow$ **Anton van Leeuwenhoek** observes living 'animalcules' (1674+) $\\rightarrow$ **Schleiden & Schwann** propose all plants and animals are composed of cells (1838\u20131839) $\\rightarrow$ **Rudolf Virchow** establishes that all cells arise from pre-existing cells (1855)."
+  },
+  {
+    "id": 2,
+    "topic": "Universal Cell Components",
+    "question": "On Packet Page 4, students identify four components shared by ALL living cells. Which structure is universally present in every cell?",
+    "options": [
+      "A membrane-bound nucleus with nuclear pores",
+      "Ribosomes (complexes that synthesize proteins)",
+      "A rigid cell wall composed of cellulose microfibrils",
+      "Mitochondria with inner folded cristae"
+    ],
+    "answer": 1,
+    "clue": "Ribosomes are universal non-membrane protein factories found in both bacteria and humans.",
+    "explanation": "All living cells (prokaryotic and eukaryotic) possess **ribosomes** to carry out translation (protein synthesis), along with a plasma membrane, cytoplasm, and DNA."
+  },
+  {
+    "id": 3,
+    "topic": "Prokaryotes vs. Eukaryotes: Organelles",
+    "question": "What is the primary internal organizational difference between a prokaryotic bacterium and a eukaryotic plant or animal cell?",
+    "options": [
+      "Prokaryotes lack membrane-bound organelles, while eukaryotes contain compartmentalized organelles.",
+      "Prokaryotes contain mitochondria, whereas eukaryotes generate energy exclusively in the cytoplasm.",
+      "Prokaryotes possess larger 80S ribosomes, while eukaryotes possess smaller 70S ribosomes.",
+      "Prokaryotes store linear chromosomes inside a double-membraned nucleus."
+    ],
+    "answer": 0,
+    "clue": "'Pro = NO' membrane-bound organelles; 'Eu = TRUE' compartmentalized organelles.",
+    "explanation": "**Prokaryotic cells** lack membrane-bound organelles (no ER, Golgi, mitochondria, or lysosomes). **Eukaryotic cells** contain extensive membrane-bound compartments that isolate specific biochemical reactions."
+  },
+  {
+    "id": 4,
+    "topic": "Plant vs. Animal Cell Specialization",
+    "question": "On Packet Page 5, students compare plant and animal cells. Which combination of features is unique to plant cells among eukaryotes?",
+    "options": [
+      "Cellulose cell wall, green chloroplasts, and a large central vacuole",
+      "Flexible membrane, centrosomes with centrioles, and dense lysosomes",
+      "Peptidoglycan wall, circular plasmid DNA, and 70S ribosomes",
+      "Protein capsid, contractile sheath, and tail fibers"
+    ],
+    "answer": 0,
+    "clue": "Plants have a rigid cellulose wall, green chloroplasts, and one big central vacuole.",
+    "explanation": "Plant cells are uniquely distinguished from animal cells by having a rigid **cellulose cell wall**, photosynthetic **chloroplasts**, and a single **large central vacuole** that maintains turgor pressure."
+  },
+  {
+    "id": 5,
+    "topic": "Viral Structure & Non-Living Nature",
+    "question": "According to Packet Page 6, why are viruses classified as non-living infectious particles rather than living cells?",
+    "options": [
+      "They are acellular, lack independent metabolism, cannot produce ATP, and require a host cell to replicate.",
+      "They reproduce through rapid binary fission in stagnant pond water without requiring host enzymes.",
+      "They are composed entirely of cellulose polysaccharides that lack genetic material.",
+      "They contain membrane-bound mitochondria that oxidize host glucose into lactic acid."
+    ],
+    "answer": 0,
+    "clue": "Viruses are not made of cells, have no metabolism, and cannot reproduce alone.",
+    "explanation": "Viruses violate Cell Theory because they are acellular (not made of cells), lack ribosomes and independent metabolic machinery to generate ATP, and cannot reproduce without hijacking a living host cell."
+  },
+  {
+    "id": 6,
+    "topic": "Bacteriophage Anatomy",
+    "question": "On Packet Page 6, students label the anatomy of a bacteriophage. What is the function of the tail fibers?",
+    "options": [
+      "Synthesizing messenger RNA molecules from viral DNA inside the capsomere",
+      "Recognizing and binding specifically to surface receptors on the bacterial host cell wall",
+      "Contracting to pump ATP into the bacterial cytoplasm during cell division",
+      "Dissolving eukaryotic nuclear envelopes through hydrolytic enzyme secretion"
+    ],
+    "answer": 1,
+    "clue": "Tail fibers act like landing gear that lock onto specific receptors on bacteria.",
+    "explanation": "The **tail fibers** of a bacteriophage act like landing legs that specifically recognize and bind to target surface proteins or lipopolysaccharides on the host bacterial cell wall, initiating infection."
+  },
+  {
+    "id": 7,
+    "topic": "Organelle Distribution Matrix",
+    "question": "Based on the Organelle Distribution Matrix on Packet Pages 7\u20138, which structure is present in Plant cells, Animal cells, AND Bacterial cells?",
+    "options": [
+      "Cell Wall",
+      "Plasma Membrane (Cell Membrane)",
+      "Mitochondria",
+      "Endoplasmic Reticulum"
+    ],
+    "answer": 1,
+    "clue": "Every cell must have a selectively permeable boundary.",
+    "explanation": "The **cell membrane (plasma membrane)** is present in all three cellular domains/kingdoms (plants, animals, bacteria). Animals lack cell walls; bacteria lack mitochondria and endoplasmic reticulum."
+  },
+  {
+    "id": 8,
+    "topic": "Practice Questions: Rough ER Partner",
+    "question": "Practice Question #2 (Page 9) asks: 'Which organelle do you think would work closely with the rough ER? Why?'",
+    "options": [
+      "Ribosomes (which synthesize nascent polypeptides into the ER lumen) and the Golgi Apparatus (which receives vesicles from the ER for sorting)",
+      "Chloroplasts, because they export chlorophyll pigments directly into the ER cisternae",
+      "Centrioles, because they organize mitotic spindles directly inside the ER cavity",
+      "Lysosomes, because they continuously dissolve the rough ER to release amino acids"
+    ],
+    "answer": 0,
+    "clue": "Ribosomes coat the ER surface, and the Golgi receives vesicles budding from the ER.",
+    "explanation": "**Ribosomes** work directly with the rough ER by studding its outer membrane and injecting newly synthesized polypeptides into its lumen. The **Golgi apparatus** works closely with the rough ER by receiving transport vesicles budding from the ER to modify and package those proteins."
+  },
+  {
+    "id": 9,
+    "topic": "Practice Questions: Membrane Lipid Construction",
+    "question": "Practice Question #3 (Page 9) asks: 'What organelle helps construct phospholipids needed by the cell membrane?'",
+    "options": [
+      "Smooth Endoplasmic Reticulum (Smooth ER)",
+      "Nucleolus",
+      "Rough Endoplasmic Reticulum",
+      "Central Vacuole"
+    ],
+    "answer": 0,
+    "clue": "The smooth ER makes lipids, including phospholipids and cholesterol.",
+    "explanation": "The **Smooth Endoplasmic Reticulum (Smooth ER)** possesses the specialized enzymatic machinery responsible for synthesizing fatty acids, phospholipids, and cholesterol to expand and repair cell membranes."
+  },
+  {
+    "id": 10,
+    "topic": "Hexagon Systems: Protein Factory Pipeline",
+    "question": "In the Organelle Hexagon Matrix activity (Pages 12\u201314), which pathway accurately traces the biological synthesis and export of a peptide hormone?",
+    "options": [
+      "Nucleus $\\rightarrow$ Ribosome on Rough ER $\\rightarrow$ Transport Vesicle $\\rightarrow$ Golgi Apparatus $\\rightarrow$ Secretory Vesicle $\\rightarrow$ Plasma Membrane",
+      "Golgi Apparatus $\\rightarrow$ Lysosome $\\rightarrow$ Smooth ER $\\rightarrow$ Nucleus $\\rightarrow$ Plasma Membrane",
+      "Chloroplast $\\rightarrow$ Mitochondria $\\rightarrow$ Ribosome $\\rightarrow$ Vacuole $\\rightarrow$ Cell Wall",
+      "Central Vacuole $\\rightarrow$ Centriole $\\rightarrow$ Transport Vesicle $\\rightarrow$ Cytoplasm"
+    ],
+    "answer": 0,
+    "clue": "DNA transcribed in nucleus -> translated by ribosome/ER -> vesicle -> Golgi -> vesicle -> exocytosis.",
+    "explanation": "The correct endomembrane secretory pipeline is: **Nucleus** (transcription of DNA to mRNA) $\\rightarrow$ **Ribosomes on Rough ER** (translation into protein) $\\rightarrow$ **Transport Vesicle** $\\rightarrow$ **Golgi Apparatus** (modification and tagging) $\\rightarrow$ **Secretory Vesicle** $\\rightarrow$ **Plasma Membrane** (exocytosis)."
+  },
+  {
+    "id": 11,
+    "topic": "Analysis Question: Mitochondria Density",
+    "question": "Analysis Question #4 (Page 13): A cell observed under a microscope contains an exceptionally large number of mitochondria. What does this suggest about the cell's role, and what is an authentic example?",
+    "options": [
+      "The cell is dead and has accumulated metabolic waste crystals; an example is dead outer skin stratum corneum.",
+      "The cell has an extremely high demand for continuous ATP energy; examples include cardiac muscle cells and sperm cells.",
+      "The cell specializes in photosynthetic carbon fixation; an example is plant leaf palisade mesophyll.",
+      "The cell lacks genetic material and is dividing via binary fission; an example is an aquatic bacterium."
+    ],
+    "answer": 1,
+    "clue": "More mitochondria = higher ATP demand (e.g., heart muscle or sperm).",
+    "explanation": "Mitochondria produce ATP via cellular respiration. A high density of mitochondria signifies a cell with immense metabolic energy demands, such as **cardiac muscle cells** (beating continuously) or **sperm cells** (swimming)."
+  },
+  {
+    "id": 12,
+    "topic": "Analysis Question: Eukaryotic Compartmentalization",
+    "question": "Analysis Question #5 (Page 13): How do membrane-bound organelles give eukaryotic cells a significant functional advantage over prokaryotic cells?",
+    "options": [
+      "They allow eukaryotic cells to reproduce without replicating genomic DNA chromosomes.",
+      "Compartmentalization isolates incompatible chemical reactions, concentrates specific enzymes, and increases metabolic efficiency.",
+      "Membrane-bound organelles eliminate the need for a selectively permeable plasma membrane.",
+      "They allow eukaryotic cells to survive without consuming water or generating ATP."
+    ],
+    "answer": 1,
+    "clue": "Compartmentalization separates different chemical reactions into their own rooms.",
+    "explanation": "**Compartmentalization** allows eukaryotic cells to segregate incompatible biochemical processes (such as hydrolytic acid enzymes inside lysosomes vs. neutral cytoplasm), concentrate enzymes and substrates in localized micro-environments, and dramatically boost operational efficiency."
+  },
+  {
+    "id": 13,
+    "topic": "Microscope Protocol: Coarse Knob Rule",
+    "question": "On Packet Page 15, Step 8 of the microscope protocol states: 'When you get to the largest objective (40X), DO NOT use the _______________ focusing knob; use the _______________ focus knob ONLY.'",
+    "options": [
+      "fine; coarse",
+      "coarse; fine",
+      "diaphragm; substage",
+      "revolving; mechanical"
+    ],
+    "answer": 1,
+    "clue": "On high power, never touch the coarse knob; use fine focus ONLY.",
+    "explanation": "On high power (40X), the long lens is extremely close to the slide. You must **NEVER use the coarse focusing knob** (to avoid smashing the lens into the slide); use the **fine focus knob ONLY**."
+  },
+  {
+    "id": 14,
+    "topic": "Slide Lab Question: Stains",
+    "question": "Slide Lab Question #3 (Page 15) asks: 'Why are the prepared slides you viewed stained a certain color (e.g., with iodine or methylene blue)?'",
+    "options": [
+      "To kill the cells so they do not swim away from the field of view",
+      "Because most cellular structures and organelles are naturally transparent; stains provide optical contrast to make structures visible",
+      "To prevent the glass coverslip from sticking to the objective lens",
+      "To recharge the electrical battery inside the substage illuminator"
+    ],
+    "answer": 1,
+    "clue": "Cells are mostly water and clear; stains add contrast so you can see organelles.",
+    "explanation": "Most living cells and organelles are colorless and transparent. Biological stains (such as iodine for plant starch/cell walls or methylene blue for animal nuclei) bind selectively to specific biomolecules to provide visual **optical contrast**."
+  },
+  {
+    "id": 15,
+    "topic": "Station 1: Cell Membrane Macromolecule",
+    "question": "Station 1 Question #3 (Page 17): 'The cell membrane is made up of long chains of fatty acids that regulate what moves in and out. What macromolecule would you find most in the cell membrane and WHY?'",
+    "options": [
+      "Carbohydrates, because cellulose microfibrils form the selectively permeable channels",
+      "Lipids (specifically phospholipids), because their hydrophobic fatty acid tails create the barrier that restricts polar solutes",
+      "Nucleic acids, because DNA strands link adjacent phosphate heads together",
+      "Proteins, because polypeptides make up 100% of the structural mass of the bilayer"
+    ],
+    "answer": 1,
+    "clue": "Fatty acids are lipids that make up the phospholipid bilayer core.",
+    "explanation": "**Lipids (specifically phospholipids and cholesterol)** constitute the fundamental structural matrix of the membrane. The nonpolar hydrocarbon fatty acid tails establish a hydrophobic interior core that repels water and polar molecules, enabling selective permeability."
+  },
+  {
+    "id": 16,
+    "topic": "Station 1: Cytoskeleton Composition",
+    "question": "Station 1 Question #4 (Page 17): The cytoskeleton consists of a network of microfilaments and microtubules composed of polypeptides. What macromolecule class constitutes the cytoskeleton?",
+    "options": [
+      "Lipids",
+      "Proteins",
+      "Carbohydrates",
+      "Nucleic Acids"
+    ],
+    "answer": 1,
+    "clue": "Polypeptides are polymers of amino acids = proteins (actin and tubulin).",
+    "explanation": "Polypeptides are **proteins**. The cytoskeleton is constructed from protein polymers: actin microfilaments, intermediate filaments (keratins), and tubulin microtubules."
+  },
+  {
+    "id": 17,
+    "topic": "Station 2: Red Blood Cell Shape & Function",
+    "question": "Station 2 Question #2 (Page 17): How does the biconcave disc structure of a mammalian red blood cell directly relate to its physiological function?",
+    "options": [
+      "The biconcave shape maximizes surface-area-to-volume ratio for rapid gas diffusion and allows cells to bend through microcapillaries.",
+      "The hollow indentation provides an anchor site where cilia attach to propel the cell through blood vessels.",
+      "The shape allows the erythrocyte to engulf pathogenic bacteria via active phagocytosis in spleen tissues.",
+      "The concavity houses an extra nucleus that transcribes hemoglobin mRNA continuously during circulation."
+    ],
+    "answer": 0,
+    "clue": "Biconcave shape maximizes surface area for gas diffusion and allows flexing through narrow capillaries.",
+    "explanation": "The biconcave disc shape provides a high **surface-area-to-volume ratio**, speeding up the diffusion of $O_2$ and $CO_2$ into and out of hemoglobin, and provides mechanical flexibility to squeeze single-file through narrow capillaries without rupturing."
+  },
+  {
+    "id": 18,
+    "topic": "Station 3: Tay-Sachs Enzyme Defect",
+    "question": "Station 3 Question on Tay-Sachs Disease (Pages 18\u201319): A doctor studies cells from a sick baby and finds a toxic buildup of GM2 ganglioside lipids. Which organelle has failed to perform its digestive job?",
+    "options": [
+      "Chloroplast",
+      "Lysosome",
+      "Mitochondrion",
+      "Rough Endoplasmic Reticulum"
+    ],
+    "answer": 1,
+    "clue": "Lysosomes contain the hydrolytic enzymes that break down lipids and waste.",
+    "explanation": "The **lysosome** is defective. In Tay-Sachs disease, the missing lysosomal enzyme hexosaminidase A fails to hydrolyze GM2 gangliosides. The lipid substrate accumulates inside neuronal lysosomes, causing them to swell and destroy brain tissue."
+  },
+  {
+    "id": 19,
+    "topic": "Station 5: Euglena Dual Nutrition",
+    "question": "Station 5 Question on Euglena (Page 19): Based on its structures (chloroplasts, flagellum, eyespot, lack of cell wall), why is Euglena considered both plant-like and animal-like?",
+    "options": [
+      "It produces cellulose cell walls during the day and peptidoglycan walls at night.",
+      "It possesses chloroplasts for autotrophic photosynthesis (plant-like), but swims motilely with a flagellum and hunts prey (animal-like).",
+      "It reproduces via binary fission in freshwater and via meiosis inside marine corals.",
+      "It stores its genome inside circular plasmids while also maintaining an 80S nucleolus."
+    ],
+    "answer": 1,
+    "clue": "Chloroplasts = plant-like photosynthesis; Flagellum & hunting = animal-like motility.",
+    "explanation": "*Euglena* is **mixotrophic**: its **chloroplasts** allow autotrophic photosynthesis in sunlight (plant-like), while its **flagellum, eyespot, flexible pellicle (no cell wall), and ability to engulf prey** are characteristic of motile heterotrophic animals."
+  },
+  {
+    "id": 20,
+    "topic": "Station 6: Ribosome Failure Consequence",
+    "question": "Station 6 Question #1 (Page 20): 'What would happen to a cell if all of its ribosomes suddenly stopped functioning correctly?'",
+    "options": [
+      "The cell would convert all cytoplasmic glycogen into structural peptidoglycan cell walls.",
+      "Translation halts; the cell cannot manufacture structural proteins, enzymes, or transport channels, resulting in metabolic death.",
+      "The Golgi apparatus would take over protein synthesis by directly transcribing nuclear chromatin.",
+      "The cell would divide via binary fission to dilute the nonfunctional ribosomes across daughter cells."
+    ],
+    "answer": 1,
+    "clue": "Without ribosomes, no proteins can be made; enzymes and cell machinery fail.",
+    "explanation": "Ribosomes are the indispensable protein synthesis factories of the cell. If they fail, **translation halts completely**: no new structural proteins, transport pumps, receptors, or catalytic enzymes can be made, causing rapid cellular metabolic arrest and death."
+  }
+];
+
+    const STORAGE_KEY = 'bio1_doc_test_09_packet_part2';
+
+    let userState = {
+      answers: {},
+      showClues: {},
+      allCluesVisible: false,
+      currentFilter: 'All',
+      missedOnly: false
+    };
+
+    function safeLoad() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          userState = JSON.parse(saved);
+        }
+      } catch (e) {
+        console.warn('localStorage not accessible:', e);
+      }
+    }
+
+    function safeSave() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(userState));
+      } catch (e) {
+        console.warn('Could not save to localStorage:', e);
+      }
+    }
+
+    function init() {
+      safeLoad();
+      renderQuestions();
+      updateStats();
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById('questionsContainer');
+      if (!container) return;
+      container.innerHTML = '';
+
+      let filteredQuestions = questionsData.filter(q => {
+        if (userState.currentFilter !== 'All' && q.topic !== userState.currentFilter) return false;
+        if (userState.missedOnly) {
+          const userAns = userState.answers[q.id];
+          if (userAns === undefined || userAns === q.answer) return false;
+        }
+        return true;
+      });
+
+      if (filteredQuestions.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-12 bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
+            <i class="fa-solid fa-circle-check text-emerald-500 text-4xl mb-3"></i>
+            <h3 class="text-lg font-bold text-slate-800">No Questions In This Filter</h3>
+            <p class="text-slate-500 text-sm mt-1">Try selecting 'All Topics' or clearing the missed review filter.</p>
+          </div>
+        `;
+        return;
+      }
+
+      filteredQuestions.forEach((q) => {
+        const isAnswered = userState.answers[q.id] !== undefined;
+        const selectedOption = userState.answers[q.id];
+        const isCorrect = isAnswered && selectedOption === q.answer;
+        const isClueVisible = userState.allCluesVisible || userState.showClues[q.id];
+
+        const card = document.createElement('div');
+        card.className = `bg-white rounded-2xl p-6 border transition-all duration-200 shadow-sm ${
+          isAnswered
+            ? isCorrect
+              ? 'border-emerald-300 ring-1 ring-emerald-200/50 bg-emerald-50/20'
+              : 'border-rose-300 ring-1 ring-rose-200/50 bg-rose-50/20'
+            : 'border-slate-200 hover:border-slate-300'
+        }`;
+        card.id = `q-card-${q.id}`;
+
+        let optionsHtml = q.options.map((opt, oIdx) => {
+          let btnClass = "border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50/40 text-slate-700 cursor-pointer";
+          let iconHtml = `<span class="w-6 h-6 rounded-full border border-slate-300 text-xs font-semibold flex items-center justify-center mr-3 text-slate-500 shrink-0 mt-0.5">${String.fromCharCode(65 + oIdx)}</span>`;
+
+          if (isAnswered) {
+            if (oIdx === q.answer) {
+              btnClass = "bg-emerald-50 border-emerald-500 text-emerald-950 font-semibold ring-1 ring-emerald-400 cursor-default";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-emerald-600 text-white text-xs font-bold flex items-center justify-center mr-3 shrink-0 mt-0.5"><i class="fa-solid fa-check"></i></span>`;
+            } else if (oIdx === selectedOption && !isCorrect) {
+              btnClass = "bg-rose-50 border-rose-400 text-rose-950 font-semibold ring-1 ring-rose-300 cursor-default";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-rose-600 text-white text-xs font-bold flex items-center justify-center mr-3 shrink-0 mt-0.5"><i class="fa-solid fa-xmark"></i></span>`;
+            } else {
+              btnClass = "opacity-50 border-slate-200 text-slate-400 cursor-not-allowed";
+            }
+          }
+
+          return `
+            <button 
+              type="button"
+              onclick="selectAnswer(${q.id}, ${oIdx})" 
+              ${isAnswered ? 'disabled' : ''} 
+              class="w-full text-left p-3.5 rounded-xl text-sm transition flex items-start ${btnClass} my-2 leading-relaxed">
+              ${iconHtml}
+              <span class="flex-1">${opt}</span>
+            </button>
+          `;
+        }).join('');
+
+        card.innerHTML = `
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <div class="flex items-center gap-2">
+              <span class="bg-indigo-100 text-indigo-800 text-xs font-black px-2.5 py-0.5 rounded-md">Q${q.id}</span>
+              <span class="bg-slate-100 text-slate-600 text-xs font-semibold px-2.5 py-0.5 rounded-md">${q.topic}</span>
+            </div>
+
+            <button type="button" onclick="toggleClue(${q.id})" class="text-xs text-amber-700 bg-amber-50 hover:bg-amber-100 border border-amber-200 px-3 py-1 rounded-lg font-medium transition flex items-center gap-1 cursor-pointer">
+              <i class="fa-regular fa-lightbulb"></i>
+              ${isClueVisible ? 'Hide Hint' : 'Need a Clue?'}
+            </button>
+          </div>
+
+          <h3 class="text-base font-bold text-slate-900 leading-relaxed mb-4">${q.question}</h3>
+
+          <div id="clue-${q.id}" class="${isClueVisible ? 'block' : 'hidden'} mb-4 p-3.5 bg-amber-50/80 border border-amber-200 rounded-xl text-amber-900 text-xs flex items-start gap-2.5">
+            <i class="fa-solid fa-lightbulb text-amber-600 mt-0.5"></i>
+            <div><span class="font-bold">Study Hint:</span> ${q.clue}</div>
+          </div>
+
+          <div class="space-y-1">${optionsHtml}</div>
+
+          ${isAnswered ? `
+            <div class="mt-5 p-4 rounded-xl text-sm border ${
+              isCorrect 
+                ? 'bg-emerald-50/70 border-emerald-200 text-emerald-950' 
+                : 'bg-rose-50/70 border-rose-200 text-slate-800'
+            }">
+              <div class="flex items-center gap-2 font-bold mb-2 ${isCorrect ? 'text-emerald-800' : 'text-rose-800'}">
+                <i class="${isCorrect ? 'fa-solid fa-circle-check text-emerald-600' : 'fa-solid fa-circle-xmark text-rose-600'}"></i>
+                <span>${isCorrect ? 'Correct! Excellent work.' : 'Incorrect. Let\'s break it down:'}</span>
+              </div>
+              <p class="text-xs leading-relaxed text-slate-700 mb-2">${q.explanation}</p>
+              <div class="text-xs font-semibold text-indigo-700 pt-2 border-t border-slate-200/60 flex items-center justify-between">
+                <span>Correct Option: ${String.fromCharCode(65 + q.answer)} (${q.options[q.answer]})</span>
+                <button type="button" onclick="retryQuestion(${q.id})" class="text-slate-500 hover:text-slate-800 font-medium underline ml-2 cursor-pointer">Try Again</button>
+              </div>
+            </div>
+          ` : ''}
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function selectAnswer(qId, optionIdx) {
+      if (userState.answers[qId] !== undefined) return;
+      userState.answers[qId] = optionIdx;
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function retryQuestion(qId) {
+      delete userState.answers[qId];
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function toggleClue(qId) {
+      userState.showClues[qId] = !userState.showClues[qId];
+      safeSave();
+      renderQuestions();
+    }
+
+    function toggleAllClues() {
+      userState.allCluesVisible = !userState.allCluesVisible;
+      document.getElementById('clueToggleText').innerText = userState.allCluesVisible ? "Hide All Hints" : "Show All Hints";
+      safeSave();
+      renderQuestions();
+    }
+
+    function filterTopic(topic) {
+      userState.currentFilter = topic;
+      userState.missedOnly = false;
+      document.querySelectorAll('.topic-btn').forEach(btn => {
+        if (btn.innerText.includes(topic) || (topic === 'All' && btn.innerText.includes('All Topics'))) {
+          btn.className = "topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-sm transition cursor-pointer";
+        } else {
+          btn.className = "topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer";
+        }
+      });
+      renderQuestions();
+    }
+
+    function filterMissed() {
+      userState.missedOnly = !userState.missedOnly;
+      const btn = document.getElementById('filterMissedBtn');
+      if (userState.missedOnly) {
+        btn.className = "text-xs bg-rose-600 text-white border border-rose-600 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer shadow-sm";
+      } else {
+        btn.className = "text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer";
+      }
+      renderQuestions();
+    }
+
+    function updateStats() {
+      const answeredCount = Object.keys(userState.answers).length;
+      let correctCount = 0;
+      let missedCount = 0;
+
+      questionsData.forEach(q => {
+        if (userState.answers[q.id] !== undefined) {
+          if (userState.answers[q.id] === q.answer) {
+            correctCount++;
+          } else {
+            missedCount++;
+          }
+        }
+      });
+
+      const total = questionsData.length;
+      document.getElementById('statAnswered').innerText = `${answeredCount}/${total}`;
+      document.getElementById('missedCount').innerText = missedCount;
+
+      const accuracy = answeredCount === 0 ? 0 : Math.round((correctCount / answeredCount) * 100);
+      document.getElementById('statScore').innerText = `${accuracy}%`;
+      document.getElementById('quizProgressBar').style.width = `${(answeredCount / total) * 100}%`;
+
+      const scoreCard = document.getElementById('scoreSummaryCard');
+      if (answeredCount === total && total > 0) {
+        scoreCard.classList.remove('hidden');
+        document.getElementById('finalTotal').innerText = total;
+        document.getElementById('finalCorrect').innerText = correctCount;
+        document.getElementById('finalPercent').innerText = `${accuracy}%`;
+
+        const ratingBox = document.getElementById('masteryRating');
+        if (accuracy >= 90) {
+          ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-emerald-50 border border-emerald-300 text-emerald-900";
+          ratingBox.innerHTML = '<i class="fa-solid fa-certificate mr-2 text-emerald-600"></i>Mastery Achieved! Outstanding understanding of this document.';
+        } else if (accuracy >= 75) {
+          ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-blue-50 border border-blue-300 text-blue-900";
+          ratingBox.innerHTML = '<i class="fa-solid fa-thumbs-up mr-2 text-blue-600"></i>Proficient! Good foundation; review missed items before testing.';
+        } else {
+          ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-amber-50 border border-amber-300 text-amber-900";
+          ratingBox.innerHTML = '<i class="fa-solid fa-book-open mr-2 text-amber-600"></i>Review Recommended! Use the Markdown companion notes to reinforce weak areas.';
+        }
+      } else {
+        scoreCard.classList.add('hidden');
+      }
+    }
+
+    function resetQuiz() {
+      if (confirm("Are you sure you want to reset all answers and hints for this test?")) {
+        userState.answers = {};
+        userState.showClues = {};
+        userState.allCluesVisible = false;
+        userState.currentFilter = 'All';
+        userState.missedOnly = false;
+        safeSave();
+        document.getElementById('clueToggleText').innerText = "Show All Hints";
+        document.getElementById('filterMissedBtn').className = "text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer";
+        filterTopic('All');
+        renderQuestions();
+        updateStats();
+      }
+    }
+
+    window.onload = init;
+  </script>
+</body>
+</html>

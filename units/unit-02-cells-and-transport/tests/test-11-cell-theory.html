@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biology I Honors - Unit 2 Test 11: Cell Theory Foundations & Historical Contributors</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+
+  <!-- TOP HEADER -->
+  <header class="bg-gradient-to-r from-blue-700 via-indigo-700 to-emerald-700 text-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="w-10 h-10 rounded-xl bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition border border-white/20" title="Back to All Tests">
+          <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="bg-white/20 text-xs px-2.5 py-1 rounded-full font-semibold uppercase tracking-wider">Biology I Honors</span>
+            <span class="bg-amber-300 text-slate-900 text-xs px-2.5 py-1 rounded-full font-bold">Unit 2 • Test 11</span>
+          </div>
+          <h1 class="text-xl sm:text-2xl font-black tracking-tight mt-1 text-white">Cell Theory Foundations</h1>
+        </div>
+      </div>
+
+      <!-- Quick Stats Top -->
+      <div class="flex items-center gap-4 bg-white/10 backdrop-blur px-4 py-2 rounded-xl border border-white/15">
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Answered</div>
+          <div id="statAnswered" class="text-xl font-bold">0/20</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Accuracy</div>
+          <div id="statScore" class="text-xl font-bold text-emerald-300">0%</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <button onclick="resetQuiz()" class="text-xs bg-white/20 hover:bg-white/30 text-white px-3 py-2 rounded-lg font-medium transition flex items-center gap-1.5 cursor-pointer">
+          <i class="fa-solid fa-rotate-right"></i> Reset
+        </button>
+      </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="w-full bg-slate-900/30 h-2">
+      <div id="quizProgressBar" class="bg-emerald-400 h-2 transition-all duration-300" style="width: 0%"></div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-6xl mx-auto px-4 py-8">
+
+    <!-- Anti-Guess Note Banner -->
+    <div class="bg-amber-50 border border-amber-200 text-amber-950 p-4 rounded-2xl mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-semibold shadow-sm">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-microscope text-amber-600 text-base shrink-0"></i>
+        <span><strong>Tier 3 Kickoff:</strong> Cell Theory foundations, historical scientists (Hooke, Leeuwenhoek, Schleiden, Schwann, Virchow, Pasteur), and modern exceptions!</span>
+      </div>
+      <a href="index.html" class="text-amber-900 underline hover:text-amber-950 whitespace-nowrap">View All 20 Tests</a>
+    </div>
+
+    <!-- CONTROLS & FILTER BAR -->
+    <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 mb-8">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-sm font-bold text-slate-700 mb-2">Filter by Topic:</h2>
+          <div class="flex flex-wrap gap-2" id="topicFilters">
+            <button onclick="filterTopic('All')" class="topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-sm transition cursor-pointer">All Topics (20)</button>
+            <button onclick="filterTopic('Anton van Leeuwenhoek's "Animalcules"')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Anton van Leeuwenhoek's "Animalcules"</button>
+            <button onclick="filterTopic('Biogenesis vs Spontaneous Generation')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Biogenesis vs Spontaneous Generation</button>
+            <button onclick="filterTopic('Cell Theory Historical Timeline Synthesis')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Cell Theory Historical Timeline Synthesis</button>
+            <button onclick="filterTopic('Common Ancestry Implication of Cell Theory')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Common Ancestry Implication of Cell Theory</button>
+            <button onclick="filterTopic('Exceptions to Cell Theory: Aseptate Fungal Hyphae')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Exceptions to Cell Theory: Aseptate Fungal Hyphae</button>
+            <button onclick="filterTopic('Exceptions to Cell Theory: Giant Algae')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Exceptions to Cell Theory: Giant Algae</button>
+            <button onclick="filterTopic('Exceptions to Cell Theory: Striated Muscle')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Exceptions to Cell Theory: Striated Muscle</button>
+            <button onclick="filterTopic('Exceptions to Cell Theory: Viruses')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Exceptions to Cell Theory: Viruses</button>
+            <button onclick="filterTopic('Francesco Redi's Meat Experiment (1668)')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Francesco Redi's Meat Experiment (1668)</button>
+            <button onclick="filterTopic('Matthias Schleiden's Botanical Contribution (1838)')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Matthias Schleiden's Botanical Contribution (1838)</button>
+            <button onclick="filterTopic('Modern Cell Theory Additions')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Modern Cell Theory Additions</button>
+            <button onclick="filterTopic('Pasteur's Swan-Neck Flask Experiment')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Pasteur's Swan-Neck Flask Experiment</button>
+            <button onclick="filterTopic('Robert Brown's Nuclear Discovery (1831)')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Robert Brown's Nuclear Discovery (1831)</button>
+            <button onclick="filterTopic('Robert Hooke's Microscopic Discovery (1665)')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Robert Hooke's Microscopic Discovery (1665)</button>
+            <button onclick="filterTopic('Rudolf Virchow & Remak (1855)')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Rudolf Virchow & Remak (1855)</button>
+            <button onclick="filterTopic('The First Cell Paradox (Abiogenesis vs Biogenesis)')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">The First Cell Paradox (Abiogenesis vs Biogenesis)</button>
+            <button onclick="filterTopic('Theodor Schwann's Zoological Synthesis (1839)')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Theodor Schwann's Zoological Synthesis (1839)</button>
+            <button onclick="filterTopic('Three Classic Tenets of Cell Theory')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Three Classic Tenets of Cell Theory</button>
+            <button onclick="filterTopic('Unicellular Organism Completeness')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Unicellular Organism Completeness</button>
+            <button onclick="filterTopic('Zacharias Janssen & Early Compound Microscope')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Zacharias Janssen & Early Compound Microscope</button>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 pt-2 lg:pt-0 border-t lg:border-t-0 border-slate-100">
+          <button onclick="toggleAllClues()" id="toggleCluesBtn" class="text-xs bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-regular fa-lightbulb"></i> <span id="clueToggleText">Show All Hints</span>
+          </button>
+          <button onclick="filterMissed()" id="filterMissedBtn" class="text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-solid fa-triangle-exclamation"></i> Review Missed (<span id="missedCount">0</span>)
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTIONS LIST -->
+    <div id="questionsContainer" class="space-y-6"></div>
+
+    <!-- SCORE SUMMARY CARD -->
+    <div id="scoreSummaryCard" class="mt-12 bg-white rounded-3xl p-8 border-2 border-indigo-100 shadow-xl hidden">
+      <div class="text-center max-w-xl mx-auto">
+        <div class="w-16 h-16 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl">
+          <i class="fa-solid fa-trophy"></i>
+        </div>
+        <h2 class="text-2xl font-black text-slate-800">Test 11 Complete!</h2>
+        <p class="text-slate-500 text-sm mt-1">Here is your detailed mastery score for Cell Theory Foundations & Historical Contributors.</p>
+        
+        <div class="grid grid-cols-3 gap-4 my-6 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Total Questions</div>
+            <div class="text-2xl font-black text-slate-800" id="finalTotal">20</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Correct</div>
+            <div class="text-2xl font-black text-emerald-600" id="finalCorrect">0</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Score Rate</div>
+            <div class="text-2xl font-black text-blue-600" id="finalPercent">0%</div>
+          </div>
+        </div>
+
+        <div id="masteryRating" class="p-4 rounded-2xl font-bold text-sm mb-6"></div>
+
+        <div class="flex items-center justify-center gap-4">
+          <button onclick="resetQuiz()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-indigo-200 transition cursor-pointer">
+            Retake Entire Test
+          </button>
+          <a href="index.html" class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-emerald-200 transition">
+            Back to Tests Hub
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-500 mt-12">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p>© 2026 Biology I Honors • South Forsyth High School</p>
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="hover:text-indigo-600 transition font-medium">All 20 Tests Hub</a>
+        <a href="../../index.html" class="hover:text-indigo-600 transition font-medium">Main Portal</a>
+        <a href="https://github.com/MegaAntony/biology-honors" target="_blank" class="hover:text-indigo-600 transition"><i class="fa-brands fa-github mr-1"></i>GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT ENGINE -->
+  <script>
+    const questionsData = [
+  {
+    "id": 1,
+    "topic": "Three Classic Tenets of Cell Theory",
+    "question": "Which of the following statements represents one of the three universally recognized tenets of classical Cell Theory?",
+    "options": [
+      "All cells contain a membrane-bound nucleus and membrane-bound organelles.",
+      "The cell is the fundamental structural and functional unit of all living organisms.",
+      "Cells generate energy exclusively by performing oxygen-producing photosynthesis.",
+      "Spontaneous generation occurs regularly in stagnant pond water ecosystems."
+    ],
+    "answer": 1,
+    "clue": "The cell is the smallest unit that exhibits all properties of life.",
+    "explanation": "The three tenets of **classical Cell Theory** are: (1) All living organisms are composed of one or more cells, (2) The **cell is the basic structural and functional unit of life**, and (3) All cells arise only from pre-existing cells."
+  },
+  {
+    "id": 2,
+    "topic": "Biogenesis vs Spontaneous Generation",
+    "question": "Which biological principle directly rejected the long-held doctrine of spontaneous generation (abiogenesis)?",
+    "options": [
+      "All cells arise strictly from the division of pre-existing cells (biogenesis).",
+      "All organisms require multicellular body structures to carry out metabolism.",
+      "Every living cell possesses a rigid cell wall composed of cellulose microfibrils.",
+      "Living cells originate spontaneously whenever organic broth is boiled and cooled."
+    ],
+    "answer": 0,
+    "clue": "Rudolf Virchow and Louis Pasteur proved that living cells come only from other living cells.",
+    "explanation": "The tenet **\"all cells come from pre-existing cells\" (biogenesis)** proved that living matter cannot spontaneously arise from non-living broth or decaying matter, completely overturning the ancient theory of **spontaneous generation**."
+  },
+  {
+    "id": 3,
+    "topic": "Robert Hooke's Microscopic Discovery (1665)",
+    "question": "When Robert Hooke published Micrographia in 1665, what was he actually observing under his primitive compound microscope when he coined the word \"cell\"?",
+    "options": [
+      "Living amoebae engulfing bacteria in freshwater pond droplets.",
+      "Active sperm cells swimming in seminal fluid.",
+      "The empty cellulose cell walls of dead cork oak tree tissue.",
+      "Dividing human red blood cells traveling through capillaries."
+    ],
+    "answer": 2,
+    "clue": "Hooke looked at thin slices of non-living tree bark (cork) that looked like monk's monastery rooms.",
+    "explanation": "Robert Hooke examined thin slices of dead **cork bark (Quercus suber)**. He observed non-living honeycombed compartments, which were actually the **empty cellulose cell walls** left behind by dead plant cells, and named them **cells** after monks' monastery rooms."
+  },
+  {
+    "id": 4,
+    "topic": "Anton van Leeuwenhoek's \"Animalcules\"",
+    "question": "Why is Dutch microscopist Anton van Leeuwenhoek celebrated as the \"Father of Microbiology\" in the development of Cell Theory?",
+    "options": [
+      "He was the first scientist to observe living, swimming microorganisms (\"animalcules\") and human cells using handcrafted high-power single lenses.",
+      "He invented the electron microscope and discovered ribosome subunits.",
+      "He isolated the first viral DNA genome from tobacco plants.",
+      "He formulated the biochemical equations governing glycolysis and ATP synthesis."
+    ],
+    "answer": 0,
+    "clue": "Leeuwenhoek built incredible handheld lenses that revealed living bacteria, protozoa, and sperm for the first time.",
+    "explanation": "Using exquisite handmade lenses with up to 300x magnification, **Anton van Leeuwenhoek** was the first person to observe and document **living single-celled organisms (bacteria, protozoa, which he termed \"animalcules\")**, red blood cells, and sperm cells."
+  },
+  {
+    "id": 5,
+    "topic": "Matthias Schleiden's Botanical Contribution (1838)",
+    "question": "What sweeping conclusion did German botanist Matthias Schleiden contribute to the foundation of Cell Theory in 1838?",
+    "options": [
+      "All animal tissues are composed of independent non-cellular fibers.",
+      "All plants and plant tissues are fundamentally composed of cells and cell aggregates.",
+      "Plant cells lack cell membranes and are composed purely of gaseous nitrogen.",
+      "Plants do not originate from cells but precipitate directly from rainwater."
+    ],
+    "answer": 1,
+    "clue": "Schleiden studied plant tissues under the microscope and concluded all plants are made of cells.",
+    "explanation": "In 1838, **Matthias Schleiden** concluded that **all plant structures and tissues are entirely composed of cells**, establishing that the cell is the universal elementary unit of the plant kingdom."
+  },
+  {
+    "id": 6,
+    "topic": "Theodor Schwann's Zoological Synthesis (1839)",
+    "question": "One year after Schleiden's botanical breakthrough, how did Theodor Schwann expand Cell Theory into a universal biological law?",
+    "options": [
+      "He proved that bacteria lack chromosomes and reproduce via fungal spores.",
+      "He observed that bone and muscle crystals grow without any cellular organization.",
+      "He concluded that all animal tissues are composed of cells, synthesizing botany and zoology into a unified Cell Theory.",
+      "He demonstrated that viruses are the primary evolutionary ancestors of all plants."
+    ],
+    "answer": 2,
+    "clue": "Schwann studied animals (swann = swan) and unified plants and animals under one cellular law.",
+    "explanation": "In 1839, **Theodor Schwann** demonstrated that **all animal tissues are also composed of cells**, combining his findings with Schleiden's to formulate the foundational unified principle: **all living organisms are composed of one or more cells**."
+  },
+  {
+    "id": 7,
+    "topic": "Rudolf Virchow & Remak (1855)",
+    "question": "What fundamental Latin aphorism did Rudolf Virchow popularize in 1855, resolving the origin of new cells in living tissues?",
+    "options": [
+      "Carpe diem \u2014 Seize the living day.",
+      "Omnis cellula e cellula \u2014 All cells arise only from pre-existing cells.",
+      "Post hoc ergo propter hoc \u2014 Correlation implies direct biological causation.",
+      "Tabula rasa \u2014 All newborn cells begin with a completely blank genetic slate."
+    ],
+    "answer": 1,
+    "clue": "\"Omnis cellula e cellula\": every cell comes from a cell via division, not crystal precipitation.",
+    "explanation": "Rudolf Virchow popularized the phrase **\"Omnis cellula e cellula\" (all cells come from pre-existing cells)**, establishing that cells divide by binary fission or mitosis to produce new daughter cells rather than crystallizing out of unorganized blastema fluid."
+  },
+  {
+    "id": 8,
+    "topic": "Pasteur's Swan-Neck Flask Experiment",
+    "question": "How did Louis Pasteur's famous 1859 swan-neck flask experiments decisively resolve the biogenesis debate for science?",
+    "options": [
+      "Boiled nutrient broth remained sterile indefinitely as long as dust and airborne microbes were trapped in the curved neck, proving life does not arise spontaneously.",
+      "Boiled broth spontaneously formed living maggots even when sealed in airtight lead containers.",
+      "Air trapped inside the swan-neck flask turned into photosynthetic algae within 48 hours.",
+      "The curved neck generated radioactive rays that catalyzed the spontaneous creation of amoebae."
+    ],
+    "answer": 0,
+    "clue": "Dust containing microbes got trapped in the S-curve; broth stayed clear until the flask was tilted to touch the dust.",
+    "explanation": "Pasteur designed **swan-neck flasks** that allowed air exchange while trapping airborne dust and microbes in the bend. Boiled broth stayed completely sterile until the neck was broken or tilted, proving **microorganisms come from airborne parents, not spontaneous generation**."
+  },
+  {
+    "id": 9,
+    "topic": "Robert Brown's Nuclear Discovery (1831)",
+    "question": "In 1831, Scottish botanist Robert Brown made a crucial cytological observation while studying orchid epidermal cells. What did he discover and name?",
+    "options": [
+      "The phospholipid bilayer membrane",
+      "The 70S prokaryotic ribosome",
+      "The cellular nucleus (areola)",
+      "The adenosine triphosphate (ATP) molecule"
+    ],
+    "answer": 2,
+    "clue": "Brown identified the constant dark, circular central body inside plant cells: the nucleus.",
+    "explanation": "While examining orchid and tradescantia cells under the microscope, **Robert Brown** identified a constant opaque circular spot present in every cell, which he termed the **nucleus** (from the Latin for little nut or kernel)."
+  },
+  {
+    "id": 10,
+    "topic": "Modern Cell Theory Additions",
+    "question": "Which of the following concepts is part of Modern Extended Cell Theory, but was NOT part of classical 19th-century Cell Theory?",
+    "options": [
+      "All organisms are composed of one or more living cells.",
+      "The cell is the basic structural unit of living matter.",
+      "Energy flow (metabolism and biochemistry) occurs inside cells, and DNA is passed from cell to cell during division.",
+      "Cells are produced strictly from pre-existing living cells."
+    ],
+    "answer": 2,
+    "clue": "Classical cell theory did not know about DNA or modern biochemical metabolism pathways.",
+    "explanation": "**Modern Cell Theory** expands classical theory with molecular discoveries: (1) **Energy flow (metabolism)** occurs inside cells, (2) **Hereditary information (DNA)** is duplicated and passed between cells, and (3) All cells have the same basic chemical composition."
+  },
+  {
+    "id": 11,
+    "topic": "Exceptions to Cell Theory: Viruses",
+    "question": "Why do virologists classify viruses as major challenging exceptions to the classical definition of Cell Theory?",
+    "options": [
+      "Viruses are acellular particles lacking cytoplasm, ribosomes, and independent metabolism, reproducing only inside host cells.",
+      "Viruses are multicellular organisms that possess specialized bone and muscle tissues.",
+      "Viruses contain only inorganic rock minerals and have zero nucleic acids.",
+      "Viruses divide exclusively by binary fission inside extracellular rainwater pools."
+    ],
+    "answer": 0,
+    "clue": "Viruses have genetic material and proteins, but lack cells, cytoplasm, or self-sustaining metabolism.",
+    "explanation": "**Viruses are acellular**. They possess genetic material (DNA or RNA) enclosed in a protein capsid, but **lack a cellular membrane, cytoplasm, organelles, and metabolic machinery**, and cannot reproduce without hijacking a living host cell."
+  },
+  {
+    "id": 12,
+    "topic": "Exceptions to Cell Theory: Striated Muscle",
+    "question": "How do vertebrate skeletal (striated) muscle fibers challenge the traditional idea of a discrete, single-nucleus cell?",
+    "options": [
+      "They contain zero nuclei and lack any internal cytoplasmic organelles.",
+      "They are exceptionally long (up to 30 cm) multinucleated syncytia surrounded by a single continuous plasma membrane.",
+      "They are composed entirely of pure extracellular collagen without any living cytoplasm.",
+      "They reproduce by budding off microscopic photosynthetic spores."
+    ],
+    "answer": 1,
+    "clue": "Muscle fibers form when multiple embryonic cells fuse into one long fiber with hundreds of nuclei (syncytium).",
+    "explanation": "Skeletal muscle fibers are formed by the fusion of hundreds of embryonic myoblasts, creating **giant multinucleated cells (syncytia)** up to 30 cm long enclosed by a single continuous membrane (sarcolemma), challenging the notion that a cell is a small, single-nucleated unit."
+  },
+  {
+    "id": 13,
+    "topic": "Exceptions to Cell Theory: Giant Algae",
+    "question": "Why is the marine green alga Acetabularia (mermaid's wineglass) considered an extraordinary cytological exception to typical cell models?",
+    "options": [
+      "It reproduces without using DNA, RNA, or proteins.",
+      "It has no cell membrane and its cytoplasm is in direct contact with ocean water.",
+      "It is a massive single cell measuring up to 10 cm in length that is governed by only a single nucleus located at its rhizoid base.",
+      "It is composed of trillions of microscopic animal cells that live as a colony."
+    ],
+    "answer": 2,
+    "clue": "Acetabularia grows several centimeters tall, yet it consists of just ONE enormous cell with ONE nucleus.",
+    "explanation": "***Acetabularia*** grows up to **7 to 10 cm in height**, displays complex differentiated structures (rhizoid, stalk, and cap), yet is an **uninucleate single cell** with only one nucleus at its base, challenging the expectation that large complex structures must be multicellular."
+  },
+  {
+    "id": 14,
+    "topic": "Exceptions to Cell Theory: Aseptate Fungal Hyphae",
+    "question": "How do the coenocytic (aseptate) hyphae of certain fungi deviate from the standard compartmentalized cell model?",
+    "options": [
+      "They possess no cell walls and are composed purely of animal fat droplets.",
+      "They are made of separate rectangular bricks each containing twelve distinct nuclei.",
+      "They lack DNA and reproduce strictly by mineral crystallization.",
+      "They form long continuous branching tubes of cytoplasm containing hundreds of nuclei without internal dividing cross-walls (septa)."
+    ],
+    "answer": 3,
+    "clue": "Aseptate means \"without cross-walls\"; one continuous tube of cytoplasm houses many nuclei.",
+    "explanation": "**Aseptate (coenocytic) fungal hyphae** lack internal dividing cross-walls (**septa**). They consist of continuous filament tubes containing shared cytoplasm and many distributed nuclei, challenging the tenet that living organisms are partitioned into discrete individual cellular units."
+  },
+  {
+    "id": 15,
+    "topic": "Francesco Redi's Meat Experiment (1668)",
+    "question": "In 1668, Francesco Redi placed meat in open jars, tightly sealed jars, and jars covered with fine gauze netting. Maggots appeared only on the meat in the open jars and on top of the netting. What did this prove?",
+    "options": [
+      "Maggots arise from decaying meat through spontaneous generation.",
+      "The gauze netting was toxic and killed spontaneous fly generation.",
+      "Meat requires continuous sunlight to convert into fly larvae.",
+      "Maggots hatch from microscopic fly eggs deposited on the meat, disproving that meat spontaneously creates flies."
+    ],
+    "answer": 3,
+    "clue": "Flies had to physically reach the meat to lay eggs; no flies = no maggots.",
+    "explanation": "Redi proved that **maggots were fly larvae that only developed when adult flies could physically land on the meat to lay eggs**. This was the first controlled scientific experiment to challenge **spontaneous generation**."
+  },
+  {
+    "id": 16,
+    "topic": "The First Cell Paradox (Abiogenesis vs Biogenesis)",
+    "question": "While Cell Theory states that \"all cells arise from pre-existing cells,\" what evolutionary necessity must have occurred at the origin of life on primitive Earth (~3.8 billion years ago)?",
+    "options": [
+      "Cells have existed unchanged for an infinite number of trillions of years without beginning.",
+      "Extraterrestrial dinosaurs brought modern eukaryotic cells to Earth in space vehicles.",
+      "Earth was completely sterile until fully formed human cells materialized from volcanic ash.",
+      "A non-cellular protocell must have originally arisen from non-living organic prebiotic molecules through chemical evolution (abiogenesis)."
+    ],
+    "answer": 3,
+    "clue": "At the dawn of life, the very first cell had to arise from prebiotic self-assembling organic chemistry.",
+    "explanation": "Although *omnis cellula e cellula* holds true today, the **first living cell** must have originated from non-living organic chemistry through **abiogenesis** (the progressive abiotic assembly of organic monomers into polymers, self-replicating RNA, and lipid protocells) in the primordial Earth environment."
+  },
+  {
+    "id": 17,
+    "topic": "Zacharias Janssen & Early Compound Microscope",
+    "question": "What technological innovation developed around 1590 by Dutch spectacle-makers Zacharias Janssen and his father made the discovery of cells possible?",
+    "options": [
+      "The discovery of X-ray crystallography to image DNA structure.",
+      "The invention of the transmission electron microscope using magnetic coils.",
+      "The creation of fluorescent green dye from jellyfish aequorin.",
+      "The invention of the compound microscope using two lenses aligned in a tube to multiply magnification."
+    ],
+    "answer": 3,
+    "clue": "Putting an objective lens and an eyepiece lens together in an adjustable tube created the compound microscope.",
+    "explanation": "Around 1590, **Zacharias and Hans Janssen** combined an objective lens and an eyepiece lens in a sliding cylinder, creating the first rudimentary **compound microscope**, providing the optical magnification necessary to discover microscopic cells."
+  },
+  {
+    "id": 18,
+    "topic": "Common Ancestry Implication of Cell Theory",
+    "question": "What profound evolutionary inference directly follows from the Cell Theory tenet that \"all cells arise from pre-existing cells\"?",
+    "options": [
+      "All species evolved independently from completely different chemical elements.",
+      "All living organisms on Earth are genealogical descendants of a single Last Universal Common Ancestor (LUCA).",
+      "Every living species has a completely different genetic code with unique base pairs.",
+      "Plant cells and animal cells share zero biochemical or genetic similarities."
+    ],
+    "answer": 1,
+    "clue": "If every cell comes from a previous cell, tracing back the lineage leads to one original common ancestral cell.",
+    "explanation": "Because every living cell is the uninterrupted biological descendant of a prior dividing cell, tracing this cell lineage backward proves that **all life on Earth shares common ancestry**, descending from a primordial **Last Universal Common Ancestor (LUCA)**."
+  },
+  {
+    "id": 19,
+    "topic": "Unicellular Organism Completeness",
+    "question": "How does a single-celled bacterium or paramecium satisfy the classical definition of a living organism according to Cell Theory?",
+    "options": [
+      "It contains no cellular boundaries and exists purely as free-floating naked DNA.",
+      "It relies on neighboring animal cells to breathe and digest food on its behalf.",
+      "It does not satisfy the criteria of life and is classified as non-living mineral dust.",
+      "It carries out all fundamental functions of life (nutrition, metabolism, growth, response, excretion, homeostasis, reproduction) within a single solitary cell."
+    ],
+    "answer": 3,
+    "clue": "A single cell can perform every single life function: metabolism, homeostasis, reproduction, response, etc.",
+    "explanation": "Cell Theory states the cell is the **basic functional unit of life**. Unicellular organisms (like paramecia or bacteria) perform all seven essential life functions (**metabolism, response, homeostasis, growth, reproduction, excretion, and nutrition**) within a single cell."
+  },
+  {
+    "id": 20,
+    "topic": "Cell Theory Historical Timeline Synthesis",
+    "question": "Which sequence lists the historical milestones leading to Cell Theory in correct chronological order?",
+    "options": [
+      "Hooke (dead cork) \u2192 Leeuwenhoek (animalcules) \u2192 Schleiden & Schwann (plants/animals) \u2192 Virchow (pre-existing cells) \u2192 Pasteur (biogenesis disproof).",
+      "Pasteur (broth) \u2192 Virchow (pre-existing cells) \u2192 Hooke (cork) \u2192 Leeuwenhoek (animalcules) \u2192 Schleiden (plants).",
+      "Schleiden (plants) \u2192 Schwann (animals) \u2192 Hooke (cork) \u2192 Pasteur (broth) \u2192 Leeuwenhoek (animalcules).",
+      "Virchow (cells) \u2192 Hooke (cork) \u2192 Pasteur (broth) \u2192 Schleiden (plants) \u2192 Schwann (animals)."
+    ],
+    "answer": 0,
+    "clue": "Hooke 1665 -> Leeuwenhoek 1674 -> Schleiden/Schwann 1838/1839 -> Virchow 1855 -> Pasteur 1859.",
+    "explanation": "The historical timeline is: **Robert Hooke (1665)** named cells -> **Leeuwenhoek (1670s)** observed living cells -> **Schleiden & Schwann (1838-1839)** unified plants and animals -> **Virchow (1855)** established omnis cellula e cellula -> **Pasteur (1859)** experimentally disproved spontaneous generation."
+  }
+];
+    const STORAGE_KEY = 'bio_unit2_test11_state_clean';
+
+    let userState = {
+      answers: {},
+      showClues: {},
+      allCluesVisible: false,
+      currentFilter: 'All',
+      missedOnly: false
+    };
+
+    function safeLoad() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (parsed && typeof parsed === 'object') {
+            userState = Object.assign(userState, parsed);
+          }
+        }
+      } catch (e) {
+        console.warn('localStorage not accessible:', e);
+      }
+    }
+
+    function safeSave() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(userState));
+      } catch (e) {
+        console.warn('Could not save to localStorage:', e);
+      }
+    }
+
+    function init() {
+      safeLoad();
+      renderQuestions();
+      updateStats();
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById('questionsContainer');
+      if (!container) return;
+      container.innerHTML = '';
+
+      let filteredQuestions = questionsData.filter(q => {
+        if (userState.currentFilter !== 'All' && q.topic !== userState.currentFilter) return false;
+        if (userState.missedOnly) {
+          const userAns = userState.answers[q.id];
+          if (userAns === undefined || userAns === q.answer) return false;
+        }
+        return true;
+      });
+
+      if (filteredQuestions.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-12 bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
+            <i class="fa-solid fa-circle-check text-emerald-500 text-4xl mb-3"></i>
+            <h3 class="text-lg font-bold text-slate-800">No Questions In This Filter</h3>
+            <p class="text-slate-500 text-sm mt-1">Try selecting 'All Topics' or clearing the missed review filter.</p>
+          </div>
+        `;
+        return;
+      }
+
+      filteredQuestions.forEach((q) => {
+        const isAnswered = userState.answers[q.id] !== undefined;
+        const selectedOption = userState.answers[q.id];
+        const isCorrect = isAnswered && selectedOption === q.answer;
+        const isClueVisible = userState.allCluesVisible || userState.showClues[q.id];
+
+        const card = document.createElement('div');
+        card.className = `bg-white rounded-2xl p-6 border transition-all duration-200 shadow-sm ${
+          isAnswered
+            ? isCorrect
+              ? 'border-emerald-300 ring-1 ring-emerald-200/50 bg-emerald-50/20'
+              : 'border-rose-300 ring-1 ring-rose-200/50 bg-rose-50/20'
+            : 'border-slate-200 hover:border-slate-300'
+        }`;
+        card.id = `q-card-${q.id}`;
+
+        let optionsHtml = q.options.map((opt, oIdx) => {
+          let btnClass = "border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50/40 text-slate-700 cursor-pointer";
+          let iconHtml = `<span class="w-6 h-6 rounded-full border border-slate-300 text-xs font-semibold flex items-center justify-center mr-3 text-slate-500 shrink-0 mt-0.5">${String.fromCharCode(65 + oIdx)}</span>`;
+
+          if (isAnswered) {
+            if (oIdx === q.answer) {
+              btnClass = "bg-emerald-50 border-emerald-500 text-emerald-950 font-semibold ring-1 ring-emerald-400 cursor-default";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-emerald-600 text-white text-xs font-bold flex items-center justify-center mr-3 shrink-0 mt-0.5"><i class="fa-solid fa-check"></i></span>`;
+            } else if (oIdx === selectedOption && !isCorrect) {
+              btnClass = "bg-rose-50 border-rose-400 text-rose-950 font-semibold ring-1 ring-rose-300 cursor-default";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-rose-600 text-white text-xs font-bold flex items-center justify-center mr-3 shrink-0 mt-0.5"><i class="fa-solid fa-xmark"></i></span>`;
+            } else {
+              btnClass = "opacity-50 border-slate-200 text-slate-400 cursor-not-allowed";
+            }
+          }
+
+          return `
+            <button 
+              type="button"
+              onclick="selectAnswer(${q.id}, ${oIdx})" 
+              ${isAnswered ? 'disabled' : ''} 
+              class="w-full text-left p-3.5 rounded-xl text-sm transition flex items-start ${btnClass} my-2 leading-relaxed">
+              ${iconHtml}
+              <span class="flex-1">${opt}</span>
+            </button>
+          `;
+        }).join('');
+
+        card.innerHTML = `
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <div class="flex items-center gap-2">
+              <span class="bg-indigo-100 text-indigo-800 text-xs font-black px-2.5 py-0.5 rounded-md">Q${q.id}</span>
+              <span class="bg-slate-100 text-slate-600 text-xs font-semibold px-2.5 py-0.5 rounded-md">${q.topic}</span>
+            </div>
+
+            <button type="button" onclick="toggleClue(${q.id})" class="text-xs text-amber-700 bg-amber-50 hover:bg-amber-100 border border-amber-200 px-3 py-1 rounded-lg font-medium transition flex items-center gap-1 cursor-pointer">
+              <i class="fa-regular fa-lightbulb"></i>
+              ${isClueVisible ? 'Hide Hint' : 'Need a Clue?'}
+            </button>
+          </div>
+
+          <h3 class="text-base font-bold text-slate-900 leading-relaxed mb-4">${q.question}</h3>
+
+          <div id="clue-${q.id}" class="${isClueVisible ? 'block' : 'hidden'} mb-4 p-3.5 bg-amber-50/80 border border-amber-200 rounded-xl text-amber-900 text-xs flex items-start gap-2.5">
+            <i class="fa-solid fa-lightbulb text-amber-600 mt-0.5"></i>
+            <div><span class="font-bold">Study Hint:</span> ${q.clue}</div>
+          </div>
+
+          <div class="space-y-1">${optionsHtml}</div>
+
+          ${isAnswered ? `
+            <div class="mt-5 p-4 rounded-xl text-sm border ${
+              isCorrect 
+                ? 'bg-emerald-50/70 border-emerald-200 text-emerald-950' 
+                : 'bg-rose-50/70 border-rose-200 text-slate-800'
+            }">
+              <div class="flex items-center gap-2 font-bold mb-2 ${isCorrect ? 'text-emerald-800' : 'text-rose-800'}">
+                <i class="${isCorrect ? 'fa-solid fa-circle-check text-emerald-600' : 'fa-solid fa-circle-xmark text-rose-600'}"></i>
+                <span>${isCorrect ? 'Correct! Excellent work.' : 'Incorrect. Let\'s break it down:'}</span>
+              </div>
+              <p class="text-xs leading-relaxed text-slate-700 mb-2">${q.explanation}</p>
+              <div class="text-xs font-semibold text-indigo-700 pt-2 border-t border-slate-200/60 flex items-center justify-between">
+                <span>Correct Option: ${String.fromCharCode(65 + q.answer)} (${q.options[q.answer]})</span>
+                <button type="button" onclick="retryQuestion(${q.id})" class="text-slate-500 hover:text-slate-800 font-medium underline ml-2 cursor-pointer">Try Again</button>
+              </div>
+            </div>
+          ` : ''}
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function selectAnswer(qId, optionIdx) {
+      if (userState.answers[qId] !== undefined) return;
+      userState.answers[qId] = optionIdx;
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function retryQuestion(qId) {
+      delete userState.answers[qId];
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function toggleClue(qId) {
+      userState.showClues[qId] = !userState.showClues[qId];
+      const el = document.getElementById(`clue-${qId}`);
+      if (el) {
+        el.classList.toggle('hidden');
+        el.classList.toggle('block');
+      }
+    }
+
+    function toggleAllClues() {
+      userState.allCluesVisible = !userState.allCluesVisible;
+      const btnText = document.getElementById('clueToggleText');
+      if (btnText) {
+        btnText.textContent = userState.allCluesVisible ? 'Hide All Hints' : 'Show All Hints';
+      }
+      renderQuestions();
+    }
+
+    function filterTopic(topic) {
+      userState.currentFilter = topic;
+      userState.missedOnly = false;
+      document.querySelectorAll('.topic-btn').forEach(btn => {
+        if (btn.textContent.includes(topic) || (topic === 'All' && btn.textContent.includes('All Topics'))) {
+          btn.className = 'topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-sm transition cursor-pointer';
+        } else {
+          btn.className = 'topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer';
+        }
+      });
+      renderQuestions();
+    }
+
+    function filterMissed() {
+      userState.missedOnly = !userState.missedOnly;
+      const btn = document.getElementById('filterMissedBtn');
+      if (userState.missedOnly) {
+        btn.className = 'text-xs bg-rose-600 text-white border border-rose-600 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer shadow-sm';
+      } else {
+        btn.className = 'text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer';
+      }
+      renderQuestions();
+    }
+
+    function updateStats() {
+      const total = questionsData.length;
+      const answeredKeys = Object.keys(userState.answers);
+      const answeredCount = answeredKeys.length;
+      let correctCount = 0;
+      let missedCount = 0;
+
+      answeredKeys.forEach(k => {
+        const q = questionsData.find(item => item.id == k);
+        if (q) {
+          if (userState.answers[k] === q.answer) {
+            correctCount++;
+          } else {
+            missedCount++;
+          }
+        }
+      });
+
+      const pct = answeredCount > 0 ? Math.round((correctCount / answeredCount) * 100) : 0;
+      const progressPct = Math.round((answeredCount / total) * 100);
+
+      const statAns = document.getElementById('statAnswered');
+      const statScore = document.getElementById('statScore');
+      const progBar = document.getElementById('quizProgressBar');
+      const missedCountSpan = document.getElementById('missedCount');
+
+      if (statAns) statAns.textContent = `${answeredCount}/${total}`;
+      if (statScore) statScore.textContent = `${pct}%`;
+      if (progBar) progBar.style.width = `${progressPct}%`;
+      if (missedCountSpan) missedCountSpan.textContent = missedCount;
+
+      const summaryCard = document.getElementById('scoreSummaryCard');
+      if (answeredCount === total && total > 0) {
+        if (summaryCard) {
+          summaryCard.classList.remove('hidden');
+          document.getElementById('finalTotal').textContent = total;
+          document.getElementById('finalCorrect').textContent = correctCount;
+          document.getElementById('finalPercent').textContent = `${pct}%`;
+
+          const rating = document.getElementById('masteryRating');
+          if (pct >= 90) {
+            rating.className = 'p-4 rounded-2xl font-bold text-sm mb-6 bg-emerald-100 text-emerald-900 border border-emerald-300';
+            rating.innerHTML = '🌟 Master Level! Perfect historical and conceptual mastery of Cell Theory and its cytological pioneers!';
+          } else if (pct >= 75) {
+            rating.className = 'p-4 rounded-2xl font-bold text-sm mb-6 bg-blue-100 text-blue-900 border border-blue-300';
+            rating.innerHTML = '👍 Solid Mastery! Review missed questions to reinforce modern Cell Theory additions and exceptions.';
+          } else {
+            rating.className = 'p-4 rounded-2xl font-bold text-sm mb-6 bg-amber-100 text-amber-900 border border-amber-300';
+            rating.innerHTML = '📚 Keep practicing! Make flashcards for Hooke, Leeuwenhoek, Schleiden, Schwann, and Virchow.';
+          }
+        }
+      } else {
+        if (summaryCard) summaryCard.classList.add('hidden');
+      }
+    }
+
+    function resetQuiz() {
+      if (confirm('Are you sure you want to reset all answers and progress for this test?')) {
+        userState.answers = {};
+        userState.showClues = {};
+        userState.allCluesVisible = false;
+        userState.missedOnly = false;
+        safeSave();
+        renderQuestions();
+        updateStats();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  </script>
+</body>
+</html>

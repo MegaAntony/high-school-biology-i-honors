@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biology I Honors - Cell Theory & Structure Lecture Exam</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+
+  <!-- TOP HEADER -->
+  <header class="bg-gradient-to-r from-blue-700 via-indigo-700 to-emerald-700 text-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="w-10 h-10 rounded-xl bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition border border-white/20" title="Back to All Tests">
+          <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="bg-white/20 text-xs px-2.5 py-1 rounded-full font-semibold uppercase tracking-wider">Biology I Honors</span>
+            <span class="bg-emerald-400 text-slate-900 text-xs px-2.5 py-1 rounded-full font-bold">Document Exam 04</span>
+          </div>
+          <h1 class="text-xl sm:text-2xl font-black tracking-tight mt-1 text-white">Cell Theory & Structure Lecture Exam</h1>
+          <p class="text-xs text-blue-100 mt-0.5">Source Document: <code class="bg-black/20 px-1.5 py-0.5 rounded">HB Unit 2 (Part 2)_ Cell Theory & Structure PPT (26-27.pdf</code></p>
+        </div>
+      </div>
+
+      <!-- Quick Stats Top -->
+      <div class="flex items-center gap-4 bg-white/10 backdrop-blur px-4 py-2 rounded-xl border border-white/15">
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Answered</div>
+          <div id="statAnswered" class="text-xl font-bold">0/20</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Accuracy</div>
+          <div id="statScore" class="text-xl font-bold text-emerald-300">0%</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <button onclick="resetQuiz()" class="text-xs bg-white/20 hover:bg-white/30 text-white px-3 py-2 rounded-lg font-medium transition flex items-center gap-1.5 cursor-pointer">
+          <i class="fa-solid fa-rotate-right"></i> Reset
+        </button>
+      </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="w-full bg-slate-900/30 h-2">
+      <div id="quizProgressBar" class="bg-emerald-400 h-2 transition-all duration-300" style="width: 0%"></div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-6xl mx-auto px-4 py-8">
+
+    <!-- Anti-Guess Note Banner -->
+    <div class="bg-emerald-50 border border-emerald-200 text-emerald-950 p-4 rounded-2xl mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-semibold shadow-sm">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-shield-halved text-emerald-600 text-base shrink-0"></i>
+        <span><strong>Document Mastery Assessment:</strong> All questions are rigorously aligned directly with the contents of <code class="bg-emerald-100 px-1 py-0.5 rounded">HB Unit 2 (Part 2)_ Cell Theory & Structure PPT (26-27.pdf</code>.</span>
+      </div>
+      <a href="index.html" class="text-emerald-800 underline hover:text-emerald-950 whitespace-nowrap">View All Tests</a>
+    </div>
+
+    <!-- CONTROLS & FILTER BAR -->
+    <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 mb-8">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-sm font-bold text-slate-700 mb-2">Filter by Topic:</h2>
+          <div class="flex flex-wrap gap-2" id="topicFilters">
+            <button onclick="filterTopic('All')" class="topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-sm transition cursor-pointer">All Topics (20)</button>
+            <button onclick="filterTopic('Robert Hooke Discovery')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Robert Hooke Discovery</button>
+            <button onclick="filterTopic('Anton van Leeuwenhoek')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Anton van Leeuwenhoek</button>
+            <button onclick="filterTopic('Schleiden and Schwann')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Schleiden and Schwann</button>
+            <button onclick="filterTopic('Rudolf Virchow Contribution')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Rudolf Virchow Contribution</button>
+            <button onclick="filterTopic('3 Tenets of Cell Theory')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">3 Tenets of Cell Theory</button>
+            <button onclick="filterTopic('4 Universal Cell Structures')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">4 Universal Cell Structures</button>
+            <button onclick="filterTopic('Prokaryotes vs. Eukaryotes: Nucleus')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Prokaryotes vs. Eukaryotes: Nucleus</button>
+            <button onclick="filterTopic('Cell Size Comparison')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Cell Size Comparison</button>
+            <button onclick="filterTopic('Prokaryotic Cell Wall')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Prokaryotic Cell Wall</button>
+            <button onclick="filterTopic('Ribosome Svedberg Size')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Ribosome Svedberg Size</button>
+            <button onclick="filterTopic('Cell Division Mode')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Cell Division Mode</button>
+            <button onclick="filterTopic('Plant vs. Animal Shape')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Plant vs. Animal Shape</button>
+            <button onclick="filterTopic('Eukaryotic Cell Wall Chemistry')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Eukaryotic Cell Wall Chemistry</button>
+            <button onclick="filterTopic('Animal Tight Junctions')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Animal Tight Junctions</button>
+            <button onclick="filterTopic('Animal Gap Junctions')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Animal Gap Junctions</button>
+            <button onclick="filterTopic('Plant Plasmodesmata')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Plant Plasmodesmata</button>
+            <button onclick="filterTopic('Viruses: Are They Alive?')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Viruses: Are They Alive?</button>
+            <button onclick="filterTopic('Universal Viral Anatomy')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Universal Viral Anatomy</button>
+            <button onclick="filterTopic('Bacteriophage Infection Cycle')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Bacteriophage Infection Cycle</button>
+            <button onclick="filterTopic('Viral Evolution & Mutation')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Viral Evolution & Mutation</button>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 pt-2 lg:pt-0 border-t lg:border-t-0 border-slate-100">
+          <button onclick="toggleAllClues()" id="toggleCluesBtn" class="text-xs bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-regular fa-lightbulb"></i> <span id="clueToggleText">Show All Hints</span>
+          </button>
+          <button onclick="filterMissed()" id="filterMissedBtn" class="text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-solid fa-triangle-exclamation"></i> Review Missed (<span id="missedCount">0</span>)
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTIONS LIST -->
+    <div id="questionsContainer" class="space-y-6"></div>
+
+    <!-- SCORE SUMMARY CARD -->
+    <div id="scoreSummaryCard" class="mt-12 bg-white rounded-3xl p-8 border-2 border-indigo-100 shadow-xl hidden">
+      <div class="text-center max-w-xl mx-auto">
+        <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl">
+          <i class="fa-solid fa-trophy"></i>
+        </div>
+        <h2 class="text-2xl font-black text-slate-800">Test Complete!</h2>
+        <p class="text-slate-500 text-sm mt-1">Here is your detailed mastery score for Cell Theory & Structure Lecture Exam.</p>
+        
+        <div class="grid grid-cols-3 gap-4 my-6 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Total Questions</div>
+            <div class="text-2xl font-black text-slate-800" id="finalTotal">20</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Correct</div>
+            <div class="text-2xl font-black text-emerald-600" id="finalCorrect">0</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Score Rate</div>
+            <div class="text-2xl font-black text-blue-600" id="finalPercent">0%</div>
+          </div>
+        </div>
+
+        <div id="masteryRating" class="p-4 rounded-2xl font-bold text-sm mb-6"></div>
+
+        <div class="flex items-center justify-center gap-4">
+          <button onclick="resetQuiz()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-indigo-200 transition cursor-pointer">
+            Retake Entire Test
+          </button>
+          <a href="index.html" class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-emerald-200 transition">
+            Back to Tests Hub
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-500 mt-12">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p>© 2026 Biology I Honors • South Forsyth High School</p>
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="hover:text-indigo-600 transition font-medium">All Tests Hub</a>
+        <a href="../README.md" class="hover:text-indigo-600 transition font-medium">Weekly Agenda</a>
+        <a href="https://github.com/MegaAntony/biology-honors" target="_blank" class="hover:text-indigo-600 transition"><i class="fa-brands fa-github mr-1"></i>GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT ENGINE -->
+  <script>
+    const questionsData = [
+  {
+    "id": 1,
+    "topic": "Robert Hooke Discovery",
+    "question": "In 1665, Robert Hooke observed thin slices of dead cork under an early compound microscope. What did he observe, and what lasting biological term did he coin?",
+    "options": [
+      "He saw living unicellular protozoans swimming in fluid and termed them 'animalcules'.",
+      "He saw thousands of tiny, empty box-like compartments and coined the term 'cells'.",
+      "He identified double-membraned chloroplasts and coined the term 'photosynthesis'.",
+      "He discovered bacterial binary fission and coined the term 'prokaryote'."
+    ],
+    "answer": 1,
+    "clue": "Hooke viewed dead cork chambers that reminded him of monks' rooms in a monastery.",
+    "explanation": "In 1665, **Robert Hooke** examined cork bark. He saw thousands of tiny, empty box-like chambers (which were actually dead plant cell walls) and coined the term **'cells'** because they resembled the small rooms (cellulae) monks occupied in monasteries."
+  },
+  {
+    "id": 2,
+    "topic": "Anton van Leeuwenhoek",
+    "question": "Why is Anton van Leeuwenhoek celebrated as a foundational pioneer in microscopy and microbiology?",
+    "options": [
+      "He was the first scientist to conclude that all animal tissues are composed of individual cells.",
+      "He was the first person to observe living microscopic organisms in pond water and dental scrapings, calling them 'animalcules'.",
+      "He formulated the modern fluid mosaic model describing phospholipid bilayer dynamics.",
+      "He disproved spontaneous generation by proving that cell division requires mitotic spindle fibers."
+    ],
+    "answer": 1,
+    "clue": "Leeuwenhoek observed living microbes ('animalcules') using high-power single-lens microscopes.",
+    "explanation": "**Anton van Leeuwenhoek** ground superior optical lenses and was the first person to observe living microorganisms (protozoa, bacteria, sperm cells) in pond water and dental plaque, referring to them affectionately as **'animalcules'** ('little animals')."
+  },
+  {
+    "id": 3,
+    "topic": "Schleiden and Schwann",
+    "question": "What complementary conclusions did Matthias Schleiden (1838) and Theodor Schwann (1839) contribute to the development of Cell Theory?",
+    "options": [
+      "Schleiden concluded all plants are made of cells, while Schwann concluded all animals are made of cells.",
+      "Schleiden concluded bacteria lack a nucleus, while Schwann proved that viruses are non-living infectious particles.",
+      "Schleiden discovered the structure of ribosomes, while Schwann identified the enzyme that synthesizes peptidoglycan.",
+      "Schleiden proved cells divide via binary fission, while Schwann proved cells divide via mitosis."
+    ],
+    "answer": 0,
+    "clue": "Schleiden was a botanist (plants); Schwann (sounds like 'swan') was a zoologist (animals).",
+    "explanation": "German botanist **Matthias Schleiden** (1838) concluded that all plants are composed of cells. A year later, German zoologist **Theodor Schwann** (1839) concluded that all animals are composed of cells. Together, they generalized that all living organisms are cellular."
+  },
+  {
+    "id": 4,
+    "topic": "Rudolf Virchow Contribution",
+    "question": "What critical tenet did Rudolf Virchow contribute to Cell Theory in 1855 with his dictum 'Omnis cellula e cellula'?",
+    "options": [
+      "Living cells can arise spontaneously from decomposing organic broths under favorable environmental conditions.",
+      "All living cells arise exclusively from the division of pre-existing, living cells.",
+      "Every living cell must possess an internal membrane-bound nucleus and linear chromosomes.",
+      "Bacterial cells are structurally identical to eukaryotic animal cells in organelle composition."
+    ],
+    "answer": 1,
+    "clue": "Virchow resolved the debate over spontaneous generation by asserting that cells only come from other cells.",
+    "explanation": "**Rudolf Virchow** (1855) proposed that **all cells come from other pre-existing cells** through cellular division (*'Omnis cellula e cellula'*), refuting the prevailing theory of spontaneous generation (abiogenesis)."
+  },
+  {
+    "id": 5,
+    "topic": "3 Tenets of Cell Theory",
+    "question": "Which of the following statements is NOT one of the three foundational tenets of modern Cell Theory?",
+    "options": [
+      "All living organisms are composed of one or more cells.",
+      "The cell is the basic structural and functional unit of organization in all living organisms.",
+      "All cells originate only from existing, living cells through cell division.",
+      "All cells must contain membrane-bound mitochondria and linear nuclear chromosomes."
+    ],
+    "answer": 3,
+    "clue": "Bacteria are cells, but they lack mitochondria and a nucleus.",
+    "explanation": "The three tenets of Cell Theory are: (1) All living things are composed of cells; (2) Cells are the basic unit of life; (3) All cells arise from pre-existing cells. Prokaryotic bacterial cells lack mitochondria and nuclei, so option D is false."
+  },
+  {
+    "id": 6,
+    "topic": "4 Universal Cell Structures",
+    "question": "Regardless of whether an organism is a bacterium, mushroom, human, or tree, what four universal components are found in EVERY cell on Earth?",
+    "options": [
+      "Nucleus, Mitochondria, Cell Wall, and Endoplasmic Reticulum",
+      "Cell Membrane, Cytoplasm, Ribosomes, and Genetic Material (DNA)",
+      "Chloroplasts, Central Vacuole, Cytoskeleton, and Centrioles",
+      "Peptidoglycan wall, Flagella, Plasmids, and Capsid"
+    ],
+    "answer": 1,
+    "clue": "All cells have a boundary, fluid, protein makers, and genetic blueprints.",
+    "explanation": "Every living cell on Earth\u2014prokaryotic or eukaryotic\u2014shares four universal structures: **(1) Cell Membrane (plasma membrane), (2) Cytoplasm, (3) Ribosomes, and (4) Genetic Material (DNA)**."
+  },
+  {
+    "id": 7,
+    "topic": "Prokaryotes vs. Eukaryotes: Nucleus",
+    "question": "What is the defining structural difference regarding genetic storage between prokaryotic cells and eukaryotic cells?",
+    "options": [
+      "Prokaryotes lack a membrane-bound nucleus and store DNA in an open nucleoid, whereas eukaryotes possess a true nucleus.",
+      "Prokaryotes store their genome entirely inside mitochondria, whereas eukaryotes store DNA inside the Golgi apparatus.",
+      "Prokaryotes possess multiple linear chromosomes, whereas eukaryotes possess a single circular DNA plasmid.",
+      "Prokaryotes lack genetic material entirely, relying instead on absorbed host messenger RNA."
+    ],
+    "answer": 0,
+    "clue": "'Pro' rhymes with 'no' (no nucleus); 'Eu' means 'true' (true nucleus).",
+    "explanation": "**Prokaryotes** lack a nuclear membrane; their single circular chromosome resides in an open cytoplasmic **nucleoid region**. **Eukaryotes** have a double-membraned **true nucleus** containing linear chromosomes wrapped around histones."
+  },
+  {
+    "id": 8,
+    "topic": "Cell Size Comparison",
+    "question": "How do typical bacterial (prokaryotic) cells compare in physical size to typical eukaryotic animal cells?",
+    "options": [
+      "Bacteria are approximately 10 to 100 times larger than animal cells.",
+      "Bacteria (1-5 micrometers) are roughly 10 times smaller than eukaryotic cells (10-100 micrometers).",
+      "Bacteria and eukaryotic animal cells are exactly identical in diameter (~50 micrometers).",
+      "Bacteria are visible to the naked human eye, whereas animal cells require electron microscopy."
+    ],
+    "answer": 1,
+    "clue": "Bacteria are typically 1-5 \u00b5m, while eukaryotic cells are 10-100 \u00b5m.",
+    "explanation": "Most **bacteria** are **$1 - 5\\ \\mu\text{m}$** in diameter, whereas typical **eukaryotic cells** are **$10 - 100\\ \\mu\text{m}$** (roughly an order of magnitude larger and more compartmentalized)."
+  },
+  {
+    "id": 9,
+    "topic": "Prokaryotic Cell Wall",
+    "question": "In true Eubacteria, what complex macromolecular polymer forms the rigid outer cell wall?",
+    "options": [
+      "Cellulose microfibrils",
+      "Chitin polymers",
+      "Peptidoglycan (amino acid and sugar meshwork)",
+      "Phospholipid monolayers"
+    ],
+    "answer": 2,
+    "clue": "Plant walls are cellulose; fungi are chitin; bacterial walls are peptidoglycan.",
+    "explanation": "Bacterial cell walls are made of **peptidoglycan** (murein), a rigid polymer composed of alternating sugar chains cross-linked by short peptide fragments."
+  },
+  {
+    "id": 10,
+    "topic": "Ribosome Svedberg Size",
+    "question": "What difference in ribosomal sediment size separates prokaryotic ribosomes from eukaryotic cytoplasmic ribosomes?",
+    "options": [
+      "Prokaryotes possess smaller 70S ribosomes, while eukaryotes possess larger 80S ribosomes in their cytosol.",
+      "Prokaryotes possess 80S ribosomes, while eukaryotes possess 70S ribosomes exclusively.",
+      "Prokaryotes lack ribosomes entirely, while eukaryotes possess 100S ribosomes in their nucleolus.",
+      "Prokaryotes and eukaryotes possess identical 90S ribosomes that are interchangeable in function."
+    ],
+    "answer": 0,
+    "clue": "Prokaryotes have 70S ribosomes; eukaryotic cytosol has 80S ribosomes (though mitochondria have 70S).",
+    "explanation": "Prokaryotes possess **70S ribosomes** (50S + 30S subunits). Eukaryotic cytoplasm possesses larger **80S ribosomes** (60S + 40S subunits). This structural difference allows antibiotics like tetracycline to target bacterial ribosomes without harming human 80S ribosomes."
+  },
+  {
+    "id": 11,
+    "topic": "Cell Division Mode",
+    "question": "How do prokaryotic bacteria reproduce asexually, compared to somatic cell division in eukaryotes?",
+    "options": [
+      "Bacteria reproduce via mitosis with spindle fibers, whereas eukaryotes reproduce via binary fission.",
+      "Bacteria reproduce via binary fission ('B' for bacteria), whereas eukaryotes divide via mitosis.",
+      "Bacteria reproduce exclusively through meiotic spore generation without DNA replication.",
+      "Bacteria reproduce by budding from the outer nuclear envelope of host organisms."
+    ],
+    "answer": 1,
+    "clue": "'B' for Bacteria = Binary fission.",
+    "explanation": "Bacteria reproduce asexually through **binary fission**: the circular chromosome replicates, attaches to the membrane, and the cell cleaves in half. Eukaryotic somatic cells divide through **mitosis**, which requires a complex spindle apparatus to partition linear chromosomes."
+  },
+  {
+    "id": 12,
+    "topic": "Plant vs. Animal Shape",
+    "question": "Under a light microscope, why do plant cells exhibit a rigid, geometric box-like shape, while animal cells appear rounded and flexible?",
+    "options": [
+      "Plant cells are encased in a rigid cellulose cell wall outside their membrane, whereas animal cells lack a cell wall.",
+      "Plant cells maintain high internal hydrostatic pressure through active sodium-potassium ATPase pumping.",
+      "Animal cells continuously dissolve their plasma membrane to facilitate pseudopodial amoeboid crawling.",
+      "Plant cells possess an internal skeleton composed of chitin microfibrils that permanently freezes cell shape."
+    ],
+    "answer": 0,
+    "clue": "The cellulose cell wall is rigid and box-like; animal cells have only a flexible plasma membrane.",
+    "explanation": "Plant cells have a rigid outer **cellulose cell wall** that gives them a fixed, rectangular box-like architecture. Animal cells lack a cell wall and are bounded only by a flexible plasma membrane, resulting in irregular or rounded shapes."
+  },
+  {
+    "id": 13,
+    "topic": "Eukaryotic Cell Wall Chemistry",
+    "question": "Cell walls are found in some eukaryotic kingdoms but not others. Which pairing correctly identifies eukaryotic cell wall composition?",
+    "options": [
+      "Plants: Cellulose | Fungi: Chitin | Animals: None",
+      "Plants: Chitin | Fungi: Cellulose | Animals: Peptidoglycan",
+      "Plants: Peptidoglycan | Fungi: Chitin | Animals: Cellulose",
+      "Plants: Cellulose | Fungi: None | Animals: Chitin"
+    ],
+    "answer": 0,
+    "clue": "Plant walls = cellulose; Fungi (mushrooms) = chitin; Animals = no cell wall.",
+    "explanation": "Eukaryotic cell walls are found in **Plants** (composed of **cellulose**) and **Fungi** (composed of **chitin**). Animals completely lack cell walls."
+  },
+  {
+    "id": 14,
+    "topic": "Animal Tight Junctions",
+    "question": "What is the primary function of tight junctions between adjacent epithelial cells in animal tissues?",
+    "options": [
+      "Forming open cytoplasmic tunnels that allow rapid electrical impulse flow between cardiac myocytes",
+      "Stitching neighboring cell membranes together to form a leak-proof barrier preventing fluid leakage",
+      "Anchoring mitotic spindle microtubules to the plasma membrane during cytokinesis",
+      "Pumping protons into extracellular matrix spaces to dissolve bacterial peptidoglycan"
+    ],
+    "answer": 1,
+    "clue": "Tight junctions act like waterproof ziplock seams between cells.",
+    "explanation": "**Tight junctions** consist of interlocking transmembrane proteins that press adjacent animal cell membranes tightly together, forming a continuous leak-proof seal that prevents fluid and solutes from seeping between cells (e.g., in the intestinal lining and bladder)."
+  },
+  {
+    "id": 15,
+    "topic": "Animal Gap Junctions",
+    "question": "What is the physiological role of gap junctions in animal tissues such as cardiac muscle?",
+    "options": [
+      "Forming open protein channels (connexons) directly connecting the cytoplasm of adjacent cells for rapid ion and electrical signaling",
+      "Synthesizing extra layers of collagen fibers to anchor muscle tendons to skeleton bones",
+      "Sealing intestinal epithelial layers so that digestive acid cannot penetrate underlying blood vessels",
+      "Destroying worn-out mitochondria through autophagic vesicular fusion across membranes"
+    ],
+    "answer": 0,
+    "clue": "Gap junctions provide direct cytoplasmic communication bridges between cells.",
+    "explanation": "**Gap junctions** are intercellular channels formed by protein rings (connexons) that directly link the cytoplasm of neighboring animal cells, allowing ions, sugars, and electrical impulses to pass freely and synchronize cardiac muscle contractions."
+  },
+  {
+    "id": 16,
+    "topic": "Plant Plasmodesmata",
+    "question": "Because plant cells are immobilized within rigid cellulose cell walls, how do they exchange nutrients, hormones, and RNA signals between adjacent cells?",
+    "options": [
+      "Through gap junctions composed of connexon protein rings embedded in the lipid bilayer",
+      "Through plasmodesmata\u2014microscopic membrane-lined pores perforating adjoining cell walls",
+      "By completely dissolving their cellulose cell walls every evening during photosynthetic rest",
+      "Via continuous receptor-mediated pinocytosis that engulfs wall fragments into vesicles"
+    ],
+    "answer": 1,
+    "clue": "Plasmodesmata are the cytoplasmic bridges perforating plant cell walls.",
+    "explanation": "**Plasmodesmata** are microscopic channels that perforate plant cell walls, directly connecting the cytoplasm and endoplasmic reticulum of adjoining plant cells to enable transport of water, nutrients, hormones, and signaling molecules across the plant."
+  },
+  {
+    "id": 17,
+    "topic": "Viruses: Are They Alive?",
+    "question": "Why are viruses classified by biologists as non-living biological entities rather than living cellular organisms?",
+    "options": [
+      "Viruses are acellular, lack independent metabolism (no ATP generation), and cannot reproduce without hijacking a host cell.",
+      "Viruses possess circular DNA chromosomes identical to ancient photosynthetic cyanobacteria.",
+      "Viruses are larger than eukaryotic cells and possess rigid cellulose cell walls that prevent mitosis.",
+      "Viruses reproduce exclusively through binary fission in aquatic environments without needing host tissue."
+    ],
+    "answer": 0,
+    "clue": "Viruses are not made of cells, have no metabolism, and cannot reproduce alone.",
+    "explanation": "Under biological definitions, viruses are **non-living** because they are acellular (not made of cells, violating Cell Theory), possess no metabolic machinery to generate energy or synthesize proteins, and are obligate intracellular parasites that must hijack a host cell's machinery to replicate."
+  },
+  {
+    "id": 18,
+    "topic": "Universal Viral Anatomy",
+    "question": "All viruses, regardless of the host they infect, possess which two fundamental structural components?",
+    "options": [
+      "A peptidoglycan cell wall and 70S ribosomes",
+      "A protective protein capsid and a nucleic acid genome (DNA or RNA)",
+      "A double-membraned nucleus and circular plasmid DNA",
+      "A lipid envelope with embedded ATP synthase enzyme complexes"
+    ],
+    "answer": 1,
+    "clue": "Every virus has a protein coat (capsid) and genetic material (DNA or RNA).",
+    "explanation": "Every virus consists minimally of a **nucleic acid genome** (which can be single- or double-stranded DNA or RNA) enclosed inside a protective protein shell known as a **capsid**."
+  },
+  {
+    "id": 19,
+    "topic": "Bacteriophage Infection Cycle",
+    "question": "What is a bacteriophage, and how does it initiate infection of its target bacterial host?",
+    "options": [
+      "It is an animal virus that enters human lung cells via receptor-mediated endocytosis.",
+      "It is a specialized virus that infects bacteria by anchoring tail fibers to the cell wall and injecting its DNA through the sheath.",
+      "It is a photosynthetic bacterial plasmid that replicates inside the chloroplast stroma of plants.",
+      "It is a primitive protozoan that feeds on bacterial peptidoglycan using amoeboid pseudopodia."
+    ],
+    "answer": 1,
+    "clue": "Bacteriophages look like lunar landers and inject DNA into bacteria.",
+    "explanation": "A **bacteriophage** is a specialized virus that targets bacteria. It attaches to surface receptors on the bacterial cell wall using its tail fibers, contracts its sheath like a hypodermic needle, and injects its viral genome into the bacterial cytoplasm."
+  },
+  {
+    "id": 20,
+    "topic": "Viral Evolution & Mutation",
+    "question": "Why do RNA viruses (such as influenza and HIV) evolve and develop new strains with remarkable speed compared to eukaryotic organisms?",
+    "options": [
+      "They reproduce through rapid binary fission every 20 minutes under favorable moisture conditions.",
+      "Viral RNA polymerases lack proofreading mechanisms, leading to high mutation rates during genome replication.",
+      "Their protein capsids absorb host DNA fragments and convert them into novel structural organelles.",
+      "They undergo sexual meiosis with extensive crossing over within host cell lysosomes."
+    ],
+    "answer": 1,
+    "clue": "RNA replication enzymes lack proofreading, generating frequent genetic mutations.",
+    "explanation": "RNA viruses replicate using RNA-dependent RNA polymerases (or reverse transcriptase) that lack proofreading and error-correction capabilities. This leads to **high mutation rates**, enabling rapid evolutionary adaptation, antigen drift, and the emergence of drug-resistant strains."
+  }
+];
+
+    const STORAGE_KEY = 'bio1_doc_test_04_cell_theory_ppt';
+
+    let userState = {
+      answers: {},
+      showClues: {},
+      allCluesVisible: false,
+      currentFilter: 'All',
+      missedOnly: false
+    };
+
+    function safeLoad() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          userState = JSON.parse(saved);
+        }
+      } catch (e) {
+        console.warn('localStorage not accessible:', e);
+      }
+    }
+
+    function safeSave() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(userState));
+      } catch (e) {
+        console.warn('Could not save to localStorage:', e);
+      }
+    }
+
+    function init() {
+      safeLoad();
+      renderQuestions();
+      updateStats();
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById('questionsContainer');
+      if (!container) return;
+      container.innerHTML = '';
+
+      let filteredQuestions = questionsData.filter(q => {
+        if (userState.currentFilter !== 'All' && q.topic !== userState.currentFilter) return false;
+        if (userState.missedOnly) {
+          const userAns = userState.answers[q.id];
+          if (userAns === undefined || userAns === q.answer) return false;
+        }
+        return true;
+      });
+
+      if (filteredQuestions.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-12 bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
+            <i class="fa-solid fa-circle-check text-emerald-500 text-4xl mb-3"></i>
+            <h3 class="text-lg font-bold text-slate-800">No Questions In This Filter</h3>
+            <p class="text-slate-500 text-sm mt-1">Try selecting 'All Topics' or clearing the missed review filter.</p>
+          </div>
+        `;
+        return;
+      }
+
+      filteredQuestions.forEach((q) => {
+        const isAnswered = userState.answers[q.id] !== undefined;
+        const selectedOption = userState.answers[q.id];
+        const isCorrect = isAnswered && selectedOption === q.answer;
+        const isClueVisible = userState.allCluesVisible || userState.showClues[q.id];
+
+        const card = document.createElement('div');
+        card.className = `bg-white rounded-2xl p-6 border transition-all duration-200 shadow-sm ${
+          isAnswered
+            ? isCorrect
+              ? 'border-emerald-300 ring-1 ring-emerald-200/50 bg-emerald-50/20'
+              : 'border-rose-300 ring-1 ring-rose-200/50 bg-rose-50/20'
+            : 'border-slate-200 hover:border-slate-300'
+        }`;
+        card.id = `q-card-${q.id}`;
+
+        let optionsHtml = q.options.map((opt, oIdx) => {
+          let btnClass = "border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50/40 text-slate-700 cursor-pointer";
+          let iconHtml = `<span class="w-6 h-6 rounded-full border border-slate-300 text-xs font-semibold flex items-center justify-center mr-3 text-slate-500 shrink-0 mt-0.5">${String.fromCharCode(65 + oIdx)}</span>`;
+
+          if (isAnswered) {
+            if (oIdx === q.answer) {
+              btnClass = "bg-emerald-50 border-emerald-500 text-emerald-950 font-semibold ring-1 ring-emerald-400 cursor-default";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-emerald-600 text-white text-xs font-bold flex items-center justify-center mr-3 shrink-0 mt-0.5"><i class="fa-solid fa-check"></i></span>`;
+            } else if (oIdx === selectedOption && !isCorrect) {
+              btnClass = "bg-rose-50 border-rose-400 text-rose-950 font-semibold ring-1 ring-rose-300 cursor-default";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-rose-600 text-white text-xs font-bold flex items-center justify-center mr-3 shrink-0 mt-0.5"><i class="fa-solid fa-xmark"></i></span>`;
+            } else {
+              btnClass = "opacity-50 border-slate-200 text-slate-400 cursor-not-allowed";
+            }
+          }
+
+          return `
+            <button 
+              type="button"
+              onclick="selectAnswer(${q.id}, ${oIdx})" 
+              ${isAnswered ? 'disabled' : ''} 
+              class="w-full text-left p-3.5 rounded-xl text-sm transition flex items-start ${btnClass} my-2 leading-relaxed">
+              ${iconHtml}
+              <span class="flex-1">${opt}</span>
+            </button>
+          `;
+        }).join('');
+
+        card.innerHTML = `
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <div class="flex items-center gap-2">
+              <span class="bg-indigo-100 text-indigo-800 text-xs font-black px-2.5 py-0.5 rounded-md">Q${q.id}</span>
+              <span class="bg-slate-100 text-slate-600 text-xs font-semibold px-2.5 py-0.5 rounded-md">${q.topic}</span>
+            </div>
+
+            <button type="button" onclick="toggleClue(${q.id})" class="text-xs text-amber-700 bg-amber-50 hover:bg-amber-100 border border-amber-200 px-3 py-1 rounded-lg font-medium transition flex items-center gap-1 cursor-pointer">
+              <i class="fa-regular fa-lightbulb"></i>
+              ${isClueVisible ? 'Hide Hint' : 'Need a Clue?'}
+            </button>
+          </div>
+
+          <h3 class="text-base font-bold text-slate-900 leading-relaxed mb-4">${q.question}</h3>
+
+          <div id="clue-${q.id}" class="${isClueVisible ? 'block' : 'hidden'} mb-4 p-3.5 bg-amber-50/80 border border-amber-200 rounded-xl text-amber-900 text-xs flex items-start gap-2.5">
+            <i class="fa-solid fa-lightbulb text-amber-600 mt-0.5"></i>
+            <div><span class="font-bold">Study Hint:</span> ${q.clue}</div>
+          </div>
+
+          <div class="space-y-1">${optionsHtml}</div>
+
+          ${isAnswered ? `
+            <div class="mt-5 p-4 rounded-xl text-sm border ${
+              isCorrect 
+                ? 'bg-emerald-50/70 border-emerald-200 text-emerald-950' 
+                : 'bg-rose-50/70 border-rose-200 text-slate-800'
+            }">
+              <div class="flex items-center gap-2 font-bold mb-2 ${isCorrect ? 'text-emerald-800' : 'text-rose-800'}">
+                <i class="${isCorrect ? 'fa-solid fa-circle-check text-emerald-600' : 'fa-solid fa-circle-xmark text-rose-600'}"></i>
+                <span>${isCorrect ? 'Correct! Excellent work.' : 'Incorrect. Let\'s break it down:'}</span>
+              </div>
+              <p class="text-xs leading-relaxed text-slate-700 mb-2">${q.explanation}</p>
+              <div class="text-xs font-semibold text-indigo-700 pt-2 border-t border-slate-200/60 flex items-center justify-between">
+                <span>Correct Option: ${String.fromCharCode(65 + q.answer)} (${q.options[q.answer]})</span>
+                <button type="button" onclick="retryQuestion(${q.id})" class="text-slate-500 hover:text-slate-800 font-medium underline ml-2 cursor-pointer">Try Again</button>
+              </div>
+            </div>
+          ` : ''}
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function selectAnswer(qId, optionIdx) {
+      if (userState.answers[qId] !== undefined) return;
+      userState.answers[qId] = optionIdx;
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function retryQuestion(qId) {
+      delete userState.answers[qId];
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function toggleClue(qId) {
+      userState.showClues[qId] = !userState.showClues[qId];
+      safeSave();
+      renderQuestions();
+    }
+
+    function toggleAllClues() {
+      userState.allCluesVisible = !userState.allCluesVisible;
+      document.getElementById('clueToggleText').innerText = userState.allCluesVisible ? "Hide All Hints" : "Show All Hints";
+      safeSave();
+      renderQuestions();
+    }
+
+    function filterTopic(topic) {
+      userState.currentFilter = topic;
+      userState.missedOnly = false;
+      document.querySelectorAll('.topic-btn').forEach(btn => {
+        if (btn.innerText.includes(topic) || (topic === 'All' && btn.innerText.includes('All Topics'))) {
+          btn.className = "topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-sm transition cursor-pointer";
+        } else {
+          btn.className = "topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer";
+        }
+      });
+      renderQuestions();
+    }
+
+    function filterMissed() {
+      userState.missedOnly = !userState.missedOnly;
+      const btn = document.getElementById('filterMissedBtn');
+      if (userState.missedOnly) {
+        btn.className = "text-xs bg-rose-600 text-white border border-rose-600 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer shadow-sm";
+      } else {
+        btn.className = "text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer";
+      }
+      renderQuestions();
+    }
+
+    function updateStats() {
+      const answeredCount = Object.keys(userState.answers).length;
+      let correctCount = 0;
+      let missedCount = 0;
+
+      questionsData.forEach(q => {
+        if (userState.answers[q.id] !== undefined) {
+          if (userState.answers[q.id] === q.answer) {
+            correctCount++;
+          } else {
+            missedCount++;
+          }
+        }
+      });
+
+      const total = questionsData.length;
+      document.getElementById('statAnswered').innerText = `${answeredCount}/${total}`;
+      document.getElementById('missedCount').innerText = missedCount;
+
+      const accuracy = answeredCount === 0 ? 0 : Math.round((correctCount / answeredCount) * 100);
+      document.getElementById('statScore').innerText = `${accuracy}%`;
+      document.getElementById('quizProgressBar').style.width = `${(answeredCount / total) * 100}%`;
+
+      const scoreCard = document.getElementById('scoreSummaryCard');
+      if (answeredCount === total && total > 0) {
+        scoreCard.classList.remove('hidden');
+        document.getElementById('finalTotal').innerText = total;
+        document.getElementById('finalCorrect').innerText = correctCount;
+        document.getElementById('finalPercent').innerText = `${accuracy}%`;
+
+        const ratingBox = document.getElementById('masteryRating');
+        if (accuracy >= 90) {
+          ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-emerald-50 border border-emerald-300 text-emerald-900";
+          ratingBox.innerHTML = '<i class="fa-solid fa-certificate mr-2 text-emerald-600"></i>Mastery Achieved! Outstanding understanding of this document.';
+        } else if (accuracy >= 75) {
+          ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-blue-50 border border-blue-300 text-blue-900";
+          ratingBox.innerHTML = '<i class="fa-solid fa-thumbs-up mr-2 text-blue-600"></i>Proficient! Good foundation; review missed items before testing.';
+        } else {
+          ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-amber-50 border border-amber-300 text-amber-900";
+          ratingBox.innerHTML = '<i class="fa-solid fa-book-open mr-2 text-amber-600"></i>Review Recommended! Use the Markdown companion notes to reinforce weak areas.';
+        }
+      } else {
+        scoreCard.classList.add('hidden');
+      }
+    }
+
+    function resetQuiz() {
+      if (confirm("Are you sure you want to reset all answers and hints for this test?")) {
+        userState.answers = {};
+        userState.showClues = {};
+        userState.allCluesVisible = false;
+        userState.currentFilter = 'All';
+        userState.missedOnly = false;
+        safeSave();
+        document.getElementById('clueToggleText').innerText = "Show All Hints";
+        document.getElementById('filterMissedBtn').className = "text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer";
+        filterTopic('All');
+        renderQuestions();
+        updateStats();
+      }
+    }
+
+    window.onload = init;
+  </script>
+</body>
+</html>

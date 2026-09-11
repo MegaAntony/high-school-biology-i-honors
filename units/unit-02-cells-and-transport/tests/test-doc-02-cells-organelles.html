@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biology I Honors - Cell Organelles & Homeostasis Exam</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+
+  <!-- TOP HEADER -->
+  <header class="bg-gradient-to-r from-blue-700 via-indigo-700 to-emerald-700 text-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="w-10 h-10 rounded-xl bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition border border-white/20" title="Back to All Tests">
+          <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="bg-white/20 text-xs px-2.5 py-1 rounded-full font-semibold uppercase tracking-wider">Biology I Honors</span>
+            <span class="bg-emerald-400 text-slate-900 text-xs px-2.5 py-1 rounded-full font-bold">Document Exam 02</span>
+          </div>
+          <h1 class="text-xl sm:text-2xl font-black tracking-tight mt-1 text-white">Cell Organelles & Homeostasis Exam</h1>
+          <p class="text-xs text-blue-100 mt-0.5">Source Document: <code class="bg-black/20 px-1.5 py-0.5 rounded">Cells 1_ Organelles.pdf</code></p>
+        </div>
+      </div>
+
+      <!-- Quick Stats Top -->
+      <div class="flex items-center gap-4 bg-white/10 backdrop-blur px-4 py-2 rounded-xl border border-white/15">
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Answered</div>
+          <div id="statAnswered" class="text-xl font-bold">0/20</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Accuracy</div>
+          <div id="statScore" class="text-xl font-bold text-emerald-300">0%</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <button onclick="resetQuiz()" class="text-xs bg-white/20 hover:bg-white/30 text-white px-3 py-2 rounded-lg font-medium transition flex items-center gap-1.5 cursor-pointer">
+          <i class="fa-solid fa-rotate-right"></i> Reset
+        </button>
+      </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="w-full bg-slate-900/30 h-2">
+      <div id="quizProgressBar" class="bg-emerald-400 h-2 transition-all duration-300" style="width: 0%"></div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-6xl mx-auto px-4 py-8">
+
+    <!-- Anti-Guess Note Banner -->
+    <div class="bg-emerald-50 border border-emerald-200 text-emerald-950 p-4 rounded-2xl mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-semibold shadow-sm">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-shield-halved text-emerald-600 text-base shrink-0"></i>
+        <span><strong>Document Mastery Assessment:</strong> All questions are rigorously aligned directly with the contents of <code class="bg-emerald-100 px-1 py-0.5 rounded">Cells 1_ Organelles.pdf</code>.</span>
+      </div>
+      <a href="index.html" class="text-emerald-800 underline hover:text-emerald-950 whitespace-nowrap">View All Tests</a>
+    </div>
+
+    <!-- CONTROLS & FILTER BAR -->
+    <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 mb-8">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-sm font-bold text-slate-700 mb-2">Filter by Topic:</h2>
+          <div class="flex flex-wrap gap-2" id="topicFilters">
+            <button onclick="filterTopic('All')" class="topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-sm transition cursor-pointer">All Topics (20)</button>
+            <button onclick="filterTopic('Homeostasis & Systems')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Homeostasis & Systems</button>
+            <button onclick="filterTopic('Cytoplasm & Cytoskeleton')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Cytoplasm & Cytoskeleton</button>
+            <button onclick="filterTopic('The Nucleus Demands')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">The Nucleus Demands</button>
+            <button onclick="filterTopic('Mitochondria & Endosymbiosis')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Mitochondria & Endosymbiosis</button>
+            <button onclick="filterTopic('Golgi Apparatus Function')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Golgi Apparatus Function</button>
+            <button onclick="filterTopic('Ribosome Architecture')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Ribosome Architecture</button>
+            <button onclick="filterTopic('Rough ER vs. Smooth ER')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Rough ER vs. Smooth ER</button>
+            <button onclick="filterTopic('Lysosome Defense & Degradation')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Lysosome Defense & Degradation</button>
+            <button onclick="filterTopic('Centrosome & Centrioles')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Centrosome & Centrioles</button>
+            <button onclick="filterTopic('Vacuoles: Plant vs. Animal')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Vacuoles: Plant vs. Animal</button>
+            <button onclick="filterTopic('Cell Wall Composition')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Cell Wall Composition</button>
+            <button onclick="filterTopic('Chloroplast Function & Evolution')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Chloroplast Function & Evolution</button>
+            <button onclick="filterTopic('Organelles Unique to Plants')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Organelles Unique to Plants</button>
+            <button onclick="filterTopic('Structures Unique to Animals')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Structures Unique to Animals</button>
+            <button onclick="filterTopic('Endomembrane Transport Vesicles')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Endomembrane Transport Vesicles</button>
+            <button onclick="filterTopic('System Failure Consequence')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">System Failure Consequence</button>
+            <button onclick="filterTopic('Smooth ER Detoxification')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Smooth ER Detoxification</button>
+            <button onclick="filterTopic('Nuclear Envelope Pores')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Nuclear Envelope Pores</button>
+            <button onclick="filterTopic('Shared Organelles')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Shared Organelles</button>
+            <button onclick="filterTopic('Cell Wall vs. Membrane')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Cell Wall vs. Membrane</button>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 pt-2 lg:pt-0 border-t lg:border-t-0 border-slate-100">
+          <button onclick="toggleAllClues()" id="toggleCluesBtn" class="text-xs bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-regular fa-lightbulb"></i> <span id="clueToggleText">Show All Hints</span>
+          </button>
+          <button onclick="filterMissed()" id="filterMissedBtn" class="text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-solid fa-triangle-exclamation"></i> Review Missed (<span id="missedCount">0</span>)
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTIONS LIST -->
+    <div id="questionsContainer" class="space-y-6"></div>
+
+    <!-- SCORE SUMMARY CARD -->
+    <div id="scoreSummaryCard" class="mt-12 bg-white rounded-3xl p-8 border-2 border-indigo-100 shadow-xl hidden">
+      <div class="text-center max-w-xl mx-auto">
+        <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl">
+          <i class="fa-solid fa-trophy"></i>
+        </div>
+        <h2 class="text-2xl font-black text-slate-800">Test Complete!</h2>
+        <p class="text-slate-500 text-sm mt-1">Here is your detailed mastery score for Cell Organelles & Homeostasis Exam.</p>
+        
+        <div class="grid grid-cols-3 gap-4 my-6 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Total Questions</div>
+            <div class="text-2xl font-black text-slate-800" id="finalTotal">20</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Correct</div>
+            <div class="text-2xl font-black text-emerald-600" id="finalCorrect">0</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Score Rate</div>
+            <div class="text-2xl font-black text-blue-600" id="finalPercent">0%</div>
+          </div>
+        </div>
+
+        <div id="masteryRating" class="p-4 rounded-2xl font-bold text-sm mb-6"></div>
+
+        <div class="flex items-center justify-center gap-4">
+          <button onclick="resetQuiz()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-indigo-200 transition cursor-pointer">
+            Retake Entire Test
+          </button>
+          <a href="index.html" class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-emerald-200 transition">
+            Back to Tests Hub
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-500 mt-12">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p>© 2026 Biology I Honors • South Forsyth High School</p>
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="hover:text-indigo-600 transition font-medium">All Tests Hub</a>
+        <a href="../README.md" class="hover:text-indigo-600 transition font-medium">Weekly Agenda</a>
+        <a href="https://github.com/MegaAntony/biology-honors" target="_blank" class="hover:text-indigo-600 transition"><i class="fa-brands fa-github mr-1"></i>GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT ENGINE -->
+  <script>
+    const questionsData = [
+  {
+    "id": 1,
+    "topic": "Homeostasis & Systems",
+    "question": "In cell biology, why are organelles described as working together as an integrated system?",
+    "options": [
+      "Each organelle operates autonomously without requiring biochemical communication or energy from other parts.",
+      "The collective, coordinated interactions of diverse organelles enable the cell to maintain internal homeostasis.",
+      "All eukaryotic organelles share an identical structural membrane lipid composition and synthesize identical proteins.",
+      "Organelles fuse into a single multinucleated syncytium whenever metabolic demands increase beyond baseline."
+    ],
+    "answer": 1,
+    "clue": "Think of how organs in an organ system cooperate to keep an organism alive.",
+    "explanation": "Organelles function like specialized organs within a cell; their coordinated, interconnected biochemical pathways allow the cell to regulate its internal environment and sustain **homeostasis**."
+  },
+  {
+    "id": 2,
+    "topic": "Cytoplasm & Cytoskeleton",
+    "question": "What is the primary structural difference and functional relationship between the cytoplasm and the cytoskeleton?",
+    "options": [
+      "Cytoplasm is an aqueous fluid containing nutrients and suspending organelles, while cytoskeleton is a protein network providing structure and anchorage.",
+      "Cytoplasm synthesizes structural tubulin filaments, while cytoskeleton stores metabolic glycogen granules for aerobic respiration.",
+      "Cytoplasm exists exclusively outside the cell membrane, while cytoskeleton forms the rigid outer cellulose wall.",
+      "Cytoplasm is composed of nucleic acids, while cytoskeleton is composed entirely of phospholipid bilayers."
+    ],
+    "answer": 0,
+    "clue": "Cytoplasm is the jelly-like cytosol fluid; cytoskeleton is the structural protein scaffolding.",
+    "explanation": "The **cytoplasm** (cytosol) is the nutrient-rich fluid jelly that fills the cell and suspends organelles. The **cytoskeleton** is a network of protein microfilaments and microtubules providing physical shape, structural support, and anchoring organelles."
+  },
+  {
+    "id": 3,
+    "topic": "The Nucleus Demands",
+    "question": "The nucleus must satisfy two major, seemingly competing operational demands in eukaryotic cells. What are these two demands?",
+    "options": [
+      "DNA must replicate every 15 minutes, and excess nucleotides must be actively secreted via exocytosis.",
+      "DNA must be securely protected from cytoplasmic damage, yet remain accessible for transcription into RNA to direct protein synthesis.",
+      "The nuclear envelope must remain entirely impermeable to all molecules while continuously importing cytoplasmic mitochondria.",
+      "Histone proteins must be continuously oxidized to yield ATP while ribosomal RNA is degraded into fatty acids."
+    ],
+    "answer": 1,
+    "clue": "The genetic material must be kept safe, but its code must still be readable.",
+    "explanation": "The nucleus protects DNA inside a double-membraned nuclear envelope with strictly regulated nuclear pores, while simultaneously keeping DNA accessible for enzymes to transcribe mRNA for protein synthesis."
+  },
+  {
+    "id": 4,
+    "topic": "Mitochondria & Endosymbiosis",
+    "question": "Mitochondria possess their own independent circular DNA and 70S ribosomes. According to the Endosymbiotic Theory, what does this evolutionary evidence indicate?",
+    "options": [
+      "Mitochondria were once ancient, free-living aerobic prokaryotes that were engulfed by ancestral eukaryotic host cells.",
+      "Mitochondria evolved directly from the spontaneous inward folding of the nuclear envelope in multicellular fungi.",
+      "Mitochondria originated as viral genetic parasites that lost the ability to synthesize capsids and envelopes.",
+      "Mitochondria were manufactured synthetically by early plant chloroplasts through photochemical carbon fixation."
+    ],
+    "answer": 0,
+    "clue": "Circular DNA and bacterial-sized ribosomes in an organelle point to ancient prokaryotic origins.",
+    "explanation": "The presence of independent circular DNA, bacterial-like ribosomes, and a double membrane in mitochondria provides strong evolutionary evidence that they originated as ancient, free-living **prokaryotes** engulfed by an ancestral host cell (**Endosymbiotic Theory**)."
+  },
+  {
+    "id": 5,
+    "topic": "Golgi Apparatus Function",
+    "question": "What is the primary function of the Golgi apparatus in eukaryotic cells?",
+    "options": [
+      "Synthesizing messenger RNA molecules from DNA blueprints and assembling ribosomal subunits",
+      "Processing, sorting, chemically modifying, and packaging proteins into vesicles for delivery",
+      "Breaking down glucose through aerobic cellular respiration to generate high-energy ATP molecules",
+      "Forming the primary lipid bilayer boundary and regulating simple diffusion of respiratory gases"
+    ],
+    "answer": 1,
+    "clue": "Think of the Golgi as the post office or packaging/shipping center of the cell.",
+    "explanation": "The **Golgi apparatus** consists of flattened membrane cisternae that receive immature proteins from the rough ER, modify them (e.g., glycosylation), sort them, and package them into **vesicles** for delivery to organelles or secretion."
+  },
+  {
+    "id": 6,
+    "topic": "Ribosome Architecture",
+    "question": "Ribosomes are universal cellular structures composed of:",
+    "options": [
+      "a double phospholipid bilayer embedded with cholesterol and transmembrane transport proteins",
+      "ribosomal RNA (rRNA) and catalytic proteins organized into a large and small subunit",
+      "linear deoxyribonucleic acid strands wrapped tightly around basic histone octamers",
+      "branched polysaccharide chains of cellulose anchored to peripheral spectrin proteins"
+    ],
+    "answer": 1,
+    "clue": "Ribosomes lack a membrane and are complexes of RNA and protein.",
+    "explanation": "Ribosomes are non-membrane-bound complexes composed of **ribosomal RNA (rRNA) and proteins**, consisting of large and small functional subunits that collaborate to translate mRNA into polypeptide chains."
+  },
+  {
+    "id": 7,
+    "topic": "Rough ER vs. Smooth ER",
+    "question": "What structural feature visually distinguishes the Rough Endoplasmic Reticulum from the Smooth Endoplasmic Reticulum, and what distinct function does this reflect?",
+    "options": [
+      "Rough ER is studded with surface ribosomes for protein production; Smooth ER lacks ribosomes and synthesizes lipids and detoxifies chemicals.",
+      "Rough ER is coated with photosynthetic chlorophyll pigments; Smooth ER is coated with digestive acid hydrolases.",
+      "Rough ER is enclosed by a rigid cellulose wall; Smooth ER is enclosed by a flexible single phospholipid monolayer.",
+      "Rough ER synthesizes steroid hormones exclusively; Smooth ER transcribes ribosomal RNA subunits inside the lumen."
+    ],
+    "answer": 0,
+    "clue": "The 'bumps' on the rough ER are ribosomes making proteins.",
+    "explanation": "**Rough ER** is studded on its cytosolic surface with **ribosomes**, making it the site of protein synthesis and folding. **Smooth ER** lacks ribosomes and specializes in **lipid synthesis** (phospholipids, steroids), carbohydrate metabolism, and drug/toxin detoxification."
+  },
+  {
+    "id": 8,
+    "topic": "Lysosome Defense & Degradation",
+    "question": "Lysosomes are membrane-enclosed organelles containing acidic hydrolytic enzymes. What two vital physiological roles do they perform?",
+    "options": [
+      "Generating ATP via oxidative phosphorylation and manufacturing steroid hormones from cholesterol",
+      "Destroying engulfed pathogens (viruses/bacteria) and recycling worn-out cellular organelles (autophagy)",
+      "Transcribing ribosomal RNA in the nucleolus and packaging export proteins into secretory vesicles",
+      "Forming cellulose microfibrils for cell walls and regulating water balance via contractile pumping"
+    ],
+    "answer": 1,
+    "clue": "Lysosomes act as the cellular recycling and waste disposal centers.",
+    "explanation": "**Lysosomes** contain powerful digestive enzymes (acid hydrolases). They defend the cell by fusing with vacuoles to destroy engulfed pathogens, and degrade damaged or obsolete cell parts (**autophagy**) to recycle molecular building blocks."
+  },
+  {
+    "id": 9,
+    "topic": "Centrosome & Centrioles",
+    "question": "In animal cells, the centrosome contains a pair of barrel-shaped centrioles composed of microtubules. What is their primary function?",
+    "options": [
+      "Coordinating mitotic spindle fibers during cell division and organizing the base of cilia and flagella",
+      "Packaging digestive enzymes into peroxisomes to break down long-chain fatty acid molecules",
+      "Synthesizing cellulose microfibrils that reinforce the exterior of the animal plasma membrane",
+      "Regulating the selective opening and closing of nuclear pore complexes during mRNA export"
+    ],
+    "answer": 0,
+    "clue": "Centrosomes organize microtubules during mitosis (cell division).",
+    "explanation": "In animal cells, **centrosomes and centrioles** act as microtubule organizing centers (MTOCs). They coordinate spindle fibers that separate chromosomes during mitosis and organize basal bodies for cilia and flagella."
+  },
+  {
+    "id": 10,
+    "topic": "Vacuoles: Plant vs. Animal",
+    "question": "How do vacuoles differ in physical organization and function between typical plant cells and animal cells?",
+    "options": [
+      "Plants have one massive central vacuole providing turgor pressure; animals have multiple small vacuoles for storage.",
+      "Plants possess dozens of tiny temporary vacuoles; animals possess a single gigantic vacuole that houses DNA.",
+      "Plant vacuoles synthesize ribosomal subunits; animal vacuoles synthesize ATP through cellular respiration.",
+      "Plant vacuoles are enclosed by peptidoglycan; animal vacuoles are enclosed by an impermeable protein capsid."
+    ],
+    "answer": 0,
+    "clue": "Plants have one large central vacuole holding water; animals have several small ones.",
+    "explanation": "Plant cells contain a **single, massive central vacuole** that stores water and generates hydrostatic turgor pressure against the cell wall. Animal cells contain **multiple small vacuoles** used for temporary nutrient storage or pinocytic transport."
+  },
+  {
+    "id": 11,
+    "topic": "Cell Wall Composition",
+    "question": "Cell walls provide structural rigidity and protection across diverse non-animal organisms. Which pairing correctly matches the organism with its cell wall polymer?",
+    "options": [
+      "Plants & Algae = Cellulose | Fungi = Chitin | Bacteria = Peptidoglycan",
+      "Plants & Algae = Chitin | Fungi = Peptidoglycan | Bacteria = Cellulose",
+      "Plants & Algae = Peptidoglycan | Fungi = Cellulose | Bacteria = Glycogen",
+      "Plants & Algae = Cellulose | Fungi = Phospholipids | Bacteria = Keratin"
+    ],
+    "answer": 0,
+    "clue": "Plant walls are cellulose, mushroom/fungal walls are chitin, and bacterial walls are peptidoglycan.",
+    "explanation": "Plant and algal cell walls are composed of **cellulose**; fungal cell walls are composed of **chitin**; and bacterial cell walls are composed of **peptidoglycan**. Animals completely lack cell walls."
+  },
+  {
+    "id": 12,
+    "topic": "Chloroplast Function & Evolution",
+    "question": "Chloroplasts contain chlorophyll pigments and their own circular DNA and ribosomes. What is their primary cellular role?",
+    "options": [
+      "Absorbing solar radiant energy to convert carbon dioxide and water into glucose via photosynthesis",
+      "Hydrolyzing stored glycogen into lactic acid under anaerobic conditions in muscle tissue",
+      "Oxidizing fatty acids to synthesize cholesterol molecules embedded in the plasma membrane",
+      "Sorting and dispatching newly folded polypeptide chains received from the rough ER"
+    ],
+    "answer": 0,
+    "clue": "Chloroplasts conduct photosynthesis to make food for plants.",
+    "explanation": "**Chloroplasts** are the photosynthetic organelles found in plants and algae. Using chlorophyll, they harness light energy to synthesize glucose from $CO_2$ and $H_2O$. Like mitochondria, they originated via endosymbiosis."
+  },
+  {
+    "id": 13,
+    "topic": "Organelles Unique to Plants",
+    "question": "Which of the following structures are found in typical plant cells but are characteristically ABSENT in animal cells?",
+    "options": [
+      "Mitochondria and Golgi apparatus",
+      "Cellulose cell wall and Chloroplasts",
+      "Centrioles and Lysosomes",
+      "Ribosomes and Endoplasmic reticulum"
+    ],
+    "answer": 1,
+    "clue": "Animals don't have green photosynthetic parts or rigid wooden cell walls.",
+    "explanation": "Typical plant cells possess **chloroplasts** (for photosynthesis) and a rigid **cell wall** (made of cellulose), along with a large central vacuole, all of which are absent in animal cells."
+  },
+  {
+    "id": 14,
+    "topic": "Structures Unique to Animals",
+    "question": "When comparing plant and animal eukaryotic cells, which organelle is considered unique to animal cells?",
+    "options": [
+      "Centrosome with Centrioles (for mitotic spindle organization)",
+      "Mitochondria (for aerobic ATP synthesis)",
+      "Rough Endoplasmic Reticulum (for protein folding)",
+      "Large Central Vacuole (for hydrostatic turgor pressure)"
+    ],
+    "answer": 0,
+    "clue": "Plant cells organize mitotic spindles without barrel-shaped centrioles.",
+    "explanation": "Animal cells possess **centrioles** within their centrosomes to coordinate spindle fibers during division and organize cilia/flagella. Higher plant cells organize mitotic spindles without centrioles."
+  },
+  {
+    "id": 15,
+    "topic": "Endomembrane Transport Vesicles",
+    "question": "What is the biological definition and primary purpose of a cellular transport vesicle?",
+    "options": [
+      "A permanent non-membrane structural protein that anchors the chromatin network to nuclear pores",
+      "A small, spherical membrane-bound sac that isolates and shuttles materials between organelles",
+      "A crystalline mineral precipitate formed inside lysosomes during extreme starvation events",
+      "A rigid glycoprotein rod that propels motile prokaryotes through aquatic fluid environments"
+    ],
+    "answer": 1,
+    "clue": "Vesicles are the membrane-bound cargo bubbles that move proteins around.",
+    "explanation": "A **vesicle** is a small, membrane-bound sac that pinches off from one membrane (such as the ER or Golgi) to isolate, protect, and transport biomolecules to another cellular destination or the plasma membrane."
+  },
+  {
+    "id": 16,
+    "topic": "System Failure Consequence",
+    "question": "If a genetic mutation permanently disables a cell's ribosomes, what immediate consequence will this have on cellular homeostasis?",
+    "options": [
+      "The cell will immediately produce excess ATP through anaerobic fermentation in the cytoplasm.",
+      "The cell will be unable to synthesize enzymes and structural proteins, causing cellular death.",
+      "The cell will convert its central vacuole into a functional nucleus to restore transcription.",
+      "The cell membrane will thicken by synthesizing extra layers of structural peptidoglycan."
+    ],
+    "answer": 1,
+    "clue": "Ribosomes build all proteins, including vital enzymes and transport channels.",
+    "explanation": "Because ribosomes are the sole sites of translation (protein synthesis), their failure prevents the production of essential structural proteins, membrane channels, and catalytic enzymes, leading to rapid metabolic collapse and cell death."
+  },
+  {
+    "id": 17,
+    "topic": "Smooth ER Detoxification",
+    "question": "Why do human liver cells (hepatocytes) contain an unusually extensive and highly developed network of Smooth Endoplasmic Reticulum?",
+    "options": [
+      "Hepatocytes require vast amounts of smooth ER to synthesize structural cellulose for liver lobules.",
+      "The Smooth ER contains specialized enzymes that metabolize and detoxify alcohol, drugs, and metabolic wastes.",
+      "Smooth ER is the primary site where red blood cells are packed with oxygen-carrying hemoglobin.",
+      "Smooth ER transcribes ribosomal RNA subunits needed to replace degraded ribosomes every hour."
+    ],
+    "answer": 1,
+    "clue": "The liver is the primary detoxifying organ of the human body.",
+    "explanation": "The **Smooth ER** houses enzymes that detoxify lipid-soluble drugs, alcohol, and metabolic poisons by adding hydroxyl groups to make them more water-soluble for renal excretion. Hence, liver cells are packed with Smooth ER."
+  },
+  {
+    "id": 18,
+    "topic": "Nuclear Envelope Pores",
+    "question": "What is the physiological role of the nuclear pores that perforate the nuclear envelope?",
+    "options": [
+      "They allow uncoiled genomic DNA chromosomes to freely leave the nucleus and enter the cytosol.",
+      "They selectively regulate the passage of macromolecules, allowing mRNA to exit and proteins to enter.",
+      "They permit mitochondria and chloroplasts to enter the nucleus during periods of rapid division.",
+      "They serve as active calcium pumps that acidify the interior nucleoplasm to a pH of 4.5."
+    ],
+    "answer": 1,
+    "clue": "Pores let RNA out and regulatory proteins in, while keeping chromosomes inside.",
+    "explanation": "**Nuclear pores** are multi-protein complexes that selectively regulate bidirectional transport: they allow processed mRNA and ribosomal subunits to exit into the cytoplasm, and import regulatory proteins and nucleotides into the nucleus, while keeping genomic DNA safely inside."
+  },
+  {
+    "id": 19,
+    "topic": "Shared Organelles",
+    "question": "Which set of organelles is found in BOTH plant cells and animal cells?",
+    "options": [
+      "Chloroplasts, Large Central Vacuole, Cell Wall, and Centrioles",
+      "Nucleus, Mitochondria, Ribosomes, Endoplasmic Reticulum, and Golgi Apparatus",
+      "Cell Wall, Lysosomes, Plastids, and Capsule",
+      "Centrioles, Pseudopodia, Contractile Vacuoles, and Peptidoglycan"
+    ],
+    "answer": 1,
+    "clue": "Both plants and animals are eukaryotes that respire aerobically and make proteins.",
+    "explanation": "Both plant and animal cells share the core eukaryotic organelles: **Nucleus, Mitochondria, Ribosomes, Rough & Smooth ER, Golgi Apparatus, Cytoskeleton, and Plasma Membrane**."
+  },
+  {
+    "id": 20,
+    "topic": "Cell Wall vs. Membrane",
+    "question": "A student claims that plant cells have a cell wall instead of a cell membrane. What is the scientific correction to this statement?",
+    "options": [
+      "The claim is correct; plant cells possess only a cellulose wall and lack a phospholipid bilayer.",
+      "Plant cells possess BOTH an interior cell membrane and an exterior rigid cellulose cell wall.",
+      "Plant cells have a cell membrane during embryonic stages, which converts entirely into a cell wall at maturity.",
+      "Plant cells possess a cell wall, but animal cells possess both a cell wall and a cell membrane."
+    ],
+    "answer": 1,
+    "clue": "The cell wall is an extra layer located outside the plasma membrane.",
+    "explanation": "All plant cells have **both** a plasma membrane (which controls transport) and a rigid **cell wall** located immediately outside the plasma membrane (which provides structural support and prevents osmotic lysis)."
+  }
+];
+
+    const STORAGE_KEY = 'bio1_doc_test_02_organelles';
+
+    let userState = {
+      answers: {},
+      showClues: {},
+      allCluesVisible: false,
+      currentFilter: 'All',
+      missedOnly: false
+    };
+
+    function safeLoad() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          userState = JSON.parse(saved);
+        }
+      } catch (e) {
+        console.warn('localStorage not accessible:', e);
+      }
+    }
+
+    function safeSave() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(userState));
+      } catch (e) {
+        console.warn('Could not save to localStorage:', e);
+      }
+    }
+
+    function init() {
+      safeLoad();
+      renderQuestions();
+      updateStats();
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById('questionsContainer');
+      if (!container) return;
+      container.innerHTML = '';
+
+      let filteredQuestions = questionsData.filter(q => {
+        if (userState.currentFilter !== 'All' && q.topic !== userState.currentFilter) return false;
+        if (userState.missedOnly) {
+          const userAns = userState.answers[q.id];
+          if (userAns === undefined || userAns === q.answer) return false;
+        }
+        return true;
+      });
+
+      if (filteredQuestions.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-12 bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
+            <i class="fa-solid fa-circle-check text-emerald-500 text-4xl mb-3"></i>
+            <h3 class="text-lg font-bold text-slate-800">No Questions In This Filter</h3>
+            <p class="text-slate-500 text-sm mt-1">Try selecting 'All Topics' or clearing the missed review filter.</p>
+          </div>
+        `;
+        return;
+      }
+
+      filteredQuestions.forEach((q) => {
+        const isAnswered = userState.answers[q.id] !== undefined;
+        const selectedOption = userState.answers[q.id];
+        const isCorrect = isAnswered && selectedOption === q.answer;
+        const isClueVisible = userState.allCluesVisible || userState.showClues[q.id];
+
+        const card = document.createElement('div');
+        card.className = `bg-white rounded-2xl p-6 border transition-all duration-200 shadow-sm ${
+          isAnswered
+            ? isCorrect
+              ? 'border-emerald-300 ring-1 ring-emerald-200/50 bg-emerald-50/20'
+              : 'border-rose-300 ring-1 ring-rose-200/50 bg-rose-50/20'
+            : 'border-slate-200 hover:border-slate-300'
+        }`;
+        card.id = `q-card-${q.id}`;
+
+        let optionsHtml = q.options.map((opt, oIdx) => {
+          let btnClass = "border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50/40 text-slate-700 cursor-pointer";
+          let iconHtml = `<span class="w-6 h-6 rounded-full border border-slate-300 text-xs font-semibold flex items-center justify-center mr-3 text-slate-500 shrink-0 mt-0.5">${String.fromCharCode(65 + oIdx)}</span>`;
+
+          if (isAnswered) {
+            if (oIdx === q.answer) {
+              btnClass = "bg-emerald-50 border-emerald-500 text-emerald-950 font-semibold ring-1 ring-emerald-400 cursor-default";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-emerald-600 text-white text-xs font-bold flex items-center justify-center mr-3 shrink-0 mt-0.5"><i class="fa-solid fa-check"></i></span>`;
+            } else if (oIdx === selectedOption && !isCorrect) {
+              btnClass = "bg-rose-50 border-rose-400 text-rose-950 font-semibold ring-1 ring-rose-300 cursor-default";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-rose-600 text-white text-xs font-bold flex items-center justify-center mr-3 shrink-0 mt-0.5"><i class="fa-solid fa-xmark"></i></span>`;
+            } else {
+              btnClass = "opacity-50 border-slate-200 text-slate-400 cursor-not-allowed";
+            }
+          }
+
+          return `
+            <button 
+              type="button"
+              onclick="selectAnswer(${q.id}, ${oIdx})" 
+              ${isAnswered ? 'disabled' : ''} 
+              class="w-full text-left p-3.5 rounded-xl text-sm transition flex items-start ${btnClass} my-2 leading-relaxed">
+              ${iconHtml}
+              <span class="flex-1">${opt}</span>
+            </button>
+          `;
+        }).join('');
+
+        card.innerHTML = `
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <div class="flex items-center gap-2">
+              <span class="bg-indigo-100 text-indigo-800 text-xs font-black px-2.5 py-0.5 rounded-md">Q${q.id}</span>
+              <span class="bg-slate-100 text-slate-600 text-xs font-semibold px-2.5 py-0.5 rounded-md">${q.topic}</span>
+            </div>
+
+            <button type="button" onclick="toggleClue(${q.id})" class="text-xs text-amber-700 bg-amber-50 hover:bg-amber-100 border border-amber-200 px-3 py-1 rounded-lg font-medium transition flex items-center gap-1 cursor-pointer">
+              <i class="fa-regular fa-lightbulb"></i>
+              ${isClueVisible ? 'Hide Hint' : 'Need a Clue?'}
+            </button>
+          </div>
+
+          <h3 class="text-base font-bold text-slate-900 leading-relaxed mb-4">${q.question}</h3>
+
+          <div id="clue-${q.id}" class="${isClueVisible ? 'block' : 'hidden'} mb-4 p-3.5 bg-amber-50/80 border border-amber-200 rounded-xl text-amber-900 text-xs flex items-start gap-2.5">
+            <i class="fa-solid fa-lightbulb text-amber-600 mt-0.5"></i>
+            <div><span class="font-bold">Study Hint:</span> ${q.clue}</div>
+          </div>
+
+          <div class="space-y-1">${optionsHtml}</div>
+
+          ${isAnswered ? `
+            <div class="mt-5 p-4 rounded-xl text-sm border ${
+              isCorrect 
+                ? 'bg-emerald-50/70 border-emerald-200 text-emerald-950' 
+                : 'bg-rose-50/70 border-rose-200 text-slate-800'
+            }">
+              <div class="flex items-center gap-2 font-bold mb-2 ${isCorrect ? 'text-emerald-800' : 'text-rose-800'}">
+                <i class="${isCorrect ? 'fa-solid fa-circle-check text-emerald-600' : 'fa-solid fa-circle-xmark text-rose-600'}"></i>
+                <span>${isCorrect ? 'Correct! Excellent work.' : 'Incorrect. Let\'s break it down:'}</span>
+              </div>
+              <p class="text-xs leading-relaxed text-slate-700 mb-2">${q.explanation}</p>
+              <div class="text-xs font-semibold text-indigo-700 pt-2 border-t border-slate-200/60 flex items-center justify-between">
+                <span>Correct Option: ${String.fromCharCode(65 + q.answer)} (${q.options[q.answer]})</span>
+                <button type="button" onclick="retryQuestion(${q.id})" class="text-slate-500 hover:text-slate-800 font-medium underline ml-2 cursor-pointer">Try Again</button>
+              </div>
+            </div>
+          ` : ''}
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function selectAnswer(qId, optionIdx) {
+      if (userState.answers[qId] !== undefined) return;
+      userState.answers[qId] = optionIdx;
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function retryQuestion(qId) {
+      delete userState.answers[qId];
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function toggleClue(qId) {
+      userState.showClues[qId] = !userState.showClues[qId];
+      safeSave();
+      renderQuestions();
+    }
+
+    function toggleAllClues() {
+      userState.allCluesVisible = !userState.allCluesVisible;
+      document.getElementById('clueToggleText').innerText = userState.allCluesVisible ? "Hide All Hints" : "Show All Hints";
+      safeSave();
+      renderQuestions();
+    }
+
+    function filterTopic(topic) {
+      userState.currentFilter = topic;
+      userState.missedOnly = false;
+      document.querySelectorAll('.topic-btn').forEach(btn => {
+        if (btn.innerText.includes(topic) || (topic === 'All' && btn.innerText.includes('All Topics'))) {
+          btn.className = "topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-sm transition cursor-pointer";
+        } else {
+          btn.className = "topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer";
+        }
+      });
+      renderQuestions();
+    }
+
+    function filterMissed() {
+      userState.missedOnly = !userState.missedOnly;
+      const btn = document.getElementById('filterMissedBtn');
+      if (userState.missedOnly) {
+        btn.className = "text-xs bg-rose-600 text-white border border-rose-600 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer shadow-sm";
+      } else {
+        btn.className = "text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer";
+      }
+      renderQuestions();
+    }
+
+    function updateStats() {
+      const answeredCount = Object.keys(userState.answers).length;
+      let correctCount = 0;
+      let missedCount = 0;
+
+      questionsData.forEach(q => {
+        if (userState.answers[q.id] !== undefined) {
+          if (userState.answers[q.id] === q.answer) {
+            correctCount++;
+          } else {
+            missedCount++;
+          }
+        }
+      });
+
+      const total = questionsData.length;
+      document.getElementById('statAnswered').innerText = `${answeredCount}/${total}`;
+      document.getElementById('missedCount').innerText = missedCount;
+
+      const accuracy = answeredCount === 0 ? 0 : Math.round((correctCount / answeredCount) * 100);
+      document.getElementById('statScore').innerText = `${accuracy}%`;
+      document.getElementById('quizProgressBar').style.width = `${(answeredCount / total) * 100}%`;
+
+      const scoreCard = document.getElementById('scoreSummaryCard');
+      if (answeredCount === total && total > 0) {
+        scoreCard.classList.remove('hidden');
+        document.getElementById('finalTotal').innerText = total;
+        document.getElementById('finalCorrect').innerText = correctCount;
+        document.getElementById('finalPercent').innerText = `${accuracy}%`;
+
+        const ratingBox = document.getElementById('masteryRating');
+        if (accuracy >= 90) {
+          ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-emerald-50 border border-emerald-300 text-emerald-900";
+          ratingBox.innerHTML = '<i class="fa-solid fa-certificate mr-2 text-emerald-600"></i>Mastery Achieved! Outstanding understanding of this document.';
+        } else if (accuracy >= 75) {
+          ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-blue-50 border border-blue-300 text-blue-900";
+          ratingBox.innerHTML = '<i class="fa-solid fa-thumbs-up mr-2 text-blue-600"></i>Proficient! Good foundation; review missed items before testing.';
+        } else {
+          ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-amber-50 border border-amber-300 text-amber-900";
+          ratingBox.innerHTML = '<i class="fa-solid fa-book-open mr-2 text-amber-600"></i>Review Recommended! Use the Markdown companion notes to reinforce weak areas.';
+        }
+      } else {
+        scoreCard.classList.add('hidden');
+      }
+    }
+
+    function resetQuiz() {
+      if (confirm("Are you sure you want to reset all answers and hints for this test?")) {
+        userState.answers = {};
+        userState.showClues = {};
+        userState.allCluesVisible = false;
+        userState.currentFilter = 'All';
+        userState.missedOnly = false;
+        safeSave();
+        document.getElementById('clueToggleText').innerText = "Show All Hints";
+        document.getElementById('filterMissedBtn').className = "text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer";
+        filterTopic('All');
+        renderQuestions();
+        updateStats();
+      }
+    }
+
+    window.onload = init;
+  </script>
+</body>
+</html>

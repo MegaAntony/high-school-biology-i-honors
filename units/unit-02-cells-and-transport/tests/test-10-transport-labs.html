@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biology I Honors - Unit 2 Test 10: Cellular Transport Lab Scenarios & Homeostasis</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+
+  <!-- TOP HEADER -->
+  <header class="bg-gradient-to-r from-blue-700 via-indigo-700 to-emerald-700 text-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="w-10 h-10 rounded-xl bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition border border-white/20" title="Back to All Tests">
+          <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="bg-white/20 text-xs px-2.5 py-1 rounded-full font-semibold uppercase tracking-wider">Biology I Honors</span>
+            <span class="bg-indigo-300 text-slate-900 text-xs px-2.5 py-1 rounded-full font-bold">Unit 2 • Test 10</span>
+          </div>
+          <h1 class="text-xl sm:text-2xl font-black tracking-tight mt-1 text-white">Transport Labs & Homeostasis</h1>
+        </div>
+      </div>
+
+      <!-- Quick Stats Top -->
+      <div class="flex items-center gap-4 bg-white/10 backdrop-blur px-4 py-2 rounded-xl border border-white/15">
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Answered</div>
+          <div id="statAnswered" class="text-xl font-bold">0/20</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Accuracy</div>
+          <div id="statScore" class="text-xl font-bold text-emerald-300">0%</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <button onclick="resetQuiz()" class="text-xs bg-white/20 hover:bg-white/30 text-white px-3 py-2 rounded-lg font-medium transition flex items-center gap-1.5 cursor-pointer">
+          <i class="fa-solid fa-rotate-right"></i> Reset
+        </button>
+      </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="w-full bg-slate-900/30 h-2">
+      <div id="quizProgressBar" class="bg-emerald-400 h-2 transition-all duration-300" style="width: 0%"></div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-6xl mx-auto px-4 py-8">
+
+    <!-- Anti-Guess Note Banner -->
+    <div class="bg-indigo-50 border border-indigo-200 text-indigo-950 p-4 rounded-2xl mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-semibold shadow-sm">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-flask-vial text-indigo-600 text-base shrink-0"></i>
+        <span><strong>Tier 2 Milestone:</strong> Completing this test finishes all 10 Membrane Transport exams (Tiers 1 & 2)!</span>
+      </div>
+      <a href="index.html" class="text-indigo-800 underline hover:text-indigo-950 whitespace-nowrap">View All 20 Tests</a>
+    </div>
+
+    <!-- CONTROLS & FILTER BAR -->
+    <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 mb-8">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-sm font-bold text-slate-700 mb-2">Filter by Topic:</h2>
+          <div class="flex flex-wrap gap-2" id="topicFilters">
+            <button onclick="filterTopic('All')" class="topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-sm transition cursor-pointer">All Topics (20)</button>
+            <button onclick="filterTopic('Acid-Base Buffering & Proton Gradient Lab')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Acid-Base Buffering & Proton Gradient Lab</button>
+            <button onclick="filterTopic('Agar Gel Dye Diffusion vs Molecular Weight')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Agar Gel Dye Diffusion vs Molecular Weight</button>
+            <button onclick="filterTopic('Artificial Kidney Hemodialysis Principle')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Artificial Kidney Hemodialysis Principle</button>
+            <button onclick="filterTopic('Benedict's Glucose Permeability Test')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Benedict's Glucose Permeability Test</button>
+            <button onclick="filterTopic('Blood Cell Spectrophotometry Turbidity Assay')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Blood Cell Spectrophotometry Turbidity Assay</button>
+            <button onclick="filterTopic('Contractile Vacuole Frequency in Paramecium')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Contractile Vacuole Frequency in Paramecium</button>
+            <button onclick="filterTopic('Dialysis Membrane Cut-Off (MWCO)')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Dialysis Membrane Cut-Off (MWCO)</button>
+            <button onclick="filterTopic('Dialysis Tubing Starch & Iodine Lab')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Dialysis Tubing Starch & Iodine Lab</button>
+            <button onclick="filterTopic('Elodea Leaf Plasmolysis Under Microscope')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Elodea Leaf Plasmolysis Under Microscope</button>
+            <button onclick="filterTopic('Fluorescence Recovery After Photobleaching (FRAP)')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Fluorescence Recovery After Photobleaching (FRAP)</button>
+            <button onclick="filterTopic('Integrated Homeostasis Synthesis')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Integrated Homeostasis Synthesis</button>
+            <button onclick="filterTopic('Liposome Selective Permeability Assay')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Liposome Selective Permeability Assay</button>
+            <button onclick="filterTopic('Marine vs Freshwater Fish Osmoregulation')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Marine vs Freshwater Fish Osmoregulation</button>
+            <button onclick="filterTopic('Plant Root Water Absorption & Transpiration Pull')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Plant Root Water Absorption & Transpiration Pull</button>
+            <button onclick="filterTopic('Potato Core Percent Mass Change')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Potato Core Percent Mass Change</button>
+            <button onclick="filterTopic('Radioactive Sodium-22 Tracer Experiment')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Radioactive Sodium-22 Tracer Experiment</button>
+            <button onclick="filterTopic('Salting Slugs Osmotic Homeostasis Failure')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Salting Slugs Osmotic Homeostasis Failure</button>
+            <button onclick="filterTopic('Temperature Effects on Beetroot Membrane Permeability')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Temperature Effects on Beetroot Membrane Permeability</button>
+            <button onclick="filterTopic('Turgor Pressure Measurement in Plant Stems')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Turgor Pressure Measurement in Plant Stems</button>
+            <button onclick="filterTopic('U-Tube Osmometer Equilibrium')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">U-Tube Osmometer Equilibrium</button>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 pt-2 lg:pt-0 border-t lg:border-t-0 border-slate-100">
+          <button onclick="toggleAllClues()" id="toggleCluesBtn" class="text-xs bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-regular fa-lightbulb"></i> <span id="clueToggleText">Show All Hints</span>
+          </button>
+          <button onclick="filterMissed()" id="filterMissedBtn" class="text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-solid fa-triangle-exclamation"></i> Review Missed (<span id="missedCount">0</span>)
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTIONS LIST -->
+    <div id="questionsContainer" class="space-y-6"></div>
+
+    <!-- SCORE SUMMARY CARD -->
+    <div id="scoreSummaryCard" class="mt-12 bg-white rounded-3xl p-8 border-2 border-indigo-100 shadow-xl hidden">
+      <div class="text-center max-w-xl mx-auto">
+        <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl">
+          <i class="fa-solid fa-trophy"></i>
+        </div>
+        <h2 class="text-2xl font-black text-slate-800">Test 10 Complete!</h2>
+        <p class="text-slate-500 text-sm mt-1">Here is your detailed mastery score for Cellular Transport Lab Scenarios & Homeostasis.</p>
+        
+        <div class="grid grid-cols-3 gap-4 my-6 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Total Questions</div>
+            <div class="text-2xl font-black text-slate-800" id="finalTotal">20</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Correct</div>
+            <div class="text-2xl font-black text-emerald-600" id="finalCorrect">0</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Score Rate</div>
+            <div class="text-2xl font-black text-blue-600" id="finalPercent">0%</div>
+          </div>
+        </div>
+
+        <div id="masteryRating" class="p-4 rounded-2xl font-bold text-sm mb-6"></div>
+
+        <div class="flex items-center justify-center gap-4">
+          <button onclick="resetQuiz()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-indigo-200 transition cursor-pointer">
+            Retake Entire Test
+          </button>
+          <a href="index.html" class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-emerald-200 transition">
+            Back to Tests Hub
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-500 mt-12">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p>© 2026 Biology I Honors • South Forsyth High School</p>
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="hover:text-indigo-600 transition font-medium">All 20 Tests Hub</a>
+        <a href="../../index.html" class="hover:text-indigo-600 transition font-medium">Main Portal</a>
+        <a href="https://github.com/MegaAntony/biology-honors" target="_blank" class="hover:text-indigo-600 transition"><i class="fa-brands fa-github mr-1"></i>GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT ENGINE -->
+  <script>
+    const questionsData = [
+  {
+    "id": 1,
+    "topic": "Dialysis Tubing Starch & Iodine Lab",
+    "question": "In a classic membrane diffusion lab, a dialysis bag containing 1% starch solution is immersed in a beaker of water tinted amber with Lugol's iodine (IKI). After 30 minutes, the bag turns dark blue-black while the beaker remains amber. What does this result prove?",
+    "options": [
+      "The dialysis membrane is permeable to small IKI molecules but impermeable to large starch macromolecules.",
+      "Starch molecules actively pumped iodine into the bag using mitochondrial ATP.",
+      "The dialysis bag dissolved completely and mixed uniformly with the beaker fluid.",
+      "Iodine molecules were synthesized inside the dialysis bag from ambient water."
+    ],
+    "answer": 0,
+    "clue": "Small iodine ions diffuse in and react with starch; large starch polymers cannot diffuse out.",
+    "explanation": "Lugol's iodine (I2KI) consists of tiny molecules that easily pass through microscopic membrane pores, reacting with coiled amylose polymers inside the bag to form a **blue-black complex**. Starch molecules are **giant polysaccharides too large to cross the pores**, so the beaker remains amber."
+  },
+  {
+    "id": 2,
+    "topic": "Benedict's Glucose Permeability Test",
+    "question": "A student adds 15% glucose to the starch solution inside the dialysis bag in Question 1. After one hour, Benedict's solution added to a sample from the outside beaker turns brick-orange upon heating. What conclusion does this confirm?",
+    "options": [
+      "Glucose is a small monosaccharide capable of diffusing down its concentration gradient through membrane pores.",
+      "Glucose cannot cross the dialysis membrane because it is a lipid polymer.",
+      "Glucose was converted into gaseous oxygen by heat from the hot water bath.",
+      "The dialysis tubing is completely impermeable to all organic molecules."
+    ],
+    "answer": 0,
+    "clue": "Benedict's tests for reducing sugars like glucose; turning orange means glucose successfully diffused outside.",
+    "explanation": "Benedict's reagent tests for reducing sugars. A positive test (brick-orange precipitate) in the beaker confirms that **glucose (a small monosaccharide) was small enough to diffuse through the pores of the dialysis membrane** into the surrounding fluid."
+  },
+  {
+    "id": 3,
+    "topic": "Agar Gel Dye Diffusion vs Molecular Weight",
+    "question": "Cores are removed from an agar plate, and wells are filled with Potassium Permanganate (MW = 158 g/mol, purple) and Methylene Blue (MW = 320 g/mol, blue). After 2 hours at 25\u00b0C, why has the purple ring expanded significantly farther than the blue ring?",
+    "options": [
+      "Methylene blue is an active transport pump that consumes agar matrix.",
+      "Potassium permanganate has a higher mass and is pushed faster by gravity.",
+      "The agar gel is electrostatically impermeable to any molecule with color.",
+      "Molecules with smaller molecular weights have higher average velocities and diffuse faster through porous matrices."
+    ],
+    "answer": 3,
+    "clue": "Lighter molecules move faster at a given temperature (Graham's Law of diffusion).",
+    "explanation": "According to Graham's law and the kinetic molecular theory, at identical temperatures, **particles with smaller molecular weight (MW = 158 vs 320) possess higher velocities and lower steric resistance**, diffusing at a faster rate through the agar matrix."
+  },
+  {
+    "id": 4,
+    "topic": "U-Tube Osmometer Equilibrium",
+    "question": "A U-tube is partitioned at the bottom by a semipermeable membrane impermeable to sucrose. Side A is filled with 0.2 M sucrose, and Side B is filled with 0.8 M sucrose. What will happen to the liquid levels over time?",
+    "options": [
+      "Liquid levels will remain identical because water molecules have no electric charge.",
+      "Side A level will rise and Side B level will drop until Side A overflows.",
+      "All liquid will evaporate spontaneously through the glass walls of the U-tube.",
+      "Side B level will rise while Side A level drops until osmotic pressure balances hydrostatic pressure."
+    ],
+    "answer": 3,
+    "clue": "Water moves toward the higher solute concentration (hypertonic Side B).",
+    "explanation": "Side B has a higher solute concentration (**hypertonic**) and lower water potential than Side A. Water moves by osmosis from **Side A into Side B**, causing the fluid column in Side B to **rise** until the hydrostatic pressure of the column balances the osmotic pressure."
+  },
+  {
+    "id": 5,
+    "topic": "Elodea Leaf Plasmolysis Under Microscope",
+    "question": "A student mounts an Elodea leaf in freshwater on a slide, then wicks a drop of 10% NaCl under the coverslip. Under 400x magnification, what cytological change will the student observe within two minutes?",
+    "options": [
+      "The cell membrane pulls away from the cell wall as the central vacuole loses water, clustering chloroplasts tightly in the center.",
+      "The cell wall dissolves completely and the plant cell undergoes hemolytic bursting.",
+      "Chloroplasts expand five times in size and turn completely white.",
+      "The nucleus undergoes immediate meiosis and divides into four gametes."
+    ],
+    "answer": 0,
+    "clue": "Plasmolysis: water leaves the plant cell vacuole, causing the plasma membrane to collapse away from the rigid wall.",
+    "explanation": "10% NaCl is strongly **hypertonic** to Elodea cells. Water leaves the vacuole and cytoplasm via osmosis, causing the protoplast and plasma membrane to **shrink away from the rigid cell wall (plasmolysis)**, clustering green chloroplasts in the center."
+  },
+  {
+    "id": 6,
+    "topic": "Blood Cell Spectrophotometry Turbidity Assay",
+    "question": "Red blood cell suspensions appear turbid (cloudy) because intact cells scatter light. In a lab spectrophotometer assay, if RBCs are added to Solution Z and the absorbance drops sharply to zero (the suspension turns completely clear and red), what occurred?",
+    "options": [
+      "The cells shriveled into dense crystals that blocked all light transmission.",
+      "Solution Z was hypotonic, causing osmotic water influx that lysed the cells (hemolysis) and released hemoglobin into solution.",
+      "The cells underwent rapid cellular respiration that produced white chalk deposits.",
+      "Solution Z was hypertonic, causing cells to form a solid waterproof pellet."
+    ],
+    "answer": 1,
+    "clue": "Clearing of a cloudy red blood cell solution indicates hemolysis (bursting in a hypotonic solution).",
+    "explanation": "When red blood cells are placed in a **hypotonic solution**, water rushes in until the cells **burst (hemolysis)**. Intact light-scattering membranes fragment, releasing dissolved hemoglobin and making the suspension optically **clear/transparent**."
+  },
+  {
+    "id": 7,
+    "topic": "Potato Core Percent Mass Change",
+    "question": "Six potato cylinders of identical initial mass are placed in sucrose solutions of 0.0 M, 0.2 M, 0.4 M, 0.6 M, 0.8 M, and 1.0 M for 24 hours. If the percent mass change is +18%, +10%, 0%, -8%, -15%, and -22% respectively, what is the internal osmolarity of the potato tissue?",
+    "options": [
+      "0.0 M",
+      "0.4 M",
+      "0.8 M",
+      "1.0 M"
+    ],
+    "answer": 1,
+    "clue": "The tissue's internal osmolarity equals the external concentration where net water movement is zero (0% mass change).",
+    "explanation": "The point where **percent change in mass is 0%** represents the isotonic point where the solute concentration of the solution matches the **internal osmolarity of the potato cells**, which is exactly **0.4 M**."
+  },
+  {
+    "id": 8,
+    "topic": "Contractile Vacuole Frequency in Paramecium",
+    "question": "A biology student observes Paramecium caudatum living in pond water. If the student gradually increases the salt concentration of the surrounding pond water, what will happen to the contraction rate (contractions per minute) of the contractile vacuole?",
+    "options": [
+      "The contraction rate will increase to 500 beats per second to generate swimming thrust.",
+      "The contraction rate will remain strictly unchanged because vacuole rhythm is governed purely by internal biological clocks.",
+      "The contractile vacuole will permanently fuse with the oral groove and begin digesting starch.",
+      "The contraction rate will decrease because less water enters the cell via osmosis as the external solution becomes more concentrated."
+    ],
+    "answer": 3,
+    "clue": "The vacuole pumps out excess water entering by osmosis; in saltier water, less water enters, so the pump slows down.",
+    "explanation": "In freshwater, Paramecium is hypertonic to its environment, so water enters by osmosis and the **contractile vacuole** pumps it out. Adding salt reduces the osmotic gradient, so less water enters and the **vacuole contraction rate decreases**."
+  },
+  {
+    "id": 9,
+    "topic": "Radioactive Sodium-22 Tracer Experiment",
+    "question": "Squid giant axons are loaded with radioactive 22Na+ and placed in sea water. Under control conditions, 22Na+ is steadily expelled into the sea water. When ouabain is added to the bath, 22Na+ efflux drops to zero. What does this experiment demonstrate?",
+    "options": [
+      "Sodium efflux is passive simple diffusion through the lipid bilayer.",
+      "Ouabain dissolves sodium ions into radioactive radon gas.",
+      "Sodium ions are produced exclusively by axon mitochondria.",
+      "Sodium export requires the active operation of the Na+/K+ ATPase pump, which is inhibited by ouabain."
+    ],
+    "answer": 3,
+    "clue": "Ouabain specifically poisons the Na+/K+ ATPase; stopping sodium efflux proves the pump was responsible.",
+    "explanation": "Radioactive tracers prove that sodium export from resting neurons is not passive leak, but requires the enzymatic action of the **Na+/K+ ATPase pump**, which is specifically **blocked by ouabain**."
+  },
+  {
+    "id": 10,
+    "topic": "Temperature Effects on Beetroot Membrane Permeability",
+    "question": "Beetroot (Beta vulgaris) cores contain betacyanin pigment stored safely inside their central vacuoles. In an experiment, beetroot disks placed in water at 70\u00b0C release large amounts of red pigment, whereas disks at 20\u00b0C release none. Why?",
+    "options": [
+      "70\u00b0C water boils away the cellulose cell wall while leaving the vacuole intact.",
+      "High temperatures denature membrane transport proteins and melt lipid bilayers, destroying selective permeability.",
+      "70\u00b0C stimulates rapid exocytosis of betacyanin to cool the plant tissue.",
+      "Betacyanin pigment only exists as a gas above 60\u00b0C."
+    ],
+    "answer": 1,
+    "clue": "Excessive heat melts bilayer lipids and denatures membrane proteins, causing contents to leak.",
+    "explanation": "Thermal stress at 70\u00b0C **denatures tonoplast and plasma membrane proteins** and drastically increases bilayer fluidity, tearing holes in the membranes and allowing the stored **betacyanin pigment to leak out into the water**."
+  },
+  {
+    "id": 11,
+    "topic": "Marine vs Freshwater Fish Osmoregulation",
+    "question": "Marine bony fish live in an environment that is hypertonic to their blood. How do they maintain osmotic homeostasis?",
+    "options": [
+      "They never drink water and excrete huge amounts of very dilute, watery urine.",
+      "They drink large amounts of seawater, actively pump excess salt out through their gills, and excrete highly concentrated, scanty urine.",
+      "They convert all blood sodium into glucose using specialized liver chloroplasts.",
+      "They absorb water across their scales by endocytosis without involving their digestive tract."
+    ],
+    "answer": 1,
+    "clue": "Living in salt water makes fish lose water; they drink seawater, excrete minimal urine, and pump salt out.",
+    "explanation": "Because seawater is **hypertonic**, marine fish constantly lose water by osmosis. To survive, they **drink seawater**, actively **pump excess salt out through specialized gill chloride cells**, and produce **scanty, highly concentrated urine** to conserve water."
+  },
+  {
+    "id": 12,
+    "topic": "Liposome Selective Permeability Assay",
+    "question": "Researchers create synthetic liposomes consisting solely of a pure phosphatidylcholine bilayer (no proteins) enclosing a 0.1 M KCl solution, then suspend them in pure water. Over 24 hours, what will be observed?",
+    "options": [
+      "KCl will freely diffuse out at the exact same rate as water enters.",
+      "The liposomes will instantly synthesize aquaporin genes and produce channel proteins.",
+      "The liposomes will merge into a single gigantic living multicellular organism.",
+      "Water will slowly diffuse inward down its concentration gradient, but K+ and Cl- ions will remain trapped inside because pure lipid bilayers are impermeable to charged ions."
+    ],
+    "answer": 3,
+    "clue": "Pure lipid bilayers let small uncharged water molecules slip through slowly, but completely block charged ions.",
+    "explanation": "Hydrophobic fatty acid cores are virtually **impermeable to charged ions (K+, Cl-)** because of high dehydration energy barriers. However, water molecules can cross at a low basal rate by simple diffusion, causing **water inflow while ions remain trapped**."
+  },
+  {
+    "id": 13,
+    "topic": "Dialysis Membrane Cut-Off (MWCO)",
+    "question": "A researcher uses a dialysis membrane with a Molecular Weight Cut-Off (MWCO) of 10,000 Daltons. If a solution containing bovine serum albumin (MW = 66,500 Da), cytochrome c (MW = 12,000 Da), and sodium chloride (MW = 58.4 Da) is dialyzed against pure water, which substance(s) will diffuse into the beaker?",
+    "options": [
+      "Only sodium chloride (NaCl)",
+      "Only bovine serum albumin",
+      "Both cytochrome c and bovine serum albumin",
+      "All three substances will diffuse out at equal rates"
+    ],
+    "answer": 0,
+    "clue": "Only molecules with a molecular weight LESS than the 10,000 Da cutoff can pass through.",
+    "explanation": "A 10,000 Da MWCO membrane only allows solutes **smaller than 10,000 Da** to pass. Albumin (66,500 Da) and cytochrome c (12,000 Da) are too large and are retained. **Only NaCl (58.4 Da) is small enough to diffuse through**."
+  },
+  {
+    "id": 14,
+    "topic": "Turgor Pressure Measurement in Plant Stems",
+    "question": "A limp, wilted piece of celery is placed in a beaker of ice-cold distilled water for 30 minutes. The celery becomes crisp and rigid. What cellular mechanism restored the stalk's mechanical rigidity?",
+    "options": [
+      "Celery collenchyma cells synthesized a new secondary cell wall made of crystalline quartz.",
+      "Active transport pumps absorbed dissolved salt from the ice water to stiffen the cytoplasm.",
+      "Water moved into celery cells by osmosis, inflating vacuoles and generating high hydrostatic turgor pressure against cell walls.",
+      "The celery underwent rapid cellular division that tripled the total number of cells."
+    ],
+    "answer": 2,
+    "clue": "Distilled water enters plant cells, inflating the central vacuole to create turgor pressure.",
+    "explanation": "Pure water is **hypotonic** to celery cytoplasm. Water rushes in by osmosis, filling the central vacuoles and pushing the plasma membrane against the rigid cell walls, creating **turgor pressure** that restores tissue crispness."
+  },
+  {
+    "id": 15,
+    "topic": "Acid-Base Buffering & Proton Gradient Lab",
+    "question": "In a cell biology investigation, researchers measure the pH of isolated lysosomes and find it to be 4.8. When they add bafilomycin A1 (a specific V-ATPase proton pump inhibitor), the intra-lysosomal pH rises to 7.0 within minutes. What does this confirm?",
+    "options": [
+      "Lysosomal enzymes consume acid to produce glucose.",
+      "Lysosomes do not require a membrane to maintain their chemical contents.",
+      "The acidic interior is actively maintained by continuous ATP-driven proton pumping against an electrochemical gradient.",
+      "Bafilomycin converts lysosomes into photosynthetic chloroplasts."
+    ],
+    "answer": 2,
+    "clue": "When the proton pump is turned off, the acid leaks out and pH becomes neutral (7.0).",
+    "explanation": "Protons (H+) naturally leak out of lysosomes down their gradient into the neutral cytosol. To maintain an acidic pH (~4.8), lysosomes rely on **continuous active pumping of H+ by V-type ATPases**. Inhibiting this pump causes pH to rise to **neutral (7.0)**."
+  },
+  {
+    "id": 16,
+    "topic": "Plant Root Water Absorption & Transpiration Pull",
+    "question": "How do root hair cells maintain a concentration gradient that ensures continuous passive osmotic uptake of soil water into the plant?",
+    "options": [
+      "By actively pumping mineral ions from the soil into their cytoplasm using ATP, keeping the root cells hypertonic to soil water.",
+      "By coating their outer surfaces in waterproof wax so water cannot escape.",
+      "By expelling all cytoplasmic solutes into the air to remain completely empty.",
+      "By using cilia to mechanically sweep liquid droplets into xylem vessels."
+    ],
+    "answer": 0,
+    "clue": "Roots accumulate mineral ions to make themselves hypertonic (lower water potential) than soil.",
+    "explanation": "Root hair cells use **active transport pumps** to concentrate mineral nutrients (K+, NO3-) from the soil into their cytoplasm. This makes the root cells **hypertonic** relative to the soil water, ensuring that **water flows passively into the root by osmosis**."
+  },
+  {
+    "id": 17,
+    "topic": "Fluorescence Recovery After Photobleaching (FRAP)",
+    "question": "In a FRAP experiment investigating membrane transport proteins, a laser bleaches a small circle of green-fluorescent-labeled GLUT1 transporters on a cell membrane. Five minutes later, green fluorescence in the bleached spot has recovered to 90% of its original intensity. What fundamental membrane property does this demonstrate?",
+    "options": [
+      "Proteins cannot move once embedded in the membrane.",
+      "The cell destroyed the membrane and synthesized an entirely new cell wall.",
+      "Transport proteins move laterally through the fluid lipid bilayer by thermal diffusion.",
+      "The laser light permanently altered the cell's genomic DNA sequence."
+    ],
+    "answer": 2,
+    "clue": "FRAP demonstrates the fluidity of the membrane: unbleached proteins diffuse sideways into the bleached spot.",
+    "explanation": "**FRAP (Fluorescence Recovery After Photobleaching)** demonstrates that the plasma membrane is fluid. Unbleached fluorescent transporter proteins **diffused laterally through the bilayer** into the bleached area, restoring fluorescence."
+  },
+  {
+    "id": 18,
+    "topic": "Artificial Kidney Hemodialysis Principle",
+    "question": "In a clinical hemodialysis machine, a patient's blood flows on one side of a semipermeable membrane while dialysate fluid flows in the opposite direction. To remove toxic urea from the blood while preventing the loss of vital glucose, how must the dialysate be formulated?",
+    "options": [
+      "Contain zero glucose and a high concentration of urea.",
+      "Contain a physiological concentration of glucose (~100 mg/dL) and zero urea.",
+      "Contain pure distilled water with no solutes whatsoever.",
+      "Contain toxic amounts of salt to sterilize the patient's blood."
+    ],
+    "answer": 1,
+    "clue": "Zero urea lets urea diffuse out of blood; equal glucose keeps glucose in equilibrium so it doesn't leave blood.",
+    "explanation": "By having **zero urea** in the dialysate, urea diffuses down its steep gradient from blood into the dialysate. By matching the dialysate **glucose concentration to normal blood levels**, there is **no net diffusion of glucose**, preserving vital nutrients."
+  },
+  {
+    "id": 19,
+    "topic": "Salting Slugs Osmotic Homeostasis Failure",
+    "question": "Why does sprinkling table salt (NaCl) onto the moist exterior skin of a garden slug quickly cause dehydration and death?",
+    "options": [
+      "Salt reacts with atmospheric nitrogen to create a fiery chemical explosion.",
+      "Salt crystals penetrate the slug's nervous system like physical needles.",
+      "Salt creates an intensely hypertonic exterior environment, drawing water out of the slug's permeable skin cells by osmosis.",
+      "Salt accelerates the slug's heartbeat until its heart explodes."
+    ],
+    "answer": 2,
+    "clue": "Slugs have thin, moist skin; pouring salt on the outside draws all body water out via osmosis.",
+    "explanation": "Slugs lack a waterproof outer cuticle and have thin, moist, permeable membranes. Sprinkling salt onto their surface creates a severe **hypertonic environment**, drawing water out of body tissues by **osmosis** until the slug suffers fatal dehydration."
+  },
+  {
+    "id": 20,
+    "topic": "Integrated Homeostasis Synthesis",
+    "question": "Which of the following best summarizes the overarching biological purpose of coordinating passive and active transport mechanisms across cellular membranes?",
+    "options": [
+      "To reach complete thermodynamic equilibrium with the external environment so all cellular reactions stop.",
+      "To maximize the intake of all environmental toxins to harden cellular organelles.",
+      "To maintain cellular homeostasis by regulating internal ion concentrations, nutrient uptake, waste elimination, and cell volume.",
+      "To prevent any water molecules from ever entering or leaving the cytoplasm."
+    ],
+    "answer": 2,
+    "clue": "Transport exists to maintain a stable internal environment (homeostasis).",
+    "explanation": "The fundamental goal of all cellular transport is **homeostasis**: selectively balancing water, ions, nutrients, and waste products to maintain the precise physicochemical conditions necessary for metabolic processes and life, distinct from the external environment."
+  }
+];
+    const STORAGE_KEY = 'bio_unit2_test10_state_clean';
+
+    let userState = {
+      answers: {},
+      showClues: {},
+      allCluesVisible: false,
+      currentFilter: 'All',
+      missedOnly: false
+    };
+
+    function safeLoad() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (parsed && typeof parsed === 'object') {
+            userState = Object.assign(userState, parsed);
+          }
+        }
+      } catch (e) {
+        console.warn('localStorage not accessible:', e);
+      }
+    }
+
+    function safeSave() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(userState));
+      } catch (e) {
+        console.warn('Could not save to localStorage:', e);
+      }
+    }
+
+    function init() {
+      safeLoad();
+      renderQuestions();
+      updateStats();
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById('questionsContainer');
+      if (!container) return;
+      container.innerHTML = '';
+
+      let filteredQuestions = questionsData.filter(q => {
+        if (userState.currentFilter !== 'All' && q.topic !== userState.currentFilter) return false;
+        if (userState.missedOnly) {
+          const userAns = userState.answers[q.id];
+          if (userAns === undefined || userAns === q.answer) return false;
+        }
+        return true;
+      });
+
+      if (filteredQuestions.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-12 bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
+            <i class="fa-solid fa-circle-check text-emerald-500 text-4xl mb-3"></i>
+            <h3 class="text-lg font-bold text-slate-800">No Questions In This Filter</h3>
+            <p class="text-slate-500 text-sm mt-1">Try selecting 'All Topics' or clearing the missed review filter.</p>
+          </div>
+        `;
+        return;
+      }
+
+      filteredQuestions.forEach((q) => {
+        const isAnswered = userState.answers[q.id] !== undefined;
+        const selectedOption = userState.answers[q.id];
+        const isCorrect = isAnswered && selectedOption === q.answer;
+        const isClueVisible = userState.allCluesVisible || userState.showClues[q.id];
+
+        const card = document.createElement('div');
+        card.className = `bg-white rounded-2xl p-6 border transition-all duration-200 shadow-sm ${
+          isAnswered
+            ? isCorrect
+              ? 'border-emerald-300 ring-1 ring-emerald-200/50 bg-emerald-50/20'
+              : 'border-rose-300 ring-1 ring-rose-200/50 bg-rose-50/20'
+            : 'border-slate-200 hover:border-slate-300'
+        }`;
+        card.id = `q-card-${q.id}`;
+
+        let optionsHtml = q.options.map((opt, oIdx) => {
+          let btnClass = "border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50/40 text-slate-700 cursor-pointer";
+          let iconHtml = `<span class="w-6 h-6 rounded-full border border-slate-300 text-xs font-semibold flex items-center justify-center mr-3 text-slate-500 shrink-0 mt-0.5">${String.fromCharCode(65 + oIdx)}</span>`;
+
+          if (isAnswered) {
+            if (oIdx === q.answer) {
+              btnClass = "bg-emerald-50 border-emerald-500 text-emerald-950 font-semibold ring-1 ring-emerald-400 cursor-default";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-emerald-600 text-white text-xs font-bold flex items-center justify-center mr-3 shrink-0 mt-0.5"><i class="fa-solid fa-check"></i></span>`;
+            } else if (oIdx === selectedOption && !isCorrect) {
+              btnClass = "bg-rose-50 border-rose-400 text-rose-950 font-semibold ring-1 ring-rose-300 cursor-default";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-rose-600 text-white text-xs font-bold flex items-center justify-center mr-3 shrink-0 mt-0.5"><i class="fa-solid fa-xmark"></i></span>`;
+            } else {
+              btnClass = "opacity-50 border-slate-200 text-slate-400 cursor-not-allowed";
+            }
+          }
+
+          return `
+            <button 
+              type="button"
+              onclick="selectAnswer(${q.id}, ${oIdx})" 
+              ${isAnswered ? 'disabled' : ''} 
+              class="w-full text-left p-3.5 rounded-xl text-sm transition flex items-start ${btnClass} my-2 leading-relaxed">
+              ${iconHtml}
+              <span class="flex-1">${opt}</span>
+            </button>
+          `;
+        }).join('');
+
+        card.innerHTML = `
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <div class="flex items-center gap-2">
+              <span class="bg-indigo-100 text-indigo-800 text-xs font-black px-2.5 py-0.5 rounded-md">Q${q.id}</span>
+              <span class="bg-slate-100 text-slate-600 text-xs font-semibold px-2.5 py-0.5 rounded-md">${q.topic}</span>
+            </div>
+
+            <button type="button" onclick="toggleClue(${q.id})" class="text-xs text-amber-700 bg-amber-50 hover:bg-amber-100 border border-amber-200 px-3 py-1 rounded-lg font-medium transition flex items-center gap-1 cursor-pointer">
+              <i class="fa-regular fa-lightbulb"></i>
+              ${isClueVisible ? 'Hide Hint' : 'Need a Clue?'}
+            </button>
+          </div>
+
+          <h3 class="text-base font-bold text-slate-900 leading-relaxed mb-4">${q.question}</h3>
+
+          <div id="clue-${q.id}" class="${isClueVisible ? 'block' : 'hidden'} mb-4 p-3.5 bg-amber-50/80 border border-amber-200 rounded-xl text-amber-900 text-xs flex items-start gap-2.5">
+            <i class="fa-solid fa-lightbulb text-amber-600 mt-0.5"></i>
+            <div><span class="font-bold">Study Hint:</span> ${q.clue}</div>
+          </div>
+
+          <div class="space-y-1">${optionsHtml}</div>
+
+          ${isAnswered ? `
+            <div class="mt-5 p-4 rounded-xl text-sm border ${
+              isCorrect 
+                ? 'bg-emerald-50/70 border-emerald-200 text-emerald-950' 
+                : 'bg-rose-50/70 border-rose-200 text-slate-800'
+            }">
+              <div class="flex items-center gap-2 font-bold mb-2 ${isCorrect ? 'text-emerald-800' : 'text-rose-800'}">
+                <i class="${isCorrect ? 'fa-solid fa-circle-check text-emerald-600' : 'fa-solid fa-circle-xmark text-rose-600'}"></i>
+                <span>${isCorrect ? 'Correct! Excellent work.' : 'Incorrect. Let\'s break it down:'}</span>
+              </div>
+              <p class="text-xs leading-relaxed text-slate-700 mb-2">${q.explanation}</p>
+              <div class="text-xs font-semibold text-indigo-700 pt-2 border-t border-slate-200/60 flex items-center justify-between">
+                <span>Correct Option: ${String.fromCharCode(65 + q.answer)} (${q.options[q.answer]})</span>
+                <button type="button" onclick="retryQuestion(${q.id})" class="text-slate-500 hover:text-slate-800 font-medium underline ml-2 cursor-pointer">Try Again</button>
+              </div>
+            </div>
+          ` : ''}
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function selectAnswer(qId, optionIdx) {
+      if (userState.answers[qId] !== undefined) return;
+      userState.answers[qId] = optionIdx;
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function retryQuestion(qId) {
+      delete userState.answers[qId];
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function toggleClue(qId) {
+      userState.showClues[qId] = !userState.showClues[qId];
+      const el = document.getElementById(`clue-${qId}`);
+      if (el) {
+        el.classList.toggle('hidden');
+        el.classList.toggle('block');
+      }
+    }
+
+    function toggleAllClues() {
+      userState.allCluesVisible = !userState.allCluesVisible;
+      const btnText = document.getElementById('clueToggleText');
+      if (btnText) {
+        btnText.textContent = userState.allCluesVisible ? 'Hide All Hints' : 'Show All Hints';
+      }
+      renderQuestions();
+    }
+
+    function filterTopic(topic) {
+      userState.currentFilter = topic;
+      userState.missedOnly = false;
+      document.querySelectorAll('.topic-btn').forEach(btn => {
+        if (btn.textContent.includes(topic) || (topic === 'All' && btn.textContent.includes('All Topics'))) {
+          btn.className = 'topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-sm transition cursor-pointer';
+        } else {
+          btn.className = 'topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer';
+        }
+      });
+      renderQuestions();
+    }
+
+    function filterMissed() {
+      userState.missedOnly = !userState.missedOnly;
+      const btn = document.getElementById('filterMissedBtn');
+      if (userState.missedOnly) {
+        btn.className = 'text-xs bg-rose-600 text-white border border-rose-600 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer shadow-sm';
+      } else {
+        btn.className = 'text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer';
+      }
+      renderQuestions();
+    }
+
+    function updateStats() {
+      const total = questionsData.length;
+      const answeredKeys = Object.keys(userState.answers);
+      const answeredCount = answeredKeys.length;
+      let correctCount = 0;
+      let missedCount = 0;
+
+      answeredKeys.forEach(k => {
+        const q = questionsData.find(item => item.id == k);
+        if (q) {
+          if (userState.answers[k] === q.answer) {
+            correctCount++;
+          } else {
+            missedCount++;
+          }
+        }
+      });
+
+      const pct = answeredCount > 0 ? Math.round((correctCount / answeredCount) * 100) : 0;
+      const progressPct = Math.round((answeredCount / total) * 100);
+
+      const statAns = document.getElementById('statAnswered');
+      const statScore = document.getElementById('statScore');
+      const progBar = document.getElementById('quizProgressBar');
+      const missedCountSpan = document.getElementById('missedCount');
+
+      if (statAns) statAns.textContent = `${answeredCount}/${total}`;
+      if (statScore) statScore.textContent = `${pct}%`;
+      if (progBar) progBar.style.width = `${progressPct}%`;
+      if (missedCountSpan) missedCountSpan.textContent = missedCount;
+
+      const summaryCard = document.getElementById('scoreSummaryCard');
+      if (answeredCount === total && total > 0) {
+        if (summaryCard) {
+          summaryCard.classList.remove('hidden');
+          document.getElementById('finalTotal').textContent = total;
+          document.getElementById('finalCorrect').textContent = correctCount;
+          document.getElementById('finalPercent').textContent = `${pct}%`;
+
+          const rating = document.getElementById('masteryRating');
+          if (pct >= 90) {
+            rating.className = 'p-4 rounded-2xl font-bold text-sm mb-6 bg-emerald-100 text-emerald-900 border border-emerald-300';
+            rating.innerHTML = '🌟 Master Level! Flawless command of cellular transport lab investigations and homeostatic mechanisms! You have fully mastered Tiers 1 and 2!';
+          } else if (pct >= 75) {
+            rating.className = 'p-4 rounded-2xl font-bold text-sm mb-6 bg-blue-100 text-blue-900 border border-blue-300';
+            rating.innerHTML = '👍 Solid Mastery! Review missed questions on dialysis cutoffs and potato osmolarity.';
+          } else {
+            rating.className = 'p-4 rounded-2xl font-bold text-sm mb-6 bg-amber-100 text-amber-900 border border-amber-300';
+            rating.innerHTML = '📚 Keep practicing! Focus on lab data analysis: dialysis assays, U-tubes, and osmometer turbidity tests.';
+          }
+        }
+      } else {
+        if (summaryCard) summaryCard.classList.add('hidden');
+      }
+    }
+
+    function resetQuiz() {
+      if (confirm('Are you sure you want to reset all answers and progress for this test?')) {
+        userState.answers = {};
+        userState.showClues = {};
+        userState.allCluesVisible = false;
+        userState.missedOnly = false;
+        safeSave();
+        renderQuestions();
+        updateStats();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  </script>
+</body>
+</html>

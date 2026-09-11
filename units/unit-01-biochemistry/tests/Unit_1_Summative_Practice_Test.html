@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biology I Honors - Unit 1 Summative Practice Test (v2 - Anti-Guess Edition)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;600&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    .code-font { font-family: 'Fira Code', monospace; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+
+  <!-- TOP HEADER -->
+  <header class="bg-gradient-to-r from-blue-700 via-indigo-700 to-emerald-700 text-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="bg-white/20 text-xs px-2.5 py-1 rounded-full font-semibold uppercase tracking-wider">Biology I Honors</span>
+          <span class="bg-emerald-400 text-slate-900 text-xs px-2.5 py-1 rounded-full font-bold">Unit 1 Summative • v2 Anti-Guess</span>
+        </div>
+        <h1 class="text-2xl font-black tracking-tight mt-1">Biochemistry & Scientific Foundations Exam (v2)</h1>
+      </div>
+
+      <!-- Quick Stats Top -->
+      <div class="flex items-center gap-4 bg-white/10 backdrop-blur px-4 py-2 rounded-xl border border-white/15">
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Answered</div>
+          <div id="statAnswered" class="text-xl font-bold">0/44</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Accuracy</div>
+          <div id="statScore" class="text-xl font-bold text-emerald-300">0%</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <button onclick="resetQuiz()" class="text-xs bg-white/20 hover:bg-white/30 text-white px-3 py-2 rounded-lg font-medium transition flex items-center gap-1.5">
+          <i class="fa-solid fa-rotate-right"></i> Reset
+        </button>
+      </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="w-full bg-slate-900/30 h-2">
+      <div id="quizProgressBar" class="bg-emerald-400 h-2 transition-all duration-300" style="width: 0%"></div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-6xl mx-auto px-4 py-8">
+
+    <!-- Anti-Guess Note Banner -->
+    <div class="bg-emerald-50 border border-emerald-200 text-emerald-950 p-4 rounded-2xl mb-6 flex items-center justify-between text-xs font-semibold">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-shield-halved text-emerald-600 text-base"></i>
+        <span><strong>v2 Anti-Guess Edition:</strong> All 4 options per question have strictly matched lengths and equal conceptual detail so you cannot guess by length alone!</span>
+      </div>
+      <a href="Unit_1_Summative_Practice_Test.html" class="text-emerald-800 underline hover:text-emerald-950 ml-4 whitespace-nowrap">Switch to v1</a>
+    </div>
+
+    <!-- CONTROLS & FILTER BAR -->
+    <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 mb-8">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-base font-bold text-slate-700 mb-2">Filter by Topic:</h2>
+          <div class="flex flex-wrap gap-2" id="topicFilters">
+            <button onclick="filterTopic('All')" class="topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-sm transition">All Topics (44)</button>
+            <button onclick="filterTopic('Characteristics of Life')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition">Characteristics of Life</button>
+            <button onclick="filterTopic('Experimental Design')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition">Scientific Method & Graphs</button>
+            <button onclick="filterTopic('Properties of Water')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition">Properties of Water</button>
+            <button onclick="filterTopic('Organic Chemistry & Reactions')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition">Reactions & Polymers</button>
+            <button onclick="filterTopic('Carbohydrates')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition">Carbohydrates</button>
+            <button onclick="filterTopic('Lipids')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition">Lipids</button>
+            <button onclick="filterTopic('Proteins')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition">Proteins & Enzymes</button>
+            <button onclick="filterTopic('Nucleic Acids')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition">Nucleic Acids</button>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 pt-2 lg:pt-0 border-t lg:border-t-0 border-slate-100">
+          <button onclick="toggleAllClues()" id="toggleCluesBtn" class="text-xs bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5">
+            <i class="fa-regular fa-lightbulb"></i> <span id="clueToggleText">Show All Clues</span>
+          </button>
+          <button onclick="filterMissed()" id="filterMissedBtn" class="text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5">
+            <i class="fa-solid fa-triangle-exclamation"></i> Review Missed (<span id="missedCount">0</span>)
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTIONS LIST -->
+    <div id="questionsContainer" class="space-y-6"></div>
+
+    <!-- SCORE SUMMARY CARD -->
+    <div id="scoreSummaryCard" class="mt-12 bg-white rounded-3xl p-8 border-2 border-indigo-100 shadow-xl hidden">
+      <div class="text-center max-w-xl mx-auto">
+        <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl">
+          <i class="fa-solid fa-trophy"></i>
+        </div>
+        <h2 class="text-2xl font-black text-slate-800">Unit 1 Assessment (v2) Complete!</h2>
+        <p class="text-slate-500 text-sm mt-1">Here is your detailed mastery score across all Unit 1 topics.</p>
+        
+        <div class="grid grid-cols-3 gap-4 my-6 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Total Questions</div>
+            <div class="text-2xl font-black text-slate-800" id="finalTotal">44</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Correct</div>
+            <div class="text-2xl font-black text-emerald-600" id="finalCorrect">0</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Score Rate</div>
+            <div class="text-2xl font-black text-blue-600" id="finalPercent">0%</div>
+          </div>
+        </div>
+
+        <div id="masteryRating" class="p-4 rounded-2xl font-bold text-sm mb-6"></div>
+
+        <button onclick="resetQuiz()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-indigo-200 transition">
+          Retake Entire Test
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- JAVASCRIPT ENGINE -->
+  <script>
+    const questionsData = [
+  {
+    "id": 1,
+    "topic": "Characteristics of Life",
+    "question": "Which criterion must an entity satisfy in order to be scientifically classified as a living organism?",
+    "options": [
+      "It must exhibit all seven universal characteristics of life simultaneously throughout its life cycle.",
+      "It must possess genetic material and demonstrate the capacity to undergo evolutionary adaptation over time.",
+      "It must maintain cellular organization and demonstrate active metabolic energy conversion in its environment.",
+      "It must actively reproduce offspring and respond immediately to external physical or chemical stimuli."
+    ],
+    "answer": 0,
+    "clue": "Consider why viruses (possessing genes and evolving, but lacking autonomous metabolism) are non-living.",
+    "explanation": "To be classified as living, an entity must satisfy **all seven** characteristics of life: cellular organization, metabolism, homeostasis, growth/development, reproduction, response to stimuli, and evolutionary adaptation."
+  },
+  {
+    "id": 2,
+    "topic": "Characteristics of Life",
+    "question": "During strenuous exercise, an athlete begins sweating heavily and breathing rapidly. This physiological feedback response best illustrates:",
+    "options": [
+      "Anabolic dehydration synthesis producing structural glycogen stores.",
+      "Dynamic homeostasis working to stabilize internal core conditions.",
+      "Unicellular differentiation responding to environmental pressure.",
+      "Catabolic hydrolysis converting skeletal muscle proteins to urea."
+    ],
+    "answer": 1,
+    "clue": "Sweating and rapid respiration regulate body temperature and blood gas levels.",
+    "explanation": "**Homeostasis** is the active maintenance of a stable internal environment (e.g., core temperature and pH balance) despite fluctuating external conditions."
+  },
+  {
+    "id": 3,
+    "topic": "Experimental Design",
+    "question": "A biologist evaluates how four distinct concentrations of nitrate fertilizer (0, 5, 10, and 15 g/L) influence tomato vine elongation over six weeks. What is the independent variable?",
+    "options": [
+      "The final vertical vine length measured in centimeters each week.",
+      "The specific concentration of nitrate fertilizer applied to the soil.",
+      "The total volume of water and daily photoperiod provided to vines.",
+      "The initial genetic variety and starting seedling height of plants."
+    ],
+    "answer": 1,
+    "clue": "The factor intentionally manipulated by the researcher.",
+    "explanation": "The **Independent Variable** is the factor manipulated by the experimenter (fertilizer concentration). The **Dependent Variable** is the measured outcome (vine elongation)."
+  },
+  {
+    "id": 4,
+    "topic": "Experimental Design",
+    "question": "In the nitrate fertilizer investigation described above, what is the primary scientific function of the plant group receiving 0 g/L of fertilizer?",
+    "options": [
+      "It provides the maximum expected growth baseline for the experimental trials.",
+      "It eliminates the necessity of maintaining identical environmental constants.",
+      "It serves as a negative control group to confirm baseline growth without treatment.",
+      "It acts as the positive experimental group confirming optimal nutrient uptake."
+    ],
+    "answer": 2,
+    "clue": "A baseline comparison group receiving zero active treatment.",
+    "explanation": "The **Control Group** (0 g/L fertilizer) provides a baseline to determine whether changes in plant growth are genuinely caused by the fertilizer treatment."
+  },
+  {
+    "id": 5,
+    "topic": "Experimental Design & Graphing",
+    "question": "When constructing a standard Cartesian coordinate graph for experimental data, how should variables and axes be properly assigned?",
+    "options": [
+      "The independent variable goes on the vertical Y-axis and dependent variable on the horizontal X-axis.",
+      "The independent variable goes on the horizontal X-axis and dependent variable on the vertical Y-axis.",
+      "Both independent and dependent variables are plotted along the horizontal X-axis against time on the Y-axis.",
+      "The controlled constants are plotted on the horizontal X-axis and experimental error on the Y-axis."
+    ],
+    "answer": 1,
+    "clue": "Remember DRY MIX: Dependent/Responding/Y-axis vs. Manipulated/Independent/X-axis.",
+    "explanation": "Standard scientific graphing places the **Independent Variable on the X-axis** and the **Dependent Variable on the Y-axis**."
+  },
+  {
+    "id": 6,
+    "topic": "Experimental Design",
+    "question": "Which of the following recorded laboratory observations represents qualitative rather than quantitative data?",
+    "options": [
+      "The enzymatic solution decreased in temperature by 4.8\u00b0C over five minutes.",
+      "The leaf tissue developed yellow chlorotic spots and emitted a sour odor.",
+      "The total biomass of the algal culture increased by 18.3 grams in seven days.",
+      "The pH of the aquatic buffer shifted from 7.4 to 6.2 following acid addition."
+    ],
+    "answer": 1,
+    "clue": "Look for descriptive sensory qualities lacking numerical measurements and units.",
+    "explanation": "**Qualitative data** describes qualities, appearances, or textures without numerical measurements. Options A, C, and D are quantitative measurements."
+  },
+  {
+    "id": 7,
+    "topic": "Properties of Water",
+    "question": "Why is an individual water molecule (H\u2082O) chemically classified as a polar molecule?",
+    "options": [
+      "Oxygen is more electronegative than hydrogen, pulling shared electrons closer to create partial charges.",
+      "Hydrogen atoms donate their electrons completely to oxygen, resulting in fully separated ionic charges.",
+      "Oxygen and hydrogen share electrons equally in nonpolar bonds, but hydrogen bonding creates external dipoles.",
+      "Water molecules dissociate spontaneously into equal concentrations of hydrogen ions and hydroxide ions."
+    ],
+    "answer": 0,
+    "clue": "Unequal electron sharing caused by oxygen's high electronegativity.",
+    "explanation": "Because oxygen has higher electronegativity than hydrogen, electrons are drawn closer to oxygen, generating a partial negative charge ($\\delta^-$) on oxygen and partial positive charges ($\\delta^+$) on hydrogens."
+  },
+  {
+    "id": 8,
+    "topic": "Properties of Water",
+    "question": "What type of chemical bonding occurs BETWEEN adjacent water molecules, and what causes it?",
+    "options": [
+      "Covalent bonding formed by the permanent sharing of valence electrons between adjacent oxygen nuclei.",
+      "Hydrogen bonding formed by electrostatic attraction between partial positive hydrogens and partial negative oxygens.",
+      "Ionic bonding formed by the complete transfer of valence electrons from hydrogen cations to oxygen anions.",
+      "Peptide bonding formed by dehydration synthesis between polar hydroxyl groups of neighboring water molecules."
+    ],
+    "answer": 1,
+    "clue": "Intermolecular attraction between opposite partial charges on neighboring molecules.",
+    "explanation": "**Hydrogen bonds** form between the partial negative oxygen ($\\delta^-$) of one water molecule and the partial positive hydrogen ($\\delta^+$) of a neighboring water molecule."
+  },
+  {
+    "id": 9,
+    "topic": "Properties of Water",
+    "question": "A water strider insect glides effortlessly across the surface of a quiet pond. Which property of water directly prevents the insect from breaking through?",
+    "options": [
+      "Capillary action generated by strong adhesive forces between insect legs and polar water molecules.",
+      "Surface tension generated by extensive cohesive hydrogen bonding among surface water molecules.",
+      "High specific heat capacity maintaining a rigid, viscous surface layer in warm ambient temperatures.",
+      "Low density of liquid water creating an upward buoyant force that repels hydrophobic insect cuticles."
+    ],
+    "answer": 1,
+    "clue": "Cohesion at the air-water interface creates an elastic-like barrier.",
+    "explanation": "**Surface tension** is produced by cohesive hydrogen bonds pulling surface water molecules inward, creating a resistant surface film."
+  },
+  {
+    "id": 10,
+    "topic": "Properties of Water",
+    "question": "How does water travel continuously upward through the narrow xylem vessels of a 300-foot redwood tree against the downward pull of gravity?",
+    "options": [
+      "Through catabolic hydrolysis reactions in roots generating continuous osmotic pressure.",
+      "Through capillary action driven by cohesion between water molecules and adhesion to xylem walls.",
+      "Through density differences between warm ground water and colder upper canopy moisture.",
+      "Through nonpolar hydrophobic interactions repelling water molecules upward from the root cortex."
+    ],
+    "answer": 1,
+    "clue": "Cohesion keeps the water column intact; adhesion clings to plant vessel walls.",
+    "explanation": "**Capillary action** results from **adhesion** (water clinging to hydrophilic xylem walls) combined with **cohesion** (water molecules pulling each other upward)."
+  },
+  {
+    "id": 11,
+    "topic": "Properties of Water",
+    "question": "Why do marine and coastal habitats maintain much narrower temperature swings between day and night than adjacent inland desert regions?",
+    "options": [
+      "Water has a high specific heat capacity, absorbing and releasing massive heat with minimal temperature shift.",
+      "Water has a low heat of vaporization, allowing it to condense rapidly and heat the coastal atmosphere.",
+      "Water reflects all incoming solar radiation without transferring thermal energy to the marine ecosystem.",
+      "Water constantly undergoes anabolic synthesis, consuming atmospheric heat energy to form chemical bonds."
+    ],
+    "answer": 0,
+    "clue": "Large amounts of thermal energy are needed to break hydrogen bonds before water's temperature rises.",
+    "explanation": "Water's **high specific heat capacity** allows large bodies of water to absorb massive amounts of heat during the day and release it slowly at night, moderating coastal climates."
+  },
+  {
+    "id": 12,
+    "topic": "Properties of Water",
+    "question": "What structural change occurs when liquid water freezes into solid ice, and why is this vital for freshwater organisms?",
+    "options": [
+      "Hydrogen bonds contract, increasing ice density so it sinks to insulate benthic organisms on the lakebed.",
+      "Hydrogen bonds lock into a spacious crystal lattice, making ice less dense so it floats and insulates the liquid water below.",
+      "Covalent bonds dissociate, converting ice into an insoluble lipid-like sheet that seals the pond surface from air.",
+      "Molecules lose polarity completely, forming a dense nonpolar blanket that traps geothermal heat in deep water."
+    ],
+    "answer": 1,
+    "clue": "Ice expands upon freezing and floats, forming an insulating blanket.",
+    "explanation": "Below 4\u00b0C, hydrogen bonds form a stable **open hexagonal crystal lattice**, making solid ice less dense than liquid water so it floats and insulates aquatic life."
+  },
+  {
+    "id": 13,
+    "topic": "Properties of Water",
+    "question": "When potassium chloride (KCl) dissolves in an aqueous solution, how do water molecules organize themselves around the separated K\u207a and Cl\u207b ions?",
+    "options": [
+      "Partially negative oxygens face K\u207a cations, while partially positive hydrogens face Cl\u207b anions in hydration shells.",
+      "Partially positive hydrogens face K\u207a cations, while partially negative oxygens face Cl\u207b anions in hydration shells.",
+      "Water molecules form covalent ester linkages with K\u207a cations and hydrogen bonds with Cl\u207b anions.",
+      "Water molecules repel both ions equally, forcing them into insoluble nonpolar crystalline aggregates."
+    ],
+    "answer": 0,
+    "clue": "Opposite partial charges attract ionic charges: oxygen ($\\delta^-$) to cation (+), hydrogen ($\\delta^+$) to anion (-).",
+    "explanation": "Water forms **hydration shells** where partial negative oxygens orient toward positive cations ($\text{K}^+$) and partial positive hydrogens orient toward negative anions ($\text{Cl}^-$)."
+  },
+  {
+    "id": 14,
+    "topic": "Properties of Water",
+    "question": "Which statement correctly pairs the chemical nature of table sugar (sucrose) and vegetable oil with their behavior in water?",
+    "options": [
+      "Sucrose is polar/hydrophilic and dissolves in water; vegetable oil is nonpolar/hydrophobic and separates from water.",
+      "Sucrose is nonpolar/hydrophobic and dissolves in water; vegetable oil is polar/hydrophilic and forms a bottom layer.",
+      "Both sucrose and vegetable oil are nonpolar lipids that form insoluble micelles in aqueous solutions.",
+      "Both sucrose and vegetable oil are polar carbohydrates that form homogeneous single-phase mixtures with water."
+    ],
+    "answer": 0,
+    "clue": "Polar dissolves polar; nonpolar hydrocarbons repel water.",
+    "explanation": "Sucrose has numerous polar hydroxyl ($-\\text{OH}$) groups that form hydrogen bonds with water (**hydrophilic**), while vegetable oil consists of nonpolar hydrocarbon chains that cannot hydrogen-bond (**hydrophobic**)."
+  },
+  {
+    "id": 15,
+    "topic": "Organic Chemistry & Reactions",
+    "question": "Why is carbon uniquely suited to serve as the foundational backbone element of all four major biological macromolecules?",
+    "options": [
+      "It has two valence electrons, allowing it to form flexible ionic bonds with all metallic cellular elements.",
+      "It has four valence electrons, allowing it to form four stable covalent bonds in diverse straight, branched, and ring structures.",
+      "It readily dissociates in water into positively charged carbon ions that catalyze rapid condensation reactions.",
+      "It is the most electronegative element in living cells, enabling it to form unbreakable intermolecular hydrogen bonds."
+    ],
+    "answer": 1,
+    "clue": "Carbon's 4 valence electrons allow tetravalent covalent bonding.",
+    "explanation": "With **4 valence electrons**, carbon forms up to four stable covalent bonds with diverse atoms, creating the straight chains, branches, and rings of life."
+  },
+  {
+    "id": 16,
+    "topic": "Organic Chemistry & Reactions",
+    "question": "Which of the following correctly pairs a biological monomer subunit with its resulting macromolecular polymer?",
+    "options": [
+      "Monosaccharide subunit \u2192 Polypeptide polymer",
+      "Amino acid subunit \u2192 Polysaccharide polymer",
+      "Nucleotide subunit \u2192 Nucleic acid polymer",
+      "Fatty acid subunit \u2192 Polynucleotide polymer"
+    ],
+    "answer": 2,
+    "clue": "Nucleotides polymerize into DNA or RNA strands.",
+    "explanation": "**Nucleotides** are the monomers that polymerize to form **nucleic acids** (DNA and RNA)."
+  },
+  {
+    "id": 17,
+    "topic": "Organic Chemistry & Reactions",
+    "question": "When liver cells assemble individual glucose molecules into long glycogen storage chains, what type of reaction occurs and what byproduct is produced?",
+    "options": [
+      "Hydrolysis reaction consuming one molecule of water for each bond formed.",
+      "Dehydration synthesis reaction releasing one molecule of water for each bond formed.",
+      "Catabolic oxidation reaction releasing carbon dioxide and ammonia byproducts.",
+      "Denaturation reaction consuming ATP energy without altering water balance."
+    ],
+    "answer": 1,
+    "clue": "'Dehydration' removes water to synthesize a polymer.",
+    "explanation": "**Dehydration synthesis** links monomers by removing an $-\\text{H}$ and an $-\\text{OH}$, forming a covalent bond and releasing a water molecule ($\text{H}_2\text{O}$)."
+  },
+  {
+    "id": 18,
+    "topic": "Organic Chemistry & Reactions",
+    "question": "During digestion in the human small intestine, enzymes break dietary starch polymers down into individual glucose monomers through:",
+    "options": [
+      "Anabolic dehydration synthesis requiring input of metabolic ATP energy.",
+      "Catabolic hydrolysis reactions involving the chemical addition of water molecules.",
+      "Nonpolar hydrophobic aggregation separating carbohydrate chains from water.",
+      "Quaternary denaturation disrupting covalent glycosidic backbone bonds."
+    ],
+    "answer": 1,
+    "clue": "Splitting chemical bonds by inserting water molecules.",
+    "explanation": "**Hydrolysis** is a catabolic reaction where water molecules ($\text{H}^+$ and $\text{OH}^-$) are split and added across covalent bonds to break polymers down into monomers."
+  },
+  {
+    "id": 19,
+    "topic": "Organic Chemistry & Reactions",
+    "question": "Which of the following statements accurately contrasts anabolic metabolic pathways with catabolic metabolic pathways?",
+    "options": [
+      "Anabolic pathways synthesize complex molecules (consuming energy); catabolic pathways degrade complex molecules (releasing energy).",
+      "Anabolic pathways degrade complex molecules (consuming energy); catabolic pathways synthesize complex molecules (releasing energy).",
+      "Anabolic pathways occur only in plant chloroplasts; catabolic pathways occur only in animal mitochondria.",
+      "Anabolic pathways rely exclusively on hydrolysis; catabolic pathways rely exclusively on dehydration synthesis."
+    ],
+    "answer": 0,
+    "clue": "Anabolism builds up (consumes energy); catabolism breaks down (releases energy).",
+    "explanation": "**Anabolic pathways** build larger molecules from simpler subunits and require energy; **Catabolic pathways** break large molecules into smaller units and release energy."
+  },
+  {
+    "id": 20,
+    "topic": "Carbohydrates",
+    "question": "What is the characteristic elemental composition and typical empirical atomic ratio for simple carbohydrate molecules?",
+    "options": [
+      "Carbon, Hydrogen, and Oxygen in a 1 : 2 : 1 empirical ratio (CH\u2082O)n.",
+      "Carbon, Hydrogen, Oxygen, and Nitrogen in a 1 : 1 : 1 : 1 empirical ratio.",
+      "Carbon, Hydrogen, and Oxygen with very low oxygen proportions relative to carbon.",
+      "Carbon, Hydrogen, Nitrogen, and Phosphorus in a 2 : 4 : 1 : 1 empirical ratio."
+    ],
+    "answer": 0,
+    "clue": "Glucose has the chemical formula C\u2086H\u2081\u2082O\u2086 (1:2:1 ratio).",
+    "explanation": "Carbohydrates contain **C, H, and O** typically in a **$1 : 2 : 1$ atomic ratio** ($(\text{CH}_2\text{O})_n$), such as glucose ($\text{C}_6\text{H}_{12}\text{O}_6$)."
+  },
+  {
+    "id": 21,
+    "topic": "Carbohydrates",
+    "question": "Which of the following biomolecules is a six-carbon monosaccharide that serves as the immediate primary substrate for cellular respiration?",
+    "options": [
+      "Sucrose",
+      "Glucose",
+      "Glycogen",
+      "Cellulose"
+    ],
+    "answer": 1,
+    "clue": "A simple hexose sugar ring ending in '-ose'.",
+    "explanation": "**Glucose** is a single-ring hexose monosaccharide and the primary cellular fuel for ATP production."
+  },
+  {
+    "id": 22,
+    "topic": "Carbohydrates",
+    "question": "Which carbohydrate pair correctly identifies the primary energy storage polysaccharide in plants alongside the structural polysaccharide of plant cell walls?",
+    "options": [
+      "Starch (energy storage) and Cellulose (structural cell walls)",
+      "Glycogen (energy storage) and Chitin (structural cell walls)",
+      "Cellulose (energy storage) and Starch (structural cell walls)",
+      "Amylose (energy storage) and Glycogen (structural cell walls)"
+    ],
+    "answer": 0,
+    "clue": "Potatoes store starch; rigid plant stems are built from cellulose fibers.",
+    "explanation": "Plants store excess glucose as **starch** and construct rigid cell walls from structural **cellulose** microfibrils."
+  },
+  {
+    "id": 23,
+    "topic": "Carbohydrates",
+    "question": "Where and in what structural form do humans and other vertebrates primarily store surplus carbohydrates for rapid energy release?",
+    "options": [
+      "As starch granules concentrated within adipose fat deposits.",
+      "As highly branched glycogen polymers inside liver and skeletal muscle cells.",
+      "As linear cellulose fibers anchored inside connective cartilage tissue.",
+      "As cyclic sucrose dimers circulating freely in the lymphatic system."
+    ],
+    "answer": 1,
+    "clue": "Stored in liver and skeletal muscles.",
+    "explanation": "Animals store surplus carbohydrates as **glycogen** in the **liver** (for blood glucose regulation) and **skeletal muscle** (for muscle contraction)."
+  },
+  {
+    "id": 24,
+    "topic": "Carbohydrates",
+    "question": "In which biological structures is the nitrogen-containing structural polysaccharide chitin naturally found?",
+    "options": [
+      "Plant cell walls and human cartilage matrix.",
+      "Arthropod exoskeletons and fungal cell walls.",
+      "Bacterial peptidoglycan walls and viral protein coats.",
+      "Avian feather shafts and mammalian hair follicles."
+    ],
+    "answer": 1,
+    "clue": "Crunchy outer insect shells and mushroom cell walls.",
+    "explanation": "**Chitin** is a tough structural polysaccharide found in **arthropod exoskeletons** (insects, crustaceans) and **fungal cell walls**."
+  },
+  {
+    "id": 25,
+    "topic": "Lipids",
+    "question": "What primary chemical feature accounts for the hydrophobic, water-insoluble nature of biological lipids?",
+    "options": [
+      "Their high density of polar hydroxyl and amino functional groups.",
+      "Their extensive nonpolar hydrocarbon chains that cannot form hydrogen bonds with water.",
+      "Their strongly acidic carboxyl groups that ionize and repel neutral water molecules.",
+      "Their cyclic four-ring steroid skeletons that form covalent bonds with aqueous solutes."
+    ],
+    "answer": 1,
+    "clue": "Nonpolar carbon-hydrogen bonds share electrons equally.",
+    "explanation": "Lipids are composed primarily of long nonpolar **hydrocarbon chains** ($\text{C}-\text{H}$ bonds) that cannot form hydrogen bonds with polar water molecules."
+  },
+  {
+    "id": 26,
+    "topic": "Lipids",
+    "question": "What are the exact molecular components assembled to construct a single triglyceride fat molecule?",
+    "options": [
+      "One 3-carbon glycerol backbone covalently joined to three fatty acid tails.",
+      "Three glycerol molecules covalently joined to one saturated fatty acid tail.",
+      "One phosphate head group joined to two fatty acid tails and one steroid ring.",
+      "Four fused carbon rings joined to three hydrocarbon chains via peptide bonds."
+    ],
+    "answer": 0,
+    "clue": "'Tri-' means three fatty acids attached to one glycerol.",
+    "explanation": "A **triglyceride** consists of **one glycerol molecule** bonded to **three fatty acid chains** via ester linkages."
+  },
+  {
+    "id": 27,
+    "topic": "Lipids",
+    "question": "How does the molecular structure of a saturated fatty acid differ from that of an unsaturated fatty acid?",
+    "options": [
+      "Saturated fats contain one or more C=C double bonds; unsaturated fats have only single C-C bonds.",
+      "Saturated fats have only single C-C bonds (straight chains); unsaturated fats contain C=C double bonds (bent chains).",
+      "Saturated fats are liquid oils at room temperature; unsaturated fats are dense solids at room temperature.",
+      "Saturated fats contain hydrophilic phosphate heads; unsaturated fats lack functional groups entirely."
+    ],
+    "answer": 1,
+    "clue": "Saturated fats have no double bonds and pack tightly as solids (butter).",
+    "explanation": "**Saturated fatty acids** have only single $\text{C}-\text{C}$ bonds (straight chains, solid at room temp). **Unsaturated fatty acids** contain one or more $\text{C}=\text{C}$ double bonds (kinked chains, liquid oils)."
+  },
+  {
+    "id": 28,
+    "topic": "Lipids",
+    "question": "Why are phospholipid molecules uniquely organized to form stable cellular membrane bilayers in aqueous environments?",
+    "options": [
+      "They are completely water-soluble and dissolve evenly throughout the cytoplasm.",
+      "They are amphipathic, with polar phosphate heads facing water and nonpolar fatty acid tails facing inward.",
+      "They form rigid crystalline networks stabilized by covalent peptide cross-links.",
+      "They consist of four fused rings that lock water molecules permanently outside the cell."
+    ],
+    "answer": 1,
+    "clue": "Amphipathic molecules have both hydrophilic heads and hydrophobic tails.",
+    "explanation": "Phospholipids are **amphipathic**: their **hydrophilic phosphate heads** face the outer and inner aqueous environments, while their **hydrophobic fatty acid tails** face inward away from water."
+  },
+  {
+    "id": 29,
+    "topic": "Lipids",
+    "question": "Molecules such as cholesterol, estrogen, and testosterone are categorized as steroids because they all possess:",
+    "options": [
+      "Three fatty acid tails linked to a central glycerol molecule.",
+      "A carbon skeleton composed of four interconnected/fused carbon rings.",
+      "A polar phosphate head group and two polyunsaturated hydrocarbon tails.",
+      "A linear sequence of amino acids joined by strong peptide linkages."
+    ],
+    "answer": 1,
+    "clue": "The hallmark 4-ring fused carbon skeleton.",
+    "explanation": "**Steroids** are lipids characterized by a core structure of **four fused carbon rings** without fatty acid tails (e.g., cholesterol, steroid hormones)."
+  },
+  {
+    "id": 30,
+    "topic": "Proteins",
+    "question": "Which set of chemical elements is consistently present in the molecular structure of all twenty standard amino acids?",
+    "options": [
+      "Carbon, Hydrogen, Oxygen, and Nitrogen (C, H, O, N)",
+      "Carbon, Hydrogen, Oxygen, and Phosphorus (C, H, O, P)",
+      "Carbon, Hydrogen, Nitrogen, and Calcium (C, H, N, Ca)",
+      "Carbon, Nitrogen, Phosphorus, and Potassium (C, N, P, K)"
+    ],
+    "answer": 0,
+    "clue": "Amino group contains N; carboxyl group contains C and O.",
+    "explanation": "All amino acids contain **Carbon, Hydrogen, Oxygen, and Nitrogen** ($\text{C}, \text{H}, \text{O}, \text{N}$), and some also contain Sulfur ($\text{S}$)."
+  },
+  {
+    "id": 31,
+    "topic": "Proteins",
+    "question": "What four distinct chemical groups are directly bonded to the central alpha-carbon of every amino acid?",
+    "options": [
+      "A hydrogen atom, an amino group (-NH\u2082), a carboxyl group (-COOH), and a variable R-group.",
+      "A phosphate group, a glycerol molecule, a carboxyl group (-COOH), and a nitrogenous base.",
+      "A pentose sugar ring, a hydrogen atom, an amino group (-NH\u2082), and an ester linkage.",
+      "Two methyl groups (-CH\u2083), a hydroxyl group (-OH), and a variable hydrocarbon chain."
+    ],
+    "answer": 0,
+    "clue": "Amino group ($-\\text{NH}_2$), Carboxyl group ($-\\text{COOH}$), Hydrogen ($-\\text{H}$), and variable Side Chain (R).",
+    "explanation": "Every amino acid has a central alpha carbon bonded to: 1) a **Hydrogen atom**, 2) an **Amino group** ($-\\text{NH}_2$), 3) a **Carboxyl group** ($-\\text{COOH}$), and 4) a variable **R-group** (side chain)."
+  },
+  {
+    "id": 32,
+    "topic": "Proteins",
+    "question": "What specific covalent bond links amino acid monomers together during protein synthesis on a ribosome?",
+    "options": [
+      "Glycosidic bond",
+      "Peptide bond",
+      "Phosphodiester bond",
+      "Ester linkage"
+    ],
+    "answer": 1,
+    "clue": "Joins the carboxyl carbon of one amino acid to the amino nitrogen of the next.",
+    "explanation": "A **peptide bond** is formed by dehydration synthesis between the carboxyl group of one amino acid and the amino group of the next."
+  },
+  {
+    "id": 33,
+    "topic": "Proteins",
+    "question": "Alpha-helices and beta-pleated sheets represent which level of protein structural organization, and what stabilizes them?",
+    "options": [
+      "Primary structure; stabilized by covalent peptide bonds along the backbone.",
+      "Secondary structure; stabilized by hydrogen bonds along the polypeptide backbone.",
+      "Tertiary structure; stabilized by hydrophobic interactions among variable R-groups.",
+      "Quaternary structure; stabilized by disulfide bridges between distinct polypeptide chains."
+    ],
+    "answer": 1,
+    "clue": "Local folding of the backbone stabilized by hydrogen bonds.",
+    "explanation": "**Secondary structure ($2^\\circ$)** refers to local repetitive folding (alpha-helices and beta-pleated sheets) stabilized by **hydrogen bonds** along the polypeptide backbone."
+  },
+  {
+    "id": 34,
+    "topic": "Proteins",
+    "question": "Which level of protein structure produces the overall 3-dimensional globular shape of a single polypeptide via interactions between R-groups?",
+    "options": [
+      "Primary structure",
+      "Secondary structure",
+      "Tertiary structure",
+      "Quaternary structure"
+    ],
+    "answer": 2,
+    "clue": "R-group interactions (hydrophobic folding, ionic bonds, disulfide bridges) create 3D shape.",
+    "explanation": "**Tertiary structure ($3^\\circ$)** is the complex 3D shape of a single polypeptide resulting from chemical interactions among its **R-group side chains**."
+  },
+  {
+    "id": 35,
+    "topic": "Proteins",
+    "question": "Hemoglobin consists of four separate polypeptide chains working together as one functional oxygen-carrying unit. This represents:",
+    "options": [
+      "Primary protein structure",
+      "Secondary protein structure",
+      "Tertiary protein structure",
+      "Quaternary protein structure"
+    ],
+    "answer": 3,
+    "clue": "Multi-subunit protein complex assembled from multiple polypeptides.",
+    "explanation": "**Quaternary structure ($4^\\circ$)** arises when **two or more separate polypeptide chains** assemble into a functional multi-protein complex."
+  },
+  {
+    "id": 36,
+    "topic": "Proteins & Enzymes",
+    "question": "When severe heat or pH extremes cause an enzyme to unfold, lose its native 3D active site shape, and cease biological activity, the protein has undergone:",
+    "options": [
+      "Hydrolysis",
+      "Denaturation",
+      "Dehydration synthesis",
+      "Allosteric activation"
+    ],
+    "answer": 1,
+    "clue": "Unfolding of the 3D structure without breaking covalent peptide bonds.",
+    "explanation": "**Denaturation** disrupts the hydrogen, ionic, and disulfide bonds that maintain a protein's 3D shape, destroying its active site and enzymatic function."
+  },
+  {
+    "id": 37,
+    "topic": "Proteins & Enzymes",
+    "question": "How do biological enzymes accelerate the rate of specific biochemical reactions inside living cells?",
+    "options": [
+      "They increase the total amount of thermal heat energy released during the reaction.",
+      "They lower the activation energy threshold required to start the chemical reaction.",
+      "They are consumed during the reaction to donate necessary reactant phosphate groups.",
+      "They convert nonpolar reactant molecules into stable inorganic buffer salts."
+    ],
+    "answer": 1,
+    "clue": "Enzymes speed reactions by lowering the activation energy barrier ($E_a$).",
+    "explanation": "Enzymes act as catalysts by **lowering the activation energy ($E_a$)** required for reactants to reach the transition state, without being consumed."
+  },
+  {
+    "id": 38,
+    "topic": "Nucleic Acids",
+    "question": "What three structural components are assembled to build an individual nucleotide monomer?",
+    "options": [
+      "A 5-carbon pentose sugar, a negatively charged phosphate group, and a nitrogenous base.",
+      "A 6-carbon hexose glucose ring, an amino group (-NH\u2082), and a variable R-group side chain.",
+      "A 3-carbon glycerol backbone, two fatty acid tails, and a polar phosphate head group.",
+      "A central alpha-carbon atom, a carboxylic acid group (-COOH), and an ester bond."
+    ],
+    "answer": 0,
+    "clue": "Sugar + Phosphate + Nitrogenous Base = Nucleotide.",
+    "explanation": "Every **nucleotide** consists of: 1) a **5-carbon pentose sugar** (ribose or deoxyribose), 2) a **phosphate group**, and 3) a **nitrogenous base**."
+  },
+  {
+    "id": 39,
+    "topic": "Nucleic Acids",
+    "question": "Which of the following correctly pairs structural and chemical distinctions between DNA and RNA molecules?",
+    "options": [
+      "DNA is double-stranded with deoxyribose sugar and Thymine; RNA is single-stranded with ribose sugar and Uracil.",
+      "DNA is single-stranded with ribose sugar and Uracil; RNA is double-stranded with deoxyribose sugar and Thymine.",
+      "DNA contains peptide bonds between amino acids; RNA contains phosphodiester bonds between monosaccharides.",
+      "DNA is synthesized by catabolic hydrolysis; RNA is synthesized by anabolic peptide condensation."
+    ],
+    "answer": 0,
+    "clue": "DNA = Deoxyribose + Thymine; RNA = Ribose + Uracil.",
+    "explanation": "**DNA** is double-stranded, contains **deoxyribose sugar**, and uses **Thymine (T)**. **RNA** is single-stranded, contains **ribose sugar**, and uses **Uracil (U)**."
+  },
+  {
+    "id": 40,
+    "topic": "Nucleic Acids",
+    "question": "What type of chemical bond links adjacent nucleotides along a single strand to construct the durable sugar-phosphate backbone?",
+    "options": [
+      "Hydrogen bonds between complementary purine and pyrimidine base pairs.",
+      "Phosphodiester covalent bonds between 3' sugar carbons and 5' phosphate groups.",
+      "Peptide bonds formed between amino terminal groups and carboxyl groups.",
+      "Glycosidic linkages formed between adjacent 6-carbon glucose rings."
+    ],
+    "answer": 1,
+    "clue": "Strong covalent backbone bonds linking sugar to phosphate.",
+    "explanation": "Nucleotides along a single strand are linked by strong **phosphodiester covalent bonds** connecting the 3' carbon of one sugar to the 5' phosphate of the next."
+  },
+  {
+    "id": 41,
+    "topic": "Macromolecule Identification",
+    "question": "A forensic biochemist isolates an unknown biological sample containing C, H, and O in a 1:2:1 ratio that forms ring-shaped monomers. This sample is:",
+    "options": [
+      "A triglyceride lipid used for long-term adipose insulation.",
+      "A carbohydrate monosaccharide serving as cellular fuel.",
+      "A structural protein forming connective collagen fibers.",
+      "A nucleic acid polymer storing hereditary genetic blueprints."
+    ],
+    "answer": 1,
+    "clue": "1:2:1 ratio ($\text{CH}_2\text{O}$) and ring structure = Carbohydrate.",
+    "explanation": "The empirical formula $(\text{CH}_2\text{O})_n$ ($1:2:1$ ratio) and ring structure defines **carbohydrates / monosaccharides**."
+  },
+  {
+    "id": 42,
+    "topic": "Macromolecule Identification",
+    "question": "Chemical testing of an unknown nutrient powder reveals Carbon, Hydrogen, Oxygen, and Nitrogen linked by peptide bonds. The substance is:",
+    "options": [
+      "A carbohydrate polysaccharide such as glycogen or plant starch.",
+      "A protein polypeptide constructed from amino acid monomers.",
+      "A phospholipid bilayer forming artificial cellular liposomes.",
+      "A nucleic acid molecule composed of nucleotide subunits."
+    ],
+    "answer": 1,
+    "clue": "Contains Nitrogen and peptide bonds = Protein.",
+    "explanation": "Molecules containing **C, H, O, N** linked by **peptide bonds** are **proteins** (polypeptides)."
+  },
+  {
+    "id": 43,
+    "topic": "Macromolecule Identification",
+    "question": "During a 'Murder & a Meal' lab analysis, a food sample tests negative for nitrogen, is completely insoluble in water, and yields glycerol upon breakdown. The sample is:",
+    "options": [
+      "A lipid (triglyceride fat)",
+      "A protein (globular enzyme)",
+      "A nucleic acid (chromosomal DNA)",
+      "A carbohydrate (cellulose fiber)"
+    ],
+    "answer": 0,
+    "clue": "Hydrophobic, no nitrogen, yields glycerol = Lipid.",
+    "explanation": "Water insolubility (hydrophobic), absence of nitrogen, and the presence of glycerol characterize **lipids** (triglycerides)."
+  },
+  {
+    "id": 44,
+    "topic": "Biochemistry Summary",
+    "question": "Which option correctly summarizes the primary biological roles of the four major macromolecule families in living organisms?",
+    "options": [
+      "Carbs = Fast energy; Lipids = Long-term storage & membranes; Proteins = Enzymes & structure; Nucleic Acids = Genetic instructions",
+      "Carbs = Genetic blueprints; Lipids = Catalytic enzymes; Proteins = Quick fuel; Nucleic Acids = Adipose insulation",
+      "Carbs = Structural membranes; Lipids = Genetic storage; Proteins = Cell wall rigidity; Nucleic Acids = Muscle contraction",
+      "Carbs = Chemical catalysis; Lipids = Polypeptide synthesis; Proteins = Genetic blueprints; Nucleic Acids = Primary fuel"
+    ],
+    "answer": 0,
+    "clue": "Carbs: quick energy; Lipids: storage/membranes; Proteins: enzymes/structure; Nucleic acids: genetics.",
+    "explanation": "**Carbohydrates** provide fast energy/structure; **Lipids** provide long-term energy storage and membrane barriers; **Proteins** perform catalytic and structural functions; **Nucleic Acids** store and transmit genetic information."
+  }
+];
+
+    let userState = {
+      answers: {},
+      showClues: {},
+      allCluesVisible: false,
+      currentFilter: 'All',
+      missedOnly: false
+    };
+
+    function init() {
+      const saved = localStorage.getItem('bio_unit1_quiz_v2_state');
+      if (saved) {
+        try { userState = JSON.parse(saved); } catch(e) {}
+      }
+      renderQuestions();
+      updateStats();
+    }
+
+    function saveState() {
+      localStorage.setItem('bio_unit1_quiz_v2_state', JSON.stringify(userState));
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById('questionsContainer');
+      container.innerHTML = '';
+
+      const filtered = questionsData.filter(q => {
+        if (userState.missedOnly) {
+          const userAns = userState.answers[q.id];
+          return userAns !== undefined && userAns !== q.answer;
+        }
+        if (userState.currentFilter === 'All') return true;
+        return q.topic.includes(userState.currentFilter);
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-16 bg-white rounded-2xl border border-slate-200">
+            <i class="fa-regular fa-circle-check text-4xl text-emerald-500 mb-3"></i>
+            <h3 class="text-lg font-bold text-slate-700">No questions to display</h3>
+            <p class="text-slate-500 text-sm mt-1">Try changing the topic filter or answering more questions.</p>
+          </div>
+        `;
+        return;
+      }
+
+      filtered.forEach((q) => {
+        const isAnswered = userState.answers[q.id] !== undefined;
+        const selectedOption = userState.answers[q.id];
+        const isCorrect = selectedOption === q.answer;
+        const isClueVisible = userState.allCluesVisible || userState.showClues[q.id];
+
+        const card = document.createElement('div');
+        card.className = `bg-white rounded-2xl p-6 border transition-all duration-200 shadow-sm ${
+          isAnswered
+            ? isCorrect
+              ? 'border-emerald-300 ring-1 ring-emerald-200/50'
+              : 'border-rose-300 ring-1 ring-rose-200/50'
+            : 'border-slate-200 hover:border-slate-300'
+        }`;
+        card.id = `q-card-${q.id}`;
+
+        let optionsHtml = q.options.map((opt, oIdx) => {
+          let btnClass = "border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50/40 text-slate-700";
+          let iconHtml = `<span class="w-6 h-6 rounded-full border border-slate-300 text-xs font-semibold flex items-center justify-center mr-3 text-slate-500">${String.fromCharCode(65 + oIdx)}</span>`;
+
+          if (isAnswered) {
+            if (oIdx === q.answer) {
+              btnClass = "bg-emerald-50 border-emerald-500 text-emerald-950 font-semibold ring-1 ring-emerald-400";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-emerald-600 text-white text-xs font-bold flex items-center justify-center mr-3"><i class="fa-solid fa-check"></i></span>`;
+            } else if (oIdx === selectedOption && !isCorrect) {
+              btnClass = "bg-rose-50 border-rose-400 text-rose-950 font-semibold ring-1 ring-rose-300";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-rose-600 text-white text-xs font-bold flex items-center justify-center mr-3"><i class="fa-solid fa-xmark"></i></span>`;
+            } else {
+              btnClass = "opacity-50 border-slate-200 text-slate-400 cursor-not-allowed";
+            }
+          }
+
+          return `
+            <button 
+              onclick="selectAnswer(${q.id}, ${oIdx})" 
+              ${isAnswered ? 'disabled' : ''} 
+              class="w-full text-left p-3.5 rounded-xl text-sm transition flex items-center ${btnClass} my-1.5">
+              ${iconHtml}
+              <span class="flex-1">${opt}</span>
+            </button>
+          `;
+        }).join('');
+
+        card.innerHTML = `
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <div class="flex items-center gap-2">
+              <span class="bg-indigo-100 text-indigo-800 text-xs font-black px-2.5 py-0.5 rounded-md">Q${q.id}</span>
+              <span class="bg-slate-100 text-slate-600 text-xs font-semibold px-2.5 py-0.5 rounded-md">${q.topic}</span>
+            </div>
+
+            <button onclick="toggleClue(${q.id})" class="text-xs text-amber-700 bg-amber-50 hover:bg-amber-100 border border-amber-200 px-3 py-1 rounded-lg font-medium transition flex items-center gap-1">
+              <i class="fa-regular fa-lightbulb"></i>
+              ${isClueVisible ? 'Hide Hint' : 'Need a Clue?'}
+            </button>
+          </div>
+
+          <h3 class="text-base font-semibold text-slate-900 leading-relaxed mb-4">${q.question}</h3>
+
+          <div id="clue-${q.id}" class="${isClueVisible ? 'block' : 'hidden'} mb-4 p-3.5 bg-amber-50/80 border border-amber-200 rounded-xl text-amber-900 text-xs flex items-start gap-2.5">
+            <i class="fa-solid fa-lightbulb text-amber-600 mt-0.5"></i>
+            <div><span class="font-bold">Study Hint:</span> ${q.clue}</div>
+          </div>
+
+          <div class="space-y-1">${optionsHtml}</div>
+
+          ${isAnswered ? `
+            <div class="mt-5 p-4 rounded-xl text-sm border ${
+              isCorrect 
+                ? 'bg-emerald-50/70 border-emerald-200 text-emerald-950' 
+                : 'bg-rose-50/70 border-rose-200 text-slate-800'
+            }">
+              <div class="flex items-center gap-2 font-bold mb-2 ${isCorrect ? 'text-emerald-800' : 'text-rose-800'}">
+                <i class="${isCorrect ? 'fa-solid fa-circle-check text-emerald-600' : 'fa-solid fa-circle-xmark text-rose-600'}"></i>
+                <span>${isCorrect ? 'Correct! Excellent work.' : 'Incorrect. Let\'s break it down:'}</span>
+              </div>
+              <p class="text-xs leading-relaxed text-slate-700 mb-2">${q.explanation}</p>
+              <div class="text-xs font-semibold text-indigo-700 pt-2 border-t border-slate-200/60 flex items-center justify-between">
+                <span>Correct Option: ${String.fromCharCode(65 + q.answer)} (${q.options[q.answer]})</span>
+                <button onclick="retryQuestion(${q.id})" class="text-slate-500 hover:text-slate-800 font-medium underline ml-2">Try Again</button>
+              </div>
+            </div>
+          ` : ''}
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function selectAnswer(qId, optionIdx) {
+      userState.answers[qId] = optionIdx;
+      saveState();
+      renderQuestions();
+      updateStats();
+    }
+
+    function retryQuestion(qId) {
+      delete userState.answers[qId];
+      saveState();
+      renderQuestions();
+      updateStats();
+    }
+
+    function toggleClue(qId) {
+      userState.showClues[qId] = !userState.showClues[qId];
+      saveState();
+      renderQuestions();
+    }
+
+    function toggleAllClues() {
+      userState.allCluesVisible = !userState.allCluesVisible;
+      document.getElementById('clueToggleText').innerText = userState.allCluesVisible ? 'Hide All Clues' : 'Show All Clues';
+      saveState();
+      renderQuestions();
+    }
+
+    function filterTopic(topic) {
+      userState.currentFilter = topic;
+      userState.missedOnly = false;
+      document.querySelectorAll('.topic-btn').forEach(b => {
+        b.classList.remove('bg-blue-600', 'text-white', 'shadow-sm');
+        b.classList.add('bg-slate-100', 'text-slate-600');
+        if (b.innerText.includes(topic) || (topic === 'All' && b.innerText.includes('All Topics'))) {
+          b.classList.add('bg-blue-600', 'text-white', 'shadow-sm');
+          b.classList.remove('bg-slate-100', 'text-slate-600');
+        }
+      });
+      renderQuestions();
+    }
+
+    function filterMissed() {
+      userState.missedOnly = !userState.missedOnly;
+      const btn = document.getElementById('filterMissedBtn');
+      if (userState.missedOnly) {
+        btn.classList.add('bg-rose-600', 'text-white');
+        btn.classList.remove('bg-rose-50', 'text-rose-800');
+      } else {
+        btn.classList.remove('bg-rose-600', 'text-white');
+        btn.classList.add('bg-rose-50', 'text-rose-800');
+      }
+      renderQuestions();
+    }
+
+    function updateStats() {
+      const answeredKeys = Object.keys(userState.answers);
+      const totalAnswered = answeredKeys.length;
+      let totalCorrect = 0;
+      let missedCount = 0;
+
+      answeredKeys.forEach(k => {
+        const q = questionsData.find(item => item.id == k);
+        if (q) {
+          if (userState.answers[k] === q.answer) totalCorrect++;
+          else missedCount++;
+        }
+      });
+
+      const accuracy = totalAnswered > 0 ? Math.round((totalCorrect / totalAnswered) * 100) : 0;
+      const progressPercent = Math.round((totalAnswered / questionsData.length) * 100);
+
+      document.getElementById('statAnswered').innerText = `${totalAnswered}/${questionsData.length}`;
+      document.getElementById('statScore').innerText = `${accuracy}%`;
+      document.getElementById('quizProgressBar').style.width = `${progressPercent}%`;
+      document.getElementById('missedCount').innerText = missedCount;
+
+      const summaryCard = document.getElementById('scoreSummaryCard');
+      if (totalAnswered === questionsData.length) {
+        summaryCard.classList.remove('hidden');
+        document.getElementById('finalTotal').innerText = questionsData.length;
+        document.getElementById('finalCorrect').innerText = totalCorrect;
+        document.getElementById('finalPercent').innerText = `${accuracy}%`;
+        
+        const ratingBox = document.getElementById('masteryRating');
+        if (accuracy >= 90) {
+          ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-emerald-100 text-emerald-900 border border-emerald-300";
+          ratingBox.innerHTML = "🌟 <strong>Mastery Level: Advanced Honors (A+)</strong> — You have outstanding command of Unit 1 Biochemistry!";
+        } else if (accuracy >= 80) {
+          ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-blue-100 text-blue-900 border border-blue-300";
+          ratingBox.innerHTML = "👍 <strong>Mastery Level: Proficient (B)</strong> — Solid comprehension! Review the missed questions above to reach perfection.";
+        } else {
+          ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-amber-100 text-amber-900 border border-amber-300";
+          ratingBox.innerHTML = "💡 <strong>Mastery Level: Developing</strong> — Focus on the Macromolecule structures, R-groups, and water properties before the exam.";
+        }
+      } else {
+        summaryCard.classList.add('hidden');
+      }
+    }
+
+    function resetQuiz() {
+      if (confirm('Are you sure you want to reset all answers and start fresh?')) {
+        userState.answers = {};
+        userState.showClues = {};
+        userState.allCluesVisible = false;
+        userState.missedOnly = false;
+        saveState();
+        renderQuestions();
+        updateStats();
+      }
+    }
+
+    window.onload = init;
+  </script>
+</body>
+</html>

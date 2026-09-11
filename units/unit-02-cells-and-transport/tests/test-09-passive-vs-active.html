@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biology I Honors - Unit 2 Test 09: Passive vs. Active Transport Comparative Analysis</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+
+  <!-- TOP HEADER -->
+  <header class="bg-gradient-to-r from-blue-700 via-indigo-700 to-emerald-700 text-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="w-10 h-10 rounded-xl bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition border border-white/20" title="Back to All Tests">
+          <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="bg-white/20 text-xs px-2.5 py-1 rounded-full font-semibold uppercase tracking-wider">Biology I Honors</span>
+            <span class="bg-indigo-300 text-slate-900 text-xs px-2.5 py-1 rounded-full font-bold">Unit 2 • Test 09</span>
+          </div>
+          <h1 class="text-xl sm:text-2xl font-black tracking-tight mt-1 text-white">Passive vs. Active Transport</h1>
+        </div>
+      </div>
+
+      <!-- Quick Stats Top -->
+      <div class="flex items-center gap-4 bg-white/10 backdrop-blur px-4 py-2 rounded-xl border border-white/15">
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Answered</div>
+          <div id="statAnswered" class="text-xl font-bold">0/20</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Accuracy</div>
+          <div id="statScore" class="text-xl font-bold text-emerald-300">0%</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <button onclick="resetQuiz()" class="text-xs bg-white/20 hover:bg-white/30 text-white px-3 py-2 rounded-lg font-medium transition flex items-center gap-1.5 cursor-pointer">
+          <i class="fa-solid fa-rotate-right"></i> Reset
+        </button>
+      </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="w-full bg-slate-900/30 h-2">
+      <div id="quizProgressBar" class="bg-emerald-400 h-2 transition-all duration-300" style="width: 0%"></div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-6xl mx-auto px-4 py-8">
+
+    <!-- Anti-Guess Note Banner -->
+    <div class="bg-indigo-50 border border-indigo-200 text-indigo-950 p-4 rounded-2xl mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-semibold shadow-sm">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-scale-balanced text-indigo-600 text-base shrink-0"></i>
+        <span><strong>Comparative Synthesis:</strong> Master the criteria distinguishing all 6 transport mechanisms, kinetics, and energy requirements!</span>
+      </div>
+      <a href="index.html" class="text-indigo-800 underline hover:text-indigo-950 whitespace-nowrap">View All 20 Tests</a>
+    </div>
+
+    <!-- CONTROLS & FILTER BAR -->
+    <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 mb-8">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-sm font-bold text-slate-700 mb-2">Filter by Topic:</h2>
+          <div class="flex flex-wrap gap-2" id="topicFilters">
+            <button onclick="filterTopic('All')" class="topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-sm transition cursor-pointer">All Topics (20)</button>
+            <button onclick="filterTopic('Active vs Passive Transport Concept Matrix')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Active vs Passive Transport Concept Matrix</button>
+            <button onclick="filterTopic('Classification of Vesicular Transport')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Classification of Vesicular Transport</button>
+            <button onclick="filterTopic('Comparison Summary: All Transport Modes')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Comparison Summary: All Transport Modes</button>
+            <button onclick="filterTopic('Competitive Inhibition in Carrier Proteins')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Competitive Inhibition in Carrier Proteins</button>
+            <button onclick="filterTopic('Distinguishing Transport in Unknown Lab Scenario')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Distinguishing Transport in Unknown Lab Scenario</button>
+            <button onclick="filterTopic('Dynamic Equilibrium Outcome')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Dynamic Equilibrium Outcome</button>
+            <button onclick="filterTopic('Effect of Membrane Permeability Changes')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Effect of Membrane Permeability Changes</button>
+            <button onclick="filterTopic('Fick's Law of Diffusion Factors')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Fick's Law of Diffusion Factors</button>
+            <button onclick="filterTopic('Gradient Directionality')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Gradient Directionality</button>
+            <button onclick="filterTopic('Gradient Energy Storage')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Gradient Energy Storage</button>
+            <button onclick="filterTopic('Membrane Protein Requirement Matrix')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Membrane Protein Requirement Matrix</button>
+            <button onclick="filterTopic('Metabolic Poison Experiments (Cyanide / DNP)')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Metabolic Poison Experiments (Cyanide / DNP)</button>
+            <button onclick="filterTopic('Molecular Size & Polarity Constraints')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Molecular Size & Polarity Constraints</button>
+            <button onclick="filterTopic('Osmosis as a Form of Facilitated Diffusion')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Osmosis as a Form of Facilitated Diffusion</button>
+            <button onclick="filterTopic('Saturation Kinetics (Vmax & Plateaus)')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Saturation Kinetics (Vmax & Plateaus)</button>
+            <button onclick="filterTopic('Secondary Active vs Facilitated Diffusion')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Secondary Active vs Facilitated Diffusion</button>
+            <button onclick="filterTopic('Selectivity & Specificity Comparison')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Selectivity & Specificity Comparison</button>
+            <button onclick="filterTopic('Temperature Sensitivity (Q10 Coefficient)')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Temperature Sensitivity (Q10 Coefficient)</button>
+            <button onclick="filterTopic('Thermodynamic Energy Distinctions')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Thermodynamic Energy Distinctions</button>
+            <button onclick="filterTopic('Uniporter, Symporter, and Antiporter Classification')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Uniporter, Symporter, and Antiporter Classification</button>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 pt-2 lg:pt-0 border-t lg:border-t-0 border-slate-100">
+          <button onclick="toggleAllClues()" id="toggleCluesBtn" class="text-xs bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-regular fa-lightbulb"></i> <span id="clueToggleText">Show All Hints</span>
+          </button>
+          <button onclick="filterMissed()" id="filterMissedBtn" class="text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-solid fa-triangle-exclamation"></i> Review Missed (<span id="missedCount">0</span>)
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTIONS LIST -->
+    <div id="questionsContainer" class="space-y-6"></div>
+
+    <!-- SCORE SUMMARY CARD -->
+    <div id="scoreSummaryCard" class="mt-12 bg-white rounded-3xl p-8 border-2 border-indigo-100 shadow-xl hidden">
+      <div class="text-center max-w-xl mx-auto">
+        <div class="w-16 h-16 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl">
+          <i class="fa-solid fa-trophy"></i>
+        </div>
+        <h2 class="text-2xl font-black text-slate-800">Test 09 Complete!</h2>
+        <p class="text-slate-500 text-sm mt-1">Here is your detailed mastery score for Passive vs. Active Transport Comparative Analysis.</p>
+        
+        <div class="grid grid-cols-3 gap-4 my-6 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Total Questions</div>
+            <div class="text-2xl font-black text-slate-800" id="finalTotal">20</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Correct</div>
+            <div class="text-2xl font-black text-emerald-600" id="finalCorrect">0</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Score Rate</div>
+            <div class="text-2xl font-black text-blue-600" id="finalPercent">0%</div>
+          </div>
+        </div>
+
+        <div id="masteryRating" class="p-4 rounded-2xl font-bold text-sm mb-6"></div>
+
+        <div class="flex items-center justify-center gap-4">
+          <button onclick="resetQuiz()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-indigo-200 transition cursor-pointer">
+            Retake Entire Test
+          </button>
+          <a href="index.html" class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-emerald-200 transition">
+            Back to Tests Hub
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-500 mt-12">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p>© 2026 Biology I Honors • South Forsyth High School</p>
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="hover:text-indigo-600 transition font-medium">All 20 Tests Hub</a>
+        <a href="../../index.html" class="hover:text-indigo-600 transition font-medium">Main Portal</a>
+        <a href="https://github.com/MegaAntony/biology-honors" target="_blank" class="hover:text-indigo-600 transition"><i class="fa-brands fa-github mr-1"></i>GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT ENGINE -->
+  <script>
+    const questionsData = [
+  {
+    "id": 1,
+    "topic": "Thermodynamic Energy Distinctions",
+    "question": "What is the primary thermodynamic criterion that separates all passive transport mechanisms from all active transport mechanisms?",
+    "options": [
+      "Passive transport relies exclusively on the inherent thermal kinetic energy of solutes moving down a gradient, whereas active transport requires metabolic cellular energy (ATP).",
+      "Passive transport only occurs inside animal mitochondria, whereas active transport is restricted to plant cell walls.",
+      "Passive transport always converts glucose into starch, whereas active transport hydrolyzes phospholipid heads.",
+      "Passive transport requires RNA transcription, whereas active transport is driven by gravitational pull."
+    ],
+    "answer": 0,
+    "clue": "Passive transport is driven by natural kinetic motion downhill; active transport requires cellular fuel (ATP) to push uphill.",
+    "explanation": "**Passive transport** is exergonic and driven by the intrinsic kinetic energy of molecules diffusing down a concentration gradient. **Active transport** is endergonic and requires metabolic energy coupling (**ATP hydrolysis**) to pump solutes against their gradient."
+  },
+  {
+    "id": 2,
+    "topic": "Gradient Directionality",
+    "question": "Which scenario correctly identifies the direction of solute movement relative to its concentration gradient during primary active transport versus simple diffusion?",
+    "options": [
+      "Simple diffusion moves solutes from high to low concentration; primary active transport moves solutes from low to high concentration.",
+      "Simple diffusion moves solutes from low to high concentration; primary active transport moves solutes from high to low concentration.",
+      "Both simple diffusion and primary active transport move solutes strictly against their concentration gradients.",
+      "Neither process moves solutes across membranes; they only alter the pH of the extracellular matrix."
+    ],
+    "answer": 0,
+    "clue": "Diffusion is downhill (high to low); active transport is uphill (low to high).",
+    "explanation": "**Simple diffusion** is downhill (from an area of **higher concentration to lower concentration**). In contrast, **primary active transport** pumps substances uphill against their gradient (from **lower concentration to higher concentration**)."
+  },
+  {
+    "id": 3,
+    "topic": "Membrane Protein Requirement Matrix",
+    "question": "Which pair of cellular transport mechanisms BOTH require the presence of integral membrane transport proteins to function?",
+    "options": [
+      "Simple diffusion of carbon dioxide and osmosis of water through a pure lipid bilayer.",
+      "Facilitated diffusion and primary active transport via molecular pumps.",
+      "Phagocytosis of bacteria and simple diffusion of lipid-soluble steroid hormones.",
+      "Bulk exocytosis of mucilage and spontaneous lipid saponification."
+    ],
+    "answer": 1,
+    "clue": "Facilitated diffusion uses channel/carrier proteins, and active pumps are transmembrane proteins.",
+    "explanation": "Both **facilitated diffusion** (via protein channels and carrier uniporters) and **active transport** (via ATP-driven molecular pumps) are protein-mediated processes requiring specific **integral transmembrane transport proteins**."
+  },
+  {
+    "id": 4,
+    "topic": "Saturation Kinetics (Vmax & Plateaus)",
+    "question": "When plotting the rate of transport versus external solute concentration, why does carrier-mediated facilitated diffusion exhibit a hyperbolic saturation plateau (Vmax), whereas simple diffusion displays a linear increase?",
+    "options": [
+      "Carrier proteins run out of ATP molecules after moving ten solutes.",
+      "Simple diffusion generates a physical vacuum that speeds up transport indefinitely.",
+      "Carrier proteins have a finite number of specific binding sites that become completely occupied at high solute levels.",
+      "Facilitated diffusion permanently freezes the lipid bilayer into solid paraffin wax."
+    ],
+    "answer": 2,
+    "clue": "Like enzymes, carrier proteins have a limited number of binding seats; when all seats are full, transport hits Vmax.",
+    "explanation": "Carrier proteins possess specific binding pockets. At high solute concentrations, every available carrier binding site is continuously occupied, reaching **saturation (Vmax)**. In simple diffusion, no proteins are involved, so the rate increases **linearly** with concentration."
+  },
+  {
+    "id": 5,
+    "topic": "Metabolic Poison Experiments (Cyanide / DNP)",
+    "question": "A biology lab treats living kidney cells with 2,4-dinitrophenol (DNP), an uncoupling agent that completely abolishes mitochondrial ATP synthesis. Which transport process will continue virtually unaffected?",
+    "options": [
+      "Na+/K+ pump cycling",
+      "Secondary active sodium-glucose cotransport",
+      "Simple diffusion of dissolved oxygen gas into the cytoplasm",
+      "Receptor-mediated endocytosis of transferrin"
+    ],
+    "answer": 2,
+    "clue": "Passive simple diffusion does not need ATP and will continue as long as a gradient exists.",
+    "explanation": "DNP eliminates ATP production. Active pumps, secondary cotransporters (which rely on pump-generated gradients), and endocytosis require ATP and immediately collapse. **Simple diffusion of nonpolar gases (O2, CO2) requires zero ATP** and continues unhindered."
+  },
+  {
+    "id": 6,
+    "topic": "Dynamic Equilibrium Outcome",
+    "question": "What is the end-state biological outcome of an uninhibited passive diffusion process across a permeable membrane in an isolated closed system?",
+    "options": [
+      "All solute molecules accumulate entirely inside the cell, leaving zero solute outside.",
+      "Dynamic equilibrium is reached where solute concentrations are equal on both sides and net flux is zero.",
+      "The cell membrane permanently dissolves into separate amino acid monomers.",
+      "All molecular motion completely ceases at absolute zero Kelvin."
+    ],
+    "answer": 1,
+    "clue": "Diffusion leads to equal distribution (equilibrium); molecules still move, but with no net change.",
+    "explanation": "Passive transport dissipates gradients until **dynamic equilibrium** is reached. At dynamic equilibrium, the solute concentrations are equal on both sides of the membrane; molecules continue to cross in both directions at equal rates (**net flux = 0**)."
+  },
+  {
+    "id": 7,
+    "topic": "Temperature Sensitivity (Q10 Coefficient)",
+    "question": "Why do carrier-mediated active transport pumps exhibit a significantly higher temperature sensitivity (Q10 ~ 2.0 to 3.0) than simple diffusion through the lipid bilayer (Q10 ~ 1.2 to 1.4)?",
+    "options": [
+      "Active transport pumps are enzymatic proteins that undergo temperature-dependent chemical reactions and conformational cycles.",
+      "Simple diffusion creates nuclear fission reactions that generate internal geothermal heat.",
+      "Cold temperatures cause nonpolar gases to turn into solid titanium rods.",
+      "Active transport relies entirely on radiant sunlight absorbed by chlorophyll."
+    ],
+    "answer": 0,
+    "clue": "Pumps are enzymes whose catalytic rate and conformational flexibility are highly sensitive to thermal energy.",
+    "explanation": "Molecular pumps are **enzymes (ATPases)** that undergo catalytic bond cleavage and major conformational shifts, both of which have high activation energies (Q10 ~ 2-3). Simple diffusion depends primarily on physical molecular velocity (Q10 ~ 1.2-1.4)."
+  },
+  {
+    "id": 8,
+    "topic": "Molecular Size & Polarity Constraints",
+    "question": "Which of the following molecules crosses the plasma membrane predominantly via simple diffusion rather than requiring facilitated diffusion or active transport?",
+    "options": [
+      "Hydrated sodium cations (Na+)",
+      "Glucose monosaccharides (C6H12O6)",
+      "Nitric oxide (NO) and carbon dioxide (CO2)",
+      "Polymerized glycogen macromolecules"
+    ],
+    "answer": 2,
+    "clue": "Small, nonpolar gases slip right through the lipid bilayer without protein help.",
+    "explanation": "Small, nonpolar molecules such as **O2, CO2, and nitric oxide (NO)** readily dissolve in and diffuse directly across the hydrophobic core of the phospholipid bilayer by **simple diffusion**."
+  },
+  {
+    "id": 9,
+    "topic": "Classification of Vesicular Transport",
+    "question": "Why are endocytosis and exocytosis classified under active transport rather than passive transport?",
+    "options": [
+      "They occur exclusively when cell temperatures drop below the freezing point of water.",
+      "They transport only nonpolar hydrocarbons down their concentration gradient.",
+      "They involve hydrolyzing ATP and GTP to dynamically rearrange the cytoskeleton and fuse membranes.",
+      "They eliminate all electric charges from the cell membrane surface."
+    ],
+    "answer": 2,
+    "clue": "Bulk transport requires massive amounts of ATP to pinch, move, and fuse membrane bubbles.",
+    "explanation": "Bulk vesicular transport (endocytosis and exocytosis) requires substantial **cellular energy (ATP and GTP)** to remodel actin microfilaments, coat vesicles, operate motor proteins, and overcome membrane fusion barriers."
+  },
+  {
+    "id": 10,
+    "topic": "Secondary Active vs Facilitated Diffusion",
+    "question": "How can an observer definitively distinguish secondary active cotransport (symport) of an amino acid from facilitated diffusion of that amino acid?",
+    "options": [
+      "Cotransport can move the amino acid against its concentration gradient by coupling to an ion gradient, whereas facilitated diffusion can only move it down its gradient.",
+      "Cotransport occurs without any membrane proteins, whereas facilitated diffusion requires massive ATP pumps.",
+      "Cotransport only operates in red blood cells, whereas facilitated diffusion occurs exclusively in plant leaves.",
+      "Cotransport permanently turns the amino acid into an inorganic mineral crystal."
+    ],
+    "answer": 0,
+    "clue": "Facilitated diffusion can never push a solute uphill; secondary active transport can.",
+    "explanation": "**Facilitated diffusion** is strictly passive and can **only** move solutes **down** their electrochemical gradient. **Secondary active transport (cotransport)** can concentrate solutes **uphill against** their gradient by harvesting energy from a driving ion gradient (e.g., Na+)."
+  },
+  {
+    "id": 11,
+    "topic": "Osmosis as a Form of Facilitated Diffusion",
+    "question": "Why is the rapid osmotic flux of water across kidney tubule cells classified specifically as facilitated diffusion rather than simple diffusion or active transport?",
+    "options": [
+      "It consumes one ATP molecule for every two water molecules transported.",
+      "It proceeds downhill along water potential gradients through specialized protein channels called aquaporins without consuming energy.",
+      "It moves water against its concentration gradient to dehydrate the urine.",
+      "It hydrolyzes water into hydrogen gas and oxygen atoms within the pore."
+    ],
+    "answer": 1,
+    "clue": "Aquaporins are channel proteins; transport is passive down the water gradient without spending ATP.",
+    "explanation": "Rapid osmosis through kidney cells uses **aquaporin channel proteins**. Because water moves **passively down its osmotic gradient without ATP hydrolysis**, it fits the formal definition of **facilitated diffusion**."
+  },
+  {
+    "id": 12,
+    "topic": "Selectivity & Specificity Comparison",
+    "question": "Which of the following transport mechanisms exhibits the LOWEST chemical selectivity for the transported solute?",
+    "options": [
+      "A voltage-gated potassium ion channel",
+      "The GLUT4 glucose carrier uniporter",
+      "The Na+/K+ ATPase molecular pump",
+      "Simple pinocytosis of extracellular fluid"
+    ],
+    "answer": 3,
+    "clue": "Pinocytosis is \"cell drinking\" and non-specifically gulps whatever solutes are in the fluid.",
+    "explanation": "**Pinocytosis** is a **nonspecific** fluid uptake process that engulfs whatever solutes happen to be dissolved in the sampled extracellular fluid. In contrast, ion channels, carriers, and molecular pumps possess stereospecific substrate binding pockets."
+  },
+  {
+    "id": 13,
+    "topic": "Gradient Energy Storage",
+    "question": "Why are electrochemical ion gradients built by active transport pumps often referred to as \"cellular batteries\"?",
+    "options": [
+      "They discharge high-voltage electricity into the bloodstream to warm body tissues.",
+      "They are composed of lead plates immersed in sulfuric acid identical to car batteries.",
+      "They produce dangerous electrical sparks that illuminate the interior of the nucleus.",
+      "They store potential energy in the chemical and electrical disequilibrium across the membrane that can be tapped to do cellular work."
+    ],
+    "answer": 3,
+    "clue": "Concentration and charge differences store potential energy, just like a charged battery.",
+    "explanation": "By pumping ions uphill, active transport creates both a **chemical concentration gradient** and an **electrical membrane potential**. This disequilibrium represents stored **potential energy** that can power secondary active transport, ATP synthesis, or nerve signaling."
+  },
+  {
+    "id": 14,
+    "topic": "Effect of Membrane Permeability Changes",
+    "question": "If a researcher inserts artificial gramicidin ion channels into an animal cell membrane, making it freely permeable to Na+, what will happen to primary active transport and the cell's resting potential?",
+    "options": [
+      "The Na+/K+ pump will immediately reverse direction and manufacture excess ATP from sodium.",
+      "The resting membrane potential will collapse toward zero as sodium rushes in down its gradient, forcing pumps to consume ATP at maximal rates.",
+      "The cell will turn into a photosynthetic plant cell with a thick cellulose wall.",
+      "Water will immediately stop interacting with the phospholipid bilayer."
+    ],
+    "answer": 1,
+    "clue": "Dissipating the gradient causes massive sodium influx, collapsing membrane voltage and forcing pumps to work overtime.",
+    "explanation": "Creating a leak pathway for Na+ allows sodium to flood into the cell down its gradient, dissipating the electrochemical gradient (**collapsing resting potential**). The Na+/K+ pumps will consume ATP at maximum velocity trying to pump the excess sodium back out."
+  },
+  {
+    "id": 15,
+    "topic": "Competitive Inhibition in Carrier Proteins",
+    "question": "How does the addition of galactose affect the transport rate of glucose via the GLUT2 facilitated diffusion carrier protein, and why?",
+    "options": [
+      "It has zero effect because carrier proteins do not bind sugars.",
+      "It converts the carrier protein into an active pump that hydrolyzes ATP.",
+      "It permanently dissolves the carrier protein into individual amino acids.",
+      "It competitively inhibits glucose transport because galactose competes for the same stereospecific substrate binding site."
+    ],
+    "answer": 3,
+    "clue": "Structurally similar sugars compete for the same binding pocket on the carrier protein.",
+    "explanation": "Carrier proteins have stereospecific substrate-binding pockets. Structurally similar hexoses (like galactose) compete with glucose for the same binding site, acting as **competitive inhibitors** and decreasing the rate of glucose transport."
+  },
+  {
+    "id": 16,
+    "topic": "Fick's Law of Diffusion Factors",
+    "question": "According to the principles of Fick's First Law, which combination of physical changes will MAXIMIZE the net rate of simple passive diffusion across a biological membrane?",
+    "options": [
+      "Increasing membrane surface area, increasing concentration difference, and decreasing membrane thickness.",
+      "Decreasing membrane surface area, decreasing concentration difference, and increasing membrane thickness.",
+      "Lowering the ambient temperature to absolute zero and coating the membrane in heavy wax.",
+      "Eliminating all concentration gradients and establishing complete dynamic equilibrium."
+    ],
+    "answer": 0,
+    "clue": "Diffusion is fastest with a large area, steep gradient, and very thin diffusion barrier.",
+    "explanation": "By Fick's Law, diffusion rate is maximized by **increasing membrane surface area**, **increasing concentration gradient**, and **decreasing membrane thickness**."
+  },
+  {
+    "id": 17,
+    "topic": "Comparison Summary: All Transport Modes",
+    "question": "A student evaluates four transport scenarios. Which one represents facilitated diffusion exclusively?",
+    "options": [
+      "Transport of calcium ions into the sarcoplasmic reticulum against a 10,000-fold gradient using ATP.",
+      "Transport of potassium ions exiting a neuron through open leak channels down their electrochemical gradient.",
+      "Engulfment of a deceased cell fragment by a circulating tissue macrophage.",
+      "Secretion of digestive proenzymes from pancreatic acinar cells into pancreatic juice."
+    ],
+    "answer": 1,
+    "clue": "Moving down an electrochemical gradient through a channel protein without energy input is facilitated diffusion.",
+    "explanation": "Potassium leaving a neuron through open K+ leak channels moves **passively down its electrochemical gradient via an integral channel protein**, which is the hallmark of **facilitated diffusion**."
+  },
+  {
+    "id": 18,
+    "topic": "Uniporter, Symporter, and Antiporter Classification",
+    "question": "A transport protein moves a single solute molecule down its concentration gradient across the membrane without coupling to any other molecule. How is this protein classified?",
+    "options": [
+      "Primary active ATP-driven pump",
+      "Bulk transport phagocytic pseudopodium",
+      "Secondary active symporter cotransporter",
+      "Facilitated diffusion uniporter carrier"
+    ],
+    "answer": 3,
+    "clue": "\"Uni-\" means one solute, moving downhill passively means facilitated diffusion.",
+    "explanation": "A transport protein that carries **a single solute** across the membrane down its concentration gradient without coupling to another ion or using ATP is a **facilitated diffusion uniporter** (such as the GLUT1 glucose transporter)."
+  },
+  {
+    "id": 19,
+    "topic": "Active vs Passive Transport Concept Matrix",
+    "question": "Which of the following correctly pairs the transport category with its defining characteristic?",
+    "options": [
+      "Simple diffusion \u2014 Requires phosphorylation of carrier proteins.",
+      "Primary active transport \u2014 Generates dynamic equilibrium where concentrations equalize.",
+      "Bulk endocytosis \u2014 Decreases plasma membrane surface area via vesicle formation.",
+      "Facilitated diffusion \u2014 Hydrolyzes GTP to propel solutes against their concentration gradient."
+    ],
+    "answer": 2,
+    "clue": "Endocytosis pinches patches of the outer cell membrane off into the cell, reducing outer membrane surface area.",
+    "explanation": "**Bulk endocytosis** invaginates and pinches off pieces of the plasma membrane into internal vesicles, resulting in a **net reduction of cell surface area** (which is subsequently replenished by exocytosis)."
+  },
+  {
+    "id": 20,
+    "topic": "Distinguishing Transport in Unknown Lab Scenario",
+    "question": "An unknown transport process in cultured liver cells exhibits the following properties: it is highly specific for L-leucine, reaches a plateau (Vmax) at 15 mM, and continues at the exact same rate whether ATP synthesis inhibitors are present or absent. What transport mechanism is operating?",
+    "options": [
+      "Primary active transport via an ATP-driven pump",
+      "Simple diffusion through the phospholipid bilayer",
+      "Receptor-mediated endocytosis via clathrin pits",
+      "Carrier-mediated facilitated diffusion"
+    ],
+    "answer": 3,
+    "clue": "Shows saturation (Vmax) and specificity (carrier protein), but does NOT require ATP (passive).",
+    "explanation": "Because the process is **substrate-specific** and displays **saturation kinetics (Vmax)**, it must be **carrier-mediated**. Because it is **unaffected by ATP inhibitors**, it does not require metabolic energy, proving it is **carrier-mediated facilitated diffusion**."
+  }
+];
+    const STORAGE_KEY = 'bio_unit2_test09_state_clean';
+
+    let userState = {
+      answers: {},
+      showClues: {},
+      allCluesVisible: false,
+      currentFilter: 'All',
+      missedOnly: false
+    };
+
+    function safeLoad() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (parsed && typeof parsed === 'object') {
+            userState = Object.assign(userState, parsed);
+          }
+        }
+      } catch (e) {
+        console.warn('localStorage not accessible:', e);
+      }
+    }
+
+    function safeSave() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(userState));
+      } catch (e) {
+        console.warn('Could not save to localStorage:', e);
+      }
+    }
+
+    function init() {
+      safeLoad();
+      renderQuestions();
+      updateStats();
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById('questionsContainer');
+      if (!container) return;
+      container.innerHTML = '';
+
+      let filteredQuestions = questionsData.filter(q => {
+        if (userState.currentFilter !== 'All' && q.topic !== userState.currentFilter) return false;
+        if (userState.missedOnly) {
+          const userAns = userState.answers[q.id];
+          if (userAns === undefined || userAns === q.answer) return false;
+        }
+        return true;
+      });
+
+      if (filteredQuestions.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-12 bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
+            <i class="fa-solid fa-circle-check text-emerald-500 text-4xl mb-3"></i>
+            <h3 class="text-lg font-bold text-slate-800">No Questions In This Filter</h3>
+            <p class="text-slate-500 text-sm mt-1">Try selecting 'All Topics' or clearing the missed review filter.</p>
+          </div>
+        `;
+        return;
+      }
+
+      filteredQuestions.forEach((q) => {
+        const isAnswered = userState.answers[q.id] !== undefined;
+        const selectedOption = userState.answers[q.id];
+        const isCorrect = isAnswered && selectedOption === q.answer;
+        const isClueVisible = userState.allCluesVisible || userState.showClues[q.id];
+
+        const card = document.createElement('div');
+        card.className = `bg-white rounded-2xl p-6 border transition-all duration-200 shadow-sm ${
+          isAnswered
+            ? isCorrect
+              ? 'border-emerald-300 ring-1 ring-emerald-200/50 bg-emerald-50/20'
+              : 'border-rose-300 ring-1 ring-rose-200/50 bg-rose-50/20'
+            : 'border-slate-200 hover:border-slate-300'
+        }`;
+        card.id = `q-card-${q.id}`;
+
+        let optionsHtml = q.options.map((opt, oIdx) => {
+          let btnClass = "border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50/40 text-slate-700 cursor-pointer";
+          let iconHtml = `<span class="w-6 h-6 rounded-full border border-slate-300 text-xs font-semibold flex items-center justify-center mr-3 text-slate-500 shrink-0 mt-0.5">${String.fromCharCode(65 + oIdx)}</span>`;
+
+          if (isAnswered) {
+            if (oIdx === q.answer) {
+              btnClass = "bg-emerald-50 border-emerald-500 text-emerald-950 font-semibold ring-1 ring-emerald-400 cursor-default";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-emerald-600 text-white text-xs font-bold flex items-center justify-center mr-3 shrink-0 mt-0.5"><i class="fa-solid fa-check"></i></span>`;
+            } else if (oIdx === selectedOption && !isCorrect) {
+              btnClass = "bg-rose-50 border-rose-400 text-rose-950 font-semibold ring-1 ring-rose-300 cursor-default";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-rose-600 text-white text-xs font-bold flex items-center justify-center mr-3 shrink-0 mt-0.5"><i class="fa-solid fa-xmark"></i></span>`;
+            } else {
+              btnClass = "opacity-50 border-slate-200 text-slate-400 cursor-not-allowed";
+            }
+          }
+
+          return `
+            <button 
+              type="button"
+              onclick="selectAnswer(${q.id}, ${oIdx})" 
+              ${isAnswered ? 'disabled' : ''} 
+              class="w-full text-left p-3.5 rounded-xl text-sm transition flex items-start ${btnClass} my-2 leading-relaxed">
+              ${iconHtml}
+              <span class="flex-1">${opt}</span>
+            </button>
+          `;
+        }).join('');
+
+        card.innerHTML = `
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <div class="flex items-center gap-2">
+              <span class="bg-indigo-100 text-indigo-800 text-xs font-black px-2.5 py-0.5 rounded-md">Q${q.id}</span>
+              <span class="bg-slate-100 text-slate-600 text-xs font-semibold px-2.5 py-0.5 rounded-md">${q.topic}</span>
+            </div>
+
+            <button type="button" onclick="toggleClue(${q.id})" class="text-xs text-amber-700 bg-amber-50 hover:bg-amber-100 border border-amber-200 px-3 py-1 rounded-lg font-medium transition flex items-center gap-1 cursor-pointer">
+              <i class="fa-regular fa-lightbulb"></i>
+              ${isClueVisible ? 'Hide Hint' : 'Need a Clue?'}
+            </button>
+          </div>
+
+          <h3 class="text-base font-bold text-slate-900 leading-relaxed mb-4">${q.question}</h3>
+
+          <div id="clue-${q.id}" class="${isClueVisible ? 'block' : 'hidden'} mb-4 p-3.5 bg-amber-50/80 border border-amber-200 rounded-xl text-amber-900 text-xs flex items-start gap-2.5">
+            <i class="fa-solid fa-lightbulb text-amber-600 mt-0.5"></i>
+            <div><span class="font-bold">Study Hint:</span> ${q.clue}</div>
+          </div>
+
+          <div class="space-y-1">${optionsHtml}</div>
+
+          ${isAnswered ? `
+            <div class="mt-5 p-4 rounded-xl text-sm border ${
+              isCorrect 
+                ? 'bg-emerald-50/70 border-emerald-200 text-emerald-950' 
+                : 'bg-rose-50/70 border-rose-200 text-slate-800'
+            }">
+              <div class="flex items-center gap-2 font-bold mb-2 ${isCorrect ? 'text-emerald-800' : 'text-rose-800'}">
+                <i class="${isCorrect ? 'fa-solid fa-circle-check text-emerald-600' : 'fa-solid fa-circle-xmark text-rose-600'}"></i>
+                <span>${isCorrect ? 'Correct! Excellent work.' : 'Incorrect. Let\'s break it down:'}</span>
+              </div>
+              <p class="text-xs leading-relaxed text-slate-700 mb-2">${q.explanation}</p>
+              <div class="text-xs font-semibold text-indigo-700 pt-2 border-t border-slate-200/60 flex items-center justify-between">
+                <span>Correct Option: ${String.fromCharCode(65 + q.answer)} (${q.options[q.answer]})</span>
+                <button type="button" onclick="retryQuestion(${q.id})" class="text-slate-500 hover:text-slate-800 font-medium underline ml-2 cursor-pointer">Try Again</button>
+              </div>
+            </div>
+          ` : ''}
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function selectAnswer(qId, optionIdx) {
+      if (userState.answers[qId] !== undefined) return;
+      userState.answers[qId] = optionIdx;
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function retryQuestion(qId) {
+      delete userState.answers[qId];
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function toggleClue(qId) {
+      userState.showClues[qId] = !userState.showClues[qId];
+      const el = document.getElementById(`clue-${qId}`);
+      if (el) {
+        el.classList.toggle('hidden');
+        el.classList.toggle('block');
+      }
+    }
+
+    function toggleAllClues() {
+      userState.allCluesVisible = !userState.allCluesVisible;
+      const btnText = document.getElementById('clueToggleText');
+      if (btnText) {
+        btnText.textContent = userState.allCluesVisible ? 'Hide All Hints' : 'Show All Hints';
+      }
+      renderQuestions();
+    }
+
+    function filterTopic(topic) {
+      userState.currentFilter = topic;
+      userState.missedOnly = false;
+      document.querySelectorAll('.topic-btn').forEach(btn => {
+        if (btn.textContent.includes(topic) || (topic === 'All' && btn.textContent.includes('All Topics'))) {
+          btn.className = 'topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-sm transition cursor-pointer';
+        } else {
+          btn.className = 'topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer';
+        }
+      });
+      renderQuestions();
+    }
+
+    function filterMissed() {
+      userState.missedOnly = !userState.missedOnly;
+      const btn = document.getElementById('filterMissedBtn');
+      if (userState.missedOnly) {
+        btn.className = 'text-xs bg-rose-600 text-white border border-rose-600 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer shadow-sm';
+      } else {
+        btn.className = 'text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer';
+      }
+      renderQuestions();
+    }
+
+    function updateStats() {
+      const total = questionsData.length;
+      const answeredKeys = Object.keys(userState.answers);
+      const answeredCount = answeredKeys.length;
+      let correctCount = 0;
+      let missedCount = 0;
+
+      answeredKeys.forEach(k => {
+        const q = questionsData.find(item => item.id == k);
+        if (q) {
+          if (userState.answers[k] === q.answer) {
+            correctCount++;
+          } else {
+            missedCount++;
+          }
+        }
+      });
+
+      const pct = answeredCount > 0 ? Math.round((correctCount / answeredCount) * 100) : 0;
+      const progressPct = Math.round((answeredCount / total) * 100);
+
+      const statAns = document.getElementById('statAnswered');
+      const statScore = document.getElementById('statScore');
+      const progBar = document.getElementById('quizProgressBar');
+      const missedCountSpan = document.getElementById('missedCount');
+
+      if (statAns) statAns.textContent = `${answeredCount}/${total}`;
+      if (statScore) statScore.textContent = `${pct}%`;
+      if (progBar) progBar.style.width = `${progressPct}%`;
+      if (missedCountSpan) missedCountSpan.textContent = missedCount;
+
+      const summaryCard = document.getElementById('scoreSummaryCard');
+      if (answeredCount === total && total > 0) {
+        if (summaryCard) {
+          summaryCard.classList.remove('hidden');
+          document.getElementById('finalTotal').textContent = total;
+          document.getElementById('finalCorrect').textContent = correctCount;
+          document.getElementById('finalPercent').textContent = `${pct}%`;
+
+          const rating = document.getElementById('masteryRating');
+          if (pct >= 90) {
+            rating.className = 'p-4 rounded-2xl font-bold text-sm mb-6 bg-emerald-100 text-emerald-900 border border-emerald-300';
+            rating.innerHTML = '🌟 Master Level! Flawless conceptual mastery across all passive and active transport mechanisms!';
+          } else if (pct >= 75) {
+            rating.className = 'p-4 rounded-2xl font-bold text-sm mb-6 bg-blue-100 text-blue-900 border border-blue-300';
+            rating.innerHTML = '👍 Solid Mastery! Review missed questions to master saturation plateaus and secondary cotransport.';
+          } else {
+            rating.className = 'p-4 rounded-2xl font-bold text-sm mb-6 bg-amber-100 text-amber-900 border border-amber-300';
+            rating.innerHTML = '📚 Keep reviewing! Focus on the key criteria: ATP vs no ATP, downhill vs uphill, and carrier saturation.';
+          }
+        }
+      } else {
+        if (summaryCard) summaryCard.classList.add('hidden');
+      }
+    }
+
+    function resetQuiz() {
+      if (confirm('Are you sure you want to reset all answers and progress for this test?')) {
+        userState.answers = {};
+        userState.showClues = {};
+        userState.allCluesVisible = false;
+        userState.missedOnly = false;
+        safeSave();
+        renderQuestions();
+        updateStats();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biology I Honors - Unit 2 Part 1 Student Packet Exam</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+
+  <!-- TOP HEADER -->
+  <header class="bg-gradient-to-r from-blue-700 via-indigo-700 to-emerald-700 text-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="w-10 h-10 rounded-xl bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition border border-white/20" title="Back to All Tests">
+          <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="bg-white/20 text-xs px-2.5 py-1 rounded-full font-semibold uppercase tracking-wider">Biology I Honors</span>
+            <span class="bg-emerald-400 text-slate-900 text-xs px-2.5 py-1 rounded-full font-bold">Document Exam 08</span>
+          </div>
+          <h1 class="text-xl sm:text-2xl font-black tracking-tight mt-1 text-white">Unit 2 Part 1 Student Packet Exam</h1>
+          <p class="text-xs text-blue-100 mt-0.5">Source Document: <code class="bg-black/20 px-1.5 py-0.5 rounded">Unit 2 Part 1 Cell Transport Student Packet 26-27.pdf</code></p>
+        </div>
+      </div>
+
+      <!-- Quick Stats Top -->
+      <div class="flex items-center gap-4 bg-white/10 backdrop-blur px-4 py-2 rounded-xl border border-white/15">
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Answered</div>
+          <div id="statAnswered" class="text-xl font-bold">0/20</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Accuracy</div>
+          <div id="statScore" class="text-xl font-bold text-emerald-300">0%</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <button onclick="resetQuiz()" class="text-xs bg-white/20 hover:bg-white/30 text-white px-3 py-2 rounded-lg font-medium transition flex items-center gap-1.5 cursor-pointer">
+          <i class="fa-solid fa-rotate-right"></i> Reset
+        </button>
+      </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="w-full bg-slate-900/30 h-2">
+      <div id="quizProgressBar" class="bg-emerald-400 h-2 transition-all duration-300" style="width: 0%"></div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-6xl mx-auto px-4 py-8">
+
+    <!-- Anti-Guess Note Banner -->
+    <div class="bg-emerald-50 border border-emerald-200 text-emerald-950 p-4 rounded-2xl mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-semibold shadow-sm">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-shield-halved text-emerald-600 text-base shrink-0"></i>
+        <span><strong>Document Mastery Assessment:</strong> All questions are rigorously aligned directly with the contents of <code class="bg-emerald-100 px-1 py-0.5 rounded">Unit 2 Part 1 Cell Transport Student Packet 26-27.pdf</code>.</span>
+      </div>
+      <a href="index.html" class="text-emerald-800 underline hover:text-emerald-950 whitespace-nowrap">View All Tests</a>
+    </div>
+
+    <!-- CONTROLS & FILTER BAR -->
+    <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 mb-8">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-sm font-bold text-slate-700 mb-2">Filter by Topic:</h2>
+          <div class="flex flex-wrap gap-2" id="topicFilters">
+            <button onclick="filterTopic('All')" class="topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-sm transition cursor-pointer">All Topics (20)</button>
+            <button onclick="filterTopic('Packet Page 9: Membrane Permeability')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Packet Page 9: Membrane Permeability</button>
+            <button onclick="filterTopic('Packet Page 10: Coloring Anatomy Letters')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Packet Page 10: Coloring Anatomy Letters</button>
+            <button onclick="filterTopic('Packet Page 10: Cholesterol Letter')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Packet Page 10: Cholesterol Letter</button>
+            <button onclick="filterTopic('Packet Page 14: Amoeba Sisters Osmosis Definition')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Packet Page 14: Amoeba Sisters Osmosis Definition</button>
+            <button onclick="filterTopic('Packet Page 14: Gummy Bear Mystery')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Packet Page 14: Gummy Bear Mystery</button>
+            <button onclick="filterTopic('Packet Page 14: Brain Swelling Clinical Treatment')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Packet Page 14: Brain Swelling Clinical Treatment</button>
+            <button onclick="filterTopic('Packet Page 16: Gel Deco Cube Lab Design')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Packet Page 16: Gel Deco Cube Lab Design</button>
+            <button onclick="filterTopic('Packet Page 16: Lab Control Group')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Packet Page 16: Lab Control Group</button>
+            <button onclick="filterTopic('Packet Page 17: Water Case Study (Jennifer Strange)')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Packet Page 17: Water Case Study (Jennifer Strange)</button>
+            <button onclick="filterTopic('Packet Page 18: CER Scientific Claim')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Packet Page 18: CER Scientific Claim</button>
+            <button onclick="filterTopic('Packet Page 20: Plant Fertilizer Scenario')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Packet Page 20: Plant Fertilizer Scenario</button>
+            <button onclick="filterTopic('Packet Page 20: Plant Z Cytolysis Analysis')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Packet Page 20: Plant Z Cytolysis Analysis</button>
+            <button onclick="filterTopic('Packet Page 20: Fill-in Vocabulary')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Packet Page 20: Fill-in Vocabulary</button>
+            <button onclick="filterTopic('Packet Page 20: BBQ Chicken Diffusion')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Packet Page 20: BBQ Chicken Diffusion</button>
+            <button onclick="filterTopic('Packet Page 20: Contractile Vacuole Role')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Packet Page 20: Contractile Vacuole Role</button>
+            <button onclick="filterTopic('Packet Page 20: Matching 'Steady State'')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Packet Page 20: Matching 'Steady State'</button>
+            <button onclick="filterTopic('Packet Page 20: Matching 'Against Gradient'')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Packet Page 20: Matching 'Against Gradient'</button>
+            <button onclick="filterTopic('Packet Page 21: Solute Concentration Ranking')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Packet Page 21: Solute Concentration Ranking</button>
+            <button onclick="filterTopic('Packet Page 21: 10% vs 40% Container Heights')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Packet Page 21: 10% vs 40% Container Heights</button>
+            <button onclick="filterTopic('Packet Page 21: Three-Cell Beaker Diagram')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Packet Page 21: Three-Cell Beaker Diagram</button>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 pt-2 lg:pt-0 border-t lg:border-t-0 border-slate-100">
+          <button onclick="toggleAllClues()" id="toggleCluesBtn" class="text-xs bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-regular fa-lightbulb"></i> <span id="clueToggleText">Show All Hints</span>
+          </button>
+          <button onclick="filterMissed()" id="filterMissedBtn" class="text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-solid fa-triangle-exclamation"></i> Review Missed (<span id="missedCount">0</span>)
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTIONS LIST -->
+    <div id="questionsContainer" class="space-y-6"></div>
+
+    <!-- SCORE SUMMARY CARD -->
+    <div id="scoreSummaryCard" class="mt-12 bg-white rounded-3xl p-8 border-2 border-indigo-100 shadow-xl hidden">
+      <div class="text-center max-w-xl mx-auto">
+        <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl">
+          <i class="fa-solid fa-trophy"></i>
+        </div>
+        <h2 class="text-2xl font-black text-slate-800">Test Complete!</h2>
+        <p class="text-slate-500 text-sm mt-1">Here is your detailed mastery score for Unit 2 Part 1 Student Packet Exam.</p>
+        
+        <div class="grid grid-cols-3 gap-4 my-6 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Total Questions</div>
+            <div class="text-2xl font-black text-slate-800" id="finalTotal">20</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Correct</div>
+            <div class="text-2xl font-black text-emerald-600" id="finalCorrect">0</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Score Rate</div>
+            <div class="text-2xl font-black text-blue-600" id="finalPercent">0%</div>
+          </div>
+        </div>
+
+        <div id="masteryRating" class="p-4 rounded-2xl font-bold text-sm mb-6"></div>
+
+        <div class="flex items-center justify-center gap-4">
+          <button onclick="resetQuiz()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-indigo-200 transition cursor-pointer">
+            Retake Entire Test
+          </button>
+          <a href="index.html" class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-emerald-200 transition">
+            Back to Tests Hub
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-500 mt-12">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p>© 2026 Biology I Honors • South Forsyth High School</p>
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="hover:text-indigo-600 transition font-medium">All Tests Hub</a>
+        <a href="../README.md" class="hover:text-indigo-600 transition font-medium">Weekly Agenda</a>
+        <a href="https://github.com/MegaAntony/biology-honors" target="_blank" class="hover:text-indigo-600 transition"><i class="fa-brands fa-github mr-1"></i>GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT ENGINE -->
+  <script>
+    const questionsData = [
+  {
+    "id": 1,
+    "topic": "Packet Page 9: Membrane Permeability",
+    "question": "According to the student packet reading on Page 9, why can water and other small molecules pass through the phospholipid bilayer without the expenditure of energy?",
+    "options": [
+      "The membrane is constantly vibrating and flexing, creating momentary micro-openings for small molecules moving down their gradient.",
+      "The membrane is rigid and perforated with permanent open holes lined with cellulose microfibrils.",
+      "Mitochondria actively push water molecules through cholesterol steroid rings using ATP hydrolysis.",
+      "Carbohydrate chains pull water molecules across the nonpolar core via electrostatic covalent attractions."
+    ],
+    "answer": 0,
+    "clue": "Packet reading: 'The cell membrane is constantly vibrating, creating small openings within the structure...'",
+    "explanation": "As stated in the packet reading, the cell membrane is constantly vibrating and flexible, creating transient small openings through which small molecules (like water and gases) diffuse passively down their concentration gradient without energy."
+  },
+  {
+    "id": 2,
+    "topic": "Packet Page 10: Coloring Anatomy Letters",
+    "question": "On the Page 10 Membrane Coloring Diagram, which letters correctly identify the Phospholipid Head and the Hydrophobic Fatty Acid Tails?",
+    "options": [
+      "Letter A = Phospholipid Head | Letter B = Fatty Acid Tails",
+      "Letter D = Phospholipid Head | Letter E = Fatty Acid Tails",
+      "Letter G = Phospholipid Head | Letter H = Fatty Acid Tails",
+      "Letter F = Phospholipid Head | Letter A = Fatty Acid Tails"
+    ],
+    "answer": 0,
+    "clue": "Letter A is the round yellow head; Letter B is the orange tail chains.",
+    "explanation": "On the coloring diagram, **Letter A** designates the hydrophilic **phospholipid head** (colored yellow) and **Letter B** designates the hydrophobic **fatty acid tails** (colored orange)."
+  },
+  {
+    "id": 3,
+    "topic": "Packet Page 10: Cholesterol Letter",
+    "question": "On Page 10, which letter designates cholesterol, and what is its listed functional role?",
+    "options": [
+      "Letter D (colored brown); helps maintain the flexibility and fluidity of the membrane",
+      "Letter E (colored purple); transports glucose across the membrane without energy",
+      "Letter F (colored red); permanently anchors DNA chromosomes inside the cytoplasm",
+      "Letter H (colored green); digests damaged cellular organelles through autophagy"
+    ],
+    "answer": 0,
+    "clue": "Letter D is the 4-ring steroid lipid embedded between tails.",
+    "explanation": "**Letter D** (colored brown) designates **cholesterol**, which is embedded among the hydrophobic tails to maintain membrane flexibility and buffer fluidity across temperature changes."
+  },
+  {
+    "id": 4,
+    "topic": "Packet Page 14: Amoeba Sisters Osmosis Definition",
+    "question": "In the Amoeba Sisters recap (Page 14), osmosis is defined as the movement of water from high water concentration to low water concentration. Why can it also be viewed as water moving to a HIGHER solute concentration?",
+    "options": [
+      "Because water molecules are electrostatically repelled by empty spaces and seek out dissolved solute particles to hydrate.",
+      "Because where solute concentration is higher, the concentration of free water molecules is comparatively lower, so water diffuses down its own gradient toward the solute.",
+      "Because solute particles actively pump water across aquaporins using secondary metabolic ATP.",
+      "Because biological membranes become impermeable to water whenever solute concentrations equalize."
+    ],
+    "answer": 1,
+    "clue": "More solute = less free water. Water moves down its own water gradient toward higher solute.",
+    "explanation": "Where solute concentration is high, water molecules form hydration shells around solute particles, reducing the concentration of 'free' water. Thus, water moves down its free water concentration gradient\u2014which is toward the higher solute concentration."
+  },
+  {
+    "id": 5,
+    "topic": "Packet Page 14: Gummy Bear Mystery",
+    "question": "In the Gummy Bear Mystery (Page 14), why did the gummy bears expand to several times their original size after sitting in ice water for 30 minutes?",
+    "options": [
+      "The gummy bear was hypotonic; sugar molecules diffused out into the water while water remained stationary.",
+      "The gummy bear was hypertonic (packed with sugar and gelatin); water diffused inward by osmosis from the hypotonic water.",
+      "The ice water was hypertonic; cold temperatures caused the gelatin matrix to undergo rapid cell division.",
+      "Water entered the gummy bear via active endocytosis driven by gelatin-bound enzymatic pumps."
+    ],
+    "answer": 1,
+    "clue": "Gummy bears are packed with sugar (hypertonic); pure water is hypotonic.",
+    "explanation": "Gummy bears contain dense concentrations of sugar and gelatin, making them strongly **hypertonic** compared to the surrounding ice water (**hypotonic**). Water moves down its concentration gradient into the gummy bear via **osmosis**, causing it to swell."
+  },
+  {
+    "id": 6,
+    "topic": "Packet Page 14: Brain Swelling Clinical Treatment",
+    "question": "After traumatic brain injury, fluid accumulation causes dangerous brain swelling (cerebral edema). What IV saline solution should doctors infuse, and why?",
+    "options": [
+      "Hypotonic saline, to force more water into brain neurons so they can synthesize repair proteins",
+      "Hypertonic saline, to raise blood solute levels and draw excess fluid out of swollen brain cells by osmosis",
+      "Pure distilled water, to flush sodium ions out of damaged cerebral blood vessel walls",
+      "Isotonic saline, because changing blood osmolarity would immediately halt kidney function"
+    ],
+    "answer": 1,
+    "clue": "To draw fluid OUT of swollen cells, the bloodstream must be made hypertonic.",
+    "explanation": "Infusing a **hypertonic saline** solution increases the solute concentration of the blood above that of the brain tissue. By **osmosis**, excess fluid diffuses out of the swollen brain neurons into the bloodstream, relieving lethal intracranial pressure."
+  },
+  {
+    "id": 7,
+    "topic": "Packet Page 16: Gel Deco Cube Lab Design",
+    "question": "In the Gel Deco Cube / Gummy Bear Osmosis Lab (Page 16), what was the Independent Variable (IV) and Dependent Variable (DV)?",
+    "options": [
+      "IV: Type/concentration of soaking solution | DV: Change in mass and volume of the cube",
+      "IV: Initial mass of the electronic balance | DV: Duration of time the cube was submerged",
+      "IV: Number of paper towels used to blot | DV: Brand of graduated cylinder used",
+      "IV: Temperature of the laboratory room | DV: Color of the gelatin cube pigment"
+    ],
+    "answer": 0,
+    "clue": "The IV is what the experimenter changes; the DV is what is measured.",
+    "explanation": "The **Independent Variable (IV)** is the solution treatment (distilled water, tap water, salt/sugar solution); the **Dependent Variable (DV)** is the resulting change in mass (grams) and volume ($cm^3$) of the gel cube."
+  },
+  {
+    "id": 8,
+    "topic": "Packet Page 16: Lab Control Group",
+    "question": "In the Gel Deco Cube Osmosis experiment, which trial or measurement serves as the experimental control?",
+    "options": [
+      "The initial mass and volume of each cube measured before any liquid treatment (baseline)",
+      "The electronic balance calibrated to display negative values",
+      "A beaker left completely empty without any gel cubes or water",
+      "A cube dissolved completely in boiling hydrochloric acid"
+    ],
+    "answer": 0,
+    "clue": "The baseline measurement before treatment provides the comparison standard.",
+    "explanation": "The initial pre-treatment baseline measurement (**Mass and Volume Before Treatment**) serves as the direct internal control, allowing calculation of the exact percentage change in mass ($\\%\\ \\Delta\\text{Mass}$)."
+  },
+  {
+    "id": 9,
+    "topic": "Packet Page 17: Water Case Study (Jennifer Strange)",
+    "question": "In the case study on Page 17, Jennifer Strange died after drinking nearly 2 gallons of water in a radio contest without urinating. What was the direct physiological cause of death?",
+    "options": [
+      "Severe acute hyponatremia (water intoxication) causing brain cells to swell and herniate the brainstem",
+      "Hypertonic dehydration causing kidney filtration failure and toxic urea buildup",
+      "Excessive stomach stretching that triggered massive internal arterial hemorrhage",
+      "Bacterial food poisoning caused by contaminated radio station bottled water"
+    ],
+    "answer": 0,
+    "clue": "Excess water severely diluted blood sodium, causing hypotonic swelling of brain cells.",
+    "explanation": "Consuming immense quantities of water without urinating diluted blood sodium (**hyponatremia**), creating a severely **hypotonic** extracellular environment. Water rushed into brain cells via osmosis; confined in the rigid skull, the resulting **cerebral edema** compressed and herniated the brainstem, arresting respiratory centers."
+  },
+  {
+    "id": 10,
+    "topic": "Packet Page 18: CER Scientific Claim",
+    "question": "In completing the CER (Page 18) for the driving question 'Can too much water be deadly?', which statement represents an exemplary scientific Claim?",
+    "options": [
+      "Yes, drinking excessive quantities of water over a short period can be fatal due to acute hyponatremia and osmotic brain swelling.",
+      "Jennifer Strange was 28 years old and had three children when she entered KDND's radio contest in Sacramento.",
+      "The human brain is surrounded by cerebrospinal fluid and enclosed by the skull bones.",
+      "Water molecules move from high concentration to low concentration across semipermeable membranes."
+    ],
+    "answer": 0,
+    "clue": "A claim is a direct, testable answer to the driving question.",
+    "explanation": "A scientific **Claim** directly answers the driving question: 'Yes, consuming excessive water over a short period can be fatal because it causes severe hyponatremia and lethal osmotic brain swelling (cerebral edema).'"
+  },
+  {
+    "id": 11,
+    "topic": "Packet Page 20: Plant Fertilizer Scenario",
+    "question": "In Review Question #2 (Page 20), Plant Y was given a heavily concentrated fertilizer solution and wilted. Did Plant Y lose turgor pressure, and why?",
+    "options": [
+      "No, Plant Y absorbed excessive fertilizer solutes and became hyper-turgid until its roots split open.",
+      "Yes, the concentrated fertilizer made the soil hypertonic; water exited root cells via osmosis, causing plasmolysis and loss of turgor.",
+      "No, Plant Y maintained isotonic dynamic equilibrium with the soil fertilizer minerals.",
+      "Yes, the chemical fertilizer dissolved the cellulose cell wall, causing cells to burst via cytolysis."
+    ],
+    "answer": 1,
+    "clue": "Concentrated fertilizer = hypertonic soil; water leaves root cells.",
+    "explanation": "**Yes.** The concentrated fertilizer made the soil **hypertonic**. Water diffused by osmosis **out** of the root cells, causing the cytoplasm to pull away from the cell walls (**plasmolysis**) and losing internal **turgor pressure**, resulting in wilting."
+  },
+  {
+    "id": 12,
+    "topic": "Packet Page 20: Plant Z Cytolysis Analysis",
+    "question": "In Review Question #4 (Page 20), Plant Z was watered with pure distilled water. Did Plant Z's cells burst due to cytolysis? Why or why not?",
+    "options": [
+      "Yes, pure distilled water is hypotonic and forces water inward until all plant cells rupture.",
+      "No, plant cells do not burst because their rigid cellulose cell walls exert opposing wall pressure that resists expansion, making them turgid.",
+      "Yes, because plant cell membranes lack cholesterol, they are incapable of withstanding any osmotic pressure.",
+      "No, because plant roots possess active sodium pumps that continuously expel all incoming water into the soil."
+    ],
+    "answer": 1,
+    "clue": "Plant cell walls prevent bursting and keep the cells firm (turgid).",
+    "explanation": "**No.** Unlike animal red blood cells, plant cells are encased in a rigid **cellulose cell wall**. When water enters by osmosis in a hypotonic environment, the expanding central vacuole pushes against the cell wall, generating **turgor pressure** that balances incoming osmotic pressure without bursting."
+  },
+  {
+    "id": 13,
+    "topic": "Packet Page 20: Fill-in Vocabulary",
+    "question": "Review Question #5 (Page 20) asks: 'A membrane that allows only certain substances to pass through is:'",
+    "options": [
+      "Impermeable",
+      "Semipermeable (or Selectively Permeable)",
+      "Unilamellar",
+      "Hydrophobic"
+    ],
+    "answer": 1,
+    "clue": "A membrane that selects what passes through is selectively permeable.",
+    "explanation": "A biological membrane that allows certain molecules to cross while restricting others is **semipermeable** (or **selectively permeable**)."
+  },
+  {
+    "id": 14,
+    "topic": "Packet Page 20: BBQ Chicken Diffusion",
+    "question": "Review Question #8 (Page 20) asks: 'The odor of BBQ chicken coming through the house is an example of:'",
+    "options": [
+      "Osmosis",
+      "Active Transport",
+      "Simple Diffusion",
+      "Endocytosis"
+    ],
+    "answer": 2,
+    "clue": "Scent molecules spreading from kitchen to living room is simple diffusion.",
+    "explanation": "The spontaneous dispersion of scent particles from an area of high concentration (BBQ grill/kitchen) to lower concentration throughout the house is **simple diffusion**."
+  },
+  {
+    "id": 15,
+    "topic": "Packet Page 20: Contractile Vacuole Role",
+    "question": "Review Question #12 (Page 20) asks: 'Organelles that push extra water out through the cell membrane in freshwater protists are called:'",
+    "options": [
+      "Lysosomes",
+      "Contractile Vacuoles",
+      "Peroxisomes",
+      "Central Vacuoles"
+    ],
+    "answer": 1,
+    "clue": "Contractile vacuoles contract to pump excess freshwater out of protists.",
+    "explanation": "**Contractile vacuoles** are specialized osmoregulatory organelles in freshwater unicellular eukaryotes (like *Paramecium* and *Amoeba*) that collect and rhythmically pump out incoming excess water to prevent cytolysis."
+  },
+  {
+    "id": 16,
+    "topic": "Packet Page 20: Matching 'Steady State'",
+    "question": "In Part 3 Matching (Page 20), which term matches the definition: ''steady state''?",
+    "options": [
+      "Active Transport",
+      "Homeostasis",
+      "Plasmolysis",
+      "Turgor"
+    ],
+    "answer": 1,
+    "clue": "Maintaining a stable internal steady state is homeostasis.",
+    "explanation": "**Homeostasis** is the maintenance of a stable, balanced internal physiological 'steady state' despite changing external conditions."
+  },
+  {
+    "id": 17,
+    "topic": "Packet Page 20: Matching 'Against Gradient'",
+    "question": "In Part 3 Matching (Page 20), which term matches the definition: 'movement of materials against diffusion pressure'?",
+    "options": [
+      "Diffusion",
+      "Active Transport",
+      "Osmosis",
+      "Permeable"
+    ],
+    "answer": 1,
+    "clue": "Moving against diffusion pressure requires ATP energy = active transport.",
+    "explanation": "**Active transport** is the movement of substances against diffusion pressure (against their concentration gradient), requiring metabolic energy (ATP)."
+  },
+  {
+    "id": 18,
+    "topic": "Packet Page 21: Solute Concentration Ranking",
+    "question": "Review Question #27 (Page 21) asks to organize the terms isotonic, hypertonic, and hypotonic in order from LOWEST dissolved solute concentration to HIGHEST:",
+    "options": [
+      "Hypotonic $\\rightarrow$ Isotonic $\\rightarrow$ Hypertonic",
+      "Hypertonic $\\rightarrow$ Isotonic $\\rightarrow$ Hypotonic",
+      "Isotonic $\\rightarrow$ Hypotonic $\\rightarrow$ Hypertonic",
+      "Hypotonic $\\rightarrow$ Hypertonic $\\rightarrow$ Isotonic"
+    ],
+    "answer": 0,
+    "clue": "Hypo = low/under; Iso = equal; Hyper = high/over.",
+    "explanation": "**Hypotonic** has the lowest solute concentration (highest free water), **Isotonic** has an intermediate/equal concentration, and **Hypertonic** has the highest solute concentration."
+  },
+  {
+    "id": 19,
+    "topic": "Packet Page 21: 10% vs 40% Container Heights",
+    "question": "Review Question #28 (Page 21): A container is divided by a membrane permeable only to water. Side A has 10% sugar and Side B has 40% sugar. Both start at 10cm. Over time, one side drops to 7cm and the other rises to 13cm. Which side is at 7cm, and why?",
+    "options": [
+      "Side B is at 7cm because sugar molecules diffuse into Side A and displace water.",
+      "Side A is at 7cm because water moves by osmosis from Side A (90% water) into Side B (60% water).",
+      "Both sides remain at 10cm because the membrane is impermeable to water.",
+      "Side A is at 13cm because sugar pulls water toward the 10% solution via hydrostatic suction."
+    ],
+    "answer": 1,
+    "clue": "Water moves from higher water (Side A: 90%) to lower water (Side B: 60%). Side A loses water!",
+    "explanation": "Side A is $10\\%$ sugar ($90\\%$ water); Side B is $40\\%$ sugar ($60\\%$ water). Water diffuses down its concentration gradient via **osmosis** from Side A to Side B. Side A loses volume and its fluid level **drops to 7 cm**, while Side B gains volume and its level **rises to 13 cm**."
+  },
+  {
+    "id": 20,
+    "topic": "Packet Page 21: Three-Cell Beaker Diagram",
+    "question": "Review Question #30 (Page 21): Cell interior is 98% water. Predict the direction of water movement when placed into Beaker 1 (95% water), Beaker 2 (98% water), and Beaker 3 (100% water):",
+    "options": [
+      "Beaker 1 (95%): Water moves OUT (hypertonic) | Beaker 2 (98%): Equal exchange (isotonic) | Beaker 3 (100%): Water moves IN (hypotonic)",
+      "Beaker 1 (95%): Water moves IN (hypotonic) | Beaker 2 (98%): Equal exchange (isotonic) | Beaker 3 (100%): Water moves OUT (hypertonic)",
+      "Beaker 1 (95%): Equal exchange | Beaker 2 (98%): Water moves OUT | Beaker 3 (100%): Water moves IN",
+      "Water moves inward across all three beakers because intracellular solute always attracts water."
+    ],
+    "answer": 0,
+    "clue": "95% water outside < 98% inside -> water exits; 98% = 98% -> equal; 100% water outside > 98% inside -> water enters.",
+    "explanation": "In Beaker 1 ($95\\%$ water), the outside is hypertonic ($5\\%$ solute vs $2\\%$ inside); water moves **OUT**. In Beaker 2 ($98\\%$ water), it is isotonic; water moves **IN and OUT at equal rates**. In Beaker 3 ($100\\%$ water), it is hypotonic ($0\\%$ solute); water moves **IN**."
+  }
+];
+
+    const STORAGE_KEY = 'bio1_doc_test_08_packet_part1';
+
+    let userState = {
+      answers: {},
+      showClues: {},
+      allCluesVisible: false,
+      currentFilter: 'All',
+      missedOnly: false
+    };
+
+    function safeLoad() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          userState = JSON.parse(saved);
+        }
+      } catch (e) {
+        console.warn('localStorage not accessible:', e);
+      }
+    }
+
+    function safeSave() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(userState));
+      } catch (e) {
+        console.warn('Could not save to localStorage:', e);
+      }
+    }
+
+    function init() {
+      safeLoad();
+      renderQuestions();
+      updateStats();
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById('questionsContainer');
+      if (!container) return;
+      container.innerHTML = '';
+
+      let filteredQuestions = questionsData.filter(q => {
+        if (userState.currentFilter !== 'All' && q.topic !== userState.currentFilter) return false;
+        if (userState.missedOnly) {
+          const userAns = userState.answers[q.id];
+          if (userAns === undefined || userAns === q.answer) return false;
+        }
+        return true;
+      });
+
+      if (filteredQuestions.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-12 bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
+            <i class="fa-solid fa-circle-check text-emerald-500 text-4xl mb-3"></i>
+            <h3 class="text-lg font-bold text-slate-800">No Questions In This Filter</h3>
+            <p class="text-slate-500 text-sm mt-1">Try selecting 'All Topics' or clearing the missed review filter.</p>
+          </div>
+        `;
+        return;
+      }
+
+      filteredQuestions.forEach((q) => {
+        const isAnswered = userState.answers[q.id] !== undefined;
+        const selectedOption = userState.answers[q.id];
+        const isCorrect = isAnswered && selectedOption === q.answer;
+        const isClueVisible = userState.allCluesVisible || userState.showClues[q.id];
+
+        const card = document.createElement('div');
+        card.className = `bg-white rounded-2xl p-6 border transition-all duration-200 shadow-sm ${
+          isAnswered
+            ? isCorrect
+              ? 'border-emerald-300 ring-1 ring-emerald-200/50 bg-emerald-50/20'
+              : 'border-rose-300 ring-1 ring-rose-200/50 bg-rose-50/20'
+            : 'border-slate-200 hover:border-slate-300'
+        }`;
+        card.id = `q-card-${q.id}`;
+
+        let optionsHtml = q.options.map((opt, oIdx) => {
+          let btnClass = "border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50/40 text-slate-700 cursor-pointer";
+          let iconHtml = `<span class="w-6 h-6 rounded-full border border-slate-300 text-xs font-semibold flex items-center justify-center mr-3 text-slate-500 shrink-0 mt-0.5">${String.fromCharCode(65 + oIdx)}</span>`;
+
+          if (isAnswered) {
+            if (oIdx === q.answer) {
+              btnClass = "bg-emerald-50 border-emerald-500 text-emerald-950 font-semibold ring-1 ring-emerald-400 cursor-default";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-emerald-600 text-white text-xs font-bold flex items-center justify-center mr-3 shrink-0 mt-0.5"><i class="fa-solid fa-check"></i></span>`;
+            } else if (oIdx === selectedOption && !isCorrect) {
+              btnClass = "bg-rose-50 border-rose-400 text-rose-950 font-semibold ring-1 ring-rose-300 cursor-default";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-rose-600 text-white text-xs font-bold flex items-center justify-center mr-3 shrink-0 mt-0.5"><i class="fa-solid fa-xmark"></i></span>`;
+            } else {
+              btnClass = "opacity-50 border-slate-200 text-slate-400 cursor-not-allowed";
+            }
+          }
+
+          return `
+            <button 
+              type="button"
+              onclick="selectAnswer(${q.id}, ${oIdx})" 
+              ${isAnswered ? 'disabled' : ''} 
+              class="w-full text-left p-3.5 rounded-xl text-sm transition flex items-start ${btnClass} my-2 leading-relaxed">
+              ${iconHtml}
+              <span class="flex-1">${opt}</span>
+            </button>
+          `;
+        }).join('');
+
+        card.innerHTML = `
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <div class="flex items-center gap-2">
+              <span class="bg-indigo-100 text-indigo-800 text-xs font-black px-2.5 py-0.5 rounded-md">Q${q.id}</span>
+              <span class="bg-slate-100 text-slate-600 text-xs font-semibold px-2.5 py-0.5 rounded-md">${q.topic}</span>
+            </div>
+
+            <button type="button" onclick="toggleClue(${q.id})" class="text-xs text-amber-700 bg-amber-50 hover:bg-amber-100 border border-amber-200 px-3 py-1 rounded-lg font-medium transition flex items-center gap-1 cursor-pointer">
+              <i class="fa-regular fa-lightbulb"></i>
+              ${isClueVisible ? 'Hide Hint' : 'Need a Clue?'}
+            </button>
+          </div>
+
+          <h3 class="text-base font-bold text-slate-900 leading-relaxed mb-4">${q.question}</h3>
+
+          <div id="clue-${q.id}" class="${isClueVisible ? 'block' : 'hidden'} mb-4 p-3.5 bg-amber-50/80 border border-amber-200 rounded-xl text-amber-900 text-xs flex items-start gap-2.5">
+            <i class="fa-solid fa-lightbulb text-amber-600 mt-0.5"></i>
+            <div><span class="font-bold">Study Hint:</span> ${q.clue}</div>
+          </div>
+
+          <div class="space-y-1">${optionsHtml}</div>
+
+          ${isAnswered ? `
+            <div class="mt-5 p-4 rounded-xl text-sm border ${
+              isCorrect 
+                ? 'bg-emerald-50/70 border-emerald-200 text-emerald-950' 
+                : 'bg-rose-50/70 border-rose-200 text-slate-800'
+            }">
+              <div class="flex items-center gap-2 font-bold mb-2 ${isCorrect ? 'text-emerald-800' : 'text-rose-800'}">
+                <i class="${isCorrect ? 'fa-solid fa-circle-check text-emerald-600' : 'fa-solid fa-circle-xmark text-rose-600'}"></i>
+                <span>${isCorrect ? 'Correct! Excellent work.' : 'Incorrect. Let\'s break it down:'}</span>
+              </div>
+              <p class="text-xs leading-relaxed text-slate-700 mb-2">${q.explanation}</p>
+              <div class="text-xs font-semibold text-indigo-700 pt-2 border-t border-slate-200/60 flex items-center justify-between">
+                <span>Correct Option: ${String.fromCharCode(65 + q.answer)} (${q.options[q.answer]})</span>
+                <button type="button" onclick="retryQuestion(${q.id})" class="text-slate-500 hover:text-slate-800 font-medium underline ml-2 cursor-pointer">Try Again</button>
+              </div>
+            </div>
+          ` : ''}
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function selectAnswer(qId, optionIdx) {
+      if (userState.answers[qId] !== undefined) return;
+      userState.answers[qId] = optionIdx;
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function retryQuestion(qId) {
+      delete userState.answers[qId];
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function toggleClue(qId) {
+      userState.showClues[qId] = !userState.showClues[qId];
+      safeSave();
+      renderQuestions();
+    }
+
+    function toggleAllClues() {
+      userState.allCluesVisible = !userState.allCluesVisible;
+      document.getElementById('clueToggleText').innerText = userState.allCluesVisible ? "Hide All Hints" : "Show All Hints";
+      safeSave();
+      renderQuestions();
+    }
+
+    function filterTopic(topic) {
+      userState.currentFilter = topic;
+      userState.missedOnly = false;
+      document.querySelectorAll('.topic-btn').forEach(btn => {
+        if (btn.innerText.includes(topic) || (topic === 'All' && btn.innerText.includes('All Topics'))) {
+          btn.className = "topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-sm transition cursor-pointer";
+        } else {
+          btn.className = "topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer";
+        }
+      });
+      renderQuestions();
+    }
+
+    function filterMissed() {
+      userState.missedOnly = !userState.missedOnly;
+      const btn = document.getElementById('filterMissedBtn');
+      if (userState.missedOnly) {
+        btn.className = "text-xs bg-rose-600 text-white border border-rose-600 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer shadow-sm";
+      } else {
+        btn.className = "text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer";
+      }
+      renderQuestions();
+    }
+
+    function updateStats() {
+      const answeredCount = Object.keys(userState.answers).length;
+      let correctCount = 0;
+      let missedCount = 0;
+
+      questionsData.forEach(q => {
+        if (userState.answers[q.id] !== undefined) {
+          if (userState.answers[q.id] === q.answer) {
+            correctCount++;
+          } else {
+            missedCount++;
+          }
+        }
+      });
+
+      const total = questionsData.length;
+      document.getElementById('statAnswered').innerText = `${answeredCount}/${total}`;
+      document.getElementById('missedCount').innerText = missedCount;
+
+      const accuracy = answeredCount === 0 ? 0 : Math.round((correctCount / answeredCount) * 100);
+      document.getElementById('statScore').innerText = `${accuracy}%`;
+      document.getElementById('quizProgressBar').style.width = `${(answeredCount / total) * 100}%`;
+
+      const scoreCard = document.getElementById('scoreSummaryCard');
+      if (answeredCount === total && total > 0) {
+        scoreCard.classList.remove('hidden');
+        document.getElementById('finalTotal').innerText = total;
+        document.getElementById('finalCorrect').innerText = correctCount;
+        document.getElementById('finalPercent').innerText = `${accuracy}%`;
+
+        const ratingBox = document.getElementById('masteryRating');
+        if (accuracy >= 90) {
+          ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-emerald-50 border border-emerald-300 text-emerald-900";
+          ratingBox.innerHTML = '<i class="fa-solid fa-certificate mr-2 text-emerald-600"></i>Mastery Achieved! Outstanding understanding of this document.';
+        } else if (accuracy >= 75) {
+          ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-blue-50 border border-blue-300 text-blue-900";
+          ratingBox.innerHTML = '<i class="fa-solid fa-thumbs-up mr-2 text-blue-600"></i>Proficient! Good foundation; review missed items before testing.';
+        } else {
+          ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-amber-50 border border-amber-300 text-amber-900";
+          ratingBox.innerHTML = '<i class="fa-solid fa-book-open mr-2 text-amber-600"></i>Review Recommended! Use the Markdown companion notes to reinforce weak areas.';
+        }
+      } else {
+        scoreCard.classList.add('hidden');
+      }
+    }
+
+    function resetQuiz() {
+      if (confirm("Are you sure you want to reset all answers and hints for this test?")) {
+        userState.answers = {};
+        userState.showClues = {};
+        userState.allCluesVisible = false;
+        userState.currentFilter = 'All';
+        userState.missedOnly = false;
+        safeSave();
+        document.getElementById('clueToggleText').innerText = "Show All Hints";
+        document.getElementById('filterMissedBtn').className = "text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer";
+        filterTopic('All');
+        renderQuestions();
+        updateStats();
+      }
+    }
+
+    window.onload = init;
+  </script>
+</body>
+</html>

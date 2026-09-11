@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biology I Honors - Cell Membrane & Transport Lecture Exam</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+
+  <!-- TOP HEADER -->
+  <header class="bg-gradient-to-r from-blue-700 via-indigo-700 to-emerald-700 text-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="w-10 h-10 rounded-xl bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition border border-white/20" title="Back to All Tests">
+          <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="bg-white/20 text-xs px-2.5 py-1 rounded-full font-semibold uppercase tracking-wider">Biology I Honors</span>
+            <span class="bg-emerald-400 text-slate-900 text-xs px-2.5 py-1 rounded-full font-bold">Document Exam 03</span>
+          </div>
+          <h1 class="text-xl sm:text-2xl font-black tracking-tight mt-1 text-white">Cell Membrane & Transport Lecture Exam</h1>
+          <p class="text-xs text-blue-100 mt-0.5">Source Document: <code class="bg-black/20 px-1.5 py-0.5 rounded">HB Unit 2 (Part 1)_ Cell Membrane & Transport PPT.pdf</code></p>
+        </div>
+      </div>
+
+      <!-- Quick Stats Top -->
+      <div class="flex items-center gap-4 bg-white/10 backdrop-blur px-4 py-2 rounded-xl border border-white/15">
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Answered</div>
+          <div id="statAnswered" class="text-xl font-bold">0/20</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Accuracy</div>
+          <div id="statScore" class="text-xl font-bold text-emerald-300">0%</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <button onclick="resetQuiz()" class="text-xs bg-white/20 hover:bg-white/30 text-white px-3 py-2 rounded-lg font-medium transition flex items-center gap-1.5 cursor-pointer">
+          <i class="fa-solid fa-rotate-right"></i> Reset
+        </button>
+      </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="w-full bg-slate-900/30 h-2">
+      <div id="quizProgressBar" class="bg-emerald-400 h-2 transition-all duration-300" style="width: 0%"></div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-6xl mx-auto px-4 py-8">
+
+    <!-- Anti-Guess Note Banner -->
+    <div class="bg-emerald-50 border border-emerald-200 text-emerald-950 p-4 rounded-2xl mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-semibold shadow-sm">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-shield-halved text-emerald-600 text-base shrink-0"></i>
+        <span><strong>Document Mastery Assessment:</strong> All questions are rigorously aligned directly with the contents of <code class="bg-emerald-100 px-1 py-0.5 rounded">HB Unit 2 (Part 1)_ Cell Membrane & Transport PPT.pdf</code>.</span>
+      </div>
+      <a href="index.html" class="text-emerald-800 underline hover:text-emerald-950 whitespace-nowrap">View All Tests</a>
+    </div>
+
+    <!-- CONTROLS & FILTER BAR -->
+    <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 mb-8">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-sm font-bold text-slate-700 mb-2">Filter by Topic:</h2>
+          <div class="flex flex-wrap gap-2" id="topicFilters">
+            <button onclick="filterTopic('All')" class="topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-sm transition cursor-pointer">All Topics (20)</button>
+            <button onclick="filterTopic('Phospholipid Amphipathic Nature')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Phospholipid Amphipathic Nature</button>
+            <button onclick="filterTopic('Cholesterol Function')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Cholesterol Function</button>
+            <button onclick="filterTopic('TRACIE Mnemonic: Recognition')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">TRACIE Mnemonic: Recognition</button>
+            <button onclick="filterTopic('Selective Permeability Rules')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Selective Permeability Rules</button>
+            <button onclick="filterTopic('Facilitated Diffusion Transporters')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Facilitated Diffusion Transporters</button>
+            <button onclick="filterTopic('Aquaporins')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Aquaporins</button>
+            <button onclick="filterTopic('Glucose Transport Kinetics')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Glucose Transport Kinetics</button>
+            <button onclick="filterTopic('Active Transport Gradient Direction')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Active Transport Gradient Direction</button>
+            <button onclick="filterTopic('Bulk Transport: Exocytosis')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Bulk Transport: Exocytosis</button>
+            <button onclick="filterTopic('Pinocytosis vs. Phagocytosis')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Pinocytosis vs. Phagocytosis</button>
+            <button onclick="filterTopic('Receptor-Mediated Endocytosis')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Receptor-Mediated Endocytosis</button>
+            <button onclick="filterTopic('Sodium-Potassium Pump Stoichiometry')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Sodium-Potassium Pump Stoichiometry</button>
+            <button onclick="filterTopic('The 'Salty Banana' Mnemonic')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">The 'Salty Banana' Mnemonic</button>
+            <button onclick="filterTopic('Membrane Potential Generation')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Membrane Potential Generation</button>
+            <button onclick="filterTopic('Plant vs. Animal Tonicity Comparison')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Plant vs. Animal Tonicity Comparison</button>
+            <button onclick="filterTopic('Plasmolysis in Wilting Plants')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Plasmolysis in Wilting Plants</button>
+            <button onclick="filterTopic('Passive vs. Active Comparison Matrix')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Passive vs. Active Comparison Matrix</button>
+            <button onclick="filterTopic('Dynamic Equilibrium Definition')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Dynamic Equilibrium Definition</button>
+            <button onclick="filterTopic('Integral vs. Peripheral Proteins')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Integral vs. Peripheral Proteins</button>
+            <button onclick="filterTopic('Success Criteria: Homeostasis')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Success Criteria: Homeostasis</button>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 pt-2 lg:pt-0 border-t lg:border-t-0 border-slate-100">
+          <button onclick="toggleAllClues()" id="toggleCluesBtn" class="text-xs bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-regular fa-lightbulb"></i> <span id="clueToggleText">Show All Hints</span>
+          </button>
+          <button onclick="filterMissed()" id="filterMissedBtn" class="text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-solid fa-triangle-exclamation"></i> Review Missed (<span id="missedCount">0</span>)
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTIONS LIST -->
+    <div id="questionsContainer" class="space-y-6"></div>
+
+    <!-- SCORE SUMMARY CARD -->
+    <div id="scoreSummaryCard" class="mt-12 bg-white rounded-3xl p-8 border-2 border-indigo-100 shadow-xl hidden">
+      <div class="text-center max-w-xl mx-auto">
+        <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl">
+          <i class="fa-solid fa-trophy"></i>
+        </div>
+        <h2 class="text-2xl font-black text-slate-800">Test Complete!</h2>
+        <p class="text-slate-500 text-sm mt-1">Here is your detailed mastery score for Cell Membrane & Transport Lecture Exam.</p>
+        
+        <div class="grid grid-cols-3 gap-4 my-6 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Total Questions</div>
+            <div class="text-2xl font-black text-slate-800" id="finalTotal">20</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Correct</div>
+            <div class="text-2xl font-black text-emerald-600" id="finalCorrect">0</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Score Rate</div>
+            <div class="text-2xl font-black text-blue-600" id="finalPercent">0%</div>
+          </div>
+        </div>
+
+        <div id="masteryRating" class="p-4 rounded-2xl font-bold text-sm mb-6"></div>
+
+        <div class="flex items-center justify-center gap-4">
+          <button onclick="resetQuiz()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-indigo-200 transition cursor-pointer">
+            Retake Entire Test
+          </button>
+          <a href="index.html" class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-emerald-200 transition">
+            Back to Tests Hub
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-500 mt-12">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p>© 2026 Biology I Honors • South Forsyth High School</p>
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="hover:text-indigo-600 transition font-medium">All Tests Hub</a>
+        <a href="../README.md" class="hover:text-indigo-600 transition font-medium">Weekly Agenda</a>
+        <a href="https://github.com/MegaAntony/biology-honors" target="_blank" class="hover:text-indigo-600 transition"><i class="fa-brands fa-github mr-1"></i>GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT ENGINE -->
+  <script>
+    const questionsData = [
+  {
+    "id": 1,
+    "topic": "Phospholipid Amphipathic Nature",
+    "question": "Why do phospholipids spontaneously arrange into a continuous bilayer when placed in an aqueous environment?",
+    "options": [
+      "Covalent peptide bonds link polar phosphate heads together to form an impermeable structural sheet.",
+      "Hydrophilic polar heads face outward toward water, while hydrophobic nonpolar tails orient inward away from water.",
+      "Active proton pumps continuously hydrolyze ATP to force nonpolar fatty acid chains together.",
+      "Extracellular carbohydrates cross-link fatty acid chains to anchor the bilayer to the cytoskeleton."
+    ],
+    "answer": 1,
+    "clue": "Think about how polar water interacts with polar heads versus nonpolar oily tails.",
+    "explanation": "Phospholipids are **amphipathic**: their hydrophilic (polar) phosphate heads readily interact with the aqueous extracellular and intracellular fluids, while their hydrophobic (nonpolar) fatty acid tails cluster together in the interior to minimize contact with water."
+  },
+  {
+    "id": 2,
+    "topic": "Cholesterol Function",
+    "question": "What is the essential physiological role of cholesterol molecules interspersed within the animal cell membrane?",
+    "options": [
+      "Acting as high-affinity receptors that bind peptide hormones and initiate secondary messenger cascades",
+      "Functioning as a fluidity buffer that prevents freezing in the cold and restrains excessive fluidity in the heat",
+      "Pumping sodium cations against their electrochemical gradient into extracellular capillary fluids",
+      "Catalyzing the synthesis of cellulose microfibrils that reinforce the outer plasma membrane leaflet"
+    ],
+    "answer": 1,
+    "clue": "Cholesterol buffers membrane fluidity across varying temperatures.",
+    "explanation": "**Cholesterol** acts as a bidirectional fluidity buffer: at warm temperatures, its rigid steroid rings hinder excessive phospholipid movement; at cold temperatures, it disrupts close packing of fatty acid tails, preventing membrane solidification."
+  },
+  {
+    "id": 3,
+    "topic": "TRACIE Mnemonic: Recognition",
+    "question": "Under the TRACIE model of membrane protein functions, which letter and biochemical component are responsible for enabling cells to recognize self from non-self?",
+    "options": [
+      "T \u2014 Transport via aquaporin channel proteins",
+      "C \u2014 Cell recognition via surface glycoproteins and glycolipids",
+      "A \u2014 Anchorage via cytoskeletal actin microfilaments",
+      "E \u2014 Enzymatic activity via active site ATPases"
+    ],
+    "answer": 1,
+    "clue": "C stands for Cell recognition, mediated by carbohydrate tags.",
+    "explanation": "In the TRACIE model, **C** stands for **Cell recognition**. Oligosaccharide carbohydrate chains covalently bonded to proteins (glycoproteins) or lipids (glycolipids) act as cellular identity tags allowing immune cells to recognize self tissues."
+  },
+  {
+    "id": 4,
+    "topic": "Selective Permeability Rules",
+    "question": "Which of the following molecules can diffuse directly and rapidly through the hydrophobic core of the phospholipid bilayer without the help of a transport protein?",
+    "options": [
+      "Glucose (large, polar hexose sugar)",
+      "Oxygen gas ($O_2$) and Carbon dioxide ($CO_2$)",
+      "Sodium ($Na^+$) and Potassium ($K^+$) cations",
+      "Polypeptide hormones like insulin"
+    ],
+    "answer": 1,
+    "clue": "Small, uncharged, nonpolar molecules pass through the lipid bilayer directly.",
+    "explanation": "Small, nonpolar molecules such as **$O_2$ and $CO_2$** dissolve directly in the hydrophobic hydrocarbon interior of the lipid bilayer and cross rapidly via simple diffusion without protein assistance."
+  },
+  {
+    "id": 5,
+    "topic": "Facilitated Diffusion Transporters",
+    "question": "What functional difference distinguishes channel proteins from carrier proteins during facilitated diffusion?",
+    "options": [
+      "Channel proteins require ATP hydrolysis, whereas carrier proteins operate entirely down concentration gradients.",
+      "Channel proteins form hydrophilic continuous pores, whereas carrier proteins bind solutes and undergo a shape change.",
+      "Channel proteins move substances against their gradient, whereas carrier proteins allow bidirectional osmosis.",
+      "Channel proteins transport lipids exclusively, whereas carrier proteins transport nonpolar gases like oxygen."
+    ],
+    "answer": 1,
+    "clue": "Channels are open tunnels/pores; carriers change their 3D shape to move molecules across.",
+    "explanation": "**Channel proteins** provide hydrophilic tunnels allowing rapid flow of specific ions or water. **Carrier proteins** bind specifically to their solute (such as glucose) and undergo a subtle conformational change to shuttle the molecule across."
+  },
+  {
+    "id": 6,
+    "topic": "Aquaporins",
+    "question": "What specialized class of integral membrane channel proteins facilitates the rapid transport of water molecules across plasma membranes?",
+    "options": [
+      "Aquaporins",
+      "GLUT-4 transporters",
+      "Sodium-potassium ATPases",
+      "Clathrin coat complexes"
+    ],
+    "answer": 0,
+    "clue": "'Aqua' means water; 'porin' means pore.",
+    "explanation": "**Aquaporins** are specialized transmembrane channel proteins that allow billions of water molecules to pass single-file through the membrane per second, dramatically speeding up osmosis compared to diffusion through the lipid bilayer."
+  },
+  {
+    "id": 7,
+    "topic": "Glucose Transport Kinetics",
+    "question": "How does glucose typically enter mammalian skeletal muscle and liver cells from the bloodstream after a carbohydrate meal?",
+    "options": [
+      "Simple diffusion through the phospholipid bilayer driven by thermal kinetic energy",
+      "Facilitated diffusion down its concentration gradient using carrier proteins (GLUT transporters)",
+      "Primary active transport using ATP-hydrolyzing glucose pump complexes",
+      "Receptor-mediated pinocytosis that engulfs extracellular glucose into lysosomal vesicles"
+    ],
+    "answer": 1,
+    "clue": "Glucose is too large and polar for simple diffusion, but enters down its gradient via GLUT proteins.",
+    "explanation": "Glucose moves down its concentration gradient from high concentration in blood into lower concentration in cells via **facilitated diffusion** utilizing transmembrane carrier proteins known as **GLUT transporters** without expending ATP."
+  },
+  {
+    "id": 8,
+    "topic": "Active Transport Gradient Direction",
+    "question": "Unlike passive transport mechanisms, all active transport processes are characterized by:",
+    "options": [
+      "moving solutes down their concentration gradient until dynamic equilibrium is reached",
+      "moving solutes UP or AGAINST their concentration gradient requiring cellular energy (ATP)",
+      "operating without membrane-bound transport proteins or vesicular structures",
+      "occurring exclusively across the rigid cellulose walls of terrestrial plant cells"
+    ],
+    "answer": 1,
+    "clue": "Active transport requires cellular energy (ATP) to pump substances uphill.",
+    "explanation": "Active transport is defined by the expenditure of metabolic energy (**ATP**) to move molecules **against (up)** their concentration gradient (from low concentration to high concentration)."
+  },
+  {
+    "id": 9,
+    "topic": "Bulk Transport: Exocytosis",
+    "question": "Which biological process is an authentic example of active bulk transport via exocytosis?",
+    "options": [
+      "Diffusion of oxygen from lung alveoli into red blood cell cytoplasm",
+      "Pancreatic beta cells secreting insulin into blood vessels via vesicle fusion",
+      "Aquaporin channels opening to equilibrate water potential in plant roots",
+      "Glucose binding to GLUT-1 carriers to cross the erythrocyte membrane"
+    ],
+    "answer": 1,
+    "clue": "Exocytosis involves intracellular vesicles fusing with the membrane to export proteins in bulk.",
+    "explanation": "The release of **insulin** by pancreatic beta cells occurs via **exocytosis**: intracellular secretory vesicles produced by the Golgi apparatus migrate to, fuse with, and become part of the plasma membrane, discharging their hormonal cargo outside the cell."
+  },
+  {
+    "id": 10,
+    "topic": "Pinocytosis vs. Phagocytosis",
+    "question": "How does pinocytosis differ from phagocytosis during active endocytosis?",
+    "options": [
+      "Pinocytosis ('cell drinking') ingests extracellular fluid droplets; phagocytosis ('cell eating') engulfs large solid particles.",
+      "Pinocytosis requires ATP hydrolysis; phagocytosis operates entirely via passive simple diffusion down gradients.",
+      "Pinocytosis is restricted to bacteria; phagocytosis is performed exclusively by eukaryotic plant cells.",
+      "Pinocytosis exports wastes outside the cell; phagocytosis imports glucose through protein channels."
+    ],
+    "answer": 0,
+    "clue": "Pino = drinking (fluids); Phago = eating (solids).",
+    "explanation": "**Pinocytosis ('cell drinking')** is the non-specific invagination of the plasma membrane to take in microdroplets of extracellular fluid. **Phagocytosis ('cell eating')** involves extending pseudopodia to surround and engulf large, solid particles like bacteria or dead cells."
+  },
+  {
+    "id": 11,
+    "topic": "Receptor-Mediated Endocytosis",
+    "question": "What is the primary advantage of receptor-mediated endocytosis over ordinary pinocytosis?",
+    "options": [
+      "It requires no cellular ATP and operates spontaneously even at freezing temperatures.",
+      "It allows cells to concentrate and internalize specific target ligands (such as LDL cholesterol) with high specificity.",
+      "It bypasses the need for vesicle formation by creating direct cytoplasmic bridges between adjoining cells.",
+      "It functions exclusively to expel metabolic nitrogenous wastes into extracellular fluids."
+    ],
+    "answer": 1,
+    "clue": "Receptors bind specific target molecules like cholesterol or hormones.",
+    "explanation": "**Receptor-mediated endocytosis** provides exquisite specificity. Plasma membrane receptor proteins concentrated in clathrin-coated pits bind specifically to target molecules (such as LDL cholesterol or hormones), allowing the cell to ingest large amounts of specific solutes without taking in excess fluid."
+  },
+  {
+    "id": 12,
+    "topic": "Sodium-Potassium Pump Stoichiometry",
+    "question": "For every single molecule of ATP hydrolyzed by the sodium-potassium pump ($Na^+/K^+$ ATPase), what is the exact number and direction of ions moved?",
+    "options": [
+      "3 Sodium ions ($Na^+$) pumped OUT and 2 Potassium ions ($K^+$) pumped IN",
+      "2 Sodium ions ($Na^+$) pumped OUT and 3 Potassium ions ($K^+$) pumped IN",
+      "3 Sodium ions ($Na^+$) pumped IN and 2 Potassium ions ($K^+$) pumped OUT",
+      "1 Sodium ion ($Na^+$) pumped OUT and 1 Potassium ion ($K^+$) pumped IN"
+    ],
+    "answer": 0,
+    "clue": "Remember 3 Na+ OUT, 2 K+ IN ('3 Na-out, 2 K-in').",
+    "explanation": "The $Na^+/K^+$ ATPase pump hydrolyzes 1 ATP to export **3 $Na^+$ ions OUT** of the cell and import **2 $K^+$ ions IN** to the cell, both against their concentration gradients."
+  },
+  {
+    "id": 13,
+    "topic": "The 'Salty Banana' Mnemonic",
+    "question": "The lecture slides use the 'Salty Banana' analogy to describe resting ion distribution in animal cells. What does this mnemonic signify?",
+    "options": [
+      "Extracellular fluid is rich in potassium, while the intracellular cytoplasm is rich in sodium.",
+      "Extracellular fluid is high in sodium ('salty surface'), while the cytoplasm is high in potassium ('banana interior').",
+      "Both sodium and potassium ions are stored exclusively within the plant central vacuole.",
+      "Cell membranes repel sodium ions while allowing potassium ions to diffuse through via simple diffusion."
+    ],
+    "answer": 1,
+    "clue": "A banana is rich in potassium on the inside, and salty on the outside.",
+    "explanation": "A cell is like a **'salty banana'**: high concentration of sodium ($Na^+$) outside in the extracellular fluid ('salty ocean exterior') and high concentration of potassium ($K^+$) inside the cytoplasm ('potassium-rich banana interior')."
+  },
+  {
+    "id": 14,
+    "topic": "Membrane Potential Generation",
+    "question": "Why does the activity of the sodium-potassium pump make the interior of an animal cell slightly negative relative to the extracellular fluid?",
+    "options": [
+      "The pump imports negatively charged chloride anions directly into the mitochondrial matrix.",
+      "The pump exports 3 positive charges ($3\\ Na^+$) for every 2 positive charges ($2\\ K^+$) it imports, yielding a net loss of positive charge inside.",
+      "ATP hydrolysis produces phosphate anions that adhere permanently to the outer leaflet of the bilayer.",
+      "The pump deactivates voltage-gated calcium channels across the postsynaptic membrane."
+    ],
+    "answer": 1,
+    "clue": "Net movement is 3 positive ions out vs. 2 positive ions in (net -1 positive inside per cycle).",
+    "explanation": "Because the pump moves 3 positive sodium charges out for every 2 positive potassium charges in, there is a **net loss of one positive charge inside the cell** per cycle. This makes the interior slightly negative, establishing the resting membrane potential."
+  },
+  {
+    "id": 15,
+    "topic": "Plant vs. Animal Tonicity Comparison",
+    "question": "When placed into a hypotonic solution, how do the responses of an animal red blood cell and a plant cell differ, and why?",
+    "options": [
+      "The animal cell shrivels while the plant cell bursts because plant cell membranes lack cholesterol reinforcement.",
+      "The animal cell bursts via cytolysis, whereas the plant cell becomes turgid and healthy because its rigid cellulose wall resists expansion.",
+      "Both cells burst immediately because osmotic pressure overwhelms all biological membranes equally.",
+      "The plant cell undergoes plasmolysis while the animal cell maintains dynamic equilibrium."
+    ],
+    "answer": 1,
+    "clue": "Plant cells have a cell wall that prevents bursting and creates turgor pressure.",
+    "explanation": "In hypotonic water, water enters both cells. The animal cell swells and bursts (**cytolysis**) because it lacks a cell wall. The plant cell absorbs water into its central vacuole until the expanding membrane presses against the rigid cellulose **cell wall**, becoming happily **turgid**."
+  },
+  {
+    "id": 16,
+    "topic": "Plasmolysis in Wilting Plants",
+    "question": "If a houseplant is watered with a heavily concentrated salt or fertilizer solution, what cytological event causes the plant stems to wilt?",
+    "options": [
+      "Water diffuses out of root cells into hypertonic soil, central vacuoles lose volume, and cytoplasm pulls away from cell walls (plasmolysis).",
+      "Fertilizer enters root cells via active transport, causing cells to swell and rupture rigid cellulose microfibrils.",
+      "Salt blocks aquaporin channels permanently, preventing carbon dioxide from diffusing into leaf chloroplasts.",
+      "Excess potassium ions destroy the mitochondrial cristae, halting cellular respiration and turgor generation."
+    ],
+    "answer": 0,
+    "clue": "Salt in soil makes it hypertonic; water leaves root cells.",
+    "explanation": "Concentrated fertilizer creates a **hypertonic** soil environment. Water exits root cells by osmosis. As central vacuoles lose water, the plasma membrane pulls away from the cell wall (**plasmolysis**), destroying internal turgor pressure and causing the plant to wilt."
+  },
+  {
+    "id": 17,
+    "topic": "Passive vs. Active Comparison Matrix",
+    "question": "Which table entry correctly pairs the transport mechanism with its energy requirement and concentration gradient direction?",
+    "options": [
+      "Facilitated Diffusion: Requires ATP | Moves against concentration gradient (Low to High)",
+      "Sodium-Potassium Pump: Requires ATP | Moves against concentration gradient (Low to High)",
+      "Simple Diffusion: Requires ATP | Moves down concentration gradient (High to Low)",
+      "Osmosis: Requires ATP | Moves against concentration gradient (Low to High)"
+    ],
+    "answer": 1,
+    "clue": "The Na+/K+ pump is active transport: it requires ATP and moves ions against their gradients.",
+    "explanation": "The **Sodium-Potassium Pump** is active transport: it hydrolyzes ATP to move sodium and potassium ions **against** their steep concentration gradients (from low to high concentration)."
+  },
+  {
+    "id": 18,
+    "topic": "Dynamic Equilibrium Definition",
+    "question": "When diffusion or osmosis leads to dynamic equilibrium across a biological membrane:",
+    "options": [
+      "molecules continue moving across the membrane in both directions at equal rates with no net change in concentration",
+      "all molecular kinetic motion ceases completely and particles become stationary on their respective sides",
+      "active transport pumps shut down permanently due to complete depletion of intracellular ATP stores",
+      "the membrane becomes completely impermeable to all solutes and solvents to prevent further diffusion"
+    ],
+    "answer": 0,
+    "clue": "Molecules never stop moving; equal rates mean no net concentration change.",
+    "explanation": "**Dynamic equilibrium** means that particles are evenly distributed and continue crossing the membrane in both directions at **equal rates**, maintaining stable concentrations without any net movement."
+  },
+  {
+    "id": 19,
+    "topic": "Integral vs. Peripheral Proteins",
+    "question": "Which biochemical characteristic enables integral transmembrane proteins to reside permanently within the core of the phospholipid bilayer?",
+    "options": [
+      "They are composed entirely of hydrophilic carbohydrate chains that dissolve in membrane water pockets.",
+      "They have hydrophobic amino acid residues on their surface that interact stably with fatty acid hydrocarbon tails.",
+      "They are covalently bonded to structural cellulose microfibrils on the exterior face of animal cells.",
+      "They possess positively charged phosphate heads that repel all adjacent phospholipid molecules."
+    ],
+    "answer": 1,
+    "clue": "Nonpolar amino acids interact stably with the nonpolar lipid interior.",
+    "explanation": "Transmembrane integral proteins have regions rich in **nonpolar, hydrophobic amino acids** (often alpha helices) that interact favorably with the hydrophobic fatty acid tails inside the bilayer core, anchoring them stably within the membrane."
+  },
+  {
+    "id": 20,
+    "topic": "Success Criteria: Homeostasis",
+    "question": "How does the selective permeability of the plasma membrane directly contribute to cellular homeostasis?",
+    "options": [
+      "By allowing all external substances to enter freely while preventing any internal molecules from ever escaping",
+      "By regulating the import of essential nutrients and the export of metabolic wastes to maintain a stable internal environment",
+      "By permanently blocking water movement so that cell volume and pressure never fluctuate during environmental changes",
+      "By converting all absorbed radiant energy into mechanical work through continuous ciliary beating"
+    ],
+    "answer": 1,
+    "clue": "Homeostasis is maintaining internal balance despite changing outside conditions.",
+    "explanation": "The selective permeability of the cell membrane is the cornerstone of **homeostasis**: by controlling exactly which ions, nutrients, gases, and wastes enter and exit, the cell maintains a stable, optimal internal physiological environment despite fluctuating external conditions."
+  }
+];
+
+    const STORAGE_KEY = 'bio1_doc_test_03_transport_ppt';
+
+    let userState = {
+      answers: {},
+      showClues: {},
+      allCluesVisible: false,
+      currentFilter: 'All',
+      missedOnly: false
+    };
+
+    function safeLoad() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          userState = JSON.parse(saved);
+        }
+      } catch (e) {
+        console.warn('localStorage not accessible:', e);
+      }
+    }
+
+    function safeSave() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(userState));
+      } catch (e) {
+        console.warn('Could not save to localStorage:', e);
+      }
+    }
+
+    function init() {
+      safeLoad();
+      renderQuestions();
+      updateStats();
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById('questionsContainer');
+      if (!container) return;
+      container.innerHTML = '';
+
+      let filteredQuestions = questionsData.filter(q => {
+        if (userState.currentFilter !== 'All' && q.topic !== userState.currentFilter) return false;
+        if (userState.missedOnly) {
+          const userAns = userState.answers[q.id];
+          if (userAns === undefined || userAns === q.answer) return false;
+        }
+        return true;
+      });
+
+      if (filteredQuestions.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-12 bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
+            <i class="fa-solid fa-circle-check text-emerald-500 text-4xl mb-3"></i>
+            <h3 class="text-lg font-bold text-slate-800">No Questions In This Filter</h3>
+            <p class="text-slate-500 text-sm mt-1">Try selecting 'All Topics' or clearing the missed review filter.</p>
+          </div>
+        `;
+        return;
+      }
+
+      filteredQuestions.forEach((q) => {
+        const isAnswered = userState.answers[q.id] !== undefined;
+        const selectedOption = userState.answers[q.id];
+        const isCorrect = isAnswered && selectedOption === q.answer;
+        const isClueVisible = userState.allCluesVisible || userState.showClues[q.id];
+
+        const card = document.createElement('div');
+        card.className = `bg-white rounded-2xl p-6 border transition-all duration-200 shadow-sm ${
+          isAnswered
+            ? isCorrect
+              ? 'border-emerald-300 ring-1 ring-emerald-200/50 bg-emerald-50/20'
+              : 'border-rose-300 ring-1 ring-rose-200/50 bg-rose-50/20'
+            : 'border-slate-200 hover:border-slate-300'
+        }`;
+        card.id = `q-card-${q.id}`;
+
+        let optionsHtml = q.options.map((opt, oIdx) => {
+          let btnClass = "border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50/40 text-slate-700 cursor-pointer";
+          let iconHtml = `<span class="w-6 h-6 rounded-full border border-slate-300 text-xs font-semibold flex items-center justify-center mr-3 text-slate-500 shrink-0 mt-0.5">${String.fromCharCode(65 + oIdx)}</span>`;
+
+          if (isAnswered) {
+            if (oIdx === q.answer) {
+              btnClass = "bg-emerald-50 border-emerald-500 text-emerald-950 font-semibold ring-1 ring-emerald-400 cursor-default";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-emerald-600 text-white text-xs font-bold flex items-center justify-center mr-3 shrink-0 mt-0.5"><i class="fa-solid fa-check"></i></span>`;
+            } else if (oIdx === selectedOption && !isCorrect) {
+              btnClass = "bg-rose-50 border-rose-400 text-rose-950 font-semibold ring-1 ring-rose-300 cursor-default";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-rose-600 text-white text-xs font-bold flex items-center justify-center mr-3 shrink-0 mt-0.5"><i class="fa-solid fa-xmark"></i></span>`;
+            } else {
+              btnClass = "opacity-50 border-slate-200 text-slate-400 cursor-not-allowed";
+            }
+          }
+
+          return `
+            <button 
+              type="button"
+              onclick="selectAnswer(${q.id}, ${oIdx})" 
+              ${isAnswered ? 'disabled' : ''} 
+              class="w-full text-left p-3.5 rounded-xl text-sm transition flex items-start ${btnClass} my-2 leading-relaxed">
+              ${iconHtml}
+              <span class="flex-1">${opt}</span>
+            </button>
+          `;
+        }).join('');
+
+        card.innerHTML = `
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <div class="flex items-center gap-2">
+              <span class="bg-indigo-100 text-indigo-800 text-xs font-black px-2.5 py-0.5 rounded-md">Q${q.id}</span>
+              <span class="bg-slate-100 text-slate-600 text-xs font-semibold px-2.5 py-0.5 rounded-md">${q.topic}</span>
+            </div>
+
+            <button type="button" onclick="toggleClue(${q.id})" class="text-xs text-amber-700 bg-amber-50 hover:bg-amber-100 border border-amber-200 px-3 py-1 rounded-lg font-medium transition flex items-center gap-1 cursor-pointer">
+              <i class="fa-regular fa-lightbulb"></i>
+              ${isClueVisible ? 'Hide Hint' : 'Need a Clue?'}
+            </button>
+          </div>
+
+          <h3 class="text-base font-bold text-slate-900 leading-relaxed mb-4">${q.question}</h3>
+
+          <div id="clue-${q.id}" class="${isClueVisible ? 'block' : 'hidden'} mb-4 p-3.5 bg-amber-50/80 border border-amber-200 rounded-xl text-amber-900 text-xs flex items-start gap-2.5">
+            <i class="fa-solid fa-lightbulb text-amber-600 mt-0.5"></i>
+            <div><span class="font-bold">Study Hint:</span> ${q.clue}</div>
+          </div>
+
+          <div class="space-y-1">${optionsHtml}</div>
+
+          ${isAnswered ? `
+            <div class="mt-5 p-4 rounded-xl text-sm border ${
+              isCorrect 
+                ? 'bg-emerald-50/70 border-emerald-200 text-emerald-950' 
+                : 'bg-rose-50/70 border-rose-200 text-slate-800'
+            }">
+              <div class="flex items-center gap-2 font-bold mb-2 ${isCorrect ? 'text-emerald-800' : 'text-rose-800'}">
+                <i class="${isCorrect ? 'fa-solid fa-circle-check text-emerald-600' : 'fa-solid fa-circle-xmark text-rose-600'}"></i>
+                <span>${isCorrect ? 'Correct! Excellent work.' : 'Incorrect. Let\'s break it down:'}</span>
+              </div>
+              <p class="text-xs leading-relaxed text-slate-700 mb-2">${q.explanation}</p>
+              <div class="text-xs font-semibold text-indigo-700 pt-2 border-t border-slate-200/60 flex items-center justify-between">
+                <span>Correct Option: ${String.fromCharCode(65 + q.answer)} (${q.options[q.answer]})</span>
+                <button type="button" onclick="retryQuestion(${q.id})" class="text-slate-500 hover:text-slate-800 font-medium underline ml-2 cursor-pointer">Try Again</button>
+              </div>
+            </div>
+          ` : ''}
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function selectAnswer(qId, optionIdx) {
+      if (userState.answers[qId] !== undefined) return;
+      userState.answers[qId] = optionIdx;
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function retryQuestion(qId) {
+      delete userState.answers[qId];
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function toggleClue(qId) {
+      userState.showClues[qId] = !userState.showClues[qId];
+      safeSave();
+      renderQuestions();
+    }
+
+    function toggleAllClues() {
+      userState.allCluesVisible = !userState.allCluesVisible;
+      document.getElementById('clueToggleText').innerText = userState.allCluesVisible ? "Hide All Hints" : "Show All Hints";
+      safeSave();
+      renderQuestions();
+    }
+
+    function filterTopic(topic) {
+      userState.currentFilter = topic;
+      userState.missedOnly = false;
+      document.querySelectorAll('.topic-btn').forEach(btn => {
+        if (btn.innerText.includes(topic) || (topic === 'All' && btn.innerText.includes('All Topics'))) {
+          btn.className = "topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-sm transition cursor-pointer";
+        } else {
+          btn.className = "topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer";
+        }
+      });
+      renderQuestions();
+    }
+
+    function filterMissed() {
+      userState.missedOnly = !userState.missedOnly;
+      const btn = document.getElementById('filterMissedBtn');
+      if (userState.missedOnly) {
+        btn.className = "text-xs bg-rose-600 text-white border border-rose-600 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer shadow-sm";
+      } else {
+        btn.className = "text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer";
+      }
+      renderQuestions();
+    }
+
+    function updateStats() {
+      const answeredCount = Object.keys(userState.answers).length;
+      let correctCount = 0;
+      let missedCount = 0;
+
+      questionsData.forEach(q => {
+        if (userState.answers[q.id] !== undefined) {
+          if (userState.answers[q.id] === q.answer) {
+            correctCount++;
+          } else {
+            missedCount++;
+          }
+        }
+      });
+
+      const total = questionsData.length;
+      document.getElementById('statAnswered').innerText = `${answeredCount}/${total}`;
+      document.getElementById('missedCount').innerText = missedCount;
+
+      const accuracy = answeredCount === 0 ? 0 : Math.round((correctCount / answeredCount) * 100);
+      document.getElementById('statScore').innerText = `${accuracy}%`;
+      document.getElementById('quizProgressBar').style.width = `${(answeredCount / total) * 100}%`;
+
+      const scoreCard = document.getElementById('scoreSummaryCard');
+      if (answeredCount === total && total > 0) {
+        scoreCard.classList.remove('hidden');
+        document.getElementById('finalTotal').innerText = total;
+        document.getElementById('finalCorrect').innerText = correctCount;
+        document.getElementById('finalPercent').innerText = `${accuracy}%`;
+
+        const ratingBox = document.getElementById('masteryRating');
+        if (accuracy >= 90) {
+          ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-emerald-50 border border-emerald-300 text-emerald-900";
+          ratingBox.innerHTML = '<i class="fa-solid fa-certificate mr-2 text-emerald-600"></i>Mastery Achieved! Outstanding understanding of this document.';
+        } else if (accuracy >= 75) {
+          ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-blue-50 border border-blue-300 text-blue-900";
+          ratingBox.innerHTML = '<i class="fa-solid fa-thumbs-up mr-2 text-blue-600"></i>Proficient! Good foundation; review missed items before testing.';
+        } else {
+          ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-amber-50 border border-amber-300 text-amber-900";
+          ratingBox.innerHTML = '<i class="fa-solid fa-book-open mr-2 text-amber-600"></i>Review Recommended! Use the Markdown companion notes to reinforce weak areas.';
+        }
+      } else {
+        scoreCard.classList.add('hidden');
+      }
+    }
+
+    function resetQuiz() {
+      if (confirm("Are you sure you want to reset all answers and hints for this test?")) {
+        userState.answers = {};
+        userState.showClues = {};
+        userState.allCluesVisible = false;
+        userState.currentFilter = 'All';
+        userState.missedOnly = false;
+        safeSave();
+        document.getElementById('clueToggleText').innerText = "Show All Hints";
+        document.getElementById('filterMissedBtn').className = "text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer";
+        filterTopic('All');
+        renderQuestions();
+        updateStats();
+      }
+    }
+
+    window.onload = init;
+  </script>
+</body>
+</html>

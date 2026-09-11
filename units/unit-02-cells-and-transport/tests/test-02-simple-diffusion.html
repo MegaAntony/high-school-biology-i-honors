@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biology I Honors - Unit 2 Test 02: Simple Diffusion & Concentration Gradients</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+
+  <!-- TOP HEADER -->
+  <header class="bg-gradient-to-r from-blue-700 via-indigo-700 to-emerald-700 text-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="w-10 h-10 rounded-xl bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition border border-white/20" title="Back to All Tests">
+          <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="bg-white/20 text-xs px-2.5 py-1 rounded-full font-semibold uppercase tracking-wider">Biology I Honors</span>
+            <span class="bg-emerald-400 text-slate-900 text-xs px-2.5 py-1 rounded-full font-bold">Unit 2 • Test 02</span>
+          </div>
+          <h1 class="text-xl sm:text-2xl font-black tracking-tight mt-1 text-white">Simple Diffusion & Concentration Gradients</h1>
+        </div>
+      </div>
+
+      <!-- Quick Stats Top -->
+      <div class="flex items-center gap-4 bg-white/10 backdrop-blur px-4 py-2 rounded-xl border border-white/15">
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Answered</div>
+          <div id="statAnswered" class="text-xl font-bold">0/20</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <div class="text-center">
+          <div class="text-xs uppercase text-blue-200 font-semibold">Accuracy</div>
+          <div id="statScore" class="text-xl font-bold text-emerald-300">0%</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <button onclick="resetQuiz()" class="text-xs bg-white/20 hover:bg-white/30 text-white px-3 py-2 rounded-lg font-medium transition flex items-center gap-1.5 cursor-pointer">
+          <i class="fa-solid fa-rotate-right"></i> Reset
+        </button>
+      </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="w-full bg-slate-900/30 h-2">
+      <div id="quizProgressBar" class="bg-emerald-400 h-2 transition-all duration-300" style="width: 0%"></div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-6xl mx-auto px-4 py-8">
+
+    <!-- Anti-Guess Note Banner -->
+    <div class="bg-emerald-50 border border-emerald-200 text-emerald-950 p-4 rounded-2xl mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-semibold shadow-sm">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-shield-halved text-emerald-600 text-base shrink-0"></i>
+        <span><strong>Anti-Guess Edition:</strong> All 4 options per question have balanced lengths and realistic curriculum distractors so you cannot guess by length alone.</span>
+      </div>
+      <a href="index.html" class="text-emerald-800 underline hover:text-emerald-950 whitespace-nowrap">View All 20 Tests</a>
+    </div>
+
+    <!-- CONTROLS & FILTER BAR -->
+    <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 mb-8">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-sm font-bold text-slate-700 mb-2">Filter by Topic:</h2>
+          <div class="flex flex-wrap gap-2" id="topicFilters">
+            <button onclick="filterTopic('All')" class="topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-sm transition cursor-pointer">All Topics (20)</button>
+            <button onclick="filterTopic('Diffusion Mechanics')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Diffusion Mechanics</button>
+            <button onclick="filterTopic('Concentration Gradients')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Concentration Gradients</button>
+            <button onclick="filterTopic('Dynamic Equilibrium')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Dynamic Equilibrium</button>
+            <button onclick="filterTopic('Factors Affecting Diffusion')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Factors Affecting Diffusion</button>
+            <button onclick="filterTopic('Permeability & Molecular Size')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Permeability & Molecular Size</button>
+
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 pt-2 lg:pt-0 border-t lg:border-t-0 border-slate-100">
+          <button onclick="toggleAllClues()" id="toggleCluesBtn" class="text-xs bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-regular fa-lightbulb"></i> <span id="clueToggleText">Show All Hints</span>
+          </button>
+          <button onclick="filterMissed()" id="filterMissedBtn" class="text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-solid fa-triangle-exclamation"></i> Review Missed (<span id="missedCount">0</span>)
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTIONS LIST -->
+    <div id="questionsContainer" class="space-y-6"></div>
+
+    <!-- SCORE SUMMARY CARD -->
+    <div id="scoreSummaryCard" class="mt-12 bg-white rounded-3xl p-8 border-2 border-indigo-100 shadow-xl hidden">
+      <div class="text-center max-w-xl mx-auto">
+        <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl">
+          <i class="fa-solid fa-trophy"></i>
+        </div>
+        <h2 class="text-2xl font-black text-slate-800">Test 02 Complete!</h2>
+        <p class="text-slate-500 text-sm mt-1">Here is your detailed mastery score for Simple Diffusion & Concentration Gradients.</p>
+        
+        <div class="grid grid-cols-3 gap-4 my-6 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Total Questions</div>
+            <div class="text-2xl font-black text-slate-800" id="finalTotal">20</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Correct</div>
+            <div class="text-2xl font-black text-emerald-600" id="finalCorrect">0</div>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase">Score Rate</div>
+            <div class="text-2xl font-black text-blue-600" id="finalPercent">0%</div>
+          </div>
+        </div>
+
+        <div id="masteryRating" class="p-4 rounded-2xl font-bold text-sm mb-6"></div>
+
+        <div class="flex items-center justify-center gap-4">
+          <button onclick="resetQuiz()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-indigo-200 transition cursor-pointer">
+            Retake Entire Test
+          </button>
+          <a href="index.html" class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-emerald-200 transition">
+            Back to Tests Hub
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-500 mt-12">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p>© 2026 Biology I Honors • South Forsyth High School</p>
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="hover:text-indigo-600 transition font-medium">All 20 Tests Hub</a>
+        <a href="../../index.html" class="hover:text-indigo-600 transition font-medium">Main Portal</a>
+        <a href="https://github.com/MegaAntony/biology-honors" target="_blank" class="hover:text-indigo-600 transition"><i class="fa-brands fa-github mr-1"></i>GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT ENGINE -->
+  <script>
+    const questionsData = [
+  {
+    "id": 1,
+    "topic": "Diffusion Mechanics",
+    "question": "What fundamental physical process provides the driving force behind simple diffusion in biological systems?",
+    "options": [
+      "The intrinsic thermal kinetic energy causing constant, random motion of particles (Brownian motion).",
+      "The continuous hydrolysis of cellular ATP molecules embedded along the cytoskeleton.",
+      "Active magnetic attraction exerted by polar phospholipids on nonpolar solutes.",
+      "Gravitational pressure pulling heavy solute particles downward through open pore channels."
+    ],
+    "answer": 0,
+    "clue": "Molecules possess natural thermal energy causing them to bounce off one another continuously.",
+    "explanation": "Diffusion is powered entirely by the **intrinsic kinetic energy** of molecules (Brownian motion). No cellular energy (ATP) is required."
+  },
+  {
+    "id": 2,
+    "topic": "Concentration Gradients",
+    "question": "Which statement best defines a concentration gradient across a biological membrane?",
+    "options": [
+      "A chemical bond formed between a solute and a solvent molecule.",
+      "A physical difference in the concentration of a solute between two adjacent regions.",
+      "The total number of ATP molecules required to translocate an ion.",
+      "A specialized structural protein that pumps glucose into the cytosol."
+    ],
+    "answer": 1,
+    "clue": "Think of a slope or difference between high density and low density areas.",
+    "explanation": "A **concentration gradient** exists when there is a difference in the density or concentration of a chemical substance between two distinct areas (e.g., inside vs. outside a cell)."
+  },
+  {
+    "id": 3,
+    "topic": "Dynamic Equilibrium",
+    "question": "When a system undergoing simple diffusion achieves dynamic equilibrium, what happens to the solute particles?",
+    "options": [
+      "All molecular motion permanently ceases as particles lock into fixed crystalline positions.",
+      "Solute particles are actively converted into solvent molecules by dehydration synthesis.",
+      "All solute particles suddenly concentrate exclusively inside the cellular compartment.",
+      "Molecules continue moving in all directions at equal rates, resulting in zero net change in concentration."
+    ],
+    "answer": 3,
+    "clue": "Equilibrium is dynamic (moving), not static (frozen).",
+    "explanation": "At **dynamic equilibrium**, molecules do not stop moving; rather, they continue moving randomly in both directions at equal rates, maintaining a uniform concentration with **no net movement**."
+  },
+  {
+    "id": 4,
+    "topic": "Gas Exchange",
+    "question": "In human pulmonary alveoli, how do oxygen (O2) and carbon dioxide (CO2) cross the respiratory membrane?",
+    "options": [
+      "By endocytosis engulfing entire gas bubbles into vesicle vacuoles.",
+      "By active molecular pumps consuming large amounts of metabolic ATP.",
+      "By simple diffusion directly down their individual partial pressure/concentration gradients.",
+      "By secondary active co-transport coupled to sodium ion inflow."
+    ],
+    "answer": 2,
+    "clue": "Both gases are small and nonpolar, allowing direct passage across thin alveolar cell membranes.",
+    "explanation": "Both **O2 and CO2** are small, nonpolar molecules that diffuse rapidly and passively across the thin lipid bilayers of alveolar and capillary cells directly down their concentration gradients."
+  },
+  {
+    "id": 5,
+    "topic": "Factors Affecting Diffusion",
+    "question": "How does an increase in ambient temperature influence the rate of simple diffusion of a dye pellet in liquid water?",
+    "options": [
+      "It decreases the rate because heat denatures the nonpolar solvent bonds.",
+      "It has no effect because diffusion velocity depends solely on solute electrical charge.",
+      "It halts diffusion completely by evaporating all available solute particles.",
+      "It increases the rate by providing greater thermal kinetic energy, causing particles to move and collide faster."
+    ],
+    "answer": 3,
+    "clue": "Higher temperature means higher molecular kinetic energy.",
+    "explanation": "Higher temperatures increase the **kinetic energy** of particles, accelerating their random velocity and collision frequency, thereby increasing the overall diffusion rate."
+  },
+  {
+    "id": 6,
+    "topic": "Diffusion Directionality",
+    "question": "In which direction do solute particles exhibit net movement during unassisted simple diffusion?",
+    "options": [
+      "From an area of higher concentration to an area of lower concentration, requiring no energy.",
+      "From an area of lower concentration to an area of higher concentration, requiring ATP.",
+      "Exclusively from the extracellular matrix into the nucleus regardless of gradient.",
+      "Randomly with zero net movement at all times from the very beginning of the process."
+    ],
+    "answer": 0,
+    "clue": "Think of rolling down a hill naturally without an engine.",
+    "explanation": "Simple diffusion always results in a net movement of particles **down their concentration gradient**\u2014from regions of **higher concentration to lower concentration**\u2014without energy input."
+  },
+  {
+    "id": 7,
+    "topic": "Permeability & Molecular Size",
+    "question": "Which of the following molecules would diffuse most rapidly through the hydrophobic interior of a phospholipid bilayer?",
+    "options": [
+      "Hemoglobin protein",
+      "Sucrose disaccharide",
+      "Sodium ion (Na+)",
+      "Carbon dioxide (CO2)"
+    ],
+    "answer": 3,
+    "clue": "Look for the small, nonpolar, uncharged molecule.",
+    "explanation": "**Carbon dioxide (CO2)** is a tiny, nonpolar, uncharged gas molecule, allowing it to dissolve directly into the hydrophobic core and diffuse much faster than large or charged species."
+  },
+  {
+    "id": 8,
+    "topic": "Factors Affecting Diffusion",
+    "question": "According to Fick's Law of diffusion, which change would DECREASE the net rate of simple diffusion across a membrane?",
+    "options": [
+      "Increasing the total surface area of the membrane.",
+      "Increasing the steepness of the concentration gradient.",
+      "Increasing the thickness or distance of the diffusion barrier.",
+      "Elevating the kinetic temperature of the system."
+    ],
+    "answer": 2,
+    "clue": "The farther molecules must travel, the longer it takes.",
+    "explanation": "Diffusion rate is inversely proportional to distance. **Increasing the thickness of the membrane** (diffusion distance) slows down the overall rate of diffusion."
+  },
+  {
+    "id": 9,
+    "topic": "Molecular Size & Diffusion",
+    "question": "In a laboratory experiment, equal molar quantities of methylene blue (MW = 320 g/mol) and potassium permanganate (MW = 158 g/mol) are placed in agar wells. Why does potassium permanganate produce a wider diffusion ring after two hours?",
+    "options": [
+      "Smaller molecules experience less frictional drag in the medium and diffuse faster than heavier molecules.",
+      "Potassium permanganate actively hydrolyzes the agar polysaccharides to clear an open path.",
+      "Methylene blue is an ion, whereas potassium permanganate is completely nonpolar.",
+      "Heavier molecules naturally sink to the bottom rather than expanding outward."
+    ],
+    "answer": 0,
+    "clue": "At the same temperature, lighter molecules move with greater average velocity.",
+    "explanation": "Lighter molecules have a higher average velocity at a given temperature and encounter less physical resistance in the medium, allowing **smaller molecules to diffuse faster**."
+  },
+  {
+    "id": 10,
+    "topic": "Cellular Respiration Link",
+    "question": "During cellular respiration in a muscle cell, oxygen is continually consumed in the mitochondria to produce ATP. How does this continuous consumption affect the diffusion of oxygen into the cell?",
+    "options": [
+      "It eliminates the oxygen concentration gradient, causing diffusion to permanently stop.",
+      "It maintains a steep concentration gradient (low inside, high outside), ensuring continuous oxygen influx.",
+      "It forces the cell to switch to active transport to pull oxygen in through protein pumps.",
+      "It creates an osmotic pressure that pushes carbon dioxide out in vesicles."
+    ],
+    "answer": 1,
+    "clue": "Constantly using up oxygen keeps internal oxygen levels low compared to blood capillaries.",
+    "explanation": "By rapidly utilizing oxygen inside the mitochondria, the cell keeps intracellular [O2] low, **maintaining a steep gradient** that drives continuous passive diffusion of O2 into the cell."
+  },
+  {
+    "id": 11,
+    "topic": "Diffusion Mechanics",
+    "question": "If you place a single drop of red food coloring into a glass of still water without stirring, the water eventually turns uniformly red. Why does this happen without stirring?",
+    "options": [
+      "Water molecules attract food dye particles using high-energy ionic bonds.",
+      "The food coloring performs an exocytosis reaction that splits into microscopic gas bubbles.",
+      "Surface tension pushes all dye molecules down to the bottom where they dissolve instantly.",
+      "Water and dye molecules undergo continuous, random collisions that distribute the dye evenly throughout."
+    ],
+    "answer": 3,
+    "clue": "Random collisions over time naturally disperse concentrated particles.",
+    "explanation": "Random thermal motion and collisions between water and dye molecules cause the dye particles to spread from their initial high concentration until **dynamic equilibrium** is reached."
+  },
+  {
+    "id": 12,
+    "topic": "Concentration Gradients",
+    "question": "What is the net energy cost (in terms of cellular ATP) for a cell to transport 1,000 molecules of carbon dioxide out of the cytoplasm via simple diffusion?",
+    "options": [
+      "1,000 ATP molecules (one ATP per molecule transported)",
+      "500 ATP molecules (two CO2 molecules per ATP consumed)",
+      "0 ATP molecules (it is a passive physical process requiring no cellular energy)",
+      "10 ATP molecules (needed to maintain membrane fluidity)"
+    ],
+    "answer": 2,
+    "clue": "Passive transport processes require no metabolic expenditure.",
+    "explanation": "Simple diffusion is a **passive transport mechanism** driven purely by concentration gradients and kinetic energy; it consumes **zero ATP**."
+  },
+  {
+    "id": 13,
+    "topic": "Diffusion vs. Facilitated Diffusion",
+    "question": "How does simple diffusion differ fundamentally from facilitated diffusion across a cell membrane?",
+    "options": [
+      "Simple diffusion requires ATP, whereas facilitated diffusion does not.",
+      "Simple diffusion moves molecules against gradients, whereas facilitated diffusion moves down gradients.",
+      "Simple diffusion occurs directly through the lipid bilayer without helper proteins, whereas facilitated diffusion requires transmembrane channels or carriers.",
+      "Simple diffusion is restricted to eukaryotic cells, whereas facilitated diffusion occurs only in prokaryotes."
+    ],
+    "answer": 2,
+    "clue": "Both are passive, but one requires a specialized protein doorway.",
+    "explanation": "Both are passive (high to low concentration, no ATP), but **simple diffusion** passes directly through the lipid bilayer, whereas **facilitated diffusion** requires transmembrane protein channels or carriers."
+  },
+  {
+    "id": 14,
+    "topic": "Lipid Solubility",
+    "question": "Why can steroid hormones (such as testosterone and estrogen) pass directly through the plasma membrane by simple diffusion, whereas peptide hormones (like insulin) cannot?",
+    "options": [
+      "Steroid hormones are nonpolar and lipid-soluble, allowing them to dissolve in the hydrophobic fatty acid core.",
+      "Peptide hormones are much smaller than steroid rings and evaporate before touching the membrane.",
+      "Steroid hormones bind covalently to external cholesterol receptors that dissolve the bilayer.",
+      "Peptide hormones carry a strong positive charge that attracts negative phosphate heads."
+    ],
+    "answer": 0,
+    "clue": "Like dissolves like: lipids dissolve in lipids.",
+    "explanation": "**Steroids are hydrophobic lipids** derived from cholesterol. Their nonpolar nature allows them to partition into and cross the hydrophobic core of the bilayer via simple diffusion. Protein/peptide hormones are large, polar, and cannot cross unaided."
+  },
+  {
+    "id": 15,
+    "topic": "Factors Affecting Diffusion",
+    "question": "Which medium offers the LOWEST resistance to molecular diffusion, allowing the fastest rate of diffusion for a given solute at room temperature?",
+    "options": [
+      "A dense 3% agar gelatin matrix",
+      "Viscous cytoplasm packed with organelles",
+      "Air (gas phase)",
+      "Pure liquid water"
+    ],
+    "answer": 2,
+    "clue": "Molecules in gases are spaced far apart with minimal collisions against solvent.",
+    "explanation": "Diffusion rates are fastest in **gases (air)** because particles are widely spaced and experience far fewer collisions and viscous drag than in liquids or solid gels."
+  },
+  {
+    "id": 16,
+    "topic": "Diffusion Mechanics",
+    "question": "Suppose a cell has a higher concentration of urea inside than outside. Over time, urea slowly leaks out through simple diffusion. Which phrase best describes the individual movement of an individual urea molecule during this process?",
+    "options": [
+      "It moves completely randomly in unpredictable zig-zag directions as it collides with neighboring molecules.",
+      "It follows a strictly linear, deliberate pathway guided by cytoskeletal rails.",
+      "It is magnetically propelled outward by repulsion from internal nuclear chromatin.",
+      "It remains stationary until an aquaporin opens to propel it outward."
+    ],
+    "answer": 0,
+    "clue": "Individual particle motion is random; net movement is directional.",
+    "explanation": "Individual particles move in **random, unpredictable zig-zag paths** due to thermal collisions. The directional \"net movement\" down the gradient is simply a statistical outcome of having more particles on one side."
+  },
+  {
+    "id": 17,
+    "topic": "Membrane Permeability",
+    "question": "Which of the following pairs of substances can BOTH cross a cell membrane purely via unassisted simple diffusion?",
+    "options": [
+      "Oxygen gas (O2) and Glucose",
+      "Carbon dioxide (CO2) and Nitrogen gas (N2)",
+      "Sodium ions (Na+) and Water (H2O)",
+      "Amino acids and Potassium ions (K+)"
+    ],
+    "answer": 1,
+    "clue": "Both must be small, nonpolar, uncharged molecules.",
+    "explanation": "**CO2 and N2** are both small, nonpolar, diatomic/triatomic gases that diffuse freely across the hydrophobic phospholipid bilayer without membrane proteins."
+  },
+  {
+    "id": 18,
+    "topic": "Surface Area to Volume",
+    "question": "Why are biological cells generally microscopic rather than macroscopic in size?",
+    "options": [
+      "Larger cells would burst because internal hydrostatic pressure increases exponentially with cell age.",
+      "A high surface area-to-volume ratio in small cells ensures that diffusion distances remain short enough to sustain metabolic needs.",
+      "Cellular enzymes can only function when confined to volumes under 50 micrometers.",
+      "Ribosomes cannot manufacture proteins if the cytoplasm is exposed to ambient atmospheric pressure."
+    ],
+    "answer": 1,
+    "clue": "As a cell grows, its volume increases much faster than its surface area (r^3 vs r^2).",
+    "explanation": "As cell size increases, volume grows much faster than surface area. A **high surface area-to-volume ratio** in small cells ensures that nutrients and wastes can diffuse across the membrane and throughout the cell fast enough to support life."
+  },
+  {
+    "id": 19,
+    "topic": "Dynamic Equilibrium",
+    "question": "A student sets up an artificial membrane separating a beaker into side A (20% ethanol) and side B (0% ethanol). Ethanol can cross the membrane. When the system reaches dynamic equilibrium, what will be observed?",
+    "options": [
+      "Side A will contain 20% ethanol and side B will contain 0% ethanol.",
+      "All ethanol will have moved to side B, leaving side A completely empty.",
+      "The ethanol will chemically react with water to form glucose and oxygen.",
+      "Side A and side B will each contain approximately 10% ethanol, with ethanol molecules crossing equally in both directions."
+    ],
+    "answer": 3,
+    "clue": "Solute distributes evenly until concentrations equalize.",
+    "explanation": "Ethanol will diffuse from high (side A) to low (side B) until concentrations equalize at **10% on both sides**. At dynamic equilibrium, ethanol molecules continue crossing the membrane in both directions at equal rates."
+  },
+  {
+    "id": 20,
+    "topic": "Permeability Barriers",
+    "question": "Why is the hydrophobic core of the plasma membrane such an effective barrier against simple diffusion of large polar nutrients like glucose?",
+    "options": [
+      "Glucose forms strong ionic bonds with fatty acid tails that freeze the membrane.",
+      "Water-soluble polar molecules prefer interacting with aqueous dipoles and are energetically repelled by nonpolar hydrocarbon tails.",
+      "Glucose is converted into glycogen the moment it contacts the extracellular leaflet.",
+      "The membrane proteins actively degrade glucose before it can penetrate the bilayer."
+    ],
+    "answer": 1,
+    "clue": "Polar molecules cannot dissolve in nonpolar oils.",
+    "explanation": "Glucose has multiple polar hydroxyl (-OH) groups that form hydrogen bonds with water. Crossing the nonpolar, hydrophobic fatty acid core requires breaking these interactions, which is **energetically unfavorable** without a facilitated transport protein."
+  }
+];
+    const STORAGE_KEY = 'bio_unit2_test02_state_clean';
+
+    let userState = {
+      answers: {},
+      showClues: {},
+      allCluesVisible: false,
+      currentFilter: 'All',
+      missedOnly: false
+    };
+
+    function safeLoad() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (parsed && typeof parsed === 'object') {
+            userState = Object.assign(userState, parsed);
+          }
+        }
+      } catch (e) {
+        console.warn('localStorage not accessible:', e);
+      }
+    }
+
+    function safeSave() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(userState));
+      } catch (e) {
+        console.warn('Could not save to localStorage:', e);
+      }
+    }
+
+    function init() {
+      safeLoad();
+      renderQuestions();
+      updateStats();
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById('questionsContainer');
+      if (!container) return;
+      container.innerHTML = '';
+
+      let filteredQuestions = questionsData.filter(q => {
+        if (userState.currentFilter !== 'All' && q.topic !== userState.currentFilter) return false;
+        if (userState.missedOnly) {
+          const userAns = userState.answers[q.id];
+          if (userAns === undefined || userAns === q.answer) return false;
+        }
+        return true;
+      });
+
+      if (filteredQuestions.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-12 bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
+            <i class="fa-solid fa-circle-check text-emerald-500 text-4xl mb-3"></i>
+            <h3 class="text-lg font-bold text-slate-800">No Questions In This Filter</h3>
+            <p class="text-slate-500 text-sm mt-1">Try selecting 'All Topics' or clearing the missed review filter.</p>
+          </div>
+        `;
+        return;
+      }
+
+      filteredQuestions.forEach((q) => {
+        const isAnswered = userState.answers[q.id] !== undefined;
+        const selectedOption = userState.answers[q.id];
+        const isCorrect = isAnswered && selectedOption === q.answer;
+        const isClueVisible = userState.allCluesVisible || userState.showClues[q.id];
+
+        const card = document.createElement('div');
+        card.className = `bg-white rounded-2xl p-6 border transition-all duration-200 shadow-sm ${
+          isAnswered
+            ? isCorrect
+              ? 'border-emerald-300 ring-1 ring-emerald-200/50 bg-emerald-50/20'
+              : 'border-rose-300 ring-1 ring-rose-200/50 bg-rose-50/20'
+            : 'border-slate-200 hover:border-slate-300'
+        }`;
+        card.id = `q-card-${q.id}`;
+
+        let optionsHtml = q.options.map((opt, oIdx) => {
+          let btnClass = "border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50/40 text-slate-700 cursor-pointer";
+          let iconHtml = `<span class="w-6 h-6 rounded-full border border-slate-300 text-xs font-semibold flex items-center justify-center mr-3 text-slate-500 shrink-0 mt-0.5">${String.fromCharCode(65 + oIdx)}</span>`;
+
+          if (isAnswered) {
+            if (oIdx === q.answer) {
+              btnClass = "bg-emerald-50 border-emerald-500 text-emerald-950 font-semibold ring-1 ring-emerald-400 cursor-default";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-emerald-600 text-white text-xs font-bold flex items-center justify-center mr-3 shrink-0 mt-0.5"><i class="fa-solid fa-check"></i></span>`;
+            } else if (oIdx === selectedOption && !isCorrect) {
+              btnClass = "bg-rose-50 border-rose-400 text-rose-950 font-semibold ring-1 ring-rose-300 cursor-default";
+              iconHtml = `<span class="w-6 h-6 rounded-full bg-rose-600 text-white text-xs font-bold flex items-center justify-center mr-3 shrink-0 mt-0.5"><i class="fa-solid fa-xmark"></i></span>`;
+            } else {
+              btnClass = "opacity-50 border-slate-200 text-slate-400 cursor-not-allowed";
+            }
+          }
+
+          return `
+            <button 
+              type="button"
+              onclick="selectAnswer(${q.id}, ${oIdx})" 
+              ${isAnswered ? 'disabled' : ''} 
+              class="w-full text-left p-3.5 rounded-xl text-sm transition flex items-start ${btnClass} my-2 leading-relaxed">
+              ${iconHtml}
+              <span class="flex-1">${opt}</span>
+            </button>
+          `;
+        }).join('');
+
+        card.innerHTML = `
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <div class="flex items-center gap-2">
+              <span class="bg-indigo-100 text-indigo-800 text-xs font-black px-2.5 py-0.5 rounded-md">Q${q.id}</span>
+              <span class="bg-slate-100 text-slate-600 text-xs font-semibold px-2.5 py-0.5 rounded-md">${q.topic}</span>
+            </div>
+
+            <button type="button" onclick="toggleClue(${q.id})" class="text-xs text-amber-700 bg-amber-50 hover:bg-amber-100 border border-amber-200 px-3 py-1 rounded-lg font-medium transition flex items-center gap-1 cursor-pointer">
+              <i class="fa-regular fa-lightbulb"></i>
+              ${isClueVisible ? 'Hide Hint' : 'Need a Clue?'}
+            </button>
+          </div>
+
+          <h3 class="text-base font-bold text-slate-900 leading-relaxed mb-4">${q.question}</h3>
+
+          <div id="clue-${q.id}" class="${isClueVisible ? 'block' : 'hidden'} mb-4 p-3.5 bg-amber-50/80 border border-amber-200 rounded-xl text-amber-900 text-xs flex items-start gap-2.5">
+            <i class="fa-solid fa-lightbulb text-amber-600 mt-0.5"></i>
+            <div><span class="font-bold">Study Hint:</span> ${q.clue}</div>
+          </div>
+
+          <div class="space-y-1">${optionsHtml}</div>
+
+          ${isAnswered ? `
+            <div class="mt-5 p-4 rounded-xl text-sm border ${
+              isCorrect 
+                ? 'bg-emerald-50/70 border-emerald-200 text-emerald-950' 
+                : 'bg-rose-50/70 border-rose-200 text-slate-800'
+            }">
+              <div class="flex items-center gap-2 font-bold mb-2 ${isCorrect ? 'text-emerald-800' : 'text-rose-800'}">
+                <i class="${isCorrect ? 'fa-solid fa-circle-check text-emerald-600' : 'fa-solid fa-circle-xmark text-rose-600'}"></i>
+                <span>${isCorrect ? 'Correct! Excellent work.' : 'Incorrect. Let\'s break it down:'}</span>
+              </div>
+              <p class="text-xs leading-relaxed text-slate-700 mb-2">${q.explanation}</p>
+              <div class="text-xs font-semibold text-indigo-700 pt-2 border-t border-slate-200/60 flex items-center justify-between">
+                <span>Correct Option: ${String.fromCharCode(65 + q.answer)} (${q.options[q.answer]})</span>
+                <button type="button" onclick="retryQuestion(${q.id})" class="text-slate-500 hover:text-slate-800 font-medium underline ml-2 cursor-pointer">Try Again</button>
+              </div>
+            </div>
+          ` : ''}
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function selectAnswer(qId, optionIdx) {
+      if (userState.answers[qId] !== undefined) return;
+      userState.answers[qId] = optionIdx;
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function retryQuestion(qId) {
+      delete userState.answers[qId];
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function toggleClue(qId) {
+      userState.showClues[qId] = !userState.showClues[qId];
+      safeSave();
+      renderQuestions();
+    }
+
+    function toggleAllClues() {
+      userState.allCluesVisible = !userState.allCluesVisible;
+      const btnText = document.getElementById('clueToggleText');
+      if (btnText) btnText.innerText = userState.allCluesVisible ? 'Hide All Hints' : 'Show All Hints';
+      safeSave();
+      renderQuestions();
+    }
+
+    function filterTopic(topic) {
+      userState.currentFilter = topic;
+      userState.missedOnly = false;
+      document.querySelectorAll('.topic-btn').forEach(b => {
+        b.classList.remove('bg-blue-600', 'text-white', 'shadow-sm');
+        b.classList.add('bg-slate-100', 'text-slate-600');
+        if (b.innerText.includes(topic) || (topic === 'All' && b.innerText.includes('All Topics'))) {
+          b.classList.add('bg-blue-600', 'text-white', 'shadow-sm');
+          b.classList.remove('bg-slate-100', 'text-slate-600');
+        }
+      });
+      renderQuestions();
+    }
+
+    function filterMissed() {
+      userState.missedOnly = !userState.missedOnly;
+      const btn = document.getElementById('filterMissedBtn');
+      if (btn) {
+        if (userState.missedOnly) {
+          btn.classList.add('bg-rose-600', 'text-white');
+          btn.classList.remove('bg-rose-50', 'text-rose-800');
+        } else {
+          btn.classList.remove('bg-rose-600', 'text-white');
+          btn.classList.add('bg-rose-50', 'text-rose-800');
+        }
+      }
+      renderQuestions();
+    }
+
+    function updateStats() {
+      const answeredKeys = Object.keys(userState.answers);
+      const totalAnswered = answeredKeys.length;
+      let totalCorrect = 0;
+      let missedCount = 0;
+
+      answeredKeys.forEach(k => {
+        const q = questionsData.find(item => item.id == k);
+        if (q) {
+          if (userState.answers[k] === q.answer) totalCorrect++;
+          else missedCount++;
+        }
+      });
+
+      const accuracy = totalAnswered > 0 ? Math.round((totalCorrect / totalAnswered) * 100) : 0;
+      const progressPercent = Math.round((totalAnswered / questionsData.length) * 100);
+
+      const elAns = document.getElementById('statAnswered');
+      const elScore = document.getElementById('statScore');
+      const elBar = document.getElementById('quizProgressBar');
+      const elMissed = document.getElementById('missedCount');
+
+      if (elAns) elAns.innerText = `${totalAnswered}/${questionsData.length}`;
+      if (elScore) elScore.innerText = `${accuracy}%`;
+      if (elBar) elBar.style.width = `${progressPercent}%`;
+      if (elMissed) elMissed.innerText = missedCount;
+
+      const summaryCard = document.getElementById('scoreSummaryCard');
+      if (summaryCard) {
+        if (totalAnswered === questionsData.length) {
+          summaryCard.classList.remove('hidden');
+          document.getElementById('finalTotal').innerText = questionsData.length;
+          document.getElementById('finalCorrect').innerText = totalCorrect;
+          document.getElementById('finalPercent').innerText = `${accuracy}%`;
+          
+          const ratingBox = document.getElementById('masteryRating');
+          if (accuracy >= 90) {
+            ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-emerald-100 text-emerald-900 border border-emerald-300";
+            ratingBox.innerHTML = "🌟 <strong>Mastery Level: Advanced Honors (A+)</strong> — Outstanding mastery of Simple Diffusion & Concentration Gradients!";
+          } else if (accuracy >= 80) {
+            ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-blue-100 text-blue-900 border border-blue-300";
+            ratingBox.innerHTML = "👍 <strong>Mastery Level: Proficient (B)</strong> — Solid comprehension! Review the missed questions above to reach perfection.";
+          } else {
+            ratingBox.className = "p-4 rounded-2xl font-bold text-sm mb-6 bg-amber-100 text-amber-900 border border-amber-300";
+            ratingBox.innerHTML = "💡 <strong>Mastery Level: Developing</strong> — Review the core concepts and retry missed questions.";
+          }
+        } else {
+          summaryCard.classList.add('hidden');
+        }
+      }
+    }
+
+    function resetQuiz() {
+      if (confirm('Are you sure you want to reset all answers and start fresh?')) {
+        userState.answers = {};
+        userState.showClues = {};
+        userState.allCluesVisible = false;
+        userState.missedOnly = false;
+        userState.currentFilter = 'All';
+        safeSave();
+        renderQuestions();
+        updateStats();
+      }
+    }
+
+    if (document.readyState !== 'loading') {
+      init();
+    } else {
+      document.addEventListener('DOMContentLoaded', init);
+    }
+  </script>
+</body>
+</html>

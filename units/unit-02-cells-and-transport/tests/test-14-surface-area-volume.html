@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biology I Honors - Unit 2 Test 14: Cellular Geometry & Surface Area-to-Volume Ratios</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+
+  <!-- TOP HEADER -->
+  <header class="bg-gradient-to-r from-blue-700 via-indigo-700 to-violet-700 text-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="w-10 h-10 rounded-xl bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition border border-white/20" title="Back to All Tests">
+          <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="bg-white/20 text-xs px-2.5 py-1 rounded-full font-semibold uppercase tracking-wider">Biology I Honors</span>
+            <span class="bg-amber-300 text-slate-900 text-xs px-2.5 py-1 rounded-full font-bold">Unit 2 • Test 14</span>
+          </div>
+          <h1 class="text-xl sm:text-2xl font-black tracking-tight mt-1 text-white">Cellular Geometry & SA:V Ratios</h1>
+        </div>
+      </div>
+
+      <!-- Quick Stats Top -->
+      <div class="flex items-center gap-4 bg-white/10 backdrop-blur px-4 py-2 rounded-xl border border-white/15">
+        <div class="text-center">
+          <div class="text-xs uppercase text-indigo-200 font-semibold">Answered</div>
+          <div id="statAnswered" class="text-xl font-bold">0/20</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <div class="text-center">
+          <div class="text-xs uppercase text-indigo-200 font-semibold">Accuracy</div>
+          <div id="statScore" class="text-xl font-bold text-amber-300">0%</div>
+        </div>
+        <div class="w-px h-8 bg-white/20"></div>
+        <button onclick="resetQuiz()" class="text-xs bg-white/20 hover:bg-white/30 text-white px-3 py-2 rounded-lg font-medium transition flex items-center gap-1.5 cursor-pointer">
+          <i class="fa-solid fa-rotate-right"></i> Reset
+        </button>
+      </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="w-full bg-slate-900/30 h-2">
+      <div id="quizProgressBar" class="bg-emerald-400 h-2 transition-all duration-300" style="width: 0%"></div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-6xl mx-auto px-4 py-8">
+
+    <!-- Anti-Guess Note Banner -->
+    <div class="bg-indigo-50 border border-indigo-200 text-indigo-950 p-4 rounded-2xl mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-semibold shadow-sm">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-cube text-indigo-600 text-base shrink-0"></i>
+        <span><strong>Biophysical Cytology:</strong> Master surface area-to-volume ratios, geometric scaling, diffusion limits, and morphological adaptations!</span>
+      </div>
+      <a href="index.html" class="text-indigo-900 underline hover:text-indigo-950 whitespace-nowrap">View All 20 Tests</a>
+    </div>
+
+    <!-- CONTROLS & FILTER BAR -->
+    <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 mb-8">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-sm font-bold text-slate-700 mb-2">Filter by Topic:</h2>
+          <div class="flex flex-wrap gap-2" id="topicFilters">
+            <button onclick="filterTopic('All')" class="topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-indigo-600 text-white shadow-sm transition cursor-pointer">All Topics (20)</button>
+            <button onclick="filterTopic('Agar Cube Lab Model')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Agar Cube Lab Model</button>
+            <button onclick="filterTopic('Cellular Geometry Master Synthesis')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Cellular Geometry Master Synthesis</button>
+            <button onclick="filterTopic('Diffusion Distance Constraints')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Diffusion Distance Constraints</button>
+            <button onclick="filterTopic('Erythrocyte Biconcave Morphology')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Erythrocyte Biconcave Morphology</button>
+            <button onclick="filterTopic('Eukaryotic Organellar Folding')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Eukaryotic Organellar Folding</button>
+            <button onclick="filterTopic('Fick's Law of Diffusion')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Fick's Law of Diffusion</button>
+            <button onclick="filterTopic('Flattened Epithelial Morphology')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Flattened Epithelial Morphology</button>
+            <button onclick="filterTopic('Geometric Scaling Principles')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Geometric Scaling Principles</button>
+            <button onclick="filterTopic('Giant Single-Celled Protists: Acetabularia')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Giant Single-Celled Protists: Acetabularia</button>
+            <button onclick="filterTopic('Intestinal Microvilli Adaptation')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Intestinal Microvilli Adaptation</button>
+            <button onclick="filterTopic('Metabolic Demand vs Supply Scaling')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Metabolic Demand vs Supply Scaling</button>
+            <button onclick="filterTopic('Mitosis as a Ratio Reset')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Mitosis as a Ratio Reset</button>
+            <button onclick="filterTopic('Multinucleation Strategies')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Multinucleation Strategies</button>
+            <button onclick="filterTopic('Neuronal Dendritic Arborization')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Neuronal Dendritic Arborization</button>
+            <button onclick="filterTopic('Nuclear Control & N:C Ratio')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Nuclear Control & N:C Ratio</button>
+            <button onclick="filterTopic('Quantitative Comparison: Cube Calculations')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Quantitative Comparison: Cube Calculations</button>
+            <button onclick="filterTopic('Root Hair Surface Amplification')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Root Hair Surface Amplification</button>
+            <button onclick="filterTopic('Spherical Cell Geometry')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Spherical Cell Geometry</button>
+            <button onclick="filterTopic('Thermal & Metabolic Scaling in Organisms')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Thermal & Metabolic Scaling in Organisms</button>
+            <button onclick="filterTopic('Thiomargarita namibiensis Adaptation')" class="topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">Thiomargarita namibiensis Adaptation</button>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 pt-2 lg:pt-0 border-t lg:border-t-0 border-slate-100">
+          <button onclick="toggleAllClues()" id="toggleCluesBtn" class="text-xs bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-regular fa-lightbulb"></i> <span id="clueToggleText">Show All Hints</span>
+          </button>
+          <button onclick="filterMissed()" id="filterMissedBtn" class="text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-solid fa-triangle-exclamation"></i> Missed Only (<span id="missedCount">0</span>)
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTIONS CONTAINER -->
+    <div id="questionsContainer" class="space-y-6">
+      <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- SCORE SUMMARY CARD (Hidden until finished) -->
+    <div id="scoreSummaryCard" class="hidden mt-10 bg-white rounded-3xl p-8 border border-slate-200 shadow-xl text-center max-w-2xl mx-auto">
+      <div class="w-16 h-16 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+        <i class="fa-solid fa-award"></i>
+      </div>
+      <h3 class="text-2xl font-black text-slate-800 mb-2">Test Completed!</h3>
+      <p class="text-slate-600 text-sm mb-6">Unit 2 Test 14: Cellular Geometry & Surface Area-to-Volume Ratios</p>
+      
+      <div class="grid grid-cols-3 gap-4 mb-6">
+        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100">
+          <div class="text-xs text-slate-500 font-semibold uppercase">Total Questions</div>
+          <div id="finalTotal" class="text-2xl font-black text-slate-800 mt-1">20</div>
+        </div>
+        <div class="bg-emerald-50 p-4 rounded-2xl border border-emerald-100">
+          <div class="text-xs text-emerald-600 font-semibold uppercase">Correct</div>
+          <div id="finalCorrect" class="text-2xl font-black text-emerald-700 mt-1">0</div>
+        </div>
+        <div class="bg-blue-50 p-4 rounded-2xl border border-blue-100">
+          <div class="text-xs text-blue-600 font-semibold uppercase">Score</div>
+          <div id="finalPercent" class="text-2xl font-black text-blue-700 mt-1">0%</div>
+        </div>
+      </div>
+
+      <div id="masteryRating" class="p-4 rounded-2xl font-bold text-sm mb-6"></div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+        <button onclick="resetQuiz()" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition cursor-pointer">
+          <i class="fa-solid fa-rotate-right mr-1.5"></i> Retake Test
+        </button>
+        <a href="test-15-microscopy-investigation.html" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs shadow-md transition text-center">
+          Proceed to Test 15 <i class="fa-solid fa-arrow-right ml-1.5"></i>
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    const questionsData = [
+  {
+    "id": 1,
+    "topic": "Geometric Scaling Principles",
+    "question": "When a hypothetical cubical cell increases its linear side length from 1 \u03bcm to 3 \u03bcm, what happens to its total surface area, volume, and surface area-to-volume (SA:V) ratio?",
+    "options": [
+      "Surface area increases 9-fold, volume increases 27-fold, and the SA:V ratio decreases from 6:1 to 2:1",
+      "Surface area increases 3-fold, volume increases 9-fold, and the SA:V ratio remains unchanged at 3:1",
+      "Surface area increases 6-fold, volume increases 18-fold, and the SA:V ratio increases from 1:6 to 1:2",
+      "Surface area increases 27-fold, volume increases 9-fold, and the SA:V ratio triples from 2:1 to 6:1"
+    ],
+    "answer": 0,
+    "clue": "Recall that surface area scales with length squared (s^2) while volume scales with length cubed (s^3).",
+    "explanation": "Option A is correct. For a cube: SA = 6s^2 and V = s^3. At s = 1 \u03bcm: SA = 6(1)^2 = 6 \u03bcm^2, V = (1)^3 = 1 \u03bcm^3, SA:V = 6:1. At s = 3 \u03bcm: SA = 6(3)^2 = 54 \u03bcm^2 (a 9-fold increase), V = (3)^3 = 27 \u03bcm^3 (a 27-fold increase), SA:V = 54/27 = 2:1 (a 3-fold decrease). As cell dimensions enlarge, volume expands much faster than surface area."
+  },
+  {
+    "id": 2,
+    "topic": "Diffusion Distance Constraints",
+    "question": "Why does the physics of molecular diffusion impose a strict upper boundary on the diameter of metabolically active spherical single cells?",
+    "options": [
+      "Larger cells possess thicker lipid bilayers that completely halt all passive thermal motion of molecules",
+      "Diffusion time increases with the square of the distance (t \u2248 x\u00b2 / 2D); thus, vital gases take prohibitively long to reach internal organelles in large cells",
+      "Enzyme active sites spontaneously denature when exposed to cellular volumes exceeding 50 cubic micrometers",
+      "Water molecules undergo rapid crystallization at distances greater than 5 \u03bcm from the plasma membrane"
+    ],
+    "answer": 1,
+    "clue": "How does the time required for passive diffusion scale with distance across the cytoplasm?",
+    "explanation": "Option B is correct. According to Fick's laws and Einstein's relation, the time t required for a solute to diffuse a distance x scales quadratically (t \u221d x^2). While diffusion across 1 \u03bcm requires only a fraction of a millisecond, diffusing across 1 mm would require minutes to hours. In a large cell, central regions would rapidly exhaust oxygen and nutrients and accumulate lethal concentrations of metabolic waste before diffusion could exchange them."
+  },
+  {
+    "id": 3,
+    "topic": "Agar Cube Lab Model",
+    "question": "In a classic cytology investigation, three agar blocks infused with phenolphthalein indicator (1 cm\u00b3, 2 cm\u00b3, and 3 cm\u00b3) are submerged in 0.1 M sodium hydroxide (NaOH) for 10 minutes. What will students observe upon slicing the cubes in half?",
+    "options": [
+      "The 3 cm cube shows the deepest absolute millimeter depth of pink NaOH penetration",
+      "All three cubes are colored pink 100% throughout their entire volumes",
+      "The depth of pink penetration (in mm) is virtually identical across all cubes, but the 1 cm cube has the highest percentage of its volume penetrated",
+      "The 1 cm cube fails to turn pink because its small volume prevents base entry"
+    ],
+    "answer": 2,
+    "clue": "Does the physical rate of diffusion through uniform agar depend on the size of the block?",
+    "explanation": "Option C is correct. The rate of molecular diffusion depends on temperature, agar concentration, and solute properties\u2014not the total size of the block. Therefore, the absolute depth of penetration (e.g., ~2 mm) is identical in all three cubes after 10 minutes. However, because the 1 cm cube has the highest SA:V ratio (6:1), that 2 mm depth represents a vastly greater fraction (often 100%) of its interior volume compared to the 3 cm cube (SA:V = 2:1), where a large core remains clear."
+  },
+  {
+    "id": 4,
+    "topic": "Intestinal Microvilli Adaptation",
+    "question": "Human intestinal epithelial cells (enterocytes) absorb glucose, amino acids, and fatty acids from the intestinal lumen. Which structural adaptation allows them to maximize transport flux without an unmanageable increase in cell volume?",
+    "options": [
+      "Developing dense arrays of primary cilia powered by dynein motor proteins",
+      "Forming large multinucleated syncytia with thick peptidoglycan reinforcement",
+      "Eliminating the Golgi apparatus and endoplasmic reticulum to clear cytoplasmic space",
+      "Extending thousands of microscopic apical plasma membrane folds known as microvilli supported by actin filaments"
+    ],
+    "answer": 3,
+    "clue": "Which brush-border apical membrane folds vastly amplify absorptive surface area?",
+    "explanation": "Option D is correct. Microvilli are finger-like cylindrical projections of the apical plasma membrane, supported by parallel bundles of actin microfilaments. By forming a dense \"brush border,\" millions of microvilli increase the apical membrane surface area by up to 20- to 30-fold without significantly changing overall cytoplasmic volume, maximizing the density of glucose and amino acid symporters."
+  },
+  {
+    "id": 5,
+    "topic": "Spherical Cell Geometry",
+    "question": "For a spherical cell with radius r, the surface area is 4\u03c0r\u00b2 and volume is (4/3)\u03c0r\u00b3, giving SA:V = 3/r. If a spherical oocyte has its radius doubled from 50 \u03bcm to 100 \u03bcm, what is the exact effect on its SA:V ratio?",
+    "options": [
+      "The SA:V ratio is cut in half, dropping from 0.06 \u03bcm\u207b\u00b9 to 0.03 \u03bcm\u207b\u00b9",
+      "The SA:V ratio doubles, increasing from 0.03 \u03bcm\u207b\u00b9 to 0.06 \u03bcm\u207b\u00b9",
+      "The SA:V ratio drops 4-fold, from 0.12 \u03bcm\u207b\u00b9 to 0.03 \u03bcm\u207b\u00b9",
+      "The SA:V ratio remains unchanged because \u03c0 cancels out in spherical ratios"
+    ],
+    "answer": 0,
+    "clue": "Evaluate SA:V = 3/r when r = 50 vs when r = 100.",
+    "explanation": "Option A is correct. Using the formula SA:V = 3/r: At r = 50 \u03bcm, SA:V = 3/50 = 0.06 \u03bcm^-1. At r = 100 \u03bcm, SA:V = 3/100 = 0.03 \u03bcm^-1. Doubling the radius cuts the surface area-to-volume ratio exactly in half. This explains why very large spherical cells (like bird or amphibian eggs) must be metabolically quiescent or rely on cytoplasmic streaming and surrounding helper cells."
+  },
+  {
+    "id": 6,
+    "topic": "Nuclear Control & N:C Ratio",
+    "question": "Beyond membrane diffusion limits, what physiological factor strictly limits how large a single uninucleated eukaryotic cell can grow?",
+    "options": [
+      "The cell membrane becomes permanently crystalline and impermeable to water",
+      "The nuclear-to-cytoplasmic (N:C) ratio: a single diploid nucleus can only transcribe a limited amount of mRNA per unit time to support protein synthesis across the cytoplasm",
+      "Ribosomes exhaust all available guanine bases when total cellular mass exceeds 1 nanogram",
+      "Centrosomes spontaneously undergo apoptosis whenever cytoplasmic volume exceeds 1,000 \u03bcm\u00b3"
+    ],
+    "answer": 1,
+    "clue": "How many copies of DNA are in a diploid nucleus, and can they pump out unlimited mRNA for a huge cytoplasm?",
+    "explanation": "Option B is correct. A single diploid nucleus contains only two copies of each structural gene. Because transcription rate is limited by RNA polymerase kinetics and promoter clearance, there is an upper limit to the volume of cytoplasm that one nucleus can supply with vital mRNAs and regulatory proteins (the karyoplasmic or N:C ratio). If volume expands too much, protein turnover cannot keep pace with degradation."
+  },
+  {
+    "id": 7,
+    "topic": "Multinucleation Strategies",
+    "question": "Mammalian skeletal muscle fibers can reach lengths of several centimeters and volumes thousands of times larger than typical somatic cells. How do these massive cells overcome the nuclear control limit?",
+    "options": [
+      "They utilize prokaryotic plasmids to synthesize their own structural proteins without nuclear involvement",
+      "They lack cytoplasm entirely, consisting purely of extracellular calcium phosphate matrix",
+      "They are multinucleated syncytia formed by the developmental fusion of hundreds of individual myoblast cells",
+      "They possess a single giant nucleus containing over 10,000 duplicate copies of every human chromosome"
+    ],
+    "answer": 2,
+    "clue": "How does cell fusion (forming a syncytium) distribute nuclear management throughout a long muscle fiber?",
+    "explanation": "Option C is correct. Skeletal muscle fibers are syncytia formed during embryonic development by the end-to-end fusion of hundreds of mononucleated precursor cells (myoblasts). As a result, each mature muscle fiber contains hundreds of nuclei distributed peripherally beneath the sarcolemma, each governing a local zone of cytoplasm known as a \"myonuclear domain.\""
+  },
+  {
+    "id": 8,
+    "topic": "Erythrocyte Biconcave Morphology",
+    "question": "Mammalian red blood cells display a biconcave disc shape rather than a perfect sphere. What biophysical advantage does this specific geometry provide?",
+    "options": [
+      "It decreases total cell surface area so that fewer oxygen molecules can escape into venous circulation",
+      "It increases the distance between the cell surface and central hemoglobin molecules to delay oxygen release",
+      "It prevents red blood cells from ever passing through narrow splenic capillaries",
+      "It provides a substantially higher SA:V ratio and shorter average diffusion distance than a sphere of identical volume, accelerating rapid O2 and CO2 exchange"
+    ],
+    "answer": 3,
+    "clue": "Which shape minimizes the distance oxygen must travel from plasma to hemoglobin inside?",
+    "explanation": "Option D is correct. A sphere minimizes surface area for a given volume (the lowest possible SA:V ratio). By indenting into a biconcave disc, the erythrocyte significantly increases its surface area relative to its volume and ensures that no hemoglobin molecule is more than ~1 \u03bcm away from the plasma membrane, facilitating rapid gas equilibration during the brief 0.75-second transit through lung capillaries."
+  },
+  {
+    "id": 9,
+    "topic": "Metabolic Demand vs Supply Scaling",
+    "question": "As a living cell grows larger, why does a metabolic crisis inevitably occur if it fails to divide?",
+    "options": [
+      "Nutrient uptake and waste excretion capacity scale with surface area (r\u00b2), whereas metabolic demand and waste generation scale with volume (r\u00b3)",
+      "Active transport pumps begin pumping ions in reverse when membrane tension decreases",
+      "The phospholipid bilayer converts irreversibly into rigid saturated triglycerides",
+      "Mitochondria stop producing ATP because glucose molecules grow physically larger inside bigger cells"
+    ],
+    "answer": 0,
+    "clue": "Compare the rate of metabolic consumption (inside volume) with the rate of transport supply (across membrane).",
+    "explanation": "Option A is correct. A cell's metabolic demand\u2014the rate at which it consumes O2, glucose, and amino acids, and produces CO2 and toxic nitrogenous wastes\u2014is directly proportional to its cytoplasmic volume (r^3). Conversely, its capacity to import supplies and export wastes is strictly constrained by the surface area of its plasma membrane (r^2). As size increases, metabolic demand outpaces supply capacity until the cell must divide or starve/suffocate."
+  },
+  {
+    "id": 10,
+    "topic": "Giant Single-Celled Protists: Acetabularia",
+    "question": "The marine green alga Acetabularia (mermaid's wineglass) is a single uninucleate cell that can reach 5 cm to 10 cm in height. Which morphological strategy allows it to maintain viability despite its macroscopic size?",
+    "options": [
+      "It completely eliminates the plasma membrane, allowing seawater to flow freely through its organelles",
+      "It has an extremely slender, elongated stalk and a massive fluid-filled central vacuole, confining active cytoplasm and chloroplasts to a microscopic peripheral layer",
+      "It keeps its single nucleus constantly travelling back and forth along the stalk at speeds of 1 meter per second",
+      "It replaces all cellular protein enzymes with non-biological mineral catalysts"
+    ],
+    "answer": 1,
+    "clue": "Where is the living metabolically active cytoplasm located in large vacuolated plant/algal cells?",
+    "explanation": "Option B is correct. Macroscopic single-celled algae such as Acetabularia or Valonia ventricosa maintain a favorable SA:V ratio for their active protoplasm because over 95% of their internal volume is an inert, non-metabolic central vacuole filled with water and inorganic ions. The living, metabolizing cytoplasm containing the nucleus, mitochondria, and chloroplasts is confined to a razor-thin cortical layer (just a few micrometers thick) pressed against the outer wall."
+  },
+  {
+    "id": 11,
+    "topic": "Fick's Law of Diffusion",
+    "question": "Fick's First Law states that the rate of net diffusion flux (J) is directly proportional to surface area (A) and concentration difference (\u0394C), and inversely proportional to diffusion distance (d): J = D\u00b7A\u00b7(\u0394C/d). Based on this relationship, which change will cause the greatest increase in the rate of oxygen entry into a cell?",
+    "options": [
+      "Halving the membrane surface area while doubling the membrane thickness",
+      "Doubling the diffusion distance across the cytoplasm while reducing extracellular oxygen concentration",
+      "Doubling the cell surface area (A) and halving the membrane barrier diffusion distance (d)",
+      "Keeping surface area constant while reducing the extracellular-to-intracellular concentration gradient to zero"
+    ],
+    "answer": 2,
+    "clue": "Which modifications increase the numerator (A, \u0394C) and decrease the denominator (d)?",
+    "explanation": "Option C is correct. According to Fick's Law, rate of diffusion J \u221d A \u00b7 (\u0394C / d). Doubling the surface area A increases J by 2x; simultaneously halving the barrier thickness d doubles J again, producing an overall 4-fold increase in diffusion rate. Options A, B, and D all decrease diffusion flux or reduce it to zero."
+  },
+  {
+    "id": 12,
+    "topic": "Eukaryotic Organellar Folding",
+    "question": "Eukaryotic cells are generally 10 to 100 times larger in diameter than typical prokaryotes. How does internal endomembrane compartmentalization solve the geometric SA:V crisis in eukaryotic cells?",
+    "options": [
+      "Internal organelles eliminate the need for the cell to possess an external plasma membrane",
+      "Internal membranes convert all cellular reactions into purely anaerobic crystalline reactions",
+      "Internal membranes replace the liquid water solvent of the cytoplasm with dense hydrocarbon oils",
+      "Extensive internal membrane foldings (such as mitochondrial cristae and thylakoids) provide massive local surface areas for enzyme complexes without increasing external cell size"
+    ],
+    "answer": 3,
+    "clue": "What do cristae in mitochondria and thylakoid grana in chloroplasts provide for ATP synthases and ETC proteins?",
+    "explanation": "Option D is correct. While a large eukaryotic cell has a relatively low external plasma membrane-to-volume ratio, its interior is filled with folded membranous systems (ER tubules, Golgi stacks, mitochondrial cristae, chloroplast thylakoid membranes). These specialized internal surfaces vastly amplify the available catalytic membrane area, segregating incompatible reactions and maintaining localized high concentration gradients."
+  },
+  {
+    "id": 13,
+    "topic": "Flattened Epithelial Morphology",
+    "question": "Simple squamous epithelial cells lining lung alveoli and capillary walls are extremely flattened (often less than 0.2 \u03bcm in thickness) rather than cuboidal or columnar. What is the physiological consequence of this shape?",
+    "options": [
+      "It minimizes the diffusion distance (d) and maximizes the SA:V ratio across the respiratory membrane, enabling rapid gas exchange",
+      "It prevents any passage of carbon dioxide to protect fragile capillary endothelial cells",
+      "It provides massive storage space for excess glycogen and lipid droplets in the alveolar lining",
+      "It makes the cells completely resistant to osmotic pressure changes in hypotonic fluids"
+    ],
+    "answer": 0,
+    "clue": "Think about Fick's law: what happens to gas transport when thickness d is minimized and surface area is spread wide?",
+    "explanation": "Option A is correct. The thin, pancake-like morphology of simple squamous epithelium reduces the physical barrier thickness (diffusion distance d) to mere fractions of a micrometer between alveolar air and capillary blood, while spreading cell volume over a wide planar surface area. This maximizes passive diffusion rates of O2 and CO2 across the blood-air barrier."
+  },
+  {
+    "id": 14,
+    "topic": "Neuronal Dendritic Arborization",
+    "question": "A single cortical pyramidal neuron in the human brain may possess an axon and thousands of branched dendrites extending over large distances. Despite its large total cell volume, why does the neuron not suffer a catastrophic SA:V crisis?",
+    "options": [
+      "Dendrites and axons have massive diameters that eliminate all internal cytoplasmic volume",
+      "Because its cytoplasmic extensions are exceptionally narrow (often < 1 \u03bcm in diameter), their local cylindrical SA:V ratio remains extremely high",
+      "Neurons do not require any ATP or oxygen to maintain resting membrane potential",
+      "The neuronal soma contains a unique photosynthetic plastid that manufactures internal oxygen"
+    ],
+    "answer": 1,
+    "clue": "For a thin cylinder of radius r, SA:V = 2/r. When radius r is very small, what happens to SA:V?",
+    "explanation": "Option B is correct. For a cylinder, SA:V = 2/r. Because axons and dendrites are extremely thin cylinders (r < 0.5 to 1 \u03bcm), their localized surface area-to-volume ratio is remarkably large (SA:V > 2-4 \u03bcm^-1). This ensures that every portion of the axoplasm is in immediate proximity to the plasma membrane, facilitating rapid ion fluxes (Na+, K+, Ca2+) and local metabolic exchange."
+  },
+  {
+    "id": 15,
+    "topic": "Mitosis as a Ratio Reset",
+    "question": "When an actively growing cell reaches its critical maximum size threshold during the G2 phase of the cell cycle, how does mitotic cell division restore cellular homeostasis?",
+    "options": [
+      "It causes the cell to shed half of its DNA into the extracellular matrix to reduce metabolic burden",
+      "It permanently closes all plasma membrane transport proteins to halt further cell growth",
+      "It divides the single large mother cell into two smaller daughter cells, each with a restored, higher SA:V ratio and appropriate N:C balance",
+      "It fuses the cell with adjacent quiescent cells to create an inert syncytium"
+    ],
+    "answer": 2,
+    "clue": "What happens to the SA:V ratio when one large sphere is cleaved into two smaller spheres?",
+    "explanation": "Option C is correct. Mitotic cell division (followed by cytokinesis) cleaves a large parent cell with a depressed SA:V ratio and strained nuclear-to-cytoplasmic ratio into two smaller daughter cells. Each daughter cell possesses an elevated SA:V ratio and an intact diploid nucleus governing a manageable volume of cytoplasm, restoring optimal transport kinetics and regulatory control."
+  },
+  {
+    "id": 16,
+    "topic": "Thermal & Metabolic Scaling in Organisms",
+    "question": "The biophysical principles of surface area-to-volume scaling apply to whole organisms as well as single cells. Why does a tiny 20-gram mouse consume vastly more oxygen per gram of body tissue than a 4,000-kilogram elephant?",
+    "options": [
+      "Elephants lack functional mitochondria in their skeletal muscle fibers",
+      "Mice have thicker skin that traps metabolic gases inside their circulatory system",
+      "The elephant possesses an exoskeleton that prevents any loss of body heat to the environment",
+      "Due to its higher whole-body SA:V ratio, the mouse loses heat to its surroundings at a much higher rate per gram, requiring a higher mass-specific metabolic rate to stay warm"
+    ],
+    "answer": 3,
+    "clue": "Which animal has more surface area exposed per gram of mass through which heat escapes?",
+    "explanation": "Option D is correct. Kleiber's Law and the surface area hypothesis show that smaller homeotherms (like mice) have a much higher surface area-to-volume ratio than massive mammals (like elephants). Consequently, mice lose body heat to the environment extremely rapidly and must maintain an intensely high mass-specific metabolic rate (consuming ~20x more O2 per gram of tissue) to maintain a stable 37\u00b0C body temperature."
+  },
+  {
+    "id": 17,
+    "topic": "Thiomargarita namibiensis Adaptation",
+    "question": "The giant marine bacterium Thiomargarita namibiensis can reach up to 0.75 mm (750 \u03bcm) in diameter\u2014visible to the naked eye. What internal structure allows this prokaryote to bypass normal bacterial size limits?",
+    "options": [
+      "An enormous central liquid vacuole filled with nitrate solution that occupies 98% of the cell volume, restricting active cytoplasm to a thin peripheral shell",
+      "Multiple eukaryotic nuclei and mitochondria acquired through endosymbiosis",
+      "A porous outer wall that allows extracellular seawater to flow through the entire interior like a sponge",
+      "The complete absence of a lipid membrane, utilizing a solid sulfur crystal lattice instead"
+    ],
+    "answer": 0,
+    "clue": "How do giant cells keep active cytoplasm close to the outer cell surface?",
+    "explanation": "Option A is correct. Thiomargarita namibiensis survives at macroscopic dimensions because roughly 98% of its internal volume is occupied by a massive central storage vacuole containing nitrate (which it uses as an electron acceptor). The metabolically active cytoplasm, containing ribosomes and DNA, is compressed into a thin peripheral layer only 0.5 to 2 \u03bcm thick against the cell wall, preserving short diffusion distances."
+  },
+  {
+    "id": 18,
+    "topic": "Quantitative Comparison: Cube Calculations",
+    "question": "Consider two cubical cells: Cell X (side = 2 \u03bcm) and Cell Y (side = 4 \u03bcm). Which mathematical statement correctly compares their physical properties?",
+    "options": [
+      "Cell Y has twice the surface area-to-volume ratio of Cell X",
+      "Cell X has a surface area of 24 \u03bcm\u00b2, a volume of 8 \u03bcm\u00b3, and a SA:V ratio of 3:1; Cell Y has a SA:V ratio of 1.5:1",
+      "Cell X has a volume of 16 \u03bcm\u00b3 while Cell Y has a volume of 32 \u03bcm\u00b3",
+      "Both Cell X and Cell Y have identical SA:V ratios because both are cubes"
+    ],
+    "answer": 1,
+    "clue": "Calculate SA = 6s^2, V = s^3, and SA/V for s = 2 and s = 4.",
+    "explanation": "Option B is correct. For Cell X (s = 2 \u03bcm): SA = 6(2)^2 = 24 \u03bcm^2; V = (2)^3 = 8 \u03bcm^3; SA:V = 24/8 = 3.0 \u03bcm^-1. For Cell Y (s = 4 \u03bcm): SA = 6(4)^2 = 96 \u03bcm^2; V = (4)^3 = 64 \u03bcm^3; SA:V = 96/64 = 1.5 \u03bcm^-1. Thus, doubling the linear dimension from 2 \u03bcm to 4 \u03bcm cuts the SA:V ratio exactly in half (from 3:1 to 1.5:1)."
+  },
+  {
+    "id": 19,
+    "topic": "Root Hair Surface Amplification",
+    "question": "A plant seedling develops hundreds of thousands of microscopic root hairs in the maturation zone of its primary root. If these root hairs were genetically prevented from forming, what would be the physiological consequence for the plant?",
+    "options": [
+      "The plant would absorb water 10 times faster because root hairs create drag in soil pores",
+      "Root cells would divide continuously via uncontrolled binary fission",
+      "The total absorptive surface area of the root epidermis would decrease by over 70-80%, severely impairing water and mineral uptake",
+      "Photosynthesis in the underground roots would immediately stop producing glucose"
+    ],
+    "answer": 2,
+    "clue": "What is the primary ecological/physiological purpose of root hair lateral extensions in soil?",
+    "explanation": "Option C is correct. Root hairs are slender lateral tubular outgrowths of root epidermal trichoblasts. By extending into tiny soil capillary crevices, they amplify the root system's effective surface area for water and dissolved mineral absorption by several hundred percent. Without them, the reduced SA:V ratio severely impairs osmotic water absorption and causes nutrient starvation."
+  },
+  {
+    "id": 20,
+    "topic": "Cellular Geometry Master Synthesis",
+    "question": "Four hypothetical cells have identical volumes (V = 1,000 \u03bcm\u00b3) but distinct geometric morphologies. Which cell geometry will exhibit the HIGHEST surface area-to-volume ratio and the most rapid rate of nutrient uptake per unit volume?",
+    "options": [
+      "Cell 1: A perfect sphere",
+      "Cell 2: A perfect cube",
+      "Cell 3: A short, thick cylinder with height equal to diameter",
+      "Cell 4: An extremely flattened, thin disc with extensive surface undulations"
+    ],
+    "answer": 3,
+    "clue": "Which shape maximizes surface area while maintaining a given fixed volume?",
+    "explanation": "Option D is correct. For any given fixed volume, a sphere provides the minimum possible surface area (the lowest SA:V ratio). As a cell flattens into a thin sheet or disc with surface corrugations (like an erythrocyte or microvillar enterocyte), its surface area increases dramatically while keeping volume constant. This yields the highest SA:V ratio and shortest diffusion distances, maximizing transmembrane nutrient uptake kinetics."
+  }
+];
+
+    const STORAGE_KEY = 'bio_unit2_test14_state_clean';
+
+    let userState = {
+      answers: {},
+      showClues: {},
+      allCluesVisible: false,
+      currentFilter: 'All',
+      missedOnly: false
+    };
+
+    function init() {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        try {
+          const parsed = JSON.parse(saved);
+          if (parsed && typeof parsed === 'object') {
+            userState.answers = parsed.answers || {};
+            userState.showClues = parsed.showClues || {};
+          }
+        } catch(e) {
+          console.error("Could not load state", e);
+        }
+      }
+      renderQuestions();
+      updateStats();
+    }
+
+    function safeSave() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({
+          answers: userState.answers,
+          showClues: userState.showClues
+        }));
+      } catch(e) {
+        console.error("Save failed", e);
+      }
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById('questionsContainer');
+      if (!container) return;
+
+      let list = questionsData;
+
+      if (userState.currentFilter !== 'All') {
+        list = list.filter(q => q.topic === userState.currentFilter);
+      }
+
+      if (userState.missedOnly) {
+        list = list.filter(q => {
+          const ans = userState.answers[q.id];
+          return ans !== undefined && ans !== q.answer;
+        });
+      }
+
+      if (list.length === 0) {
+        container.innerHTML = `
+          <div class="bg-white rounded-2xl p-12 text-center border border-slate-200 text-slate-500">
+            <i class="fa-solid fa-clipboard-check text-4xl text-indigo-400 mb-3"></i>
+            <p class="font-bold text-base text-slate-700">No questions match this filter.</p>
+            <p class="text-xs mt-1">Try selecting "All Topics" or toggle off "Missed Only".</p>
+          </div>
+        `;
+        return;
+      }
+
+      const letters = ['A', 'B', 'C', 'D'];
+
+      container.innerHTML = list.map((q) => {
+        const userSelected = userState.answers[q.id];
+        const isAnswered = userSelected !== undefined;
+        const isCorrect = isAnswered && userSelected === q.answer;
+        const isClueVisible = userState.allCluesVisible || !!userState.showClues[q.id];
+
+        let statusBadge = '';
+        if (isAnswered) {
+          if (isCorrect) {
+            statusBadge = '<span class="inline-flex items-center gap-1 text-xs font-bold px-2.5 py-1 rounded-md bg-emerald-100 text-emerald-800 border border-emerald-300"><i class="fa-solid fa-check"></i> Correct</span>';
+          } else {
+            statusBadge = '<span class="inline-flex items-center gap-1 text-xs font-bold px-2.5 py-1 rounded-md bg-rose-100 text-rose-800 border border-rose-300"><i class="fa-solid fa-xmark"></i> Incorrect</span>';
+          }
+        }
+
+        const optionsHtml = q.options.map((optText, optIdx) => {
+          let btnClass = "w-full text-left p-4 rounded-xl border font-medium text-sm transition flex items-start gap-3 cursor-pointer ";
+          let badgeClass = "w-6 h-6 rounded-lg text-xs font-bold flex items-center justify-center shrink-0 border ";
+
+          if (!isAnswered) {
+            btnClass += "bg-white hover:bg-slate-50 border-slate-200 hover:border-slate-300 text-slate-700";
+            badgeClass += "bg-slate-100 border-slate-300 text-slate-600";
+          } else {
+            if (optIdx === q.answer) {
+              btnClass += "bg-emerald-50 border-emerald-500 text-emerald-950 font-semibold ring-2 ring-emerald-400/20";
+              badgeClass += "bg-emerald-600 border-emerald-600 text-white";
+            } else if (optIdx === userSelected) {
+              btnClass += "bg-rose-50 border-rose-500 text-rose-950 ring-2 ring-rose-400/20";
+              badgeClass += "bg-rose-600 border-rose-600 text-white";
+            } else {
+              btnClass += "bg-white border-slate-200 text-slate-400 opacity-60";
+              badgeClass += "bg-slate-100 border-slate-200 text-slate-400";
+            }
+          }
+
+          return `
+            <button onclick="selectOption(${q.id}, ${optIdx})" class="${btnClass}" ${isAnswered ? 'disabled' : ''}>
+              <span class="${badgeClass}">${letters[optIdx]}</span>
+              <span class="pt-0.5 leading-relaxed">${optText}</span>
+            </button>
+          `;
+        }).join('');
+
+        let clueBox = '';
+        if (isClueVisible) {
+          clueBox = `
+            <div class="mt-4 p-3.5 bg-amber-50/90 rounded-xl border border-amber-200/80 text-amber-950 text-xs leading-relaxed flex items-start gap-2.5">
+              <i class="fa-regular fa-lightbulb text-amber-600 text-sm mt-0.5 shrink-0"></i>
+              <div>
+                <strong class="font-bold text-amber-900">Study Hint:</strong> ${q.clue}
+              </div>
+            </div>
+          `;
+        }
+
+        let explanationBox = '';
+        if (isAnswered) {
+          explanationBox = `
+            <div class="mt-4 p-4 rounded-xl border ${isCorrect ? 'bg-emerald-50/90 border-emerald-200 text-emerald-950' : 'bg-slate-100 border-slate-300 text-slate-800'} text-xs leading-relaxed">
+              <div class="flex items-center gap-1.5 font-bold mb-1.5 ${isCorrect ? 'text-emerald-900' : 'text-slate-900'}">
+                <i class="fa-solid ${isCorrect ? 'fa-circle-check text-emerald-600' : 'fa-circle-info text-blue-600'}"></i>
+                <span>${isCorrect ? 'Outstanding! Rigorous Geometric Breakdown:' : 'Conceptual Breakdown & Correction:'}</span>
+              </div>
+              <p class="text-slate-700 leading-relaxed font-normal">${q.explanation}</p>
+            </div>
+          `;
+        }
+
+        return `
+          <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 transition">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 border border-slate-200">Question ${q.id} of 20</span>
+                <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-indigo-50 text-indigo-700 border border-indigo-200">${q.topic}</span>
+              </div>
+              <div>${statusBadge}</div>
+            </div>
+
+            <h3 class="text-base sm:text-lg font-bold text-slate-900 leading-snug mb-5">${q.question}</h3>
+
+            <div class="space-y-3">
+              ${optionsHtml}
+            </div>
+
+            <div class="flex items-center justify-between pt-4 mt-4 border-t border-slate-100">
+              <button onclick="toggleClueSingle(${q.id})" class="text-xs text-slate-500 hover:text-amber-700 font-medium flex items-center gap-1.5 transition cursor-pointer">
+                <i class="fa-regular fa-lightbulb text-amber-500"></i>
+                <span>${isClueVisible ? 'Hide Hint' : 'Show Hint'}</span>
+              </button>
+
+              ${isAnswered ? `
+                <button onclick="clearSingleAnswer(${q.id})" class="text-xs text-slate-400 hover:text-rose-600 font-medium flex items-center gap-1 transition cursor-pointer">
+                  <i class="fa-solid fa-arrow-rotate-left text-xs"></i> Retry
+                </button>
+              ` : '<span class="text-[11px] text-slate-400 italic">Select the best response</span>'}
+            </div>
+
+            ${clueBox}
+            ${explanationBox}
+          </div>
+        `;
+      }).join('');
+    }
+
+    function selectOption(qId, optIdx) {
+      if (userState.answers[qId] !== undefined) return;
+      userState.answers[qId] = optIdx;
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function clearSingleAnswer(qId) {
+      delete userState.answers[qId];
+      safeSave();
+      renderQuestions();
+      updateStats();
+    }
+
+    function toggleClueSingle(qId) {
+      if (userState.allCluesVisible) {
+        userState.showClues[qId] = false;
+      } else {
+        userState.showClues[qId] = !userState.showClues[qId];
+      }
+      safeSave();
+      renderQuestions();
+    }
+
+    function toggleAllClues() {
+      userState.allCluesVisible = !userState.allCluesVisible;
+      const btnText = document.getElementById('clueToggleText');
+      if (btnText) {
+        btnText.textContent = userState.allCluesVisible ? 'Hide All Hints' : 'Show All Hints';
+      }
+      renderQuestions();
+    }
+
+    function filterTopic(topic) {
+      userState.currentFilter = topic;
+      userState.missedOnly = false;
+      document.querySelectorAll('.topic-btn').forEach(btn => {
+        if (btn.textContent.includes(topic) || (topic === 'All' && btn.textContent.includes('All Topics'))) {
+          btn.className = 'topic-btn active-topic px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-indigo-600 text-white shadow-sm transition cursor-pointer';
+        } else {
+          btn.className = 'topic-btn px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer';
+        }
+      });
+      renderQuestions();
+    }
+
+    function filterMissed() {
+      userState.missedOnly = !userState.missedOnly;
+      const btn = document.getElementById('filterMissedBtn');
+      if (userState.missedOnly) {
+        btn.className = 'text-xs bg-rose-600 text-white border border-rose-600 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer shadow-sm';
+      } else {
+        btn.className = 'text-xs bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-300 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 cursor-pointer';
+      }
+      renderQuestions();
+    }
+
+    function updateStats() {
+      const total = questionsData.length;
+      const answeredKeys = Object.keys(userState.answers);
+      const answeredCount = answeredKeys.length;
+      let correctCount = 0;
+      let missedCount = 0;
+
+      answeredKeys.forEach(k => {
+        const q = questionsData.find(item => item.id == k);
+        if (q) {
+          if (userState.answers[k] === q.answer) {
+            correctCount++;
+          } else {
+            missedCount++;
+          }
+        }
+      });
+
+      const pct = answeredCount > 0 ? Math.round((correctCount / answeredCount) * 100) : 0;
+      const progressPct = Math.round((answeredCount / total) * 100);
+
+      const statAns = document.getElementById('statAnswered');
+      const statScore = document.getElementById('statScore');
+      const progBar = document.getElementById('quizProgressBar');
+      const missedCountSpan = document.getElementById('missedCount');
+
+      if (statAns) statAns.textContent = `${answeredCount}/${total}`;
+      if (statScore) statScore.textContent = `${pct}%`;
+      if (progBar) progBar.style.width = `${progressPct}%`;
+      if (missedCountSpan) missedCountSpan.textContent = missedCount;
+
+      const summaryCard = document.getElementById('scoreSummaryCard');
+      if (answeredCount === total && total > 0) {
+        if (summaryCard) {
+          summaryCard.classList.remove('hidden');
+          document.getElementById('finalTotal').textContent = total;
+          document.getElementById('finalCorrect').textContent = correctCount;
+          document.getElementById('finalPercent').textContent = `${pct}%`;
+
+          const rating = document.getElementById('masteryRating');
+          if (pct >= 90) {
+            rating.className = 'p-4 rounded-2xl font-bold text-sm mb-6 bg-emerald-100 text-emerald-900 border border-emerald-300';
+            rating.innerHTML = '🌟 Master Level! Outstanding grasp of cellular geometry, diffusion kinetics, and SA:V scaling laws!';
+          } else if (pct >= 75) {
+            rating.className = 'p-4 rounded-2xl font-bold text-sm mb-6 bg-blue-100 text-blue-900 border border-blue-300';
+            rating.innerHTML = '👍 Solid Understanding! Review missed questions on agar diffusion penetration, spherical calculations, and syncytial adaptations.';
+          } else {
+            rating.className = 'p-4 rounded-2xl font-bold text-sm mb-6 bg-amber-100 text-amber-900 border border-amber-300';
+            rating.innerHTML = '📚 Keep reviewing! Focus on the foundational rule: as a cell grows, volume (r³) expands much faster than surface area (r²).';
+          }
+        }
+      } else {
+        if (summaryCard) summaryCard.classList.add('hidden');
+      }
+    }
+
+    function resetQuiz() {
+      if (confirm('Are you sure you want to reset all answers and progress for this test?')) {
+        userState.answers = {};
+        userState.showClues = {};
+        userState.allCluesVisible = false;
+        userState.missedOnly = false;
+        safeSave();
+        renderQuestions();
+        updateStats();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  </script>
+</body>
+</html>
