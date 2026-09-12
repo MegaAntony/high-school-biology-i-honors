@@ -12,17 +12,17 @@
 
 ## 🏛️ 1. Project Background & Repository Dual-Setup
 
-### Historical Context & Separation of Concerns
-Originally, the course materials were hosted in a single repository:
-* **V1 / Legacy Repo:** [`MegaAntony/biology-honors`](https://github.com/MegaAntony/biology-honors)  
-  * Local path: `/Volumes/Backup/Antony/HighSchool/Grade9/Biology-Honors`  
-  * Live URL: `https://megaantony.github.io/biology-honors/`  
-  * **CRITICAL DIRECTIVE:** V1 is **FROZEN & UNTOUCHED**. It remains active on GitHub Pages to guarantee that any preexisting bookmarks or links created by the student, family, or teacher continue to resolve without interruption.
+### Historical Context & Migration
+Originally, the course materials began in a legacy repository:
+* **V1 / Legacy Repo (DELETED & RETIRED):** `MegaAntony/biology-honors`  
+  * Local path: `/Volumes/Backup/Antony/HighSchool/Grade9/Biology-Honors` (Deleted)  
+  * Remote repo: Permanently deleted on September 12, 2026.  
+  * All 26 practice tests, lecture notes, teacher PDFs, and materials were 100% ingested into V2.
 
-* **V2 / Master Academic Year Repo:** [`MegaAntony/high-school-biology-i-honors`](https://github.com/MegaAntony/high-school-biology-i-honors)  
+* **Sole Production Academic Year Repo:** [`MegaAntony/high-school-biology-i-honors`](https://github.com/MegaAntony/high-school-biology-i-honors)  
   * Local path: `/Volumes/Backup/Antony/HighSchool/Grade9/Biology-Honors-V2`  
   * Live URL: `https://megaantony.github.io/high-school-biology-i-honors/`  
-  * **PURPOSE:** This is the primary, refactored, long-term workspace for the entire academic year (Units 01 through 10, Semester 1 & 2 Schedules, and Georgia Milestones EOC review). All new materials, tests, and weekly plans are added exclusively here.
+  * **PURPOSE:** This is the primary, long-term workspace for the entire academic year (Units 01 through 10, Semester 1 & 2 Schedules, and Georgia Milestones EOC review). All materials, tests, and weekly plans live exclusively here.
 
 ---
 
@@ -249,5 +249,5 @@ Follow the 6-phase playbook documented in [`ACADEMIC_YEAR_PLAN_AND_UNIT_PLAYBOOK
 ### Rule 3: Maintain Backward Compatibility
 Do NOT delete or rename files in `Week-9-7/tests/` or `unit01-tests/`. These redirect stubs ensure that any historical browser bookmarks continue to route seamlessly to the new unit locations.
 
-### Rule 4: Do Not Touch V1
-Never make commits or file edits in `/Volumes/Backup/Antony/HighSchool/Grade9/Biology-Honors` or push to remote `MegaAntony/biology-honors`.
+### Rule 4: Sole Repository Standard
+The legacy V1 repository has been decommissioned and deleted. Do not attempt to push or reference `MegaAntony/biology-honors`. All work belongs exclusively to `MegaAntony/high-school-biology-i-honors`.
