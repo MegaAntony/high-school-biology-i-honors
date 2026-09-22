@@ -30,6 +30,7 @@
 ---
 
 ## ⚡ Current Week In Detail: S1W7 (9/21 – 9/25)
+*👉 **[Launch Interactive Weekly Landing Page (HTML)](../Week-9-21/index.html)***
 
 ### 🎯 Weekly Learning Targets (GSE Standards: SB1.a & SB1.d)
 * Identify and label all components of the cell (prokaryote, plant, animal).
