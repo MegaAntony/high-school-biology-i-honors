@@ -17,6 +17,8 @@ Unit 2 is systematically divided into two core segments:
 | :--- | :--- | :--- |
 | 🚨 **Summative Exam Hub (Wed/Thu)** | [`Unit 2 Summative-9-23/index.html`](Unit%202%20Summative-9-23/index.html) | Complete interactive review portal & study guide hub |
 | 📖 **Master Answer Keys (HTML)** | [`Unit 2 Summative-9-23/Unit_02_Summative_Master_Study_Guide_and_Keys.html`](Unit%202%20Summative-9-23/Unit_02_Summative_Master_Study_Guide_and_Keys.html) | Tailwind CSS publication-grade guide with full worked answers |
+| 📄 **Cells Study Guide (Q&amp;A)** | [`Unit 2 Summative-9-23/cells_study_guide_qa.html`](Unit%202%20Summative-9-23/cells_study_guide_qa.html) | Full questions, diagrams, and answers for Cells Study Guide |
+| 📄 **Transport Study Guide (Q&amp;A)** | [`Unit 2 Summative-9-23/cell_membrane_and_transport_study_guide_qa.html`](Unit%202%20Summative-9-23/cell_membrane_and_transport_study_guide_qa.html) | Full questions, drawings, and answers for Membrane & Transport |
 | **55-Q Master Exam** | [`tests/test-unit-2-part-1-comprehensive-mastery.html`](tests/test-unit-2-part-1-comprehensive-mastery.html) | Balanced options (A:B:C:D), full rationale |
 | **30-Test Practice Suite** | [`tests/index.html`](tests/index.html) | Interactive testing portal with 635 practice MCQs |
 | **Printable Cheat Sheet** | [`cell_transport_final_cheat_sheet.html`](cell_transport_final_cheat_sheet.html) | 1-page compact walk-into-class printable sheet |
