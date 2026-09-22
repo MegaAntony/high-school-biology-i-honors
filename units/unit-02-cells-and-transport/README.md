@@ -15,10 +15,11 @@ Unit 2 is systematically divided into two core segments:
 
 | Tool / Assessment | Link | Description |
 | :--- | :--- | :--- |
+| 🚨 **Summative Exam Hub (Wed/Thu)** | [`Unit 2 Summative-9-23/index.html`](Unit%202%20Summative-9-23/index.html) | Complete interactive review portal & study guide hub |
+| 📖 **Master Answer Keys (HTML)** | [`Unit 2 Summative-9-23/Unit_02_Summative_Master_Study_Guide_and_Keys.html`](Unit%202%20Summative-9-23/Unit_02_Summative_Master_Study_Guide_and_Keys.html) | Tailwind CSS publication-grade guide with full worked answers |
 | **55-Q Master Exam** | [`tests/test-unit-2-part-1-comprehensive-mastery.html`](tests/test-unit-2-part-1-comprehensive-mastery.html) | Balanced options (A:B:C:D), full rationale |
 | **30-Test Practice Suite** | [`tests/index.html`](tests/index.html) | Interactive testing portal with 635 practice MCQs |
 | **Printable Cheat Sheet** | [`cell_transport_final_cheat_sheet.html`](cell_transport_final_cheat_sheet.html) | 1-page compact walk-into-class printable sheet |
-| **Master Exam Guide** | [`materials/md/Unit_2_Part_1_Comprehensive_100_Percent_Mastery_Test.md`](materials/md/Unit_2_Part_1_Comprehensive_100_Percent_Mastery_Test.md) | Full questions, solutions, and explanations |
 | **78-Term Vocab Guide** | [`materials/md/Unit 2 Cellular Processes Extended Vocabulary Guide.md`](materials/md/Unit%202%20Cellular%20Processes%20Extended%20Vocabulary%20Guide.md) | Dr. Irwin's official academic vocabulary glossary |
 
 ---

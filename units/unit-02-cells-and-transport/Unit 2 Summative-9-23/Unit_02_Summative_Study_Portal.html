@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 2 Summative Exam Study Portal — Biology I Honors</title>
+    
+    <!-- KaTeX: Modern Standard for Mathematical & Scientific Typography -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+            onload="renderMathInElement(document.body, {
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false}
+                ],
+                throwOnError: false
+            });"></script>
+
+    <style>
+        :root {
+            --bg-primary: #0a0f1d;
+            --bg-secondary: #111827;
+            --bg-card: #1f2937;
+            --bg-card-hover: #263346;
+            --border-color: #374151;
+            --text-primary: #f9fafb;
+            --text-secondary: #9ca3af;
+            --accent-blue: #38bdf8;
+            --accent-green: #34d399;
+            --accent-amber: #fbbf24;
+            --accent-rose: #f43f5e;
+            --accent-purple: #a855f7;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 24px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+            border: 1px solid #4338ca;
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+        }
+
+        .badge-bar {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+        }
+
+        .badge {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 4px 10px;
+            border-radius: 9999px;
+            font-weight: 700;
+        }
+
+        .badge-course { background: rgba(56, 189, 248, 0.15); color: var(--accent-blue); border: 1px solid var(--accent-blue); }
+        .badge-exam { background: rgba(244, 63, 94, 0.15); color: var(--accent-rose); border: 1px solid var(--accent-rose); }
+        .badge-standards { background: rgba(52, 211, 153, 0.15); color: var(--accent-green); border: 1px solid var(--accent-green); }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-bottom: 16px;
+        }
+
+        .action-links {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 16px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary { background: #2563eb; color: #fff; }
+        .btn-primary:hover { background: #1d4ed8; }
+        .btn-secondary { background: var(--bg-card); color: var(--text-primary); border-color: var(--border-color); }
+        .btn-secondary:hover { background: var(--bg-card-hover); border-color: var(--accent-blue); }
+        .btn-emerald { background: rgba(16, 185, 129, 0.2); color: #34d399; border-color: #059669; }
+        .btn-emerald:hover { background: rgba(16, 185, 129, 0.35); }
+
+        /* Progress Tracker */
+        .progress-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .progress-bar-bg {
+            background: rgba(255, 255, 255, 0.08);
+            height: 12px;
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #38bdf8, #34d399);
+            border-radius: 999px;
+            transition: width 0.3s ease;
+        }
+
+        /* Checklists */
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 12px;
+            margin-top: 14px;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--bg-card);
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+        }
+
+        .check-item:hover {
+            border-color: var(--accent-blue);
+        }
+
+        .check-item input[type="checkbox"] {
+            accent-color: var(--accent-green);
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        /* Content Sections */
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+            margin: 32px 0 16px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+
+        /* Accordion Active Recall */
+        .accordion-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            transition: border-color 0.2s ease;
+        }
+
+        .accordion-item:hover {
+            border-color: var(--accent-blue);
+        }
+
+        .accordion-header {
+            padding: 16px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.05rem;
+            background: var(--bg-card);
+            user-select: none;
+        }
+
+        .accordion-header .title-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-left: 8px;
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--accent-blue);
+        }
+
+        .accordion-body {
+            padding: 20px;
+            display: none;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            font-size: 0.95rem;
+        }
+
+        .accordion-item.active .accordion-body {
+            display: block;
+        }
+
+        .accordion-header::after {
+            content: "+";
+            font-size: 1.3rem;
+            color: var(--accent-blue);
+            transition: transform 0.2s ease;
+        }
+
+        .accordion-item.active .accordion-header::after {
+            content: "−";
+        }
+
+        /* Data Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 14px 0;
+            font-size: 0.9rem;
+        }
+
+        th, td {
+            padding: 10px 14px;
+            text-align: left;
+            border: 1px solid var(--border-color);
+        }
+
+        th {
+            background: #1e293b;
+            color: var(--accent-blue);
+            font-weight: 700;
+        }
+
+        tr:nth-child(even) td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        /* Highlight Boxes */
+        .callout {
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin: 14px 0;
+            border-left: 4px solid;
+            font-size: 0.92rem;
+        }
+
+        .callout-info { background: rgba(56, 189, 248, 0.08); border-color: var(--accent-blue); }
+        .callout-warning { background: rgba(251, 191, 36, 0.08); border-color: var(--accent-amber); }
+        .callout-danger { background: rgba(244, 63, 94, 0.08); border-color: var(--accent-rose); }
+        .callout-success { background: rgba(52, 211, 153, 0.08); border-color: var(--accent-green); }
+
+        /* KaTeX Polish */
+        .katex {
+            font-size: 1.1em !important;
+            color: #f8fafc;
+        }
+
+        /* Grid Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 16px;
+            margin: 16px 0;
+        }
+
+        .card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 18px;
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: var(--accent-blue);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="badge-bar">
+            <span class="badge badge-course">Biology I Honors • Dr. Irwin</span>
+            <span class="badge badge-exam">🚨 Summative Exam: Wed/Thu 9/23–9/24</span>
+            <span class="badge badge-standards">GSE SB1.a & SB1.d</span>
+        </div>
+        <h1>Unit 2 Cells & Cell Transport Summative Portal</h1>
+        <p class="subtitle">Complete Master Review, Active Recall Drills & Verified Answer Keys for the Upcoming Summative Assessment (Multiple Choice & Short Answer Sections).</p>
+        
+        <div class="action-links">
+            <a href="./Cells%20Study%20Guide.docx.pdf" class="btn btn-secondary" target="_blank">📄 Cells Study Guide (PDF)</a>
+            <a href="./Cell%20Membrane%20and%20Transport%20Study%20Guide.docx.pdf" class="btn btn-secondary" target="_blank">📄 Membrane & Transport Guide (PDF)</a>
+            <a href="./Unit_02_Summative_Master_Study_Guide_and_Keys.html" class="btn btn-primary" target="_blank">📖 Complete Worked Answer Keys (HTML)</a>
+            <a href="../tests/test-unit-2-part-1-comprehensive-mastery.html" class="btn btn-emerald" target="_blank">🎯 55-Question Practice Exam</a>
+        </div>
+    </header>
+
+    <!-- Progress Tracker -->
+    <div class="progress-card">
+        <div class="progress-header">
+            <h3><strong>Unit 2 Mastery Progress</strong></h3>
+            <span id="progress-percent" style="font-weight: 700; color: var(--accent-green);">0% Completed</span>
+        </div>
+        <div class="progress-bar-bg">
+            <div id="progress-bar" class="progress-bar-fill"></div>
+        </div>
+
+        <div class="checklist-grid">
+            <label class="check-item"><input type="checkbox" class="task-check" onchange="updateProgress()"> 22 Organelles Identification & Locations</label>
+            <label class="check-item"><input type="checkbox" class="task-check" onchange="updateProgress()"> Endomembrane System Protein Synthesis Relay</label>
+            <label class="check-item"><input type="checkbox" class="task-check" onchange="updateProgress()"> Organelle "Cease to Collaborate" CER Analysis</label>
+            <label class="check-item"><input type="checkbox" class="task-check" onchange="updateProgress()"> Fluid Mosaic Model & Selective Permeability</label>
+            <label class="check-item"><input type="checkbox" class="task-check" onchange="updateProgress()"> Passive Transport: Diffusion & Osmosis</label>
+            <label class="check-item"><input type="checkbox" class="task-check" onchange="updateProgress()"> Tonicity Scenarios: Hypo / Iso / Hypertonic</label>
+            <label class="check-item"><input type="checkbox" class="task-check" onchange="updateProgress()"> Active Transport: $3\text{ Na}^+ / 2\text{ K}^+$ Pump</label>
+            <label class="check-item"><input type="checkbox" class="task-check" onchange="updateProgress()"> Bulk Transport: Endo (Phago/Pino/RME) & Exocytosis</label>
+        </div>
+    </div>
+
+    <!-- HIGH YIELD SECTION 1: ORGANELLE COLLABORATION & SHORT ANSWER CER -->
+    <div class="section-title">🔥 1. Organelle Collaboration & "Cease to Collaborate" Failure Analysis (Short Answer CER)</div>
+    <div class="callout callout-warning">
+        <strong>⚠️ Teacher Focus Alert:</strong> Dr. Irwin designed Page 3 of the review packet specifically around organelle collaboration pairs and predicting the cellular consequences if they cease to collaborate. This is the cornerstone of the exam's <strong>Short Answer Section</strong>.
+    </div>
+
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            1. Mitochondria & Chloroplast Collaboration
+            <span class="title-badge">Metabolic Coupling</span>
+        </div>
+        <div class="accordion-body">
+            <p><strong>Primary Functions:</strong></p>
+            <ul>
+                <li><strong>Chloroplast:</strong> Uses solar energy to synthesize glucose and oxygen: $6\text{CO}_2 + 6\text{H}_2\text{O} + \text{light} \to \text{C}_6\text{H}_{12}\text{O}_6 + 6\text{O}_2$.</li>
+                <li><strong>Mitochondria:</strong> Performs aerobic respiration to generate ATP: $\text{C}_6\text{H}_{12}\text{O}_6 + 6\text{O}_2 \to 6\text{CO}_2 + 6\text{H}_2\text{O} + 36\text{–}38\text{ ATP}$.</li>
+            </ul>
+            <p style="margin-top: 10px;"><strong>How They Collaborate:</strong> Direct biochemical loop in autotrophic plant cells. The organic products of chloroplasts serve as fuel for mitochondria, while mitochondrial byproduct gases ($\text{CO}_2$) supply chloroplasts.</p>
+            <div class="callout callout-danger" style="margin-top: 10px;">
+                <strong>Consequence If They Cease to Collaborate:</strong> If chloroplasts are inhibited or fail, the plant depletes internal glucose reserves. Deprived of substrate, mitochondrial aerobic respiration stops, cellular ATP crashes, active transport fails, and the plant cell starves and dies.
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            2. Cell Wall & Central Vacuole Collaboration
+            <span class="title-badge">Turgor Pressure & Rigidity</span>
+        </div>
+        <div class="accordion-body">
+            <p><strong>Primary Functions:</strong></p>
+            <ul>
+                <li><strong>Central Vacuole:</strong> Stores water and dissolved solutes; exerts outward hydrostatic pressure (turgor).</li>
+                <li><strong>Cell Wall:</strong> Rigid cellulose framework providing mechanical resistance and structural shape.</li>
+            </ul>
+            <p style="margin-top: 10px;"><strong>How They Collaborate:</strong> As the vacuole fills with water in hypotonic conditions, it presses against the rigid cell wall. The cell wall pushes back with equal force, creating high <strong>turgor pressure</strong> that keeps the plant erect without lysing.</p>
+            <div class="callout callout-danger" style="margin-top: 10px;">
+                <strong>Consequence If They Cease to Collaborate:</strong> In a hypertonic environment, water exits the vacuole. Outward pressure drops, causing the plasma membrane to detach and shrink away from the cell wall (<strong>plasmolysis</strong>). The plant loses turgor and wilts.
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            3. Ribosome & Rough Endoplasmic Reticulum (RER)
+            <span class="title-badge">Protein Synthesis Docking</span>
+        </div>
+        <div class="accordion-body">
+            <p><strong>Primary Functions:</strong></p>
+            <ul>
+                <li><strong>Ribosome:</strong> Catalyzes peptide bond formation between amino acids guided by mRNA.</li>
+                <li><strong>Rough ER:</strong> Membranous folds providing chaperone proteins for folding and initial glycosylation.</li>
+            </ul>
+            <p style="margin-top: 10px;"><strong>How They Collaborate:</strong> Ribosomes translating proteins with a signal sequence dock onto translocon channels on the RER, threading the nascent polypeptide into the ER lumen.</p>
+            <div class="callout callout-danger" style="margin-top: 10px;">
+                <strong>Consequence If They Cease to Collaborate:</strong> Synthesized secretory proteins cannot enter the ER lumen. Polypeptides misfold or aggregate in the cytosol, halting membrane receptor production and triggering apoptosis via the Unfolded Protein Response (UPR).
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            4. Rough ER & Golgi Apparatus Collaboration
+            <span class="title-badge">Vesicular Trafficking</span>
+        </div>
+        <div class="accordion-body">
+            <p><strong>Primary Functions:</strong></p>
+            <ul>
+                <li><strong>Rough ER:</strong> Assembles and packages folded proteins into transport vesicles.</li>
+                <li><strong>Golgi Apparatus:</strong> Modifies, sorts, and packages proteins into secretory vesicles.</li>
+            </ul>
+            <p style="margin-top: 10px;"><strong>How They Collaborate:</strong> RER buds transport vesicles that travel along microtubules to fuse with the <em>cis</em>-face of the Golgi, delivering proteins for carbohydrate tagging and sorting.</p>
+            <div class="callout callout-danger" style="margin-top: 10px;">
+                <strong>Consequence If They Cease to Collaborate:</strong> Vesicular transport halts. Proteins accumulate inside the RER causing severe ER swelling. The Golgi is starved of cargo, cellular secretion shuts down, and newly synthesized enzymes cannot reach lysosomes.
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            5. Golgi Vesicles & Vacuoles / Lysosomes Collaboration
+            <span class="title-badge">Hydrolytic Delivery</span>
+        </div>
+        <div class="accordion-body">
+            <p><strong>Primary Functions:</strong></p>
+            <ul>
+                <li><strong>Golgi Vesicles:</strong> Sorts acid hydrolases and packages them into clathrin-coated vesicles.</li>
+                <li><strong>Lysosomes / Vacuoles:</strong> Acidic compartments ($\text{pH} \approx 4.5\text{–}5.0$) containing digestive enzymes.</li>
+            </ul>
+            <p style="margin-top: 10px;"><strong>How They Collaborate:</strong> The Golgi tags digestive enzymes with mannose-6-phosphate and ships them in vesicles that fuse with endosomes to form mature, functional lysosomes.</p>
+            <div class="callout callout-danger" style="margin-top: 10px;">
+                <strong>Consequence If They Cease to Collaborate:</strong> Lysosomes lack hydrolytic enzymes. Undigested cellular waste and lipids accumulate inside lysosomes, causing pathological enlargement and cell death (the biochemical cause of <strong>Tay-Sachs disease</strong>).
+            </div>
+        </div>
+    </div>
+
+    <!-- HIGH YIELD SECTION 2: ENDOMEMBRANE PROTEIN SYNTHESIS RELAY -->
+    <div class="section-title">📦 2. The Endomembrane Protein Synthesis Relay (Step-by-Step)</div>
+    <div class="card">
+        <p style="margin-bottom: 12px;">Trace the path of an exported protein (e.g., insulin) from gene to secretion:</p>
+        <ol style="margin-left: 20px; line-height: 1.8;">
+            <li><strong>Nucleus:</strong> DNA gene sequence is transcribed into <strong>messenger RNA (mRNA)</strong>.</li>
+            <li><strong>Nuclear Pores:</strong> mRNA transcript exits the nucleus through nuclear pore complexes into the cytosol.</li>
+            <li><strong>Ribosome on Rough ER:</strong> Ribosome binds mRNA, initiates translation, and docks onto the <strong>Rough ER</strong> membrane.</li>
+            <li><strong>RER Lumen:</strong> Polypeptide threads into the lumen; folds into native 3D tertiary structure and receives initial oligosaccharides.</li>
+            <li><strong>Transport Vesicle:</strong> A membrane vesicle buds off the RER enclosing the protein.</li>
+            <li><strong>Golgi Cis-Face:</strong> Vesicle travels along microtubules and fuses with the <em>cis</em>-face of the Golgi apparatus.</li>
+            <li><strong>Golgi Cisternae:</strong> Protein is enzymatically modified (sugars added/trimmed) and given a chemical address tag.</li>
+            <li><strong>Golgi Trans-Face:</strong> Protein is sorted and packaged into a <strong>secretory vesicle</strong> that pinches off the <em>trans</em>-face.</li>
+            <li><strong>Plasma Membrane & Exocytosis:</strong> Secretory vesicle moves to the cell membrane, fuses with the phospholipid bilayer, and expels the protein outside the cell.</li>
+        </ol>
+    </div>
+
+    <!-- HIGH YIELD SECTION 3: TONICITY & OSMOSIS MATRIX -->
+    <div class="section-title">💧 3. Tonicity & Osmotic Dynamics Comparison</div>
+    <table>
+        <thead>
+            <tr>
+                <th>Feature / Parameter</th>
+                <th>Hypotonic Solution</th>
+                <th>Isotonic Solution</th>
+                <th>Hypertonic Solution</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Solute Concentration</strong></td>
+                <td>$[\text{Solute}]_{\text{outside}} < [\text{Solute}]_{\text{inside}}$</td>
+                <td>$[\text{Solute}]_{\text{outside}} = [\text{Solute}]_{\text{inside}}$</td>
+                <td>$[\text{Solute}]_{\text{outside}} > [\text{Solute}]_{\text{inside}}$</td>
+            </tr>
+            <tr>
+                <td><strong>Free Water Concentration</strong></td>
+                <td>Higher outside cell</td>
+                <td>Equal inside and outside</td>
+                <td>Lower outside cell</td>
+            </tr>
+            <tr>
+                <td><strong>Net Water Movement</strong></td>
+                <td><strong>INTO the cell</strong></td>
+                <td><strong>NO NET MOVEMENT</strong> (Dynamic Eq.)</td>
+                <td><strong>OUT OF the cell</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Animal Cell Response</strong></td>
+                <td>Swells and bursts (<strong>Lysis</strong>) ☹</td>
+                <td>Normal / Stable ☺</td>
+                <td>Shrivels / Shrinks (<strong>Crenation</strong>) ☹</td>
+            </tr>
+            <tr>
+                <td><strong>Plant Cell Response</strong></td>
+                <td><strong>Turgid / Rigid (Healthy)</strong> ☺</td>
+                <td>Flaccid / Limp :/</td>
+                <td><strong>Plasmolyzed</strong> (Membrane pulls away) ☹</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- HIGH YIELD SECTION 4: ACTIVE VS PASSIVE TRANSPORT -->
+    <div class="section-title">⚡ 4. Passive vs. Active Transport Summary</div>
+    <div class="card-grid">
+        <div class="card">
+            <h3>Passive Transport ($\text{0 ATP}$)</h3>
+            <p><strong>Direction:</strong> Down gradient ($\text{HIGH} \to \text{LOW}$).</p>
+            <ul style="margin: 10px 0 0 18px; line-height: 1.6;">
+                <li><strong>Simple Diffusion:</strong> Small nonpolar molecules ($\text{O}_2, \text{CO}_2$) pass directly through bilayer.</li>
+                <li><strong>Facilitated Diffusion:</strong> Polar/charged particles pass via channel proteins (aquaporins) or carrier proteins (GLUT).</li>
+                <li><strong>Osmosis:</strong> Diffusion of free water molecules across a selectively permeable membrane.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>Active Transport ($\text{ATP Required}$)</h3>
+            <p><strong>Direction:</strong> Against gradient ($\text{LOW} \to \text{HIGH}$).</p>
+            <ul style="margin: 10px 0 0 18px; line-height: 1.6;">
+                <li><strong>Molecular Pumps ($\text{Na}^+/\text{K}^+$):</strong> Hydrolyzes $1\text{ ATP}$ to pump $3\text{ Na}^+\text{ OUT}$ and $2\text{ K}^+\text{ IN}$.</li>
+                <li><strong>Endocytosis:</strong> Bulk import via vesicles (Phagocytosis = eating, Pinocytosis = drinking, Receptor-mediated).</li>
+                <li><strong>Exocytosis:</strong> Bulk export via vesicle fusion with plasma membrane.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- HIGH YIELD SECTION 5: SITUATION SCENARIOS -->
+    <div class="section-title">🧪 5. Review Packet Situation Scenarios</div>
+    <table>
+        <thead>
+            <tr>
+                <th>Scenario / Situation</th>
+                <th>Type of Transport</th>
+                <th>Specific Form</th>
+                <th>Direction / Tonicity Explanation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Oxygen moving from lungs into blood</strong></td>
+                <td>Passive</td>
+                <td>Simple Diffusion</td>
+                <td>$\text{High } [\text{O}_2]\text{ in alveoli} \to \text{Low } [\text{O}_2]\text{ in blood capillaries}$.</td>
+            </tr>
+            <tr>
+                <td><strong>Transport of hormones between tissues</strong></td>
+                <td>Active (Bulk)</td>
+                <td>Exocytosis & RME</td>
+                <td>Exocytosis releases hormones from endocrine cells; target cells uptake via receptor-mediated endocytosis.</td>
+            </tr>
+            <tr>
+                <td><strong>Freshwater fish released into ocean</strong></td>
+                <td>Passive</td>
+                <td>Osmosis</td>
+                <td>Ocean is <strong>HYPERTONIC</strong>; water rushes <strong>OUT</strong> of fish cells, causing severe dehydration.</td>
+            </tr>
+            <tr>
+                <td><strong>Marine shark wandering into freshwater</strong></td>
+                <td>Passive</td>
+                <td>Osmosis</td>
+                <td>Freshwater is <strong>HYPOTONIC</strong>; water rushes <strong>INTO</strong> shark cells, causing osmotic swelling.</td>
+            </tr>
+            <tr>
+                <td><strong>Import of food particles for ATP</strong></td>
+                <td>Active (Bulk)</td>
+                <td>Phagocytosis</td>
+                <td>Membrane engulfs solid nutrient particles into a phagosome for lysosomal digestion.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <footer>
+        <p>Biology I Honors • South Forsyth High School • Unit 2 Cells & Membrane Transport Summative Portal</p>
+        <p>Built for Antony's Grade 9 Academic Workspace • September 2026</p>
+    </footer>
+</div>
+
+<script>
+    function toggleAccordion(header) {
+        const item = header.parentElement;
+        item.classList.toggle('active');
+    }
+
+    function updateProgress() {
+        const checkboxes = document.querySelectorAll('.task-check');
+        const checked = document.querySelectorAll('.task-check:checked');
+        const percent = Math.round((checked.length / checkboxes.length) * 100);
+        
+        document.getElementById('progress-bar').style.width = percent + '%';
+        document.getElementById('progress-percent').innerText = percent + '% Completed';
+    }
+</script>
+
+</body>
+</html>
