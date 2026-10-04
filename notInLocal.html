@@ -14,23 +14,26 @@
 <body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between">
 
   <!-- HEADER -->
-  <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-30">
+  <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-50">
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 to-indigo-500 flex items-center justify-center text-slate-950 font-black text-lg shadow-lg shadow-indigo-500/20">
+        <a href="index.html" class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 to-indigo-500 flex items-center justify-center text-slate-950 font-black text-lg shadow-lg shadow-indigo-500/20 hover:scale-105 transition">
           <i class="fa-solid fa-cloud"></i>
-        </div>
+        </a>
         <div>
-          <h1 class="text-lg font-black tracking-tight text-white">External & Cloud Direct Links</h1>
-          <p class="text-xs text-slate-400 font-medium">Canvas LMS • Videos • Interactive Games • Google Cloud Docs</p>
+          <a href="index.html" class="text-lg font-black tracking-tight text-white hover:text-sky-400 transition">External &amp; Cloud Direct Links</a>
+          <p class="text-xs text-slate-400 font-medium">Canvas LMS • Google Drive • PPTs • Blookets • Video Streams</p>
         </div>
       </div>
-      <div class="flex items-center gap-3">
-        <a href="index.html" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 px-3.5 py-2 rounded-xl border border-slate-700 transition flex items-center gap-2">
-          <i class="fa-solid fa-house"></i> Home Portal
+      <div class="flex items-center gap-2.5">
+        <a href="index.html" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 px-3.5 py-2 rounded-xl border border-slate-700 transition flex items-center gap-1.5">
+          <i class="fa-solid fa-house text-emerald-400"></i> Home
         </a>
-        <a href="units/unit-02-cells-and-transport/tests/index.html" class="text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white px-3.5 py-2 rounded-xl transition flex items-center gap-2">
-          <i class="fa-solid fa-vial"></i> Practice Tests (30)
+        <a href="schedule/semester-1.html" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 px-3.5 py-2 rounded-xl border border-slate-700 transition flex items-center gap-1.5">
+          <i class="fa-regular fa-calendar text-teal-400"></i> S1 Schedule
+        </a>
+        <a href="https://forsyth.instructure.com/courses/276259" target="_blank" class="text-xs font-bold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-md shadow-indigo-600/30">
+          <i class="fa-solid fa-graduation-cap"></i> Open Canvas
         </a>
       </div>
     </div>
@@ -39,221 +42,465 @@
   <!-- MAIN CONTENT -->
   <main class="max-w-6xl mx-auto px-6 py-10 flex-1 w-full space-y-12">
 
-    <!-- HERO BANNER -->
-    <div class="bg-gradient-to-r from-indigo-900/40 via-purple-900/30 to-slate-900 border border-indigo-500/30 rounded-2xl p-6 md:p-8 shadow-xl">
-      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-        <div>
-          <div class="inline-flex items-center gap-2 bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 text-xs font-bold px-3 py-1 rounded-full mb-3">
-            <i class="fa-solid fa-link"></i> Cloud Direct Links Hub
+    <!-- HERO BANNER WITH EXAM DATES HIGHLIGHT -->
+    <div class="bg-gradient-to-r from-indigo-950/80 via-slate-900 to-purple-950/80 border-2 border-indigo-500/40 rounded-3xl p-6 md:p-8 shadow-2xl relative overflow-hidden">
+      <div class="absolute -right-16 -top-16 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative z-10">
+        <div class="space-y-3 max-w-2xl">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="bg-rose-500 text-white text-[11px] px-3 py-1 rounded-full font-black uppercase tracking-wider flex items-center gap-1.5 shadow-md shadow-rose-500/30 animate-pulse">
+              <i class="fa-solid fa-bell text-[10px]"></i> Next Major Exam: Wed/Thu Oct 21–22
+            </span>
+            <span class="bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs px-3 py-1 rounded-full font-bold">
+              Unit 3: Cell Energy (Current Unit)
+            </span>
+            <span class="bg-purple-500/20 text-purple-300 border border-purple-500/30 text-xs px-3 py-1 rounded-full font-bold">
+              GSE: SB1.e
+            </span>
           </div>
-          <h2 class="text-2xl md:text-3xl font-black text-white tracking-tight">Live Canvas & External Resources</h2>
-          <p class="text-sm text-slate-300 mt-2 max-w-2xl leading-relaxed">
-            This directory provides direct 1-click links to all online games, cloud slide decks, embedded video lessons, and Canvas pages that require an active internet connection.
+          <h2 class="text-2xl md:text-3xl font-black text-white tracking-tight">
+            Live Cloud Hub with Exam Target Dates
+          </h2>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            Every card below displays its corresponding <strong>Summative Exam Date</strong> so you can prioritize your study sessions for current and upcoming testing milestones.
           </p>
         </div>
-        <div class="flex flex-wrap gap-2">
-          <a href="https://forsyth.instructure.com/courses/276259" target="_blank" class="bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-lg shadow-indigo-600/30 transition inline-flex items-center gap-2">
-            <i class="fa-solid fa-graduation-cap"></i> Open Canvas Course
+        <div class="flex flex-col sm:flex-row md:flex-col gap-2.5 w-full md:w-auto">
+          <a href="https://forsyth.instructure.com/courses/276259" target="_blank" class="bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold px-4 py-3 rounded-xl shadow-lg shadow-indigo-600/30 transition text-center flex items-center justify-center gap-2">
+            <i class="fa-solid fa-graduation-cap"></i> Open Canvas Course (276259)
+          </a>
+          <a href="schedule/semester-1.html" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold px-4 py-2.5 rounded-xl border border-slate-700 transition text-center flex items-center justify-center gap-2">
+            <i class="fa-regular fa-calendar-check text-emerald-400"></i> Full Pacing Schedule
           </a>
         </div>
       </div>
     </div>
 
-    <!-- SECTION 1: INTERACTIVE GAMES & DIGITAL PRACTICE -->
-    <div>
-      <div class="flex items-center gap-2.5 mb-5">
-        <div class="w-8 h-8 rounded-lg bg-pink-500/20 border border-pink-500/30 flex items-center justify-center text-pink-400 font-bold text-sm">
-          <i class="fa-solid fa-gamepad"></i>
+    <!-- ========================================================================= -->
+    <!-- SECTION 1: UNIT 3 — CELL ENERGY (ACTIVE UNIT • EXAM: OCT 21–22)            -->
+    <!-- ========================================================================= -->
+    <div class="space-y-5">
+      <div class="flex items-center justify-between border-b border-emerald-500/30 pb-3">
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-bold text-base shadow-sm">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <h3 class="text-xl font-bold text-white tracking-tight">Unit 3: Cell Energy (Enzymes, Respiration &amp; Photosynthesis)</h3>
+              <span class="bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-[10px] font-black uppercase px-2 py-0.5 rounded-full">Active Now</span>
+            </div>
+            <p class="text-xs text-slate-400">Standard GSE SB1.e • October 5 through October 23, 2026</p>
+          </div>
         </div>
-        <h3 class="text-xl font-bold text-white tracking-tight">Interactive Practice Games & Blookets</h3>
+        <div class="hidden sm:flex items-center gap-1.5 bg-rose-950/40 border border-rose-500/40 text-rose-300 text-xs font-bold px-3 py-1.5 rounded-xl">
+          <i class="fa-solid fa-bell text-[10px]"></i> Exam: Wed 10/21 &amp; Thu 10/22
+        </div>
       </div>
+
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 
-        <!-- Card: Unit 2 Blooket -->
-        <a href="https://play.blooket.com/play?hwId=6a91ba671a450b957f15c4e7" target="_blank" class="group p-5 bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-pink-500/50 rounded-2xl transition duration-200 shadow-md flex flex-col justify-between">
+        <!-- Card: Unit 3A Enzymes PPT -->
+        <a href="https://docs.google.com/presentation/d/1NQ8uZlj1Kx65XSWIV_z7cg6N4UlMYyd2KZystDQ53Pc/preview" target="_blank" class="group p-5 bg-slate-800/70 hover:bg-slate-800 border-2 border-emerald-500/50 hover:border-emerald-400 rounded-2xl transition duration-200 shadow-lg flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 rounded bg-pink-500/20 text-pink-300 border border-pink-500/30">Blooket HW</span>
-              <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-pink-400 transition"></i>
+              <span class="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">Unit 3A Slide Deck</span>
+              <span class="text-[10px] font-black px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/30 flex items-center gap-1">
+                <i class="fa-solid fa-calendar-day text-[9px]"></i> Exam: Oct 21–22
+              </span>
             </div>
-            <h4 class="font-bold text-white group-hover:text-pink-300 text-base mb-1 transition">Unit 2: Cell Processes Blooket</h4>
-            <p class="text-xs text-slate-400 leading-relaxed">Official assigned Blooket game covering cell membranes, passive/active transport, and cell structures.</p>
+            <h4 class="font-bold text-white group-hover:text-emerald-300 text-base mb-1 transition">Unit 3A Enzymes &amp; ATP PPT</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">Official lecture slides on biological catalysts, activation energy graphs, active site models, and temperature/pH denaturation.</p>
           </div>
           <div class="mt-4 pt-3 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
-            <span>Dr. Irwin Assignment</span>
-            <span class="font-semibold text-pink-400 flex items-center gap-1"><i class="fa-solid fa-play text-[10px]"></i> Play Game</span>
+            <span>Google Slides (Canvas)</span>
+            <span class="font-semibold text-emerald-400 flex items-center gap-1"><i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Open PPT</span>
           </div>
         </a>
 
-        <!-- Card: Cumulative Blooket -->
-        <a href="https://play.blooket.com/play?hwId=6a91baa1831a98ea48e4f1ef" target="_blank" class="group p-5 bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-pink-500/50 rounded-2xl transition duration-200 shadow-md flex flex-col justify-between">
+        <!-- Card: Unit 3B Cellular Respiration PPT -->
+        <a href="https://docs.google.com/presentation/d/1LREEoD8Q81D9IjF1KuQAA3W0_4PtA8ja-O4ow1U3nIs/preview" target="_blank" class="group p-5 bg-slate-800/70 hover:bg-slate-800 border-2 border-emerald-500/50 hover:border-emerald-400 rounded-2xl transition duration-200 shadow-lg flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 border border-purple-500/30">Blooket Cumulative</span>
-              <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-purple-400 transition"></i>
+              <span class="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">Unit 3B Slide Deck</span>
+              <span class="text-[10px] font-black px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/30 flex items-center gap-1">
+                <i class="fa-solid fa-calendar-day text-[9px]"></i> Exam: Oct 21–22
+              </span>
             </div>
-            <h4 class="font-bold text-white group-hover:text-purple-300 text-base mb-1 transition">Biology Cumulative Blooket</h4>
-            <p class="text-xs text-slate-400 leading-relaxed">Review covering Unit 1 (Biochemistry) and Unit 2 (Cell Transport & Organelles) combined.</p>
+            <h4 class="font-bold text-white group-hover:text-emerald-300 text-base mb-1 transition">Unit 3B Cellular Respiration PPT</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">Glycolysis, Krebs (Citric Acid) Cycle, Electron Transport Chain (ETC), ATP Synthase, and Aerobic vs. Lactic Acid/Ethanol Fermentation.</p>
           </div>
           <div class="mt-4 pt-3 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
-            <span>Semester Review</span>
-            <span class="font-semibold text-purple-400 flex items-center gap-1"><i class="fa-solid fa-play text-[10px]"></i> Play Game</span>
+            <span>Google Slides (Canvas)</span>
+            <span class="font-semibold text-emerald-400 flex items-center gap-1"><i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Open PPT</span>
           </div>
         </a>
 
-        <!-- Card: Purpose Games -->
-        <a href="https://www.purposegames.com/search?q=label+cell" target="_blank" class="group p-5 bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-teal-500/50 rounded-2xl transition duration-200 shadow-md flex flex-col justify-between">
+        <!-- Card: Unit 3C Photosynthesis PPT -->
+        <a href="https://docs.google.com/presentation/d/1atICmhPIZnpfiSvKzXgVoxultmYh-DEuV41hq5jezaA/preview" target="_blank" class="group p-5 bg-slate-800/70 hover:bg-slate-800 border-2 border-emerald-500/50 hover:border-emerald-400 rounded-2xl transition duration-200 shadow-lg flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 rounded bg-teal-500/20 text-teal-300 border border-teal-500/30">Diagram Practice</span>
-              <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-teal-400 transition"></i>
+              <span class="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">Unit 3C Slide Deck</span>
+              <span class="text-[10px] font-black px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/30 flex items-center gap-1">
+                <i class="fa-solid fa-calendar-day text-[9px]"></i> Exam: Oct 21–22
+              </span>
             </div>
-            <h4 class="font-bold text-white group-hover:text-teal-300 text-base mb-1 transition">Purpose Games: Cell Labeling</h4>
-            <p class="text-xs text-slate-400 leading-relaxed">Interactive diagram click-and-identify quizzes for plant and animal cell organelles.</p>
+            <h4 class="font-bold text-white group-hover:text-emerald-300 text-base mb-1 transition">Unit 3C Photosynthesis PPT</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">Chloroplast anatomy, Thylakoid light-dependent reactions, Chlorophyll absorption, and Stroma light-independent Calvin Cycle.</p>
           </div>
           <div class="mt-4 pt-3 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
-            <span>Canvas Linked</span>
-            <span class="font-semibold text-teal-400 flex items-center gap-1"><i class="fa-solid fa-bullseye text-[10px]"></i> Drill Now</span>
+            <span>Google Slides (Canvas)</span>
+            <span class="font-semibold text-emerald-400 flex items-center gap-1"><i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Open PPT</span>
           </div>
         </a>
 
-        <!-- Card: Gimkit Transport -->
-        <a href="https://www.gimkit.com/view/670d0136793b46bcc986e6e1" target="_blank" class="group p-5 bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-blue-500/50 rounded-2xl transition duration-200 shadow-md flex flex-col justify-between">
+        <!-- Card: Unit 3 Student Packet -->
+        <a href="https://drive.google.com/file/d/1KKcJAhVG56Yw9e9CGDtXrmoIjDIPOKLL/view?usp=sharing" target="_blank" class="group p-5 bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-sky-500/50 rounded-2xl transition duration-200 shadow-md flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 border border-blue-500/30">Gimkit Live</span>
-              <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-blue-400 transition"></i>
+              <span class="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 rounded bg-sky-500/20 text-sky-300 border border-sky-500/30">Official Workbook</span>
+              <span class="text-[10px] font-black px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/30 flex items-center gap-1">
+                <i class="fa-solid fa-calendar-day text-[9px]"></i> Exam: Oct 21–22
+              </span>
             </div>
-            <h4 class="font-bold text-white group-hover:text-blue-300 text-base mb-1 transition">Cell Transport Gimkit</h4>
-            <p class="text-xs text-slate-400 leading-relaxed">In-class question set covering simple diffusion, osmosis, hyper/hypo/isotonicity, and pumps.</p>
+            <h4 class="font-bold text-white group-hover:text-sky-300 text-base mb-1 transition">Unit 3 Student Notes Packet</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">Dr. Irwin's official student fill-in-the-blank workbook covering all lecture slides, diagrams, and comprehension checks.</p>
           </div>
           <div class="mt-4 pt-3 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
-            <span>Unit 2 Part 1</span>
-            <span class="font-semibold text-blue-400 flex items-center gap-1"><i class="fa-solid fa-bolt text-[10px]"></i> Open Gimkit</span>
+            <span>Google Drive PDF</span>
+            <span class="font-semibold text-sky-400 flex items-center gap-1"><i class="fa-solid fa-download text-[10px]"></i> Open Drive PDF</span>
           </div>
         </a>
 
-        <!-- Card: Gimkit Cells -->
-        <a href="https://www.gimkit.com/view/670d010c9ef7311aef1b4cff" target="_blank" class="group p-5 bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-blue-500/50 rounded-2xl transition duration-200 shadow-md flex flex-col justify-between">
+        <!-- Card: Unit 3 Lab Packet -->
+        <a href="https://drive.google.com/file/d/1EqxSfY0qu-liCtqLz4iMehkVdlPKde9U/view?usp=sharing" target="_blank" class="group p-5 bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-sky-500/50 rounded-2xl transition duration-200 shadow-md flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 border border-blue-500/30">Gimkit Live</span>
-              <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-blue-400 transition"></i>
+              <span class="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 rounded bg-sky-500/20 text-sky-300 border border-sky-500/30">Lab Activities</span>
+              <span class="text-[10px] font-black px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/30 flex items-center gap-1">
+                <i class="fa-solid fa-calendar-day text-[9px]"></i> Exam: Oct 21–22
+              </span>
             </div>
-            <h4 class="font-bold text-white group-hover:text-blue-300 text-base mb-1 transition">Cells & Organelles Gimkit</h4>
-            <p class="text-xs text-slate-400 leading-relaxed">In-class question set covering cell theory, prokaryotes vs eukaryotes, and organelle functions.</p>
+            <h4 class="font-bold text-white group-hover:text-sky-300 text-base mb-1 transition">Unit 3 Lab Packet</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">In-class lab experiments for catalase enzyme reaction rates, cellular respiration respirometers, and leaf disk flotation.</p>
           </div>
           <div class="mt-4 pt-3 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
-            <span>Unit 2 Part 2</span>
-            <span class="font-semibold text-blue-400 flex items-center gap-1"><i class="fa-solid fa-bolt text-[10px]"></i> Open Gimkit</span>
+            <span>Google Drive PDF</span>
+            <span class="font-semibold text-sky-400 flex items-center gap-1"><i class="fa-solid fa-download text-[10px]"></i> Open Lab PDF</span>
+          </div>
+        </a>
+
+        <!-- Card: Poison Case Study Cards -->
+        <a href="https://drive.google.com/file/d/1YvTA5DtCmdtXEa3ZGj_bCQNPFDuLxMQI/view?usp=sharing" target="_blank" class="group p-5 bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-amber-500/50 rounded-2xl transition duration-200 shadow-md flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">CER Case Study</span>
+              <span class="text-[10px] font-black px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/30 flex items-center gap-1">
+                <i class="fa-solid fa-calendar-day text-[9px]"></i> Exam: Oct 21–22
+              </span>
+            </div>
+            <h4 class="font-bold text-white group-hover:text-amber-300 text-base mb-1 transition">Poison Case Study Cards &amp; Lab</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">Medical detective case study diagnosing cyanide and arsenic inhibition of Cytochrome C in the electron transport chain.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
+            <span>Google Drive PDF</span>
+            <span class="font-semibold text-amber-400 flex items-center gap-1"><i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> View Cards</span>
+          </div>
+        </a>
+
+        <!-- Card: Enzyme Blooket -->
+        <a href="https://dashboard.blooket.com/set/66d859a979d4a50126a320b5" target="_blank" class="group p-5 bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-pink-500/50 rounded-2xl transition duration-200 shadow-md flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 rounded bg-pink-500/20 text-pink-300 border border-pink-500/30">Blooket Game</span>
+              <span class="text-[10px] font-black px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/30 flex items-center gap-1">
+                <i class="fa-solid fa-calendar-day text-[9px]"></i> Exam: Oct 21–22
+              </span>
+            </div>
+            <h4 class="font-bold text-white group-hover:text-pink-300 text-base mb-1 transition">Enzyme Review Blooket</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">Official review game covering enzyme catalysts, substrate binding, optimal pH, and temperature denaturation.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
+            <span>Unit 3 Drill</span>
+            <span class="font-semibold text-pink-400 flex items-center gap-1"><i class="fa-solid fa-play text-[10px]"></i> Play Blooket</span>
+          </div>
+        </a>
+
+        <!-- Card: Cellular Respiration Blooket -->
+        <a href="https://dashboard.blooket.com/set/65a7fc4c3d1b0cb6030b8fef" target="_blank" class="group p-5 bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-pink-500/50 rounded-2xl transition duration-200 shadow-md flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 rounded bg-pink-500/20 text-pink-300 border border-pink-500/30">Blooket Game</span>
+              <span class="text-[10px] font-black px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/30 flex items-center gap-1">
+                <i class="fa-solid fa-calendar-day text-[9px]"></i> Exam: Oct 21–22
+              </span>
+            </div>
+            <h4 class="font-bold text-white group-hover:text-pink-300 text-base mb-1 transition">Cellular Respiration Blooket</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">Targeted active recall drills on glycolysis, mitochondrial matrix reactions, NADH/FADH₂ carriers, and ATP synthase.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
+            <span>Unit 3 Drill</span>
+            <span class="font-semibold text-pink-400 flex items-center gap-1"><i class="fa-solid fa-play text-[10px]"></i> Play Blooket</span>
+          </div>
+        </a>
+
+        <!-- Card: Photosynthesis Blooket -->
+        <a href="https://dashboard.blooket.com/set/659ee3b474368624735ce47f" target="_blank" class="group p-5 bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-pink-500/50 rounded-2xl transition duration-200 shadow-md flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 rounded bg-pink-500/20 text-pink-300 border border-pink-500/30">Blooket Game</span>
+              <span class="text-[10px] font-black px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/30 flex items-center gap-1">
+                <i class="fa-solid fa-calendar-day text-[9px]"></i> Exam: Oct 21–22
+              </span>
+            </div>
+            <h4 class="font-bold text-white group-hover:text-pink-300 text-base mb-1 transition">Photosynthesis Blooket</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">Review game covering light reactions in thylakoids, water photolysis, oxygen release, and glucose synthesis.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
+            <span>Unit 3 Drill</span>
+            <span class="font-semibold text-pink-400 flex items-center gap-1"><i class="fa-solid fa-play text-[10px]"></i> Play Blooket</span>
+          </div>
+        </a>
+
+        <!-- Card: Bioman Interactive Lab -->
+        <a href="https://biomanbio.com/HTML5GamesandLabs/PhotoRespgames/photoresp.html" target="_blank" class="group p-5 bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-teal-500/50 rounded-2xl transition duration-200 shadow-md flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 rounded bg-teal-500/20 text-teal-300 border border-teal-500/30">Interactive Simulator</span>
+              <span class="text-[10px] font-black px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/30 flex items-center gap-1">
+                <i class="fa-solid fa-calendar-day text-[9px]"></i> Exam: Oct 21–22
+              </span>
+            </div>
+            <h4 class="font-bold text-white group-hover:text-teal-300 text-base mb-1 transition">Bioman Photosynthesis &amp; Respiration</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">Interactive web lab where students build chemical reactions, trace carbon atoms, and balance photosynthesis &amp; respiration equations.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
+            <span>Online Simulation</span>
+            <span class="font-semibold text-teal-400 flex items-center gap-1"><i class="fa-solid fa-flask text-[10px]"></i> Launch Lab</span>
+          </div>
+        </a>
+
+        <!-- Card: Cellular Energy Review Stations PPT -->
+        <a href="https://docs.google.com/presentation/d/1zC-NdXNITL101vuiGH2vATsBYGPjAXct/edit?usp=sharing" target="_blank" class="group p-5 bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-purple-500/50 rounded-2xl transition duration-200 shadow-md flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 border border-purple-500/30">Review Stations</span>
+              <span class="text-[10px] font-black px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/30 flex items-center gap-1">
+                <i class="fa-solid fa-calendar-day text-[9px]"></i> Exam: Oct 21–22
+              </span>
+            </div>
+            <h4 class="font-bold text-white group-hover:text-purple-300 text-base mb-1 transition">Cellular Energy Review Stations PPT</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">Station-by-station summative review presentation used for in-class exam review (with paired student handout).</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
+            <span>Google Slides</span>
+            <span class="font-semibold text-purple-400 flex items-center gap-1"><i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Open Stations</span>
+          </div>
+        </a>
+
+        <!-- Card: Cell Energetics YouTube Playlist -->
+        <a href="https://www.youtube.com/playlist?list=PL-Fvwd4deADs4XQSwG-3e0X9jIf67EooO" target="_blank" class="group p-5 bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-red-500/50 rounded-2xl transition duration-200 shadow-md flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 rounded bg-red-500/20 text-red-300 border border-red-500/30">YouTube Curated</span>
+              <span class="text-[10px] font-black px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/30 flex items-center gap-1">
+                <i class="fa-solid fa-calendar-day text-[9px]"></i> Exam: Oct 21–22
+              </span>
+            </div>
+            <h4 class="font-bold text-white group-hover:text-red-300 text-base mb-1 transition">Cell Energetics Video Clips</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">Dr. Irwin's curated video playlist explaining ATP breakdown, electron carriers, and light absorption spectrums.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
+            <span>Video Playlist</span>
+            <span class="font-semibold text-red-400 flex items-center gap-1"><i class="fa-brands fa-youtube text-[10px]"></i> Watch Videos</span>
           </div>
         </a>
 
       </div>
     </div>
 
-    <!-- SECTION 2: VIDEO LESSONS & DOCUMENTARIES -->
-    <div>
-      <div class="flex items-center gap-2.5 mb-5">
-        <div class="w-8 h-8 rounded-lg bg-red-500/20 border border-red-500/30 flex items-center justify-center text-red-400 font-bold text-sm">
-          <i class="fa-solid fa-video"></i>
+    <!-- ========================================================================= -->
+    <!-- SECTION 2: ARCHIVED UNIT 2 — CELLS & TRANSPORT (EXAM HELD: 9/23–9/24)      -->
+    <!-- ========================================================================= -->
+    <div class="space-y-5 pt-4">
+      <div class="flex items-center justify-between border-b border-slate-700 pb-3">
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-400 font-bold text-base">
+            <i class="fa-solid fa-box-archive"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <h3 class="text-xl font-bold text-slate-200 tracking-tight">Unit 2: Cells, Organelles &amp; Cell Transport</h3>
+              <span class="bg-emerald-900/60 text-emerald-300 border border-emerald-700/60 text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full">Completed (Grade: 95%)</span>
+            </div>
+            <p class="text-xs text-slate-400">Standards GSE SB1.a &amp; SB1.d • Archived for Semester 1 Final Exam Review</p>
+          </div>
         </div>
-        <h3 class="text-xl font-bold text-white tracking-tight">Video Lessons, Studio Clips & Documentaries</h3>
+        <div class="hidden sm:flex items-center gap-1.5 bg-slate-800 text-slate-400 border border-slate-700 text-xs font-semibold px-3 py-1.5 rounded-xl">
+          <i class="fa-solid fa-circle-check text-emerald-400 text-[10px]"></i> Exam Held: Wed 9/23 &amp; Thu 9/24
+        </div>
       </div>
+
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 
-        <!-- BBC Documentary -->
-        <a href="https://geo.dailymotion.com/player.html?video=x97aklw" target="_blank" class="group p-5 bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-red-500/50 rounded-2xl transition duration-200 shadow-md flex flex-col justify-between">
+        <!-- Card: Unit 2 Blooket -->
+        <a href="https://play.blooket.com/play?hwId=6a91ba671a450b957f15c4e7" target="_blank" class="group p-5 bg-slate-800/40 hover:bg-slate-800 border border-slate-700/50 hover:border-pink-500/40 rounded-2xl transition duration-200 shadow-sm flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 rounded bg-red-500/20 text-red-300 border border-red-500/30">Full Documentary</span>
-              <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-red-400 transition"></i>
+              <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-slate-700 text-slate-300">Blooket HW</span>
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700 flex items-center gap-1">
+                <i class="fa-solid fa-circle-check text-emerald-400 text-[9px]"></i> Exam: 9/23–24 (Done)
+              </span>
             </div>
-            <h4 class="font-bold text-white group-hover:text-red-300 text-base mb-1 transition">The Hidden Lives of Cells (BBC)</h4>
-            <p class="text-xs text-slate-400 leading-relaxed">Embedded BBC documentary illustrating cellular warfare, endomembrane transport, and mitochondria evolution.</p>
+            <h4 class="font-bold text-slate-200 group-hover:text-pink-300 text-base mb-1 transition">Unit 2: Cell Processes Blooket</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">Assigned Blooket game covering cell membranes, passive/active transport, and cell structures.</p>
           </div>
-          <div class="mt-4 pt-3 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
+          <div class="mt-4 pt-3 border-t border-slate-700/40 flex items-center justify-between text-xs text-slate-400">
+            <span>Unit 2 Review</span>
+            <span class="font-semibold text-pink-400 flex items-center gap-1"><i class="fa-solid fa-play text-[10px]"></i> Play Game</span>
+          </div>
+        </a>
+
+        <!-- Card: BBC Documentary -->
+        <a href="https://geo.dailymotion.com/player.html?video=x97aklw" target="_blank" class="group p-5 bg-slate-800/40 hover:bg-slate-800 border border-slate-700/50 hover:border-red-500/40 rounded-2xl transition duration-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-slate-700 text-slate-300">Full Documentary</span>
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700 flex items-center gap-1">
+                <i class="fa-solid fa-circle-check text-emerald-400 text-[9px]"></i> Exam: 9/23–24 (Done)
+              </span>
+            </div>
+            <h4 class="font-bold text-slate-200 group-hover:text-red-300 text-base mb-1 transition">The Hidden Lives of Cells (BBC)</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">BBC documentary illustrating cellular warfare, endomembrane transport, and mitochondria evolution.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-700/40 flex items-center justify-between text-xs text-slate-400">
             <span>Dailymotion Embed</span>
             <span class="font-semibold text-red-400 flex items-center gap-1"><i class="fa-solid fa-play text-[10px]"></i> Watch Film</span>
           </div>
         </a>
 
-        <!-- YouTube Playlist -->
-        <a href="https://www.youtube.com/playlist?list=PL-Fvwd4deADsIFvX3ChKDGwi-Vc6u6yMI" target="_blank" class="group p-5 bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-red-500/50 rounded-2xl transition duration-200 shadow-md flex flex-col justify-between">
+        <!-- Card: YouTube Playlist Cell Transport -->
+        <a href="https://www.youtube.com/playlist?list=PL-Fvwd4deADsIFvX3ChKDGwi-Vc6u6yMI" target="_blank" class="group p-5 bg-slate-800/40 hover:bg-slate-800 border border-slate-700/50 hover:border-red-500/40 rounded-2xl transition duration-200 shadow-sm flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 rounded bg-red-500/20 text-red-300 border border-red-500/30">YouTube Playlist</span>
-              <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-red-400 transition"></i>
+              <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-slate-700 text-slate-300">YouTube Playlist</span>
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700 flex items-center gap-1">
+                <i class="fa-solid fa-circle-check text-emerald-400 text-[9px]"></i> Exam: 9/23–24 (Done)
+              </span>
             </div>
-            <h4 class="font-bold text-white group-hover:text-red-300 text-base mb-1 transition">Dr. Irwin Cell Transport Playlist</h4>
+            <h4 class="font-bold text-slate-200 group-hover:text-red-300 text-base mb-1 transition">Dr. Irwin Cell Transport Playlist</h4>
             <p class="text-xs text-slate-400 leading-relaxed">Curated sequence of 7 video lessons covering diffusion, tonicity experiments, and membrane mechanisms.</p>
           </div>
-          <div class="mt-4 pt-3 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
+          <div class="mt-4 pt-3 border-t border-slate-700/40 flex items-center justify-between text-xs text-slate-400">
             <span>7 Video Lessons</span>
             <span class="font-semibold text-red-400 flex items-center gap-1"><i class="fa-brands fa-youtube text-[10px]"></i> View Playlist</span>
           </div>
         </a>
 
-        <!-- Studio: Cell Membrane -->
-        <a href="https://forsyth.instructuremedia.com/embed/4625b820-8c7d-467d-9c03-3a22f7916e15" target="_blank" class="group p-5 bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-amber-500/50 rounded-2xl transition duration-200 shadow-md flex flex-col justify-between">
+        <!-- Card: Cell Membrane & Transport PPT -->
+        <a href="https://docs.google.com/presentation/d/14NXnXkOUmxsJMEvaNIna6wKStHSGxp8L6xm71lw97zQ/edit?usp=sharing" target="_blank" class="group p-5 bg-slate-800/40 hover:bg-slate-800 border border-slate-700/50 hover:border-emerald-500/40 rounded-2xl transition duration-200 shadow-sm flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">Canvas Studio</span>
-              <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-amber-400 transition"></i>
+              <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-slate-700 text-slate-300">Unit 2 Part 1</span>
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700 flex items-center gap-1">
+                <i class="fa-solid fa-circle-check text-emerald-400 text-[9px]"></i> Exam: 9/23–24 (Done)
+              </span>
             </div>
-            <h4 class="font-bold text-white group-hover:text-amber-300 text-base mb-1 transition">Studio: Cell Membrane Structure</h4>
-            <p class="text-xs text-slate-400 leading-relaxed">Direct teacher video clip on phospholipid bilayer orientation, cholesterol, and TRACIE proteins.</p>
+            <h4 class="font-bold text-slate-200 group-hover:text-emerald-300 text-base mb-1 transition">Cell Membrane &amp; Transport PPT</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">Dr. Irwin's lecture slide deck for passive transport, osmosis, and active transport.</p>
           </div>
-          <div class="mt-4 pt-3 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
-            <span>Canvas Login Req.</span>
+          <div class="mt-4 pt-3 border-t border-slate-700/40 flex items-center justify-between text-xs text-slate-400">
+            <span>Google Slides</span>
+            <span class="font-semibold text-emerald-400 flex items-center gap-1"><i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Open Slides</span>
+          </div>
+        </a>
+
+        <!-- Card: Cell Theory & Structure PPT -->
+        <a href="https://docs.google.com/presentation/d/1gFN_w13FGOW1XEn4QKJQK4Ad6acaryKocl7VbY2dzMw/edit?usp=sharing" target="_blank" class="group p-5 bg-slate-800/40 hover:bg-slate-800 border border-slate-700/50 hover:border-emerald-500/40 rounded-2xl transition duration-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-slate-700 text-slate-300">Unit 2 Part 2</span>
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700 flex items-center gap-1">
+                <i class="fa-solid fa-circle-check text-emerald-400 text-[9px]"></i> Exam: 9/23–24 (Done)
+              </span>
+            </div>
+            <h4 class="font-bold text-slate-200 group-hover:text-emerald-300 text-base mb-1 transition">Cell Theory &amp; Structure PPT</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">Historical cell scientists, prokaryote vs. eukaryote comparisons, and 17 organelle structures.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-700/40 flex items-center justify-between text-xs text-slate-400">
+            <span>Google Slides</span>
+            <span class="font-semibold text-emerald-400 flex items-center gap-1"><i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Open Slides</span>
+          </div>
+        </a>
+
+        <!-- Card: Unit 2 Part 1 Student Packet -->
+        <a href="https://drive.google.com/file/d/1sAwy6-DtttgdH9VY77KCMN7BE2JIgZmY/view?usp=sharing" target="_blank" class="group p-5 bg-slate-800/40 hover:bg-slate-800 border border-slate-700/50 hover:border-sky-500/40 rounded-2xl transition duration-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-slate-700 text-slate-300">Google Drive</span>
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700 flex items-center gap-1">
+                <i class="fa-solid fa-circle-check text-emerald-400 text-[9px]"></i> Exam: 9/23–24 (Done)
+              </span>
+            </div>
+            <h4 class="font-bold text-slate-200 group-hover:text-sky-300 text-base mb-1 transition">Unit 2 Part 1 Student Packet</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">Cell Transport 21-page student workbook (simple diffusion, facilitated diffusion, and active pumps).</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-700/40 flex items-center justify-between text-xs text-slate-400">
+            <span>Google Drive PDF</span>
+            <span class="font-semibold text-sky-400 flex items-center gap-1"><i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> View Drive</span>
+          </div>
+        </a>
+
+        <!-- Card: Unit 2 Part 2 Student Packet -->
+        <a href="https://drive.google.com/file/d/1buPbFchJJC3ofGHjxKPfCqsXPm5dC-hc/view?usp=sharing" target="_blank" class="group p-5 bg-slate-800/40 hover:bg-slate-800 border border-slate-700/50 hover:border-sky-500/40 rounded-2xl transition duration-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-slate-700 text-slate-300">Google Drive</span>
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700 flex items-center gap-1">
+                <i class="fa-solid fa-circle-check text-emerald-400 text-[9px]"></i> Exam: 9/23–24 (Done)
+              </span>
+            </div>
+            <h4 class="font-bold text-slate-200 group-hover:text-sky-300 text-base mb-1 transition">Unit 2 Part 2 Student Packet</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">Cell Structure, Organelles, Microscopy &amp; Endomembrane System student workbook.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-700/40 flex items-center justify-between text-xs text-slate-400">
+            <span>Google Drive PDF</span>
+            <span class="font-semibold text-sky-400 flex items-center gap-1"><i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> View Drive</span>
+          </div>
+        </a>
+
+        <!-- Card: Canvas Studio Active Transport -->
+        <a href="https://forsyth.instructuremedia.com/embed/bf36400d-1faf-453c-a237-18accf631711" target="_blank" class="group p-5 bg-slate-800/40 hover:bg-slate-800 border border-slate-700/50 hover:border-amber-500/40 rounded-2xl transition duration-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-slate-700 text-slate-300">Canvas Studio</span>
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700 flex items-center gap-1">
+                <i class="fa-solid fa-circle-check text-emerald-400 text-[9px]"></i> Exam: 9/23–24 (Done)
+              </span>
+            </div>
+            <h4 class="font-bold text-slate-200 group-hover:text-amber-300 text-base mb-1 transition">Studio: Active Transport Mechanisms</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">Teacher video explaining 3 Na⁺ / 2 K⁺ pump stoichiometry, ATP binding, and vesicle fusion.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-700/40 flex items-center justify-between text-xs text-slate-400">
+            <span>Canvas Studio Stream</span>
             <span class="font-semibold text-amber-400 flex items-center gap-1"><i class="fa-solid fa-play text-[10px]"></i> Stream Clip</span>
           </div>
         </a>
 
-        <!-- Studio: Cell Transport -->
-        <a href="https://forsyth.instructuremedia.com/embed/d03a27d5-fc85-4f09-a511-6473b4edbf7c" target="_blank" class="group p-5 bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-amber-500/50 rounded-2xl transition duration-200 shadow-md flex flex-col justify-between">
+        <!-- Card: Canvas Studio Organelles as a System -->
+        <a href="https://forsyth.instructuremedia.com/embed/15e41b0f-297f-4ae0-912a-ff19c5b919bd" target="_blank" class="group p-5 bg-slate-800/40 hover:bg-slate-800 border border-slate-700/50 hover:border-amber-500/40 rounded-2xl transition duration-200 shadow-sm flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">Canvas Studio</span>
-              <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-amber-400 transition"></i>
+              <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-slate-700 text-slate-300">Canvas Studio</span>
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700 flex items-center gap-1">
+                <i class="fa-solid fa-circle-check text-emerald-400 text-[9px]"></i> Exam: 9/23–24 (Done)
+              </span>
             </div>
-            <h4 class="font-bold text-white group-hover:text-amber-300 text-base mb-1 transition">Studio: Cell Transport Overview</h4>
-            <p class="text-xs text-slate-400 leading-relaxed">High-yield walkthrough of passive transport gradients vs. active transport pumps.</p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
-            <span>Canvas Login Req.</span>
-            <span class="font-semibold text-amber-400 flex items-center gap-1"><i class="fa-solid fa-play text-[10px]"></i> Stream Clip</span>
-          </div>
-        </a>
-
-        <!-- Studio: Active Transport -->
-        <a href="https://forsyth.instructuremedia.com/embed/bf36400d-1faf-453c-a237-18accf631711" target="_blank" class="group p-5 bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-amber-500/50 rounded-2xl transition duration-200 shadow-md flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">Canvas Studio</span>
-              <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-amber-400 transition"></i>
-            </div>
-            <h4 class="font-bold text-white group-hover:text-amber-300 text-base mb-1 transition">Studio: Active Transport Mechanisms</h4>
-            <p class="text-xs text-slate-400 leading-relaxed">Explains 3 Na⁺ / 2 K⁺ pump stoichiometry, ATP binding, and endo/exocytosis vesicle fusion.</p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
-            <span>Canvas Login Req.</span>
-            <span class="font-semibold text-amber-400 flex items-center gap-1"><i class="fa-solid fa-play text-[10px]"></i> Stream Clip</span>
-          </div>
-        </a>
-
-        <!-- Studio: Organelles -->
-        <a href="https://forsyth.instructuremedia.com/embed/15e41b0f-297f-4ae0-912a-ff19c5b919bd" target="_blank" class="group p-5 bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-amber-500/50 rounded-2xl transition duration-200 shadow-md flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">Canvas Studio</span>
-              <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-amber-400 transition"></i>
-            </div>
-            <h4 class="font-bold text-white group-hover:text-amber-300 text-base mb-1 transition">Studio: Organelles as a System</h4>
+            <h4 class="font-bold text-slate-200 group-hover:text-amber-300 text-base mb-1 transition">Studio: Organelles as a System</h4>
             <p class="text-xs text-slate-400 leading-relaxed">Review of endomembrane protein synthesis flow: Nucleus &rarr; Rough ER &rarr; Golgi &rarr; Secretory Vesicle.</p>
           </div>
-          <div class="mt-4 pt-3 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
-            <span>Canvas Login Req.</span>
+          <div class="mt-4 pt-3 border-t border-slate-700/40 flex items-center justify-between text-xs text-slate-400">
+            <span>Canvas Studio Stream</span>
             <span class="font-semibold text-amber-400 flex items-center gap-1"><i class="fa-solid fa-play text-[10px]"></i> Stream Clip</span>
           </div>
         </a>
@@ -261,268 +508,89 @@
       </div>
     </div>
 
-    <!-- SECTION 3: TEACHER GOOGLE SLIDES & CLOUD PRESENTATIONS -->
-    <div>
-      <div class="flex items-center gap-2.5 mb-5">
-        <div class="w-8 h-8 rounded-lg bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold text-sm">
-          <i class="fa-solid fa-file-powerpoint"></i>
+    <!-- ========================================================================= -->
+    <!-- SECTION 3: CUMULATIVE & SEMESTER 1 MASTER HUBS (FINAL EXAM: DEC 14–18)     -->
+    <!-- ========================================================================= -->
+    <div class="space-y-5 pt-4">
+      <div class="flex items-center justify-between border-b border-slate-700 pb-3">
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-xl bg-purple-500/20 border border-purple-500/40 flex items-center justify-center text-purple-400 font-bold text-base shadow-sm">
+            <i class="fa-solid fa-award"></i>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-white tracking-tight">Cumulative Review, Online Textbook &amp; Portals</h3>
+            <p class="text-xs text-slate-400">Course-wide resources for ongoing practice and Semester 1 Cumulative Benchmark preparation</p>
+          </div>
         </div>
-        <h3 class="text-xl font-bold text-white tracking-tight">Teacher Google Slides (Direct Cloud Links)</h3>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-
-        <!-- Organelle Scavenger Hunt PPT -->
-        <a href="https://docs.google.com/presentation/d/18GkrxsppfZH6I36-63N3hKT4JHvU-74_mb8ywMgXIGI/edit?usp=sharing" target="_blank" class="group p-5 bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-emerald-500/50 rounded-2xl transition duration-200 shadow-md flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Today's PPT</span>
-              <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-emerald-400 transition"></i>
-            </div>
-            <h4 class="font-bold text-white group-hover:text-emerald-300 text-base mb-1 transition">Organelle Scavenger Hunt PPT</h4>
-            <p class="text-xs text-slate-400 leading-relaxed">Teacher presentation for today's in-class scavenger hunt activity with organelle functions & clues.</p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
-            <span>Google Slides</span>
-            <span class="font-semibold text-emerald-400 flex items-center gap-1"><i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Open Slides</span>
-          </div>
-        </a>
-
-        <!-- Unit 2 Part 1 PPT -->
-        <a href="https://docs.google.com/presentation/d/14NXnXkOUmxsJMEvaNIna6wKStHSGxp8L6xm71lw97zQ/edit?usp=sharing" target="_blank" class="group p-5 bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-emerald-500/50 rounded-2xl transition duration-200 shadow-md flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Unit 2 Part 1</span>
-              <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-emerald-400 transition"></i>
-            </div>
-            <h4 class="font-bold text-white group-hover:text-emerald-300 text-base mb-1 transition">Cell Membrane & Transport PPT</h4>
-            <p class="text-xs text-slate-400 leading-relaxed">Dr. Irwin's master lecture slide deck for passive transport, osmosis, and active transport.</p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
-            <span>Google Slides</span>
-            <span class="font-semibold text-emerald-400 flex items-center gap-1"><i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Open Slides</span>
-          </div>
-        </a>
-
-        <!-- Unit 2 Part 2 PPT -->
-        <a href="https://docs.google.com/presentation/d/1gFN_w13FGOW1XEn4QKJQK4Ad6acaryKocl7VbY2dzMw/edit?usp=sharing" target="_blank" class="group p-5 bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-emerald-500/50 rounded-2xl transition duration-200 shadow-md flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Unit 2 Part 2</span>
-              <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-emerald-400 transition"></i>
-            </div>
-            <h4 class="font-bold text-white group-hover:text-emerald-300 text-base mb-1 transition">Cell Theory & Structure PPT</h4>
-            <p class="text-xs text-slate-400 leading-relaxed">Covers historical cell scientists, prokaryote vs. eukaryote comparisons, and organelle structures.</p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
-            <span>Google Slides</span>
-            <span class="font-semibold text-emerald-400 flex items-center gap-1"><i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Open Slides</span>
-          </div>
-        </a>
-
-        <!-- Organelles Supplemental Slides -->
-        <a href="https://docs.google.com/presentation/d/1C8qU53wn3kBIGIV74V9dnrHFfZQ6w72XJlurn1K96PE/edit?usp=sharing" target="_blank" class="group p-5 bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-emerald-500/50 rounded-2xl transition duration-200 shadow-md flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Supplemental</span>
-              <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-emerald-400 transition"></i>
-            </div>
-            <h4 class="font-bold text-white group-hover:text-emerald-300 text-base mb-1 transition">Organelles Supplemental Slides</h4>
-            <p class="text-xs text-slate-400 leading-relaxed">Teacher's extra details presentation highlighting organelle system interactions and homeostatic failure.</p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
-            <span>Google Slides</span>
-            <span class="font-semibold text-emerald-400 flex items-center gap-1"><i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Open Slides</span>
-          </div>
-        </a>
-
-        <!-- Situation Cards PPT -->
-        <a href="https://docs.google.com/presentation/d/1chlLP5vKsKelsZ0K324X3x6gCKihzQ72huPIAZ6PYFc/edit?usp=sharing" target="_blank" class="group p-5 bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-emerald-500/50 rounded-2xl transition duration-200 shadow-md flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">20 Scenarios</span>
-              <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-emerald-400 transition"></i>
-            </div>
-            <h4 class="font-bold text-white group-hover:text-emerald-300 text-base mb-1 transition">Transport Situation Cards (with Key)</h4>
-            <p class="text-xs text-slate-400 leading-relaxed">Full presentation containing all 20 transport cards and teacher answer keys.</p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
-            <span>Google Slides</span>
-            <span class="font-semibold text-emerald-400 flex items-center gap-1"><i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Open Slides</span>
-          </div>
-        </a>
-
-        <!-- Whiteboard Practice Q's -->
-        <a href="https://docs.google.com/presentation/d/10yK25LhpQGjNDsfBHGbN7WT3kh-ukfhC/edit?usp=sharing" target="_blank" class="group p-5 bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-emerald-500/50 rounded-2xl transition duration-200 shadow-md flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Practice Q's</span>
-              <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-emerald-400 transition"></i>
-            </div>
-            <h4 class="font-bold text-white group-hover:text-emerald-300 text-base mb-1 transition">Cell Transport Whiteboard Practice</h4>
-            <p class="text-xs text-slate-400 leading-relaxed">In-class whiteboard practice questions with tonicity diagrams, solute percentages, and cell responses.</p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
-            <span>Google Slides</span>
-            <span class="font-semibold text-emerald-400 flex items-center gap-1"><i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Open Slides</span>
-          </div>
-        </a>
-
-        <!-- Cell Investigation Stations -->
-        <a href="https://docs.google.com/presentation/d/174e4G1YN10E8b5uP0WD9j_MDfBmTRHL5/edit?usp=sharing" target="_blank" class="group p-5 bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-emerald-500/50 rounded-2xl transition duration-200 shadow-md flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Lab Stations</span>
-              <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-emerald-400 transition"></i>
-            </div>
-            <h4 class="font-bold text-white group-hover:text-emerald-300 text-base mb-1 transition">Cell Investigation Stations PPT</h4>
-            <p class="text-xs text-slate-400 leading-relaxed">Station activities on macromolecules, cell diseases, specialized cell shapes, and SA:V ratio.</p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
-            <span>Google Slides</span>
-            <span class="font-semibold text-emerald-400 flex items-center gap-1"><i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Open Slides</span>
-          </div>
-        </a>
-
-        <!-- Microscope Parts and Use PPT -->
-        <a href="https://docs.google.com/presentation/d/1Uoyry4ZHiw2f6W5LdJD1XGOAqkD8iJxWfp6wfkQoJp4/edit?usp=sharing" target="_blank" class="group p-5 bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-emerald-500/50 rounded-2xl transition duration-200 shadow-md flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Microscopy</span>
-              <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-emerald-400 transition"></i>
-            </div>
-            <h4 class="font-bold text-white group-hover:text-emerald-300 text-base mb-1 transition">Microscope Parts & Use PPT</h4>
-            <p class="text-xs text-slate-400 leading-relaxed">Anatomy of the light microscope, ocular/objective lens powers, total magnification, and field of view.</p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
-            <span>Google Slides</span>
-            <span class="font-semibold text-emerald-400 flex items-center gap-1"><i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Open Slides</span>
-          </div>
-        </a>
-
-      </div>
-    </div>
-
-    <!-- SECTION 4: GOOGLE DOCS (OFFICIAL VOCABULARY & WORKBOOKS) -->
-    <div>
-      <div class="flex items-center gap-2.5 mb-5">
-        <div class="w-8 h-8 rounded-lg bg-sky-500/20 border border-sky-500/30 flex items-center justify-center text-sky-400 font-bold text-sm">
-          <i class="fa-solid fa-file-word"></i>
+        <div class="hidden sm:flex items-center gap-1.5 bg-purple-950/40 border border-purple-500/40 text-purple-300 text-xs font-bold px-3 py-1.5 rounded-xl">
+          <i class="fa-solid fa-trophy text-[10px]"></i> S1 Finals: Dec 14 – Dec 18
         </div>
-        <h3 class="text-xl font-bold text-white tracking-tight">Google Docs & Drive Workbooks</h3>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 
-        <!-- Unit 2 Extended Vocab Doc -->
-        <a href="https://docs.google.com/document/d/1Z7_p2a-hK8pzFUzban5_irVElPrCmOaC-nINnaGhuJ0/edit?usp=sharing" target="_blank" class="group p-5 bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-sky-500/50 rounded-2xl transition duration-200 shadow-md flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 rounded bg-sky-500/20 text-sky-300 border border-sky-500/30">Official Vocab</span>
-              <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-sky-400 transition"></i>
-            </div>
-            <h4 class="font-bold text-white group-hover:text-sky-300 text-base mb-1 transition">Unit 2 Extended Vocabulary Guide</h4>
-            <p class="text-xs text-slate-400 leading-relaxed">Dr. Irwin's official 78-term vocabulary glossary covering cellular processes, transport, and organelles.</p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
-            <span>Google Doc</span>
-            <span class="font-semibold text-sky-400 flex items-center gap-1"><i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Open Doc</span>
-          </div>
-        </a>
-
-        <!-- Blooket Master Link Sheet -->
-        <a href="https://docs.google.com/document/d/1Gw_RmtW-IZw39J8JikmEPSyVg0n8bl55SX6UGAIm1f0/edit?usp=sharing" target="_blank" class="group p-5 bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-sky-500/50 rounded-2xl transition duration-200 shadow-md flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 rounded bg-sky-500/20 text-sky-300 border border-sky-500/30">Blooket Hub</span>
-              <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-sky-400 transition"></i>
-            </div>
-            <h4 class="font-bold text-white group-hover:text-sky-300 text-base mb-1 transition">Blooket Master Link Sheet</h4>
-            <p class="text-xs text-slate-400 leading-relaxed">Official Google Doc linking every active Blooket homework code and cumulative practice link.</p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
-            <span>Google Doc</span>
-            <span class="font-semibold text-sky-400 flex items-center gap-1"><i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Open Doc</span>
-          </div>
-        </a>
-
-        <!-- Unit 2 Part 1 Student Packet Drive -->
-        <a href="https://drive.google.com/file/d/1sAwy6-DtttgdH9VY77KCMN7BE2JIgZmY/view?usp=sharing" target="_blank" class="group p-5 bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-sky-500/50 rounded-2xl transition duration-200 shadow-md flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 rounded bg-sky-500/20 text-sky-300 border border-sky-500/30">Google Drive</span>
-              <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-sky-400 transition"></i>
-            </div>
-            <h4 class="font-bold text-white group-hover:text-sky-300 text-base mb-1 transition">Unit 2 Part 1 Student Packet</h4>
-            <p class="text-xs text-slate-400 leading-relaxed">Direct Google Drive cloud file for the 21-page Cell Transport Student Packet.</p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
-            <span>PDF File</span>
-            <span class="font-semibold text-sky-400 flex items-center gap-1"><i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> View Drive</span>
-          </div>
-        </a>
-
-        <!-- Unit 2 Part 2 Student Packet Drive -->
-        <a href="https://drive.google.com/file/d/1buPbFchJJC3ofGHjxKPfCqsXPm5dC-hc/view?usp=sharing" target="_blank" class="group p-5 bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-sky-500/50 rounded-2xl transition duration-200 shadow-md flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 rounded bg-sky-500/20 text-sky-300 border border-sky-500/30">Google Drive</span>
-              <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-sky-400 transition"></i>
-            </div>
-            <h4 class="font-bold text-white group-hover:text-sky-300 text-base mb-1 transition">Unit 2 Part 2 Student Packet</h4>
-            <p class="text-xs text-slate-400 leading-relaxed">Direct Google Drive cloud file for the Cell Structure, Organelles & Cell Theory packet.</p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
-            <span>PDF File</span>
-            <span class="font-semibold text-sky-400 flex items-center gap-1"><i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> View Drive</span>
-          </div>
-        </a>
-
-      </div>
-    </div>
-
-    <!-- SECTION 5: CANVAS LMS DIRECT PAGE & SCHEDULE LINKS -->
-    <div>
-      <div class="flex items-center gap-2.5 mb-5">
-        <div class="w-8 h-8 rounded-lg bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400 font-bold text-sm">
-          <i class="fa-solid fa-school"></i>
-        </div>
-        <h3 class="text-xl font-bold text-white tracking-tight">Canvas LMS Portal Direct Links</h3>
-      </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 
-        <!-- Weekly Plan -->
-        <a href="https://forsyth.instructure.com/courses/276259/modules/items/4916059" target="_blank" class="p-4 bg-slate-800/40 hover:bg-slate-800 border border-slate-700/50 hover:border-indigo-500/40 rounded-xl transition flex flex-col justify-between">
+        <!-- Card: Cumulative Blooket -->
+        <a href="https://play.blooket.com/play?hwId=6a91baa1831a98ea48e4f1ef" target="_blank" class="group p-5 bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-purple-500/50 rounded-2xl transition duration-200 shadow-md flex flex-col justify-between">
           <div>
-            <div class="text-indigo-400 font-bold text-sm mb-1">S1W5 Weekly Agenda</div>
-            <div class="text-xs text-slate-400">Week of 9/7 – 9/11 daily agenda, assignments, and quiz alerts.</div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 border border-purple-500/30">Blooket Review</span>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 border border-purple-500/30">Finals: Dec 14–18</span>
+            </div>
+            <h4 class="font-bold text-white group-hover:text-purple-300 text-base mb-1 transition">Biology Cumulative Blooket</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">Review covering Unit 1 (Biochemistry), Unit 2 (Cells &amp; Transport), and Unit 3 combined.</p>
           </div>
-          <span class="mt-3 text-[11px] font-semibold text-indigo-300 flex items-center gap-1"><i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i> Open in Canvas</span>
+          <div class="mt-4 pt-3 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
+            <span>Cumulative Practice</span>
+            <span class="font-semibold text-purple-400 flex items-center gap-1"><i class="fa-solid fa-play text-[10px]"></i> Play Game</span>
+          </div>
         </a>
 
-        <!-- Unit 2 Page -->
-        <a href="https://forsyth.instructure.com/courses/276259/pages/unit-2-cells-and-cell-transport" target="_blank" class="p-4 bg-slate-800/40 hover:bg-slate-800 border border-slate-700/50 hover:border-indigo-500/40 rounded-xl transition flex flex-col justify-between">
+        <!-- Card: Online Textbook -->
+        <a href="https://flexbooks.ck12.org/cbook/ck-12-advanced-biology" target="_blank" class="group p-5 bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-indigo-500/50 rounded-2xl transition duration-200 shadow-md flex flex-col justify-between">
           <div>
-            <div class="text-indigo-400 font-bold text-sm mb-1">Unit 2 Main Page</div>
-            <div class="text-xs text-slate-400">Complete unit hub with success criteria and resource links.</div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">Digital Textbook</span>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 border border-purple-500/30">Finals: Dec 14–18</span>
+            </div>
+            <h4 class="font-bold text-white group-hover:text-indigo-300 text-base mb-1 transition">CK-12 Advanced Biology</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">Interactive textbook chapters covering Biomolecules (Ch 2), Cells (Ch 4), and Photosynthesis/Respiration (Ch 2.9 &amp; 4.8).</p>
           </div>
-          <span class="mt-3 text-[11px] font-semibold text-indigo-300 flex items-center gap-1"><i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i> Open in Canvas</span>
+          <div class="mt-4 pt-3 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
+            <span>Online FlexBook</span>
+            <span class="font-semibold text-indigo-400 flex items-center gap-1"><i class="fa-solid fa-book-open text-[10px]"></i> Open Book</span>
+          </div>
         </a>
 
-        <!-- Modules -->
-        <a href="https://forsyth.instructure.com/courses/276259/modules" target="_blank" class="p-4 bg-slate-800/40 hover:bg-slate-800 border border-slate-700/50 hover:border-indigo-500/40 rounded-xl transition flex flex-col justify-between">
+        <!-- Card: Course Modules -->
+        <a href="https://forsyth.instructure.com/courses/276259/modules" target="_blank" class="group p-5 bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-indigo-500/50 rounded-2xl transition duration-200 shadow-md flex flex-col justify-between">
           <div>
-            <div class="text-indigo-400 font-bold text-sm mb-1">Course Modules</div>
-            <div class="text-xs text-slate-400">All course modules, folders, handouts, and assignments.</div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">Canvas LMS</span>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/30">All S1 Dates</span>
+            </div>
+            <h4 class="font-bold text-white group-hover:text-indigo-300 text-base mb-1 transition">Dr. Irwin Canvas Modules</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">Central repository for all published units, weekly agendas, digital handouts, and grading criteria.</p>
           </div>
-          <span class="mt-3 text-[11px] font-semibold text-indigo-300 flex items-center gap-1"><i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i> Open in Canvas</span>
+          <div class="mt-4 pt-3 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
+            <span>Forsyth Canvas</span>
+            <span class="font-semibold text-indigo-400 flex items-center gap-1"><i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Open Modules</span>
+          </div>
         </a>
 
-        <!-- Student Support Time -->
-        <a href="https://forsyth.studentsupporttime.com/#!/app/dashboard" target="_blank" class="p-4 bg-slate-800/40 hover:bg-slate-800 border border-slate-700/50 hover:border-indigo-500/40 rounded-xl transition flex flex-col justify-between">
+        <!-- Card: Student Support Time -->
+        <a href="https://forsyth.studentsupporttime.com/#!/app/dashboard" target="_blank" class="group p-5 bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-indigo-500/50 rounded-2xl transition duration-200 shadow-md flex flex-col justify-between">
           <div>
-            <div class="text-indigo-400 font-bold text-sm mb-1">Student Support Time</div>
-            <div class="text-xs text-slate-400">SFHS scheduling portal for morning/afternoon help sessions.</div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">Help Sessions</span>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Weekly Drills</span>
+            </div>
+            <h4 class="font-bold text-white group-hover:text-indigo-300 text-base mb-1 transition">Student Support Time (SST)</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">SFHS teacher office hours booking portal for morning remediation and test prep sessions with Dr. Irwin.</p>
           </div>
-          <span class="mt-3 text-[11px] font-semibold text-indigo-300 flex items-center gap-1"><i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i> Open Portal</span>
+          <div class="mt-4 pt-3 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
+            <span>SFHS Portal</span>
+            <span class="font-semibold text-indigo-400 flex items-center gap-1"><i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Book Session</span>
+          </div>
         </a>
 
       </div>
@@ -532,8 +600,8 @@
 
   <!-- FOOTER -->
   <footer class="border-t border-slate-800 bg-slate-950/80 text-center py-6 text-xs text-slate-500">
-    <p>Biology I Honors • South Forsyth High School • Dr. Irwin (Room #371)</p>
-    <p class="mt-1 text-[11px] text-slate-600">Standard Aligned: SB1.a &amp; SB1.d • Fully Synced with Canvas Course 276259</p>
+    <p>Biology I Honors • South Forsyth High School • Dr. Irwin (Room #371/501)</p>
+    <p class="mt-1 text-[11px] text-slate-600">Standard Aligned: SB1.a, SB1.d, &amp; SB1.e • Synced with Canvas Course 276259</p>
   </footer>
 
 </body>
