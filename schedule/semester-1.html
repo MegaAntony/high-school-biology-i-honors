@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semester 1 Master Schedule  Weekly Agendas - Biology I Honors</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    code, pre { font-family: 'JetBrains Mono', monospace; }
+    
+    /* Markdown Content Typography */
+    .prose-biology h1 {
+      font-size: 1.875rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #334155;
+      letter-spacing: -0.025em;
+    }
+    .prose-biology h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+    .prose-biology h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #38bdf8;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .prose-biology h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #34d399;
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .prose-biology p {
+      color: #cbd5e1;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    .prose-biology strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .prose-biology ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+      color: #cbd5e1;
+    }
+    .prose-biology ol {
+      list-style-type: decimal;
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+      color: #cbd5e1;
+    }
+    .prose-biology li {
+      margin-bottom: 0.375rem;
+      line-height: 1.6;
+    }
+    .prose-biology li strong {
+      color: #f8fafc;
+    }
+    .prose-biology a {
+      color: #38bdf8;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.15s ease;
+    }
+    .prose-biology a:hover {
+      color: #7dd3fc;
+      text-decoration: none;
+    }
+    .prose-biology blockquote {
+      border-left: 4px solid #10b981;
+      background-color: rgba(16, 185, 129, 0.08);
+      padding: 0.75rem 1rem;
+      margin: 1.25rem 0;
+      border-radius: 0 0.5rem 0.5rem 0;
+      color: #e2e8f0;
+      font-style: italic;
+    }
+    .prose-biology blockquote p {
+      margin-bottom: 0;
+      color: #e2e8f0;
+    }
+    .prose-biology code {
+      background-color: #1e293b;
+      color: #fbbf24;
+      padding: 0.2rem 0.4rem;
+      border-radius: 0.375rem;
+      font-size: 0.85em;
+      border: 1px solid #334155;
+    }
+    .prose-biology pre {
+      background-color: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 0.75rem;
+      padding: 1rem;
+      overflow-x: auto;
+      margin: 1.25rem 0;
+    }
+    .prose-biology pre code {
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      color: #34d399;
+      font-size: 0.875rem;
+    }
+    .prose-biology hr {
+      border: 0;
+      border-top: 1px solid #334155;
+      margin: 2rem 0;
+    }
+    /* Table Styling */
+    .prose-biology table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.875rem;
+      background-color: #1e293b;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      border: 1px solid #334155;
+    }
+    .prose-biology th {
+      background-color: #0f172a;
+      color: #34d399;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.75rem;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #334155;
+      text-align: left;
+    }
+    .prose-biology td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #334155;
+      color: #cbd5e1;
+      vertical-align: top;
+    }
+    .prose-biology tr:last-child td {
+      border-bottom: none;
+    }
+    .prose-biology tr:nth-child(even) td {
+      background-color: rgba(15, 23, 42, 0.4);
+    }
+    .prose-biology tr:hover td {
+      background-color: rgba(51, 65, 85, 0.4);
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between">
+
+  <!-- HEADER -->
+  <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="../index.html" class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center text-slate-950 font-black text-lg shadow-lg shadow-emerald-500/20 hover:scale-105 transition">
+          <i class="fa-solid fa-dna"></i>
+        </a>
+        <div>
+          <a href="../index.html" class="text-lg font-black tracking-tight text-white hover:text-emerald-400 transition">Biology I Honors V2</a>
+          <p class="text-xs text-slate-400 font-medium">South Forsyth High School • Dr. Irwin (2026/2027)</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2.5">
+        <a href="../index.html" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 px-3.5 py-2 rounded-xl border border-slate-700 transition flex items-center gap-1.5">
+          <i class="fa-solid fa-house text-emerald-400"></i> Home
+        </a>
+        <a href="../schedule/semester-1.html" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 px-3.5 py-2 rounded-xl border border-slate-700 transition flex items-center gap-1.5">
+          <i class="fa-regular fa-calendar text-teal-400"></i> S1 Schedule
+        </a>
+        <a href="../units/unit-02-cells-and-transport/tests/index.html" class="text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-md shadow-emerald-600/30">
+          <i class="fa-solid fa-vial"></i> Practice Tests
+        </a>
+        <a href="../notInLocal.html" class="text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-md shadow-indigo-600/30 hidden sm:flex">
+          <i class="fa-solid fa-cloud"></i> Cloud Links
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB & CONTENT CONTAINER -->
+  <main class="max-w-5xl mx-auto px-6 py-8 flex-1 w-full space-y-6">
+
+    <!-- BREADCRUMB -->
+    <nav class="flex items-center gap-2 text-xs text-slate-400">
+      <a href="../index.html" class="hover:text-emerald-400 transition flex items-center gap-1">
+        <i class="fa-solid fa-house text-[10px]"></i> Home
+      </a>
+      <i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i>
+      <span class="text-slate-400">Schedule</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i>
+      <span class="text-slate-200 font-semibold truncate max-w-xs">Semester 1 Master Schedule &amp; Weekly Agendas</span>
+    </nav>
+
+    <!-- CONTENT CARD -->
+    <div class="bg-slate-800/60 border border-slate-700/60 rounded-3xl p-6 sm:p-10 shadow-xl backdrop-blur">
+      <article class="prose-biology">
+        <h1 id="semester-1-master-schedule-weekly-agendas">Semester 1 Master Schedule &amp; Weekly Agendas</h1>
+<h3 id="biology-i-honors-south-forsyth-high-school-dr-sarah-irwin-room-371">Biology I Honors • South Forsyth High School • Dr. Sarah Irwin (Room #371)</h3>
+<p><em>Canvas Course: <a href="https://forsyth.instructure.com/courses/276259">Biology I Honors Course 276259</a></em></p>
+<hr />
+<h2 id="s1-calendar-overview">📅 S1 Calendar Overview</h2>
+<div class="overflow-x-auto my-4"><table>
+<thead>
+<tr>
+<th style="text-align: center;">Week</th>
+<th style="text-align: left;">Date Range</th>
+<th style="text-align: left;">Curriculum Topic &amp; Unit</th>
+<th style="text-align: left;">Key Milestones &amp; Quizzes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>S1W01</strong></td>
+<td style="text-align: left;">Aug 10 – Aug 14</td>
+<td style="text-align: left;">Course Intro, Lab Safety &amp; Academic Integrity</td>
+<td style="text-align: left;">Syllabus Quiz, Safety Contract</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>S1W02</strong></td>
+<td style="text-align: left;">Aug 17 – Aug 21</td>
+<td style="text-align: left;">Unit 1: Biochemistry (Water, Carbon &amp; Carbohydrates)</td>
+<td style="text-align: left;">Biomolecules practice</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>S1W03</strong></td>
+<td style="text-align: left;">Aug 24 – Aug 28</td>
+<td style="text-align: left;">Unit 1: Lipids, Proteins, Enzymes &amp; Chemical Indicators</td>
+<td style="text-align: left;"><strong>Unit 1 Quiz &amp; Murder/Meal Lab Quiz</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>S1W04</strong></td>
+<td style="text-align: left;">Aug 31 – Sep 04</td>
+<td style="text-align: left;">Unit 2 (Part 1): Cell Membrane Architecture &amp; Diffusion</td>
+<td style="text-align: left;">Fluid mosaic model, Osmosis intro</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>S1W05</strong></td>
+<td style="text-align: left;">Sep 07 – Sep 11</td>
+<td style="text-align: left;">Unit 2 (Part 1 &amp; 2): Transport &amp; Organelles</td>
+<td style="text-align: left;"><strong>PT &amp; AT Quiz (Friday)</strong> • Scavenger Hunt</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>S1W06</strong></td>
+<td style="text-align: left;">Sep 14 – Sep 18</td>
+<td style="text-align: left;">Unit 2 (Part 2): Cell Stations Lab &amp; Microscope Lab</td>
+<td style="text-align: left;">In-class microscope drills &amp; Station packets</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>S1W07</strong></td>
+<td style="text-align: left;"><strong>Sep 21 – Sep 25</strong></td>
+<td style="text-align: left;"><strong>Unit 2: Cell Review &amp; Summative Exam</strong> <em>(CURRENT)</em></td>
+<td style="text-align: left;">🚨 <strong>Unit 2 Summative Exam (Wed/Thu)</strong> (MCQ + Short Answer)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>S1W08</strong></td>
+<td style="text-align: left;">Sep 28 – Oct 02</td>
+<td style="text-align: left;"><strong>Fall Break</strong></td>
+<td style="text-align: left;"><em>No School — Fall Holiday</em></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>S1W09</strong></td>
+<td style="text-align: left;">Oct 05 – Oct 09</td>
+<td style="text-align: left;">Unit 3: Cellular Energetics (ATP &amp; Photosynthesis)</td>
+<td style="text-align: left;">Light reactions &amp; Calvin cycle</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>S1W10</strong></td>
+<td style="text-align: left;">Oct 12 – Oct 16</td>
+<td style="text-align: left;">Unit 3: Cellular Respiration &amp; Fermentation</td>
+<td style="text-align: left;">Glycolysis, Krebs cycle, ETC</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>S1W11</strong></td>
+<td style="text-align: left;">Oct 19 – Oct 23</td>
+<td style="text-align: left;">Unit 3 Summative / Unit 4: Cell Cycle Intro</td>
+<td style="text-align: left;"><strong>Unit 3 Exam</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>S1W12</strong></td>
+<td style="text-align: left;">Oct 26 – Oct 30</td>
+<td style="text-align: left;">Unit 4: Mitosis, Cytokinesis &amp; Regulation</td>
+<td style="text-align: left;">Mitosis phase identification</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>S1W13</strong></td>
+<td style="text-align: left;">Nov 02 – Nov 06</td>
+<td style="text-align: left;">Unit 4: Cancer, Stem Cells &amp; Differentiation</td>
+<td style="text-align: left;"><strong>Unit 4 Exam</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>S1W14</strong></td>
+<td style="text-align: left;">Nov 09 – Nov 13</td>
+<td style="text-align: left;">Unit 5: DNA Structure, Replication &amp; History</td>
+<td style="text-align: left;">Double helix modeling</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>S1W15</strong></td>
+<td style="text-align: left;">Nov 16 – Nov 20</td>
+<td style="text-align: left;">Unit 5: RNA, Transcription &amp; Translation</td>
+<td style="text-align: left;">Central dogma protein synthesis</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>S1W16</strong></td>
+<td style="text-align: left;">Nov 30 – Dec 04</td>
+<td style="text-align: left;">Unit 5: Genetic Mutations &amp; Regulation</td>
+<td style="text-align: left;"><strong>Unit 5 Exam</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>S1W17</strong></td>
+<td style="text-align: left;">Dec 07 – Dec 11</td>
+<td style="text-align: left;">Semester 1 Cumulative Review (Units 1–5)</td>
+<td style="text-align: left;">Full semester study guides</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>S1W18</strong></td>
+<td style="text-align: left;">Dec 14 – Dec 18</td>
+<td style="text-align: left;"><strong>Semester 1 Final Exams</strong></td>
+<td style="text-align: left;"><strong>Comprehensive S1 Exam</strong></td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="current-week-in-detail-s1w7-921-925">⚡ Current Week In Detail: S1W7 (9/21 – 9/25)</h2>
+<p><em>👉 </em><em><a href="../Week-9-21/index.html">Launch Interactive Weekly Landing Page (HTML)</a></em>**</p>
+<h3 id="weekly-learning-targets-gse-standards-sb1a-sb1d">🎯 Weekly Learning Targets (GSE Standards: SB1.a &amp; SB1.d)</h3>
+<ul>
+<li>Identify and label all components of the cell (prokaryote, plant, animal).</li>
+<li>Identify organelles based on functional descriptions or visual microscopy images.</li>
+<li>Construct claims about the effects of stimuli/toxins on cell organelles, supported by evidence and reasoning (CER).</li>
+<li>Model organelle systems and explain consequences when organelles cease to collaborate.</li>
+<li>Detail the organelles of the endomembrane system and their relay in protein synthesis.</li>
+<li>Predict osmotic behaviors across hypotonic, isotonic, and hypertonic solutions.</li>
+</ul>
+<h3 id="daily-schedule-in-class-action-items">📅 Daily Schedule &amp; In-Class Action Items</h3>
+<h4 id="monday-921">Monday (9/21)</h4>
+<ul>
+<li><strong>In-Class:</strong> Start Cell Investigation Stations (p. 15–18); finish Microscope Lab (from Friday).</li>
+<li><strong>Homework / Review:</strong> Begin reviewing <a href="../units/unit-02-cells-and-transport/Unit%202%20Summative-9-23/Cells%20Study%20Guide.docx.pdf">Cells Study Guide</a> and <a href="../units/unit-02-cells-and-transport/Unit%202%20Summative-9-23/Cell%20Membrane%20and%20Transport%20Study%20Guide.docx.pdf">Cell Membrane Study Guide</a>.</li>
+</ul>
+<h4 id="tuesday-922">Tuesday (9/22)</h4>
+<ul>
+<li><strong>In-Class:</strong> Finish Cell Investigation Stations (due as HW if not completed in class).</li>
+<li><strong>Homework / Intensive Study:</strong> Study for the Unit 2 Summative! Review the <a href="../units/unit-02-cells-and-transport/Unit%202%20Summative-9-23/Unit_02_Summative_Master_Study_Guide_and_Keys.html">Worked Answer Keys &amp; Guide</a> and drill the <a href="../units/unit-02-cells-and-transport/Unit%202%20Summative-9-23/Unit_02_Summative_Study_Portal.html">Interactive Summative Study Portal</a>.</li>
+</ul>
+<h4 id="wednesday-thursday-923-924-block-periods">Wednesday &amp; Thursday (9/23 – 9/24, Block Periods)</h4>
+<ul>
+<li><strong>🚨 IN-CLASS ASSESSMENT:</strong> <strong>Unit 2 Cells and Cell Transport Summative Exam</strong></li>
+<li><strong>Sections:</strong> <strong>Multiple Choice AND Short Answer Sections</strong>.</li>
+<li><strong>Topics:</strong> Organelles, Cell Theory, Endomembrane System, Membrane Fluid Mosaic Model, Osmosis/Tonicity, Active/Passive Transport, and Organelle Failure CER.</li>
+</ul>
+<h4 id="friday-925">Friday (9/25)</h4>
+<ul>
+<li><strong>In-Class:</strong> <em>The Secret Life of Cells</em> BBC Documentary.</li>
+<li><strong>Fall Break Kickoff:</strong> Enjoy Fall Break (9/28 – 10/2)!</li>
+</ul>
+<hr />
+<h2 id="quick-unit-links-for-this-week">🔗 Quick Unit Links for This Week</h2>
+<ul>
+<li>🌟 <a href="../units/unit-02-cells-and-transport/Unit%202%20Summative-9-23/Unit_02_Summative_Study_Portal.html">Unit 2 Summative Dedicated Prep Hub</a></li>
+<li>📖 <a href="../units/unit-02-cells-and-transport/Unit%202%20Summative-9-23/Unit_02_Summative_Master_Study_Guide_and_Keys.html">Master Study Guide &amp; Worked Keys</a></li>
+<li>🎯 <a href="../units/unit-02-cells-and-transport/tests/test-unit-2-part-1-comprehensive-mastery.html">55-Question Practice Exam</a></li>
+<li>📄 <a href="../units/unit-02-cells-and-transport/Unit%202%20Summative-9-23/Cells%20Study%20Guide.docx.pdf">Cells Study Guide (PDF)</a></li>
+<li>📄 <a href="../units/unit-02-cells-and-transport/Unit%202%20Summative-9-23/Cell%20Membrane%20and%20Transport%20Study%20Guide.docx.pdf">Cell Membrane and Transport Study Guide (PDF)</a></li>
+<li><a href="../units/unit-02-cells-and-transport/README.html">Unit 2 Main Hub</a></li>
+</ul>
+      </article>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800 bg-slate-950 py-8 text-center text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>Grade 9 Biology I Honors • South Forsyth High School • Dr. Sarah Irwin</p>
+      <div class="flex items-center gap-4">
+        <a href="../index.html" class="hover:text-slate-300 transition">Portal Home</a>
+        <a href="../schedule/semester-1.html" class="hover:text-slate-300 transition">Schedule</a>
+        <a href="../notInLocal.html" class="hover:text-slate-300 transition">Cloud Links</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

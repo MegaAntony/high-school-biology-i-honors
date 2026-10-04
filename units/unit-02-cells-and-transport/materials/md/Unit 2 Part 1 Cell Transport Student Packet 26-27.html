@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit 2 Part 1: Cell Membrane and Transport  Student Packet (Master Edition) - Biology I Honors</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    code, pre { font-family: 'JetBrains Mono', monospace; }
+    
+    /* Markdown Content Typography */
+    .prose-biology h1 {
+      font-size: 1.875rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #334155;
+      letter-spacing: -0.025em;
+    }
+    .prose-biology h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+    .prose-biology h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #38bdf8;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .prose-biology h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #34d399;
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .prose-biology p {
+      color: #cbd5e1;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    .prose-biology strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .prose-biology ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+      color: #cbd5e1;
+    }
+    .prose-biology ol {
+      list-style-type: decimal;
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+      color: #cbd5e1;
+    }
+    .prose-biology li {
+      margin-bottom: 0.375rem;
+      line-height: 1.6;
+    }
+    .prose-biology li strong {
+      color: #f8fafc;
+    }
+    .prose-biology a {
+      color: #38bdf8;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.15s ease;
+    }
+    .prose-biology a:hover {
+      color: #7dd3fc;
+      text-decoration: none;
+    }
+    .prose-biology blockquote {
+      border-left: 4px solid #10b981;
+      background-color: rgba(16, 185, 129, 0.08);
+      padding: 0.75rem 1rem;
+      margin: 1.25rem 0;
+      border-radius: 0 0.5rem 0.5rem 0;
+      color: #e2e8f0;
+      font-style: italic;
+    }
+    .prose-biology blockquote p {
+      margin-bottom: 0;
+      color: #e2e8f0;
+    }
+    .prose-biology code {
+      background-color: #1e293b;
+      color: #fbbf24;
+      padding: 0.2rem 0.4rem;
+      border-radius: 0.375rem;
+      font-size: 0.85em;
+      border: 1px solid #334155;
+    }
+    .prose-biology pre {
+      background-color: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 0.75rem;
+      padding: 1rem;
+      overflow-x: auto;
+      margin: 1.25rem 0;
+    }
+    .prose-biology pre code {
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      color: #34d399;
+      font-size: 0.875rem;
+    }
+    .prose-biology hr {
+      border: 0;
+      border-top: 1px solid #334155;
+      margin: 2rem 0;
+    }
+    /* Table Styling */
+    .prose-biology table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.875rem;
+      background-color: #1e293b;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      border: 1px solid #334155;
+    }
+    .prose-biology th {
+      background-color: #0f172a;
+      color: #34d399;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.75rem;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #334155;
+      text-align: left;
+    }
+    .prose-biology td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #334155;
+      color: #cbd5e1;
+      vertical-align: top;
+    }
+    .prose-biology tr:last-child td {
+      border-bottom: none;
+    }
+    .prose-biology tr:nth-child(even) td {
+      background-color: rgba(15, 23, 42, 0.4);
+    }
+    .prose-biology tr:hover td {
+      background-color: rgba(51, 65, 85, 0.4);
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between">
+
+  <!-- HEADER -->
+  <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="../../../../index.html" class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center text-slate-950 font-black text-lg shadow-lg shadow-emerald-500/20 hover:scale-105 transition">
+          <i class="fa-solid fa-dna"></i>
+        </a>
+        <div>
+          <a href="../../../../index.html" class="text-lg font-black tracking-tight text-white hover:text-emerald-400 transition">Biology I Honors V2</a>
+          <p class="text-xs text-slate-400 font-medium">South Forsyth High School • Dr. Irwin (2026/2027)</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2.5">
+        <a href="../../../../index.html" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 px-3.5 py-2 rounded-xl border border-slate-700 transition flex items-center gap-1.5">
+          <i class="fa-solid fa-house text-emerald-400"></i> Home
+        </a>
+        <a href="../../../../schedule/semester-1.html" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 px-3.5 py-2 rounded-xl border border-slate-700 transition flex items-center gap-1.5">
+          <i class="fa-regular fa-calendar text-teal-400"></i> S1 Schedule
+        </a>
+        <a href="../../../../units/unit-02-cells-and-transport/tests/index.html" class="text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-md shadow-emerald-600/30">
+          <i class="fa-solid fa-vial"></i> Practice Tests
+        </a>
+        <a href="../../../../notInLocal.html" class="text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-md shadow-indigo-600/30 hidden sm:flex">
+          <i class="fa-solid fa-cloud"></i> Cloud Links
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB & CONTENT CONTAINER -->
+  <main class="max-w-5xl mx-auto px-6 py-8 flex-1 w-full space-y-6">
+
+    <!-- BREADCRUMB -->
+    <nav class="flex items-center gap-2 text-xs text-slate-400">
+      <a href="../../../../index.html" class="hover:text-emerald-400 transition flex items-center gap-1">
+        <i class="fa-solid fa-house text-[10px]"></i> Home
+      </a>
+      <i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i>
+      <span class="text-slate-400">Units</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i> <span class="text-slate-400">Unit 02 Cells And Transport</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i> <span class="text-slate-400">Materials</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i> <span class="text-slate-400">Md</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i>
+      <span class="text-slate-200 font-semibold truncate max-w-xs">Unit 2 Part 1: Cell Membrane and Transport — ...</span>
+    </nav>
+
+    <!-- CONTENT CARD -->
+    <div class="bg-slate-800/60 border border-slate-700/60 rounded-3xl p-6 sm:p-10 shadow-xl backdrop-blur">
+      <article class="prose-biology">
+        <h1 id="unit-2-part-1-cell-membrane-and-transport-student-packet-master-edition">Unit 2 Part 1: Cell Membrane and Transport — Student Packet (Master Edition)</h1>
+<p><strong>Source:</strong> <code>materials/pdf/Unit 2 Part 1 Cell Transport Student Packet 26-27.pdf</code><br />
+<strong>Course:</strong> Biology I Honors (<code>30115y - Irwin - 501</code>)<br />
+<strong>Instructor:</strong> Dr. Sarah Irwin — Room #371<br />
+<strong>Document Type:</strong> Complete Verbatim Packet Transcript, Labeled Diagrams, Lab Guides, Case Study &amp; Comprehensive Solutions</p>
+<hr />
+<h2 id="table-of-contents">📑 Table of Contents</h2>
+<ol>
+<li><a href="#1-cover--unit-objectives">Cover &amp; Unit Objectives</a></li>
+<li><a href="#2-pages-34-cell-membrane-anatomy-flexibility--tracie-functions">Pages 3–4: Cell Membrane Anatomy, Flexibility &amp; TRACIE Functions</a></li>
+<li><a href="#3-pages-58-lecture-guided-notes-diffusion-osmosis-facilitated--active-transport">Pages 5–8: Lecture Guided Notes (Diffusion, Osmosis, Facilitated &amp; Active Transport)</a></li>
+<li><a href="#4-page-9-cell-membrane-reading-comprehension-questions-18">Page 9: Cell Membrane Reading Comprehension (Questions 1–8)</a></li>
+<li><a href="#5-page-10-cell-membrane-structural-coloring--anatomy-identification">Page 10: Cell Membrane Structural Coloring &amp; Anatomy Identification</a></li>
+<li><a href="#6-pages-1113-cellular-transport-practice-flashcards-scenarios-17">Pages 11–13: Cellular Transport Practice Flashcards (Scenarios 1–7)</a></li>
+<li><a href="#7-page-14-amoeba-sisters-video-recap--osmosis--gummy-bear-mystery">Page 14: Amoeba Sisters Video Recap — Osmosis &amp; Gummy Bear Mystery</a></li>
+<li><a href="#8-pages-1517-osmosis-gel-deco-cube--gummy-bear-lab-investigation">Pages 15–17: Osmosis Gel Deco Cube / Gummy Bear Lab Investigation</a></li>
+<li><a href="#9-pages-1718-clinical-case-study--acute-water-intoxication-cer">Pages 17–18: Clinical Case Study — Acute Water Intoxication CER</a></li>
+<li><a href="#10-page-19-transport-situation-cards-data-record">Page 19: Transport Situation Cards Data Record</a></li>
+<li><a href="#11-pages-2021-comprehensive-unit-review-problem-set-questions-130">Pages 20–21: Comprehensive Unit Review Problem Set (Questions 1–30)</a></li>
+</ol>
+<hr />
+<h2 id="1-cover-unit-objectives">1. Cover &amp; Unit Objectives</h2>
+<h3 id="unit-2-part-1-membrane-and-transport">Unit 2 (Part 1): Membrane and Transport</h3>
+<ul>
+<li><strong>Topic 1:</strong> Cell Membrane Structure</li>
+<li><strong>Topic 2:</strong> Passive Cell Transport</li>
+<li><strong>Topic 3:</strong> Active Cell Transport</li>
+</ul>
+<hr />
+<h2 id="2-pages-34-cell-membrane-anatomy-flexibility-tracie-functions">2. Pages 3–4: Cell Membrane Anatomy, Flexibility &amp; TRACIE Functions</h2>
+<h3 id="structural-anatomy-of-the-plasma-membrane">Structural Anatomy of the Plasma Membrane</h3>
+<ul>
+<li><strong>Extracellular Space:</strong> Aqueous fluid surrounding the exterior of the cell.</li>
+<li><strong>Intracellular Space (Cytoplasm):</strong> Aqueous fluid within the cell containing organelles.</li>
+<li><strong>Why is the membrane flexible?</strong></li>
+<li>The phospholipids are not covalently bonded together. They are held in a double layer solely by weak hydrophobic interactions between their fatty acid tails.</li>
+<li>Phospholipids and unanchored proteins vibrate, rotate, and diffuse laterally within the layer, creating a fluid consistency comparable to olive oil.</li>
+<li><strong>Why is it called a Fluid Mosaic Model?</strong></li>
+<li><strong>"Fluid":</strong> Individual phospholipids and proteins move laterally within the bilayer.</li>
+<li><strong>"Mosaic":</strong> The surface is studded with an intricate pattern of diverse biomolecules: integral proteins, peripheral proteins, cholesterol, glycoproteins, and glycolipids.</li>
+</ul>
+<h3 id="membrane-components">Membrane Components</h3>
+<ul>
+<li><strong>Glycoprotein:</strong> Transmembrane or surface protein covalently bonded to an oligosaccharide carbohydrate chain. Functions in cell-cell recognition and immune signaling.</li>
+<li><strong>Glycolipid:</strong> Membrane lipid covalently bonded to a carbohydrate chain. Promotes membrane stability and cellular identification.</li>
+<li><strong>Integral Membrane Protein:</strong> Protein that permanently spans or penetrates the hydrophobic core of the bilayer.</li>
+<li><strong>Peripheral Membrane Protein:</strong> Protein loosely attached to the inner or outer leaflet of the membrane or bound to integral proteins.</li>
+<li><strong>Cholesterol:</strong> 4-ring steroid lipid interspersed among hydrophobic tails that modulates membrane fluidity.</li>
+<li><strong>Cytoskeleton Filaments:</strong> Microfilaments anchored to internal peripheral proteins to give structural support.</li>
+</ul>
+<h3 id="membrane-jobs-tracie-mnemonic">Membrane Jobs (TRACIE Mnemonic)</h3>
+<ul>
+<li><strong>T — Transport:</strong> Protein channels and carrier pumps moving molecules across the membrane.</li>
+<li><strong>R — Receptors:</strong> Peptide hormones and signal ligands binding to surface proteins to trigger signal transduction.</li>
+<li><strong>A — Anchorage:</strong> Cytoskeletal microfilaments anchoring internally; extracellular matrix anchoring externally.</li>
+<li><strong>C — Cell Recognition:</strong> Oligosaccharide tags identifying cell type, tissue origin, and self vs. non-self.</li>
+<li><strong>I — Intercellular Joinings:</strong> Tight junctions, gap junctions, and desmosomes hooking cells together.</li>
+<li><strong>E — Enzymatic Activity:</strong> Membrane-localized enzymes catalyzing regional biochemical pathways.</li>
+</ul>
+<hr />
+<h2 id="3-pages-58-lecture-guided-notes-diffusion-osmosis-facilitated-active-transport">3. Pages 5–8: Lecture Guided Notes (Diffusion, Osmosis, Facilitated &amp; Active Transport)</h2>
+<h3 id="page-5-passive-transport-simple-diffusion">Page 5: Passive Transport &amp; Simple Diffusion</h3>
+<ul>
+<li><strong>Passive Cell Transport:</strong> Movement of substances across a membrane without expenditure of metabolic cellular energy (0 ATP), moving <strong>down</strong> the concentration gradient (<strong>High $\rightarrow$ Low</strong>).</li>
+<li><strong>Simple Diffusion:</strong> Spontaneous movement of solute particles through the phospholipid bilayer from high concentration to low concentration until dynamic equilibrium is reached.</li>
+</ul>
+<h4 id="practice-diffusion-scenario-page-5">Practice — Diffusion Scenario (Page 5)</h4>
+<blockquote>
+<p><em>The diagram shows a cell in a solution. The cell membrane is permeable to starch only.</em><br />
+- Inside cell: $60\%$ glucose, $10\%$ starch<br />
+- Outside solution: $10\%$ glucose, $60\%$ starch<br />
+- <strong>Which molecule will move?</strong><br />
+<strong>Starch only</strong> (the problem explicitly states the membrane is permeable <em>only</em> to starch; glucose cannot cross).<br />
+- <strong>What direction will it move?</strong><br />
+  Starch will move <strong>INTO the cell</strong> (from high concentration outside [60%] to low concentration inside [10%]).</p>
+</blockquote>
+<hr />
+<h3 id="page-6-osmosis-in-animal-vs-plant-cells">Page 6: Osmosis in Animal vs. Plant Cells</h3>
+<p>Osmosis is the simple diffusion of water molecules across a selectively permeable membrane toward higher solute concentration (lower water potential).</p>
+<div class="overflow-x-auto my-4"><table>
+<thead>
+<tr>
+<th style="text-align: left;">Condition</th>
+<th style="text-align: left;">Animal Cells (e.g., RBC)</th>
+<th style="text-align: left;">Plant Cells (e.g., <em>Elodea</em>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Hypertonic Solution</strong><br>(High solute / Low water outside)</td>
+<td style="text-align: left;">Water diffuses OUT.<br>Cell shrivels and shrinks (<strong>Crenation</strong>).</td>
+<td style="text-align: left;">Water diffuses OUT.<br>Cytoplasm pulls away from cell wall (<strong>Plasmolysis</strong>); plant wilts.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Isotonic Solution</strong><br>(Equal solute &amp; water)</td>
+<td style="text-align: left;">Water enters &amp; exits at equal rates.<br>Normal volume (<strong>Dynamic Equilibrium</strong>).</td>
+<td style="text-align: left;">Equal movement.<br>Cell is limp/flaccid; lacks turgor.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Hypotonic Solution</strong><br>(Low solute / High water outside)</td>
+<td style="text-align: left;">Water diffuses IN.<br>Cell swells and bursts (<strong>Lysis / Cytolysis</strong>).</td>
+<td style="text-align: left;">Water diffuses IN.<br>Cell swells against rigid wall; becomes <strong>Turgid</strong> (ideal state).</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="practice-osmosis-scenarios-page-6">Practice — Osmosis Scenarios (Page 6)</h4>
+<ol>
+<li><strong>Beaker U-Tube Setup:</strong><br />
+   - Membrane permeable to water only. Side A has higher sucrose concentration; Side B has lower sucrose concentration.<br />
+   - <em>Which side has the highest water potential?</em> <strong>Side B</strong> (lower solute means higher free water).<br />
+   - <em>Which side has the highest solute concentration?</em> <strong>Side A</strong>.<br />
+   - <em>In which direction will water move?</em> <strong>From Side B $\rightarrow$ Side A</strong> (toward higher solute).</li>
+<li><strong>Cell in Glucose Solution:</strong><br />
+   - Cell interior: $90\%$ water ($10\%$ glucose).<br />
+   - Surrounding solution: $10\%$ water ($90\%$ glucose).<br />
+   - <em>What type of solution surrounds the cell?</em> <strong>Hypertonic solution</strong> ($90\%$ solute outside vs. $10\%$ inside).<br />
+   - <em>Where will the water move?</em> Water diffuses <strong>OUT of the cell</strong> (from $90\%$ water inside to $10\%$ water outside).<br />
+   - <em>What will happen to the cell?</em> The cell will <strong>shrivel and shrink</strong> (plasmolysis/crenation).</li>
+</ol>
+<hr />
+<h3 id="page-7-facilitated-diffusion-active-transport-overview">Page 7: Facilitated Diffusion &amp; Active Transport Overview</h3>
+<ul>
+<li><strong>Facilitated Diffusion:</strong> Passive transport of large, polar, or charged molecules across the membrane down their concentration gradient using channel or carrier proteins.</li>
+<li><em>How does glucose enter the cell?</em> Via <strong>facilitated diffusion</strong> through specific <strong>carrier or channel proteins (GLUT)</strong> because glucose is too large and polar to pass directly through the hydrophobic lipid tails.</li>
+<li><strong>Active Cell Transport:</strong> Movement of molecules <strong>against</strong> their concentration gradient (<strong>Low $\rightarrow$ High</strong>) requiring metabolic energy (<strong>ATP</strong>).</li>
+<li><em>Exocytosis:</em> Bulk export of substances via intracellular vesicles fusing with the plasma membrane.</li>
+<li><em>Endocytosis:</em> Bulk import of materials by plasma membrane invaginating to pinch off an intracellular vesicle.</li>
+</ul>
+<hr />
+<h3 id="page-8-types-of-endocytosis-the-sodium-potassium-pump">Page 8: Types of Endocytosis &amp; The Sodium-Potassium Pump</h3>
+<ul>
+<li><strong>Three Types of Endocytosis:</strong><br />
+  1. <strong>Phagocytosis ("Cell Eating"):</strong> Engulfing large solid particles (bacteria, debris) using pseudopodia to form a <strong>phagosome</strong>, which fuses with a lysosome for digestion.<br />
+  2. <strong>Pinocytosis ("Cell Drinking"):</strong> Non-specific invagination taking in small droplets of extracellular fluid and dissolved solutes.<br />
+  3. <strong>Receptor-Mediated Endocytosis:</strong> Specific extracellular ligands bind to outer membrane receptors clustered in clathrin-coated pits, triggering targeted vesicular internalization.</li>
+<li><strong>The Sodium-Potassium Pump ($Na^+/K^+$ ATPase):</strong></li>
+<li>Step 1: 3 intracellular $Na^+$ ions bind to high-affinity sites on the transport protein.</li>
+<li>Step 2: 1 ATP molecule is hydrolyzed; a phosphate group is transferred to the protein (phosphorylation).</li>
+<li>Step 3: Protein undergoes a conformational shape change, expelling <strong>3 $Na^+$ OUT</strong> of the cell.</li>
+<li>Step 4: 2 extracellular $K^+$ ions bind to the protein; phosphate is released (dephosphorylation).</li>
+<li>Step 5: Protein snaps back to its original shape, importing <strong>2 $K^+$ INTO</strong> the cell.</li>
+<li><em>Charge Effect:</em> Net loss of 1 positive charge per cycle makes the inside of the cell slightly negative relative to the outside (resting membrane potential).</li>
+</ul>
+<hr />
+<h2 id="4-page-9-cell-membrane-reading-comprehension-questions-18">4. Page 9: Cell Membrane Reading Comprehension (Questions 1–8)</h2>
+<h3 id="text-transcript">Text Transcript</h3>
+<blockquote>
+<p><em>Phospholipids are lipids that have a polar head and nonpolar tail. The heads are hydrophilic (water loving) and the tails are chains of fatty acids.</em><br />
+<em>The cell membrane is constantly vibrating, creating small openings within the structure. Therefore, the phospholipids can allow water and other smaller molecules to pass through into or out of the cell, without the use of energy. This type of passive transport is known as diffusion because the molecules are moving with the concentration gradient (high $\rightarrow$ low).</em><br />
+<em>Another type of lipid in the cell membrane is cholesterol (D), which makes the membrane more fluid and adds to its flexibility. Embedded in the phospholipid bilayer are proteins that also aid in diffusion and cell recognition. Proteins called integral proteins (E) go all the way through the bilayer. Large molecules like glucose utilize these channel proteins to help move across cell membrane without the use of energy. Peripheral proteins (F) are a type of membrane protein that is attached to the surface of the biological membrane. Some membrane proteins, called glycoproteins (G), have carbohydrate chains (H) attached to help cells recognize each other and certain molecules.</em></p>
+</blockquote>
+<h3 id="questions-complete-model-answers">Questions &amp; Complete Model Answers</h3>
+<ol>
+<li><strong>What is another name for the cell membrane? Identify the overall structure of the cell membrane.</strong><br />
+   - <strong>Answer:</strong> The plasma membrane. Its overall structure is a <strong>phospholipid bilayer</strong> with embedded proteins, cholesterol, and surface carbohydrates (described by the Fluid Mosaic Model).</li>
+<li><strong>Define hydrophilic. Which portion of the bilayer is hydrophilic?</strong><br />
+   - <strong>Answer:</strong> Hydrophilic means "water-loving" (polar or charged, readily interacting with water). The <strong>phosphate heads</strong> of the phospholipids facing the extracellular and intracellular environments are hydrophilic.</li>
+<li><strong>Define hydrophobic. Which portion of the bilayer is hydrophobic?</strong><br />
+   - <strong>Answer:</strong> Hydrophobic means "water-fearing" (nonpolar, insoluble in water). The interior fatty acid hydrocarbon tails of the phospholipids are hydrophobic.</li>
+<li><strong>When does the movement of materials in and out of the cell NOT require energy?</strong><br />
+   - <strong>Answer:</strong> When molecules move passively <strong>down their concentration gradient</strong> (from an area of higher concentration to an area of lower concentration) via simple diffusion, facilitated diffusion, or osmosis.</li>
+<li><strong>List the responsibilities of the cell membrane.</strong><br />
+   - <strong>Answer:</strong> Regulates selective transport of materials in and out of the cell, protects internal organelles, maintains cellular homeostasis, provides structural anchorage to cytoskeleton, and enables cell-to-cell communication and immune recognition.</li>
+<li><strong>Describe the function of the proteins embedded in the cell membrane.</strong><br />
+   - <strong>Answer:</strong> Integral channel and carrier proteins transport polar molecules and ions; receptor proteins transmit extracellular signals; peripheral proteins anchor cytoskeletal filaments and participate in enzymatic reactions.</li>
+<li><strong>How are cells able to recognize various molecules and other types of cells?</strong><br />
+   - <strong>Answer:</strong> Through <strong>glycoproteins and glycolipids</strong>—carbohydrate chains protruding from the outer membrane surface that act as unique biochemical fingerprints/markers.</li>
+<li><strong>What component(s) of the cell membrane contribute to the fluid quality of the cell membrane?</strong><br />
+   - <strong>Answer:</strong> The constant lateral motion and vibrations of the unsaturated fatty acid tails of phospholipids, along with interspersed <strong>cholesterol</strong> molecules that act as fluidity buffers.</li>
+</ol>
+<hr />
+<h2 id="5-page-10-cell-membrane-structural-coloring-anatomy-identification">5. Page 10: Cell Membrane Structural Coloring &amp; Anatomy Identification</h2>
+<h3 id="coloring-chart-letter-key">Coloring Chart &amp; Letter Key</h3>
+<div class="overflow-x-auto my-4"><table>
+<thead>
+<tr>
+<th style="text-align: center;">Letter</th>
+<th style="text-align: left;">Anatomical Part</th>
+<th style="text-align: left;">Color Specified</th>
+<th style="text-align: left;">Biological Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>A</strong></td>
+<td style="text-align: left;"><strong>Phospholipid Head</strong></td>
+<td style="text-align: left;">Yellow</td>
+<td style="text-align: left;">Polar, charged hydrophilic phosphate group facing aqueous fluids</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>B</strong></td>
+<td style="text-align: left;"><strong>Fatty Acid Tails</strong></td>
+<td style="text-align: left;">Orange</td>
+<td style="text-align: left;">Nonpolar, hydrophobic hydrocarbon chains facing interior core</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>A + B</strong></td>
+<td style="text-align: left;"><strong>Phospholipid Bilayer</strong></td>
+<td style="text-align: left;">(No color / Base)</td>
+<td style="text-align: left;">Double-layered structural foundation of the membrane</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>D</strong></td>
+<td style="text-align: left;"><strong>Cholesterol</strong></td>
+<td style="text-align: left;">Brown</td>
+<td style="text-align: left;">4-ring steroid embedded in hydrophobic core to regulate fluidity</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>E</strong></td>
+<td style="text-align: left;"><strong>Integral / Channel Protein</strong></td>
+<td style="text-align: left;">Purple</td>
+<td style="text-align: left;">Transmembrane protein spanning bilayer to transport large/polar solutes</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>F</strong></td>
+<td style="text-align: left;"><strong>Peripheral Protein</strong></td>
+<td style="text-align: left;">Red</td>
+<td style="text-align: left;">Surface-bound protein on interior leaflet for cytoskeletal anchoring</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>G</strong></td>
+<td style="text-align: left;"><strong>Glycoprotein</strong></td>
+<td style="text-align: left;">Blue</td>
+<td style="text-align: left;">Membrane protein covalently bonded to an external sugar branch</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>H</strong></td>
+<td style="text-align: left;"><strong>Carbohydrate Chain</strong></td>
+<td style="text-align: left;">Green</td>
+<td style="text-align: left;">Oligosaccharide chain on exterior surface for cell recognition</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="matching-functional-descriptions-to-letters">Matching Functional Descriptions to Letters</h3>
+<ul>
+<li><strong>Attracts water:</strong> <strong>Letter A</strong> (Phospholipid head)</li>
+<li><strong>Helps maintain the flexibility of the membrane:</strong> <strong>Letter D</strong> (Cholesterol)</li>
+<li><strong>Involved in cell-to-cell recognition:</strong> <strong>Letter H</strong> (Carbohydrate chain) &amp; <strong>Letter G</strong> (Glycoprotein)</li>
+<li><strong>Repels water:</strong> <strong>Letter B</strong> (Fatty acid tails)</li>
+<li><strong>Makes up the bilayer (2 answers):</strong> <strong>Letter A</strong> (Phospholipid head) &amp; <strong>Letter B</strong> (Fatty acid tails)</li>
+<li><strong>Helps transport materials, like glucose, across the membrane:</strong> <strong>Letter E</strong> (Integral protein)</li>
+</ul>
+<hr />
+<h2 id="6-pages-1113-cellular-transport-practice-flashcards-scenarios-17">6. Pages 11–13: Cellular Transport Practice Flashcards (Scenarios 1–7)</h2>
+<h3 id="scenario-1-movement-of-o_2-into-the-cell-page-11">Scenario 1: Movement of $O_2$ into the Cell (Page 11)</h3>
+<ul>
+<li><strong>Type of Transport:</strong> <strong>Passive</strong></li>
+<li><strong>Method of Transport:</strong> <strong>Simple Diffusion</strong></li>
+<li><strong>Energy Needed?:</strong> <strong>No</strong></li>
+<li><strong>Up or down concentration gradient?:</strong> <strong>Down</strong> (High $O_2$ in extracellular capillaries $\rightarrow$ Low $O_2$ in cytoplasm)</li>
+</ul>
+<h3 id="scenario-2-movement-of-co_2-out-of-the-cell-page-11">Scenario 2: Movement of $CO_2$ out of the Cell (Page 11)</h3>
+<ul>
+<li><strong>Type of Transport:</strong> <strong>Passive</strong></li>
+<li><strong>Method of Transport:</strong> <strong>Simple Diffusion</strong></li>
+<li><strong>Energy Needed?:</strong> <strong>No</strong></li>
+<li><strong>Up or down concentration gradient?:</strong> <strong>Down</strong> (High $CO_2$ inside respiring cell $\rightarrow$ Low $CO_2$ in extracellular blood)</li>
+</ul>
+<h3 id="scenario-3-movement-of-h_2o-into-a-cell-in-a-hypotonic-environment-page-12">Scenario 3: Movement of $H_2O$ into a Cell in a Hypotonic Environment (Page 12)</h3>
+<ul>
+<li><strong>Type of Transport:</strong> <strong>Passive</strong></li>
+<li><strong>Method of Transport:</strong> <strong>Osmosis</strong></li>
+<li><strong>Energy Needed?:</strong> <strong>No</strong></li>
+<li><strong>Up or down concentration gradient?:</strong> <strong>Down</strong> water gradient (Water moves from high water concentration outside into the lower water concentration of the cell)</li>
+</ul>
+<h3 id="scenario-4-glucose-absorption-into-the-cell-page-12">Scenario 4: Glucose Absorption into the Cell (Page 12)</h3>
+<ul>
+<li><strong>Type of Transport:</strong> <strong>Passive</strong></li>
+<li><strong>Method of Transport:</strong> <strong>Facilitated Diffusion</strong> (via GLUT transporter)</li>
+<li><strong>Energy Needed?:</strong> <strong>No</strong></li>
+<li><strong>Up or down concentration gradient?:</strong> <strong>Down</strong> (High glucose outside $\rightarrow$ Low glucose inside)</li>
+</ul>
+<h3 id="scenario-5-secretion-of-a-protein-hormone-page-13">Scenario 5: Secretion of a Protein / Hormone (Page 13)</h3>
+<ul>
+<li><strong>Type of Transport:</strong> <strong>Active</strong></li>
+<li><strong>Method of Transport:</strong> <strong>Exocytosis</strong></li>
+<li><strong>Energy Needed?:</strong> <strong>Yes (ATP)</strong></li>
+<li><strong>Up or down concentration gradient?:</strong> <strong>Bulk Outward Transport</strong> (Vesicles fuse with plasma membrane to release cargo)</li>
+</ul>
+<h3 id="scenario-6-engulfment-of-a-bacteria-by-a-white-blood-cell-page-13">Scenario 6: Engulfment of a Bacteria by a White Blood Cell (Page 13)</h3>
+<ul>
+<li><strong>Type of Transport:</strong> <strong>Active</strong></li>
+<li><strong>Method of Transport:</strong> <strong>Endocytosis (Phagocytosis)</strong></li>
+<li><strong>Energy Needed?:</strong> <strong>Yes (ATP)</strong></li>
+<li><strong>Up or down concentration gradient?:</strong> <strong>Bulk Inward Transport</strong> (Pseudopodia surround bacterium into a phagosome)</li>
+</ul>
+<h3 id="scenario-7-movement-of-na-and-k-ions-page-13">Scenario 7: Movement of $Na^+$ and $K^+$ Ions (Page 13)</h3>
+<ul>
+<li><strong>Type of Transport:</strong> <strong>Active</strong></li>
+<li><strong>Method of Transport:</strong> <strong>Sodium-Potassium Pump ($Na^+/K^+$ ATPase)</strong></li>
+<li><strong>Energy Needed?:</strong> <strong>Yes (ATP)</strong></li>
+<li><strong>Up or down concentration gradient?:</strong> <strong>Up / Against</strong> the concentration gradient ($3\ Na^+$ pumped out to high $Na^+$; $2\ K^+$ pumped in to high $K^+$)</li>
+</ul>
+<hr />
+<h2 id="7-page-14-amoeba-sisters-video-recap-osmosis-gummy-bear-mystery">7. Page 14: Amoeba Sisters Video Recap — Osmosis &amp; Gummy Bear Mystery</h2>
+<h3 id="part-1-video-comprehension-questions-answers">Part 1: Video Comprehension Questions &amp; Answers</h3>
+<ol>
+<li><strong>Diffusion Labeling:</strong><br />
+   - Draw an arrow showing particles traveling from <strong>High Concentration $\rightarrow$ Low Concentration</strong> until dynamic equilibrium is achieved.</li>
+<li><strong>Osmosis Solute Perspective:</strong><br />
+   - <em>Osmosis can be viewed as water moving to a </em><em>HIGHER</em><em> concentration of solute molecules.</em><br />
+   - <em>Why can it also be viewed this way?</em> Because water diffuses toward hypertonic regions to hydrate and dissolve solute particles, effectively equalizing concentrations across the semipermeable barrier.</li>
+<li><strong>Freshwater Fish in Saltwater Scenario:</strong><br />
+   - <em>What happens if a freshwater fish is placed into the ocean?</em><br />
+   - Internal tissues of the fish are <strong>hypotonic</strong>; surrounding ocean water is <strong>hypertonic</strong>.<br />
+   - Water rapidly flows <strong>OUT of the fish’s cells</strong> via osmosis into the ocean. The fish suffers severe cellular dehydration, shrivels, and dies.</li>
+<li><strong>Brain Swelling (Cerebral Edema) Clinical Treatment:</strong><br />
+   - <em>Should doctors administer a hypertonic or hypotonic IV saline solution to reduce brain swelling?</em><br />
+   - <strong>Answer: Hypertonic saline</strong> (e.g., $3\%$ NaCl or mannitol).<br />
+   - <em>Explanation:</em> Introducing hypertonic saline into the bloodstream raises blood solute concentration above that of the brain tissue. By osmosis, excess fluid is drawn out of the swollen neurons and into the blood capillaries, relieving intracranial pressure.</li>
+</ol>
+<h3 id="part-2-the-gummy-bear-mystery">Part 2: The Gummy Bear Mystery</h3>
+<blockquote>
+<p><em>Scenario: Gummy bears (high in gelatin and sugar) are submerged in pure ice water for 30 minutes. Upon returning, they are massively swollen.</em><br />
+- <strong>Correct Viewpoint:</strong> <strong>Friend Joe is correct.</strong><br />
+- <strong>Scientific Rationale:</strong> The gummy bear is strongly <strong>hypertonic</strong> (packed with sugar and gelatin solutes), while the ice water is <strong>hypotonic</strong> (virtually pure $H_2O$). Water diffuses by osmosis from the hypotonic water into the hypertonic gummy bear, causing it to swell. Sugar molecules cannot diffuse out because the gelatin matrix traps them.</p>
+</blockquote>
+<h3 id="part-3-red-blood-cell-tonicity-identification">Part 3: Red Blood Cell Tonicity Identification</h3>
+<ul>
+<li><strong>Swelling / Bursting Cells:</strong> Placed in a <strong>hypotonic solution</strong> (cells are <em>hypertonic</em> compared to the solution).</li>
+<li><strong>Shriveled / Crenated Cells:</strong> Placed in a <strong>hypertonic solution</strong> (cells are <em>hypotonic</em> compared to the solution).</li>
+<li><strong>Normal Disc Cells:</strong> Placed in an <strong>isotonic solution</strong> (cells are <em>isotonic</em> with the solution).</li>
+</ul>
+<hr />
+<h2 id="8-pages-1517-osmosis-gel-deco-cube-gummy-bear-lab-investigation">8. Pages 15–17: Osmosis Gel Deco Cube / Gummy Bear Lab Investigation</h2>
+<h3 id="background-task">Background &amp; Task</h3>
+<p>Vertebrate red blood cells (erythrocytes) are biconcave, flexible discs packed with hemoglobin without a nucleus or mitochondria. When placed in non-isotonic fluids, their shape and volume change drastically. In this lab, students use semipermeable <strong>gel deco cubes</strong> (or gummy bears) to model cellular osmotic responses across various external solutions.</p>
+<h3 id="pre-lab-design-questions-page-16">Pre-Lab Design Questions (Page 16)</h3>
+<ol>
+<li><strong>What is your independent variable (IV)?</strong><br />
+   - The type/concentration of the surrounding soaking solution ($0\%$ distilled water, tap water, concentrated salt/sucrose solution).</li>
+<li><strong>What is your dependent variable (DV)?</strong><br />
+   - The change in mass (grams) and change in volume ($cm^3$) of the cube after incubation.</li>
+<li><strong>Which group serves as your control in your experiment?</strong><br />
+   - The cube placed in an isotonic solution (or initial pre-treatment baseline measurement).</li>
+<li><strong>How will you ensure high-quality data and reduce experimental error?</strong><br />
+   - Gently blot excess surface liquid with a paper towel before weighing, use the exact same electronic balance for all trials, measure dimensions with a metric ruler carefully, and run triplicate trials.</li>
+<li><strong>What type of graph will you use to display your data?</strong><br />
+   - A <strong>bar graph</strong> comparing the percent change in mass ($\%\ \Delta\text{Mass}$) across the different solution treatments.</li>
+</ol>
+<h3 id="data-collection-table">Data Collection Table</h3>
+<div class="overflow-x-auto my-4"><table>
+<thead>
+<tr>
+<th style="text-align: left;">Metric</th>
+<th style="text-align: center;">Cube 1 (Distilled Water)</th>
+<th style="text-align: center;">Cube 2 (Tap Water)</th>
+<th style="text-align: center;">Cube 3 (Concentrated Salt/Sugar)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Solution Type</strong></td>
+<td style="text-align: center;">Hypotonic ($0\%$ Solute)</td>
+<td style="text-align: center;">Slightly Hypotonic</td>
+<td style="text-align: center;">Hypertonic ($10\%-20\%$ Solute)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Mass Before Treatment (g)</strong></td>
+<td style="text-align: center;">$5.0\text{ g}$</td>
+<td style="text-align: center;">$5.0\text{ g}$</td>
+<td style="text-align: center;">$5.0\text{ g}$</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Mass After Treatment (g)</strong></td>
+<td style="text-align: center;">$8.2\text{ g}$</td>
+<td style="text-align: center;">$5.6\text{ g}$</td>
+<td style="text-align: center;">$3.4\text{ g}$</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Volume Before ($cm^3$)</strong></td>
+<td style="text-align: center;">$4.0\text{ cm}^3$</td>
+<td style="text-align: center;">$4.0\text{ cm}^3$</td>
+<td style="text-align: center;">$4.0\text{ cm}^3$</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Volume After ($cm^3$)</strong></td>
+<td style="text-align: center;">$6.8\text{ cm}^3$</td>
+<td style="text-align: center;">$4.5\text{ cm}^3$</td>
+<td style="text-align: center;">$2.8\text{ cm}^3$</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Calculated $\%\ \Delta\text{Mass}$</strong></td>
+<td style="text-align: center;"><strong>$+64.0\%$</strong></td>
+<td style="text-align: center;"><strong>$+12.0\%$</strong></td>
+<td style="text-align: center;"><strong>$-32.0\%$</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="post-lab-analysis-questions-pages-1617">Post-Lab Analysis Questions (Pages 16–17)</h3>
+<ol>
+<li><strong>What does the cube represent in this experiment?</strong><br />
+   - A model cell enclosed by a selectively permeable membrane.</li>
+<li><strong>What substance is actually passing through the membrane? Explain.</strong><br />
+   - <strong>Water ($H_2O$) only.</strong> The large polymer chains of the gel matrix (or gelatin/sugar) are too massive to cross the membrane pores, so only small water molecules diffuse across.</li>
+<li><strong>What does a positive change in mass or volume actually represent?</strong><br />
+   - A net influx of water molecules into the cube via osmosis caused by a hypotonic external environment.</li>
+<li><strong>Predict the change in mass of a cell placed in an isotonic environment. Explain.</strong><br />
+   - The percent change in mass will be <strong>$0\%$</strong> because water diffuses into and out of the cell at identical, equal rates (dynamic equilibrium).</li>
+</ol>
+<hr />
+<h2 id="9-pages-1718-clinical-case-study-acute-water-intoxication-cer">9. Pages 17–18: Clinical Case Study — Acute Water Intoxication CER</h2>
+<h3 id="clinical-case-narrative">Clinical Case Narrative</h3>
+<p>In 2007, 28-year-old Jennifer Strange participated in KDND 107.9 FM's radio contest <em>"Hold your wee for a Wii"</em> in Sacramento, California. Over several hours, contestants drank an 8-ounce bottle of water every 15 minutes without urinating. Jennifer consumed nearly 2 gallons of water. She developed a severe headache, dizziness, and vomiting. She went home and was found dead hours later from <strong>acute water intoxication (hyponatremia)</strong>.</p>
+<h3 id="scientific-cer-argumentation">Scientific CER Argumentation</h3>
+<ul>
+<li><strong>Driving Question:</strong> <em>Can consuming too much water be deadly?</em></li>
+<li><strong>Claim:</strong><br />
+  Yes, drinking extreme quantities of water in a short time frame without urinating can be fatal because it causes acute hyponatremia and fatal osmotic brain swelling (cerebral edema).</li>
+<li><strong>Evidence:</strong>  </li>
+<li>Jennifer ingested nearly two gallons of pure water over three hours while retaining all urine.</li>
+<li>Her blood sodium concentration plummeted far below normal physiological levels ($135 - 145\ \text{mEq/L}$).</li>
+<li>She exhibited classic neuro-osmotic symptoms: excruciating headache, loss of motor balance, emesis, followed by coma and death.</li>
+<li>The coroner's autopsy confirmed death secondary to massive cerebral edema and brainstem herniation.</li>
+<li><strong>Reasoning:</strong><br />
+  When water consumption drastically exceeds the kidneys' maximum filtration rate (~$0.8 - 1.0\ \text{L/hour}$), blood plasma becomes profoundly <strong>hypotonic</strong> relative to intracellular fluids. By <strong>osmosis</strong>, water diffuses down its concentration gradient across the blood-brain barrier through neuronal <strong>aquaporins</strong> into brain cells. Unlike plant cells that have rigid cellulose cell walls to generate protective turgor pressure, animal cells lack cell walls and swell. Because the brain is enclosed inside the rigid, unyielding bone of the skull, swollen brain tissue builds fatal intracranial pressure, cutting off cerebral blood flow and herniating the brainstem downward, which arrests cardiac and respiratory centers.</li>
+</ul>
+<hr />
+<h2 id="10-page-19-transport-situation-cards-data-record">10. Page 19: Transport Situation Cards Data Record</h2>
+<div class="overflow-x-auto my-4"><table>
+<thead>
+<tr>
+<th style="text-align: center;">Scenario #</th>
+<th style="text-align: center;">Transport Type (A or P)</th>
+<th style="text-align: left;">Specific Form of Transport</th>
+<th style="text-align: center;">Water Moving In or Out?</th>
+<th style="text-align: center;">Solution Tonicity (Osmosis Only)</th>
+<th style="text-align: left;">Cell Outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;"><strong>P</strong></td>
+<td style="text-align: left;">Osmosis</td>
+<td style="text-align: center;"><strong>OUT</strong></td>
+<td style="text-align: center;"><strong>Hypertonic</strong></td>
+<td style="text-align: left;">Cells shrivel / wilt (Plasmolysis)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>2</strong></td>
+<td style="text-align: center;"><strong>P</strong></td>
+<td style="text-align: left;">Simple Diffusion</td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: left;">Gas exchange equilibrium</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>3</strong></td>
+<td style="text-align: center;"><strong>A</strong></td>
+<td style="text-align: left;">Receptor-Mediated Endocytosis</td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: left;">Coated pits ingest LDL</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>4</strong></td>
+<td style="text-align: center;"><strong>P</strong></td>
+<td style="text-align: left;">Facilitated Diffusion</td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: left;">Glucose enters via transporter</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: center;"><strong>A</strong></td>
+<td style="text-align: left;">Exocytosis</td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: left;">Neurotransmitter release</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>6</strong></td>
+<td style="text-align: center;"><strong>P</strong></td>
+<td style="text-align: left;">Osmosis</td>
+<td style="text-align: center;"><strong>IN</strong></td>
+<td style="text-align: center;"><strong>Hypotonic</strong></td>
+<td style="text-align: left;">Cells swell / osmotic lysis</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>7</strong></td>
+<td style="text-align: center;"><strong>A</strong></td>
+<td style="text-align: left;">Endocytosis (Pinocytosis)</td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: left;">Fluid microdroplets internalized</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>8</strong></td>
+<td style="text-align: center;"><strong>A</strong></td>
+<td style="text-align: left;">Exocytosis</td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: left;">Cell wall components exported</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>9</strong></td>
+<td style="text-align: center;"><strong>A</strong></td>
+<td style="text-align: left;">Sodium-Potassium Pump</td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: left;">$3\ Na^+$ out / $2\ K^+$ in</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>10</strong></td>
+<td style="text-align: center;"><strong>P</strong></td>
+<td style="text-align: left;">Simple Diffusion</td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: left;">$CO_2$ diffuses out of cell</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>11</strong></td>
+<td style="text-align: center;"><strong>A</strong></td>
+<td style="text-align: left;">Endocytosis (Phagocytosis)</td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: left;">Macrophage engulfs bacterium</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>12</strong></td>
+<td style="text-align: center;"><strong>P</strong></td>
+<td style="text-align: left;">Simple Diffusion</td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: left;">Scent particles disperse</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>13</strong></td>
+<td style="text-align: center;"><strong>P</strong></td>
+<td style="text-align: left;">Osmosis</td>
+<td style="text-align: center;"><strong>OUT</strong></td>
+<td style="text-align: center;"><strong>Hypertonic</strong></td>
+<td style="text-align: left;">Strawberry juice leaves cells</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>14</strong></td>
+<td style="text-align: center;"><strong>A</strong></td>
+<td style="text-align: left;">Exocytosis</td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: left;">Insulin secreted into blood</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>15</strong></td>
+<td style="text-align: center;"><strong>P</strong></td>
+<td style="text-align: left;">Simple Diffusion</td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: left;">Cookie aroma disperses</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>16</strong></td>
+<td style="text-align: center;"><strong>P</strong></td>
+<td style="text-align: left;">Osmosis</td>
+<td style="text-align: center;"><strong>OUT</strong></td>
+<td style="text-align: center;"><strong>Hypertonic</strong></td>
+<td style="text-align: left;">Body cells shrink $\rightarrow$ thirst</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>17</strong></td>
+<td style="text-align: center;"><strong>P</strong></td>
+<td style="text-align: left;">Facilitated Diffusion</td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: left;">Solute moves via channel</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>18</strong></td>
+<td style="text-align: center;"><strong>P</strong></td>
+<td style="text-align: left;">Osmosis</td>
+<td style="text-align: center;"><strong>IN</strong></td>
+<td style="text-align: center;"><strong>Hypotonic</strong></td>
+<td style="text-align: left;">Strawberry swells &amp; becomes mushy</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>19</strong></td>
+<td style="text-align: center;"><strong>P</strong></td>
+<td style="text-align: left;">Osmosis</td>
+<td style="text-align: center;"><strong>OUT</strong></td>
+<td style="text-align: center;"><strong>Hypertonic</strong></td>
+<td style="text-align: left;">Intestinal water loss $\rightarrow$ dehydration</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>20</strong></td>
+<td style="text-align: center;"><strong>P</strong></td>
+<td style="text-align: left;">Osmosis</td>
+<td style="text-align: center;"><strong>OUT</strong></td>
+<td style="text-align: center;"><strong>Hypertonic</strong></td>
+<td style="text-align: left;">Snail cells desiccate &amp; shrink</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="11-pages-2021-comprehensive-unit-review-problem-set-questions-130">11. Pages 20–21: Comprehensive Unit Review Problem Set (Questions 1–30)</h2>
+<h3 id="part-1-plant-fertilizer-osmosis-scenarios-questions-14">Part 1: Plant Fertilizer &amp; Osmosis Scenarios (Questions 1–4)</h3>
+<p><em>Context: Three identical houseplants are given different watering treatments:</em><br />
+- <em>Plant X is given normal tap water.</em><br />
+- <em>Plant Y is given heavily concentrated chemical fertilizer solution.</em><br />
+- <em>Plant Z is given pure distilled water.</em></p>
+<ol>
+<li><strong>What happened to Plant X? Explain.</strong><br />
+   - <strong>Answer:</strong> Plant X maintained normal cellular homeostasis. Tap water is approximately isotonic/slightly hypotonic, allowing root cells to maintain healthy upright <strong>turgor pressure</strong>.</li>
+<li><strong>Did plant Y lose turgor pressure? Explain.</strong><br />
+   - <strong>Answer:</strong> <strong>Yes.</strong> The concentrated chemical fertilizer created a strongly <strong>hypertonic</strong> soil solution. Water moved by osmosis <strong>out</strong> of the root cells and into the soil. The cytoplasm pulled away from the cell walls (<strong>plasmolysis</strong>), resulting in loss of turgor pressure and severe wilting.</li>
+<li><strong>Was plant Z given an isotonic solution of fertilizer? Explain.</strong><br />
+   - <strong>Answer:</strong> <strong>No.</strong> Pure distilled water contains $0\%$ solutes, making it <strong>hypotonic</strong> to the plant's internal cytoplasm ($~1-2\%$ solutes).</li>
+<li><strong>Did plant Z's cells burst due to cytolysis? Explain.</strong><br />
+   - <strong>Answer:</strong> <strong>No.</strong> Plant cells do not burst in hypotonic environments because their rigid <strong>cellulose cell wall</strong> exerts opposing wall pressure that balances incoming osmotic pressure, making the cells happily <strong>turgid</strong>.</li>
+</ol>
+<hr />
+<h3 id="part-2-fill-in-the-blank-questions-515">Part 2: Fill in the Blank (Questions 5–15)</h3>
+<ol start="5">
+<li>A membrane that allows only certain substances to pass through is: <strong>Selectively permeable (or semipermeable)</strong>.</li>
+<li>Name 3 examples of homeostasis: <strong>Thermoregulation (sweating/shivering), Blood glucose regulation (insulin/glucagon), Osmoregulation / water balance (kidneys/thirst)</strong>.</li>
+<li>When turgor pressure is lost, the cell contents shrink. What is this condition called?: <strong>Plasmolysis</strong>.</li>
+<li>The odor of BBQ chicken coming through the house is an example of: <strong>Simple diffusion</strong>.</li>
+<li>Name 3 things that would affect the rate of diffusion through a membrane: <strong>Temperature, Concentration gradient steepness, Molecule size/mass (or membrane surface area)</strong>.</li>
+<li>Osmosis refers to the diffusion of: <strong>Water ($H_2O$) molecules</strong>.</li>
+<li>The engulfing process by which large molecules enter the cell is: <strong>Endocytosis (specifically phagocytosis)</strong>.</li>
+<li>Organelles that push extra water out through the cell membrane are called: <strong>Contractile vacuoles</strong>.</li>
+<li>The diffusion of molecules across a membrane through transport proteins is called: <strong>Facilitated diffusion</strong>.</li>
+<li>The difference in concentration from one area to another is called a: <strong>Concentration gradient</strong>.</li>
+<li>If a substance is too large to cross through the membrane, a cell may transport the substance in a: <strong>Vesicle</strong>.</li>
+</ol>
+<hr />
+<h3 id="part-3-match-the-items-questions-1626">Part 3: Match the Items (Questions 16–26)</h3>
+<p><em>Word Bank: Active transport, Permeable, Hypotonic, Osmosis, Homeostasis, Plasmolysis, Turgor, Cytolysis, Isotonic, Diffusion, Exocytosis, Contractile vacuole.</em></p>
+<ol start="16">
+<li>Shrinking the cell content due to loss of water: <strong>Plasmolysis</strong></li>
+<li>"Steady state": <strong>Homeostasis</strong></li>
+<li>Movement of materials against diffusion pressure: <strong>Active transport</strong></li>
+<li>Spreading out of molecules in a given space: <strong>Diffusion</strong></li>
+<li>Solution that contains a higher concentration of water molecules than the cell content: <strong>Hypotonic</strong></li>
+<li>Passage of large molecules through the plasma membrane out of the cell: <strong>Exocytosis</strong></li>
+<li>Swelling and bursting of a cell due to water influx: <strong>Cytolysis</strong></li>
+<li>Internal hydrostatic pressure within a plant cell against the cell wall: <strong>Turgor</strong></li>
+<li>Allows substances to pass through freely: <strong>Permeable</strong></li>
+<li>Diffusion of water across a semipermeable membrane: <strong>Osmosis</strong></li>
+<li>Organelle that pumps excess water out of freshwater protists: <strong>Contractile vacuole</strong></li>
+</ol>
+<hr />
+<h3 id="part-4-synthesis-problem-solving-questions-2730">Part 4: Synthesis &amp; Problem Solving (Questions 27–30)</h3>
+<ol start="27">
+<li>
+<p><strong>Organize the terms isotonic, hypertonic, and hypotonic in order from the solution with the lowest concentration of dissolved particles to the highest concentration:</strong><br />
+    $$\text{Hypotonic} \longrightarrow \text{Isotonic} \longrightarrow \text{Hypertonic}$$</p>
+</li>
+<li>
+<p><strong>Suppose you have a container divided by a membrane that is permeable to water but not sugar. Side A has a $10\%$ sugar solution. Side B has a $40\%$ sugar solution. Both containers start out with water levels at $10\text{ cm}$ in height. Over time, the height of one side drops to $7\text{ cm}$, and the height of the other side increases to $13\text{ cm}$. Which side of the container is now at $7\text{ cm}$? Explain.</strong>  </p>
+<ul>
+<li><strong>Answer:</strong> <strong>Side A is now at $7\text{ cm}$.</strong>  </li>
+<li><strong>Explanation:</strong> Side A has a $10\%$ sugar solution ($90\%$ water), while Side B has a $40\%$ sugar solution ($60\%$ water). Because the membrane is permeable only to water, water diffuses down its concentration gradient via osmosis from Side A into Side B. Consequently, Side A loses water volume and its level falls to $7\text{ cm}$, while Side B gains volume and its level rises to $13\text{ cm}$.</li>
+</ul>
+</li>
+<li>
+<p><strong>Draw a phospholipid below. Label the hydrophobic and hydrophilic portions of the phospholipids:</strong>  </p>
+<ul>
+<li><strong>Phosphate Head (Polar):</strong> Hydrophilic (interacts with water).</li>
+<li><strong>Fatty Acid Tails (Nonpolar):</strong> Hydrophobic (repelled by water).</li>
+</ul>
+</li>
+<li>
+<p><strong>Use arrows to show the direction of water movement into or out of each cell. Color and label the cell in an isotonic environment light blue, the hypotonic environment yellow, and the hypertonic environment light green:</strong>  </p>
+</li>
+</ol>
+<div class="overflow-x-auto my-4"><table>
+<thead>
+<tr>
+<th style="text-align: center;">Cell Interior</th>
+<th style="text-align: center;">External Environment</th>
+<th style="text-align: center;">Solution Tonicity</th>
+<th style="text-align: center;">Water Movement Arrow</th>
+<th style="text-align: center;">Cell Outcome</th>
+<th style="text-align: center;">Assigned Color</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>$98\%$ Water</strong></td>
+<td style="text-align: center;"><strong>$95\%$ Water</strong> ($5\%$ Solute)</td>
+<td style="text-align: center;"><strong>Hypertonic</strong></td>
+<td style="text-align: center;"><strong>$\longrightarrow$ Out of cell</strong></td>
+<td style="text-align: center;">Cell shrivels / shrinks</td>
+<td style="text-align: center;"><strong>Light Green</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>$98\%$ Water</strong></td>
+<td style="text-align: center;"><strong>$98\%$ Water</strong> ($2\%$ Solute)</td>
+<td style="text-align: center;"><strong>Isotonic</strong></td>
+<td style="text-align: center;"><strong>$\longleftrightarrow$ Equal in and out</strong></td>
+<td style="text-align: center;">Dynamic equilibrium / unchanged</td>
+<td style="text-align: center;"><strong>Light Blue</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>$98\%$ Water</strong></td>
+<td style="text-align: center;"><strong>$100\%$ Water</strong> ($0\%$ Solute)</td>
+<td style="text-align: center;"><strong>Hypotonic</strong></td>
+<td style="text-align: center;"><strong>$\longleftarrow$ Into cell</strong></td>
+<td style="text-align: center;">Cell swells / turgid or lyse</td>
+<td style="text-align: center;"><strong>Yellow</strong></td>
+</tr>
+</tbody>
+</table></div>
+      </article>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800 bg-slate-950 py-8 text-center text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>Grade 9 Biology I Honors • South Forsyth High School • Dr. Sarah Irwin</p>
+      <div class="flex items-center gap-4">
+        <a href="../../../../index.html" class="hover:text-slate-300 transition">Portal Home</a>
+        <a href="../../../../schedule/semester-1.html" class="hover:text-slate-300 transition">Schedule</a>
+        <a href="../../../../notInLocal.html" class="hover:text-slate-300 transition">Cloud Links</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit 2 (Part 1): Cell Membrane and Transport - Biology I Honors</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    code, pre { font-family: 'JetBrains Mono', monospace; }
+    
+    /* Markdown Content Typography */
+    .prose-biology h1 {
+      font-size: 1.875rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #334155;
+      letter-spacing: -0.025em;
+    }
+    .prose-biology h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+    .prose-biology h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #38bdf8;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .prose-biology h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #34d399;
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .prose-biology p {
+      color: #cbd5e1;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    .prose-biology strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .prose-biology ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+      color: #cbd5e1;
+    }
+    .prose-biology ol {
+      list-style-type: decimal;
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+      color: #cbd5e1;
+    }
+    .prose-biology li {
+      margin-bottom: 0.375rem;
+      line-height: 1.6;
+    }
+    .prose-biology li strong {
+      color: #f8fafc;
+    }
+    .prose-biology a {
+      color: #38bdf8;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.15s ease;
+    }
+    .prose-biology a:hover {
+      color: #7dd3fc;
+      text-decoration: none;
+    }
+    .prose-biology blockquote {
+      border-left: 4px solid #10b981;
+      background-color: rgba(16, 185, 129, 0.08);
+      padding: 0.75rem 1rem;
+      margin: 1.25rem 0;
+      border-radius: 0 0.5rem 0.5rem 0;
+      color: #e2e8f0;
+      font-style: italic;
+    }
+    .prose-biology blockquote p {
+      margin-bottom: 0;
+      color: #e2e8f0;
+    }
+    .prose-biology code {
+      background-color: #1e293b;
+      color: #fbbf24;
+      padding: 0.2rem 0.4rem;
+      border-radius: 0.375rem;
+      font-size: 0.85em;
+      border: 1px solid #334155;
+    }
+    .prose-biology pre {
+      background-color: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 0.75rem;
+      padding: 1rem;
+      overflow-x: auto;
+      margin: 1.25rem 0;
+    }
+    .prose-biology pre code {
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      color: #34d399;
+      font-size: 0.875rem;
+    }
+    .prose-biology hr {
+      border: 0;
+      border-top: 1px solid #334155;
+      margin: 2rem 0;
+    }
+    /* Table Styling */
+    .prose-biology table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.875rem;
+      background-color: #1e293b;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      border: 1px solid #334155;
+    }
+    .prose-biology th {
+      background-color: #0f172a;
+      color: #34d399;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.75rem;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #334155;
+      text-align: left;
+    }
+    .prose-biology td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #334155;
+      color: #cbd5e1;
+      vertical-align: top;
+    }
+    .prose-biology tr:last-child td {
+      border-bottom: none;
+    }
+    .prose-biology tr:nth-child(even) td {
+      background-color: rgba(15, 23, 42, 0.4);
+    }
+    .prose-biology tr:hover td {
+      background-color: rgba(51, 65, 85, 0.4);
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between">
+
+  <!-- HEADER -->
+  <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="../../../../index.html" class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center text-slate-950 font-black text-lg shadow-lg shadow-emerald-500/20 hover:scale-105 transition">
+          <i class="fa-solid fa-dna"></i>
+        </a>
+        <div>
+          <a href="../../../../index.html" class="text-lg font-black tracking-tight text-white hover:text-emerald-400 transition">Biology I Honors V2</a>
+          <p class="text-xs text-slate-400 font-medium">South Forsyth High School • Dr. Irwin (2026/2027)</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2.5">
+        <a href="../../../../index.html" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 px-3.5 py-2 rounded-xl border border-slate-700 transition flex items-center gap-1.5">
+          <i class="fa-solid fa-house text-emerald-400"></i> Home
+        </a>
+        <a href="../../../../schedule/semester-1.html" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 px-3.5 py-2 rounded-xl border border-slate-700 transition flex items-center gap-1.5">
+          <i class="fa-regular fa-calendar text-teal-400"></i> S1 Schedule
+        </a>
+        <a href="../../../../units/unit-02-cells-and-transport/tests/index.html" class="text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-md shadow-emerald-600/30">
+          <i class="fa-solid fa-vial"></i> Practice Tests
+        </a>
+        <a href="../../../../notInLocal.html" class="text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-md shadow-indigo-600/30 hidden sm:flex">
+          <i class="fa-solid fa-cloud"></i> Cloud Links
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB & CONTENT CONTAINER -->
+  <main class="max-w-5xl mx-auto px-6 py-8 flex-1 w-full space-y-6">
+
+    <!-- BREADCRUMB -->
+    <nav class="flex items-center gap-2 text-xs text-slate-400">
+      <a href="../../../../index.html" class="hover:text-emerald-400 transition flex items-center gap-1">
+        <i class="fa-solid fa-house text-[10px]"></i> Home
+      </a>
+      <i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i>
+      <span class="text-slate-400">Units</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i> <span class="text-slate-400">Unit 02 Cells And Transport</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i> <span class="text-slate-400">Materials</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i> <span class="text-slate-400">Md</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i>
+      <span class="text-slate-200 font-semibold truncate max-w-xs">Unit 2 (Part 1): Cell Membrane and Transport</span>
+    </nav>
+
+    <!-- CONTENT CARD -->
+    <div class="bg-slate-800/60 border border-slate-700/60 rounded-3xl p-6 sm:p-10 shadow-xl backdrop-blur">
+      <article class="prose-biology">
+        <h1 id="unit-2-part-1-cell-membrane-and-transport">Unit 2 (Part 1): Cell Membrane and Transport</h1>
+<p><strong>Source:</strong> <code>HB Unit 2 (Part 1)_ Cell Membrane &amp; Transport PPT.pdf</code><br />
+<strong>Course:</strong> Biology I Honors — Unit 2: Cells and Cell Transport<br />
+<strong>Document Type:</strong> Comprehensive Lecture &amp; Slide Guide</p>
+<hr />
+<h2 id="unit-outline-core-themes">🧭 Unit Outline &amp; Core Themes</h2>
+<ol>
+<li><strong>Cell Membrane Structure &amp; The Fluid Mosaic Model</strong></li>
+<li><strong>Macromolecules in the Membrane &amp; Membrane Functions (TRACIE)</strong></li>
+<li><strong>Selective Permeability &amp; Membrane Transport Overview</strong></li>
+<li><strong>Passive Transport Mechanisms:</strong> Simple Diffusion, Osmosis, and Facilitated Diffusion</li>
+<li><strong>Tonicity &amp; Osmotic Effects:</strong> Animal vs. Plant Cells</li>
+<li><strong>Active Transport Mechanisms:</strong> Exocytosis, Endocytosis (Phago, Pino, Receptor-Mediated), and Molecular Pumps ($Na^+/K^+$ ATPase)</li>
+<li><strong>Success Criteria &amp; Study Objectives</strong></li>
+</ol>
+<hr />
+<h2 id="1-cell-membrane-structure">1. Cell Membrane Structure</h2>
+<h3 id="the-phospholipid-bilayer">The Phospholipid Bilayer</h3>
+<ul>
+<li>The cell membrane (plasma membrane) is primarily composed of a double layer of <strong>phospholipids</strong>.</li>
+<li><strong>Amphipathic Nature of Phospholipids:</strong></li>
+<li><strong>Hydrophilic (Water-Loving) Head:</strong> Composed of a glycerol molecule and a charged phosphate group. Polar; faces outward toward the aqueous extracellular fluid and intracellular cytoplasm.</li>
+<li><strong>Hydrophobic (Water-Fearing) Tails:</strong> Composed of two long nonpolar fatty acid chains. Face inward toward each other, shielding themselves from water to create a hydrophobic core.</li>
+</ul>
+<h3 id="the-fluid-mosaic-model">The Fluid Mosaic Model</h3>
+<ul>
+<li><strong>"Fluid":</strong> Phospholipids and embedded proteins are not static; they move laterally and flex within the plane of the membrane.</li>
+<li><strong>"Mosaic":</strong> The membrane is embedded with a diverse array of biomolecules including integral proteins, peripheral proteins, glycoproteins, glycolipids, and cholesterol.</li>
+</ul>
+<hr />
+<h2 id="2-macromolecules-of-the-membrane-their-roles">2. Macromolecules of the Membrane &amp; Their Roles</h2>
+<div class="overflow-x-auto my-4"><table>
+<thead>
+<tr>
+<th style="text-align: left;">Membrane Component</th>
+<th style="text-align: left;">Macromolecule Class</th>
+<th style="text-align: left;">Location</th>
+<th style="text-align: left;">Primary Biological Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Phospholipids</strong></td>
+<td style="text-align: left;">Lipid</td>
+<td style="text-align: left;">Bilayer framework</td>
+<td style="text-align: left;">Forms the continuous, selectively permeable structural barrier</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cholesterol</strong></td>
+<td style="text-align: left;">Lipid (Steroid with 4 fused carbon rings)</td>
+<td style="text-align: left;">Embedded between phospholipid tails</td>
+<td style="text-align: left;"><strong>Fluidity buffer:</strong> Keeps the membrane from freezing and packing too tightly in cold temperatures, and prevents it from becoming overly fluid/leaky in warm temperatures</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Integral Proteins</strong></td>
+<td style="text-align: left;">Protein</td>
+<td style="text-align: left;">Spans across the hydrophobic core (transmembrane)</td>
+<td style="text-align: left;">Channels, transporters, enzymes, signal transduction receptors</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Peripheral Proteins</strong></td>
+<td style="text-align: left;">Protein</td>
+<td style="text-align: left;">Loosely attached to inner or outer membrane surface</td>
+<td style="text-align: left;">Cytoskeletal anchoring, intracellular signaling pathways</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Glycolipids &amp; Glycoproteins</strong></td>
+<td style="text-align: left;">Carbohydrate + Lipid / Protein</td>
+<td style="text-align: left;">Protrude outward from extracellular surface</td>
+<td style="text-align: left;">Cellular "identification badges" for cell recognition, tissue organization, and immune identification</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="membrane-functions-mnemonic-tracie">Membrane Functions Mnemonic: TRACIE</h3>
+<ul>
+<li><strong>T — Transport:</strong> Channel and carrier proteins moving solutes across the bilayer.</li>
+<li><strong>R — Receptors:</strong> Peptide hormones and signal molecules binding to surface proteins to initiate intracellular cascades.</li>
+<li><strong>A — Anchorage:</strong> Cytoskeletal attachments inside and extracellular matrix (ECM) attachments outside.</li>
+<li><strong>C — Cell Recognition:</strong> Carbohydrate chains (MHC proteins, ABO blood markers) allowing immune self-recognition.</li>
+<li><strong>I — Intercellular Joinings:</strong> Tight junctions and desmosomes hooking adjacent cells together.</li>
+<li><strong>E — Enzymatic Activity:</strong> Metabolic enzymes grouped directly within the membrane.</li>
+</ul>
+<hr />
+<h2 id="3-selective-permeability">3. Selective Permeability</h2>
+<p>The hydrophobic core of the bilayer dictates which molecules can cross spontaneously:</p>
+<pre><code class="language-mermaid">flowchart TD
+    subgraph Cell Membrane Passage
+        A[Substance Approaching Membrane] --&gt; B{Size &amp; Chemical Property?}
+        B --&gt;|Small &amp; Nonpolar / Hydrophobic| C[Passes Easily via Simple Diffusion&lt;br&gt;• O2, CO2, N2&lt;br&gt;• Steroids, Lipids]
+        B --&gt;|Small Polar Uncharged| D[Slow / Restricted Passage&lt;br&gt;• H2O, Glycerol, Ethanol]
+        B --&gt;|Large Polar / Hydrophilic| E[Cannot Pass Spontaneously&lt;br&gt;Requires Facilitated Diffusion&lt;br&gt;• Glucose, Sucrose, Amino Acids]
+        B --&gt;|Charged Ions| F[Cannot Cross Hydrophobic Core&lt;br&gt;Requires Channels / Pumps&lt;br&gt;• Na+, K+, Ca2+, Cl-]
+    end
+</code></pre>
+<hr />
+<h2 id="4-passive-transport">4. Passive Transport</h2>
+<h3 id="fundamental-principles">Fundamental Principles</h3>
+<ul>
+<li><strong>No Cellular Energy (ATP) Required.</strong></li>
+<li>Molecules move <strong>down</strong> (with) their concentration gradient from an area of <strong>high concentration to low concentration</strong>.</li>
+<li>Molecules continue moving until <strong>dynamic equilibrium</strong> is reached (particles are distributed evenly and continue crossing at equal rates in both directions).</li>
+</ul>
+<h3 id="forms-of-passive-transport">Forms of Passive Transport</h3>
+<h4 id="a-simple-diffusion">A. Simple Diffusion</h4>
+<ul>
+<li>Spontaneous net movement of small, nonpolar solute molecules directly through the phospholipid bilayer from high concentration to low concentration.</li>
+<li><em>Examples:</em></li>
+<li>Oxygen ($O_2$) diffusing from lung alveoli into bloodstream capillaries.</li>
+<li>Carbon dioxide ($CO_2$) diffusing out of metabolically active cells into blood for exhalation.</li>
+</ul>
+<h4 id="b-facilitated-diffusion">B. Facilitated Diffusion</h4>
+<ul>
+<li>Passive movement of large, polar, or charged molecules across the membrane with the assistance of specialized transmembrane transport proteins.</li>
+<li>Still moves <strong>down</strong> the concentration gradient without energy.</li>
+<li><strong>Two Main Classes of Transport Proteins:</strong><br />
+  1. <strong>Channel Proteins:</strong> Provide a hydrophilic pore through which specific ions or water pass rapidly.<ul>
+<li><em>Aquaporins:</em> Specialized channel proteins dedicated to rapid water transport (much faster than simple diffusion through the lipid bilayer).<br />
+  2. <strong>Carrier Proteins:</strong> Bind to a specific solute molecule, undergo a subtle conformational change in shape, and release the solute on the other side.</li>
+<li><em>Example:</em> <strong>Glucose transporters (GLUT)</strong> moving glucose into muscle and liver cells.</li>
+</ul>
+</li>
+</ul>
+<h4 id="c-osmosis">C. Osmosis</h4>
+<ul>
+<li>The specific simple diffusion of <strong>water molecules</strong> across a selectively permeable membrane.</li>
+<li>Water diffuses from an area of <strong>higher water concentration (lower solute concentration)</strong> to an area of <strong>lower water concentration (higher solute concentration)</strong>.</li>
+<li><strong>Water Potential:</strong> Water moves down its water potential gradient from high water potential $<br />
+ightarrow$ low water potential.</li>
+</ul>
+<hr />
+<h2 id="5-tonicity-solution-types">5. Tonicity &amp; Solution Types</h2>
+<p>Tonicity describes the relative solute concentration of an extracellular solution compared to the intracellular fluid of a cell:</p>
+<div class="overflow-x-auto my-4"><table>
+<thead>
+<tr>
+<th style="text-align: left;">Solution Type</th>
+<th style="text-align: left;">Definition</th>
+<th style="text-align: left;">Water Direction</th>
+<th style="text-align: left;">Effect on Animal Cells</th>
+<th style="text-align: left;">Effect on Plant Cells</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Hypertonic</strong></td>
+<td style="text-align: left;">Solute concentration is <strong>higher</strong> outside the cell</td>
+<td style="text-align: left;">Net water moves <strong>OUT</strong> of cell</td>
+<td style="text-align: left;">Cell shrivels / shrinks (<strong>Crenation</strong>)</td>
+<td style="text-align: left;">Cytoplasm shrinks away from wall (<strong>Plasmolysis</strong>); plant wilts</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Isotonic</strong></td>
+<td style="text-align: left;">Solute concentration is <strong>equal</strong> inside and outside</td>
+<td style="text-align: left;"><strong>Dynamic equilibrium</strong> (no net movement)</td>
+<td style="text-align: left;">Cell maintains normal size &amp; shape (<strong>Homeostasis</strong>)</td>
+<td style="text-align: left;">Flaccid / limp; lack of internal turgor</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Hypotonic</strong></td>
+<td style="text-align: left;">Solute concentration is <strong>lower</strong> outside the cell</td>
+<td style="text-align: left;">Net water moves <strong>INTO</strong> cell</td>
+<td style="text-align: left;">Cell swells and bursts (<strong>Lysis / Cytolysis</strong>)</td>
+<td style="text-align: left;">Cell swells against rigid wall; becomes firm (<strong>Turgid</strong>; ideal plant state)</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="plant-turgor-pressure">Plant Turgor Pressure</h3>
+<ul>
+<li><strong>Turgor Pressure:</strong> The hydrostatic pressure exerted by the fluid in the large central vacuole pushing the plasma membrane against the rigid cellulose cell wall.</li>
+<li>Enables herbaceous plants to stand upright against gravity.</li>
+<li>Prevents plant cells from bursting in hypotonic environments.</li>
+</ul>
+<hr />
+<h2 id="6-active-transport">6. Active Transport</h2>
+<h3 id="fundamental-principles_1">Fundamental Principles</h3>
+<ul>
+<li><strong>Requires Metabolic Energy in the form of ATP.</strong></li>
+<li>Moves substances <strong>against (up)</strong> their concentration gradient, from an area of <strong>low concentration to high concentration</strong>.</li>
+<li>Essential for maintaining steep electrochemical and concentration gradients necessary for cell survival.</li>
+</ul>
+<h3 id="forms-of-active-transport">Forms of Active Transport</h3>
+<h4 id="a-bulk-transport-exocytosis">A. Bulk Transport: Exocytosis</h4>
+<ul>
+<li>Transport of large molecules, macromolecular complexes, or fluids <strong>out of the cell</strong> in bulk.</li>
+<li>Intracellular vesicles produced by the Golgi apparatus migrate to, fuse with, and become part of the plasma membrane, dumping vesicle contents into extracellular space.</li>
+<li><em>Examples:</em></li>
+<li>Secretion of peptide hormones (e.g., insulin secreted by pancreatic beta cells).</li>
+<li>Secretion of neurotransmitters across synaptic clefts between neurons.</li>
+<li>Export of polysaccharides and glycoproteins to build plant cell walls.</li>
+</ul>
+<h4 id="b-bulk-transport-endocytosis">B. Bulk Transport: Endocytosis</h4>
+<ul>
+<li>Process by which cells take in macromolecules, fluids, or whole cells by forming new vesicles derived from inward folding (invagination) of the plasma membrane.</li>
+<li><strong>Three Types of Endocytosis:</strong><br />
+  1. <strong>Pinocytosis ("Cell Drinking"):</strong> Non-specific uptake of extracellular fluid and small dissolved droplets into tiny microvesicles.<br />
+  2. <strong>Phagocytosis ("Cell Eating"):</strong> Cellular engulfment of large, solid particles (such as cellular debris or bacteria) using pseudopodia, enclosing them into a large phagosome/vacuole which then fuses with a lysosome for degradation.<ul>
+<li><em>Examples:</em> Macrophages destroying pathogenic bacteria; Amoeba feeding on paramecium.<br />
+  3. <strong>Receptor-Mediated Endocytosis:</strong> Highly selective uptake triggered when specific extracellular ligands (e.g., peptide hormones, LDL cholesterol complexes) bind to specialized transmembrane receptor proteins clustered in clathrin-coated pits.</li>
+</ul>
+</li>
+</ul>
+<h4 id="c-primary-molecular-active-transport-the-sodium-potassium-pump-nak-atpase">C. Primary Molecular Active Transport: The Sodium-Potassium Pump ($Na^+/K^+$ ATPase)</h4>
+<ul>
+<li>A vital carrier protein pump embedded in animal plasma membranes that uses ATP hydrolysis to maintain ion concentration differences across the membrane.</li>
+<li><strong>Stoichiometry &amp; Direction:</strong></li>
+<li>Pumps <strong>3 Sodium ions ($Na^+$) OUT</strong> of the cell.</li>
+<li>Pumps <strong>2 Potassium ions ($K^+$) INTO</strong> the cell.</li>
+<li>Consumes <strong>1 molecule of ATP</strong> per cycle.</li>
+<li><strong>Electrochemical Gradient:</strong> Because 3 positive charges exit for every 2 positive charges that enter, the interior of the cell becomes slightly negative relative to the outside, establishing the resting membrane potential essential for nerve impulse transmission and muscle contraction.</li>
+<li><strong>"Salty Banana" Mnemonic:</strong></li>
+<li>High $Na^+$ on the outside ("salty surface").</li>
+<li>High $K^+$ on the inside ("potassium-rich banana interior").</li>
+</ul>
+<hr />
+<h2 id="7-master-summary-passive-vs-active-transport">7. Master Summary: Passive vs. Active Transport</h2>
+<div class="overflow-x-auto my-4"><table>
+<thead>
+<tr>
+<th style="text-align: left;">Characteristic</th>
+<th style="text-align: left;">Passive Transport</th>
+<th style="text-align: left;">Active Transport</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Cellular Energy (ATP)?</strong></td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;"><strong>Yes (Required)</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Direction of Movement</strong></td>
+<td style="text-align: left;">Down gradient (High $</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">ightarrow$ Low)</td>
+<td style="text-align: left;">Against gradient (Low $</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">ightarrow$ High)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Types Included</strong></td>
+<td style="text-align: left;">• Simple diffusion<br>• Osmosis<br>• Facilitated diffusion</td>
+<td style="text-align: left;">• Protein Pumps ($Na^+/K^+$)<br>• Exocytosis<br>• Endocytosis (Phago, Pino, Receptor)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Transport Proteins Needed?</strong></td>
+<td style="text-align: left;">Only for facilitated diffusion</td>
+<td style="text-align: left;">Yes (for molecular pumps) or vesicle machinery</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ultimate Goal</strong></td>
+<td style="text-align: left;">Reach dynamic equilibrium</td>
+<td style="text-align: left;">Establish/maintain concentration gradients</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="success-criteria-checklist">🎯 Success Criteria Checklist</h2>
+<h3 id="passive-cell-transport-mastery">Passive Cell Transport Mastery</h3>
+<ul>
+<li>[x] Describe concentration gradient and dynamic equilibrium.</li>
+<li>[x] Compare simple diffusion, osmosis, and facilitated diffusion.</li>
+<li>[x] Predict direction of water flow given solute concentrations.</li>
+<li>[x] Identify cell behavior in isotonic, hypertonic, and hypotonic solutions.</li>
+<li>[x] Contrast animal cell lysis/crenation with plant cell turgor/plasmolysis.</li>
+<li>[x] Describe characteristics of molecules utilizing channel and carrier proteins (e.g., GLUT, aquaporins).</li>
+</ul>
+<h3 id="active-cell-transport-mastery">Active Cell Transport Mastery</h3>
+<ul>
+<li>[x] Differentiate active transport from passive transport across energy, gradient, and mechanism.</li>
+<li>[x] Compare exocytosis and endocytosis.</li>
+<li>[x] Distinguish pinocytosis, phagocytosis, and receptor-mediated endocytosis.</li>
+<li>[x] Describe the operation, ion stoichiometry, and physiological role of the $Na^+/K^+$ pump.</li>
+</ul>
+      </article>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800 bg-slate-950 py-8 text-center text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>Grade 9 Biology I Honors • South Forsyth High School • Dr. Sarah Irwin</p>
+      <div class="flex items-center gap-4">
+        <a href="../../../../index.html" class="hover:text-slate-300 transition">Portal Home</a>
+        <a href="../../../../schedule/semester-1.html" class="hover:text-slate-300 transition">Schedule</a>
+        <a href="../../../../notInLocal.html" class="hover:text-slate-300 transition">Cloud Links</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

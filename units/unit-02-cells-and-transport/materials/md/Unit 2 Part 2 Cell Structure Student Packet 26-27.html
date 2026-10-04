@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit 2 Part 2: Cell Structure  Student Packet (Master Edition) - Biology I Honors</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    code, pre { font-family: 'JetBrains Mono', monospace; }
+    
+    /* Markdown Content Typography */
+    .prose-biology h1 {
+      font-size: 1.875rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #334155;
+      letter-spacing: -0.025em;
+    }
+    .prose-biology h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+    .prose-biology h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #38bdf8;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .prose-biology h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #34d399;
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .prose-biology p {
+      color: #cbd5e1;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    .prose-biology strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .prose-biology ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+      color: #cbd5e1;
+    }
+    .prose-biology ol {
+      list-style-type: decimal;
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+      color: #cbd5e1;
+    }
+    .prose-biology li {
+      margin-bottom: 0.375rem;
+      line-height: 1.6;
+    }
+    .prose-biology li strong {
+      color: #f8fafc;
+    }
+    .prose-biology a {
+      color: #38bdf8;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.15s ease;
+    }
+    .prose-biology a:hover {
+      color: #7dd3fc;
+      text-decoration: none;
+    }
+    .prose-biology blockquote {
+      border-left: 4px solid #10b981;
+      background-color: rgba(16, 185, 129, 0.08);
+      padding: 0.75rem 1rem;
+      margin: 1.25rem 0;
+      border-radius: 0 0.5rem 0.5rem 0;
+      color: #e2e8f0;
+      font-style: italic;
+    }
+    .prose-biology blockquote p {
+      margin-bottom: 0;
+      color: #e2e8f0;
+    }
+    .prose-biology code {
+      background-color: #1e293b;
+      color: #fbbf24;
+      padding: 0.2rem 0.4rem;
+      border-radius: 0.375rem;
+      font-size: 0.85em;
+      border: 1px solid #334155;
+    }
+    .prose-biology pre {
+      background-color: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 0.75rem;
+      padding: 1rem;
+      overflow-x: auto;
+      margin: 1.25rem 0;
+    }
+    .prose-biology pre code {
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      color: #34d399;
+      font-size: 0.875rem;
+    }
+    .prose-biology hr {
+      border: 0;
+      border-top: 1px solid #334155;
+      margin: 2rem 0;
+    }
+    /* Table Styling */
+    .prose-biology table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.875rem;
+      background-color: #1e293b;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      border: 1px solid #334155;
+    }
+    .prose-biology th {
+      background-color: #0f172a;
+      color: #34d399;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.75rem;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #334155;
+      text-align: left;
+    }
+    .prose-biology td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #334155;
+      color: #cbd5e1;
+      vertical-align: top;
+    }
+    .prose-biology tr:last-child td {
+      border-bottom: none;
+    }
+    .prose-biology tr:nth-child(even) td {
+      background-color: rgba(15, 23, 42, 0.4);
+    }
+    .prose-biology tr:hover td {
+      background-color: rgba(51, 65, 85, 0.4);
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between">
+
+  <!-- HEADER -->
+  <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="../../../../index.html" class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center text-slate-950 font-black text-lg shadow-lg shadow-emerald-500/20 hover:scale-105 transition">
+          <i class="fa-solid fa-dna"></i>
+        </a>
+        <div>
+          <a href="../../../../index.html" class="text-lg font-black tracking-tight text-white hover:text-emerald-400 transition">Biology I Honors V2</a>
+          <p class="text-xs text-slate-400 font-medium">South Forsyth High School • Dr. Irwin (2026/2027)</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2.5">
+        <a href="../../../../index.html" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 px-3.5 py-2 rounded-xl border border-slate-700 transition flex items-center gap-1.5">
+          <i class="fa-solid fa-house text-emerald-400"></i> Home
+        </a>
+        <a href="../../../../schedule/semester-1.html" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 px-3.5 py-2 rounded-xl border border-slate-700 transition flex items-center gap-1.5">
+          <i class="fa-regular fa-calendar text-teal-400"></i> S1 Schedule
+        </a>
+        <a href="../../../../units/unit-02-cells-and-transport/tests/index.html" class="text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-md shadow-emerald-600/30">
+          <i class="fa-solid fa-vial"></i> Practice Tests
+        </a>
+        <a href="../../../../notInLocal.html" class="text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-md shadow-indigo-600/30 hidden sm:flex">
+          <i class="fa-solid fa-cloud"></i> Cloud Links
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB & CONTENT CONTAINER -->
+  <main class="max-w-5xl mx-auto px-6 py-8 flex-1 w-full space-y-6">
+
+    <!-- BREADCRUMB -->
+    <nav class="flex items-center gap-2 text-xs text-slate-400">
+      <a href="../../../../index.html" class="hover:text-emerald-400 transition flex items-center gap-1">
+        <i class="fa-solid fa-house text-[10px]"></i> Home
+      </a>
+      <i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i>
+      <span class="text-slate-400">Units</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i> <span class="text-slate-400">Unit 02 Cells And Transport</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i> <span class="text-slate-400">Materials</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i> <span class="text-slate-400">Md</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i>
+      <span class="text-slate-200 font-semibold truncate max-w-xs">Unit 2 Part 2: Cell Structure — Student Packe...</span>
+    </nav>
+
+    <!-- CONTENT CARD -->
+    <div class="bg-slate-800/60 border border-slate-700/60 rounded-3xl p-6 sm:p-10 shadow-xl backdrop-blur">
+      <article class="prose-biology">
+        <h1 id="unit-2-part-2-cell-structure-student-packet-master-edition">Unit 2 Part 2: Cell Structure — Student Packet (Master Edition)</h1>
+<p><strong>Source:</strong> <code>materials/pdf/Unit 2 Part 2 Cell Structure Student Packet 26-27.pdf</code><br />
+<strong>Course:</strong> Biology I Honors (<code>30115y - Irwin - 501</code>)<br />
+<strong>Instructor:</strong> Dr. Sarah Irwin — Room #371<br />
+<strong>Document Type:</strong> Complete Verbatim Packet Transcript, Organelle Systems Matrix, Microscope Lab Guide &amp; Stations Record</p>
+<hr />
+<h2 id="table-of-contents">📑 Table of Contents</h2>
+<ol>
+<li><a href="#1-cover--unit-objectives">Cover &amp; Unit Objectives</a></li>
+<li><a href="#2-page-3-history-of-cell-discovery--the-cell-theory">Page 3: History of Cell Discovery &amp; The Cell Theory</a></li>
+<li><a href="#3-pages-45-prokaryotes-vs-eukaryotes--plant-vs-animal-cells">Pages 4–5: Prokaryotes vs. Eukaryotes &amp; Plant vs. Animal Cells</a></li>
+<li><a href="#4-page-6-viruses--characteristics-bacteriophage-structure--replication">Page 6: Viruses — Characteristics, Bacteriophage Structure &amp; Replication</a></li>
+<li><a href="#5-pages-78-organelle-distribution-matrix-plant-vs-animal-vs-bacteria">Pages 7–8: Organelle Distribution Matrix (Plant vs. Animal vs. Bacteria)</a></li>
+<li><a href="#6-page-9-practice-questions-on-organelles--macromolecules">Page 9: Practice Questions on Organelles &amp; Macromolecules</a></li>
+<li><a href="#7-pages-1011-interactive-cell-labeling--ask-a-biologist-practice">Pages 10–11: Interactive Cell Labeling &amp; Ask-A-Biologist Practice</a></li>
+<li><a href="#8-pages-1214-organelle-hexagonal-systems-activity--analysis-questions">Pages 12–14: Organelle Hexagonal Systems Activity &amp; Analysis Questions</a></li>
+<li><a href="#9-page-15-introduction-to-microscope-use--slide-lab-questions">Page 15: Introduction to Microscope Use &amp; Slide Lab Questions</a></li>
+<li><a href="#10-pages-1620-honors-cell-investigation-stations-student-recording-sheets-stations-17">Pages 16–20: Honors Cell Investigation Stations Student Recording Sheets (Stations 1–7)</a></li>
+</ol>
+<hr />
+<h2 id="1-cover-unit-objectives">1. Cover &amp; Unit Objectives</h2>
+<h3 id="unit-2-part-2-cell-theory-and-structure">Unit 2 (Part 2): Cell Theory and Structure</h3>
+<ul>
+<li><strong>Topic 1:</strong> History of the Cell</li>
+<li><strong>Topic 2:</strong> Cell Structure (Prokaryotes vs. Eukaryotes; Plant vs. Animal Cells)</li>
+<li><strong>Topic 3:</strong> Organelle Systems &amp; Interactions</li>
+</ul>
+<hr />
+<h2 id="2-page-3-history-of-cell-discovery-the-cell-theory">2. Page 3: History of Cell Discovery &amp; The Cell Theory</h2>
+<h3 id="timeline-of-historical-milestones">Timeline of Historical Milestones</h3>
+<ul>
+<li><strong>1665 — Robert Hooke:</strong> Observed cork tissue with an early microscope; saw tiny empty compartments and coined the term <strong>"cells"</strong>.</li>
+<li><strong>1674+ — Anton van Leeuwenhoek:</strong> Improved lens magnification; first to observe living unicellular microbes (<strong>"animalcules"</strong>) in pond water and saliva.</li>
+<li><strong>1838 — Matthias Schleiden:</strong> Concluded that <strong>all plants</strong> are made of cells.</li>
+<li><strong>1839 — Theodor Schwann:</strong> Concluded that <strong>all animals</strong> are made of cells (<em>Schwann sounds like "swan"</em>).</li>
+<li><strong>1855 — Rudolf Virchow:</strong> Stated that all cells come only from pre-existing cells via cell division (<em>"Omnis cellula e cellula"</em>).</li>
+</ul>
+<h3 id="the-3-core-tenets-of-cell-theory">The 3 Core Tenets of Cell Theory</h3>
+<ol>
+<li><strong>All living things are made of cells.</strong></li>
+<li><strong>Cells are the basic unit of life.</strong></li>
+<li><strong>All cells come from other pre-existing cells.</strong></li>
+</ol>
+<hr />
+<h2 id="3-pages-45-prokaryotes-vs-eukaryotes-plant-vs-animal-cells">3. Pages 4–5: Prokaryotes vs. Eukaryotes &amp; Plant vs. Animal Cells</h2>
+<h3 id="universal-components-of-all-cells-page-4">Universal Components of ALL Cells (Page 4)</h3>
+<p>Every single cell on Earth possesses:<br />
+1. <strong>Cell Membrane:</strong> Regulates selective transport and maintains homeostasis.<br />
+2. <strong>Cytoplasm:</strong> Jelly-like fluid suspending nutrients and internal structures.<br />
+3. <strong>Ribosomes:</strong> Non-membrane-bound molecular machines that synthesize proteins.<br />
+4. <strong>Genetic Material (DNA):</strong> Hereditary blueprints for cellular function.</p>
+<h3 id="prokaryotes-vs-eukaryotes-comparison-page-4">Prokaryotes vs. Eukaryotes Comparison (Page 4)</h3>
+<div class="overflow-x-auto my-4"><table>
+<thead>
+<tr>
+<th style="text-align: left;">Trait</th>
+<th style="text-align: left;">Prokaryotic Cells ("Pro = NO")</th>
+<th style="text-align: left;">Eukaryotic Cells ("Eu = TRUE")</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Size</strong></td>
+<td style="text-align: left;">Small: $1 - 5\ \mu ext{m}$ (up to $10\ \mu ext{m}$)</td>
+<td style="text-align: left;">Large: $10 - 100\ \mu    ext{m}$</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Nucleus?</strong></td>
+<td style="text-align: left;"><strong>No</strong> (DNA resides in open nucleoid region)</td>
+<td style="text-align: left;"><strong>Yes</strong> (Membrane-bound nucleus with nucleolus)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>DNA Structure</strong></td>
+<td style="text-align: left;">Single circular chromosome &amp; plasmids</td>
+<td style="text-align: left;">Multiple linear chromosomes wrapped with histones</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Membrane-Bound Organelles?</strong></td>
+<td style="text-align: left;"><strong>None</strong></td>
+<td style="text-align: left;"><strong>Extensive</strong> (ER, Golgi, Mitochondria, etc.)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cell Wall?</strong></td>
+<td style="text-align: left;">Present; made of <strong>Peptidoglycan</strong></td>
+<td style="text-align: left;">Plants (<strong>Cellulose</strong>); Fungi (<strong>Chitin</strong>); Absent in Animals</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ribosomes</strong></td>
+<td style="text-align: left;">Smaller (<strong>70S</strong>)</td>
+<td style="text-align: left;">Larger (<strong>80S</strong>) in cytosol/ER</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cell Division</strong></td>
+<td style="text-align: left;"><strong>Binary Fission</strong></td>
+<td style="text-align: left;"><strong>Mitosis</strong> (body cells) &amp; <strong>Meiosis</strong> (gametes)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Examples</strong></td>
+<td style="text-align: left;">Bacteria &amp; Archaea</td>
+<td style="text-align: left;">Protists, Fungi, Plants, and Animals</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h3 id="plant-cells-vs-animal-cells-comparison-page-5">Plant Cells vs. Animal Cells Comparison (Page 5)</h3>
+<div class="overflow-x-auto my-4"><table>
+<thead>
+<tr>
+<th style="text-align: left;">Characteristic</th>
+<th style="text-align: left;">Plant Cells</th>
+<th style="text-align: left;">Animal Cells</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Cell Wall</strong></td>
+<td style="text-align: left;"><strong>Present</strong> (Rigid cellulose layer outside membrane)</td>
+<td style="text-align: left;"><strong>Absent</strong> (Bounded only by plasma membrane)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cell Shape</strong></td>
+<td style="text-align: left;">Fixed, angular, rigid box-like rectangular shape</td>
+<td style="text-align: left;">Flexible, round, or irregular shape</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Vacuoles</strong></td>
+<td style="text-align: left;"><strong>One single, massive Central Vacuole</strong></td>
+<td style="text-align: left;">Multiple, small, scattered vacuoles</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Chloroplasts</strong></td>
+<td style="text-align: left;"><strong>Present</strong> (Contains chlorophyll for photosynthesis)</td>
+<td style="text-align: left;"><strong>Absent</strong> (Heterotrophic nutrition)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Centrioles / Centrosomes</strong></td>
+<td style="text-align: left;"><strong>Absent</strong> (Spindle organizes without centrioles)</td>
+<td style="text-align: left;"><strong>Present</strong> (Coordinates spindle fibers in mitosis)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Lysosomes</strong></td>
+<td style="text-align: left;">Very rare (Central vacuole hydrolyzes wastes)</td>
+<td style="text-align: left;"><strong>Present</strong> (Abundant digestive/recycling organelles)</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="4-page-6-viruses-characteristics-bacteriophage-structure-replication">4. Page 6: Viruses — Characteristics, Bacteriophage Structure &amp; Replication</h2>
+<h3 id="are-viruses-living-organisms">Are Viruses Living Organisms?</h3>
+<ul>
+<li><strong>No.</strong> Viruses are classified as <strong>non-living infectious particles</strong>.</li>
+<li><strong>Evidence why viruses are non-living:</strong></li>
+<li>Acellular (not composed of cells; violate Cell Theory).</li>
+<li>Incapable of autonomous reproduction; obligate intracellular parasites that require a host cell.</li>
+<li>Possess no independent metabolism; cannot produce their own ATP.</li>
+<li>Contain no ribosomes or protein synthesis machinery.</li>
+</ul>
+<h3 id="features-of-all-viruses">Features of All Viruses</h3>
+<ol>
+<li><strong>Capsid:</strong> Protective outer protein shell composed of capsomere subunits.</li>
+<li><strong>Nucleic Acid Genome:</strong> Core containing either DNA or RNA (single- or double-stranded).</li>
+<li><strong>Viral Envelope (in some viruses):</strong> Outer lipid bilayer membrane acquired from host plasma membrane.</li>
+</ol>
+<h3 id="structure-of-a-bacteriophage-virus-that-infects-bacteria">Structure of a Bacteriophage (Virus that Infects Bacteria)</h3>
+<ul>
+<li><strong>Capsid Head:</strong> 20-sided icosahedral protein head enclosing viral DNA.</li>
+<li><strong>Sheath:</strong> Contractile protein neck/shaft that acts as a syringe.</li>
+<li><strong>Base Plate:</strong> Anchoring platform with enzymatic pins to penetrate bacterial peptidoglycan.</li>
+<li><strong>Tail Fibers:</strong> Spider-like protein fibers that recognize and bind specific surface receptors on bacteria.</li>
+</ul>
+<hr />
+<h2 id="5-pages-78-organelle-distribution-matrix-plant-vs-animal-vs-bacteria">5. Pages 7–8: Organelle Distribution Matrix (Plant vs. Animal vs. Bacteria)</h2>
+<div class="overflow-x-auto my-4"><table>
+<thead>
+<tr>
+<th style="text-align: left;">Organelle / Cellular Part</th>
+<th style="text-align: center;">Plant Cells</th>
+<th style="text-align: center;">Animal Cells</th>
+<th style="text-align: center;">Bacterial Cells</th>
+<th style="text-align: left;">Primary Cellular Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Cell Wall</strong></td>
+<td style="text-align: center;"><strong>Yes (Cellulose)</strong></td>
+<td style="text-align: center;"><strong>No</strong></td>
+<td style="text-align: center;"><strong>Yes (Peptidoglycan)</strong></td>
+<td style="text-align: left;">Rigid protection &amp; structural shape</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cell Membrane</strong></td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: left;">Selectively permeable barrier</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cytoplasm</strong></td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: left;">Fluid suspension for biomolecules</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cytoskeleton</strong></td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Primitive homologs</td>
+<td style="text-align: left;">Structural scaffolding &amp; transport rails</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Nucleus</strong></td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;"><strong>No</strong> (Nucleoid)</td>
+<td style="text-align: left;">Stores genetic information (DNA)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ribosomes</strong></td>
+<td style="text-align: center;">Yes (80S)</td>
+<td style="text-align: center;">Yes (80S)</td>
+<td style="text-align: center;">Yes (70S)</td>
+<td style="text-align: left;">Synthesizes polypeptide chains</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rough ER</strong></td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;"><strong>No</strong></td>
+<td style="text-align: left;">Folds and modifies nascent proteins</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Smooth ER</strong></td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;"><strong>No</strong></td>
+<td style="text-align: left;">Synthesizes lipids; detoxifies drugs</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Golgi Apparatus</strong></td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;"><strong>No</strong></td>
+<td style="text-align: left;">Modifies, sorts, and packages proteins</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Mitochondria</strong></td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;"><strong>No</strong></td>
+<td style="text-align: left;">Produces ATP via cellular respiration</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Chloroplasts</strong></td>
+<td style="text-align: center;"><strong>Yes</strong></td>
+<td style="text-align: center;"><strong>No</strong></td>
+<td style="text-align: center;"><strong>No</strong></td>
+<td style="text-align: left;">Produces glucose via photosynthesis</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Central Vacuole</strong></td>
+<td style="text-align: center;"><strong>Yes (1 Large)</strong></td>
+<td style="text-align: center;"><strong>No</strong></td>
+<td style="text-align: center;"><strong>No</strong></td>
+<td style="text-align: left;">Maintains turgor pressure &amp; stores water</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Small Vacuoles</strong></td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;"><strong>Yes (Multiple)</strong></td>
+<td style="text-align: center;">Rare</td>
+<td style="text-align: left;">Temporary storage &amp; endocytic transport</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Vesicles</strong></td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Rare/No</td>
+<td style="text-align: left;">Membrane-bound shipping containers</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Lysosomes</strong></td>
+<td style="text-align: center;">Rare</td>
+<td style="text-align: center;"><strong>Yes</strong></td>
+<td style="text-align: center;"><strong>No</strong></td>
+<td style="text-align: left;">Digests debris &amp; pathogens</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Centrosome / Centrioles</strong></td>
+<td style="text-align: center;"><strong>No</strong></td>
+<td style="text-align: center;"><strong>Yes</strong></td>
+<td style="text-align: center;"><strong>No</strong></td>
+<td style="text-align: left;">Organizes mitotic spindle fibers</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="6-page-9-practice-questions-on-organelles-macromolecules">6. Page 9: Practice Questions on Organelles &amp; Macromolecules</h2>
+<ol>
+<li><strong>What type of macromolecule is primarily found in cell walls?</strong><br />
+   - <strong>Answer:</strong> <strong>Carbohydrates</strong> (specifically structural polysaccharides: <strong>cellulose</strong> in plants, <strong>chitin</strong> in fungi, and <strong>peptidoglycan</strong> in bacteria).</li>
+<li><strong>Which organelle do you think would work closely with the rough ER? Why?</strong><br />
+   - <strong>Answer:</strong> <strong>Ribosomes</strong> (which stud the ER surface to inject nascent polypeptide chains directly into its lumen) and the <strong>Golgi Apparatus</strong> (which receives transport vesicles budding from the rough ER to further process, glycosylate, and sort proteins).</li>
+<li><strong>What organelle helps construct phospholipids needed by the cell membrane?</strong><br />
+   - <strong>Answer:</strong> The <strong>Smooth Endoplasmic Reticulum (Smooth ER)</strong> synthesizes fatty acids, phospholipids, and cholesterol.</li>
+<li><strong>Which organelle(s) would generate many vesicles and why?</strong><br />
+   - <strong>Answer:</strong> The <strong>Rough ER</strong> and <strong>Golgi Apparatus</strong> produce continuous streams of transport and secretory vesicles to shuttle proteins and lipids through the endomembrane pipeline; the <strong>Plasma Membrane</strong> generates pinocytic and phagocytic vesicles during endocytosis.</li>
+</ol>
+<hr />
+<h2 id="7-pages-1011-interactive-cell-labeling-ask-a-biologist-practice">7. Pages 10–11: Interactive Cell Labeling &amp; Ask-A-Biologist Practice</h2>
+<ul>
+<li><strong>Resource Link:</strong> <a href="https://askabiologist.asu.edu/explore/building-blocks-life">ASU Ask A Biologist — Building Blocks of Life</a></li>
+<li><strong>Animal Cell Labeling Key (Page 10):</strong></li>
+<li>Nucleus, Nucleolus, Chromatin, Nuclear Envelope, Ribosomes, Rough ER, Smooth ER, Golgi Apparatus, Mitochondria, Lysosome, Centrosome (Centrioles), Cytoplasm, Cytoskeleton, Plasma Membrane.</li>
+<li><strong>Plant Cell Unique Parts (Page 11):</strong></li>
+<li><strong>Cell Wall</strong> (rigid outer cellulose boundary).</li>
+<li><strong>Chloroplasts</strong> (green double-membrane disks containing thylakoids).</li>
+<li><strong>Large Central Vacuole</strong> (water-filled organelle pressing against the wall).</li>
+</ul>
+<hr />
+<h2 id="8-pages-1214-organelle-hexagonal-systems-activity-analysis-questions">8. Pages 12–14: Organelle Hexagonal Systems Activity &amp; Analysis Questions</h2>
+<h3 id="hexagonal-matrix-system-connections-page-12">Hexagonal Matrix System Connections (Page 12)</h3>
+<p>Cells do not function as isolated parts; they operate as integrated organelle systems:<br />
+1. <strong>The Protein Synthesis &amp; Secretion Pipeline:</strong><br />
+   $$   ext{Nucleus (transcription)} \longrightarrow    ext{Ribosomes (translation)} \longrightarrow    ext{Rough ER (folding)} \longrightarrow     ext{Transport Vesicle} \longrightarrow  ext{Golgi (sorting)} \longrightarrow    ext{Secretory Vesicle} \longrightarrow  ext{Plasma Membrane (exocytosis)}$$<br />
+2. <strong>The Bioenergetic Coupling Pipeline:</strong><br />
+   $$   ext{Chloroplast (converts solar energy into glucose)} \longleftrightarrow   ext{Mitochondria (oxidizes glucose into ATP)} \longrightarrow   ext{Powers Active Transport \&amp; Biosynthesis}$$<br />
+3. <strong>The Cellular Maintenance &amp; Autophagy System:</strong><br />
+   $$   ext{Damaged Organelles / Pathogens} \longrightarrow     ext{Engulfed in Vacuole} \longrightarrow    ext{Fuses with Lysosome} \longrightarrow    ext{Hydrolyzed into Monomers for Cytoplasmic Reuse}$$</p>
+<h3 id="analysis-questions-solutions-page-13">Analysis Questions &amp; Solutions (Page 13)</h3>
+<ol>
+<li><strong>Explain how at least 3 organelles work together as an integrated organelle system:</strong><br />
+   - <strong>Answer:</strong> In the protein synthesis pathway, the <strong>nucleus</strong> transcribes the genetic code of DNA into mRNA; <strong>ribosomes</strong> attached to the <strong>rough ER</strong> translate mRNA into a polypeptide chain that is folded in the ER lumen; the ER packages the immature protein into a <strong>vesicle</strong> that delivers it to the <strong>Golgi apparatus</strong> for final carbohydrate modification and dispatch to the plasma membrane.</li>
+<li><strong>Why is the smooth endoplasmic reticulum important to the cell? What does it produce and how are its products used in the cell?</strong><br />
+   - <strong>Answer:</strong> The Smooth ER synthesizes membrane phospholipids and cholesterol required to build and repair all cellular membranes, produces steroid hormones, and detoxifies alcohol, pharmaceutical drugs, and metabolic byproducts in liver hepatocytes.</li>
+<li><strong>What would be a consequence of a plant having a dysfunctional chloroplast?</strong><br />
+   - <strong>Answer:</strong> The plant cell could not capture sunlight or synthesize glucose via photosynthesis. Without glucose to fuel mitochondrial respiration, ATP levels collapse, and the plant starves and dies.</li>
+<li><strong>A cell is observed under a microscope and contains a large number of mitochondria. What might this suggest about the function of the cell, and why? What would an example be?</strong><br />
+   - <strong>Answer:</strong> It indicates the cell has an extremely high metabolic demand for continuous ATP production. Examples include <strong>skeletal muscle cells</strong> (for contraction), <strong>cardiac myocytes</strong> (continuous heart pumping), and <strong>sperm cells</strong> (powering flagellar swimming).</li>
+<li><strong>Prokaryotic cells lack membrane-bound organelles, while eukaryotic cells contain them. How do membrane-bound organelles give eukaryotic cells an advantage in terms of efficiency and complexity?</strong><br />
+   - <strong>Answer:</strong> <strong>Compartmentalization.</strong> Membrane-bound organelles isolate incompatible chemical reactions (e.g., acidic hydrolytic enzymes inside lysosomes), concentrate reactants and specific enzymes in localized microenvironments, and dramatically increase internal surface area for metabolic processes.</li>
+</ol>
+<hr />
+<h2 id="9-page-15-introduction-to-microscope-use-slide-lab-questions">9. Page 15: Introduction to Microscope Use &amp; Slide Lab Questions</h2>
+<h3 id="microscope-protocol-fill-in-the-blank-page-15">Microscope Protocol Fill-in-the-Blank (Page 15)</h3>
+<ol>
+<li>Place the slide on the microscope <strong>stage</strong>.</li>
+<li>Use stage <strong>clips</strong> to secure the slide in place.</li>
+<li>Always start on the <strong>lowest power objective (4X scanning power)</strong>.</li>
+<li>Look into the <strong>eyepiece (ocular lens)</strong>; you should see a <strong>pointer (arrow)</strong> for referencing specific areas on the slide.</li>
+<li>Use the <strong>coarse focus knob</strong> first; this will be the larger knob.</li>
+<li>Use the <strong>fine focus knob</strong> to make the image clear; this will be the smaller knob.</li>
+<li>Click the objective to the next highest power, get the image in <strong>focus</strong>; you should hear the objective <strong>click</strong> into place.</li>
+<li>When you get to the largest objective (40X), <strong>DO NOT</strong> use the coarse focusing knob; use the <strong>fine focus knob ONLY</strong>.</li>
+</ol>
+<h3 id="slide-lab-analysis-questions-page-15">Slide Lab Analysis Questions (Page 15)</h3>
+<ol>
+<li><strong>Why should you always begin with the lowest magnification?</strong><br />
+   - It provides the widest field of view and largest depth of focus, making it easiest to locate the specimen without colliding the lens into the slide.</li>
+<li><strong>What is the general shape of a typical plant cell? Animal cell?</strong><br />
+   - Plant cells have a rigid, fixed, angular <strong>rectangular/box-like</strong> shape; animal cells have an irregular, flexible, <strong>rounded</strong> shape.</li>
+<li><strong>Why are the prepared slides you viewed stained a certain color?</strong><br />
+   - Most cellular structures and organelles are transparent; stains (like iodine, methylene blue, or crystal violet) bind selectively to specific molecules (nucleic acids, cell walls) to provide optical contrast.</li>
+<li><strong>Why must the specimen you are viewing be only 1 cell layer thick?</strong><br />
+   - In a compound light microscope, light must be able to pass <em>directly through</em> the specimen to reach the objective lens and ocular. Thick multi-layered specimens block light and appear as black silhouettes.</li>
+</ol>
+<hr />
+<h2 id="10-pages-1620-honors-cell-investigation-stations-student-recording-sheets-stations-17">10. Pages 16–20: Honors Cell Investigation Stations Student Recording Sheets (Stations 1–7)</h2>
+<h3 id="station-7-identifying-microscopic-specimens-page-16-20">Station 7: Identifying Microscopic Specimens (Page 16 &amp; 20)</h3>
+<div class="overflow-x-auto my-4"><table>
+<thead>
+<tr>
+<th style="text-align: center;">Cell Specimen</th>
+<th style="text-align: left;">Observed Microscopic Features</th>
+<th style="text-align: left;">Cell Classification</th>
+<th style="text-align: left;">Scientific Reasoning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Cell 1 (Bacteria - <em>E. coli</em>)</strong></td>
+<td style="text-align: left;">Tiny ($&lt;2\ \mu    ext{m}$), lack of membrane-bound nucleus, peptidoglycan wall, flagella</td>
+<td style="text-align: left;"><strong>Prokaryote (Bacteria)</strong></td>
+<td style="text-align: left;">Absence of compartmentalization and nucleus defines prokaryotes</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Cell 2 (Plant - <em>Elodea</em> Leaf)</strong></td>
+<td style="text-align: left;">Fixed rectangular cellulose wall, green chloroplasts, large central vacuole pushing nucleus to side</td>
+<td style="text-align: left;"><strong>Eukaryote (Plant Cell)</strong></td>
+<td style="text-align: left;">Visible chloroplasts and rigid rectangular cellulose wall confirm plant cell</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Cell 3 (Animal - Cheek Cell)</strong></td>
+<td style="text-align: left;">Rounded irregular shape, prominent nucleus, nucleolus, absence of wall/chloroplasts</td>
+<td style="text-align: left;"><strong>Eukaryote (Animal Cell)</strong></td>
+<td style="text-align: left;">Absence of cell wall and presence of defined nucleus confirm animal cell</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Cell 4 (Protist - <em>Amoeba</em>)</strong></td>
+<td style="text-align: left;">Single-celled, nucleus, active pseudopodia, food vacuoles ($50 - 500\ \mu   ext{m}$)</td>
+<td style="text-align: left;"><strong>Eukaryote (Protist)</strong></td>
+<td style="text-align: left;">Unicellular eukaryote with specialized amoeboid motility structures</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Cell 5</strong></td>
+<td style="text-align: left;">Unicellular flagellate with chloroplasts &amp; red eyespot (<em>Euglena</em>)</td>
+<td style="text-align: left;"><strong>Eukaryote (Protist)</strong></td>
+<td style="text-align: left;">Mixotrophic single-celled eukaryote</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Cell 6</strong></td>
+<td style="text-align: left;">Ciliated oval single-cell with oral groove &amp; contractile vacuoles (<em>Paramecium</em>)</td>
+<td style="text-align: left;"><strong>Eukaryote (Protist)</strong></td>
+<td style="text-align: left;">Freshwater ciliated single-celled eukaryote</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Cell 7</strong></td>
+<td style="text-align: left;">Bioluminescent marine spherical dinoflagellate (<em>Noctiluca</em>)</td>
+<td style="text-align: left;"><strong>Eukaryote (Protist)</strong></td>
+<td style="text-align: left;">Marine colonial dinoflagellate</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h3 id="station-1-macromolecules-organelles-page-17">Station 1: Macromolecules &amp; Organelles (Page 17)</h3>
+<ol>
+<li><strong>Cell Wall Macromolecule:</strong> <strong>Carbohydrate (Polysaccharide - Cellulose)</strong>; provides tensile strength and rigid structural support.</li>
+<li><strong>Ribosome Subunits:</strong> Composed of <strong>Nucleic Acids (rRNA)</strong> and <strong>Proteins</strong>; rRNA catalyzes peptide bond formation during translation.</li>
+<li><strong>Cell Membrane Regulation:</strong> <strong>Lipids (Phospholipids &amp; Cholesterol)</strong>; nonpolar hydrophobic core creates a selectively permeable barrier.</li>
+<li><strong>Cytoskeleton Filaments:</strong> <strong>Proteins (Polypeptides - Actin &amp; Tubulin)</strong>; assemble into microfilaments and microtubules for cell movement and support.</li>
+<li><strong>Organelle with almost nothing but nucleic acids:</strong> <strong>Nucleolus</strong> (dense cluster of rRNA transcripts and DNA coding for ribosomes).</li>
+<li><strong>Organelle specialized in producing membrane lipids:</strong> <strong>Smooth Endoplasmic Reticulum (Smooth ER)</strong>.</li>
+</ol>
+<hr />
+<h3 id="station-2-specialized-human-cells-pages-1718">Station 2: Specialized Human Cells (Pages 17–18)</h3>
+<ol>
+<li><strong>Red Blood Cells (Erythrocytes):</strong><br />
+   - <em>Function:</em> Transports $O_2$ from lung alveoli to tissues and returns $CO_2$.<br />
+   - <em>Structure-Function Relationship:</em> Biconcave disc shape maximizes surface-area-to-volume ratio for rapid gas exchange and allows flexing through capillaries; ejects nucleus and mitochondria to maximize hemoglobin volume.</li>
+<li><strong>Nerve Cells (Neurons):</strong><br />
+   - <em>Function:</em> Transmits electrical nerve impulses across the nervous system.<br />
+   - <em>Structure-Function Relationship:</em> Long branched axon conducts action potentials over long anatomical distances; dendrites receive synaptic signals.<br />
+   - <em>Myelin Sheath Organelle:</em> <strong>Smooth ER</strong> produces lipids/myelin; if damaged, electrical conduction slows or halts (as seen in Multiple Sclerosis).</li>
+<li><strong>Sperm Cells (Spermatozoa):</strong><br />
+   - <em>3 Largest Parts:</em> <strong>Head (Nucleus with DNA)</strong>, <strong>Midpiece (packed with Mitochondria)</strong>, and <strong>Flagellum (Microtubule tail)</strong>.<br />
+   - <em>Importance:</em> Head delivers genetic blueprint to egg, mitochondria generate ATP continuously, and flagellum provides swimming propulsion.</li>
+</ol>
+<hr />
+<h3 id="station-3-organelles-and-human-genetic-disorders-pages-1819">Station 3: Organelles and Human Genetic Disorders (Pages 18–19)</h3>
+<ol>
+<li><strong>Cystic Fibrosis (CF):</strong><br />
+   - <em>Defective Structure:</em> <strong>Cell Membrane (CFTR Chloride Channel Protein)</strong>.<br />
+   - <em>Determination:</em> Mutation prevents chloride export; without salt movement, water does not follow by osmosis, causing dehydrated, thick sticky lung mucus.</li>
+<li><strong>Muscular Dystrophy / Mitochondrial Myopathy:</strong><br />
+   - <em>Defective Organelle:</em> <strong>Mitochondria</strong>.<br />
+   - <em>Determination:</em> Muscle and nerve tissues require vast ATP; failure to produce sufficient cellular energy leads to muscle weakness and heart failure.</li>
+<li><strong>I-Cell Disease:</strong><br />
+   - <em>Defective Organelle:</em> <strong>Golgi Apparatus</strong>.<br />
+   - <em>Determination:</em> Golgi fails to add mannose-6-phosphate sorting tags to hydrolytic enzymes, mistakenly exporting them outside the cell and creating toxic cytoplasmic inclusion bodies.</li>
+<li><strong>Tay-Sachs Disease:</strong><br />
+   - <em>Defective Organelle:</em> <strong>Lysosomes</strong>.<br />
+   - <em>Determination:</em> Missing hexosaminidase A enzyme prevents degradation of GM2 ganglioside lipids, which accumulate to toxic levels in neuronal lysosomes and destroy brain tissue.</li>
+<li><strong>Why can DNA mutations be harmful to cell function?</strong><br />
+   - DNA encodes the amino acid sequences of all enzymes and structural proteins. A mutation can alter protein folding, rendering transport channels, enzymes, or structural polymers nonfunctional.</li>
+</ol>
+<hr />
+<h3 id="station-4-identifying-types-of-transport-page-19">Station 4: Identifying Types of Transport (Page 19)</h3>
+<ul>
+<li><strong>A:</strong> Simple Diffusion — <strong>Passive</strong> (High $<br />
+ightarrow$ Low)</li>
+<li><strong>B:</strong> Facilitated Diffusion — <strong>Passive</strong> (Via transmembrane channel/carrier)</li>
+<li><strong>C:</strong> Osmosis — <strong>Passive</strong> (Water movement toward hypertonic region)</li>
+<li><strong>D:</strong> Endocytosis (Pinocytosis / Phagocytosis) — <strong>Active</strong> (Requires ATP; inward vesicle)</li>
+<li><strong>E:</strong> Exocytosis — <strong>Active</strong> (Requires ATP; vesicle fuses to export cargo)</li>
+<li><strong>F:</strong> Sodium-Potassium Pump — <strong>Active</strong> (Requires ATP; moves $3\ Na^+$ out / $2\ K^+$ in against gradients)</li>
+</ul>
+<hr />
+<h3 id="station-5-oddballs-of-the-natural-world-protists-page-19">Station 5: Oddballs of the Natural World — Protists (Page 19)</h3>
+<ol>
+<li><strong>Paramecium:</strong><br />
+   - <em>Features:</em> Covered in rhythmic cilia for swimming; oral groove for sweeping in bacteria; contractile vacuoles to expel hypotonic freshwater.<br />
+   - <em>Classification:</em> <strong>Animal-like protist (Protozoan)</strong> because it is heterotrophic and actively motile.</li>
+<li><strong>Euglena:</strong><br />
+   - <em>Features:</em> Green chloroplasts for photosynthesis; whip-like flagellum; red eyespot (stigma) to detect light direction; contractile vacuole.<br />
+   - <em>Classification:</em> <strong>Mixotroph (both Plant- and Animal-like)</strong> because it performs autotrophic photosynthesis in light and heterotrophic feeding in darkness.</li>
+<li><strong>Noctiluca ("Sea Sparkle"):</strong><br />
+   - <em>Features:</em> Marine dinoflagellate with bioluminescent luciferin reaction; forms large colonies; can produce toxic red tides.<br />
+   - <em>Classification:</em> <strong>Plant/Animal-like marine protist</strong> that combines photosynthesis with phagotrophic feeding on zooplankton.</li>
+</ol>
+<hr />
+<h3 id="station-6-organelles-that-build-proteins-pages-1920">Station 6: Organelles that Build Proteins (Pages 19–20)</h3>
+<h4 id="the-5-step-protein-synthesis-pipeline">The 5-Step Protein Synthesis Pipeline</h4>
+<ul>
+<li><strong>Step 1:</strong> Proteins are made by <strong>Ribosomes</strong> (translating mRNA).</li>
+<li><strong>Step 2:</strong> Protein folded on the <strong>Rough Endoplasmic Reticulum</strong>.</li>
+<li><strong>Step 3:</strong> Transported in a <strong>transport vesicle</strong> to the <strong>Golgi apparatus</strong>.</li>
+<li><strong>Step 4:</strong> Processed in the <strong>Golgi apparatus</strong> for finishing touches, chemical tagging, and packaging.</li>
+<li><strong>Step 5:</strong> Transported by another <strong>secretory vesicle</strong> to the <strong>plasma membrane</strong> to be exported via exocytosis.</li>
+</ul>
+<h4 id="analysis-questions-page-20">Analysis Questions (Page 20)</h4>
+<ol>
+<li><strong>What would happen if the ribosome stopped functioning correctly?</strong><br />
+   - Translation halts; no new polypeptides, enzymes, or transport channels can be synthesized, resulting in cell death.</li>
+<li><strong>If the cell were missing vesicles, how would this affect protein production?</strong><br />
+   - Proteins folded in the Rough ER could never be shuttled to the Golgi apparatus or exported to the cell membrane.</li>
+<li><strong>Where are the instructions to making a protein located inside the cell?</strong><br />
+   - Inside the <strong>nucleus</strong>, encoded in the nucleotide sequence of <strong>DNA</strong>.</li>
+<li><strong>What would happen to the protein if there were errors in the cell's DNA?</strong><br />
+   - Mutations lead to altered mRNA codons, potentially inserting incorrect amino acids, causing protein misfolding, nonfunctional enzyme active sites, or genetic disease.</li>
+</ol>
+      </article>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800 bg-slate-950 py-8 text-center text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>Grade 9 Biology I Honors • South Forsyth High School • Dr. Sarah Irwin</p>
+      <div class="flex items-center gap-4">
+        <a href="../../../../index.html" class="hover:text-slate-300 transition">Portal Home</a>
+        <a href="../../../../schedule/semester-1.html" class="hover:text-slate-300 transition">Schedule</a>
+        <a href="../../../../notInLocal.html" class="hover:text-slate-300 transition">Cloud Links</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

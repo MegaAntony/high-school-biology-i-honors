@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Georgia Standards of Excellence (GSE) for Biology - Biology I Honors</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    code, pre { font-family: 'JetBrains Mono', monospace; }
+    
+    /* Markdown Content Typography */
+    .prose-biology h1 {
+      font-size: 1.875rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #334155;
+      letter-spacing: -0.025em;
+    }
+    .prose-biology h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+    .prose-biology h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #38bdf8;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .prose-biology h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #34d399;
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .prose-biology p {
+      color: #cbd5e1;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    .prose-biology strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .prose-biology ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+      color: #cbd5e1;
+    }
+    .prose-biology ol {
+      list-style-type: decimal;
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+      color: #cbd5e1;
+    }
+    .prose-biology li {
+      margin-bottom: 0.375rem;
+      line-height: 1.6;
+    }
+    .prose-biology li strong {
+      color: #f8fafc;
+    }
+    .prose-biology a {
+      color: #38bdf8;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.15s ease;
+    }
+    .prose-biology a:hover {
+      color: #7dd3fc;
+      text-decoration: none;
+    }
+    .prose-biology blockquote {
+      border-left: 4px solid #10b981;
+      background-color: rgba(16, 185, 129, 0.08);
+      padding: 0.75rem 1rem;
+      margin: 1.25rem 0;
+      border-radius: 0 0.5rem 0.5rem 0;
+      color: #e2e8f0;
+      font-style: italic;
+    }
+    .prose-biology blockquote p {
+      margin-bottom: 0;
+      color: #e2e8f0;
+    }
+    .prose-biology code {
+      background-color: #1e293b;
+      color: #fbbf24;
+      padding: 0.2rem 0.4rem;
+      border-radius: 0.375rem;
+      font-size: 0.85em;
+      border: 1px solid #334155;
+    }
+    .prose-biology pre {
+      background-color: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 0.75rem;
+      padding: 1rem;
+      overflow-x: auto;
+      margin: 1.25rem 0;
+    }
+    .prose-biology pre code {
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      color: #34d399;
+      font-size: 0.875rem;
+    }
+    .prose-biology hr {
+      border: 0;
+      border-top: 1px solid #334155;
+      margin: 2rem 0;
+    }
+    /* Table Styling */
+    .prose-biology table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.875rem;
+      background-color: #1e293b;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      border: 1px solid #334155;
+    }
+    .prose-biology th {
+      background-color: #0f172a;
+      color: #34d399;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.75rem;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #334155;
+      text-align: left;
+    }
+    .prose-biology td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #334155;
+      color: #cbd5e1;
+      vertical-align: top;
+    }
+    .prose-biology tr:last-child td {
+      border-bottom: none;
+    }
+    .prose-biology tr:nth-child(even) td {
+      background-color: rgba(15, 23, 42, 0.4);
+    }
+    .prose-biology tr:hover td {
+      background-color: rgba(51, 65, 85, 0.4);
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between">
+
+  <!-- HEADER -->
+  <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="./index.html" class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center text-slate-950 font-black text-lg shadow-lg shadow-emerald-500/20 hover:scale-105 transition">
+          <i class="fa-solid fa-dna"></i>
+        </a>
+        <div>
+          <a href="./index.html" class="text-lg font-black tracking-tight text-white hover:text-emerald-400 transition">Biology I Honors V2</a>
+          <p class="text-xs text-slate-400 font-medium">South Forsyth High School • Dr. Irwin (2026/2027)</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2.5">
+        <a href="./index.html" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 px-3.5 py-2 rounded-xl border border-slate-700 transition flex items-center gap-1.5">
+          <i class="fa-solid fa-house text-emerald-400"></i> Home
+        </a>
+        <a href="./schedule/semester-1.html" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 px-3.5 py-2 rounded-xl border border-slate-700 transition flex items-center gap-1.5">
+          <i class="fa-regular fa-calendar text-teal-400"></i> S1 Schedule
+        </a>
+        <a href="./units/unit-02-cells-and-transport/tests/index.html" class="text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-md shadow-emerald-600/30">
+          <i class="fa-solid fa-vial"></i> Practice Tests
+        </a>
+        <a href="./notInLocal.html" class="text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-md shadow-indigo-600/30 hidden sm:flex">
+          <i class="fa-solid fa-cloud"></i> Cloud Links
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB & CONTENT CONTAINER -->
+  <main class="max-w-5xl mx-auto px-6 py-8 flex-1 w-full space-y-6">
+
+    <!-- BREADCRUMB -->
+    <nav class="flex items-center gap-2 text-xs text-slate-400">
+      <a href="./index.html" class="hover:text-emerald-400 transition flex items-center gap-1">
+        <i class="fa-solid fa-house text-[10px]"></i> Home
+      </a>
+      <i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i>
+      
+      <span class="text-slate-200 font-semibold truncate max-w-xs">Georgia Standards of Excellence (GSE) for Bio...</span>
+    </nav>
+
+    <!-- CONTENT CARD -->
+    <div class="bg-slate-800/60 border border-slate-700/60 rounded-3xl p-6 sm:p-10 shadow-xl backdrop-blur">
+      <article class="prose-biology">
+        <h1 id="georgia-standards-of-excellence-gse-for-biology">Georgia Standards of Excellence (GSE) for Biology</h1>
+<h3 id="course-high-school-biology-i-honors-course-code-2601200">Course: High School Biology I Honors (Course Code: 26.01200)</h3>
+<h3 id="georgia-department-of-education-gadoe-science-framework">Georgia Department of Education (GaDOE) • Science Framework</h3>
+<hr />
+<h2 id="course-overview-framework">🏛️ Course Overview &amp; Framework</h2>
+<p>The Georgia Standards of Excellence in Biology are designed to provide foundational knowledge and scientific literacy for high school students. The curriculum integrates core disciplinary ideas with <strong>Science and Engineering Practices (SEPs)</strong> and <strong>Crosscutting Concepts (CCCs)</strong>, emphasizing:<br />
+* Active student investigation, inquiry, and evidence-based reasoning.<br />
+* Mathematical and computational thinking.<br />
+* Developing and using biological models.<br />
+* Communicating scientific claims supported by empirical evidence.</p>
+<p>The state curriculum is structured around six overarching anchor standards (<strong>SB1 through SB6</strong>).</p>
+<hr />
+<h2 id="complete-standards-breakdown-sb1-sb6">📑 Complete Standards Breakdown (SB1 – SB6)</h2>
+<pre><code class="language-mermaid">flowchart TD
+    GSE[&quot;Georgia Standards of Excellence: Biology (SB1 - SB6)&quot;]
+
+    GSE --&gt; SB1[&quot;SB1: Living Cells&lt;br&gt;(Structures, Macromolecules, Transport &amp; Energetics)&quot;]
+    GSE --&gt; SB2[&quot;SB2: Genetics &amp; Gene Expression&lt;br&gt;(DNA/RNA, Protein Synthesis, Mutations &amp; Biotechnology)&quot;]
+    GSE --&gt; SB3[&quot;SB3: Heredity &amp; Reproduction&lt;br&gt;(Mendel's Laws, Meiosis &amp; Inheritance Patterns)&quot;]
+    GSE --&gt; SB4[&quot;SB4: Organismal Systems &amp; Clades&lt;br&gt;(Endosymbiosis, Cladograms &amp; System Phylogenetics)&quot;]
+    GSE --&gt; SB5[&quot;SB5: Ecology &amp; Ecosystem Dynamics&lt;br&gt;(Populations, Matter Cycling &amp; Environmental Change)&quot;]
+    GSE --&gt; SB6[&quot;SB6: The Theory of Evolution&lt;br&gt;(Speciation, Common Descent &amp; Biological Resistance)&quot;]
+</code></pre>
+<hr />
+<h3 id="standard-sb1-living-cells-structure-function-physiology">🔬 Standard SB1: Living Cells — Structure, Function &amp; Physiology</h3>
+<blockquote>
+<p><strong>SB1. Obtain, evaluate, and communicate information to analyze the nature of the relationships between structures and functions in living cells.</strong></p>
+</blockquote>
+<ul>
+<li><strong>SB1.a:</strong> Construct an explanation of how cell structures and organelles (including <strong>nucleus, cytoplasm, cell membrane, cell wall, chloroplasts, lysosome, Golgi apparatus, endoplasmic reticulum, vacuoles, ribosomes, and mitochondria</strong>) interact as a system to maintain homeostasis.</li>
+<li><strong>SB1.b:</strong> Develop and use models to explain the role of cellular reproduction (including <strong>binary fission, mitosis, and meiosis</strong>) in maintaining genetic continuity.</li>
+<li><strong>SB1.c:</strong> Construct arguments supported by evidence to relate the structure of macromolecules (<strong>carbohydrates, proteins, lipids, and nucleic acids</strong>) to their interactions in carrying out cellular processes.</li>
+<li><strong>SB1.d:</strong> Plan and carry out investigations to determine the role of cellular transport (e.g., <strong>active transport, passive transport, and osmosis</strong>) in maintaining homeostasis.</li>
+<li><strong>SB1.e:</strong> Ask questions to investigate and provide explanations about the roles of <strong>photosynthesis and cellular respiration</strong> in the cycling of matter and flow of energy within the cell (e.g., single-celled alga, ATP-ADP cycle).</li>
+</ul>
+<hr />
+<h3 id="standard-sb2-genetics-gene-expression-biotechnology">🧬 Standard SB2: Genetics — Gene Expression &amp; Biotechnology</h3>
+<blockquote>
+<p><strong>SB2. Obtain, evaluate, and communicate information to analyze how genetic information is expressed in cells.</strong></p>
+</blockquote>
+<ul>
+<li><strong>SB2.a:</strong> Construct an explanation of how the structures of <strong>DNA and RNA</strong> lead to the expression of information within the cell via the processes of <strong>replication, transcription, and translation</strong>.</li>
+<li><strong>SB2.b:</strong> Construct an argument based on evidence to support the claim that inheritable genetic variations may result from:</li>
+<li>New genetic combinations through meiosis (<strong>crossing over, independent assortment, nondisjunction</strong>);</li>
+<li>Non-lethal errors occurring during replication (<strong>insertions, deletions, substitutions</strong>); and/or</li>
+<li>Heritable mutations caused by environmental factors (<strong>radiation, chemicals, viruses</strong>).</li>
+<li><strong>SB2.c:</strong> Ask questions to gather and communicate information about the use and ethical considerations of <strong>biotechnology</strong> in forensics, medicine, and agriculture (e.g., DNA fingerprinting, CRISPR, gene therapy, GMOs).</li>
+</ul>
+<hr />
+<h3 id="standard-sb3-heredity-patterns-of-inheritance">👨‍👩‍👧 Standard SB3: Heredity — Patterns of Inheritance</h3>
+<blockquote>
+<p><strong>SB3. Obtain, evaluate, and communicate information to analyze how biological traits are passed on to successive generations.</strong></p>
+</blockquote>
+<ul>
+<li><strong>SB3.a:</strong> Use Mendel’s laws (<strong>segregation and independent assortment</strong>) to ask questions and define problems that explain the role of meiosis in reproductive variability.</li>
+<li><strong>SB3.b:</strong> Use mathematical models (e.g., <strong>monohybrid and dihybrid Punnett squares, pedigrees</strong>) to predict and explain patterns of inheritance (including dominant/recessive, incomplete dominance, codominance, multiple alleles, sex-linked inheritance, and polygenic traits).</li>
+<li><strong>SB3.c:</strong> Construct an argument to support a claim about the relative advantages and disadvantages of <strong>sexual and asexual reproduction</strong> (e.g., genetic diversity vs. energy expenditure and reproductive rate).</li>
+</ul>
+<hr />
+<h3 id="standard-sb4-organism-systems-phylogenetics-clades">🌳 Standard SB4: Organism Systems — Phylogenetics &amp; Clades</h3>
+<blockquote>
+<p><strong>SB4. Obtain, evaluate, and communicate information to illustrate the organization of interacting systems within single-celled and multi-celled organisms.</strong></p>
+</blockquote>
+<ul>
+<li><strong>SB4.a:</strong> Construct an argument supported by scientific information to explain patterns in structures and function among clades of organisms, including the origin of eukaryotes by <strong>endosymbiosis</strong>. Clades should include: <strong>archaea, bacteria, and eukaryotes (fungi, plants, animals)</strong>.</li>
+<li><strong>SB4.b:</strong> Analyze and interpret data to develop models (i.e., <strong>cladograms and phylogenetic trees</strong>) based on patterns of common ancestry and the theory of evolution to determine relationships among major groups of organisms.</li>
+</ul>
+<hr />
+<h3 id="standard-sb5-ecology-interdependence-ecosystem-dynamics">🌍 Standard SB5: Ecology — Interdependence &amp; Ecosystem Dynamics</h3>
+<blockquote>
+<p><strong>SB5. Obtain, evaluate, and communicate information to assess the interdependence of all organisms on one another and their environment.</strong></p>
+</blockquote>
+<ul>
+<li><strong>SB5.a:</strong> Plan and carry out investigations and analyze data to support explanations about factors affecting <strong>biodiversity and populations</strong> in ecosystems (e.g., population size, carrying capacity, density-dependent and density-independent limiting factors, and keystone species).</li>
+<li><strong>SB5.b:</strong> Develop and use models to analyze the <strong>cycling of matter and flow of energy</strong> within ecosystems through the processes of photosynthesis and respiration (e.g., food chains, food webs, 10% energy rule pyramids, carbon cycle, nitrogen cycle, phosphorus cycle).</li>
+<li><strong>SB5.c:</strong> Construct an argument to predict the impact of <strong>environmental change</strong> on the stability of an ecosystem (e.g., climate change, habitat destruction, invasive species, pollution, ocean acidification).</li>
+</ul>
+<hr />
+<h3 id="standard-sb6-evolution-natural-selection-speciation">🦎 Standard SB6: Evolution — Natural Selection &amp; Speciation</h3>
+<blockquote>
+<p><strong>SB6. Obtain, evaluate, and communicate information to assess the theory of evolution.</strong></p>
+</blockquote>
+<ul>
+<li><strong>SB6.a:</strong> Construct an explanation of how new understandings of Earth’s history, the emergence of new species from pre-existing species, and our understanding of genetics have influenced our understanding of biology.</li>
+<li><strong>SB6.b:</strong> Analyze and interpret data to explain patterns in biodiversity that result from <strong>speciation</strong> (allopatric, sympatric, reproductive isolation).</li>
+<li><strong>SB6.c:</strong> Construct an argument using valid and reliable sources to support the claim that evidence from <strong>comparative morphology</strong> (homologous, analogous, and vestigial structures), <strong>embryology, biochemistry</strong> (DNA and amino acid sequence homologies), and <strong>the fossil record</strong> support the theory that all living organisms are related by way of common descent.</li>
+<li><strong>SB6.d:</strong> Develop and use mathematical models to support explanations of how undirected genetic changes in <strong>natural selection and genetic drift</strong> (bottleneck effect, founder effect, gene flow) have led to changes in populations of organisms (Hardy-Weinberg equilibrium principles).</li>
+<li><strong>SB6.e:</strong> Develop a model to explain the role natural selection plays in causing <strong>biological resistance</strong> (e.g., antibiotic resistance in bacteria, pesticide resistance in insects, influenza antiviral evasion).</li>
+</ul>
+<hr />
+<h2 id="south-forsyth-high-school-curriculum-unit-alignment">🗺️ South Forsyth High School Curriculum Unit Alignment</h2>
+<div class="overflow-x-auto my-4"><table>
+<thead>
+<tr>
+<th style="text-align: center;">Unit #</th>
+<th style="text-align: left;">Course Unit Title</th>
+<th style="text-align: center;">Primary GSE Standard</th>
+<th style="text-align: left;">Key GSE Sub-Elements</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Unit 1</strong></td>
+<td style="text-align: left;">Biochemistry &amp; Enzymes</td>
+<td style="text-align: center;"><strong>SB1</strong></td>
+<td style="text-align: left;"><strong>SB1.c</strong> (Macromolecules), enzyme catalytic kinetics</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Unit 2</strong></td>
+<td style="text-align: left;">Cells &amp; Cell Transport <em>(Current)</em></td>
+<td style="text-align: center;"><strong>SB1</strong></td>
+<td style="text-align: left;"><strong>SB1.d</strong> (Part 1: Transport &amp; Osmosis)<br><strong>SB1.a</strong> (Part 2: Organelles &amp; Cell Theory)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Unit 3</strong></td>
+<td style="text-align: left;">Cellular Energetics</td>
+<td style="text-align: center;"><strong>SB1</strong></td>
+<td style="text-align: left;"><strong>SB1.e</strong> (Photosynthesis, Respiration &amp; ATP Cycle)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Unit 4</strong></td>
+<td style="text-align: left;">Cellular Reproduction</td>
+<td style="text-align: center;"><strong>SB1</strong></td>
+<td style="text-align: left;"><strong>SB1.b</strong> (Mitosis, Cell Cycle, Binary Fission)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Unit 5</strong></td>
+<td style="text-align: left;">Gene Expression</td>
+<td style="text-align: center;"><strong>SB2</strong></td>
+<td style="text-align: left;"><strong>SB2.a, SB2.b</strong> (DNA, RNA, Transcription, Translation)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Unit 6</strong></td>
+<td style="text-align: left;">Meiosis &amp; Genetics</td>
+<td style="text-align: center;"><strong>SB2 / SB3</strong></td>
+<td style="text-align: left;"><strong>SB2.b, SB3.a, SB3.b, SB3.c</strong> (Meiosis, Punnett Squares, Heredity)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Unit 7</strong></td>
+<td style="text-align: left;">Biotechnology</td>
+<td style="text-align: center;"><strong>SB2 / SB4</strong></td>
+<td style="text-align: left;"><strong>SB2.c</strong> (CRISPR, Cloning, Genetic Engineering), <strong>SB4.a</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Unit 8</strong></td>
+<td style="text-align: left;">Evolution &amp; Natural Selection</td>
+<td style="text-align: center;"><strong>SB4 / SB6</strong></td>
+<td style="text-align: left;"><strong>SB4.b, SB6.a, SB6.b, SB6.c, SB6.d, SB6.e</strong> (Speciation, Fossils, Resistance)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Unit 9</strong></td>
+<td style="text-align: left;">Ecology &amp; Ecosystems</td>
+<td style="text-align: center;"><strong>SB5</strong></td>
+<td style="text-align: left;"><strong>SB5.a, SB5.b, SB5.c</strong> (Populations, Biomes, Energy Pyramids, Cycles)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Unit 10</strong></td>
+<td style="text-align: left;">Diversity of Life</td>
+<td style="text-align: center;"><strong>SB4</strong></td>
+<td style="text-align: left;"><strong>SB4.a, SB4.b</strong> (Classification, 3 Domains, Cladograms)</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h3 id="document-metadata">📌 Document Metadata</h3>
+<ul>
+<li><strong>File Path:</strong> <code>/Volumes/Backup/Antony/HighSchool/Grade9/Biology-Honors/Georgia_Standards_Biology_Full.md</code></li>
+<li><strong>Authority:</strong> Georgia Department of Education (GaDOE) Science Standards of Excellence</li>
+<li><strong>Course Code:</strong> 26.01200 (Biology I Honors)</li>
+</ul>
+      </article>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800 bg-slate-950 py-8 text-center text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>Grade 9 Biology I Honors • South Forsyth High School • Dr. Sarah Irwin</p>
+      <div class="flex items-center gap-4">
+        <a href="./index.html" class="hover:text-slate-300 transition">Portal Home</a>
+        <a href="./schedule/semester-1.html" class="hover:text-slate-300 transition">Schedule</a>
+        <a href="./notInLocal.html" class="hover:text-slate-300 transition">Cloud Links</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

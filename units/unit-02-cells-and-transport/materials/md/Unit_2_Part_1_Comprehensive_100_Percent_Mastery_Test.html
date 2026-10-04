@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit 2 Part 1: Cell Membrane and Transport  100 Comprehensive Master Exam - Biology I Honors</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    code, pre { font-family: 'JetBrains Mono', monospace; }
+    
+    /* Markdown Content Typography */
+    .prose-biology h1 {
+      font-size: 1.875rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #334155;
+      letter-spacing: -0.025em;
+    }
+    .prose-biology h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+    .prose-biology h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #38bdf8;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .prose-biology h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #34d399;
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .prose-biology p {
+      color: #cbd5e1;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    .prose-biology strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .prose-biology ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+      color: #cbd5e1;
+    }
+    .prose-biology ol {
+      list-style-type: decimal;
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+      color: #cbd5e1;
+    }
+    .prose-biology li {
+      margin-bottom: 0.375rem;
+      line-height: 1.6;
+    }
+    .prose-biology li strong {
+      color: #f8fafc;
+    }
+    .prose-biology a {
+      color: #38bdf8;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.15s ease;
+    }
+    .prose-biology a:hover {
+      color: #7dd3fc;
+      text-decoration: none;
+    }
+    .prose-biology blockquote {
+      border-left: 4px solid #10b981;
+      background-color: rgba(16, 185, 129, 0.08);
+      padding: 0.75rem 1rem;
+      margin: 1.25rem 0;
+      border-radius: 0 0.5rem 0.5rem 0;
+      color: #e2e8f0;
+      font-style: italic;
+    }
+    .prose-biology blockquote p {
+      margin-bottom: 0;
+      color: #e2e8f0;
+    }
+    .prose-biology code {
+      background-color: #1e293b;
+      color: #fbbf24;
+      padding: 0.2rem 0.4rem;
+      border-radius: 0.375rem;
+      font-size: 0.85em;
+      border: 1px solid #334155;
+    }
+    .prose-biology pre {
+      background-color: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 0.75rem;
+      padding: 1rem;
+      overflow-x: auto;
+      margin: 1.25rem 0;
+    }
+    .prose-biology pre code {
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      color: #34d399;
+      font-size: 0.875rem;
+    }
+    .prose-biology hr {
+      border: 0;
+      border-top: 1px solid #334155;
+      margin: 2rem 0;
+    }
+    /* Table Styling */
+    .prose-biology table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.875rem;
+      background-color: #1e293b;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      border: 1px solid #334155;
+    }
+    .prose-biology th {
+      background-color: #0f172a;
+      color: #34d399;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.75rem;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #334155;
+      text-align: left;
+    }
+    .prose-biology td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #334155;
+      color: #cbd5e1;
+      vertical-align: top;
+    }
+    .prose-biology tr:last-child td {
+      border-bottom: none;
+    }
+    .prose-biology tr:nth-child(even) td {
+      background-color: rgba(15, 23, 42, 0.4);
+    }
+    .prose-biology tr:hover td {
+      background-color: rgba(51, 65, 85, 0.4);
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between">
+
+  <!-- HEADER -->
+  <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="../../../../index.html" class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center text-slate-950 font-black text-lg shadow-lg shadow-emerald-500/20 hover:scale-105 transition">
+          <i class="fa-solid fa-dna"></i>
+        </a>
+        <div>
+          <a href="../../../../index.html" class="text-lg font-black tracking-tight text-white hover:text-emerald-400 transition">Biology I Honors V2</a>
+          <p class="text-xs text-slate-400 font-medium">South Forsyth High School • Dr. Irwin (2026/2027)</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2.5">
+        <a href="../../../../index.html" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 px-3.5 py-2 rounded-xl border border-slate-700 transition flex items-center gap-1.5">
+          <i class="fa-solid fa-house text-emerald-400"></i> Home
+        </a>
+        <a href="../../../../schedule/semester-1.html" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 px-3.5 py-2 rounded-xl border border-slate-700 transition flex items-center gap-1.5">
+          <i class="fa-regular fa-calendar text-teal-400"></i> S1 Schedule
+        </a>
+        <a href="../../../../units/unit-02-cells-and-transport/tests/index.html" class="text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-md shadow-emerald-600/30">
+          <i class="fa-solid fa-vial"></i> Practice Tests
+        </a>
+        <a href="../../../../notInLocal.html" class="text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-md shadow-indigo-600/30 hidden sm:flex">
+          <i class="fa-solid fa-cloud"></i> Cloud Links
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB & CONTENT CONTAINER -->
+  <main class="max-w-5xl mx-auto px-6 py-8 flex-1 w-full space-y-6">
+
+    <!-- BREADCRUMB -->
+    <nav class="flex items-center gap-2 text-xs text-slate-400">
+      <a href="../../../../index.html" class="hover:text-emerald-400 transition flex items-center gap-1">
+        <i class="fa-solid fa-house text-[10px]"></i> Home
+      </a>
+      <i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i>
+      <span class="text-slate-400">Units</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i> <span class="text-slate-400">Unit 02 Cells And Transport</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i> <span class="text-slate-400">Materials</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i> <span class="text-slate-400">Md</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i>
+      <span class="text-slate-200 font-semibold truncate max-w-xs">Unit 2 Part 1: Cell Membrane and Transport — ...</span>
+    </nav>
+
+    <!-- CONTENT CARD -->
+    <div class="bg-slate-800/60 border border-slate-700/60 rounded-3xl p-6 sm:p-10 shadow-xl backdrop-blur">
+      <article class="prose-biology">
+        <h1 id="unit-2-part-1-cell-membrane-and-transport-100-comprehensive-master-exam">Unit 2 Part 1: Cell Membrane and Transport — 100% Comprehensive Master Exam</h1>
+<h3 id="biology-i-honors-south-forsyth-high-school">Biology I Honors • South Forsyth High School</h3>
+<p><strong>Standard Alignment:</strong> GSE SB1.a (Cell Membrane Structure &amp; Transport), SB1.d (Homeostasis)<br />
+<strong>Total Questions:</strong> 55 High-Yield Multiple Choice Questions with Explanations &amp; Answer Key (Anti-Guess Balanced Edition)</p>
+<hr />
+<h2 id="comprehensive-practice-exam-questions-155">📝 Comprehensive Practice Exam (Questions 1–55)</h2>
+<h3 id="question-1-membrane-chemistry">Question 1: Membrane Chemistry</h3>
+<p>Why do phospholipids spontaneously arrange into a bilayer with their phosphate heads facing the aqueous exterior and interior while their fatty acid tails face inward?<br />
+- A) The phosphate heads are polar and hydrophilic, interacting favorably with water, while the fatty acid tails are nonpolar and hydrophobic.<br />
+- B) The phosphate heads are nonpolar and form covalent ester bonds with extracellular water molecules, whereas the tails are ionic.<br />
+- C) The phosphate heads are charged and repel each other to generate membrane tension, while the fatty acid tails form rigid hydrogen bonds.<br />
+- D) The phosphate heads are uncharged lipids that dissolve in cytosolic fluids, while the tails are actively phosphorylated by ATP enzymes.</p>
+<h3 id="question-2-fluid-mosaic-model">Question 2: Fluid Mosaic Model</h3>
+<p>Why is the structure of the biological plasma membrane described scientifically as a 'Fluid Mosaic Model'?<br />
+- A) Phospholipids form a rigid, crystalline lattice studded with permanently stationary proteins that never change spatial positions.<br />
+- B) Phospholipids and proteins move laterally within the bilayer leaflet, which is studded with a diverse array of biomolecules.<br />
+- C) The membrane is dissolved completely in extracellular water and reforms dynamically only during active transport cycles.<br />
+- D) The membrane consists solely of solid structural proteins that enclose fluid triglycerides inside the internal cytoplasmic compartment.</p>
+<h3 id="question-3-membrane-fluidity">Question 3: Membrane Fluidity</h3>
+<p>How do cholesterol molecules interspersed between phospholipid tails contribute to cellular homeostasis in mammalian plasma membranes?<br />
+- A) Cholesterol hydrolyzes ATP to pump sodium ions out of the cytoplasm during cold temperature thermal stress.<br />
+- B) Cholesterol binds directly to extracellular hormones to catalyze their passive diffusion across the inner hydrophobic leaflet.<br />
+- C) Cholesterol acts as a bidirectional fluidity buffer, preventing excessive fluidity at high temps and preventing freezing at low temps.<br />
+- D) Cholesterol forms hydrophilic aqueous channels that allow large polysaccharides to diffuse down their concentration gradient.</p>
+<h3 id="question-4-selective-permeability">Question 4: Selective Permeability</h3>
+<p>Which of the following molecules crosses the phospholipid bilayer directly via simple diffusion without requiring a transport protein or energy?<br />
+- A) Large, polar monosaccharide molecules such as glucose ($C_6H_{12}O_6$) moving down their concentration gradient.<br />
+- B) Small, positively charged inorganic electrolytes such as sodium ($Na^+$) and potassium ($K^+$) ions.<br />
+- C) Highly charged, high-molecular-weight structural polymers such as glycogen, cellulose, and extracellular collagen.<br />
+- D) Small, nonpolar gas molecules such as oxygen ($O_2$) and carbon dioxide ($CO_2$) diffusing down their concentration gradient.</p>
+<h3 id="question-5-cell-recognition">Question 5: Cell Recognition</h3>
+<p>Which membrane components protrude from the external surface of the plasma membrane to serve as unique biochemical identification markers and immune tags?<br />
+- A) Oligosaccharide carbohydrate chains covalently attached to surface proteins (glycoproteins) and lipids (glycolipids).<br />
+- B) Hydrophobic cholesterol steroid rings embedded deeply within the inner core of the phospholipid bilayer.<br />
+- C) Cytoskeletal actin microfilaments anchored to peripheral proteins on the internal cytoplasmic surface.<br />
+- D) Hydrophobic alpha-helical transmembrane domains that anchor sodium-potassium ATPase pumps.</p>
+<h3 id="question-6-tracie-anchorage">Question 6: TRACIE Anchorage</h3>
+<p>What is the structural role of peripheral membrane proteins located on the cytoplasmic face of the plasma membrane?<br />
+- A) They permanently span the entire lipid bilayer to act as open hydrophilic conduits for bulk water transport.<br />
+- B) They anchor internal cytoskeletal filaments to provide mechanical stability and maintain characteristic cellular geometry.<br />
+- C) They synthesize ATP by utilizing the proton concentration gradient established during mitochondrial respiration.<br />
+- D) They secrete digestive lysosomal enzymes directly into the extracellular fluid to clear environmental cellular debris.</p>
+<h3 id="question-7-passive-energetics">Question 7: Passive Energetics</h3>
+<p>Why does passive cellular transport occur without the expenditure of metabolic cellular energy (0 ATP)?<br />
+- A) The transport process relies exclusively on metabolic energy provided by the constant breakdown of extracellular glucose.<br />
+- B) The cell uses mechanical muscle contractions rather than biochemical ATP hydrolysis to force solutes across the membrane.<br />
+- C) The movement is driven entirely by the inherent thermal kinetic energy of particles moving down their concentration gradient.<br />
+- D) Solute molecules lose their mass during transit, eliminating all thermodynamic resistance across the lipid bilayer.</p>
+<h3 id="question-8-equilibrium-dynamics">Question 8: Equilibrium Dynamics</h3>
+<p>When a solute reaches dynamic equilibrium across a selectively permeable membrane, what is happening at the molecular level?<br />
+- A) All molecular movement ceases completely because the concentration gradient has been completely eliminated.<br />
+- B) Solutes are actively transported in one direction by carrier proteins while water diffuses in the opposite direction.<br />
+- C) Solute particles bind irreversibly to the phospholipid heads, locking the membrane in an impermeable barrier state.<br />
+- D) Solute molecules continue to move across the membrane in both directions at equal rates, resulting in zero net change in concentration.</p>
+<h3 id="question-9-diffusion-rates">Question 9: Diffusion Rates</h3>
+<p>Which set of environmental conditions would maximize the rate of simple diffusion of a substance across a biological membrane?<br />
+- A) High kinetic temperature, a steep concentration gradient, and small, lightweight solute particles.<br />
+- B) Low ambient temperature, a gentle concentration gradient, and large, heavy solute particles.<br />
+- C) Freezing temperature, an isotonic concentration gradient, and high environmental viscosity.<br />
+- D) Moderate temperature, zero concentration difference across leaflets, and highly charged polar molecules.</p>
+<h3 id="question-10-the-permeability-trap-page-5">Question 10: The Permeability Trap (Page 5)</h3>
+<p>A cell model containing 60% glucose and 10% starch is submerged in an environment of 10% glucose and 60% starch. The membrane is permeable ONLY to starch. What will occur?<br />
+- A) Glucose will diffuse out of the cell and starch will diffuse into the cell until concentrations are equal.<br />
+- B) Starch will diffuse into the cell down its gradient, while glucose remains trapped and does not cross the membrane.<br />
+- C) Water will diffuse out of the cell by osmosis until glucose reaches dynamic equilibrium on both sides.<br />
+- D) Both glucose and starch will be transported into the cell via ATP-dependent carrier pumps.</p>
+<h3 id="question-11-facilitated-diffusion">Question 11: Facilitated Diffusion</h3>
+<p>How does glucose move into animal cells down its concentration gradient after a carbohydrate-rich meal?<br />
+- A) It dissolves directly through the hydrophobic hydrocarbon tails via simple diffusion without protein assistance.<br />
+- B) It is engulfed into the cytoplasm via clathrin-mediated pinocytosis requiring the continuous hydrolysis of ATP.<br />
+- C) It passes through specific transmembrane carrier proteins (such as GLUT) that undergo reversible conformational shape changes.<br />
+- D) It is pumped across the membrane by the sodium-potassium ATPase pump in exchange for extracellular potassium ions.</p>
+<h3 id="question-12-transporters">Question 12: Transporters</h3>
+<p>How do channel proteins differ functionally from carrier proteins during facilitated diffusion across the plasma membrane?<br />
+- A) Channel proteins require ATP hydrolysis for each solute transported, whereas carrier proteins operate entirely without energy.<br />
+- B) Channel proteins only move nonpolar lipids, whereas carrier proteins exclusively transport small diatomic respiratory gases.<br />
+- C) Channel proteins pump solutes against their concentration gradient, whereas carrier proteins move solutes down gradients.<br />
+- D) Channel proteins provide open hydrophilic pores for rapid passive flow, whereas carrier proteins bind solute and change shape.</p>
+<h3 id="question-13-osmosis-fundamentals">Question 13: Osmosis Fundamentals</h3>
+<p>Which statement scientifically defines osmosis in biological systems?<br />
+- A) The passive diffusion of free water molecules across a selectively permeable membrane toward regions of higher solute concentration.<br />
+- B) The active pumping of dissolved solute ions against their concentration gradient using specialized transport proteins.<br />
+- C) The bulk movement of cytoplasm and organelles through gap junctions connecting neighboring epithelial cells.<br />
+- D) The spontaneous dissolution of nonpolar lipid droplets within the aqueous cytoplasm of human hepatocytes.</p>
+<h3 id="question-14-aquaporins">Question 14: Aquaporins</h3>
+<p>What is the biological importance of aquaporins in the plasma membranes of kidney tubule and red blood cells?<br />
+- A) They hydrolyze ATP to pump sodium and chloride ions out of the filtrate to maintain blood volume.<br />
+- B) They allow billions of water molecules to diffuse across the hydrophobic membrane core per second in single file.<br />
+- C) They prevent water from entering animal cells, ensuring that red blood cells remain in a permanently dehydrated state.<br />
+- D) They bind to peptide hormones to initiate the intracellular synthesis of structural cell wall polysaccharides.</p>
+<h3 id="question-15-tonicity-definitions">Question 15: Tonicity Definitions</h3>
+<p>If Solution X contains 5% sucrose and Solution Y contains 20% sucrose, which of the following statements correctly describes Solution X relative to Solution Y?<br />
+- A) Solution X is hypertonic to Solution Y because Solution X contains a lower percentage of dissolved solute particles.<br />
+- B) Solution X is isotonic to Solution Y because both solutions contain sucrose molecules dissolved in aqueous solvent.<br />
+- C) Solution X is hypotonic to Solution Y because Solution X contains a lower solute concentration and higher free water concentration.<br />
+- D) Solution X has lower water potential than Solution Y because solute particles displace water molecules in solution.</p>
+<h3 id="question-16-animal-osmosis">Question 16: Animal Osmosis</h3>
+<p>What happens when a human red blood cell (erythrocyte) with an internal solute concentration of 0.9% NaCl is placed into pure distilled water (0% NaCl)?<br />
+- A) Solute particles diffuse out of the cell until the external distilled water reaches a concentration of 0.9% NaCl.<br />
+- B) The cell rapidly loses internal water volume, collapsing into a shriveled, scalloped structure termed a crenated cell.<br />
+- C) The cell wall exerts turgor pressure against the plasma membrane, maintaining normal biconcave disc geometry.<br />
+- D) Water rushes into the cell down its osmotic gradient, causing the membrane to stretch and burst in a process called hemolysis (cytolysis).</p>
+<h3 id="question-17-plant-osmosis">Question 17: Plant Osmosis</h3>
+<p>Why do plant cells thrive in a hypotonic environment (such as rainwater), whereas animal cells burst under identical osmotic conditions?<br />
+- A) Plant cells possess a rigid cellulose cell wall that resists expansion and exerts wall pressure to prevent cytolysis.<br />
+- B) Plant cells actively pump out excess water using specialized high-speed contractile vacuoles powered by ATP.<br />
+- C) Plant plasma membranes are completely impermeable to water molecules, preventing any osmotic influx.<br />
+- D) Plant cells store high concentrations of sodium ions in their central vacuole to reverse the direction of osmosis.</p>
+<h3 id="question-18-plasmolysis">Question 18: Plasmolysis</h3>
+<p>A freshwater elodea leaf is mounted in a 10% sodium chloride solution on a microscope slide. What cytological observation will the student make?<br />
+- A) The chloroplasts swell to twice their normal diameter and rupture due to rapid osmotic water absorption.<br />
+- B) Water exits the central vacuole by osmosis, causing the cytoplasm and plasma membrane to pull away from the rigid cell wall.<br />
+- C) The cell wall collapses inward, crushing the central vacuole and tearing the outer nuclear envelope.<br />
+- D) Sodium ions diffuse into the cell and bind to chlorophyll molecules, turning the leaf from dark green to translucent yellow.</p>
+<h3 id="question-19-houseplant-fertilizer-page-20">Question 19: Houseplant Fertilizer (Page 20)</h3>
+<p>A student applies a double concentration of chemical fertilizer to Plant Y. Within 24 hours, the plant wilts severely despite the soil being wet. What caused this?<br />
+- A) Fertilizer ions diffused into the roots and physically blocked xylem vessels, stopping capillary action.<br />
+- B) The plant absorbed excessive fertilizer by pinocytosis, triggering root cells to swell and undergo cytolysis.<br />
+- C) The concentrated fertilizer made the soil hypertonic, drawing water OUT of root cells via osmosis and causing plasmolysis.<br />
+- D) Excess fertilizer stimulated root cells to pump all internal glucose into the soil via active transport.</p>
+<h3 id="question-20-u-tube-osmometer">Question 20: U-Tube Osmometer</h3>
+<p>A U-shaped tube is divided at its base by a membrane permeable to water but impermeable to sucrose. Side A has 10% sucrose, and Side B has 40% sucrose. Both start at 10 cm. Over time, what happens to the heights?<br />
+- A) The liquid height of Side A will rise to 13 cm, while the height of Side B will decrease to 7 cm.<br />
+- B) Both sides will remain exactly at 10 cm because sucrose cannot cross the selectively permeable membrane.<br />
+- C) Side B will drain completely dry as all water evaporates toward the lower solute concentration on Side A.<br />
+- D) The liquid height of Side A will fall to 7 cm, while the height of Side B will increase to 13 cm.</p>
+<h3 id="question-21-dialysis-tubing-lab">Question 21: Dialysis Tubing Lab</h3>
+<p>A dialysis tubing bag containing 20% glucose and 5% soluble starch is placed in a beaker of water and iodine. The bag is permeable to water, glucose, and iodine, but impermeable to starch. What occurs after 60 minutes?<br />
+- A) Glucose will diffuse out into the beaker, and iodine will diffuse into the bag, turning the inside of the bag dark blue-black.<br />
+- B) Starch will diffuse out into the beaker, turning the surrounding beaker solution dark blue-black.<br />
+- C) Water will exit the dialysis bag, causing its total mass to decrease by more than 50%.<br />
+- D) Iodine will be actively pumped out of the beaker into the dialysis bag by embedded membrane transport proteins.</p>
+<h3 id="question-22-gel-deco-cube-lab">Question 22: Gel Deco Cube Lab</h3>
+<p>In an osmosis lab, students submerge identical gel cubes into three solutions: 0% distilled water, tap water, and 20% salt water. Which cube demonstrates the greatest positive percentage change in mass (% ΔMass)?<br />
+- A) The cube placed in 20% salt water because high solute concentrations force salt into the cube's interior.<br />
+- B) The cube placed in 0% distilled water because the steepest hypotonic gradient drives maximum water influx.<br />
+- C) The cube placed in tap water because mineral ions actively attract water into the gel matrix.<br />
+- D) All three cubes will exhibit identical 0% changes in mass because gel polymers are completely impermeable to water.</p>
+<h3 id="question-23-gel-lab-blotting-protocol">Question 23: Gel Lab Blotting Protocol</h3>
+<p>Why is it an essential experimental procedure to gently blot the surface of gel cubes with a paper towel before weighing them on the electronic balance?<br />
+- A) To transfer surface ions onto the paper towel so the balance does not register electromagnetic interference.<br />
+- B) To cool the cube down to room temperature so that thermal expansion does not artificially alter the volume reading.<br />
+- C) To remove external clinging fluid so the balance measures only internal absorbed water, minimizing experimental error.<br />
+- D) To stimulate the gelatin polymers to undergo endocytosis of remaining surface solute particles.</p>
+<h3 id="question-24-clinical-case-study-cer">Question 24: Clinical Case Study CER</h3>
+<p>In the tragic case of Jennifer Strange ('Hold your wee for a Wii'), how did consuming nearly 2 gallons of pure water without urinating lead to fatal cerebral edema?<br />
+- A) Excessive blood sodium caused water to leave brain neurons, desiccating the central nervous system.<br />
+- B) Water molecules blocked voltage-gated potassium channels, permanently paralyzing peripheral motor neurons.<br />
+- C) Pure water dissolved the phospholipid bilayer of cardiac muscle cells, causing acute cardiovascular arrest.<br />
+- D) Blood plasma became severely hypotonic (hyponatremia), driving massive osmotic water influx into brain cells inside the rigid skull.</p>
+<h3 id="question-25-clinical-brain-edema-treatment">Question 25: Clinical Brain Edema Treatment</h3>
+<p>When emergency room physicians treat a patient suffering from life-threatening cerebral edema (brain swelling), why do they administer an IV of hypertonic 3% saline?<br />
+- A) Hypertonic saline makes the bloodstream hypertonic to swollen brain tissue, drawing excess fluid out of neurons via osmosis.<br />
+- B) Hypertonic saline supplies sodium ions to power the active transport of glucose into damaged astrocytes.<br />
+- C) Hypertonic saline stimulates the kidneys to undergo phagocytosis of excess circulatory plasma volume.<br />
+- D) Hypertonic saline hydrolyzes neuronal ATP, temporarily stopping action potentials to prevent brain exhaustion.</p>
+<h3 id="question-26-freshwater-fish-in-ocean">Question 26: Freshwater Fish in Ocean</h3>
+<p>What happens if a freshwater fish is placed into the ocean (marine saltwater)?<br />
+- A) The fish absorbs excess ocean water by osmosis and its cells burst from acute cytolysis.<br />
+- B) The ocean is hypertonic to the fish's cells; water leaves the fish's tissues via osmosis, causing severe dehydration and death.<br />
+- C) The fish's gills undergo rapid pinocytosis to filter out all sodium ions, maintaining normal homeostasis.<br />
+- D) The fish's scales become completely impermeable to all water and solute molecules, leaving it unaffected.</p>
+<h3 id="question-27-active-transport">Question 27: Active Transport</h3>
+<p>Which characteristic definitively distinguishes active transport from passive transport across biological membranes?<br />
+- A) Active transport moves substances exclusively down their concentration gradient without requiring membrane transport proteins.<br />
+- B) Active transport can only move nonpolar gas molecules such as molecular nitrogen and carbon dioxide.<br />
+- C) Active transport always moves solutes from regions of low concentration to high concentration using metabolic energy (ATP).<br />
+- D) Active transport occurs spontaneously whenever a cell reaches perfect dynamic equilibrium with its environment.</p>
+<h3 id="question-28-sodium-potassium-pump">Question 28: Sodium-Potassium Pump</h3>
+<p>During one complete catalytic cycle of the sodium-potassium ATPase pump, what is the exact molecular exchange and energy expenditure?<br />
+- A) 2 Na+ ions are pumped out and 3 K+ ions are pumped in using the energy from 2 molecules of GTP.<br />
+- B) 3 Na+ ions and 2 K+ ions are pumped out simultaneously down their electrochemical gradients without ATP.<br />
+- C) 1 Na+ ion is pumped out and 1 K+ ion is pumped in using passive facilitated diffusion channels.<br />
+- D) 3 Na+ ions are pumped out and 2 K+ ions are pumped in powered by the hydrolysis of 1 molecule of ATP.</p>
+<h3 id="question-29-membrane-potential">Question 29: Membrane Potential</h3>
+<p>How does the continuous activity of the sodium-potassium pump contribute to the electrical charge across the plasma membrane of animal cells?<br />
+- A) It exports 3 positive charges for every 2 positive charges imported, making the inside of the cell slightly negative relative to the outside.<br />
+- B) It pumps equal numbers of positive charges in both directions, keeping the interior of the cell completely neutral (0 mV).<br />
+- C) It transports negative chloride ions into the extracellular fluid to make the outside of the cell strongly negative.<br />
+- D) It hydrolyzes ATP into positively charged adenosine, which accumulates on the outer leaflet of the bilayer.</p>
+<h3 id="question-30-phagocytosis">Question 30: Phagocytosis</h3>
+<p>When a human macrophage (white blood cell) encounters an invading bacterial pathogen, by which mechanism does it engulf and eliminate the microbe?<br />
+- A) Simple diffusion across the bilayer followed by cytoplasmic enzymatic denaturation.<br />
+- B) Phagocytosis ('cell eating'), extending pseudopodia around the bacterium to form a phagosome that fuses with a lysosome.<br />
+- C) Pinocytosis ('cell drinking'), taking in microdroplets of extracellular fluid containing bacterial toxins.<br />
+- D) Exocytosis, secreting the intact bacterial genome across the plasma membrane into adjacent lymphatic capillaries.</p>
+<h3 id="question-31-pinocytosis">Question 31: Pinocytosis</h3>
+<p>How does pinocytosis differ biologically from phagocytosis?<br />
+- A) Pinocytosis is an active transport mechanism, whereas phagocytosis is completely passive.<br />
+- B) Pinocytosis releases vesicles outside the cell, whereas phagocytosis internalizes vesicles into the nucleus.<br />
+- C) Pinocytosis non-specifically internalizes small droplets of extracellular fluid and dissolved solutes, whereas phagocytosis engulfs large solid particles.<br />
+- D) Pinocytosis occurs only in plant cells with cell walls, whereas phagocytosis occurs exclusively in prokaryotes.</p>
+<h3 id="question-32-receptor-mediated-endocytosis">Question 32: Receptor-Mediated Endocytosis</h3>
+<p>Why is receptor-mediated endocytosis significantly more efficient at importing specific molecules (like LDL cholesterol) than non-specific pinocytosis?<br />
+- A) Receptors break down the target molecule into simple elements before moving them through ion channels.<br />
+- B) The process occurs down a steep concentration gradient and therefore requires no ATP expenditure.<br />
+- C) Receptors dissolve the surrounding lipid bilayer to let macromolecules diffuse directly into the nucleoplasm.<br />
+- D) Target ligands bind with high affinity to specific surface receptors concentrated in clathrin-coated membrane pits.</p>
+<h3 id="question-33-exocytosis-secretion">Question 33: Exocytosis Secretion</h3>
+<p>What is the intracellular origin and ultimate pathway of secretory vesicles destined for exocytosis (such as insulin secretion by pancreatic beta cells)?<br />
+- A) Rough Endoplasmic Reticulum -&gt; Transport Vesicle -&gt; Golgi Apparatus -&gt; Secretory Vesicle -&gt; Plasma Membrane fusion.<br />
+- B) Lysosome -&gt; Peroxisome -&gt; Mitochondria -&gt; Passive release through aquaporins.<br />
+- C) Nucleus -&gt; Cytoskeleton -&gt; Smooth Endoplasmic Reticulum -&gt; Direct diffusion across phospholipid heads.<br />
+- D) Central Vacuole -&gt; Chloroplast stroma -&gt; Ribosomal pore -&gt; Extracellular fluid.</p>
+<h3 id="question-34-throat-osmosis">Question 34: Throat Osmosis</h3>
+<p>Why does a physician recommend gargling with warm hypertonic salt water to relieve the discomfort of a swollen, inflamed sore throat?<br />
+- A) Salt ions diffuse rapidly into swollen throat cells, providing electrolyte energy to speed up mitosis.<br />
+- B) The hypertonic salt water draws excess fluid out of swollen throat cells via osmosis, reducing edema and pressure.<br />
+- C) Salt water enters throat cells by pinocytosis, coating internal cell walls to protect against viral replication.<br />
+- D) The warm salt solution hydrolyzes cellular ATP, temporarily paralyzing pain receptors in mucosal membranes.</p>
+<h3 id="question-35-slug-desiccation">Question 35: Slug Desiccation</h3>
+<p>What biological transport mechanism explains why pouring granular table salt directly onto an agricultural slug is rapidly fatal to the animal?<br />
+- A) Salt particles enter slug epithelial cells via phagocytosis, causing immediate lysosomal rupture.<br />
+- B) Salt ions block oxygen diffusion across the slug’s skin, leading to immediate anaerobic lactic acid poisoning.<br />
+- C) Water rapidly diffuses out of the slug’s moist, hypertonic tissues into the hypertonic external salt crystal layer, causing fatal dehydration.<br />
+- D) Sodium ions trigger rapid endocytosis of environmental toxins across the slug's chitinous exoskeleton.</p>
+<h3 id="question-36-contractile-vacuoles">Question 36: Contractile Vacuoles</h3>
+<p>A freshwater single-celled protist (Paramecium caudatum) lives in a pond environment that is strongly hypotonic to its internal cytoplasm. What organelle prevents it from undergoing cytolysis?<br />
+- A) A large food vacuole that stores excess water as crystalline ice.<br />
+- B) A thick cellulose cell wall that permanently seals the organism against all fluid entry.<br />
+- C) A cluster of chloroplasts that consumes water molecules during rapid continuous photosynthesis.<br />
+- D) An ATP-driven contractile vacuole that constantly collects and expels excess incoming water.</p>
+<h3 id="question-37-strawberry-osmosis">Question 37: Strawberry Osmosis</h3>
+<p>When fresh sliced strawberries are sprinkled with granular table sugar and left on the counter for 20 minutes, a thick, sweet liquid pool forms around the fruit. What caused this?<br />
+- A) The high sugar concentration created a hypertonic exterior, drawing water out of strawberry cells via osmosis.<br />
+- B) Sugar molecules diffused into the strawberry cells and pushed strawberry juice out through carrier proteins.<br />
+- C) The strawberry cells underwent exocytosis in response to extracellular chemical signals from sucrose.<br />
+- D) Mechanical abrasion from sharp sugar granules severed the cell walls, allowing cytoplasm to drain by gravity.</p>
+<h3 id="question-38-clinical-iv-fluids">Question 38: Clinical IV Fluids</h3>
+<p>Why do emergency room doctors always administer an isotonic 0.9% physiological saline IV drip rather than pure sterile distilled water (0% saline) to dehydrated patients?<br />
+- A) Pure water is too dense to flow through clinical IV tubing and would block vascular access catheters.<br />
+- B) Distilled water would create a severely hypotonic bloodstream, causing patient red blood cells to swell and lyse.<br />
+- C) Saline solution provides the essential carbohydrate calories needed to power active transport in cardiac tissue.<br />
+- D) Distilled water would draw all electrolytes out of the kidneys by active transport, causing acute renal failure.</p>
+<h3 id="question-39-cholera-toxin-scenario">Question 39: Cholera Toxin Scenario</h3>
+<p>Cholera toxin locks open chloride ion channels in intestinal cells, flooding the intestinal lumen with salt ions. Why does this cause severe, life-threatening dehydration?<br />
+- A) The salt ions enter blood vessels and trigger mass phagocytosis of red blood cells.<br />
+- B) Chloride ions stop all ATP production, halting both simple diffusion and facilitated transport throughout the gut.<br />
+- C) The salty lumen becomes hypertonic to intestinal cells, drawing massive amounts of water out of the body via osmosis.<br />
+- D) The toxin causes intestinal microvilli to turn inside out and secrete cellular enzymes into the peritoneal cavity.</p>
+<h3 id="question-40-potato-lab-data">Question 40: Potato Lab Data</h3>
+<p>A student places three potato cores of equal mass (10.0 g) into beakers containing 0%, 1%, and 10% sucrose solutions. After 2 hours, the final masses are Core 1: 12.4 g (+24%), Core 2: 10.0 g (0%), Core 3: 7.8 g (-22%). Which conclusion is supported by this data?<br />
+- A) Core 1 was in 10% sucrose (hypertonic); Core 2 was in 0% sucrose; Core 3 was in 1% sucrose.<br />
+- B) Core 1 was in 1% sucrose; Core 2 was in 10% sucrose; Core 3 was in 0% sucrose.<br />
+- C) Sucrose molecules crossed the potato cell membranes by active transport to balance internal water masses.<br />
+- D) Core 1 was in 0% sucrose (hypotonic); Core 2 was in 1% sucrose (isotonic); Core 3 was in 10% sucrose (hypertonic).</p>
+<h3 id="question-41-skin-wrinkling-in-dishwater">Question 41: Skin Wrinkling in Dishwater</h3>
+<p>When a person soaks their hands in warm dishwater for an extended period, the fingertips swell and wrinkle. What explains this phenomenon?<br />
+- A) Skin cells are hypertonic to hypotonic dishwater; water diffuses into epidermal cells by osmosis.<br />
+- B) Skin cells are hypotonic to hypertonic dishwater; soap ions force water out of keratinocytes.<br />
+- C) Dishwater enzymes actively digest dead skin cells, causing peripheral desquamation.<br />
+- D) Detergent molecules enter finger epithelial cells via pinocytosis, forcing lipids out.</p>
+<h3 id="question-42-marine-fish-in-freshwater">Question 42: Marine Fish in Freshwater</h3>
+<p>A marine clownfish adapted to the ocean is accidentally placed into a freshwater aquarium. Within hours, the fish swells and dies. What caused this?<br />
+- A) The fish went from an isotonic environment into a hypertonic environment, causing rapid plasmolysis.<br />
+- B) The fish went from an isotonic environment into a hypotonic environment, causing cells to swell and lyse.<br />
+- C) The fish was unable to perform cellular respiration because freshwater lacks dissolved organic gases.<br />
+- D) The freshwater dissolved the phospholipid heads of the fish's gills via hydrolysis.</p>
+<h3 id="question-43-penetrating-vs-non-penetrating-solutes">Question 43: Penetrating vs Non-Penetrating Solutes</h3>
+<p>A red blood cell with 2% internal solutes is placed in two solutions: hypertonic sucrose and hypertonic urea. The membrane is impermeable to sucrose, but permeable to urea. Which solution causes greater sustained cellular shrinkage?<br />
+- A) The hypertonic urea solution, because urea carries a charge that actively repels intracellular water.<br />
+- B) Both solutions cause identical shrinkage because both have identical total initial solute molarity.<br />
+- C) The hypertonic sucrose solution, because sucrose cannot cross the membrane, maintaining an osmotic draw.<br />
+- D) Neither solution causes shrinkage because animal red blood cells are completely impermeable to water.</p>
+<h3 id="question-44-solute-vs-solvent-gimkit">Question 44: Solute vs Solvent (Gimkit)</h3>
+<p>In biological transport and solution chemistry, what is the precise scientific distinction between a solute and a solvent?<br />
+- A) The solute is the liquid doing the dissolving, while the solvent is the dissolved solid particle.<br />
+- B) The solute only undergoes active transport, while the solvent exclusively traverses carrier proteins.<br />
+- C) The solute is always nonpolar and hydrophobic, while the solvent is always ionic and acidic.<br />
+- D) The solute is the substance being dissolved, while the solvent is the dissolving medium (such as water).</p>
+<h3 id="question-45-dynamic-equilibrium-in-saline">Question 45: Dynamic Equilibrium in Saline</h3>
+<p>Human erythrocytes (red blood cells) are suspended in an isotonic 0.9% NaCl physiological saline solution. Which statement accurately describes molecular water motion?<br />
+- A) Water molecules continuously enter and exit the red blood cells at equal rates, maintaining constant cell volume.<br />
+- B) Water molecules cease all physical motion across the membrane because the osmotic pressure is zero.<br />
+- C) Water molecules move exclusively into the cell until internal turgor pressure balances sodium pump activity.<br />
+- D) Water molecules are rapidly converted into metabolic ATP inside mitochondria to prevent cytoplasmic swelling.</p>
+<h3 id="question-46-cystic-fibrosis-cftr-channel">Question 46: Cystic Fibrosis CFTR Channel</h3>
+<p>In individuals with cystic fibrosis, a genetic mutation causes the CFTR chloride channel protein to misfold and fail to transport chloride ions out of respiratory cells. What direct osmotic consequence leads to thick, sticky mucus in the lungs?<br />
+- A) Trapped intracellular chloride ions cause water to rush into the cells via endocytosis, desiccating lung cilia.<br />
+- B) Because chloride ions cannot exit the cells, water does not follow by osmosis into the extracellular airway, leaving mucus severely dehydrated.<br />
+- C) Excess chloride ions in the cytoplasm hydrolyze all cellular ATP, preventing the synthesis of respiratory surfactant proteins.<br />
+- D) The mutated CFTR channel allows extracellular bacteria to diffuse directly into bronchial epithelial cells via pinocytosis.</p>
+<h3 id="question-47-plant-cell-flaccidity-in-isotonic-fluid">Question 47: Plant Cell Flaccidity in Isotonic Fluid</h3>
+<p>Why is an isotonic environment considered suboptimal or unfavorable for most terrestrial plant cells, even though animal cells thrive in it?<br />
+- A) In an isotonic solution, water is actively pumped out of plant vacuoles, tearing the nuclear envelope.<br />
+- B) Isotonic solutions dissolve the pectin middle lamella of the cell wall, causing plant stems to break under gravity.<br />
+- C) Without net water influx, the central vacuole is not fully pressurized, leaving the cell flaccid and causing the plant to droop.<br />
+- D) Plant cells in isotonic fluids undergo rapid cytolysis because the rigid cellulose cell wall exerts excessive inward pressure.</p>
+<h3 id="question-48-strawberries-in-pure-water">Question 48: Strawberries in Pure Water</h3>
+<p>Fresh strawberries placed into a bowl of pure distilled water become swollen, waterlogged, and mushy after several hours. What transport process explains this structural change?<br />
+- A) Strawberry cells actively export sucrose into the water via exocytosis, dissolving the fruit's extracellular matrix.<br />
+- B) Distilled water dissolves the lipid bilayer through simple diffusion, allowing cellular contents to leak out into the bowl.<br />
+- C) Strawberry enzymes hydrolyze pure water molecules into oxygen gas, creating high gas pressure inside the fruit tissues.<br />
+- D) Distilled water is hypotonic to strawberry cells; water diffuses down its gradient into the cells by osmosis, over-stretching them.</p>
+<h3 id="question-49-airborne-simple-diffusion">Question 49: Airborne Simple Diffusion</h3>
+<p>The aroma of baked chocolate chip cookies or BBQ chicken spreads from the kitchen throughout the entire house. What physical process governs this movement?<br />
+- A) Simple diffusion, where airborne volatile odor molecules spread spontaneously from high concentration to low concentration.<br />
+- B) Facilitated diffusion of aroma particles across air currents using convection currents as protein carriers.<br />
+- C) Active transport of scent molecules powered by atmospheric thermal ATP hydrolysis in the room.<br />
+- D) Osmotic movement of airborne water vapor carrying suspended odor droplets toward hypertonic furniture.</p>
+<h3 id="question-50-tracie-intercellular-joinings">Question 50: TRACIE Intercellular Joinings</h3>
+<p>In the TRACIE functional model of membrane proteins, what is the specific biological role of 'Intercellular Joinings' in animal epithelial tissue?<br />
+- A) They hydrolyze extracellular polysaccharides into monosaccharides to provide immediate metabolic energy for active transport.<br />
+- B) They form specialized junctional protein complexes (such as tight junctions and desmosomes) that hook adjacent cells together.<br />
+- C) They act as lipid enzymes that synthesize new phospholipids to repair mechanical tears in the plasma membrane.<br />
+- D) They serve as high-affinity receptors that bind to neurotransmitters and convert them into electrical action potentials.</p>
+<h3 id="question-51-salty-snack-thirst-osmoreceptors">Question 51: Salty Snack &amp; Thirst Osmoreceptors</h3>
+<p>After consuming a large bag of salty potato chips, a student experiences intense physiological thirst. What cellular osmotic event triggers this sensation?<br />
+- A) Absorbed salt ions bind to tongue taste buds, triggering local enzymatic hydrolysis of salivary amylase.<br />
+- B) Sodium ions enter kidney tubule cells by pinocytosis, physically obstructing the release of adrenal aldosterone.<br />
+- C) Extracellular blood plasma becomes hypertonic, drawing water out of hypothalamic osmoreceptor cells via osmosis.<br />
+- D) Blood pressure drops precipitously as water exits red blood cells via active transport pumps.</p>
+<h3 id="question-52-homeostasis-definition-triad">Question 52: Homeostasis Definition &amp; Triad</h3>
+<p>Which of the following scientifically defines cellular and organismal homeostasis, and correctly identifies three physiological examples?<br />
+- A) The complete cessation of chemical reactions at equilibrium; exemplified by rigor mortis, bone ossification, and enamel formation.<br />
+- B) The unidirectional movement of water across semipermeable membranes; exemplified by plasmolysis, cytolysis, and turgor pressure.<br />
+- C) The active synthesis of metabolic macromolecules from simple monomers; exemplified by transcription, translation, and replication.<br />
+- D) The maintenance of a dynamic, stable internal environment despite external fluctuations; exemplified by thermoregulation, blood glucose regulation, and osmoregulation.</p>
+<h3 id="question-53-percent-change-in-mass-formula">Question 53: Percent Change in Mass Formula</h3>
+<p>In an osmosis lab, a gel cube has an initial mass of 5.0 g. After soaking in distilled water for 24 hours, its final mass is 8.2 g. What is the calculated percent change in mass (% ΔMass)?<br />
+- A) +64.0%, calculated as (Final Mass - Initial Mass) divided by Initial Mass multiplied by 100%.<br />
+- B) +32.0%, calculated as (Final Mass - Initial Mass) divided by Final Mass multiplied by 100%.<br />
+- C) +164.0%, calculated as Final Mass divided by Initial Mass multiplied by 100%.<br />
+- D) +3.2%, calculated as Final Mass minus Initial Mass.</p>
+<h3 id="question-54-tracie-enzymatic-activity">Question 54: TRACIE Enzymatic Activity</h3>
+<p>In the TRACIE functional model of biological membranes, what is the specific role of membrane proteins functioning in 'Enzymatic Activity'?<br />
+- A) They permanently fuse the two lipid leaflets together to prevent all lateral diffusion of phospholipids.<br />
+- B) They act as localized biocatalysts with their active sites oriented toward adjacent solutions to carry out sequential metabolic steps.<br />
+- C) They generate electrical action potentials by passively conducting diatomic gas molecules down concentration gradients.<br />
+- D) They bind to incoming bacterial invaders and phagocytose them into intracellular digestive peroxisomes.</p>
+<h3 id="question-55-gummy-bear-gelatin-trapping">Question 55: Gummy Bear Gelatin Trapping</h3>
+<p>In the Gummy Bear Mystery (Amoeba Sisters), why does a gummy bear submerged in ice water swell massively without its sugar molecules dissolving and diffusing out into the water?<br />
+- A) Sugar molecules are actively transported into the center of the gummy bear by embedded molecular pump proteins.<br />
+- B) Ice water has zero kinetic energy, which completely paralyzes all diffusion of sugar molecules out of the bear.<br />
+- C) The structural cross-linked gelatin protein polymer matrix physically traps large sugar solutes while allowing small water molecules to diffuse in by osmosis.<br />
+- D) The outer surface of the gummy bear forms a rigid cellulose cell wall upon contact with cold water.</p>
+<hr />
+<h2 id="complete-answer-key-in-depth-conceptual-explanations">🔑 Complete Answer Key &amp; In-Depth Conceptual Explanations</h2>
+<div class="overflow-x-auto my-4"><table>
+<thead>
+<tr>
+<th style="text-align: center;">Question</th>
+<th style="text-align: center;">Correct Option</th>
+<th style="text-align: left;">Primary Concept / Subtopic</th>
+<th style="text-align: left;">Deep Scientific Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;"><strong>A</strong></td>
+<td style="text-align: left;">Membrane Chemistry</td>
+<td style="text-align: left;">Phospholipids are amphipathic molecules. Their hydrophilic, polar phosphate heads face outward toward the aqueous extracellular and intracellular fluids, while their hydrophobic, nonpolar fatty acid tails face inward away from water to minimize thermodynamic free energy.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>2</strong></td>
+<td style="text-align: center;"><strong>B</strong></td>
+<td style="text-align: left;">Fluid Mosaic Model</td>
+<td style="text-align: left;">The plasma membrane is described as 'fluid' because phospholipids and unanchored proteins move laterally within each leaflet, and 'mosaic' because the bilayer is studded with an assortment of proteins, steroids, and carbohydrate chains.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>3</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: left;">Membrane Fluidity</td>
+<td style="text-align: left;">Cholesterol acts as a temperature buffer: at high temperatures, its rigid steroid rings restrain phospholipid movement, preventing the membrane from becoming overly fluid; at low temperatures, it prevents tight packing of fatty acid tails, preventing freezing.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>4</strong></td>
+<td style="text-align: center;"><strong>D</strong></td>
+<td style="text-align: left;">Selective Permeability</td>
+<td style="text-align: left;">The hydrophobic interior of the phospholipid bilayer acts as a selective barrier. Small, nonpolar molecules ($O_2, CO_2, N_2$) diffuse directly across, whereas large polar molecules (glucose) and charged ions ($Na^+, K^+$) cannot cross without transport proteins.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: center;"><strong>A</strong></td>
+<td style="text-align: left;">Cell Recognition</td>
+<td style="text-align: left;">Short branched carbohydrate chains (oligosaccharides) covalently linked to surface proteins or lipids face exclusively toward the extracellular space to act as identification tags for cell-cell recognition and immune system self-surveillance.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>6</strong></td>
+<td style="text-align: center;"><strong>B</strong></td>
+<td style="text-align: left;">TRACIE Anchorage</td>
+<td style="text-align: left;">Peripheral membrane proteins do not penetrate the hydrophobic core; they attach to the surface of the membrane or to integral proteins. On the cytoplasmic face, they anchor actin microfilaments of the cytoskeleton to preserve cell shape.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>7</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: left;">Passive Energetics</td>
+<td style="text-align: left;">Passive transport (diffusion, osmosis, facilitated diffusion) requires no metabolic energy (0 ATP) because molecules move down their concentration gradient powered entirely by their own thermal kinetic energy until dynamic equilibrium is reached.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>8</strong></td>
+<td style="text-align: center;"><strong>D</strong></td>
+<td style="text-align: left;">Equilibrium Dynamics</td>
+<td style="text-align: left;">Dynamic equilibrium is a balanced steady state where molecules continue to cross the membrane in both directions, but because the rate of entry equals the rate of exit, the net concentration on either side remains completely constant.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>9</strong></td>
+<td style="text-align: center;"><strong>A</strong></td>
+<td style="text-align: left;">Diffusion Rates</td>
+<td style="text-align: left;">Fick's laws of diffusion establish that the rate of diffusion increases when temperature is high (more thermal kinetic motion), the concentration gradient is steep (greater driving force), and particle size/mass is small (lower drag).</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>10</strong></td>
+<td style="text-align: center;"><strong>B</strong></td>
+<td style="text-align: left;">The Permeability Trap (Page 5)</td>
+<td style="text-align: left;">Because the problem explicitly specifies the membrane is permeable ONLY to starch, glucose cannot cross. Starch moves down its concentration gradient from high concentration outside (60%) into the cell (10%).</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>11</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: left;">Facilitated Diffusion</td>
+<td style="text-align: left;">Glucose is a large, uncharged polar molecule ($180\text{ g/mol}$) that cannot cross the hydrophobic core of the bilayer. It enters cells down its concentration gradient via facilitated diffusion through specific GLUT carrier proteins that alternate between two conformations.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>12</strong></td>
+<td style="text-align: center;"><strong>D</strong></td>
+<td style="text-align: left;">Transporters</td>
+<td style="text-align: left;">Channel proteins form continuous open hydrophilic tunnels that allow rapid transit of specific ions or water. Carrier proteins bind their specific substrate, which induces a conformational change that translocates the solute across the membrane.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>13</strong></td>
+<td style="text-align: center;"><strong>A</strong></td>
+<td style="text-align: left;">Osmosis Fundamentals</td>
+<td style="text-align: left;">Osmosis is specifically the passive movement of water molecules across a selectively permeable membrane from an area of higher free water concentration (lower solute concentration / higher water potential) to an area of lower free water concentration (higher solute concentration).</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>14</strong></td>
+<td style="text-align: center;"><strong>B</strong></td>
+<td style="text-align: left;">Aquaporins</td>
+<td style="text-align: left;">While small amounts of water can slowly traverse the lipid bilayer due to membrane vibrations, specialized tetrameric channel proteins called aquaporins facilitate the transit of up to 3 billion water molecules per second per channel in single file.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>15</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: left;">Tonicity Definitions</td>
+<td style="text-align: left;">Solution X has 5% solute (95% water) and Solution Y has 20% solute (80% water). Because Solution X has a lower solute concentration and a higher water concentration than Solution Y, Solution X is hypotonic relative to Solution Y.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>16</strong></td>
+<td style="text-align: center;"><strong>D</strong></td>
+<td style="text-align: left;">Animal Osmosis</td>
+<td style="text-align: left;">A red blood cell contains approximately 0.9% dissolved solutes (99.1% water). In pure distilled water (100% water), water rushes into the cell down its osmotic gradient. Lacking a rigid cell wall, the animal cell membrane stretches until it lyses (hemolysis).</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>17</strong></td>
+<td style="text-align: center;"><strong>A</strong></td>
+<td style="text-align: left;">Plant Osmosis</td>
+<td style="text-align: left;">Plant cells are enclosed by a strong, non-living cell wall composed of cellulose microfibrils. In hypotonic environments, water enters the central vacuole, pushing the plasma membrane against the cell wall. The resulting wall pressure creates healthy structural turgor.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>18</strong></td>
+<td style="text-align: center;"><strong>B</strong></td>
+<td style="text-align: left;">Plasmolysis</td>
+<td style="text-align: left;">In a hypertonic saline environment (10% NaCl), the external water potential is far lower than the cell's cytoplasm. Water exits the central vacuole via osmosis, causing the protoplast to shrink and pull away from the rigid cell wall, leaving the cell plasmolyzed.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>19</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: left;">Houseplant Fertilizer (Page 20)</td>
+<td style="text-align: left;">Heavily concentrated fertilizer makes the surrounding soil solution strongly hypertonic relative to the root cells. Water diffuses OUT of the root cells down its concentration gradient via osmosis, causing loss of turgor pressure (plasmolysis) and severe wilting.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>20</strong></td>
+<td style="text-align: center;"><strong>D</strong></td>
+<td style="text-align: left;">U-Tube Osmometer</td>
+<td style="text-align: left;">Side A has 10% sucrose (90% water); Side B has 40% sucrose (60% water). Because sucrose cannot cross the semipermeable barrier, water moves by osmosis from Side A into Side B. Consequently, Side A loses volume (falls to 7 cm) while Side B gains volume (rises to 13 cm).</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>21</strong></td>
+<td style="text-align: center;"><strong>A</strong></td>
+<td style="text-align: left;">Dialysis Tubing Lab</td>
+<td style="text-align: left;">The synthetic dialysis pores are large enough to allow small water, glucose, and iodine molecules to pass, but too small for large, branched starch polysaccharides. Iodine enters the bag and turns starch blue-black; glucose leaves the bag into the beaker.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>22</strong></td>
+<td style="text-align: center;"><strong>B</strong></td>
+<td style="text-align: left;">Gel Deco Cube Lab</td>
+<td style="text-align: left;">Distilled water (0% solute) establishes the steepest hypotonic concentration gradient relative to the solute-rich gel cube, producing the greatest net influx of water molecules and the highest positive percentage change in mass (% ΔMass).</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>23</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: left;">Gel Lab Blotting Protocol</td>
+<td style="text-align: left;">Gently blotting the cube with a paper towel removes clinging surface liquid droplets that are not inside the cube, ensuring that the measured mass reflects only the water that actually crossed the membrane.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>24</strong></td>
+<td style="text-align: center;"><strong>D</strong></td>
+<td style="text-align: left;">Clinical Case Study CER</td>
+<td style="text-align: left;">Rapid ingestion of extreme volumes of water dilutes extracellular blood sodium (hyponatremia), making blood plasma hypotonic relative to intracellular fluids. Water moves into brain cells via osmosis; enclosed inside the rigid skull, swelling produces fatal cerebral edema.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>25</strong></td>
+<td style="text-align: center;"><strong>A</strong></td>
+<td style="text-align: left;">Clinical Brain Edema Treatment</td>
+<td style="text-align: left;">Administering hypertonic 3% saline raises the solute concentration of blood plasma above that of the swollen brain tissue. By osmosis, water diffuses out of the brain cells and into the blood vessels, reducing intracranial pressure.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>26</strong></td>
+<td style="text-align: center;"><strong>B</strong></td>
+<td style="text-align: left;">Freshwater Fish in Ocean</td>
+<td style="text-align: left;">The internal cells of a freshwater fish are hypotonic relative to hypertonic seawater. Water rapidly diffuses OUT of the fish's body by osmosis into the ocean, causing severe cellular dehydration and death.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>27</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: left;">Active Transport</td>
+<td style="text-align: left;">Active transport moves chemical substances against their concentration gradient (from low to high concentration), a thermodynamically non-spontaneous process that requires coupling to metabolic energy (ATP hydrolysis).</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>28</strong></td>
+<td style="text-align: center;"><strong>D</strong></td>
+<td style="text-align: left;">Sodium-Potassium Pump</td>
+<td style="text-align: left;">The Na+/K+ ATPase uses the energy from hydrolyzing 1 molecule of ATP to actively export 3 Na+ ions out of the cytoplasm and import 2 K+ ions into the cell, both moving against their respective concentration gradients.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>29</strong></td>
+<td style="text-align: center;"><strong>A</strong></td>
+<td style="text-align: left;">Membrane Potential</td>
+<td style="text-align: left;">By exporting 3 positive sodium charges while importing only 2 positive potassium charges per cycle, the pump creates a net loss of 1 positive charge from the inside, generating an electrical membrane potential (negative interior relative to exterior).</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>30</strong></td>
+<td style="text-align: center;"><strong>B</strong></td>
+<td style="text-align: left;">Phagocytosis</td>
+<td style="text-align: left;">Phagocytosis is a specialized form of endocytosis ('cell eating') where the cell extends amoeboid pseudopodia around large particulate matter (such as whole bacteria), enclosing it in a membranous phagosome that fuses with an acidic lysosome.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>31</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: left;">Pinocytosis</td>
+<td style="text-align: left;">While phagocytosis is targeted engulfment of large, visible solids (cellular debris or bacteria), pinocytosis ('cell drinking') is the continuous, non-specific invagination of the plasma membrane to sample surrounding extracellular fluid and dissolved solutes.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>32</strong></td>
+<td style="text-align: center;"><strong>D</strong></td>
+<td style="text-align: left;">Receptor-Mediated Endocytosis</td>
+<td style="text-align: left;">Receptor-mediated endocytosis is highly selective. Specific extracellular molecules bind to cell surface receptors clustered in membrane regions coated on their cytoplasmic side with the protein clathrin, triggering rapid endocytic vesicle budding.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>33</strong></td>
+<td style="text-align: center;"><strong>A</strong></td>
+<td style="text-align: left;">Exocytosis Secretion</td>
+<td style="text-align: left;">Secretory proteins (such as insulin) are synthesized by bound ribosomes on the Rough ER, packaged into transport vesicles that fuse with the cis face of the Golgi apparatus for sorting/modification, and bud from the trans Golgi as secretory vesicles that fuse with the plasma membrane.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>34</strong></td>
+<td style="text-align: center;"><strong>B</strong></td>
+<td style="text-align: left;">Throat Osmosis</td>
+<td style="text-align: left;">Inflamed mucosal tissues in a sore throat are swollen with excess interstitial fluid (edema). Warm salt water creates a temporary hypertonic bath that draws excess water out of the inflamed throat cells by osmosis, relieving tissue swelling and pain.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>35</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: left;">Slug Desiccation</td>
+<td style="text-align: left;">A terrestrial slug possesses moist, mucus-covered external epithelial tissues. Pouring dry salt crystals over the slug creates an overwhelmingly hypertonic exterior environment, drawing internal body water out by osmosis and causing rapid desiccation and death.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>36</strong></td>
+<td style="text-align: center;"><strong>D</strong></td>
+<td style="text-align: left;">Contractile Vacuoles</td>
+<td style="text-align: left;">Freshwater protists like Paramecium are hypertonic to their pond water environment, causing water to continuously enter via osmosis. Because they lack a rigid plant cell wall, they utilize ATP-powered contractile vacuoles to collect and pump out excess incoming water.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>37</strong></td>
+<td style="text-align: center;"><strong>A</strong></td>
+<td style="text-align: left;">Strawberry Osmosis</td>
+<td style="text-align: left;">Adding granular sugar to strawberries creates a concentrated, hypertonic syrup layer on the fruit exterior. Water diffuses out of the strawberry cells down its concentration gradient via osmosis, creating the sweet syrup pool.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>38</strong></td>
+<td style="text-align: center;"><strong>B</strong></td>
+<td style="text-align: left;">Clinical IV Fluids</td>
+<td style="text-align: left;">Human blood cells are in dynamic osmotic equilibrium with normal physiological plasma (0.9% saline). Infusing pure distilled water would create a hypotonic bloodstream, causing red blood cells to absorb water, swell, and burst (fatal intravascular hemolysis).</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>39</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: left;">Cholera Toxin Scenario</td>
+<td style="text-align: left;">Flooding the intestinal lumen with chloride and sodium ions makes the digestive tract strongly hypertonic. Water rapidly leaves intestinal epithelial cells by osmosis to balance the gradient, resulting in severe watery diarrhea and acute systemic dehydration.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>40</strong></td>
+<td style="text-align: center;"><strong>D</strong></td>
+<td style="text-align: left;">Potato Lab Data</td>
+<td style="text-align: left;">Core 1 gained mass (+24%), proving it was in a hypotonic medium (0% sucrose). Core 2 experienced zero mass change (0%), demonstrating an isotonic equilibrium (1% sucrose). Core 3 lost mass (-22%), proving it was in a hypertonic medium (10% sucrose).</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>41</strong></td>
+<td style="text-align: center;"><strong>A</strong></td>
+<td style="text-align: left;">Skin Wrinkling in Dishwater</td>
+<td style="text-align: left;">Epidermal skin cells contain dissolved solutes and proteins, making them hypertonic relative to the surrounding hypotonic dishwater. Water moves down its osmotic gradient into the cells, causing them to absorb water and swell into wrinkled ridges.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>42</strong></td>
+<td style="text-align: center;"><strong>B</strong></td>
+<td style="text-align: left;">Marine Fish in Freshwater</td>
+<td style="text-align: left;">Marine fish tissues are adapted to be roughly isotonic with salty ocean water. When placed into freshwater (0% salt), the surrounding water is strongly hypotonic. Water rushes into the fish's cells via osmosis, causing massive cellular swelling, lysis, and death.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>43</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: left;">Penetrating vs Non-Penetrating Solutes</td>
+<td style="text-align: left;">Because sucrose cannot penetrate the membrane, it remains trapped in the extracellular space, maintaining a persistent osmotic gradient that continuously draws water out of the cell. In contrast, urea diffuses across the membrane until it reaches equilibrium, eliminating the osmotic gradient.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>44</strong></td>
+<td style="text-align: center;"><strong>D</strong></td>
+<td style="text-align: left;">Solute vs Solvent (Gimkit)</td>
+<td style="text-align: left;">A solution is a homogeneous mixture composed of one or more solutes dissolved within a solvent. The solute is the substance being dissolved (e.g., glucose, sodium ions), and the solvent is the liquid agent that dissolves the solute (water is the universal biological solvent).</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>45</strong></td>
+<td style="text-align: center;"><strong>A</strong></td>
+<td style="text-align: left;">Dynamic Equilibrium in Saline</td>
+<td style="text-align: left;">In an isotonic environment, the system is in dynamic equilibrium. Water molecules continue to diffuse across the phospholipid bilayer and aquaporins in both directions, but because the rate of water influx equals the rate of water efflux, there is zero net volume change.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>46</strong></td>
+<td style="text-align: center;"><strong>B</strong></td>
+<td style="text-align: left;">Cystic Fibrosis CFTR Channel</td>
+<td style="text-align: left;">Normally, chloride ions are pumped out into airway secretions, creating an osmotic gradient that draws water out to thin the mucus. When CFTR channels fail, chloride and water remain trapped inside the epithelial cells, leaving the extracellular mucus dehydrated, thick, and sticky.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>47</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: left;">Plant Cell Flaccidity in Isotonic Fluid</td>
+<td style="text-align: left;">Plant cells depend on high turgor pressure to maintain upright posture against gravity. In an isotonic solution, net water movement is zero; the central vacuole is not pressurized against the cell wall, leaving the cell limp or flaccid and causing the plant stem to wilt.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>48</strong></td>
+<td style="text-align: center;"><strong>D</strong></td>
+<td style="text-align: left;">Strawberries in Pure Water</td>
+<td style="text-align: left;">Pure distilled water (100% water) is hypotonic to the sugar-rich strawberry cells. Water moves by osmosis down its concentration gradient into the strawberry cells, swelling them until tissues become over-saturated and mushy.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>49</strong></td>
+<td style="text-align: center;"><strong>A</strong></td>
+<td style="text-align: left;">Airborne Simple Diffusion</td>
+<td style="text-align: left;">Aroma molecules are volatile gaseous particles that move randomly via Brownian motion. They spontaneously disperse from the region of highest concentration (the kitchen oven) to areas of lower concentration throughout the house via simple diffusion without any energy input.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>50</strong></td>
+<td style="text-align: center;"><strong>B</strong></td>
+<td style="text-align: left;">TRACIE Intercellular Joinings</td>
+<td style="text-align: left;">The 'I' in the TRACIE membrane mnemonic stands for Intercellular Joinings. Membrane proteins of adjacent cells hook together in various forms of junctions (tight junctions to prevent leakage, desmosomes to provide mechanical anchorage, and gap junctions for intercellular communication).</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>51</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: left;">Salty Snack &amp; Thirst Osmoreceptors</td>
+<td style="text-align: left;">Ingested sodium is absorbed into the bloodstream, elevating extracellular solute concentration (hypertonic blood plasma). Water moves out of brain osmoreceptor cells in the hypothalamus via osmosis down its concentration gradient. The resulting cellular shrinkage fires neural signals that trigger the perception of thirst and release ADH to conserve water.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>52</strong></td>
+<td style="text-align: center;"><strong>D</strong></td>
+<td style="text-align: left;">Homeostasis Definition &amp; Triad</td>
+<td style="text-align: left;">Homeostasis refers to an organism's ability to maintain relatively constant internal physiological conditions despite changes in the external environment. Three foundational biological examples are thermoregulation (sweating/shivering), blood glucose control (insulin/glucagon), and osmoregulation (kidney filtration and water balance).</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>53</strong></td>
+<td style="text-align: center;"><strong>A</strong></td>
+<td style="text-align: left;">Percent Change in Mass Formula</td>
+<td style="text-align: left;">The standard biological formula for percent change in mass is: % ΔMass = [(Final Mass - Initial Mass) / Initial Mass] * 100%. Substituting the data: [(8.2 g - 5.0 g) / 5.0 g] * 100% = (3.2 / 5.0) * 100% = +64.0%.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>54</strong></td>
+<td style="text-align: center;"><strong>B</strong></td>
+<td style="text-align: left;">TRACIE Enzymatic Activity</td>
+<td style="text-align: left;">The 'E' in TRACIE represents Enzymatic Activity. Many membrane-bound proteins are enzymes whose catalytic active sites face either the extracellular or intracellular fluid (e.g., digestive enzymes like lactase on intestinal microvilli), allowing them to catalyze chemical reactions at the cell surface.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>55</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: left;">Gummy Bear Gelatin Trapping</td>
+<td style="text-align: left;">A gummy bear is a gel made of cross-linked gelatin protein polymers packed with sugar solutes. The microscopic pores in the gelatin matrix are permeable to small water molecules but restrict the outward diffusion of trapped sugar molecules. Water enters by osmosis down its concentration gradient, swelling the gelatin matrix without losing sugar.</td>
+</tr>
+</tbody>
+</table></div>
+      </article>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800 bg-slate-950 py-8 text-center text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>Grade 9 Biology I Honors • South Forsyth High School • Dr. Sarah Irwin</p>
+      <div class="flex items-center gap-4">
+        <a href="../../../../index.html" class="hover:text-slate-300 transition">Portal Home</a>
+        <a href="../../../../schedule/semester-1.html" class="hover:text-slate-300 transition">Schedule</a>
+        <a href="../../../../notInLocal.html" class="hover:text-slate-300 transition">Cloud Links</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

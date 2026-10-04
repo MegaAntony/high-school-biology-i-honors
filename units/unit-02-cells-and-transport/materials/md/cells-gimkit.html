@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cells  Organelles Gimkit Study Guide  Practice Questions - Biology I Honors</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    code, pre { font-family: 'JetBrains Mono', monospace; }
+    
+    /* Markdown Content Typography */
+    .prose-biology h1 {
+      font-size: 1.875rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #334155;
+      letter-spacing: -0.025em;
+    }
+    .prose-biology h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+    .prose-biology h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #38bdf8;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .prose-biology h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #34d399;
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .prose-biology p {
+      color: #cbd5e1;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    .prose-biology strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .prose-biology ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+      color: #cbd5e1;
+    }
+    .prose-biology ol {
+      list-style-type: decimal;
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+      color: #cbd5e1;
+    }
+    .prose-biology li {
+      margin-bottom: 0.375rem;
+      line-height: 1.6;
+    }
+    .prose-biology li strong {
+      color: #f8fafc;
+    }
+    .prose-biology a {
+      color: #38bdf8;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.15s ease;
+    }
+    .prose-biology a:hover {
+      color: #7dd3fc;
+      text-decoration: none;
+    }
+    .prose-biology blockquote {
+      border-left: 4px solid #10b981;
+      background-color: rgba(16, 185, 129, 0.08);
+      padding: 0.75rem 1rem;
+      margin: 1.25rem 0;
+      border-radius: 0 0.5rem 0.5rem 0;
+      color: #e2e8f0;
+      font-style: italic;
+    }
+    .prose-biology blockquote p {
+      margin-bottom: 0;
+      color: #e2e8f0;
+    }
+    .prose-biology code {
+      background-color: #1e293b;
+      color: #fbbf24;
+      padding: 0.2rem 0.4rem;
+      border-radius: 0.375rem;
+      font-size: 0.85em;
+      border: 1px solid #334155;
+    }
+    .prose-biology pre {
+      background-color: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 0.75rem;
+      padding: 1rem;
+      overflow-x: auto;
+      margin: 1.25rem 0;
+    }
+    .prose-biology pre code {
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      color: #34d399;
+      font-size: 0.875rem;
+    }
+    .prose-biology hr {
+      border: 0;
+      border-top: 1px solid #334155;
+      margin: 2rem 0;
+    }
+    /* Table Styling */
+    .prose-biology table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.875rem;
+      background-color: #1e293b;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      border: 1px solid #334155;
+    }
+    .prose-biology th {
+      background-color: #0f172a;
+      color: #34d399;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.75rem;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #334155;
+      text-align: left;
+    }
+    .prose-biology td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #334155;
+      color: #cbd5e1;
+      vertical-align: top;
+    }
+    .prose-biology tr:last-child td {
+      border-bottom: none;
+    }
+    .prose-biology tr:nth-child(even) td {
+      background-color: rgba(15, 23, 42, 0.4);
+    }
+    .prose-biology tr:hover td {
+      background-color: rgba(51, 65, 85, 0.4);
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between">
+
+  <!-- HEADER -->
+  <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="../../../../index.html" class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center text-slate-950 font-black text-lg shadow-lg shadow-emerald-500/20 hover:scale-105 transition">
+          <i class="fa-solid fa-dna"></i>
+        </a>
+        <div>
+          <a href="../../../../index.html" class="text-lg font-black tracking-tight text-white hover:text-emerald-400 transition">Biology I Honors V2</a>
+          <p class="text-xs text-slate-400 font-medium">South Forsyth High School • Dr. Irwin (2026/2027)</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2.5">
+        <a href="../../../../index.html" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 px-3.5 py-2 rounded-xl border border-slate-700 transition flex items-center gap-1.5">
+          <i class="fa-solid fa-house text-emerald-400"></i> Home
+        </a>
+        <a href="../../../../schedule/semester-1.html" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 px-3.5 py-2 rounded-xl border border-slate-700 transition flex items-center gap-1.5">
+          <i class="fa-regular fa-calendar text-teal-400"></i> S1 Schedule
+        </a>
+        <a href="../../../../units/unit-02-cells-and-transport/tests/index.html" class="text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-md shadow-emerald-600/30">
+          <i class="fa-solid fa-vial"></i> Practice Tests
+        </a>
+        <a href="../../../../notInLocal.html" class="text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-md shadow-indigo-600/30 hidden sm:flex">
+          <i class="fa-solid fa-cloud"></i> Cloud Links
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB & CONTENT CONTAINER -->
+  <main class="max-w-5xl mx-auto px-6 py-8 flex-1 w-full space-y-6">
+
+    <!-- BREADCRUMB -->
+    <nav class="flex items-center gap-2 text-xs text-slate-400">
+      <a href="../../../../index.html" class="hover:text-emerald-400 transition flex items-center gap-1">
+        <i class="fa-solid fa-house text-[10px]"></i> Home
+      </a>
+      <i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i>
+      <span class="text-slate-400">Units</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i> <span class="text-slate-400">Unit 02 Cells And Transport</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i> <span class="text-slate-400">Materials</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i> <span class="text-slate-400">Md</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i>
+      <span class="text-slate-200 font-semibold truncate max-w-xs">🧬 Cells &amp; Organelles Gimkit Study Guide &amp; Pra...</span>
+    </nav>
+
+    <!-- CONTENT CARD -->
+    <div class="bg-slate-800/60 border border-slate-700/60 rounded-3xl p-6 sm:p-10 shadow-xl backdrop-blur">
+      <article class="prose-biology">
+        <h1 id="cells-organelles-gimkit-study-guide-practice-questions">🧬 Cells &amp; Organelles Gimkit Study Guide &amp; Practice Questions</h1>
+<p><strong>Course:</strong> Biology I Honors (<code>30115y - Irwin - 501</code>)<br />
+<strong>Topic:</strong> Unit 2 — Cell Theory, Organelles &amp; Structure<br />
+<strong>Original Gimkit:</strong> <a href="https://www.gimkit.com/view/670d010c9ef7311aef1b4cff">Cells Gimkit</a>  </p>
+<hr />
+<h2 id="master-question-answer-reference-table">📋 Master Question &amp; Answer Reference Table</h2>
+<div class="overflow-x-auto my-4"><table>
+<thead>
+<tr>
+<th style="text-align: center;">#</th>
+<th style="text-align: left;">Question / Prompt</th>
+<th style="text-align: left;">Correct Answer</th>
+<th style="text-align: left;">Category</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">What is the main function of vacuoles in a cell?</td>
+<td style="text-align: left;"><strong>To serve as storage sites</strong></td>
+<td style="text-align: left;">Organelle Function</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">Has centrioles</td>
+<td style="text-align: left;"><strong>Animal Cell</strong></td>
+<td style="text-align: left;">Plant vs. Animal</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">Which organelle is responsible for carrying out photosynthesis in plant cells?</td>
+<td style="text-align: left;"><strong>Chloroplasts</strong></td>
+<td style="text-align: left;">Organelle Function</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">What is the main function of the cell membrane?</td>
+<td style="text-align: left;"><strong>To control what comes in and out of a cell</strong></td>
+<td style="text-align: left;">Organelle Function</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;">Has Lysosomes</td>
+<td style="text-align: left;"><strong>Animal Cell</strong></td>
+<td style="text-align: left;">Plant vs. Animal</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;">Has chloroplasts</td>
+<td style="text-align: left;"><strong>Plant Cell</strong></td>
+<td style="text-align: left;">Plant vs. Animal</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: left;">What is the role of ribosomes in a cell?</td>
+<td style="text-align: left;"><strong>To make proteins</strong></td>
+<td style="text-align: left;">Organelle Function</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: left;">What is the main function of the nucleus?</td>
+<td style="text-align: left;"><strong>To store DNA and regulate gene expression</strong></td>
+<td style="text-align: left;">Organelle Function</td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td style="text-align: left;">Has a nucleus</td>
+<td style="text-align: left;"><strong>Both</strong></td>
+<td style="text-align: left;">Plant vs. Animal</td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td style="text-align: left;">What is the function of the Golgi apparatus?</td>
+<td style="text-align: left;"><strong>package molecules for distribution</strong></td>
+<td style="text-align: left;">Organelle Function</td>
+</tr>
+<tr>
+<td style="text-align: center;">11</td>
+<td style="text-align: left;">What is the function of the endoplasmic reticulum?</td>
+<td style="text-align: left;"><strong>Transport molecules throughout the cell</strong></td>
+<td style="text-align: left;">Organelle Function</td>
+</tr>
+<tr>
+<td style="text-align: center;">12</td>
+<td style="text-align: left;">Which organelle is responsible for making ATP, the cell's energy source?</td>
+<td style="text-align: left;"><strong>Mitochondria</strong></td>
+<td style="text-align: left;">Organelle Function</td>
+</tr>
+<tr>
+<td style="text-align: center;">13</td>
+<td style="text-align: left;">Has mitochondria</td>
+<td style="text-align: left;"><strong>Both</strong></td>
+<td style="text-align: left;">Plant vs. Animal</td>
+</tr>
+<tr>
+<td style="text-align: center;">14</td>
+<td style="text-align: left;">What is the main difference between prokaryotic and eukaryotic cells?</td>
+<td style="text-align: left;"><strong>Eukaryotic cells have a nucleus, while prokaryotic cells do not.</strong></td>
+<td style="text-align: left;">Cell Types</td>
+</tr>
+<tr>
+<td style="text-align: center;">15</td>
+<td style="text-align: left;">Has ribosomes</td>
+<td style="text-align: left;"><strong>Both</strong></td>
+<td style="text-align: left;">Plant vs. Animal</td>
+</tr>
+<tr>
+<td style="text-align: center;">16</td>
+<td style="text-align: left;">Has a cell wall</td>
+<td style="text-align: left;"><strong>Plant Cell</strong></td>
+<td style="text-align: left;">Plant vs. Animal</td>
+</tr>
+<tr>
+<td style="text-align: center;">17</td>
+<td style="text-align: left;">Has a large central vacuole</td>
+<td style="text-align: left;"><strong>Plant Cell</strong></td>
+<td style="text-align: left;">Plant vs. Animal</td>
+</tr>
+<tr>
+<td style="text-align: center;">18</td>
+<td style="text-align: left;">What is the main function of lysosomes in a cell?</td>
+<td style="text-align: left;"><strong>To break down waste using enzymes</strong></td>
+<td style="text-align: left;">Organelle Function</td>
+</tr>
+<tr>
+<td style="text-align: center;">19</td>
+<td style="text-align: left;">Has cytoplasm</td>
+<td style="text-align: left;"><strong>Both</strong></td>
+<td style="text-align: left;">Plant vs. Animal</td>
+</tr>
+<tr>
+<td style="text-align: center;">20</td>
+<td style="text-align: left;">Has golgi apparatus</td>
+<td style="text-align: left;"><strong>Both</strong></td>
+<td style="text-align: left;">Plant vs. Animal</td>
+</tr>
+<tr>
+<td style="text-align: center;">21</td>
+<td style="text-align: left;">Has DNA</td>
+<td style="text-align: left;"><strong>Both</strong></td>
+<td style="text-align: left;">Plant vs. Animal</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="plant-vs-animal-cells-comparison">🌿 Plant vs. Animal Cells Comparison</h2>
+<div class="overflow-x-auto my-4"><table>
+<thead>
+<tr>
+<th style="text-align: left;">Feature / Organelle</th>
+<th style="text-align: center;">Animal Cell</th>
+<th style="text-align: center;">Plant Cell</th>
+<th style="text-align: left;">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Cell Wall</strong></td>
+<td style="text-align: center;">❌ No</td>
+<td style="text-align: center;">✅ <strong>Yes</strong></td>
+<td style="text-align: left;">Rigid cellulose structure providing shape and protection</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Chloroplasts</strong></td>
+<td style="text-align: center;">❌ No</td>
+<td style="text-align: center;">✅ <strong>Yes</strong></td>
+<td style="text-align: left;">Site of photosynthesis; converts sunlight into glucose</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Large Central Vacuole</strong></td>
+<td style="text-align: center;">❌ No</td>
+<td style="text-align: center;">✅ <strong>Yes</strong></td>
+<td style="text-align: left;">Massive storage for water/turgor pressure; animals have small vacuoles</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Centrioles / Centrosomes</strong></td>
+<td style="text-align: center;">✅ <strong>Yes</strong></td>
+<td style="text-align: center;">❌ No</td>
+<td style="text-align: left;">Assist in organizing spindle fibers during cell division</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Lysosomes</strong></td>
+<td style="text-align: center;">✅ <strong>Yes</strong></td>
+<td style="text-align: center;">❌ No <em>(rare/atypical)</em></td>
+<td style="text-align: left;">Digest cellular waste and worn-out parts with enzymes</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Nucleus</strong></td>
+<td style="text-align: center;">✅ <strong>Yes</strong></td>
+<td style="text-align: center;">✅ <strong>Yes</strong></td>
+<td style="text-align: left;">Stores genetic material (DNA) and controls cellular activities</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Mitochondria</strong></td>
+<td style="text-align: center;">✅ <strong>Yes</strong></td>
+<td style="text-align: center;">✅ <strong>Yes</strong></td>
+<td style="text-align: left;">Cellular respiration; generates ATP energy</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ribosomes</strong></td>
+<td style="text-align: center;">✅ <strong>Yes</strong></td>
+<td style="text-align: center;">✅ <strong>Yes</strong></td>
+<td style="text-align: left;">Sites of protein synthesis</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Endoplasmic Reticulum</strong></td>
+<td style="text-align: center;">✅ <strong>Yes</strong></td>
+<td style="text-align: center;">✅ <strong>Yes</strong></td>
+<td style="text-align: left;">Rough ER (proteins) &amp; Smooth ER (lipids); transport network</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Golgi Apparatus</strong></td>
+<td style="text-align: center;">✅ <strong>Yes</strong></td>
+<td style="text-align: center;">✅ <strong>Yes</strong></td>
+<td style="text-align: left;">Modifies, sorts, and packages molecules for distribution</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cell Membrane</strong></td>
+<td style="text-align: center;">✅ <strong>Yes</strong></td>
+<td style="text-align: center;">✅ <strong>Yes</strong></td>
+<td style="text-align: left;">Regulates entry and exit of molecules (homeostasis)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cytoplasm</strong></td>
+<td style="text-align: center;">✅ <strong>Yes</strong></td>
+<td style="text-align: center;">✅ <strong>Yes</strong></td>
+<td style="text-align: left;">Jelly-like fluid holding organelles in place</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>DNA</strong></td>
+<td style="text-align: center;">✅ <strong>Yes</strong></td>
+<td style="text-align: center;">✅ <strong>Yes</strong></td>
+<td style="text-align: left;">Genetic instructions for development and functioning</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="prokaryotic-vs-eukaryotic-cells">🔬 Prokaryotic vs. Eukaryotic Cells</h2>
+<ul>
+<li><strong>Prokaryotes (e.g., Bacteria, Archaea):</strong></li>
+<li><strong>NO nucleus</strong> (DNA resides in an unbound nucleoid region).</li>
+<li>No membrane-bound organelles.</li>
+<li>Generally smaller and simpler.</li>
+<li>Always single-celled.</li>
+<li><strong>Eukaryotes (e.g., Plants, Animals, Fungi, Protists):</strong></li>
+<li><strong>HAVE a true nucleus</strong> holding the DNA.</li>
+<li>Have membrane-bound organelles (mitochondria, ER, Golgi, vacuoles, etc.).</li>
+<li>Generally larger and more complex.</li>
+<li><strong>Shared by ALL Cells (Prokaryotic + Eukaryotic):</strong><br />
+  1. DNA / Genetic Material<br />
+  2. Cell Membrane (Plasma membrane)<br />
+  3. Cytoplasm / Cytosol<br />
+  4. Ribosomes (protein synthesis)</li>
+</ul>
+<hr />
+<h2 id="self-check-practice-flashcards">💡 Self-Check Practice Flashcards</h2>
+<ol>
+<li>
+<p><strong>Question:</strong> What is the main function of vacuoles in a cell?<br />
+<br />
+<details><summary>Reveal Answer</summary><b>To serve as storage sites</b></details>
+</p>
+</li>
+<li>
+<p><strong>Question:</strong> Has centrioles<br />
+<br />
+<details><summary>Reveal Answer</summary><b>Animal Cell</b></details>
+</p>
+</li>
+<li>
+<p><strong>Question:</strong> Which organelle is responsible for carrying out photosynthesis in plant cells?<br />
+<br />
+<details><summary>Reveal Answer</summary><b>Chloroplasts</b></details>
+</p>
+</li>
+<li>
+<p><strong>Question:</strong> What is the main function of the cell membrane?<br />
+<br />
+<details><summary>Reveal Answer</summary><b>To control what comes in and out of a cell</b></details>
+</p>
+</li>
+<li>
+<p><strong>Question:</strong> Has Lysosomes<br />
+<br />
+<details><summary>Reveal Answer</summary><b>Animal Cell</b></details>
+</p>
+</li>
+<li>
+<p><strong>Question:</strong> Has chloroplasts<br />
+<br />
+<details><summary>Reveal Answer</summary><b>Plant Cell</b></details>
+</p>
+</li>
+<li>
+<p><strong>Question:</strong> What is the role of ribosomes in a cell?<br />
+<br />
+<details><summary>Reveal Answer</summary><b>To make proteins</b></details>
+</p>
+</li>
+<li>
+<p><strong>Question:</strong> What is the main function of the nucleus?<br />
+<br />
+<details><summary>Reveal Answer</summary><b>To store DNA and regulate gene expression</b></details>
+</p>
+</li>
+<li>
+<p><strong>Question:</strong> Has a nucleus<br />
+<br />
+<details><summary>Reveal Answer</summary><b>Both</b></details>
+</p>
+</li>
+<li>
+<p><strong>Question:</strong> What is the function of the Golgi apparatus?<br />
+    <details><summary>Reveal Answer</summary><b>package molecules for distribution</b></details></p>
+</li>
+<li>
+<p><strong>Question:</strong> What is the function of the endoplasmic reticulum?<br />
+    <details><summary>Reveal Answer</summary><b>Transport molecules throughout the cell</b></details></p>
+</li>
+<li>
+<p><strong>Question:</strong> Which organelle is responsible for making ATP, the cell's energy source?<br />
+    <details><summary>Reveal Answer</summary><b>Mitochondria</b></details></p>
+</li>
+<li>
+<p><strong>Question:</strong> Has mitochondria<br />
+    <details><summary>Reveal Answer</summary><b>Both</b></details></p>
+</li>
+<li>
+<p><strong>Question:</strong> What is the main difference between prokaryotic and eukaryotic cells?<br />
+    <details><summary>Reveal Answer</summary><b>Eukaryotic cells have a nucleus, while prokaryotic cells do not.</b></details></p>
+</li>
+<li>
+<p><strong>Question:</strong> Has ribosomes<br />
+    <details><summary>Reveal Answer</summary><b>Both</b></details></p>
+</li>
+<li>
+<p><strong>Question:</strong> Has a cell wall<br />
+    <details><summary>Reveal Answer</summary><b>Plant Cell</b></details></p>
+</li>
+<li>
+<p><strong>Question:</strong> Has a large central vacuole<br />
+    <details><summary>Reveal Answer</summary><b>Plant Cell</b></details></p>
+</li>
+<li>
+<p><strong>Question:</strong> What is the main function of lysosomes in a cell?<br />
+    <details><summary>Reveal Answer</summary><b>To break down waste using enzymes</b></details></p>
+</li>
+<li>
+<p><strong>Question:</strong> Has cytoplasm<br />
+    <details><summary>Reveal Answer</summary><b>Both</b></details></p>
+</li>
+<li>
+<p><strong>Question:</strong> Has golgi apparatus<br />
+    <details><summary>Reveal Answer</summary><b>Both</b></details></p>
+</li>
+<li>
+<p><strong>Question:</strong> Has DNA<br />
+    <details><summary>Reveal Answer</summary><b>Both</b></details></p>
+</li>
+</ol>
+      </article>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800 bg-slate-950 py-8 text-center text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>Grade 9 Biology I Honors • South Forsyth High School • Dr. Sarah Irwin</p>
+      <div class="flex items-center gap-4">
+        <a href="../../../../index.html" class="hover:text-slate-300 transition">Portal Home</a>
+        <a href="../../../../schedule/semester-1.html" class="hover:text-slate-300 transition">Schedule</a>
+        <a href="../../../../notInLocal.html" class="hover:text-slate-300 transition">Cloud Links</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Osmosis  Tonicity Practice Questions with Answers - Biology I Honors</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    code, pre { font-family: 'JetBrains Mono', monospace; }
+    
+    /* Markdown Content Typography */
+    .prose-biology h1 {
+      font-size: 1.875rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #334155;
+      letter-spacing: -0.025em;
+    }
+    .prose-biology h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+    .prose-biology h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #38bdf8;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .prose-biology h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #34d399;
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .prose-biology p {
+      color: #cbd5e1;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    .prose-biology strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .prose-biology ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+      color: #cbd5e1;
+    }
+    .prose-biology ol {
+      list-style-type: decimal;
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+      color: #cbd5e1;
+    }
+    .prose-biology li {
+      margin-bottom: 0.375rem;
+      line-height: 1.6;
+    }
+    .prose-biology li strong {
+      color: #f8fafc;
+    }
+    .prose-biology a {
+      color: #38bdf8;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.15s ease;
+    }
+    .prose-biology a:hover {
+      color: #7dd3fc;
+      text-decoration: none;
+    }
+    .prose-biology blockquote {
+      border-left: 4px solid #10b981;
+      background-color: rgba(16, 185, 129, 0.08);
+      padding: 0.75rem 1rem;
+      margin: 1.25rem 0;
+      border-radius: 0 0.5rem 0.5rem 0;
+      color: #e2e8f0;
+      font-style: italic;
+    }
+    .prose-biology blockquote p {
+      margin-bottom: 0;
+      color: #e2e8f0;
+    }
+    .prose-biology code {
+      background-color: #1e293b;
+      color: #fbbf24;
+      padding: 0.2rem 0.4rem;
+      border-radius: 0.375rem;
+      font-size: 0.85em;
+      border: 1px solid #334155;
+    }
+    .prose-biology pre {
+      background-color: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 0.75rem;
+      padding: 1rem;
+      overflow-x: auto;
+      margin: 1.25rem 0;
+    }
+    .prose-biology pre code {
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      color: #34d399;
+      font-size: 0.875rem;
+    }
+    .prose-biology hr {
+      border: 0;
+      border-top: 1px solid #334155;
+      margin: 2rem 0;
+    }
+    /* Table Styling */
+    .prose-biology table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.875rem;
+      background-color: #1e293b;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      border: 1px solid #334155;
+    }
+    .prose-biology th {
+      background-color: #0f172a;
+      color: #34d399;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.75rem;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #334155;
+      text-align: left;
+    }
+    .prose-biology td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #334155;
+      color: #cbd5e1;
+      vertical-align: top;
+    }
+    .prose-biology tr:last-child td {
+      border-bottom: none;
+    }
+    .prose-biology tr:nth-child(even) td {
+      background-color: rgba(15, 23, 42, 0.4);
+    }
+    .prose-biology tr:hover td {
+      background-color: rgba(51, 65, 85, 0.4);
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between">
+
+  <!-- HEADER -->
+  <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="../../../../index.html" class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center text-slate-950 font-black text-lg shadow-lg shadow-emerald-500/20 hover:scale-105 transition">
+          <i class="fa-solid fa-dna"></i>
+        </a>
+        <div>
+          <a href="../../../../index.html" class="text-lg font-black tracking-tight text-white hover:text-emerald-400 transition">Biology I Honors V2</a>
+          <p class="text-xs text-slate-400 font-medium">South Forsyth High School • Dr. Irwin (2026/2027)</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2.5">
+        <a href="../../../../index.html" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 px-3.5 py-2 rounded-xl border border-slate-700 transition flex items-center gap-1.5">
+          <i class="fa-solid fa-house text-emerald-400"></i> Home
+        </a>
+        <a href="../../../../schedule/semester-1.html" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 px-3.5 py-2 rounded-xl border border-slate-700 transition flex items-center gap-1.5">
+          <i class="fa-regular fa-calendar text-teal-400"></i> S1 Schedule
+        </a>
+        <a href="../../../../units/unit-02-cells-and-transport/tests/index.html" class="text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-md shadow-emerald-600/30">
+          <i class="fa-solid fa-vial"></i> Practice Tests
+        </a>
+        <a href="../../../../notInLocal.html" class="text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-md shadow-indigo-600/30 hidden sm:flex">
+          <i class="fa-solid fa-cloud"></i> Cloud Links
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB & CONTENT CONTAINER -->
+  <main class="max-w-5xl mx-auto px-6 py-8 flex-1 w-full space-y-6">
+
+    <!-- BREADCRUMB -->
+    <nav class="flex items-center gap-2 text-xs text-slate-400">
+      <a href="../../../../index.html" class="hover:text-emerald-400 transition flex items-center gap-1">
+        <i class="fa-solid fa-house text-[10px]"></i> Home
+      </a>
+      <i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i>
+      <span class="text-slate-400">Units</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i> <span class="text-slate-400">Unit 02 Cells And Transport</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i> <span class="text-slate-400">Materials</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i> <span class="text-slate-400">Md</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i>
+      <span class="text-slate-200 font-semibold truncate max-w-xs">Osmosis &amp; Tonicity Practice Questions with An...</span>
+    </nav>
+
+    <!-- CONTENT CARD -->
+    <div class="bg-slate-800/60 border border-slate-700/60 rounded-3xl p-6 sm:p-10 shadow-xl backdrop-blur">
+      <article class="prose-biology">
+        <h1 id="osmosis-tonicity-practice-questions-with-answers">Osmosis &amp; Tonicity Practice Questions with Answers</h1>
+<p><strong>Source:</strong> <code>23-24 Osmosis Tonicity Practice Questions with Answers.pptx.pdf</code><br />
+<strong>Course:</strong> Biology I Honors — Unit 2: Cells and Cell Transport<br />
+<strong>Focus:</strong> Osmosis, Tonicity, Water Potential, Cell Responses (Plasmolysis, Cytolysis, Crenation, Turgor Pressure)</p>
+<hr />
+<h2 id="overview-study-strategies">📋 Overview &amp; Study Strategies</h2>
+<p>When solving tonicity and osmosis problems:<br />
+1. <strong>Identify Solute Concentrations:</strong><br />
+   - <strong>Hypotonic:</strong> Lower solute concentration (higher water concentration / higher water potential).<br />
+   - <strong>Hypertonic:</strong> Higher solute concentration (lower water concentration / lower water potential).<br />
+   - <strong>Isotonic:</strong> Equal solute concentration (dynamic equilibrium; no net movement).<br />
+2. <strong>Determine Water Movement:</strong><br />
+   - Water <strong>always</strong> diffuses down its own concentration gradient from <strong>high water concentration to low water concentration</strong> (or from hypotonic solution toward hypertonic solution).<br />
+3. <strong>Analyze Cell Responses:</strong><br />
+   - <strong>Animal Cells:</strong> Swell and may burst (<strong>lysis/cytolysis</strong>) in hypotonic solutions; shrink/shrivel (<strong>crenation</strong>) in hypertonic solutions; normal in isotonic solutions.<br />
+   - <strong>Plant Cells:</strong> Swell and become firm (<strong>turgid</strong>) in hypotonic solutions due to rigid cell walls and large central vacuole (normal/healthy state); become limp/flaccid in isotonic solutions; plasma membrane pulls away from cell wall (<strong>plasmolysis</strong>) in hypertonic solutions.</p>
+<hr />
+<h2 id="practice-questions-detailed-solutions">❓ Practice Questions &amp; Detailed Solutions</h2>
+<h3 id="question-1">Question 1</h3>
+<blockquote>
+<p>If you soak your hands in dishwater, you may notice that your skin absorbs water and swells into wrinkles. This is because your skin cells are <strong><em>_</em></strong><strong><em>_</em></strong>_ to the <strong><em>_</em></strong><strong><em>_</em></strong>_ dishwater.</p>
+<ul>
+<li><strong>A.</strong> Hypotonic … hypertonic  </li>
+<li><strong>B.</strong> Hypertonic … hypotonic  </li>
+<li><strong>C.</strong> Hypotonic … hypotonic  </li>
+<li><strong>D.</strong> Isotonic … hypotonic  </li>
+<li><strong>E.</strong> Hypertonic … isotonic  </li>
+</ul>
+</blockquote>
+<p><strong>Correct Answer:</strong> <strong>B. Hypertonic … hypotonic</strong></p>
+<p><strong>Detailed Explanation:</strong><br />
+- Water moves into the skin cells causing them to absorb water and swell.<br />
+- By osmosis, water moves from an area of higher water concentration (hypotonic solution) into an area of lower water concentration / higher solute concentration (hypertonic solution).<br />
+- Therefore, the skin cells contain a higher solute concentration (<strong>hypertonic</strong>) relative to the surrounding bath/dishwater, which has a lower solute concentration (<strong>hypotonic</strong>).</p>
+<hr />
+<h3 id="question-2">Question 2</h3>
+<blockquote>
+<p>You decide to buy a new fish for your freshwater aquarium. When you introduce the fish into its new tank, the fish swells up and dies. You later learn that it was a fish from the ocean.<br />
+Based on what you know of tonicity, the most likely explanation is that the unfortunate fish went from a(n) <strong><em>_</em></strong><strong><em>_</em></strong>_ solution into a(n) <strong><em>_</em></strong><strong><em>_</em></strong>_ solution.</p>
+<ul>
+<li><strong>A.</strong> isotonic, hypotonic  </li>
+<li><strong>B.</strong> hypertonic, isotonic  </li>
+<li><strong>C.</strong> hypotonic, hypertonic  </li>
+<li><strong>D.</strong> hypotonic, isotonic  </li>
+<li><strong>E.</strong> isotonic, hypertonic  </li>
+</ul>
+</blockquote>
+<p><strong>Correct Answer:</strong> <strong>A. isotonic, hypotonic</strong></p>
+<p><strong>Detailed Explanation:</strong><br />
+- Marine (ocean) fish have internal body fluids that are adapted to be approximately <strong>isotonic</strong> to their natural salty ocean environment.<br />
+- When placed into a freshwater aquarium, the surrounding water is <strong>hypotonic</strong> (virtually 0% salt) compared to the fish’s internal tissues.<br />
+- Water rapidly rushes into the fish’s cells by osmosis, causing severe swelling, cellular lysis, and death.</p>
+<hr />
+<h3 id="question-3">Question 3</h3>
+<blockquote>
+<p>In osmosis, water always moves toward the <strong><em>_</em></strong><strong><em>_</em></strong>_ solution: that is, toward the solution with the <strong><em>_</em></strong><strong><em>_</em></strong>_ solute concentration.</p>
+<ul>
+<li><strong>A.</strong> isotonic, greater  </li>
+<li><strong>B.</strong> hypertonic, greater  </li>
+<li><strong>C.</strong> hypertonic, lesser  </li>
+<li><strong>D.</strong> hypotonic, greater  </li>
+<li><strong>E.</strong> hypotonic, lesser  </li>
+</ul>
+</blockquote>
+<p><strong>Correct Answer:</strong> <strong>B. hypertonic, greater</strong></p>
+<p><strong>Detailed Explanation:</strong><br />
+- Water moves from areas of high free water concentration (low solute) to low free water concentration (high solute).<br />
+- A <strong>hypertonic</strong> solution has a <strong>greater</strong> solute concentration. Hence, water always moves toward the hypertonic solution.</p>
+<hr />
+<h3 id="question-4">Question 4</h3>
+<blockquote>
+<p>The concentration of solutes in a red blood cell is about 2%. Sucrose cannot pass through the membrane, but water and urea can. Osmosis would cause red blood cells to shrink the most when immersed in which of the following solutions?</p>
+<ul>
+<li><strong>A.</strong> a hypertonic sucrose solution  </li>
+<li><strong>B.</strong> a hypotonic sucrose solution  </li>
+<li><strong>C.</strong> a hypertonic urea solution  </li>
+<li><strong>D.</strong> a hypotonic urea solution  </li>
+<li><strong>E.</strong> pure water  </li>
+</ul>
+</blockquote>
+<p><strong>Correct Answer:</strong> <strong>A. a hypertonic sucrose solution</strong></p>
+<p><strong>Detailed Explanation:</strong><br />
+- For osmosis to drive net water out of a cell and cause shrinking, the external solution must contain a non-penetrating solute at a concentration higher than the cell interior (hypertonic).<br />
+- Since <strong>sucrose cannot pass through the membrane</strong>, it creates an effective osmotic gradient that pulls water out of the cell.<br />
+- In contrast, <strong>urea can pass freely</strong> through the membrane; urea molecules will equilibrate across the membrane, eliminating the concentration difference and preventing sustained osmotic water loss.</p>
+<hr />
+<h3 id="question-5">Question 5</h3>
+<blockquote>
+<p>Sea water is dangerous to drink because:</p>
+<ul>
+<li><strong>A.</strong> one cup of sea water contains enough sodium to poison you.  </li>
+<li><strong>B.</strong> sea water is hypertonic to your body tissues and drinking it will cause you to lose water.  </li>
+<li><strong>C.</strong> sea water is isotonic to your body fluids and you will absorb too much water.  </li>
+<li><strong>D.</strong> the salt causes hypertension and you will promptly die of a stroke.  </li>
+<li><strong>E.</strong> it contains toxic levels of iodine.  </li>
+</ul>
+</blockquote>
+<p><strong>Correct Answer:</strong> <strong>B. sea water is hypertonic to your body tissues and drinking it will cause you to lose water.</strong></p>
+<p><strong>Detailed Explanation:</strong><br />
+- Seawater has a salt concentration of ~3.5%, whereas human body fluids and red blood cells are ~0.9% salt.<br />
+- Ingesting seawater introduces a highly <strong>hypertonic</strong> fluid into the gastrointestinal tract. Water is drawn out of body cells and blood plasma by osmosis into the gut, accelerating severe cellular dehydration.</p>
+<hr />
+<h3 id="question-6">Question 6</h3>
+<blockquote>
+<p>If the volume of a cell increases when it is placed in a solution, that solution is said to be <strong><em>_</em></strong><strong><em>_</em></strong>_ to the cell.</p>
+<ul>
+<li><strong>A.</strong> hypertonic  </li>
+<li><strong>B.</strong> subatomic  </li>
+<li><strong>C.</strong> isotonic  </li>
+<li><strong>D.</strong> gin and tonic  </li>
+<li><strong>E.</strong> hypotonic  </li>
+</ul>
+</blockquote>
+<p><strong>Correct Answer:</strong> <strong>E. hypotonic</strong></p>
+<p><strong>Detailed Explanation:</strong><br />
+- When a cell’s volume increases, net water is entering the cell.<br />
+- Water enters a cell when the outside environment has a lower solute concentration (higher water potential) than the cell interior, meaning the external solution is <strong>hypotonic</strong>.</p>
+<hr />
+<h3 id="question-7">Question 7</h3>
+<blockquote>
+<p>Inside one osmosis bag*, A, is a 50% glucose solution and inside bag B is a 20% glucose solution. Both bags are put into beakers containing 100% water.<br />
+*Osmosis bags are membranes that let water through but not glucose.</p>
+<ul>
+<li><strong>A.</strong> Bag A will gain weight.  </li>
+<li><strong>B.</strong> Bag B will gain weight.  </li>
+<li><strong>C.</strong> Both bags will gain weight.  </li>
+<li><strong>D.</strong> Both bags will lose weight.  </li>
+<li><strong>E.</strong> Both bags will remain the same.  </li>
+</ul>
+</blockquote>
+<p><strong>Correct Answer:</strong> <strong>C. Both bags will gain weight.</strong></p>
+<p><strong>Detailed Explanation:</strong><br />
+- Beaker water is 100% water (0% glucose).<br />
+- Both Bag A (50% glucose / 50% water) and Bag B (20% glucose / 80% water) are hypertonic relative to pure water.<br />
+- Water moves from high water concentration (100% in the beaker) into both bags.<br />
+- Therefore, <strong>both bags will gain weight</strong> (Bag A will absorb water faster and gain more total mass due to a steeper concentration gradient, but both gain weight).</p>
+<hr />
+<h3 id="question-8">Question 8</h3>
+<blockquote>
+<p>A 0.9% NaCl solution is isotonic to red blood cells. Which of these describes the results if red blood cells are placed into a 9% solution of NaCl?</p>
+<ul>
+<li><strong>A.</strong> They will burst.  </li>
+<li><strong>B.</strong> They will shrink.  </li>
+<li><strong>C.</strong> Nothing will happen.  </li>
+<li><strong>D.</strong> They will expand but not burst.  </li>
+<li><strong>E.</strong> None of the above.  </li>
+</ul>
+</blockquote>
+<p><strong>Correct Answer:</strong> <strong>B. They will shrink.</strong></p>
+<p><strong>Detailed Explanation:</strong><br />
+- 9% NaCl is ten times more concentrated than the isotonic 0.9% NaCl level, making it strongly <strong>hypertonic</strong>.<br />
+- Water rapidly leaves the red blood cells by osmosis to balance the external solute concentration.<br />
+- The red blood cells shrivel and shrink (crenation).</p>
+<hr />
+<h3 id="question-9">Question 9</h3>
+<blockquote>
+<p>Wallway is a new general herbicide for aquatic plants. Its main ingredient is a marine salt solution. It is effective against freshwater but not saltwater plants. It works by breaking down the cell walls of the plants. The freshwater plants die because their cells:</p>
+<ul>
+<li><strong>A.</strong> swell and cease to function.  </li>
+<li><strong>B.</strong> shrink.  </li>
+<li><strong>C.</strong> remain the same size but malfunction.  </li>
+<li><strong>D.</strong> are crushed by the weight of the plant.  </li>
+</ul>
+</blockquote>
+<p><strong>Correct Answer:</strong> <strong>B. shrink.</strong></p>
+<p><strong>Detailed Explanation:</strong><br />
+- Marine salt solutions are hypertonic to freshwater plant cells.<br />
+- In a hypertonic environment, water exits plant cells through osmosis. The cytoplasm and central vacuole lose water, pulling away from the cell wall (<strong>plasmolysis</strong>), causing cells to <strong>shrink</strong> and desiccate.</p>
+<hr />
+<h3 id="question-10">Question 10</h3>
+<blockquote>
+<p>A red blood cell has a salt concentration of 0.9%. What will happen if it is placed into a 1% salt solution? The red blood cell will:</p>
+<ul>
+<li><strong>A.</strong> shrink if its membrane is permeable to both the salt and the water.  </li>
+<li><strong>B.</strong> shrink if its membrane is impermeable to the salt and permeable to the water.  </li>
+<li><strong>C.</strong> maintain its shape - nothing will happen.  </li>
+<li><strong>D.</strong> swell and probably burst because its membrane is impermeable to salt and permeable to water.  </li>
+<li><strong>E.</strong> swell and probably burst because its membrane is impermeable to water and permeable to salt.  </li>
+</ul>
+</blockquote>
+<p><strong>Correct Answer:</strong> <strong>B. shrink if its membrane is impermeable to the salt and permeable to the water.</strong></p>
+<p><strong>Detailed Explanation:</strong><br />
+- The external solution (1.0% salt) has a higher solute concentration than the internal cell environment (0.9% salt), making the external solution slightly <strong>hypertonic</strong>.<br />
+- Because the plasma membrane is selectively permeable (impermeable to NaCl ions without active transporters, but freely permeable to water via aquaporins/diffusion), water moves out of the cell toward the higher solute concentration.<br />
+- As water leaves, the cell will <strong>shrink</strong>.</p>
+<hr />
+<h3 id="question-11">Question 11</h3>
+<blockquote>
+<p>Flasks X, Y, and Z contain solutions with different concentrations of the solute NaCl:<br />
+- <strong>Flask X:</strong> 0.5% NaCl<br />
+- <strong>Flask Y:</strong> 0.9% NaCl<br />
+- <strong>Flask Z:</strong> 1.5% NaCl  </p>
+<p>Red blood cells (0.9% NaCl) will be placed into each flask. Predict what will happen to the blood cells in each of the flasks:</p>
+<ul>
+<li><strong>A.</strong> Flask X: Contract | Flask Y: Unchanged | Flask Z: Swell  </li>
+<li><strong>B.</strong> Flask X: Swell | Flask Y: Unchanged | Flask Z: Contract  </li>
+<li><strong>C.</strong> Flask X: Unchanged | Flask Y: Swell | Flask Z: Contract  </li>
+<li><strong>D.</strong> Flask X: Unchanged | Flask Y: Unchanged | Flask Z: Unchanged  </li>
+</ul>
+</blockquote>
+<p><strong>Correct Answer:</strong> <strong>B. Flask X: Swell | Flask Y: Unchanged | Flask Z: Contract</strong></p>
+<p><strong>Detailed Explanation:</strong><br />
+- <strong>Flask X (0.5% NaCl):</strong> Hypotonic to RBC (0.9%). Water moves <em>into</em> cells $<br />
+ightarrow$ <strong>Swell</strong> (may lyse).<br />
+- <strong>Flask Y (0.9% NaCl):</strong> Isotonic to RBC (0.9%). Net water movement is zero (dynamic equilibrium) $<br />
+ightarrow$ <strong>Unchanged</strong>.<br />
+- <strong>Flask Z (1.5% NaCl):</strong> Hypertonic to RBC (0.9%). Water moves <em>out of</em> cells $<br />
+ightarrow$ <strong>Contract</strong> (shrink/crenate).</p>
+<hr />
+<h2 id="summary-key-quick-reference-table">📊 Summary Key &amp; Quick Reference Table</h2>
+<div class="overflow-x-auto my-4"><table>
+<thead>
+<tr>
+<th style="text-align: center;">Question #</th>
+<th style="text-align: left;">Topic / Scenario</th>
+<th style="text-align: left;">Environmental Tonicity</th>
+<th style="text-align: left;">Movement of Water</th>
+<th style="text-align: left;">Cell Effect</th>
+<th style="text-align: center;">Correct Option</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: left;">Skin cells in dishwater</td>
+<td style="text-align: left;">Hypotonic dishwater</td>
+<td style="text-align: left;">Enters cells</td>
+<td style="text-align: left;">Swelling / wrinkles</td>
+<td style="text-align: center;"><strong>B</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>2</strong></td>
+<td style="text-align: left;">Saltwater fish in freshwater</td>
+<td style="text-align: left;">Hypotonic freshwater</td>
+<td style="text-align: left;">Enters fish cells</td>
+<td style="text-align: left;">Swelling and death</td>
+<td style="text-align: center;"><strong>A</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>3</strong></td>
+<td style="text-align: left;">General rule of osmosis</td>
+<td style="text-align: left;">Moves toward Hypertonic</td>
+<td style="text-align: left;">Toward higher solute</td>
+<td style="text-align: left;">Varies</td>
+<td style="text-align: center;"><strong>B</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>4</strong></td>
+<td style="text-align: left;">RBC in sucrose solutions</td>
+<td style="text-align: left;">Hypertonic sucrose</td>
+<td style="text-align: left;">Exits cells</td>
+<td style="text-align: left;">Maximum shrinking</td>
+<td style="text-align: center;"><strong>A</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: left;">Drinking ocean seawater</td>
+<td style="text-align: left;">Hypertonic seawater</td>
+<td style="text-align: left;">Exits tissue cells</td>
+<td style="text-align: left;">Dehydration / shrinkage</td>
+<td style="text-align: center;"><strong>B</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>6</strong></td>
+<td style="text-align: left;">Cell volume increases</td>
+<td style="text-align: left;">Hypotonic solution</td>
+<td style="text-align: left;">Enters cells</td>
+<td style="text-align: left;">Swelling</td>
+<td style="text-align: center;"><strong>E</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>7</strong></td>
+<td style="text-align: left;">Dialysis bags A &amp; B in water</td>
+<td style="text-align: left;">Hypotonic pure water</td>
+<td style="text-align: left;">Enters both bags</td>
+<td style="text-align: left;">Both gain weight</td>
+<td style="text-align: center;"><strong>C</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>8</strong></td>
+<td style="text-align: left;">RBC in 9% NaCl</td>
+<td style="text-align: left;">Hypertonic solution</td>
+<td style="text-align: left;">Exits cells</td>
+<td style="text-align: left;">Shrink (crenate)</td>
+<td style="text-align: center;"><strong>B</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>9</strong></td>
+<td style="text-align: left;">Herbicide on freshwater plant</td>
+<td style="text-align: left;">Hypertonic salt solution</td>
+<td style="text-align: left;">Exits plant cells</td>
+<td style="text-align: left;">Shrink (plasmolysis)</td>
+<td style="text-align: center;"><strong>B</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>10</strong></td>
+<td style="text-align: left;">RBC (0.9%) in 1.0% NaCl</td>
+<td style="text-align: left;">Hypertonic solution</td>
+<td style="text-align: left;">Exits cells</td>
+<td style="text-align: left;">Shrink</td>
+<td style="text-align: center;"><strong>B</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>11</strong></td>
+<td style="text-align: left;">RBC in Flasks X (0.5%), Y (0.9%), Z (1.5%)</td>
+<td style="text-align: left;">X: Hypo, Y: Iso, Z: Hyper</td>
+<td style="text-align: left;">X: In, Y: Net 0, Z: Out</td>
+<td style="text-align: left;">X: Swell, Y: Unchanged, Z: Contract</td>
+<td style="text-align: center;"><strong>B</strong></td>
+</tr>
+</tbody>
+</table></div>
+      </article>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800 bg-slate-950 py-8 text-center text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>Grade 9 Biology I Honors • South Forsyth High School • Dr. Sarah Irwin</p>
+      <div class="flex items-center gap-4">
+        <a href="../../../../index.html" class="hover:text-slate-300 transition">Portal Home</a>
+        <a href="../../../../schedule/semester-1.html" class="hover:text-slate-300 transition">Schedule</a>
+        <a href="../../../../notInLocal.html" class="hover:text-slate-300 transition">Cloud Links</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

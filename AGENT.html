@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AGENT.md  Master Architecture, Context  Operations Guide - Biology I Honors</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    code, pre { font-family: 'JetBrains Mono', monospace; }
+    
+    /* Markdown Content Typography */
+    .prose-biology h1 {
+      font-size: 1.875rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #334155;
+      letter-spacing: -0.025em;
+    }
+    .prose-biology h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+    .prose-biology h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #38bdf8;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .prose-biology h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #34d399;
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .prose-biology p {
+      color: #cbd5e1;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    .prose-biology strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .prose-biology ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+      color: #cbd5e1;
+    }
+    .prose-biology ol {
+      list-style-type: decimal;
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+      color: #cbd5e1;
+    }
+    .prose-biology li {
+      margin-bottom: 0.375rem;
+      line-height: 1.6;
+    }
+    .prose-biology li strong {
+      color: #f8fafc;
+    }
+    .prose-biology a {
+      color: #38bdf8;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.15s ease;
+    }
+    .prose-biology a:hover {
+      color: #7dd3fc;
+      text-decoration: none;
+    }
+    .prose-biology blockquote {
+      border-left: 4px solid #10b981;
+      background-color: rgba(16, 185, 129, 0.08);
+      padding: 0.75rem 1rem;
+      margin: 1.25rem 0;
+      border-radius: 0 0.5rem 0.5rem 0;
+      color: #e2e8f0;
+      font-style: italic;
+    }
+    .prose-biology blockquote p {
+      margin-bottom: 0;
+      color: #e2e8f0;
+    }
+    .prose-biology code {
+      background-color: #1e293b;
+      color: #fbbf24;
+      padding: 0.2rem 0.4rem;
+      border-radius: 0.375rem;
+      font-size: 0.85em;
+      border: 1px solid #334155;
+    }
+    .prose-biology pre {
+      background-color: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 0.75rem;
+      padding: 1rem;
+      overflow-x: auto;
+      margin: 1.25rem 0;
+    }
+    .prose-biology pre code {
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      color: #34d399;
+      font-size: 0.875rem;
+    }
+    .prose-biology hr {
+      border: 0;
+      border-top: 1px solid #334155;
+      margin: 2rem 0;
+    }
+    /* Table Styling */
+    .prose-biology table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.875rem;
+      background-color: #1e293b;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      border: 1px solid #334155;
+    }
+    .prose-biology th {
+      background-color: #0f172a;
+      color: #34d399;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.75rem;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #334155;
+      text-align: left;
+    }
+    .prose-biology td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #334155;
+      color: #cbd5e1;
+      vertical-align: top;
+    }
+    .prose-biology tr:last-child td {
+      border-bottom: none;
+    }
+    .prose-biology tr:nth-child(even) td {
+      background-color: rgba(15, 23, 42, 0.4);
+    }
+    .prose-biology tr:hover td {
+      background-color: rgba(51, 65, 85, 0.4);
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between">
+
+  <!-- HEADER -->
+  <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="./index.html" class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center text-slate-950 font-black text-lg shadow-lg shadow-emerald-500/20 hover:scale-105 transition">
+          <i class="fa-solid fa-dna"></i>
+        </a>
+        <div>
+          <a href="./index.html" class="text-lg font-black tracking-tight text-white hover:text-emerald-400 transition">Biology I Honors V2</a>
+          <p class="text-xs text-slate-400 font-medium">South Forsyth High School • Dr. Irwin (2026/2027)</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2.5">
+        <a href="./index.html" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 px-3.5 py-2 rounded-xl border border-slate-700 transition flex items-center gap-1.5">
+          <i class="fa-solid fa-house text-emerald-400"></i> Home
+        </a>
+        <a href="./schedule/semester-1.html" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 px-3.5 py-2 rounded-xl border border-slate-700 transition flex items-center gap-1.5">
+          <i class="fa-regular fa-calendar text-teal-400"></i> S1 Schedule
+        </a>
+        <a href="./units/unit-02-cells-and-transport/tests/index.html" class="text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-md shadow-emerald-600/30">
+          <i class="fa-solid fa-vial"></i> Practice Tests
+        </a>
+        <a href="./notInLocal.html" class="text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-md shadow-indigo-600/30 hidden sm:flex">
+          <i class="fa-solid fa-cloud"></i> Cloud Links
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB & CONTENT CONTAINER -->
+  <main class="max-w-5xl mx-auto px-6 py-8 flex-1 w-full space-y-6">
+
+    <!-- BREADCRUMB -->
+    <nav class="flex items-center gap-2 text-xs text-slate-400">
+      <a href="./index.html" class="hover:text-emerald-400 transition flex items-center gap-1">
+        <i class="fa-solid fa-house text-[10px]"></i> Home
+      </a>
+      <i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i>
+      
+      <span class="text-slate-200 font-semibold truncate max-w-xs">AGENT.md — Master Architecture, Context &amp; Ope...</span>
+    </nav>
+
+    <!-- CONTENT CARD -->
+    <div class="bg-slate-800/60 border border-slate-700/60 rounded-3xl p-6 sm:p-10 shadow-xl backdrop-blur">
+      <article class="prose-biology">
+        <h1 id="agentmd-master-architecture-context-operations-guide">AGENT.md — Master Architecture, Context &amp; Operations Guide</h1>
+<blockquote>
+<p><strong>Repository:</strong> <code>MegaAntony/high-school-biology-i-honors</code><br />
+<strong>Local Workspace:</strong> <code>/Volumes/Backup/Antony/HighSchool/Grade9/Biology-Honors-V2</code><br />
+<strong>Production Live Site:</strong> <a href="https://megaantony.github.io/high-school-biology-i-honors/"><code>https://megaantony.github.io/high-school-biology-i-honors/</code></a><br />
+<strong>Course:</strong> Grade 9 Biology I Honors • South Forsyth High School (Forsyth County, GA)<br />
+<strong>Instructor:</strong> Dr. Sarah Irwin (Room #371) • Academic Year 2026–2027<br />
+<strong>State Standard Alignment:</strong> Georgia Standards of Excellence (GSE) <strong>SB1 through SB6</strong><br />
+<strong>Canvas LMS Course ID:</strong> <code>276259</code> (<code>30115y - Irwin - 501</code>)</p>
+</blockquote>
+<hr />
+<h2 id="1-project-background-repository-dual-setup">🏛️ 1. Project Background &amp; Repository Dual-Setup</h2>
+<h3 id="historical-context-migration">Historical Context &amp; Migration</h3>
+<p>Originally, the course materials began in a legacy repository:<br />
+* <strong>V1 / Legacy Repo (DELETED &amp; RETIRED):</strong> <code>MegaAntony/biology-honors</code><br />
+  * Local path: <code>/Volumes/Backup/Antony/HighSchool/Grade9/Biology-Honors</code> (Deleted)<br />
+  * Remote repo: Permanently deleted on September 12, 2026.<br />
+  * All 26 practice tests, lecture notes, teacher PDFs, and materials were 100% ingested into V2.</p>
+<ul>
+<li><strong>Sole Production Academic Year Repo:</strong> <a href="https://github.com/MegaAntony/high-school-biology-i-honors"><code>MegaAntony/high-school-biology-i-honors</code></a>  </li>
+<li>Local path: <code>/Volumes/Backup/Antony/HighSchool/Grade9/Biology-Honors-V2</code>  </li>
+<li>Live URL: <code>https://megaantony.github.io/high-school-biology-i-honors/</code>  </li>
+<li><strong>PURPOSE:</strong> This is the primary, long-term workspace for the entire academic year (Units 01 through 10, Semester 1 &amp; 2 Schedules, and Georgia Milestones EOC review). All materials, tests, and weekly plans live exclusively here.</li>
+</ul>
+<hr />
+<h2 id="2-full-directory-tree-architecture">📂 2. Full Directory Tree &amp; Architecture</h2>
+<pre><code>Biology-Honors-V2/
+├── index.html                                 # Web Dashboard (Responsive 10-unit curriculum portal)
+├── notInLocal.html                            # Master Cloud Links (Canvas Studio, Blooket, YouTube)
+├── Georgia_Standards-Biology I Honors.md      # Official state curriculum standards (SB1–SB6)
+├── ACADEMIC_YEAR_PLAN_AND_UNIT_PLAYBOOK.md    # 36-Week Roadmap &amp; 6-Phase New Unit Ingestion Guide
+├── AGENT.md                                   # This agent onboarding &amp; context file
+├── WEEKEND_CLEANUP_PLAN.md                    # Weekend Legacy Directories Cleanup Guide
+├── README.md                                  # Repository overview and quick-launch bar
+├── .gitignore                                 # Ignores .DS_Store, node_modules, temp files
+│
+├── schedule/                                  # 📅 Tactical Weekly Planners
+│   ├── semester-1.md                          # S1 Master Calendar (Weeks 1–18 with deep links)
+│   └── semester-2.md                          # S2 Master Calendar (Weeks 19–36 &amp; EOC review)
+│
+├── units/                                     # 🧬 Permanent Unit Knowledge Base (10 Units)
+│   ├── unit-01-biochemistry/                  # GSE: SB1.c
+│   │   ├── README.md                          # Unit overview, targets, resource index
+│   │   ├── materials/                         # Original PDFs, PPTs, and student packets
+│   │   └── tests/                             # Interactive HTML quizzes (Vocab + Summative)
+│   │
+│   ├── unit-02-cells-and-transport/           # GSE: SB1.a &amp; SB1.d (CURRENT UNIT)
+│   │   ├── README.md                          # Complete Unit 2 resource hub
+│   │   ├── cell_transport_final_cheat_sheet.html # Printable 1-column walk-in reference sheet
+│   │   ├── notInLocal.html                    # Unit-level cloud links
+│   │   ├── materials/
+│   │   │   ├── pdf/                           # 10 teacher source PDFs/PPTs
+│   │   │   └── md/                            # 19 searchable Markdown study guides &amp; vocab tables
+│   │   └── tests/                             # 26 interactive HTML test files (635 MCQs)
+│   │       ├── index.html                     # Unit 2 Test Portal &amp; card launcher
+│   │       ├── test-01 to test-15.html        # 15 targeted concept deep dives (20 Qs each)
+│   │       ├── test-doc-01 to doc-09.html     # 9 in-class handout drills (20 Qs each)
+│   │       └── test-unit-2-part-1-comprehensive-mastery.html # 55-Q Master Exam
+│   │
+│   ├── unit-03-cellular-energetics/           # GSE: SB1.e (Scaffolded)
+│   ├── unit-04-cellular-reproduction/         # GSE: SB1.b (Scaffolded)
+│   ├── unit-05-gene-expression/               # GSE: SB2.a, SB2.b (Scaffolded)
+│   ├── unit-06-genetics/                      # GSE: SB3.a–c (Scaffolded)
+│   ├── unit-07-biotechnology/                 # GSE: SB2.c, SB4.a (Scaffolded)
+│   ├── unit-08-evolution/                     # GSE: SB6.a–e (Scaffolded)
+│   ├── unit-09-ecology/                       # GSE: SB5.a–c (Scaffolded)
+│   └── unit-10-diversity-of-life/             # GSE: SB4.a, SB4.b (Scaffolded)
+│
+├── cumulative-exams/                          # 🏆 Benchmarks &amp; State EOC Prep
+│   ├── semester-1-final/                      # Comprehensive S1 Benchmark (Dec)
+│   └── georgia-milestones-eoc/                # Georgia State Milestones Exam Prep (May)
+│
+├── Week-9-7/tests/                            # 🔁 Backwards-compatible redirects (26 stubs)
+└── unit01-tests/                              # 🔁 Backwards-compatible redirects (3 stubs)
+</code></pre>
+<hr />
+<h2 id="3-github-pages-deployment-details">🚀 3. GitHub Pages Deployment Details</h2>
+<ul>
+<li><strong>Hosting:</strong> GitHub Pages via GitHub Actions / Legacy Jekyll static pipeline.</li>
+<li><strong>Source:</strong> Branch <code>main</code>, path <code>/ (root)</code>.</li>
+<li><strong>Live Base URL:</strong> <code>https://megaantony.github.io/high-school-biology-i-honors/</code></li>
+<li><strong>Custom Configuration:</strong></li>
+<li>Enforce HTTPS: <code>true</code></li>
+<li>CNAME: None (uses <code>megaantony.github.io</code>)</li>
+<li><strong>Dual URL Compatibility (Backwards Compatibility Architecture):</strong></li>
+<li>When migrating from V1, all existing test paths (<code>Week-9-7/tests/*.html</code> and <code>unit01-tests/*.html</code>) were mapped using 0-millisecond <code>&lt;meta http-equiv="refresh"&gt;</code> redirect stubs.</li>
+<li><strong>Result:</strong> Any user accessing either the new clean path (<code>units/unit-02-cells-and-transport/tests/...</code>) OR the legacy path (<code>Week-9-7/tests/...</code>) on the new domain is served seamlessly with HTTP 200.</li>
+<li><strong>Deployment Verification Workflow:</strong><br />
+  After pushing commits to <code>main</code>, monitor the build using GitHub CLI:<br />
+<code>bash
+  gh api /repos/MegaAntony/high-school-biology-i-honors/pages/builds --jq '.[0].status'
+  # Wait until it outputs "built"
+  # Then verify live response:
+  /usr/bin/curl -s -o /dev/null -w "%{http_code}\n" https://megaantony.github.io/high-school-biology-i-honors/</code></li>
+</ul>
+<hr />
+<h2 id="4-complete-test-suite-inventory-27-assessments-657-questions">🧪 4. Complete Test Suite Inventory (27 Assessments / 657 Questions)</h2>
+<p>Every quiz in the repository is a self-contained, responsive single-page web app built with Tailwind CSS, FontAwesome icons, and a client-side JavaScript engine.</p>
+<h3 id="data-model-schema-questionsdata-array">Data Model Schema (<code>questionsData</code> array):</h3>
+<pre><code class="language-javascript">const questionsData = [
+  {
+    id: 1,
+    topic: &quot;Phospholipid Bilayer&quot;,
+    question: &quot;Exact question stem describing a biological mechanism?&quot;,
+    options: [
+      &quot;Distractor A (conceptually plausible misconception)&quot;,
+      &quot;Distractor B (partially correct statement)&quot;,
+      &quot;Correct Answer&quot;,
+      &quot;Distractor D&quot;
+    ],
+    answer: 2, // 0-indexed integer
+    clue: &quot;Guiding pedagogical hint without revealing the answer.&quot;,
+    explanation: &quot;Comprehensive rationale explaining why C is correct and why A, B, and D are incorrect.&quot;
+  }
+];
+</code></pre>
+<h3 id="full-test-inventory-roster">Full Test Inventory Roster:</h3>
+<div class="overflow-x-auto my-4"><table>
+<thead>
+<tr>
+<th style="text-align: left;">Test ID</th>
+<th style="text-align: left;">Relative Path</th>
+<th style="text-align: left;">Focus &amp; Standard</th>
+<th style="text-align: center;">Questions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>U1-Vocab</strong></td>
+<td style="text-align: left;"><code>units/unit-01-biochemistry/tests/Unit_1_Complete_Vocab_Mastery_Quiz.html</code></td>
+<td style="text-align: left;">78 terms, flashcards (<code>SB1.c</code>)</td>
+<td style="text-align: center;">78</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>U1-Exam</strong></td>
+<td style="text-align: left;"><code>units/unit-01-biochemistry/tests/Unit_1_Summative_Practice_Test.html</code></td>
+<td style="text-align: left;">Macromolecules &amp; enzyme kinetics (<code>SB1.c</code>)</td>
+<td style="text-align: center;">44</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>U2-Master</strong></td>
+<td style="text-align: left;"><code>units/unit-02-cells-and-transport/tests/test-unit-2-part-1-comprehensive-mastery.html</code></td>
+<td style="text-align: left;">Master exam for Part 1 (<code>SB1.a, d</code>)</td>
+<td style="text-align: center;">55</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Test 01</strong></td>
+<td style="text-align: left;"><code>units/unit-02-cells-and-transport/tests/test-01-membrane-structure.html</code></td>
+<td style="text-align: left;">Bilayer architecture &amp; fluidity (<code>SB1.d</code>)</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Test 02</strong></td>
+<td style="text-align: left;"><code>units/unit-02-cells-and-transport/tests/test-02-simple-diffusion.html</code></td>
+<td style="text-align: left;">Concentration gradients &amp; small nonpolar gas transport</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Test 03</strong></td>
+<td style="text-align: left;"><code>units/unit-02-cells-and-transport/tests/test-03-facilitated-diffusion.html</code></td>
+<td style="text-align: left;">Channel &amp; carrier proteins, aquaporins</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Test 04</strong></td>
+<td style="text-align: left;"><code>units/unit-02-cells-and-transport/tests/test-04-osmosis-fundamentals.html</code></td>
+<td style="text-align: left;">Osmotic pressure &amp; U-tube mechanics</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Test 05</strong></td>
+<td style="text-align: left;"><code>units/unit-02-cells-and-transport/tests/test-05-tonicity-scenarios.html</code></td>
+<td style="text-align: left;">Hypo/hyper/isotonic, crenation, lysis, turgor</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Test 06</strong></td>
+<td style="text-align: left;"><code>units/unit-02-cells-and-transport/tests/test-06-molecular-pumps.html</code></td>
+<td style="text-align: left;">ATP pumps, $\text{Na}^+/\text{K}^+$ ATPase</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Test 07</strong></td>
+<td style="text-align: left;"><code>units/unit-02-cells-and-transport/tests/test-07-endocytosis.html</code></td>
+<td style="text-align: left;">Phago/pinocytosis &amp; receptor-mediated</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Test 08</strong></td>
+<td style="text-align: left;"><code>units/unit-02-cells-and-transport/tests/test-08-exocytosis.html</code></td>
+<td style="text-align: left;">Vesicle fusion, insulin, neurotransmitters</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Test 09</strong></td>
+<td style="text-align: left;"><code>units/unit-02-cells-and-transport/tests/test-09-passive-vs-active.html</code></td>
+<td style="text-align: left;">Comprehensive comparative transport matrix</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Test 10</strong></td>
+<td style="text-align: left;"><code>units/unit-02-cells-and-transport/tests/test-10-transport-labs.html</code></td>
+<td style="text-align: left;">Dialysis tubing, potato osmolarity, egg lab</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Test 11</strong></td>
+<td style="text-align: left;"><code>units/unit-02-cells-and-transport/tests/test-11-cell-theory.html</code></td>
+<td style="text-align: left;">Hooke, Leeuwenhoek, Schleiden, Schwann, Virchow</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Test 12</strong></td>
+<td style="text-align: left;"><code>units/unit-02-cells-and-transport/tests/test-12-prokaryotes-vs-eukaryotes.html</code></td>
+<td style="text-align: left;">Nucleoid vs. nucleus, organelles, $70\text{S}/80\text{S}$</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Test 13</strong></td>
+<td style="text-align: left;"><code>units/unit-02-cells-and-transport/tests/test-13-plant-vs-animal.html</code></td>
+<td style="text-align: left;">Vacuole, chloroplast, cell wall, centrioles</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Test 14</strong></td>
+<td style="text-align: left;"><code>units/unit-02-cells-and-transport/tests/test-14-surface-area-volume.html</code></td>
+<td style="text-align: left;">$SA:V$ math, diffusion limits, cell size</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Test 15</strong></td>
+<td style="text-align: left;"><code>units/unit-02-cells-and-transport/tests/test-15-microscopy-investigation.html</code></td>
+<td style="text-align: left;">Compound light microscope parts &amp; FOV math</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Doc 01</strong></td>
+<td style="text-align: left;"><code>units/unit-02-cells-and-transport/tests/test-doc-01-osmosis-tonicity.html</code></td>
+<td style="text-align: left;">Dr. Irwin's Tonicity Practice Questions</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Doc 02</strong></td>
+<td style="text-align: left;"><code>units/unit-02-cells-and-transport/tests/test-doc-02-cells-organelles.html</code></td>
+<td style="text-align: left;">Cells 1: Organelles Study Sheet</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Doc 03</strong></td>
+<td style="text-align: left;"><code>units/unit-02-cells-and-transport/tests/test-doc-03-membrane-transport-ppt.html</code></td>
+<td style="text-align: left;">Part 1 Lecture Slides Drill</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Doc 04</strong></td>
+<td style="text-align: left;"><code>units/unit-02-cells-and-transport/tests/test-doc-04-cell-theory-structure-ppt.html</code></td>
+<td style="text-align: left;">Part 2 Lecture Slides Drill</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Doc 05</strong></td>
+<td style="text-align: left;"><code>units/unit-02-cells-and-transport/tests/test-doc-05-honors-cell-stations.html</code></td>
+<td style="text-align: left;">Honors Cell Investigation Stations</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Doc 06</strong></td>
+<td style="text-align: left;"><code>units/unit-02-cells-and-transport/tests/test-doc-06-microscope-parts-use.html</code></td>
+<td style="text-align: left;">Microscope Protocol &amp; Parts PPT</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Doc 07</strong></td>
+<td style="text-align: left;"><code>units/unit-02-cells-and-transport/tests/test-doc-07-transport-situation-cards.html</code></td>
+<td style="text-align: left;">In-class 15 Transport Situation Cards</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Doc 08</strong></td>
+<td style="text-align: left;"><code>units/unit-02-cells-and-transport/tests/test-doc-08-cell-transport-student-packet.html</code></td>
+<td style="text-align: left;">Part 1 Student Packet Review Questions</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Doc 09</strong></td>
+<td style="text-align: left;"><code>units/unit-02-cells-and-transport/tests/test-doc-09-cell-structure-student-packet.html</code></td>
+<td style="text-align: left;">Part 2 Student Packet Organelle Drills</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cheat Sheet</strong></td>
+<td style="text-align: left;"><code>units/unit-02-cells-and-transport/cell_transport_final_cheat_sheet.html</code></td>
+<td style="text-align: left;">1-Column Printable Walk-In Review</td>
+<td style="text-align: center;">Ref</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="5-curriculum-standards-map-georgia-gse-sb1sb6">🧬 5. Curriculum Standards Map (Georgia GSE SB1–SB6)</h2>
+<p>When adding materials or generating tests, agents must map concepts to these exact codes:</p>
+<ul>
+<li><strong><code>SB1</code> — Cellular Structure &amp; Function</strong></li>
+<li><code>SB1.a</code>: Cell structures, organelles, and functions in maintaining homeostasis.</li>
+<li><code>SB1.b</code>: Role of cellular reproduction (mitosis &amp; cell cycle) in maintaining genetic continuity.</li>
+<li><code>SB1.c</code>: Macromolecules (carbohydrates, lipids, proteins, nucleic acids) and role of enzymes.</li>
+<li><code>SB1.d</code>: Selective permeability of cell membranes and transport mechanisms (passive vs. active).</li>
+<li><code>SB1.e</code>: Energy transformations (cellular respiration and photosynthesis, ATP cycle).</li>
+<li><strong><code>SB2</code> — Molecular Genetics &amp; Biotechnology</strong></li>
+<li><code>SB2.a</code>: DNA and RNA structure, replication, transcription, translation (Central Dogma).</li>
+<li><code>SB2.b</code>: Role of DNA mutations in causing genetic variation.</li>
+<li><code>SB2.c</code>: Societal, ethical, and environmental impacts of biotechnology (PCR, gel electrophoresis, CRISPR).</li>
+<li><strong><code>SB3</code> — Heredity &amp; Patterns of Inheritance</strong></li>
+<li><code>SB3.a</code>: Meiosis, crossing over, independent assortment, and gametogenesis.</li>
+<li><code>SB3.b</code>: Mendelian and non-Mendelian inheritance (incomplete dominance, codominance, sex-linked, multiple alleles).</li>
+<li><code>SB3.c</code>: Pedigree analysis and karyotypes to track genetic disorders.</li>
+<li><strong><code>SB4</code> — Classification &amp; Biodiversity</strong></li>
+<li><code>SB4.a</code>: Organism classification based on evolutionary relationships and taxonomy (3 Domains, 6 Kingdoms).</li>
+<li><code>SB4.b</code>: Cladograms, phylogenetic trees, and dichotomous keys.</li>
+<li><strong><code>SB5</code> — Ecology &amp; Ecosystem Dynamics</strong></li>
+<li><code>SB5.a</code>: Interdependence of organisms, trophic pyramids, 10% rule, and food webs.</li>
+<li><code>SB5.b</code>: Biogeochemical cycles (Carbon, Nitrogen, Water, Phosphorus).</li>
+<li><code>SB5.c</code>: Population ecology (carrying capacity, limiting factors, ecological succession).</li>
+<li><strong><code>SB6</code> — Evolution &amp; Natural Selection</strong></li>
+<li><code>SB6.a</code>: Natural selection mechanisms (variation, overproduction, differential survival).</li>
+<li><code>SB6.b</code>: Evidence for evolution (fossil record, anatomical homologies, embryology, molecular sequences).</li>
+<li><code>SB6.c</code>: Genetic drift, gene flow, mutations, and non-random mating.</li>
+<li><code>SB6.d</code>: Speciation and reproductive isolation mechanisms.</li>
+<li><code>SB6.e</code>: Hardy-Weinberg equilibrium modeling.</li>
+</ul>
+<hr />
+<h2 id="6-rules-protocols-for-future-agents">🛠️ 6. Rules &amp; Protocols for Future Agents</h2>
+<p>Whenever an agent performs work in <code>/Volumes/Backup/Antony/HighSchool/Grade9/Biology-Honors-V2</code>, the following rules <strong>MUST</strong> be obeyed:</p>
+<h3 id="rule-1-zero-broken-relative-links">Rule 1: Zero Broken Relative Links</h3>
+<p>Never push code without running the validation script:</p>
+<pre><code class="language-bash">python3 -c '
+import os, re, urllib.parse
+from pathlib import Path
+
+root = Path(&quot;.&quot;)
+html_md_files = list(root.glob(&quot;**/*.html&quot;)) + list(root.glob(&quot;**/*.md&quot;))
+broken = []
+checked = 0
+
+for f in html_md_files:
+    if &quot;.git&quot; in f.parts: continue
+    try: content = f.read_text(encoding=&quot;utf-8&quot;, errors=&quot;ignore&quot;)
+    except Exception: continue
+    content_no_code = re.sub(r&quot;```[\s\S]*?```&quot;, &quot;&quot;, content)
+    html_links = re.findall(r&quot;href=[\&quot;\x27]([^\s\&quot;\x27&gt;]+)[\&quot;\x27]&quot;, content_no_code)
+    md_links = re.findall(r&quot;\[[^\]]*\]\(([^)\s]+)\)&quot;, content_no_code)
+    for raw_link in html_links + md_links:
+        if raw_link.startswith((&quot;http://&quot;, &quot;https://&quot;, &quot;mailto:&quot;, &quot;javascript:&quot;, &quot;#&quot;)): continue
+        clean_link = urllib.parse.unquote(raw_link.split(&quot;?&quot;)[0].split(&quot;#&quot;)[0])
+        link_path = (f.parent / clean_link).resolve()
+        checked += 1
+        if not link_path.exists():
+            broken.append((str(f.relative_to(root)), raw_link))
+
+print(f&quot;Checked {checked} relative links across {len(html_md_files)} files.&quot;)
+if broken:
+    print(f&quot;❌ Found {len(broken)} broken link(s):&quot;)
+    for src, l in broken: print(f&quot;  {src} -&gt; {l}&quot;)
+    exit(1)
+else:
+    print(&quot;✅ All relative links are 100% valid! Zero broken links.&quot;)
+'
+</code></pre>
+<h3 id="rule-2-ingesting-new-units-units-0310">Rule 2: Ingesting New Units (Units 03–10)</h3>
+<p>Follow the 6-phase playbook documented in <a href="ACADEMIC_YEAR_PLAN_AND_UNIT_PLAYBOOK.html"><code>ACADEMIC_YEAR_PLAN_AND_UNIT_PLAYBOOK.md</code></a>:<br />
+1. <strong>Ingest:</strong> Download PDFs to <code>units/unit-XX-[name]/materials/pdf/</code>.<br />
+2. <strong>Digest:</strong> Extract clean markdown notes into <code>units/unit-XX-[name]/materials/md/</code>.<br />
+3. <strong>Build:</strong> Create <code>test-vocab-mastery.html</code>, <code>test-concept-application.html</code>, and <code>test-unit-XX-summative-mastery.html</code> using the standardized quiz engine template.<br />
+4. <strong>Wire:</strong> Update <code>units/unit-XX/README.md</code>, <code>tests/index.html</code>, root <code>index.html</code>, and <code>schedule/semester-1.md</code> or <code>semester-2.md</code>.<br />
+5. <strong>Audit:</strong> Execute the Python link verification script.<br />
+6. <strong>Deploy:</strong> <code>git commit</code> and <code>git push origin main</code>. Confirm status <code>"built"</code> via <code>gh api</code>.</p>
+<h3 id="rule-3-maintain-backward-compatibility">Rule 3: Maintain Backward Compatibility</h3>
+<p>Do NOT delete or rename files in <code>Week-9-7/tests/</code> or <code>unit01-tests/</code>. These redirect stubs ensure that any historical browser bookmarks continue to route seamlessly to the new unit locations.</p>
+<h3 id="rule-4-sole-repository-standard">Rule 4: Sole Repository Standard</h3>
+<p>The legacy V1 repository has been decommissioned and deleted. Do not attempt to push or reference <code>MegaAntony/biology-honors</code>. All work belongs exclusively to <code>MegaAntony/high-school-biology-i-honors</code>.</p>
+      </article>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800 bg-slate-950 py-8 text-center text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>Grade 9 Biology I Honors • South Forsyth High School • Dr. Sarah Irwin</p>
+      <div class="flex items-center gap-4">
+        <a href="./index.html" class="hover:text-slate-300 transition">Portal Home</a>
+        <a href="./schedule/semester-1.html" class="hover:text-slate-300 transition">Schedule</a>
+        <a href="./notInLocal.html" class="hover:text-slate-300 transition">Cloud Links</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

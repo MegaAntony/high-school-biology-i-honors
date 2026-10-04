@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Section 4: Cell Organelles - Biology I Honors</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    code, pre { font-family: 'JetBrains Mono', monospace; }
+    
+    /* Markdown Content Typography */
+    .prose-biology h1 {
+      font-size: 1.875rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #334155;
+      letter-spacing: -0.025em;
+    }
+    .prose-biology h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+    .prose-biology h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #38bdf8;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .prose-biology h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #34d399;
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .prose-biology p {
+      color: #cbd5e1;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    .prose-biology strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .prose-biology ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+      color: #cbd5e1;
+    }
+    .prose-biology ol {
+      list-style-type: decimal;
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+      color: #cbd5e1;
+    }
+    .prose-biology li {
+      margin-bottom: 0.375rem;
+      line-height: 1.6;
+    }
+    .prose-biology li strong {
+      color: #f8fafc;
+    }
+    .prose-biology a {
+      color: #38bdf8;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.15s ease;
+    }
+    .prose-biology a:hover {
+      color: #7dd3fc;
+      text-decoration: none;
+    }
+    .prose-biology blockquote {
+      border-left: 4px solid #10b981;
+      background-color: rgba(16, 185, 129, 0.08);
+      padding: 0.75rem 1rem;
+      margin: 1.25rem 0;
+      border-radius: 0 0.5rem 0.5rem 0;
+      color: #e2e8f0;
+      font-style: italic;
+    }
+    .prose-biology blockquote p {
+      margin-bottom: 0;
+      color: #e2e8f0;
+    }
+    .prose-biology code {
+      background-color: #1e293b;
+      color: #fbbf24;
+      padding: 0.2rem 0.4rem;
+      border-radius: 0.375rem;
+      font-size: 0.85em;
+      border: 1px solid #334155;
+    }
+    .prose-biology pre {
+      background-color: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 0.75rem;
+      padding: 1rem;
+      overflow-x: auto;
+      margin: 1.25rem 0;
+    }
+    .prose-biology pre code {
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      color: #34d399;
+      font-size: 0.875rem;
+    }
+    .prose-biology hr {
+      border: 0;
+      border-top: 1px solid #334155;
+      margin: 2rem 0;
+    }
+    /* Table Styling */
+    .prose-biology table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.875rem;
+      background-color: #1e293b;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      border: 1px solid #334155;
+    }
+    .prose-biology th {
+      background-color: #0f172a;
+      color: #34d399;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.75rem;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #334155;
+      text-align: left;
+    }
+    .prose-biology td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #334155;
+      color: #cbd5e1;
+      vertical-align: top;
+    }
+    .prose-biology tr:last-child td {
+      border-bottom: none;
+    }
+    .prose-biology tr:nth-child(even) td {
+      background-color: rgba(15, 23, 42, 0.4);
+    }
+    .prose-biology tr:hover td {
+      background-color: rgba(51, 65, 85, 0.4);
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between">
+
+  <!-- HEADER -->
+  <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="../../../../index.html" class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center text-slate-950 font-black text-lg shadow-lg shadow-emerald-500/20 hover:scale-105 transition">
+          <i class="fa-solid fa-dna"></i>
+        </a>
+        <div>
+          <a href="../../../../index.html" class="text-lg font-black tracking-tight text-white hover:text-emerald-400 transition">Biology I Honors V2</a>
+          <p class="text-xs text-slate-400 font-medium">South Forsyth High School • Dr. Irwin (2026/2027)</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2.5">
+        <a href="../../../../index.html" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 px-3.5 py-2 rounded-xl border border-slate-700 transition flex items-center gap-1.5">
+          <i class="fa-solid fa-house text-emerald-400"></i> Home
+        </a>
+        <a href="../../../../schedule/semester-1.html" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 px-3.5 py-2 rounded-xl border border-slate-700 transition flex items-center gap-1.5">
+          <i class="fa-regular fa-calendar text-teal-400"></i> S1 Schedule
+        </a>
+        <a href="../../../../units/unit-02-cells-and-transport/tests/index.html" class="text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-md shadow-emerald-600/30">
+          <i class="fa-solid fa-vial"></i> Practice Tests
+        </a>
+        <a href="../../../../notInLocal.html" class="text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-md shadow-indigo-600/30 hidden sm:flex">
+          <i class="fa-solid fa-cloud"></i> Cloud Links
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB & CONTENT CONTAINER -->
+  <main class="max-w-5xl mx-auto px-6 py-8 flex-1 w-full space-y-6">
+
+    <!-- BREADCRUMB -->
+    <nav class="flex items-center gap-2 text-xs text-slate-400">
+      <a href="../../../../index.html" class="hover:text-emerald-400 transition flex items-center gap-1">
+        <i class="fa-solid fa-house text-[10px]"></i> Home
+      </a>
+      <i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i>
+      <span class="text-slate-400">Units</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i> <span class="text-slate-400">Unit 02 Cells And Transport</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i> <span class="text-slate-400">Materials</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i> <span class="text-slate-400">Md</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i>
+      <span class="text-slate-200 font-semibold truncate max-w-xs">Section 4: Cell Organelles</span>
+    </nav>
+
+    <!-- CONTENT CARD -->
+    <div class="bg-slate-800/60 border border-slate-700/60 rounded-3xl p-6 sm:p-10 shadow-xl backdrop-blur">
+      <article class="prose-biology">
+        <h1 id="section-4-cell-organelles">Section 4: Cell Organelles</h1>
+<p><strong>Source:</strong> <code>Cells 1_ Organelles.pdf</code><br />
+<strong>Course:</strong> Biology I Honors — Unit 2: Cells and Cell Transport<br />
+<strong>Document Type:</strong> Slide Deck &amp; Supplemental Study Guide</p>
+<hr />
+<h2 id="learning-targets">🎯 Learning Targets</h2>
+<ul>
+<li><strong>Target 1:</strong> I can explain how organelles interact as a system to help cells maintain <strong>homeostasis</strong>.</li>
+<li><strong>Target 2:</strong> I can match each organelle to its correct physical description and function.</li>
+</ul>
+<hr />
+<h2 id="cell-organelles-background-systems-concept">🔬 Cell Organelles: Background &amp; Systems Concept</h2>
+<ul>
+<li><strong>Organelles:</strong> Small, specialized structures inside a cell that perform specific cellular functions.</li>
+<li><strong>System Concept:</strong> When organelles all work together seamlessly as an integrated system, the cell maintains <strong>homeostasis</strong> (the stable, balanced internal environment required for survival).</li>
+<li><strong>Review Question:</strong> <em>What is homeostasis?</em></li>
+<li><strong>Answer:</strong> Homeostasis is the ability of an organism or cell to regulate and maintain a constant, stable internal physiological environment despite fluctuating external conditions.</li>
+</ul>
+<hr />
+<h2 id="organelle-directory-structure-and-function">🧱 Organelle Directory: Structure and Function</h2>
+<h3 id="1-cytoplasm">1. Cytoplasm</h3>
+<ul>
+<li><strong>Physical Description:</strong> A jelly-like, fluid substance (cytosol) filling the interior of the cell.</li>
+<li><strong>Function:</strong> Contains dissolved nutrients, ions, and biomolecules; cushions and suspends all of the cell’s organelles.</li>
+</ul>
+<h3 id="2-cytoskeleton">2. Cytoskeleton</h3>
+<ul>
+<li><strong>Physical Description:</strong> An extensive network of structural proteins (microfilaments, intermediate filaments, and microtubules).</li>
+<li><strong>Function:</strong> Provides structural framework and shape for the cell; enables intracellular transport and anchors organelles in designated positions.</li>
+</ul>
+<h3 id="3-nucleus">3. Nucleus</h3>
+<ul>
+<li><strong>Physical Description:</strong> Enclosed by a double-membrane <strong>nuclear envelope</strong> perforated with nuclear pores that strictly regulate molecular traffic. Contains chromatin (DNA and proteins) and the nucleolus.</li>
+<li><strong>Function:</strong> </li>
+<li>Storehouse and guardian for the cell’s genetic material (DNA).</li>
+<li>Balances two major operational demands:<ol>
+<li><strong>DNA must be protected</strong> from damage within the cytoplasm.</li>
+<li><strong>DNA must be accessible</strong> for transcription into RNA to direct protein synthesis.</li>
+</ol>
+</li>
+</ul>
+<h3 id="4-mitochondria">4. Mitochondria</h3>
+<ul>
+<li><strong>Physical Description:</strong> Bean-shaped organelle with a smooth outer membrane and an inner membrane folded into extensive ridges called <strong>cristae</strong>.</li>
+<li>Contains its own unique circular DNA and independent ribosomes.</li>
+<li><strong>Evolutionary Note (Endosymbiotic Theory):</strong> These traits strongly indicate that mitochondria were once ancient, free-living aerobic prokaryotes engulfed by primitive eukaryotic host cells.</li>
+<li><strong>Function:</strong> The powerhouse of the cell; produces cellular energy in the form of <strong>ATP</strong> via cellular respiration.</li>
+</ul>
+<h3 id="5-golgi-apparatus">5. Golgi Apparatus</h3>
+<ul>
+<li><strong>Physical Description:</strong> Closely layered stacks of membrane-enclosed flattened sacs (cisternae).</li>
+<li><strong>Function:</strong> Modifies, sorts, packages, and tags proteins and lipids received from the ER; dispatches them in membrane-bound <strong>vesicles</strong> to destinations inside or outside the cell.</li>
+<li><em>Vesicles:</em> Small, membrane-bound transport spheres that isolate and move substances throughout the cytoplasm.</li>
+</ul>
+<h3 id="6-ribosomes">6. Ribosomes</h3>
+<ul>
+<li><strong>Physical Description:</strong> Non-membrane-bound complexes composed of ribosomal RNA (rRNA) and catalytic proteins; consist of a large and small subunit.</li>
+<li><strong>Function:</strong> The site of protein synthesis (translation); reads messenger RNA (mRNA) sequences and links transfer RNA (tRNA)-delivered amino acids into polypeptide chains.</li>
+</ul>
+<h3 id="7-endoplasmic-reticulum-er">7. Endoplasmic Reticulum (ER)</h3>
+<p>The ER is an extensive, continuous labyrinth of folded membranes extending from the nuclear envelope:</p>
+<div class="overflow-x-auto my-4"><table>
+<thead>
+<tr>
+<th style="text-align: left;">Feature</th>
+<th style="text-align: left;">Rough Endoplasmic Reticulum (Rough ER)</th>
+<th style="text-align: left;">Smooth Endoplasmic Reticulum (Smooth ER)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Physical Appearance</strong></td>
+<td style="text-align: left;">Studded with ribosomes across outer surface; rough/granular texture</td>
+<td style="text-align: left;">Free of ribosomes; smooth, tubular membranous network</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Primary Functions</strong></td>
+<td style="text-align: left;">• Synthesis and processing of proteins destined for membranes or secretion<br>• Initial protein folding and glycosylation inside lumen</td>
+<td style="text-align: left;">• Synthesis of essential lipids (phospholipids, steroids)<br>• Detoxification of drugs, alcohol, and metabolic poisons<br>• Calcium ion ($Ca^{2+}$) storage</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="check-for-understanding-day-1">📝 Check for Understanding: Day 1</h2>
+<h3 id="day-1-closer-questions">Day 1 Closer Questions</h3>
+<ol>
+<li><strong>Which image shows Rough ER? Which image shows Smooth ER?</strong><br />
+   - <em>Image with studded dots (ribosomes) represents Rough ER; tubular network without dots represents Smooth ER.</em></li>
+<li><strong>Why do they look different?</strong><br />
+   - <em>Rough ER appears bumpy because it is embedded with ribosomes on its cytosolic face for protein synthesis. Smooth ER lacks ribosomes because its specialized enzymatic machinery is dedicated to lipid metabolism and toxin breakdown.</em></li>
+</ol>
+<hr />
+<h2 id="warm-up-day-2-systems-organelle-interactions">📝 Warm Up: Day 2 — Systems &amp; Organelle Interactions</h2>
+<blockquote>
+<p><em>Statement: Organelles interact as a system within a cell to maintain homeostasis. Each one plays an important role.</em></p>
+</blockquote>
+<ol>
+<li><strong>Support this statement with 3 examples of organelles. Name each organelle and explain why it is important to the cell:</strong><br />
+   - <strong>Nucleus:</strong> Houses DNA and provides the genetic blueprints for cellular enzymes and structural proteins.<br />
+   - <strong>Ribosomes:</strong> Directly translate RNA messages from the nucleus to synthesize essential functional proteins.<br />
+   - <strong>Mitochondria:</strong> Generate ATP to power active transport, chemical biosynthesis, and cellular movement.</li>
+<li><strong>If one organelle fails to perform its role, what would happen to the cell?</strong><br />
+   - <em>Because organelles operate as an interconnected system, the failure of a single organelle disrupts cellular homeostasis. For instance, if the mitochondria fail, ATP levels plummet, protein synthesis halts, active transport across the cell membrane collapses, and the cell undergoes apoptosis or necrosis.</em></li>
+</ol>
+<hr />
+<h2 id="additional-organelles-specialized-structures">🧬 Additional Organelles &amp; Specialized Structures</h2>
+<h3 id="8-lysosomes">8. Lysosomes</h3>
+<ul>
+<li><strong>Physical Description:</strong> Spherical, single membrane-bound organelles filled with powerful digestive enzymes (hydrolases) that operate at an acidic pH.</li>
+<li><strong>Function:</strong></li>
+<li>Serves as the cell’s waste disposal and recycling center: breaks down damaged, worn-out organelles (autophagy).</li>
+<li>Defends the cell against invading pathogens by fusing with phagocytic vacuoles to destroy engulfed bacteria and viruses.</li>
+</ul>
+<h3 id="9-centrosome-with-centrioles">9. Centrosome (with Centrioles)</h3>
+<ul>
+<li><strong>Physical Description:</strong> Specialized non-membrane-bound region located near the nucleus in <strong>animal cells</strong>; contains a pair of barrel-shaped microtubule structures called <strong>centrioles</strong>.</li>
+<li><strong>Function:</strong></li>
+<li>Coordinates spindle fiber formation to separate chromosomes during cell division (mitosis and meiosis).</li>
+<li>Organizes the basal bodies that nucleate cilia and flagella.</li>
+</ul>
+<h3 id="10-cell-membrane-plasma-membrane">10. Cell Membrane (Plasma Membrane)</h3>
+<ul>
+<li><strong>Physical Description:</strong> Flexible phospholipid bilayer with embedded integral/peripheral proteins and cholesterol.</li>
+<li><strong>Function:</strong></li>
+<li>Defines cellular boundary; establishes selective permeability.</li>
+<li>Regulates the import and export of nutrients, ions, signaling molecules, and wastes to preserve internal equilibrium.</li>
+</ul>
+<h3 id="11-vacuoles">11. Vacuoles</h3>
+<ul>
+<li><strong>Physical Description:</strong> Membrane-bound storage sacs.</li>
+<li><strong>Animal Cells:</strong> Multiple small, temporary vacuoles scattered throughout the cytoplasm.</li>
+<li><strong>Plant Cells:</strong> A single, massive <strong>central vacuole</strong> occupying up to 90% of mature cell volume.</li>
+<li><strong>Function:</strong></li>
+<li>Stores water, carbohydrates, mineral salts, and metabolic byproducts.</li>
+<li>In plant cells, maintains hydrostatic pressure (<strong>turgor pressure</strong>) against the rigid cell wall, providing structural rigidity to the plant.</li>
+</ul>
+<h3 id="12-cell-wall">12. Cell Wall</h3>
+<ul>
+<li><strong>Physical Description:</strong> Rigid outer protective layer located immediately outside the plasma membrane.</li>
+<li>Found in: <strong>Plants &amp; Algae</strong> (cellulose), <strong>Fungi</strong> (chitin), and <strong>Bacteria</strong> (peptidoglycan). <em>Never found in animal cells.</em></li>
+<li><strong>Function:</strong> Provides structural support, tensile strength, protection against physical damage, and prevents cell lysis in hypotonic environments.</li>
+</ul>
+<h3 id="13-chloroplasts">13. Chloroplasts</h3>
+<ul>
+<li><strong>Physical Description:</strong> Double membrane-bound organelle containing thylakoid disks stacked into grana, surrounded by stroma.</li>
+<li>Found exclusively in plant cells and photosynthetic algae.</li>
+<li>Contains own circular DNA and 70S ribosomes (evidence of endosymbiosis).</li>
+<li><strong>Function:</strong> Absorbs solar radiant energy using chlorophyll pigments to convert carbon dioxide and water into glucose during <strong>photosynthesis</strong>.</li>
+</ul>
+<hr />
+<h2 id="check-for-understanding-day-2">📝 Check for Understanding: Day 2</h2>
+<h3 id="day-2-closer-questions-answers">Day 2 Closer Questions &amp; Answers</h3>
+<ol>
+<li>
+<p><strong>Name 2 organelles that are found ONLY in plant cells:</strong><br />
+   - <strong>Chloroplasts</strong> (for photosynthesis)<br />
+   - <strong>Cell Wall</strong> (made of cellulose; provides rigid support)<br />
+   - <em>(Note: A large central vacuole is also distinctively plant-specific compared to small animal vacuoles).</em></p>
+</li>
+<li>
+<p><strong>Name 1 organelle/structure that is found ONLY in animal cells (among plants vs. animals):</strong><br />
+   - <strong>Centrioles / Centrosomes</strong> (plants organize spindles without centrioles)<br />
+   - <strong>Lysosomes</strong> (predominantly animal; vacuoles perform hydrolytic functions in plants).</p>
+</li>
+<li>
+<p><strong>Describe how vacuoles differ between plant and animal cells:</strong><br />
+   - <em>Plant cells contain a single, huge Central Vacuole that stores water and exerts turgor pressure to maintain upright plant posture. Animal cells have multiple, small, scattered vacuoles used for temporary storage and transport.</em></p>
+</li>
+<li>
+<p><strong>Name at least 5 organelles/structures found in BOTH plant and animal cells:</strong></p>
+</li>
+<li><strong>Nucleus</strong></li>
+<li><strong>Mitochondria</strong></li>
+<li><strong>Ribosomes</strong></li>
+<li><strong>Endoplasmic Reticulum (Rough &amp; Smooth)</strong></li>
+<li><strong>Golgi Apparatus</strong></li>
+<li><em>(Also: Cell Membrane, Cytoplasm, Cytoskeleton).</em></li>
+</ol>
+<hr />
+<h2 id="summary-comparison-plant-vs-animal-vs-bacterial-cells">📊 Summary Comparison: Plant vs. Animal vs. Bacterial Cells</h2>
+<div class="overflow-x-auto my-4"><table>
+<thead>
+<tr>
+<th style="text-align: left;">Organelle / Structure</th>
+<th style="text-align: center;">Plant Cells</th>
+<th style="text-align: center;">Animal Cells</th>
+<th style="text-align: center;">Bacterial Cells</th>
+<th style="text-align: left;">Primary Cellular Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Cell Membrane</strong></td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: left;">Selectively permeable barrier</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cell Wall</strong></td>
+<td style="text-align: center;">Yes (Cellulose)</td>
+<td style="text-align: center;"><strong>No</strong></td>
+<td style="text-align: center;">Yes (Peptidoglycan)</td>
+<td style="text-align: left;">Rigid protection &amp; structural shape</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Nucleus</strong></td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;"><strong>No</strong> (Nucleoid)</td>
+<td style="text-align: left;">Stores genetic information (DNA)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ribosomes</strong></td>
+<td style="text-align: center;">Yes (80S)</td>
+<td style="text-align: center;">Yes (80S)</td>
+<td style="text-align: center;">Yes (70S)</td>
+<td style="text-align: left;">Protein synthesis (translation)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Endoplasmic Reticulum</strong></td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;"><strong>No</strong></td>
+<td style="text-align: left;">Protein &amp; lipid biosynthesis</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Golgi Apparatus</strong></td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;"><strong>No</strong></td>
+<td style="text-align: left;">Modifies, packages, &amp; sorts proteins</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Mitochondria</strong></td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;"><strong>No</strong></td>
+<td style="text-align: left;">ATP production via aerobic respiration</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Chloroplasts</strong></td>
+<td style="text-align: center;"><strong>Yes</strong></td>
+<td style="text-align: center;"><strong>No</strong></td>
+<td style="text-align: center;"><strong>No</strong></td>
+<td style="text-align: left;">Photosynthesis (solar $</td>
+</tr>
+<tr>
+<td style="text-align: left;">ightarrow$ chemical)</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Vacuole(s)</strong></td>
+<td style="text-align: center;"><strong>1 Large Central</strong></td>
+<td style="text-align: center;">Multiple Small</td>
+<td style="text-align: center;">Rare / absent</td>
+<td style="text-align: left;">Storage and turgor regulation</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Lysosomes</strong></td>
+<td style="text-align: center;">Very Rare / No</td>
+<td style="text-align: center;"><strong>Yes</strong></td>
+<td style="text-align: center;"><strong>No</strong></td>
+<td style="text-align: left;">Intracellular enzymatic digestion</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Centrioles</strong></td>
+<td style="text-align: center;"><strong>No</strong></td>
+<td style="text-align: center;"><strong>Yes</strong></td>
+<td style="text-align: center;"><strong>No</strong></td>
+<td style="text-align: left;">Mitotic spindle organization</td>
+</tr>
+</tbody>
+</table></div>
+      </article>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800 bg-slate-950 py-8 text-center text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>Grade 9 Biology I Honors • South Forsyth High School • Dr. Sarah Irwin</p>
+      <div class="flex items-center gap-4">
+        <a href="../../../../index.html" class="hover:text-slate-300 transition">Portal Home</a>
+        <a href="../../../../schedule/semester-1.html" class="hover:text-slate-300 transition">Schedule</a>
+        <a href="../../../../notInLocal.html" class="hover:text-slate-300 transition">Cloud Links</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

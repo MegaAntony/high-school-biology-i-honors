@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cell Transport Gimkit Study Guide  Practice Questions - Biology I Honors</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    code, pre { font-family: 'JetBrains Mono', monospace; }
+    
+    /* Markdown Content Typography */
+    .prose-biology h1 {
+      font-size: 1.875rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #334155;
+      letter-spacing: -0.025em;
+    }
+    .prose-biology h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+    .prose-biology h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #38bdf8;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .prose-biology h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #34d399;
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .prose-biology p {
+      color: #cbd5e1;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    .prose-biology strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .prose-biology ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+      color: #cbd5e1;
+    }
+    .prose-biology ol {
+      list-style-type: decimal;
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+      color: #cbd5e1;
+    }
+    .prose-biology li {
+      margin-bottom: 0.375rem;
+      line-height: 1.6;
+    }
+    .prose-biology li strong {
+      color: #f8fafc;
+    }
+    .prose-biology a {
+      color: #38bdf8;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.15s ease;
+    }
+    .prose-biology a:hover {
+      color: #7dd3fc;
+      text-decoration: none;
+    }
+    .prose-biology blockquote {
+      border-left: 4px solid #10b981;
+      background-color: rgba(16, 185, 129, 0.08);
+      padding: 0.75rem 1rem;
+      margin: 1.25rem 0;
+      border-radius: 0 0.5rem 0.5rem 0;
+      color: #e2e8f0;
+      font-style: italic;
+    }
+    .prose-biology blockquote p {
+      margin-bottom: 0;
+      color: #e2e8f0;
+    }
+    .prose-biology code {
+      background-color: #1e293b;
+      color: #fbbf24;
+      padding: 0.2rem 0.4rem;
+      border-radius: 0.375rem;
+      font-size: 0.85em;
+      border: 1px solid #334155;
+    }
+    .prose-biology pre {
+      background-color: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 0.75rem;
+      padding: 1rem;
+      overflow-x: auto;
+      margin: 1.25rem 0;
+    }
+    .prose-biology pre code {
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      color: #34d399;
+      font-size: 0.875rem;
+    }
+    .prose-biology hr {
+      border: 0;
+      border-top: 1px solid #334155;
+      margin: 2rem 0;
+    }
+    /* Table Styling */
+    .prose-biology table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.875rem;
+      background-color: #1e293b;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      border: 1px solid #334155;
+    }
+    .prose-biology th {
+      background-color: #0f172a;
+      color: #34d399;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.75rem;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #334155;
+      text-align: left;
+    }
+    .prose-biology td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #334155;
+      color: #cbd5e1;
+      vertical-align: top;
+    }
+    .prose-biology tr:last-child td {
+      border-bottom: none;
+    }
+    .prose-biology tr:nth-child(even) td {
+      background-color: rgba(15, 23, 42, 0.4);
+    }
+    .prose-biology tr:hover td {
+      background-color: rgba(51, 65, 85, 0.4);
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between">
+
+  <!-- HEADER -->
+  <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="../../../../index.html" class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center text-slate-950 font-black text-lg shadow-lg shadow-emerald-500/20 hover:scale-105 transition">
+          <i class="fa-solid fa-dna"></i>
+        </a>
+        <div>
+          <a href="../../../../index.html" class="text-lg font-black tracking-tight text-white hover:text-emerald-400 transition">Biology I Honors V2</a>
+          <p class="text-xs text-slate-400 font-medium">South Forsyth High School • Dr. Irwin (2026/2027)</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2.5">
+        <a href="../../../../index.html" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 px-3.5 py-2 rounded-xl border border-slate-700 transition flex items-center gap-1.5">
+          <i class="fa-solid fa-house text-emerald-400"></i> Home
+        </a>
+        <a href="../../../../schedule/semester-1.html" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 px-3.5 py-2 rounded-xl border border-slate-700 transition flex items-center gap-1.5">
+          <i class="fa-regular fa-calendar text-teal-400"></i> S1 Schedule
+        </a>
+        <a href="../../../../units/unit-02-cells-and-transport/tests/index.html" class="text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-md shadow-emerald-600/30">
+          <i class="fa-solid fa-vial"></i> Practice Tests
+        </a>
+        <a href="../../../../notInLocal.html" class="text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-md shadow-indigo-600/30 hidden sm:flex">
+          <i class="fa-solid fa-cloud"></i> Cloud Links
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB & CONTENT CONTAINER -->
+  <main class="max-w-5xl mx-auto px-6 py-8 flex-1 w-full space-y-6">
+
+    <!-- BREADCRUMB -->
+    <nav class="flex items-center gap-2 text-xs text-slate-400">
+      <a href="../../../../index.html" class="hover:text-emerald-400 transition flex items-center gap-1">
+        <i class="fa-solid fa-house text-[10px]"></i> Home
+      </a>
+      <i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i>
+      <span class="text-slate-400">Units</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i> <span class="text-slate-400">Unit 02 Cells And Transport</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i> <span class="text-slate-400">Materials</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i> <span class="text-slate-400">Md</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i>
+      <span class="text-slate-200 font-semibold truncate max-w-xs">🧪 Cell Transport Gimkit Study Guide &amp; Practic...</span>
+    </nav>
+
+    <!-- CONTENT CARD -->
+    <div class="bg-slate-800/60 border border-slate-700/60 rounded-3xl p-6 sm:p-10 shadow-xl backdrop-blur">
+      <article class="prose-biology">
+        <h1 id="cell-transport-gimkit-study-guide-practice-questions">🧪 Cell Transport Gimkit Study Guide &amp; Practice Questions</h1>
+<p><strong>Course:</strong> Biology I Honors (<code>30115y - Irwin - 501</code>)<br />
+<strong>Topic:</strong> Unit 2 — Cell Membrane &amp; Transport<br />
+<strong>Original Gimkit:</strong> <a href="https://www.gimkit.com/view/670d0136793b46bcc986e6e1">Cell Transport Gimkit</a>  </p>
+<hr />
+<h2 id="master-question-answer-reference-table">📋 Master Question &amp; Answer Reference Table</h2>
+<div class="overflow-x-auto my-4"><table>
+<thead>
+<tr>
+<th style="text-align: center;">#</th>
+<th style="text-align: left;">Question / Prompt</th>
+<th style="text-align: left;">Correct Answer</th>
+<th style="text-align: left;">Category</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Something that can dissolve in water is called a _____.</td>
+<td style="text-align: left;"><strong>solute</strong></td>
+<td style="text-align: left;">Solutions</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">The bulk transportation of material into the cell</td>
+<td style="text-align: left;"><strong>Endocytosis</strong></td>
+<td style="text-align: left;">Active Transport</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">When a vesicle forces material out of the cell</td>
+<td style="text-align: left;"><strong>Exocytosis</strong></td>
+<td style="text-align: left;">Active Transport</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">This type of transport requires energy.</td>
+<td style="text-align: left;"><strong>active</strong></td>
+<td style="text-align: left;">Transport Types</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;">Water <strong><em>_</em></strong> the cell when placed in a hypotonic solution.</td>
+<td style="text-align: left;"><strong>enters</strong></td>
+<td style="text-align: left;">Tonicity &amp; Osmosis</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;">A cell containing 10% salt is submerged in a solution that is 50% salt. What will happen to the cell? <em>(Dilute the solute!)</em></td>
+<td style="text-align: left;"><strong>The cell will shrink.</strong></td>
+<td style="text-align: left;">Tonicity &amp; Osmosis</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: left;">A ______ is a mixture of solute and solvent.</td>
+<td style="text-align: left;"><strong>solution</strong></td>
+<td style="text-align: left;">Solutions</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: left;">In this type of solution, the cell will not change size.</td>
+<td style="text-align: left;"><strong>isotonic</strong></td>
+<td style="text-align: left;">Tonicity &amp; Osmosis</td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td style="text-align: left;">When particles move from a high concentration to a low concentration.</td>
+<td style="text-align: left;"><strong>Diffusion</strong></td>
+<td style="text-align: left;">Passive Transport</td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td style="text-align: left;">Osmosis is a type of <strong><em>_</em></strong> transport.</td>
+<td style="text-align: left;"><strong>passive</strong></td>
+<td style="text-align: left;">Passive Transport</td>
+</tr>
+<tr>
+<td style="text-align: center;">11</td>
+<td style="text-align: left;">Small molecules can move into and out of the cell easily by</td>
+<td style="text-align: left;"><strong>diffusion</strong></td>
+<td style="text-align: left;">Passive Transport</td>
+</tr>
+<tr>
+<td style="text-align: center;">12</td>
+<td style="text-align: left;">Pumps ions into or out of the cell using energy and a transport protein</td>
+<td style="text-align: left;"><strong>Molecular pump</strong></td>
+<td style="text-align: left;">Active Transport</td>
+</tr>
+<tr>
+<td style="text-align: center;">13</td>
+<td style="text-align: left;">Moves larger molecules like sugar into or out of the cell through a protein channel without using energy</td>
+<td style="text-align: left;"><strong>facilitated diffusion</strong></td>
+<td style="text-align: left;">Passive Transport</td>
+</tr>
+<tr>
+<td style="text-align: center;">14</td>
+<td style="text-align: left;">Transport that involves substances going from an area of low concentration to high.</td>
+<td style="text-align: left;"><strong>Active transport</strong></td>
+<td style="text-align: left;">Active Transport</td>
+</tr>
+<tr>
+<td style="text-align: center;">15</td>
+<td style="text-align: left;">Water is a good <strong><em>_</em></strong>_, it can dissolve many different substances.</td>
+<td style="text-align: left;"><strong>solvent</strong></td>
+<td style="text-align: left;">Solutions</td>
+</tr>
+<tr>
+<td style="text-align: center;">16</td>
+<td style="text-align: left;">This type of transport requires no energy.</td>
+<td style="text-align: left;"><strong>Passive</strong></td>
+<td style="text-align: left;">Transport Types</td>
+</tr>
+<tr>
+<td style="text-align: center;">17</td>
+<td style="text-align: left;">When a cell is placed in this type of solution, water enters the cell, causing it to swell.</td>
+<td style="text-align: left;"><strong>Hypotonic</strong></td>
+<td style="text-align: left;">Tonicity &amp; Osmosis</td>
+</tr>
+<tr>
+<td style="text-align: center;">18</td>
+<td style="text-align: left;">When particles move from an area of low concentration to an area of high concentration, this requires ____.</td>
+<td style="text-align: left;"><strong>energy</strong></td>
+<td style="text-align: left;">Active Transport</td>
+</tr>
+<tr>
+<td style="text-align: center;">19</td>
+<td style="text-align: left;">When water is moving in and out at the same rate in the system.</td>
+<td style="text-align: left;"><strong>Dynamic Equilibrium</strong></td>
+<td style="text-align: left;">Tonicity &amp; Osmosis</td>
+</tr>
+<tr>
+<td style="text-align: center;">20</td>
+<td style="text-align: left;">In this type of solution, water exits the cell and the cell will shrink.</td>
+<td style="text-align: left;"><strong>hypertonic</strong></td>
+<td style="text-align: left;">Tonicity &amp; Osmosis</td>
+</tr>
+<tr>
+<td style="text-align: center;">21</td>
+<td style="text-align: left;">This type of transport uses protein channels to get molecules into the cell.</td>
+<td style="text-align: left;"><strong>facilitated diffusion</strong></td>
+<td style="text-align: left;">Passive Transport</td>
+</tr>
+<tr>
+<td style="text-align: center;">22</td>
+<td style="text-align: left;"><strong><em>_</em></strong> is the movement of water across the cell membrane.</td>
+<td style="text-align: left;"><strong>Osmosis</strong></td>
+<td style="text-align: left;">Passive Transport</td>
+</tr>
+<tr>
+<td style="text-align: center;">23</td>
+<td style="text-align: left;">The bulk transport of material out of the cell</td>
+<td style="text-align: left;"><strong>Exocytosis</strong></td>
+<td style="text-align: left;">Active Transport</td>
+</tr>
+<tr>
+<td style="text-align: center;">24</td>
+<td style="text-align: left;">When a cell takes in large debris or food</td>
+<td style="text-align: left;"><strong>Endocytosis</strong></td>
+<td style="text-align: left;">Active Transport</td>
+</tr>
+<tr>
+<td style="text-align: center;">25</td>
+<td style="text-align: left;">Water ______ the cell when it is placed in a hypertonic solution.</td>
+<td style="text-align: left;"><strong>leaves</strong></td>
+<td style="text-align: left;">Tonicity &amp; Osmosis</td>
+</tr>
+<tr>
+<td style="text-align: center;">26</td>
+<td style="text-align: left;">Because of its polarity water is a universal <strong><em>_</em></strong>____.</td>
+<td style="text-align: left;"><strong>solvent</strong></td>
+<td style="text-align: left;">Solutions</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="concept-breakdown-quick-review">🔬 Concept Breakdown &amp; Quick Review</h2>
+<h3 id="1-solutions-solute-vs-solvent">1. Solutions (Solute vs. Solvent)</h3>
+<ul>
+<li><strong>Solution:</strong> A uniform mixture consisting of solute dissolved in solvent (<code>Solution = Solute + Solvent</code>).</li>
+<li><strong>Solute:</strong> The substance being dissolved (e.g., salt, sugar).</li>
+<li><strong>Solvent:</strong> The substance doing the dissolving (e.g., water). Water is the <strong>universal solvent</strong> because of its polarity.</li>
+</ul>
+<h3 id="2-passive-transport-high-to-low-concentration-no-energy-no-atp">2. Passive Transport (High $\to$ Low Concentration, No Energy / No ATP)</h3>
+<ul>
+<li><strong>Diffusion / Simple Diffusion:</strong> Direct movement of small, nonpolar molecules across the phospholipid bilayer from high to low concentration.</li>
+<li><strong>Facilitated Diffusion:</strong> Movement of larger or polar molecules (e.g., glucose) through specialized protein channels without requiring energy.</li>
+<li><strong>Osmosis:</strong> The diffusion of water molecules across a selectively permeable membrane from high water concentration (low solute) to low water concentration (high solute).</li>
+</ul>
+<h3 id="3-tonicity-osmotic-pressure-dilute-the-solute">3. Tonicity &amp; Osmotic Pressure ("Dilute the Solute!")</h3>
+<ul>
+<li><strong>Hypotonic Solution:</strong></li>
+<li>Lower concentration of solute outside the cell than inside.</li>
+<li>Water <strong>enters</strong> the cell.</li>
+<li>Result: Cell swells (and may burst / lyse in animal cells).</li>
+<li><strong>Hypertonic Solution:</strong></li>
+<li>Higher concentration of solute outside the cell than inside (e.g., 50% salt solution vs 10% inside cell).</li>
+<li>Water <strong>leaves / exits</strong> the cell.</li>
+<li>Result: Cell shrivels / shrinks (plasmolysis in plant cells).</li>
+<li><strong>Isotonic Solution:</strong></li>
+<li>Equal solute concentration inside and outside the cell.</li>
+<li>Water moves in and out at equal rates (<strong>Dynamic Equilibrium</strong>).</li>
+<li>Result: Cell size stays the same.</li>
+</ul>
+<h3 id="4-active-transport-low-to-high-concentration-requires-energy-atp">4. Active Transport (Low $\to$ High Concentration, Requires Energy / ATP)</h3>
+<ul>
+<li><strong>Active Transport:</strong> Moves substances <strong>against</strong> their concentration gradient (from low concentration to high concentration); requires <strong>energy (ATP)</strong>.</li>
+<li><strong>Molecular Pumps:</strong> Use energy and membrane transport proteins to pump ions (e.g., $Na^+ / K^+$ pump) across the membrane against the gradient.</li>
+<li><strong>Bulk Transport (Vesicle Transport):</strong></li>
+<li><strong>Endocytosis:</strong> Process of taking large particles, debris, or food into the cell via vesicles.</li>
+<li><strong>Exocytosis:</strong> Process where vesicles fuse with the cell membrane to force large materials or waste out of the cell.</li>
+</ul>
+<hr />
+<h2 id="self-check-practice-flashcards">💡 Self-Check Practice Flashcards</h2>
+<ol>
+<li>
+<p><strong>Question:</strong> Something that can dissolve in water is called a _____.<br />
+<br />
+<details><summary>Reveal Answer</summary><b>solute</b></details>
+</p>
+</li>
+<li>
+<p><strong>Question:</strong> The bulk transportation of material into the cell<br />
+<br />
+<details><summary>Reveal Answer</summary><b>Endocytosis</b></details>
+</p>
+</li>
+<li>
+<p><strong>Question:</strong> When a vesicle forces material out of the cell<br />
+<br />
+<details><summary>Reveal Answer</summary><b>Exocytosis</b></details>
+</p>
+</li>
+<li>
+<p><strong>Question:</strong> This type of transport requires energy.<br />
+<br />
+<details><summary>Reveal Answer</summary><b>active</b></details>
+</p>
+</li>
+<li>
+<p><strong>Question:</strong> Water <strong><em>_</em></strong> the cell when placed in a hypotonic solution.<br />
+<br />
+<details><summary>Reveal Answer</summary><b>enters</b></details>
+</p>
+</li>
+<li>
+<p><strong>Question:</strong> A cell containing 10% salt is submerged in a solution that is 50% salt. What will happen to the cell? (Dilute the solute!)<br />
+<br />
+<details><summary>Reveal Answer</summary><b>The cell will shrink.</b></details>
+</p>
+</li>
+<li>
+<p><strong>Question:</strong> A ______ is a mixture of solute and solvent.<br />
+<br />
+<details><summary>Reveal Answer</summary><b>solution</b></details>
+</p>
+</li>
+<li>
+<p><strong>Question:</strong> In this type of solution, the cell will not change size.<br />
+<br />
+<details><summary>Reveal Answer</summary><b>isotonic</b></details>
+</p>
+</li>
+<li>
+<p><strong>Question:</strong> When particles move from a high concentration to a low concentration.<br />
+<br />
+<details><summary>Reveal Answer</summary><b>Diffusion</b></details>
+</p>
+</li>
+<li>
+<p><strong>Question:</strong> Osmosis is a type of <strong><em>_</em></strong> transport.<br />
+    <details><summary>Reveal Answer</summary><b>passive</b></details></p>
+</li>
+<li>
+<p><strong>Question:</strong> Small molecules can move into and out of the cell easily by<br />
+    <details><summary>Reveal Answer</summary><b>diffusion</b></details></p>
+</li>
+<li>
+<p><strong>Question:</strong> Pumps ions into or out of the cell using energy and a transport protein<br />
+    <details><summary>Reveal Answer</summary><b>Molecular pump</b></details></p>
+</li>
+<li>
+<p><strong>Question:</strong> Moves larger molecules like sugar into or out of the cell through a protein channel without using energy<br />
+    <details><summary>Reveal Answer</summary><b>facilitated diffusion</b></details></p>
+</li>
+<li>
+<p><strong>Question:</strong> Transport that involves substances going from an area of low concentration to high.<br />
+    <details><summary>Reveal Answer</summary><b>Active transport</b></details></p>
+</li>
+<li>
+<p><strong>Question:</strong> Water is a good <strong><em>_</em></strong>_, it can dissolve many different substances.<br />
+    <details><summary>Reveal Answer</summary><b>solvent</b></details></p>
+</li>
+<li>
+<p><strong>Question:</strong> This type of transport requires no energy.<br />
+    <details><summary>Reveal Answer</summary><b>Passive</b></details></p>
+</li>
+<li>
+<p><strong>Question:</strong> When a cell is placed in this type of solution, water enters the cell, causing it to swell.<br />
+    <details><summary>Reveal Answer</summary><b>Hypotonic</b></details></p>
+</li>
+<li>
+<p><strong>Question:</strong> When particles move from an area of low concentration to an area of high concentration, this requires ____.<br />
+    <details><summary>Reveal Answer</summary><b>energy</b></details></p>
+</li>
+<li>
+<p><strong>Question:</strong> When water is moving in and out at the same rate in the system.<br />
+    <details><summary>Reveal Answer</summary><b>Dynamic Equilibrium</b></details></p>
+</li>
+<li>
+<p><strong>Question:</strong> In this type of solution, water exits the cell and the cell will shrink.<br />
+    <details><summary>Reveal Answer</summary><b>hypertonic</b></details></p>
+</li>
+<li>
+<p><strong>Question:</strong> This type of transport uses protein channels to get molecules into the cell.<br />
+    <details><summary>Reveal Answer</summary><b>facilitated diffusion</b></details></p>
+</li>
+<li>
+<p><strong>Question:</strong> <strong><em>_</em></strong> is the movement of water across the cell membrane.<br />
+    <details><summary>Reveal Answer</summary><b>Osmosis</b></details></p>
+</li>
+<li>
+<p><strong>Question:</strong> The bulk transport of material out of the cell<br />
+    <details><summary>Reveal Answer</summary><b>Exocytosis</b></details></p>
+</li>
+<li>
+<p><strong>Question:</strong> When a cell takes in large debris or food<br />
+    <details><summary>Reveal Answer</summary><b>Endocytosis</b></details></p>
+</li>
+<li>
+<p><strong>Question:</strong> Water ______ the cell when it is placed in a hypertonic solution.<br />
+    <details><summary>Reveal Answer</summary><b>leaves</b></details></p>
+</li>
+<li>
+<p><strong>Question:</strong> Because of its polarity water is a universal <strong><em>_</em></strong>____.<br />
+    <details><summary>Reveal Answer</summary><b>solvent</b></details></p>
+</li>
+</ol>
+      </article>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800 bg-slate-950 py-8 text-center text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>Grade 9 Biology I Honors • South Forsyth High School • Dr. Sarah Irwin</p>
+      <div class="flex items-center gap-4">
+        <a href="../../../../index.html" class="hover:text-slate-300 transition">Portal Home</a>
+        <a href="../../../../schedule/semester-1.html" class="hover:text-slate-300 transition">Schedule</a>
+        <a href="../../../../notInLocal.html" class="hover:text-slate-300 transition">Cloud Links</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

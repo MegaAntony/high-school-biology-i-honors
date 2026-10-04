@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biology I Honors (Grade 9)  Full Academic Year Plan  New Unit Ingestion Playbook - Biology I Honors</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    code, pre { font-family: 'JetBrains Mono', monospace; }
+    
+    /* Markdown Content Typography */
+    .prose-biology h1 {
+      font-size: 1.875rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #334155;
+      letter-spacing: -0.025em;
+    }
+    .prose-biology h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+    .prose-biology h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #38bdf8;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .prose-biology h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #34d399;
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .prose-biology p {
+      color: #cbd5e1;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    .prose-biology strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .prose-biology ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+      color: #cbd5e1;
+    }
+    .prose-biology ol {
+      list-style-type: decimal;
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+      color: #cbd5e1;
+    }
+    .prose-biology li {
+      margin-bottom: 0.375rem;
+      line-height: 1.6;
+    }
+    .prose-biology li strong {
+      color: #f8fafc;
+    }
+    .prose-biology a {
+      color: #38bdf8;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.15s ease;
+    }
+    .prose-biology a:hover {
+      color: #7dd3fc;
+      text-decoration: none;
+    }
+    .prose-biology blockquote {
+      border-left: 4px solid #10b981;
+      background-color: rgba(16, 185, 129, 0.08);
+      padding: 0.75rem 1rem;
+      margin: 1.25rem 0;
+      border-radius: 0 0.5rem 0.5rem 0;
+      color: #e2e8f0;
+      font-style: italic;
+    }
+    .prose-biology blockquote p {
+      margin-bottom: 0;
+      color: #e2e8f0;
+    }
+    .prose-biology code {
+      background-color: #1e293b;
+      color: #fbbf24;
+      padding: 0.2rem 0.4rem;
+      border-radius: 0.375rem;
+      font-size: 0.85em;
+      border: 1px solid #334155;
+    }
+    .prose-biology pre {
+      background-color: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 0.75rem;
+      padding: 1rem;
+      overflow-x: auto;
+      margin: 1.25rem 0;
+    }
+    .prose-biology pre code {
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      color: #34d399;
+      font-size: 0.875rem;
+    }
+    .prose-biology hr {
+      border: 0;
+      border-top: 1px solid #334155;
+      margin: 2rem 0;
+    }
+    /* Table Styling */
+    .prose-biology table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.875rem;
+      background-color: #1e293b;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      border: 1px solid #334155;
+    }
+    .prose-biology th {
+      background-color: #0f172a;
+      color: #34d399;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.75rem;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #334155;
+      text-align: left;
+    }
+    .prose-biology td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #334155;
+      color: #cbd5e1;
+      vertical-align: top;
+    }
+    .prose-biology tr:last-child td {
+      border-bottom: none;
+    }
+    .prose-biology tr:nth-child(even) td {
+      background-color: rgba(15, 23, 42, 0.4);
+    }
+    .prose-biology tr:hover td {
+      background-color: rgba(51, 65, 85, 0.4);
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between">
+
+  <!-- HEADER -->
+  <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="./index.html" class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center text-slate-950 font-black text-lg shadow-lg shadow-emerald-500/20 hover:scale-105 transition">
+          <i class="fa-solid fa-dna"></i>
+        </a>
+        <div>
+          <a href="./index.html" class="text-lg font-black tracking-tight text-white hover:text-emerald-400 transition">Biology I Honors V2</a>
+          <p class="text-xs text-slate-400 font-medium">South Forsyth High School • Dr. Irwin (2026/2027)</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2.5">
+        <a href="./index.html" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 px-3.5 py-2 rounded-xl border border-slate-700 transition flex items-center gap-1.5">
+          <i class="fa-solid fa-house text-emerald-400"></i> Home
+        </a>
+        <a href="./schedule/semester-1.html" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 px-3.5 py-2 rounded-xl border border-slate-700 transition flex items-center gap-1.5">
+          <i class="fa-regular fa-calendar text-teal-400"></i> S1 Schedule
+        </a>
+        <a href="./units/unit-02-cells-and-transport/tests/index.html" class="text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-md shadow-emerald-600/30">
+          <i class="fa-solid fa-vial"></i> Practice Tests
+        </a>
+        <a href="./notInLocal.html" class="text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-md shadow-indigo-600/30 hidden sm:flex">
+          <i class="fa-solid fa-cloud"></i> Cloud Links
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB & CONTENT CONTAINER -->
+  <main class="max-w-5xl mx-auto px-6 py-8 flex-1 w-full space-y-6">
+
+    <!-- BREADCRUMB -->
+    <nav class="flex items-center gap-2 text-xs text-slate-400">
+      <a href="./index.html" class="hover:text-emerald-400 transition flex items-center gap-1">
+        <i class="fa-solid fa-house text-[10px]"></i> Home
+      </a>
+      <i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i>
+      
+      <span class="text-slate-200 font-semibold truncate max-w-xs">Biology I Honors (Grade 9) — Full Academic Ye...</span>
+    </nav>
+
+    <!-- CONTENT CARD -->
+    <div class="bg-slate-800/60 border border-slate-700/60 rounded-3xl p-6 sm:p-10 shadow-xl backdrop-blur">
+      <article class="prose-biology">
+        <h1 id="biology-i-honors-grade-9-full-academic-year-plan-new-unit-ingestion-playbook">Biology I Honors (Grade 9) — Full Academic Year Plan &amp; New Unit Ingestion Playbook</h1>
+<h3 id="south-forsyth-high-school-dr-sarah-irwin-room-371-academic-year-20262027">South Forsyth High School • Dr. Sarah Irwin (Room #371) • Academic Year 2026–2027</h3>
+<p><em>Aligned to Georgia Standards of Excellence (GSE) for Science: </em><em>SB1 through SB6</em>**</p>
+<hr />
+<h2 id="executive-summary-core-philosophy">🧭 Executive Summary &amp; Core Philosophy</h2>
+<p>This document serves as the master curriculum roadmap and the standardized operational playbook for the entire 36-week Grade 9 Biology I Honors course. It is built to achieve two simultaneous goals:<br />
+1. <strong>Academic Excellence:</strong> Provide comprehensive, standard-aligned preparation for daily coursework, weekly formative quizzes, unit summative tests, the Semester 1 Final Exam, and the high-stakes spring <strong>Georgia Milestones Biology End-of-Course (EOC) Assessment</strong>.<br />
+2. <strong>Operational Repeatability:</strong> Establish an automated, modular workflow for ingesting teacher lecture decks, lab packets, worksheets, and study guides, transforming them into searchable markdown summaries and interactive HTML self-assessment test suites without breaking repository architecture or GitHub Pages deployments.</p>
+<hr />
+<h2 id="part-1-full-academic-year-curriculum-roadmap-36-weeks">📅 Part 1: Full Academic Year Curriculum Roadmap (36 Weeks)</h2>
+<p>The curriculum is structured across 10 core units, divided into two 18-week semesters. Every unit is strictly mapped to the Georgia Standards of Excellence (GSE).</p>
+<pre><code>╔══════════════════════════════════════════════════════════════════════════════════════════╗
+║                          SEMESTER 1: CELLULAR &amp; MOLECULAR BIOLOGY                        ║
+╠══════════╦═════════════════════════════════════════════╦═══════════════╦═════════════════╣
+║ Unit     ║ Curriculum Topic                            ║ GSE Standard  ║ Timeline        ║
+╠══════════╬═════════════════════════════════════════════╬═══════════════╬═════════════════╣
+║ Unit 01  ║ Biochemistry &amp; Macromolecules               ║ SB1.c         ║ Weeks 01 – 03   ║
+║ Unit 02  ║ Cell Architecture &amp; Membrane Transport     ║ SB1.a, SB1.d  ║ Weeks 04 – 06   ║
+║ Unit 03  ║ Cellular Energetics (Photo &amp; Respiration)   ║ SB1.e         ║ Weeks 07 – 09   ║
+║ Unit 04  ║ Cellular Reproduction &amp; Mitosis             ║ SB1.b         ║ Weeks 10 – 11   ║
+║ Unit 05  ║ Molecular Genetics &amp; Protein Synthesis      ║ SB2.a, SB2.b  ║ Weeks 12 – 14   ║
+║ Unit 06A ║ Meiosis &amp; Mendelian Genetics Foundations    ║ SB3.a, SB3.b  ║ Weeks 15 – 16   ║
+║ Review   ║ S1 Cumulative Review &amp; Final Benchmark      ║ SB1 – SB3     ║ Weeks 17 – 18   ║
+╠══════════╩═════════════════════════════════════════════╩═══════════════╩═════════════════╣
+║                          SEMESTER 2: GENETICS, EVOLUTION &amp; ECOLOGY                       ║
+╠══════════╦═════════════════════════════════════════════╦═══════════════╦═════════════════╣
+║ Unit 06B ║ Complex Inheritance &amp; Pedigree Analysis     ║ SB3.b, SB3.c  ║ Weeks 19 – 21   ║
+║ Unit 07  ║ Biotechnology &amp; Genetic Engineering         ║ SB2.c, SB4.a  ║ Weeks 22 – 24   ║
+║ Unit 08  ║ Evolution &amp; Natural Selection               ║ SB6.a – SB6.e ║ Weeks 25 – 28   ║
+║ Unit 09  ║ Ecology &amp; Ecosystem Dynamics                ║ SB5.a – SB5.c ║ Weeks 29 – 32   ║
+║ Unit 10  ║ Diversity of Life, Taxonomy &amp; Cladistics    ║ SB4.a, SB4.b  ║ Weeks 33 – 34   ║
+║ EOC Prep ║ Georgia Milestones State Biology EOC Review ║ SB1 – SB6     ║ Week 35         ║
+║ Finals   ║ Spring Finals &amp; State Milestones Exam       ║ SB1 – SB6     ║ Week 36         ║
+╚══════════╩═════════════════════════════════════════════╩═══════════════╩═════════════════╝
+</code></pre>
+<hr />
+<h3 id="unit-by-unit-detailed-scope-high-yield-focus">Unit-by-Unit Detailed Scope &amp; High-Yield Focus</h3>
+<h4 id="unit-01-biochemistry-macromolecules-weeks-13-sb1c">Unit 01: Biochemistry &amp; Macromolecules (Weeks 1–3) — <code>SB1.c</code></h4>
+<ul>
+<li><strong>Status:</strong> Complete &amp; Archived (<code>units/unit-01-biochemistry/</code>)</li>
+<li><strong>Core Concepts:</strong> Water properties (polarity, hydrogen bonding, adhesion, cohesion, high specific heat); Carbon chemistry; The 4 Macromolecules (Carbohydrates, Lipids, Proteins, Nucleic Acids); Monomers vs. Polymers (dehydration synthesis vs. hydrolysis); Enzyme structure, active sites, induced fit, activation energy; Factors affecting enzyme velocity (temperature, pH, substrate concentration, competitive/non-competitive inhibitors); Chemical indicators (Benedict's, Lugol's Iodine, Biuret, Sudan III).</li>
+</ul>
+<h4 id="unit-02-cell-architecture-membrane-transport-weeks-46-sb1a-sb1d">Unit 02: Cell Architecture &amp; Membrane Transport (Weeks 4–6) — <code>SB1.a, SB1.d</code></h4>
+<ul>
+<li><strong>Status:</strong> In Progress / Current (<code>units/unit-02-cells-and-transport/</code>)</li>
+<li><strong>Core Concepts:</strong> Cell Theory &amp; historical contributors (Hooke, Leeuwenhoek, Schleiden, Schwann, Virchow); Prokaryotic vs. Eukaryotic ultrastructure; Organelles of endomembrane system (Nucleus, RER, SER, Golgi apparatus, Lysosomes, Vacuoles); Energy organelles (Mitochondria with cristae, Chloroplasts with thylakoids/stroma); Endosymbiotic Theory; Fluid Mosaic Model of plasma membrane (phospholipid bilayer, amphipathic nature, cholesterol, integral/peripheral proteins, glycoproteins); Passive Transport (Simple diffusion, facilitated diffusion via channels/carriers, osmosis); Tonicity dynamics (hypertonic, hypotonic, isotonic; plasmolysis, turgor pressure, crenation, lysis); Active Transport (Primary ATP pumps, Sodium-Potassium ATPase pump 3 Na+ out / 2 K+ in, bulk transport via endocytosis/exocytosis, phagocytosis vs. pinocytosis); Surface area-to-volume ratio limits on cell size.</li>
+</ul>
+<h4 id="unit-03-cellular-energetics-weeks-79-sb1e">Unit 03: Cellular Energetics (Weeks 7–9) — <code>SB1.e</code></h4>
+<ul>
+<li><strong>Standard:</strong> <em>Develop and use models to explain the role of cellular reproduction and energy transformation.</em></li>
+<li><strong>Directory:</strong> <code>units/unit-03-cellular-energetics/</code></li>
+<li><strong>Core Concepts:</strong></li>
+<li><strong>ATP/ADP Cycle:</strong> High-energy phosphate bonds, phosphorylation, coupled reactions.</li>
+<li><strong>Photosynthesis:</strong> Chemical equation ($6\text{CO}<em>2 + 6\text{H}_2\text{O} \to \text{C}_6\text{H}</em>{12}\text{O}_6 + 6\text{O}_2$), chloroplast anatomy (thylakoid membrane, grana, stroma), chlorophyll $a/b$ and accessory pigments.</li>
+<li><strong>Light-Dependent Reactions:</strong> Photosystem II &amp; I, photolysis of water (releasing $\text{O}_2$), electron transport chain, proton gradient, ATP synthase (photophosphorylation), NADPH generation.</li>
+<li><strong>Light-Independent Reactions (Calvin Cycle):</strong> Carbon fixation via RuBisCO, reduction, RuBP regeneration, glucose production in the stroma.</li>
+<li><strong>Cellular Respiration:</strong> Chemical equation ($\text{C}<em>6\text{H}</em>{12}\text{O}_6 + 6\text{O}_2 \to 6\text{CO}_2 + 6\text{H}_2\text{O} + 36\text{--}38\text{ ATP}$), mitochondria anatomy (outer membrane, intermembrane space, inner folded cristae, matrix).</li>
+<li><strong>Stages of Respiration:</strong> Glycolysis (cytoplasm, anaerobic, net 2 ATP + 2 NADH), Pyruvate Oxidation / Link reaction, Krebs Cycle / Citric Acid Cycle (matrix, produces $\text{CO}_2$, ATP, NADH, $\text{FADH}_2$), Electron Transport Chain &amp; Chemiosmosis (inner cristae, oxygen as terminal electron acceptor forming water, oxidative phosphorylation generating 32–34 ATP).</li>
+<li><strong>Anaerobic Fermentation:</strong> Lactic acid fermentation (animals &amp; bacteria) vs. Alcoholic fermentation (yeast, ethanol + $\text{CO}_2$); regeneration of $\text{NAD}^+$ to maintain glycolysis.</li>
+</ul>
+<h4 id="unit-04-cellular-reproduction-cell-cycle-weeks-1011-sb1b">Unit 04: Cellular Reproduction &amp; Cell Cycle (Weeks 10–11) — <code>SB1.b</code></h4>
+<ul>
+<li><strong>Standard:</strong> <em>Develop and use models to explain the role of cellular reproduction in maintaining genetic continuity.</em></li>
+<li><strong>Directory:</strong> <code>units/unit-04-cellular-reproduction/</code></li>
+<li><strong>Core Concepts:</strong></li>
+<li><strong>Cell Cycle Architecture:</strong> Interphase ($\text{G}_1$ growth, $\text{S}$ phase DNA replication, $\text{G}_2$ preparation), M phase (Mitosis &amp; Cytokinesis), $\text{G}_0$ resting phase.</li>
+<li><strong>Mitosis Stages:</strong> Prophase (chromatin condenses into chromosomes, nuclear envelope breaks down, spindle forms), Metaphase (chromosomes align at equatorial metaphase plate), Anaphase (sister chromatids separated by spindle fibers at centromere), Telophase (nuclei reform, chromosomes decondense).</li>
+<li><strong>Cytokinesis:</strong> Cleavage furrow via microfilaments (animals) vs. Cell plate formation via Golgi vesicles (plants).</li>
+<li><strong>Cycle Regulation &amp; Checkpoints:</strong> $\text{G}_1/\text{S}$ checkpoint (restriction point), $\text{G}_2/\text{M}$ checkpoint, M-spindle (SAC) checkpoint; cyclins and cyclin-dependent kinases (CDKs); contact inhibition; apoptosis (programmed cell death).</li>
+<li><strong>Disruption &amp; Cancer:</strong> Oncogenes, mutated tumor suppressor genes ($p53$), benign vs. malignant tumors, metastasis.</li>
+<li><strong>Stem Cells &amp; Differentiation:</strong> Totipotent, pluripotent, multipotent stem cells; differential gene expression leading to specialized cells (erythrocytes, neurons, myocytes).</li>
+</ul>
+<h4 id="unit-05-molecular-genetics-gene-expression-weeks-1214-sb2a-sb2b">Unit 05: Molecular Genetics &amp; Gene Expression (Weeks 12–14) — <code>SB2.a, SB2.b</code></h4>
+<ul>
+<li><strong>Standard:</strong> <em>Obtain, evaluate, and communicate information on how the structures of DNA and RNA lead to gene expression.</em></li>
+<li><strong>Directory:</strong> <code>units/unit-05-gene-expression/</code></li>
+<li><strong>Core Concepts:</strong></li>
+<li><strong>Nucleic Acid Structure:</strong> DNA double helix, antiparallel strands ($5' \to 3'$ vs. $3' \to 5'$), phosphodiester backbone, complementary base pairing (Chargaff's rules: A=T with 2 hydrogen bonds, G≡C with 3 hydrogen bonds).</li>
+<li><strong>DNA Replication (Semi-Conservative):</strong> Meselson-Stahl proof; replication fork enzymes: Helicase (unwinds), Single-Strand Binding Proteins (stabilizes), Topoisomerase/Gyrase (relieves supercoiling), Primase (RNA primer), DNA Polymerase III (synthesizes leading continuously and lagging via Okazaki fragments), DNA Polymerase I (removes primers), Ligase (seals nicks).</li>
+<li><strong>The Central Dogma:</strong> $\text{DNA} \xrightarrow{\text{Transcription}} \text{mRNA} \xrightarrow{\text{Translation}} \text{Protein}$.</li>
+<li><strong>Transcription:</strong> RNA polymerase binding to promoter (TATA box), elongation of mRNA strand, termination; pre-mRNA processing in eukaryotes (5' methylguanosine cap, 3' poly-A tail, spliceosome intron excision and exon splicing).</li>
+<li><strong>Translation:</strong> Ribosome structure (A, P, E sites), tRNA structure with anticodon and attached amino acid; Codons on mRNA; Universal genetic code chart; Initiation (AUG Start codon / Methionine), Elongation (peptide bond synthesis), Termination (UAA, UAG, UGA Stop codons, release factor).</li>
+<li><strong>Genetic Mutations:</strong> Point mutations (Silent, Missense, Nonsense); Frameshift mutations (Nucleotide insertion or deletion altering the reading frame); Chromosomal mutations (inversion, translocation, duplication, deletion); Mutagens and phenotypic consequences.</li>
+</ul>
+<h4 id="unit-06-mendelian-complex-genetics-weeks-1516-1921-sb3a-sb3b-sb3c">Unit 06: Mendelian &amp; Complex Genetics (Weeks 15–16 &amp; 19–21) — <code>SB3.a, SB3.b, SB3.c</code></h4>
+<ul>
+<li><strong>Standard:</strong> <em>Obtain, evaluate, and communicate information on how biological traits are passed on to successive generations.</em></li>
+<li><strong>Directory:</strong> <code>units/unit-06-genetics/</code></li>
+<li><strong>Core Concepts:</strong></li>
+<li><strong>Meiosis &amp; Gametogenesis:</strong> Meiosis I (reduction division: homologous chromosome separation) vs. Meiosis II (equational division: sister chromatid separation); Prophase I Synapsis &amp; Crossing over (chiasmata); Metaphase I Independent assortment; Spermatogenesis (4 viable sperm) vs. Oogenesis (1 viable ovum + 3 polar bodies); Sources of genetic variation.</li>
+<li><strong>Mendelian Principles:</strong> Law of Segregation, Law of Independent Assortment, Dominant vs. Recessive alleles, Genotype (homozygous dominant, heterozygous, homozygous recessive) vs. Phenotype; Monohybrid and Dihybrid Punnett square probability ($9:3:3:1$ ratio).</li>
+<li><strong>Non-Mendelian &amp; Complex Inheritance:</strong> Incomplete dominance (intermediate blend, e.g., red $\times$ white $=$ pink); Codominance (both expressed simultaneously, e.g., roan coat, AB blood); Multiple alleles (ABO blood group with $I^A$, $I^B$, $i$); Polygenic inheritance (continuous distribution, skin color, height); Pleiotropy; Epistasis.</li>
+<li><strong>Sex-Linked Inheritance &amp; Pedigrees:</strong> X-linked recessive disorders (hemophilia, red-green color blindness, Duchenne muscular dystrophy); Carrier females; Pedigree chart reading and tracking inheritance patterns across generations; Karyotyping, nondisjunction, and aneuploidy (Trisomy 21 Down syndrome, Turner syndrome XO, Klinefelter syndrome XXY).</li>
+</ul>
+<h4 id="unit-07-biotechnology-genetic-engineering-weeks-2224-sb2c-sb4a">Unit 07: Biotechnology &amp; Genetic Engineering (Weeks 22–24) — <code>SB2.c, SB4.a</code></h4>
+<ul>
+<li><strong>Standard:</strong> <em>Construct an argument based on evidence about the societal, ethical, and environmental impacts of biotechnology.</em></li>
+<li><strong>Directory:</strong> <code>units/unit-07-biotechnology/</code></li>
+<li><strong>Core Concepts:</strong></li>
+<li><strong>Restriction Enzymes &amp; Gel Electrophoresis:</strong> Recognition sequences (palindromes), sticky ends vs. blunt ends; Agarose gel mechanics, negative DNA charge migrating toward positive anode; Fragment separation by size (small fragments travel faster/farther); DNA fingerprinting in forensics and paternity testing.</li>
+<li><strong>Recombinant DNA &amp; Transformation:</strong> Bacterial plasmids as cloning vectors, insertion of target genes (e.g., human insulin), DNA ligase; Heat-shock calcium chloride transformation, antibiotic selection markers (e.g., $amp^R$) to identify transformants.</li>
+<li><strong>Polymerase Chain Reaction (PCR):</strong> Denaturation ($95^\circ\text{C}$), Annealing ($55^\circ\text{C}$), Extension ($72^\circ\text{C}$); Taq polymerase thermostability; Exponential amplification of DNA.</li>
+<li><strong>Modern Tools &amp; Ethics:</strong> CRISPR-Cas9 targeted genome editing, guide RNA (gRNA); Genetically Modified Organisms (GMOs) in agriculture; Gene therapy; Bioethics regarding human germline editing, ecological risks, and patenting genetic materials.</li>
+</ul>
+<h4 id="unit-08-evolution-natural-selection-weeks-2528-sb6ae">Unit 08: Evolution &amp; Natural Selection (Weeks 25–28) — <code>SB6.a–e</code></h4>
+<ul>
+<li><strong>Standard:</strong> <em>Obtain, evaluate, and communicate information to explain how evolution leads to biodiversity.</em></li>
+<li><strong>Directory:</strong> <code>units/unit-08-evolution/</code></li>
+<li><strong>Core Concepts:</strong></li>
+<li><strong>Mechanisms of Natural Selection:</strong> Overproduction, variation, struggle for existence, differential survival and reproduction ("survival of the fittest"); Adaptations (structural, physiological, behavioral); Environmental selective pressures.</li>
+<li><strong>Patterns of Selection:</strong> Directional selection, Stabilizing selection, Disruptive selection; Sexual selection and artificial selection.</li>
+<li><strong>Lines of Evidence for Evolution:</strong> Fossil record (transitional fossils, Law of Superposition, radiometric dating); Comparative Anatomy (Homologous structures showing common ancestry, Analogous structures from convergent evolution, Vestigial organs); Comparative Embryology; Molecular/Biochemical homology (DNA sequence and cytochrome $c$ amino acid comparison).</li>
+<li><strong>Population Genetics &amp; Microevolution:</strong> Gene pool, allele frequency shifts; Genetic drift (Bottleneck effect, Founder effect); Gene flow (migration); Mutations; Non-random mating; Hardy-Weinberg equilibrium conditions ($p + q = 1$, $p^2 + 2pq + q^2 = 1$).</li>
+<li><strong>Macroevolution &amp; Speciation:</strong> Biological Species Concept; Reproductive isolation (Pre-zygotic: geographic, behavioral, temporal, mechanical, gametic; Post-zygotic: hybrid inviability, hybrid sterility); Allopatric speciation vs. Sympatric speciation; Rates of evolution (Gradualism vs. Punctuated Equilibrium); Adaptive radiation.</li>
+</ul>
+<h4 id="unit-09-ecology-ecosystem-dynamics-weeks-2932-sb5ac">Unit 09: Ecology &amp; Ecosystem Dynamics (Weeks 29–32) — <code>SB5.a–c</code></h4>
+<ul>
+<li><strong>Standard:</strong> <em>Assess the dependence of all organisms on one another and the flow of energy and matter within their ecosystems.</em></li>
+<li><strong>Directory:</strong> <code>units/unit-09-ecology/</code></li>
+<li><strong>Core Concepts:</strong></li>
+<li><strong>Ecological Hierarchy:</strong> Organism $\to$ Population $\to$ Community $\to$ Ecosystem $\to$ Biome $\to$ Biosphere; Biotic factors vs. Abiotic factors; Habitats and ecological niches (fundamental vs. realized; Competitive Exclusion Principle).</li>
+<li><strong>Trophic Dynamics &amp; Energy Flow:</strong> Producers/Autotrophs (photosynthetic, chemosynthetic) vs. Consumers/Heterotrophs (herbivores, carnivores, omnivores, detritivores, decomposers); Food chains and food webs; Energy pyramids, biomass pyramids, pyramids of numbers; The 10% Ecological Rule of energy transfer (90% lost as heat and metabolic work).</li>
+<li><strong>Biogeochemical Cycling:</strong> Water cycle (evaporation, transpiration, condensation, precipitation, runoff); Carbon cycle (photosynthesis, cellular respiration, combustion, fossil fuel reservoirs); Nitrogen cycle (nitrogen fixation by rhizobium bacteria, nitrification, assimilation, ammonification, denitrification); Phosphorus cycle (weathering of rock, sedimentation, lack of atmospheric phase).</li>
+<li><strong>Community Interactions:</strong> Symbiosis (Mutualism $+/+$, Commensalism $+/0$, Parasitism $+/-$); Predation, herbivory, competition (interspecific vs. intraspecific); Keystone species and trophic cascades (e.g., sea otters, wolves).</li>
+<li><strong>Population Ecology:</strong> Exponential growth ($J$-curve) vs. Logistic growth ($S$-curve); Carrying capacity ($K$); Limiting factors: Density-dependent (competition, predation, disease) vs. Density-independent (natural disasters, temperature, drought).</li>
+<li><strong>Ecological Succession:</strong> Primary succession (starts on bare rock, pioneer species lichens/mosses, soil formation) vs. Secondary succession (follows disturbance like wildfire/clearing, begins with intact soil); Climax community.</li>
+<li><strong>Human Impacts:</strong> Biomagnification of toxins (DDT, microplastics, mercury); Eutrophication (fertilizer runoff, algal blooms, hypoxia, fish kills); Invasive species impact on native biodiversity; Deforestation, habitat fragmentation, greenhouse effect, and ocean acidification.</li>
+</ul>
+<h4 id="unit-10-diversity-of-life-taxonomy-cladistics-weeks-3334-sb4a-sb4b">Unit 10: Diversity of Life, Taxonomy &amp; Cladistics (Weeks 33–34) — <code>SB4.a, SB4.b</code></h4>
+<ul>
+<li><strong>Standard:</strong> <em>Assess how organisms are classified based on evolutionary relationships and cellular structure.</em></li>
+<li><strong>Directory:</strong> <code>units/unit-10-diversity-of-life/</code></li>
+<li><strong>Core Concepts:</strong></li>
+<li><strong>Taxonomic Hierarchy:</strong> Domain $\to$ Kingdom $\to$ Phylum $\to$ Class $\to$ Order $\to$ Family $\to$ Genus $\to$ Species ("Dear King Philip Came Over For Good Soup"); Binomial nomenclature (Carolus Linnaeus: capitalized <em>Genus</em>, lowercase <em>species</em>, italicized).</li>
+<li><strong>The 3 Domains &amp; 6 Kingdoms:</strong><ul>
+<li>Domain Archaea (Kingdom Archaebacteria: extremophiles, methanogens, halophiles, ether-linked lipids, lack peptidoglycan).</li>
+<li>Domain Bacteria (Kingdom Eubacteria: true bacteria, ester-linked lipids, peptidoglycan cell walls, Gram-positive vs. Gram-negative).</li>
+<li>Domain Eukarya: Kingdom Protista (paramecium, amoeba, algae), Kingdom Fungi (chitin cell walls, heterotrophic absorption, hyphae/mycelium), Kingdom Plantae (cellulose cell walls, autotrophic, chloroplasts), Kingdom Animalia (multicellular, heterotrophic ingestion, no cell walls).</li>
+</ul>
+</li>
+<li><strong>Dichotomous Keys:</strong> Step-by-step paired contrasting statements to identify unknown organisms.</li>
+<li><strong>Phylogenetics &amp; Cladistics:</strong> Cladograms and phylogenetic trees; Nodes (common ancestors), Sister taxa, Outgroups, Root; Derived characters (synapomorphies) vs. ancestral traits; Clades (monophyletic groups); Interpreting evolutionary divergence from molecular data.</li>
+<li><strong>Viruses:</strong> Viral structure (capsid protein coat, nucleic acid genome DNA or RNA, optional viral envelope); Non-living status (acellular, no independent metabolism, obligate intracellular parasite); Lytic cycle (rapid host cell lysis and virion release) vs. Lysogenic cycle (provirus/prophage integration into host genome, dormancy, excision upon stress); Retroviruses (reverse transcriptase).</li>
+</ul>
+<hr />
+<h2 id="part-2-step-by-step-new-unit-ingestion-playbook">🛠️ Part 2: Step-by-Step New Unit Ingestion Playbook</h2>
+<p>Follow this standardized 6-phase procedure whenever Dr. Irwin releases materials for a new unit on Canvas.</p>
+<pre><code>┌────────────────────────────────────────────────────────────────────────┐
+│                      NEW UNIT INGESTION WORKFLOW                       │
+├─────────────────┬──────────────────────────────────────────────────────┤
+│ Phase 1: Ingest │ Download Canvas PDFs/PPTs ➔ Place in materials/pdf/ │
+│ Phase 2: Digest │ Extract high-yield notes &amp; tables ➔ materials/md/   │
+│ Phase 3: Build  │ Generate interactive self-grading HTML test suite    │
+│ Phase 4: Wire   │ Update unit README, tests index, and main dashboard  │
+│ Phase 5: Audit  │ Run automated script to verify 100% valid links      │
+│ Phase 6: Deploy │ Git commit &amp; push ➔ Live on GitHub Pages             │
+└─────────────────┴──────────────────────────────────────────────────────┘
+</code></pre>
+<hr />
+<h3 id="phase-1-material-acquisition-file-ingestion">Phase 1: Material Acquisition &amp; File Ingestion</h3>
+<ol>
+<li><strong>Download source files from Canvas:</strong> Retrieve lecture slide decks, unit packets, reading guides, and teacher scenario cards.</li>
+<li><strong>Standardized Directory Placement:</strong><br />
+<code>bash
+   # Example for Unit 3 Cellular Energetics:
+   mkdir -p units/unit-03-cellular-energetics/materials/pdf
+   mkdir -p units/unit-03-cellular-energetics/materials/md
+   mkdir -p units/unit-03-cellular-energetics/tests</code></li>
+<li><strong>File Naming Rules:</strong><br />
+   * Keep original teacher filenames for PDFs in <code>materials/pdf/</code> for exact reference.<br />
+   * Avoid spaces in web-facing test files; use kebab-case: e.g., <code>test-photosynthesis-mechanisms.html</code>.</li>
+</ol>
+<hr />
+<h3 id="phase-2-markdown-knowledge-extraction-materialsmd">Phase 2: Markdown Knowledge Extraction (<code>materials/md/</code>)</h3>
+<p>Convert complex teacher slide decks and lab packets into concise, searchable markdown study files.</p>
+<p>Every converted markdown file in <code>materials/md/</code> must follow this structure:<br />
+1. <strong>Title &amp; Standard Header:</strong> Specify the exact GSE Standard (<code>SB1.e</code>, etc.).<br />
+2. <strong>Master Concept Summary:</strong> 5–10 high-yield bullet points capturing essential testable mechanisms.<br />
+3. <strong>High-Yield Terminology Table:</strong><br />
+   | Term | Definition / Molecular Role | Why Dr. Irwin Tests It (Trap Alert) |<br />
+   | :--- | :--- | :--- |<br />
+4. <strong>Step-by-Step Pathway / Reaction Breakdown:</strong> Chemical equations, reactants, products, and subcellular locations.<br />
+5. <strong>Teacher Situation Scenarios:</strong> Practice analysis questions modeled after classroom whiteboard questions.</p>
+<hr />
+<h3 id="phase-3-interactive-practice-test-generation-tests">Phase 3: Interactive Practice Test Generation (<code>tests/</code>)</h3>
+<p>Every unit requires an interactive HTML test suite. Each test must be built as a self-contained, client-side web application.</p>
+<h4 id="standard-test-specifications">Standard Test Specifications</h4>
+<ul>
+<li><strong>Visual Theme:</strong> Consistent with the modern glassmorphism dark/light design of Units 1 &amp; 2 (Inter/system fonts, responsive layout, clear status badges).</li>
+<li><strong>Question Archetypes:</strong><br />
+  1. <em>Vocabulary Recall:</em> Direct definition identification.<br />
+  2. <em>Scenario Analysis:</em> Experimental data tables, solution concentration shifts, and enzyme velocity graphs.<br />
+  3. <em>Misconception Traps:</em> Answers featuring common student errors with explicit corrective explanations.</li>
+<li><strong>Core Interactive Features:</strong></li>
+<li>Instant feedback with immediate green/red highlighting.</li>
+<li>Detailed educational explanations for <strong>both</strong> correct and incorrect choices.</li>
+<li>Running score counter and percentage calculator.</li>
+<li>Filter/Restart buttons allowing the student to retry missed questions.</li>
+<li>100% offline and static-host compatible (no external backend required).</li>
+</ul>
+<h4 id="standard-unit-test-suite-roster">Standard Unit Test Suite Roster</h4>
+<p>For every unit, build:<br />
+1. <code>test-vocab-mastery.html</code> (30–50 flashcard-style MCQs covering all unit terminology).<br />
+2. <code>test-concept-application.html</code> (25–35 scenario, diagram, and graph analysis questions).<br />
+3. <code>test-unit-XX-summative-mastery.html</code> (50–60 comprehensive MCQs simulating the real unit exam).<br />
+4. <code>index.html</code> (Unit Test Hub linking all unit quizzes).</p>
+<hr />
+<h3 id="phase-4-hub-navigation-wiring">Phase 4: Hub &amp; Navigation Wiring</h3>
+<p>Once materials and tests are built, link them into the repository navigation architecture:</p>
+<ol>
+<li><strong>Unit README (<code>units/unit-XX/README.md</code>):</strong><br />
+   * Overview, learning targets, table of all markdown study guides, PDF downloads, and test links.</li>
+<li><strong>Unit Test Index (<code>units/unit-XX/tests/index.html</code>):</strong><br />
+   * Grid of test cards showing question count, difficulty, topic tags, and launch buttons.</li>
+<li><strong>Master Dashboard (<code>index.html</code>):</strong><br />
+   * Update the unit card in the 10-Unit Master Grid from <code>Planned</code> to <code>Active</code>.<br />
+   * Add direct links to the new unit hub and primary tests.</li>
+<li><strong>Master Schedule (<code>schedule/semester-1.md</code> or <code>semester-2.md</code>):</strong><br />
+   * Add direct relative links under the relevant week headers.</li>
+<li><strong>Master README (<code>README.md</code>):</strong><br />
+   * Ensure quick-launch links point to the currently active weekly materials.</li>
+</ol>
+<hr />
+<h3 id="phase-5-automated-verification-link-integrity-audit">Phase 5: Automated Verification &amp; Link Integrity Audit</h3>
+<p>Never push code without running a link verification audit. Run this Python script to ensure 100% of relative links resolve:</p>
+<pre><code class="language-bash">python3 -c '
+import os, re, urllib.parse
+from pathlib import Path
+
+root = Path(&quot;.&quot;)
+html_md_files = list(root.glob(&quot;**/*.html&quot;)) + list(root.glob(&quot;**/*.md&quot;))
+broken = []
+checked = 0
+
+for f in html_md_files:
+    if &quot;.git&quot; in f.parts: continue
+    try:
+        content = f.read_text(encoding=&quot;utf-8&quot;, errors=&quot;ignore&quot;)
+    except Exception:
+        continue
+    content_no_code = re.sub(r&quot;```[\s\S]*?```&quot;, &quot;&quot;, content)
+    html_links = re.findall(r&quot;href=[\&quot;\x27]([^\s\&quot;\x27&gt;]+)[\&quot;\x27]&quot;, content_no_code)
+    md_links = re.findall(r&quot;\[[^\]]*\]\(([^)\s]+)\)&quot;, content_no_code)
+    all_links = html_links + md_links
+
+    for raw_link in all_links:
+        if raw_link.startswith((&quot;http://&quot;, &quot;https://&quot;, &quot;mailto:&quot;, &quot;javascript:&quot;, &quot;#&quot;)):
+            continue
+        clean_link = urllib.parse.unquote(raw_link.split(&quot;?&quot;)[0].split(&quot;#&quot;)[0])
+        link_path = (f.parent / clean_link).resolve()
+        checked += 1
+        if not link_path.exists():
+            broken.append((str(f.relative_to(root)), raw_link, str(link_path)))
+
+print(f&quot;Checked {checked} relative links across {len(html_md_files)} files.&quot;)
+if broken:
+    print(f&quot;❌ Found {len(broken)} broken link(s):&quot;)
+    for src, l, lp in broken:
+        print(f&quot;  {src} -&gt; {l}&quot;)
+    exit(1)
+else:
+    print(&quot;✅ All relative links are 100% valid! Zero broken links.&quot;)
+'
+</code></pre>
+<hr />
+<h3 id="phase-6-git-commit-github-pages-deployment">Phase 6: Git Commit &amp; GitHub Pages Deployment</h3>
+<p>Deploy the validated unit cleanly:</p>
+<pre><code class="language-bash"># 1. Review status
+git status
+
+# 2. Stage all new unit files
+git add units/unit-XX-* schedule/ index.html README.md
+
+# 3. Commit with standard semantic message
+git commit -m &quot;Add Unit XX (Topic Name): materials, study guides, and test suite&quot;
+
+# 4. Push to GitHub
+git push origin main
+
+# 5. Verify live deployment
+gh api /repos/MegaAntony/high-school-biology-i-honors/pages/builds --jq &quot;.[0].status&quot;
+</code></pre>
+<hr />
+<h2 id="part-3-ready-to-use-unit-templates">📋 Part 3: Ready-to-Use Unit Templates</h2>
+<h3 id="template-1-unit-readmemd">Template 1: Unit <code>README.md</code></h3>
+<pre><code class="language-markdown"># Unit XX: [Unit Name]
+### Biology I Honors • Georgia Standards of Excellence: [GSE Codes, e.g., SB1.e]
+*South Forsyth High School • Dr. Sarah Irwin*
+
+---
+
+## 🎯 Learning Objectives &amp; State Standards
+* **[Standard Code]:** [Full standard text description]
+* **Target 1:** [Specific measurable student target]
+* **Target 2:** [Specific measurable student target]
+
+---
+
+## 📚 Study Guides &amp; High-Yield Notes (`materials/md/`)
+* 📄 [Unit Overview &amp; Detailed Vocab](materials/md/unit-XX-vocab-guide.html)
+* 📄 [Lecture Slides &amp; Concept Notes](materials/md/unit-XX-lecture-notes.html)
+* 📄 [Situation Cards &amp; Problem Solving](materials/md/unit-XX-situation-cards.html)
+
+---
+
+## 🧪 Interactive Practice Tests (`tests/`)
+* ⚡ [Unit XX Master Test Hub](tests/index.html)
+* 🗂️ [Vocabulary Mastery Test](tests/test-vocab-mastery.html) — *40 Questions*
+* 🔬 [Concept &amp; Scenario Practice](tests/test-concept-application.html) — *30 Questions*
+* 🏆 [Summative Practice Exam](tests/test-unit-XX-summative-mastery.html) — *55 Questions*
+
+---
+
+## 📁 Teacher Source Documents (`materials/pdf/`)
+* 📥 [Unit Packet PDF](materials/pdf/unit-XX-student-packet.pdf)
+* 📥 [Lecture Slides Presentation PDF](materials/pdf/unit-XX-presentation.pdf)
+</code></pre>
+<hr />
+<h3 id="template-2-interactive-quiz-card-generator-htmljs-engine">Template 2: Interactive Quiz Card Generator (HTML/JS Engine)</h3>
+<p>Use this verified template to build responsive quizzes with zero build tools or dependencies:</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Unit XX Practice Quiz | Biology I Honors&lt;/title&gt;
+  &lt;script src=&quot;https://cdn.tailwindcss.com&quot;&gt;&lt;/script&gt;
+  &lt;style&gt;
+    body { font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, sans-serif; }
+    .correct { background-color: #dcfce7 !important; border-color: #22c55e !important; color: #15803d !important; }
+    .incorrect { background-color: #fee2e2 !important; border-color: #ef4444 !important; color: #b91c1c !important; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body class=&quot;bg-slate-50 text-slate-800 p-4 md:p-8&quot;&gt;
+  &lt;div class=&quot;max-w-3xl mx-auto&quot;&gt;
+    &lt;!-- Header --&gt;
+    &lt;header class=&quot;mb-6 pb-4 border-b border-slate-200&quot;&gt;
+      &lt;a href=&quot;index.html&quot; class=&quot;text-sm font-semibold text-emerald-600 hover:text-emerald-700&quot;&gt;← Back to Unit Tests&lt;/a&gt;
+      &lt;h1 class=&quot;text-2xl md:text-3xl font-bold mt-2 text-slate-900&quot;&gt;Unit XX: Practice Assessment&lt;/h1&gt;
+      &lt;p class=&quot;text-slate-600 text-sm mt-1&quot;&gt;Biology I Honors • Dr. Irwin • Georgia Standard [Standard]&lt;/p&gt;
+      &lt;div class=&quot;mt-4 flex items-center justify-between bg-white p-3 rounded-lg border border-slate-200 shadow-sm&quot;&gt;
+        &lt;span id=&quot;score-display&quot; class=&quot;font-medium text-slate-700&quot;&gt;Score: 0 / 0 (0%)&lt;/span&gt;
+        &lt;button onclick=&quot;resetQuiz()&quot; class=&quot;px-3 py-1 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm rounded font-medium transition&quot;&gt;Reset Quiz&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/header&gt;
+
+    &lt;!-- Questions Container --&gt;
+    &lt;div id=&quot;quiz-container&quot; class=&quot;space-y-6&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;script&gt;
+    const questions = [
+      {
+        q: &quot;Sample question stem explaining a biological scenario or mechanism?&quot;,
+        options: [
+          &quot;Incorrect distractor representing a common student misconception&quot;,
+          &quot;Correct answer based on scientific evidence&quot;,
+          &quot;Distractor with partially correct terms&quot;,
+          &quot;Distractor from another unrelated unit&quot;
+        ],
+        answer: 1,
+        explanation: &quot;Detailed explanation clarifying why choice B is scientifically correct and why the other choices are incorrect.&quot;
+      }
+      // Add questions here...
+    ];
+
+    let answeredCount = 0;
+    let correctCount = 0;
+
+    function renderQuiz() {
+      const container = document.getElementById('quiz-container');
+      container.innerHTML = '';
+      questions.forEach((item, index) =&gt; {
+        const card = document.createElement('div');
+        card.className = &quot;bg-white p-6 rounded-xl border border-slate-200 shadow-sm transition&quot;;
+        card.id = `q-${index}`;
+
+        const qText = document.createElement('h3');
+        qText.className = &quot;font-semibold text-base md:text-lg text-slate-900 mb-4&quot;;
+        qText.innerHTML = `&lt;span class=&quot;text-emerald-600 mr-2&quot;&gt;Q${index + 1}.&lt;/span&gt;${item.q}`;
+        card.appendChild(qText);
+
+        const optsDiv = document.createElement('div');
+        optsDiv.className = &quot;space-y-2.5&quot;;
+
+        item.options.forEach((opt, optIndex) =&gt; {
+          const btn = document.createElement('button');
+          btn.className = &quot;w-full text-left p-3.5 rounded-lg border border-slate-200 text-slate-700 hover:border-emerald-400 hover:bg-emerald-50/50 text-sm font-medium transition flex items-start&quot;;
+          btn.innerHTML = `&lt;span class=&quot;w-6 h-6 rounded-full bg-slate-100 text-slate-600 text-xs flex items-center justify-center mr-3 shrink-0&quot;&gt;${String.fromCharCode(65 + optIndex)}&lt;/span&gt;&lt;span&gt;${opt}&lt;/span&gt;`;
+          btn.onclick = () =&gt; selectOption(index, optIndex);
+          optsDiv.appendChild(btn);
+        });
+
+        card.appendChild(optsDiv);
+
+        const expDiv = document.createElement('div');
+        expDiv.id = `exp-${index}`;
+        expDiv.className = &quot;hidden mt-4 p-4 rounded-lg bg-slate-50 border border-slate-200 text-xs md:text-sm text-slate-700&quot;;
+        card.appendChild(expDiv);
+
+        container.appendChild(card);
+      });
+    }
+
+    function selectOption(qIdx, optIdx) {
+      const card = document.getElementById(`q-${qIdx}`);
+      const buttons = card.querySelectorAll('button');
+      if (buttons[0].disabled) return;
+
+      const q = questions[qIdx];
+      buttons.forEach((b, i) =&gt; {
+        b.disabled = true;
+        if (i === q.answer) b.classList.add('correct');
+        if (i === optIdx &amp;&amp; i !== q.answer) b.classList.add('incorrect');
+      });
+
+      answeredCount++;
+      if (optIdx === q.answer) correctCount++;
+
+      const pct = Math.round((correctCount / answeredCount) * 100);
+      document.getElementById('score-display').textContent = `Score: ${correctCount} / ${answeredCount} (${pct}%)`;
+
+      const exp = document.getElementById(`exp-${qIdx}`);
+      exp.innerHTML = `&lt;strong&gt;${optIdx === q.answer ? '✅ Correct!' : '❌ Incorrect.'}&lt;/strong&gt; ${q.explanation}`;
+      exp.classList.remove('hidden');
+    }
+
+    function resetQuiz() {
+      answeredCount = 0;
+      correctCount = 0;
+      document.getElementById('score-display').textContent = &quot;Score: 0 / 0 (0%)&quot;;
+      renderQuiz();
+    }
+
+    renderQuiz();
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<hr />
+<h2 id="part-4-pre-flight-post-flight-quality-checklist">🎯 Part 4: Pre-Flight &amp; Post-Flight Quality Checklist</h2>
+<p>Before considering any unit addition "Done", verify each item on this checklist:</p>
+<h3 id="1-pre-flight-materials-ingestion">1. Pre-Flight (Materials Ingestion)</h3>
+<ul>
+<li>[ ] All teacher PDFs/PPTs stored in <code>units/unit-XX/materials/pdf/</code>.</li>
+<li>[ ] Converted markdown files in <code>units/unit-XX/materials/md/</code> contain no placeholder text.</li>
+<li>[ ] Vocabulary terms include exact GSE definitions and "Teacher Trap" explanations.</li>
+<li>[ ] Lab or classroom scenario questions documented.</li>
+</ul>
+<h3 id="2-build-assembly">2. Build &amp; Assembly</h3>
+<ul>
+<li>[ ] Vocabulary quiz built (<code>test-vocab-mastery.html</code>).</li>
+<li>[ ] Concept/Scenario application quiz built (<code>test-concept-application.html</code>).</li>
+<li>[ ] Summative mastery exam built (<code>test-unit-XX-summative-mastery.html</code>).</li>
+<li>[ ] Unit Test Index built (<code>units/unit-XX/tests/index.html</code>).</li>
+<li>[ ] Unit README created (<code>units/unit-XX/README.md</code>).</li>
+</ul>
+<h3 id="3-navigation-dashboard-integration">3. Navigation &amp; Dashboard Integration</h3>
+<ul>
+<li>[ ] Unit card in root <code>index.html</code> updated to active with correct relative paths.</li>
+<li>[ ] Semester calendar (<code>schedule/semester-1.md</code> or <code>semester-2.md</code>) updated with weekly schedule and deep links.</li>
+<li>[ ] Root <code>README.md</code> quick-launch bar updated if this is the active in-class unit.</li>
+</ul>
+<h3 id="4-quality-assurance-link-audit">4. Quality Assurance &amp; Link Audit</h3>
+<ul>
+<li>[ ] Link audit script executed with <strong>0 broken links</strong> reported.</li>
+<li>[ ] Interactive tests tested in browser (desktop + mobile viewport).</li>
+<li>[ ] Question answer keys and explanations verified against state standards.</li>
+</ul>
+<h3 id="5-deployment-remote-verification">5. Deployment &amp; Remote Verification</h3>
+<ul>
+<li>[ ] Git commit created with semantic message.</li>
+<li>[ ] Pushed to <code>origin main</code> on <code>https://github.com/MegaAntony/high-school-biology-i-honors</code>.</li>
+<li>[ ] GitHub Pages build status confirmed <code>"built"</code>.</li>
+<li>[ ] Live URL verified via <code>curl</code> returning HTTP 200.</li>
+</ul>
+      </article>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800 bg-slate-950 py-8 text-center text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>Grade 9 Biology I Honors • South Forsyth High School • Dr. Sarah Irwin</p>
+      <div class="flex items-center gap-4">
+        <a href="./index.html" class="hover:text-slate-300 transition">Portal Home</a>
+        <a href="./schedule/semester-1.html" class="hover:text-slate-300 transition">Schedule</a>
+        <a href="./notInLocal.html" class="hover:text-slate-300 transition">Cloud Links</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

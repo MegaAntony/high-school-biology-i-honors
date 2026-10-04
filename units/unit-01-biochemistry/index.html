@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit 1: Biochemistry  Biological Macromolecules - Biology I Honors</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    code, pre { font-family: 'JetBrains Mono', monospace; }
+    
+    /* Markdown Content Typography */
+    .prose-biology h1 {
+      font-size: 1.875rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #334155;
+      letter-spacing: -0.025em;
+    }
+    .prose-biology h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+    .prose-biology h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #38bdf8;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .prose-biology h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #34d399;
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .prose-biology p {
+      color: #cbd5e1;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    .prose-biology strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .prose-biology ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+      color: #cbd5e1;
+    }
+    .prose-biology ol {
+      list-style-type: decimal;
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+      color: #cbd5e1;
+    }
+    .prose-biology li {
+      margin-bottom: 0.375rem;
+      line-height: 1.6;
+    }
+    .prose-biology li strong {
+      color: #f8fafc;
+    }
+    .prose-biology a {
+      color: #38bdf8;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.15s ease;
+    }
+    .prose-biology a:hover {
+      color: #7dd3fc;
+      text-decoration: none;
+    }
+    .prose-biology blockquote {
+      border-left: 4px solid #10b981;
+      background-color: rgba(16, 185, 129, 0.08);
+      padding: 0.75rem 1rem;
+      margin: 1.25rem 0;
+      border-radius: 0 0.5rem 0.5rem 0;
+      color: #e2e8f0;
+      font-style: italic;
+    }
+    .prose-biology blockquote p {
+      margin-bottom: 0;
+      color: #e2e8f0;
+    }
+    .prose-biology code {
+      background-color: #1e293b;
+      color: #fbbf24;
+      padding: 0.2rem 0.4rem;
+      border-radius: 0.375rem;
+      font-size: 0.85em;
+      border: 1px solid #334155;
+    }
+    .prose-biology pre {
+      background-color: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 0.75rem;
+      padding: 1rem;
+      overflow-x: auto;
+      margin: 1.25rem 0;
+    }
+    .prose-biology pre code {
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      color: #34d399;
+      font-size: 0.875rem;
+    }
+    .prose-biology hr {
+      border: 0;
+      border-top: 1px solid #334155;
+      margin: 2rem 0;
+    }
+    /* Table Styling */
+    .prose-biology table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.875rem;
+      background-color: #1e293b;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      border: 1px solid #334155;
+    }
+    .prose-biology th {
+      background-color: #0f172a;
+      color: #34d399;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.75rem;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #334155;
+      text-align: left;
+    }
+    .prose-biology td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #334155;
+      color: #cbd5e1;
+      vertical-align: top;
+    }
+    .prose-biology tr:last-child td {
+      border-bottom: none;
+    }
+    .prose-biology tr:nth-child(even) td {
+      background-color: rgba(15, 23, 42, 0.4);
+    }
+    .prose-biology tr:hover td {
+      background-color: rgba(51, 65, 85, 0.4);
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between">
+
+  <!-- HEADER -->
+  <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="../../index.html" class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center text-slate-950 font-black text-lg shadow-lg shadow-emerald-500/20 hover:scale-105 transition">
+          <i class="fa-solid fa-dna"></i>
+        </a>
+        <div>
+          <a href="../../index.html" class="text-lg font-black tracking-tight text-white hover:text-emerald-400 transition">Biology I Honors V2</a>
+          <p class="text-xs text-slate-400 font-medium">South Forsyth High School • Dr. Irwin (2026/2027)</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2.5">
+        <a href="../../index.html" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 px-3.5 py-2 rounded-xl border border-slate-700 transition flex items-center gap-1.5">
+          <i class="fa-solid fa-house text-emerald-400"></i> Home
+        </a>
+        <a href="../../schedule/semester-1.html" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 px-3.5 py-2 rounded-xl border border-slate-700 transition flex items-center gap-1.5">
+          <i class="fa-regular fa-calendar text-teal-400"></i> S1 Schedule
+        </a>
+        <a href="../../units/unit-02-cells-and-transport/tests/index.html" class="text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-md shadow-emerald-600/30">
+          <i class="fa-solid fa-vial"></i> Practice Tests
+        </a>
+        <a href="../../notInLocal.html" class="text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-md shadow-indigo-600/30 hidden sm:flex">
+          <i class="fa-solid fa-cloud"></i> Cloud Links
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB & CONTENT CONTAINER -->
+  <main class="max-w-5xl mx-auto px-6 py-8 flex-1 w-full space-y-6">
+
+    <!-- BREADCRUMB -->
+    <nav class="flex items-center gap-2 text-xs text-slate-400">
+      <a href="../../index.html" class="hover:text-emerald-400 transition flex items-center gap-1">
+        <i class="fa-solid fa-house text-[10px]"></i> Home
+      </a>
+      <i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i>
+      <span class="text-slate-400">Units</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i> <span class="text-slate-400">Unit 01 Biochemistry</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i>
+      <span class="text-slate-200 font-semibold truncate max-w-xs">Unit 1: Biochemistry &amp; Biological Macromolecu...</span>
+    </nav>
+
+    <!-- CONTENT CARD -->
+    <div class="bg-slate-800/60 border border-slate-700/60 rounded-3xl p-6 sm:p-10 shadow-xl backdrop-blur">
+      <article class="prose-biology">
+        <h1 id="unit-1-biochemistry-biological-macromolecules">Unit 1: Biochemistry &amp; Biological Macromolecules</h1>
+<h3 id="biology-i-honors-south-forsyth-high-school-standard-sb1c">Biology I Honors • South Forsyth High School • Standard: <strong>SB1.c</strong></h3>
+<hr />
+<h2 id="unit-overview">🎯 Unit Overview</h2>
+<p>Unit 1 focuses on the molecular foundation of all biological systems:<br />
+* <strong>The 4 Macromolecules of Life:</strong> Carbohydrates, Lipids, Proteins, and Nucleic Acids (monomers, polymers, bonds, and biological functions).<br />
+* <strong>Enzyme Kinetics &amp; Catalysis:</strong> Active sites, substrate specificity, activation energy reduction, and denaturation factors (pH, temperature).<br />
+* <strong>Chemical Indicators Lab:</strong> Iodine (starch), Benedict's (reducing sugars), Biuret (proteins), Sudan IV / Brown Paper (lipids).</p>
+<hr />
+<h2 id="quick-navigation-resources">📚 Quick Navigation &amp; Resources</h2>
+<div class="overflow-x-auto my-4"><table>
+<thead>
+<tr>
+<th style="text-align: left;">Category</th>
+<th style="text-align: left;">File / Resource</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Teacher Slides</strong></td>
+<td style="text-align: left;"><a href="materials/Unit%201%20Presentation.pdf"><code>materials/Unit 1 Presentation.pdf</code></a></td>
+<td style="text-align: left;">Original classroom lecture slide deck</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Student Packet</strong></td>
+<td style="text-align: left;"><a href="materials/Unit%201%20Notes%20and%20Practice%20Packet.pdf"><code>materials/Unit 1 Notes and Practice Packet.pdf</code></a></td>
+<td style="text-align: left;">Complete notes &amp; practice worksheet</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Lab Packet</strong></td>
+<td style="text-align: left;"><a href="materials/Unit%201%20Lab%20Packet.pdf"><code>materials/Unit 1 Lab Packet.pdf</code></a></td>
+<td style="text-align: left;">Wasp Sting / Murder &amp; a Meal enzyme lab</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Study Guide</strong></td>
+<td style="text-align: left;"><a href="materials/Unit_1_Vocabulary_Study_Guide.html"><code>materials/Unit_1_Vocabulary_Study_Guide.md</code></a></td>
+<td style="text-align: left;">Full vocabulary study notes</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Vocab Quiz</strong></td>
+<td style="text-align: left;"><a href="tests/Unit_1_Complete_Vocab_Mastery_Quiz.html"><code>tests/Unit_1_Complete_Vocab_Mastery_Quiz.html</code></a></td>
+<td style="text-align: left;">Interactive vocabulary mastery test</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Summative Test</strong></td>
+<td style="text-align: left;"><a href="tests/Unit_1_Summative_Practice_Test.html"><code>tests/Unit_1_Summative_Practice_Test.html</code></a></td>
+<td style="text-align: left;">Full unit practice exam with explanations</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="macromolecule-reference-cheat-sheet">🧪 Macromolecule Reference Cheat Sheet</h2>
+<div class="overflow-x-auto my-4"><table>
+<thead>
+<tr>
+<th style="text-align: left;">Macromolecule</th>
+<th style="text-align: left;">Monomer / Building Blocks</th>
+<th style="text-align: left;">Polymer / Large Structure</th>
+<th style="text-align: center;">Key Elements</th>
+<th style="text-align: left;">Biological Functions</th>
+<th style="text-align: left;">Chemical Indicator Test</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Carbohydrates</strong></td>
+<td style="text-align: left;">Monosaccharides (e.g., Glucose)</td>
+<td style="text-align: left;">Polysaccharides (Starch, Glycogen, Cellulose, Chitin)</td>
+<td style="text-align: center;">$C, H, O$ ($1:2:1$)</td>
+<td style="text-align: left;">Fast/short-term energy, plant wall structure</td>
+<td style="text-align: left;">• <strong>Benedict's:</strong> Orange/Red (Heat)<br>• <strong>Lugol's Iodine:</strong> Blue-Black</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Lipids</strong></td>
+<td style="text-align: left;">Glycerol + Fatty Acids</td>
+<td style="text-align: left;">Triglycerides, Phospholipids, Steroids</td>
+<td style="text-align: center;">$C, H, O$ (few $O$)</td>
+<td style="text-align: left;">Long-term energy storage, cell membrane bilayer, insulation</td>
+<td style="text-align: left;">• <strong>Sudan IV:</strong> Red ring / dye layer<br>• <strong>Brown Paper:</strong> Translucent</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Proteins</strong></td>
+<td style="text-align: left;">Amino Acids (20 types, peptide bonds)</td>
+<td style="text-align: left;">Polypeptides, Enzymes, Antibodies, Receptors</td>
+<td style="text-align: center;">$C, H, O, N, S$</td>
+<td style="text-align: left;">Enzymatic catalysis, cellular structure, transport, signaling</td>
+<td style="text-align: left;">• <strong>Biuret:</strong> Purple / Violet</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Nucleic Acids</strong></td>
+<td style="text-align: left;">Nucleotides (Sugar, Phosphate, Base)</td>
+<td style="text-align: left;">DNA (double helix) &amp; RNA (single strand)</td>
+<td style="text-align: center;">$C, H, O, N, P$</td>
+<td style="text-align: left;">Storage and expression of genetic information</td>
+<td style="text-align: left;">• Gel Electrophoresis (staining)</td>
+</tr>
+</tbody>
+</table></div>
+      </article>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800 bg-slate-950 py-8 text-center text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>Grade 9 Biology I Honors • South Forsyth High School • Dr. Sarah Irwin</p>
+      <div class="flex items-center gap-4">
+        <a href="../../index.html" class="hover:text-slate-300 transition">Portal Home</a>
+        <a href="../../schedule/semester-1.html" class="hover:text-slate-300 transition">Schedule</a>
+        <a href="../../notInLocal.html" class="hover:text-slate-300 transition">Cloud Links</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

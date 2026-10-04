@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit 2 (Part 2): Cell Theory and Cell Structure - Biology I Honors</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    code, pre { font-family: 'JetBrains Mono', monospace; }
+    
+    /* Markdown Content Typography */
+    .prose-biology h1 {
+      font-size: 1.875rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #334155;
+      letter-spacing: -0.025em;
+    }
+    .prose-biology h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+    .prose-biology h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #38bdf8;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .prose-biology h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #34d399;
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .prose-biology p {
+      color: #cbd5e1;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    .prose-biology strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .prose-biology ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+      color: #cbd5e1;
+    }
+    .prose-biology ol {
+      list-style-type: decimal;
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+      color: #cbd5e1;
+    }
+    .prose-biology li {
+      margin-bottom: 0.375rem;
+      line-height: 1.6;
+    }
+    .prose-biology li strong {
+      color: #f8fafc;
+    }
+    .prose-biology a {
+      color: #38bdf8;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.15s ease;
+    }
+    .prose-biology a:hover {
+      color: #7dd3fc;
+      text-decoration: none;
+    }
+    .prose-biology blockquote {
+      border-left: 4px solid #10b981;
+      background-color: rgba(16, 185, 129, 0.08);
+      padding: 0.75rem 1rem;
+      margin: 1.25rem 0;
+      border-radius: 0 0.5rem 0.5rem 0;
+      color: #e2e8f0;
+      font-style: italic;
+    }
+    .prose-biology blockquote p {
+      margin-bottom: 0;
+      color: #e2e8f0;
+    }
+    .prose-biology code {
+      background-color: #1e293b;
+      color: #fbbf24;
+      padding: 0.2rem 0.4rem;
+      border-radius: 0.375rem;
+      font-size: 0.85em;
+      border: 1px solid #334155;
+    }
+    .prose-biology pre {
+      background-color: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 0.75rem;
+      padding: 1rem;
+      overflow-x: auto;
+      margin: 1.25rem 0;
+    }
+    .prose-biology pre code {
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      color: #34d399;
+      font-size: 0.875rem;
+    }
+    .prose-biology hr {
+      border: 0;
+      border-top: 1px solid #334155;
+      margin: 2rem 0;
+    }
+    /* Table Styling */
+    .prose-biology table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.875rem;
+      background-color: #1e293b;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      border: 1px solid #334155;
+    }
+    .prose-biology th {
+      background-color: #0f172a;
+      color: #34d399;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.75rem;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #334155;
+      text-align: left;
+    }
+    .prose-biology td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #334155;
+      color: #cbd5e1;
+      vertical-align: top;
+    }
+    .prose-biology tr:last-child td {
+      border-bottom: none;
+    }
+    .prose-biology tr:nth-child(even) td {
+      background-color: rgba(15, 23, 42, 0.4);
+    }
+    .prose-biology tr:hover td {
+      background-color: rgba(51, 65, 85, 0.4);
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between">
+
+  <!-- HEADER -->
+  <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="../../../../index.html" class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center text-slate-950 font-black text-lg shadow-lg shadow-emerald-500/20 hover:scale-105 transition">
+          <i class="fa-solid fa-dna"></i>
+        </a>
+        <div>
+          <a href="../../../../index.html" class="text-lg font-black tracking-tight text-white hover:text-emerald-400 transition">Biology I Honors V2</a>
+          <p class="text-xs text-slate-400 font-medium">South Forsyth High School • Dr. Irwin (2026/2027)</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2.5">
+        <a href="../../../../index.html" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 px-3.5 py-2 rounded-xl border border-slate-700 transition flex items-center gap-1.5">
+          <i class="fa-solid fa-house text-emerald-400"></i> Home
+        </a>
+        <a href="../../../../schedule/semester-1.html" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 px-3.5 py-2 rounded-xl border border-slate-700 transition flex items-center gap-1.5">
+          <i class="fa-regular fa-calendar text-teal-400"></i> S1 Schedule
+        </a>
+        <a href="../../../../units/unit-02-cells-and-transport/tests/index.html" class="text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-md shadow-emerald-600/30">
+          <i class="fa-solid fa-vial"></i> Practice Tests
+        </a>
+        <a href="../../../../notInLocal.html" class="text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-md shadow-indigo-600/30 hidden sm:flex">
+          <i class="fa-solid fa-cloud"></i> Cloud Links
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB & CONTENT CONTAINER -->
+  <main class="max-w-5xl mx-auto px-6 py-8 flex-1 w-full space-y-6">
+
+    <!-- BREADCRUMB -->
+    <nav class="flex items-center gap-2 text-xs text-slate-400">
+      <a href="../../../../index.html" class="hover:text-emerald-400 transition flex items-center gap-1">
+        <i class="fa-solid fa-house text-[10px]"></i> Home
+      </a>
+      <i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i>
+      <span class="text-slate-400">Units</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i> <span class="text-slate-400">Unit 02 Cells And Transport</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i> <span class="text-slate-400">Materials</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i> <span class="text-slate-400">Md</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i>
+      <span class="text-slate-200 font-semibold truncate max-w-xs">Unit 2 (Part 2): Cell Theory and Cell Structu...</span>
+    </nav>
+
+    <!-- CONTENT CARD -->
+    <div class="bg-slate-800/60 border border-slate-700/60 rounded-3xl p-6 sm:p-10 shadow-xl backdrop-blur">
+      <article class="prose-biology">
+        <h1 id="unit-2-part-2-cell-theory-and-cell-structure">Unit 2 (Part 2): Cell Theory and Cell Structure</h1>
+<p><strong>Source:</strong> <code>HB Unit 2 (Part 2)_ Cell Theory &amp; Structure PPT (26-27.pdf</code><br />
+<strong>Course:</strong> Biology I Honors — Unit 2: Cells and Cell Transport<br />
+<strong>Document Type:</strong> Comprehensive Lecture &amp; Slide Guide</p>
+<hr />
+<h2 id="1-history-of-cell-discovery-the-cell-theory">📜 1. History of Cell Discovery &amp; The Cell Theory</h2>
+<p>The development of the microscope led to landmark biological discoveries over several centuries:</p>
+<div class="overflow-x-auto my-4"><table>
+<thead>
+<tr>
+<th style="text-align: left;">Scientist</th>
+<th style="text-align: center;">Year / Milestone</th>
+<th style="text-align: left;">Discovery &amp; Contribution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Robert Hooke</strong></td>
+<td style="text-align: center;">1665</td>
+<td style="text-align: left;">Used an early compound microscope to examine thin slices of cork bark. Observed thousands of tiny, empty box-like compartments and coined the term <strong>"cells"</strong> (resembling the small rooms/cubicles monks lived in at monasteries). He was viewing dead plant cell walls.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Anton van Leeuwenhoek</strong></td>
+<td style="text-align: center;">1674+</td>
+<td style="text-align: left;">Improved lens grinding techniques to achieve greater magnification. First person to observe living microorganisms in pond water, dental scrapings, and blood; famously referred to them as <strong>"animalcules"</strong> ("little animals").</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Matthias Schleiden</strong></td>
+<td style="text-align: center;">1838</td>
+<td style="text-align: left;">German botanist who concluded that <strong>all plants and plant tissues are composed of cells</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Theodor Schwann</strong></td>
+<td style="text-align: center;">1839</td>
+<td style="text-align: left;">German zoologist who concluded that <strong>all animals and animal tissues are composed of cells</strong>. <em>(Mnemonic: "Schwann" sounds like "swan," an animal).</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rudolf Virchow</strong></td>
+<td style="text-align: center;">1855</td>
+<td style="text-align: left;">German physician who proposed that <strong>all cells arise only from existing, living cells</strong> through cell division (<em>"Omnis cellula e cellula"</em>), refuting spontaneous generation.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="the-3-core-tenets-of-cell-theory">The 3 Core Tenets of Cell Theory</h3>
+<ol>
+<li><strong>All living organisms are made of one or more cells.</strong></li>
+<li><strong>The cell is the basic structural and functional unit of life.</strong></li>
+<li><strong>All cells originate only from pre-existing cells through cell division.</strong></li>
+</ol>
+<hr />
+<h2 id="2-universal-features-found-in-all-cells">🧬 2. Universal Features Found in ALL Cells</h2>
+<p>Regardless of whether an organism is a bacterium, human, mushroom, or tree, <strong>every cell on Earth shares four universal components</strong>:</p>
+<ol>
+<li><strong>Cell Membrane (Plasma Membrane):</strong> A selectively permeable phospholipid bilayer that regulates internal balance.</li>
+<li><strong>Cytoplasm (Cytosol):</strong> The intracellular fluid medium that suspends biochemical molecules.</li>
+<li><strong>Ribosomes:</strong> Molecular complexes composed of rRNA and protein that carry out protein synthesis (not enclosed by a membrane).</li>
+<li><strong>Genetic Material (DNA):</strong> The hereditary blueprint instructing cellular processes.</li>
+</ol>
+<hr />
+<h2 id="3-prokaryotic-vs-eukaryotic-cells">🔬 3. Prokaryotic vs. Eukaryotic Cells</h2>
+<p>The primary division in cellular life separates <strong>Prokaryotes</strong> from <strong>Eukaryotes</strong>:</p>
+<pre><code class="language-mermaid">flowchart LR
+    Life[All Cellular Life] --&gt; Pro[Prokaryotes&lt;br&gt;• Domain Bacteria&lt;br&gt;• Domain Archaea]
+    Life --&gt; Euk[Eukaryotes&lt;br&gt;• Domain Eukarya&lt;br&gt;• Animals, Plants, Fungi, Protists]
+</code></pre>
+<h3 id="comprehensive-comparison-matrix">Comprehensive Comparison Matrix</h3>
+<div class="overflow-x-auto my-4"><table>
+<thead>
+<tr>
+<th style="text-align: left;">Feature</th>
+<th style="text-align: left;">Prokaryotic Cells ("Pro = NO")</th>
+<th style="text-align: left;">Eukaryotic Cells ("Eu = TRUE")</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Etymology</strong></td>
+<td style="text-align: left;">"Before nucleus" (<em>pro</em> = before, <em>karyon</em> = kernel/nucleus)</td>
+<td style="text-align: left;">"True nucleus" (<em>eu</em> = true, <em>karyon</em> = nucleus)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Representative Organisms</strong></td>
+<td style="text-align: left;">Bacteria and Archaea</td>
+<td style="text-align: left;">Protists, Fungi, Plants, and Animals</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Organism Complexity</strong></td>
+<td style="text-align: left;"><strong>Unicellular only</strong></td>
+<td style="text-align: left;"><strong>Unicellular</strong> (many protists, yeasts) or <strong>Multicellular</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cell Size</strong></td>
+<td style="text-align: left;">Small: <strong>$1 - 5\ \mu  ext{m}$</strong> (up to $10\ \mu   ext{m}$)</td>
+<td style="text-align: left;">Large: <strong>$10 - 100\ \mu  ext{m}$</strong> (~10x to 100x larger)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Nucleus</strong></td>
+<td style="text-align: left;"><strong>No true nucleus</strong>; genetic material resides in an open <strong>nucleoid region</strong></td>
+<td style="text-align: left;"><strong>Membrane-bound nucleus</strong> with nuclear envelope &amp; nucleolus</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>DNA Architecture</strong></td>
+<td style="text-align: left;">Single circular chromosome; free circular <strong>plasmids</strong></td>
+<td style="text-align: left;">Multiple linear chromosomes packaged around histone proteins</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Membrane-Bound Organelles</strong></td>
+<td style="text-align: left;"><strong>None</strong> (No mitochondria, ER, Golgi, lysosomes, chloroplasts)</td>
+<td style="text-align: left;"><strong>Extensive endomembrane system</strong> &amp; specialized organelles</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ribosome Size</strong></td>
+<td style="text-align: left;"><strong>70S</strong> ribosomes (smaller)</td>
+<td style="text-align: left;"><strong>80S</strong> ribosomes (larger in cytosol/ER; 70S in mitochondria/chloroplasts)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cell Division</strong></td>
+<td style="text-align: left;">Asexual via <strong>Binary Fission</strong> ("B" for bacteria)</td>
+<td style="text-align: left;"><strong>Mitosis</strong> (somatic growth) and <strong>Meiosis</strong> (gametes)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cell Wall Composition</strong></td>
+<td style="text-align: left;">Present; made of <strong>Peptidoglycan</strong> (in Eubacteria)</td>
+<td style="text-align: left;">Plants: <strong>Cellulose</strong>; Fungi: <strong>Chitin</strong>; Animals: <strong>Absent</strong></td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="4-plant-cells-vs-animal-cells-eukaryotes">🌿 4. Plant Cells vs. Animal Cells (Eukaryotes)</h2>
+<p>Eukaryotic cells are specialized depending on the kingdom:</p>
+<div class="overflow-x-auto my-4"><table>
+<thead>
+<tr>
+<th style="text-align: left;">Feature</th>
+<th style="text-align: left;">Animal Cells</th>
+<th style="text-align: left;">Plant Cells</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Cell Wall</strong></td>
+<td style="text-align: left;"><strong>Absent</strong>; bounded only by flexible plasma membrane</td>
+<td style="text-align: left;"><strong>Present</strong>; rigid outer wall composed of cellulose</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cell Shape</strong></td>
+<td style="text-align: left;">Flexible, rounded, or irregular shape</td>
+<td style="text-align: left;">Fixed, geometric/box-like rectangular shape</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Vacuoles</strong></td>
+<td style="text-align: left;">Multiple, small, dispersed vacuoles</td>
+<td style="text-align: left;"><strong>One single, massive Central Vacuole</strong> (up to 90% volume)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Turgor Pressure</strong></td>
+<td style="text-align: left;">Does not develop; cells will lyse in hypotonic fluid</td>
+<td style="text-align: left;">Generates high turgor pressure; provides upright support</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Chloroplasts</strong></td>
+<td style="text-align: left;"><strong>Absent</strong> (Heterotrophic; obtain energy by eating)</td>
+<td style="text-align: left;"><strong>Present</strong> (Autotrophic; produce glucose via photosynthesis)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Centrioles / Centrosomes</strong></td>
+<td style="text-align: left;"><strong>Present</strong>; organizes mitotic spindle fibers</td>
+<td style="text-align: left;"><strong>Absent</strong>; spindle organizes without centrioles</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Lysosomes</strong></td>
+<td style="text-align: left;"><strong>Present</strong>; prominent digestive/recycling organelles</td>
+<td style="text-align: left;">Typically absent (central vacuole handles hydrolytic tasks)</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="5-cell-surfaces-intercellular-junctions">🧱 5. Cell Surfaces &amp; Intercellular Junctions</h2>
+<p>Cells within multicellular tissues must communicate, exchange nutrients, and maintain physical cohesion:</p>
+<h3 id="animal-cell-junctions">Animal Cell Junctions</h3>
+<ul>
+<li><strong>Tight Junctions:</strong> Continuous belts of interlocking transmembrane proteins that stitch neighboring plasma membranes firmly together, forming a leak-proof barrier (e.g., intestinal lining, bladder epithelium).</li>
+<li><strong>Gap Junctions:</strong> Protein complexes called connexons that form open cytoplasmic channels between adjacent cells, allowing rapid, unrestricted flow of ions, signaling molecules, and electrical impulses (e.g., cardiac muscle synchrony).</li>
+</ul>
+<h3 id="plant-cell-junctions">Plant Cell Junctions</h3>
+<ul>
+<li><strong>Plasmodesmata:</strong> Microscopic membrane-lined channels that perforate plant cell walls, directly connecting the cytoplasm of adjoining cells. Because plant cells are encased in rigid cellulose walls and cannot move, plasmodesmata enable essential transport of nutrients, hormones, and RNAs across the entire plant body.</li>
+</ul>
+<hr />
+<h2 id="6-viruses-non-living-biological-entities">🦠 6. Viruses: Non-Living Biological Entities</h2>
+<ul>
+<li><strong>Are Viruses Alive?</strong> No. Under standard biological classification, viruses are considered <strong>non-living infectious particles</strong>.</li>
+<li><strong>Non-Living Criteria:</strong></li>
+<li>Acellular (not composed of cells).</li>
+<li>Lack independent metabolism; cannot generate their own ATP.</li>
+<li>Cannot synthesize proteins independently (lack ribosomes).</li>
+<li>Incapable of autonomous reproduction; obligate intracellular parasites that must hijack a living host cell’s machinery.</li>
+<li><strong>Viral Structure:</strong><br />
+  1. <strong>Capsid:</strong> Protein shell enclosing the genetic material.<br />
+  2. <strong>Genome:</strong> Core of nucleic acid consisting of either DNA or RNA (single- or double-stranded).<br />
+  3. <strong>Viral Envelope (some viruses):</strong> Outer lipid membrane stolen from host plasma membrane during viral budding.<br />
+  4. <strong>Bacteriophage Anatomy:</strong> Specialized virus infecting bacteria, equipped with an icosahedral head capsid, helical sheath, base plate, and tail fibers for host attachment and genome injection.</li>
+</ul>
+      </article>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800 bg-slate-950 py-8 text-center text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>Grade 9 Biology I Honors • South Forsyth High School • Dr. Sarah Irwin</p>
+      <div class="flex items-center gap-4">
+        <a href="../../../../index.html" class="hover:text-slate-300 transition">Portal Home</a>
+        <a href="../../../../schedule/semester-1.html" class="hover:text-slate-300 transition">Schedule</a>
+        <a href="../../../../notInLocal.html" class="hover:text-slate-300 transition">Cloud Links</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

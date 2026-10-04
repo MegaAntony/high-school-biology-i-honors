@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Georgia Standards of Excellence (GSE) - Biology - Biology I Honors</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    code, pre { font-family: 'JetBrains Mono', monospace; }
+    
+    /* Markdown Content Typography */
+    .prose-biology h1 {
+      font-size: 1.875rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #334155;
+      letter-spacing: -0.025em;
+    }
+    .prose-biology h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+    .prose-biology h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #38bdf8;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .prose-biology h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #34d399;
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .prose-biology p {
+      color: #cbd5e1;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    .prose-biology strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .prose-biology ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+      color: #cbd5e1;
+    }
+    .prose-biology ol {
+      list-style-type: decimal;
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+      color: #cbd5e1;
+    }
+    .prose-biology li {
+      margin-bottom: 0.375rem;
+      line-height: 1.6;
+    }
+    .prose-biology li strong {
+      color: #f8fafc;
+    }
+    .prose-biology a {
+      color: #38bdf8;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.15s ease;
+    }
+    .prose-biology a:hover {
+      color: #7dd3fc;
+      text-decoration: none;
+    }
+    .prose-biology blockquote {
+      border-left: 4px solid #10b981;
+      background-color: rgba(16, 185, 129, 0.08);
+      padding: 0.75rem 1rem;
+      margin: 1.25rem 0;
+      border-radius: 0 0.5rem 0.5rem 0;
+      color: #e2e8f0;
+      font-style: italic;
+    }
+    .prose-biology blockquote p {
+      margin-bottom: 0;
+      color: #e2e8f0;
+    }
+    .prose-biology code {
+      background-color: #1e293b;
+      color: #fbbf24;
+      padding: 0.2rem 0.4rem;
+      border-radius: 0.375rem;
+      font-size: 0.85em;
+      border: 1px solid #334155;
+    }
+    .prose-biology pre {
+      background-color: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 0.75rem;
+      padding: 1rem;
+      overflow-x: auto;
+      margin: 1.25rem 0;
+    }
+    .prose-biology pre code {
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      color: #34d399;
+      font-size: 0.875rem;
+    }
+    .prose-biology hr {
+      border: 0;
+      border-top: 1px solid #334155;
+      margin: 2rem 0;
+    }
+    /* Table Styling */
+    .prose-biology table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.875rem;
+      background-color: #1e293b;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      border: 1px solid #334155;
+    }
+    .prose-biology th {
+      background-color: #0f172a;
+      color: #34d399;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.75rem;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #334155;
+      text-align: left;
+    }
+    .prose-biology td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #334155;
+      color: #cbd5e1;
+      vertical-align: top;
+    }
+    .prose-biology tr:last-child td {
+      border-bottom: none;
+    }
+    .prose-biology tr:nth-child(even) td {
+      background-color: rgba(15, 23, 42, 0.4);
+    }
+    .prose-biology tr:hover td {
+      background-color: rgba(51, 65, 85, 0.4);
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between">
+
+  <!-- HEADER -->
+  <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="../../../../index.html" class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center text-slate-950 font-black text-lg shadow-lg shadow-emerald-500/20 hover:scale-105 transition">
+          <i class="fa-solid fa-dna"></i>
+        </a>
+        <div>
+          <a href="../../../../index.html" class="text-lg font-black tracking-tight text-white hover:text-emerald-400 transition">Biology I Honors V2</a>
+          <p class="text-xs text-slate-400 font-medium">South Forsyth High School • Dr. Irwin (2026/2027)</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2.5">
+        <a href="../../../../index.html" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 px-3.5 py-2 rounded-xl border border-slate-700 transition flex items-center gap-1.5">
+          <i class="fa-solid fa-house text-emerald-400"></i> Home
+        </a>
+        <a href="../../../../schedule/semester-1.html" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 px-3.5 py-2 rounded-xl border border-slate-700 transition flex items-center gap-1.5">
+          <i class="fa-regular fa-calendar text-teal-400"></i> S1 Schedule
+        </a>
+        <a href="../../../../units/unit-02-cells-and-transport/tests/index.html" class="text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-md shadow-emerald-600/30">
+          <i class="fa-solid fa-vial"></i> Practice Tests
+        </a>
+        <a href="../../../../notInLocal.html" class="text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-md shadow-indigo-600/30 hidden sm:flex">
+          <i class="fa-solid fa-cloud"></i> Cloud Links
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB & CONTENT CONTAINER -->
+  <main class="max-w-5xl mx-auto px-6 py-8 flex-1 w-full space-y-6">
+
+    <!-- BREADCRUMB -->
+    <nav class="flex items-center gap-2 text-xs text-slate-400">
+      <a href="../../../../index.html" class="hover:text-emerald-400 transition flex items-center gap-1">
+        <i class="fa-solid fa-house text-[10px]"></i> Home
+      </a>
+      <i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i>
+      <span class="text-slate-400">Units</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i> <span class="text-slate-400">Unit 02 Cells And Transport</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i> <span class="text-slate-400">Materials</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i> <span class="text-slate-400">Md</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i>
+      <span class="text-slate-200 font-semibold truncate max-w-xs">Georgia Standards of Excellence (GSE) - Biolo...</span>
+    </nav>
+
+    <!-- CONTENT CARD -->
+    <div class="bg-slate-800/60 border border-slate-700/60 rounded-3xl p-6 sm:p-10 shadow-xl backdrop-blur">
+      <article class="prose-biology">
+        <h1 id="georgia-standards-of-excellence-gse-biology">Georgia Standards of Excellence (GSE) - Biology</h1>
+<h2 id="unit-2-cells-and-cell-transport">Unit 2: Cells and Cell Transport</h2>
+<h3 id="course-unit-context"><strong>Course &amp; Unit Context</strong></h3>
+<ul>
+<li><strong>Course:</strong> Biology I Honors (<code>30115y - Irwin - 501</code>)</li>
+<li><strong>School:</strong> South Forsyth High School (2026/2027)</li>
+<li><strong>Unit:</strong> Unit 2 – Cells and Cell Transport</li>
+<li><strong>Part 1:</strong> Cell Membrane, Passive Transport, Active Transport, and Osmosis/Homeostasis</li>
+<li><strong>Part 2:</strong> Cell Theory, Cell Specialization (Prokaryotic vs. Eukaryotic, Plant vs. Animal), and Organelle Function</li>
+<li><strong>Weekly Focus (S1W5):</strong> </li>
+<li>Identify and label the components of the cell membrane.</li>
+<li>Explain how the membrane's structure allows transport of specific molecules.</li>
+<li>Differentiate between passive transport (diffusion, facilitated diffusion, osmosis) and active transport (molecular pumps, endocytosis, exocytosis).</li>
+<li>Analyze osmotic environments (hypotonic, hypertonic, isotonic) and predict net water movement (<em>"Dilute the solute!"</em>).</li>
+<li>Distinguish prokaryotic vs. eukaryotic cells, and plant vs. animal cells.</li>
+<li>Relate organelle structures directly to their cellular physiological roles.</li>
+</ul>
+<hr />
+<h3 id="primary-standard"><strong>Primary Standard</strong></h3>
+<h4 id="sb1"><strong>SB1</strong></h4>
+<blockquote>
+<p><strong>"Obtain, evaluate, and communicate information to analyze the nature of the relationships between structures and functions in living cells."</strong></p>
+</blockquote>
+<hr />
+<h3 id="specific-standard-elements"><strong>Specific Standard Elements</strong></h3>
+<h4 id="1-sb1a-cell-structures-organelle-function-unit-2-part-2-focus"><strong>1. SB1.a — Cell Structures &amp; Organelle Function (Unit 2, Part 2 Focus)</strong></h4>
+<ul>
+<li><strong>Standard Description:</strong><blockquote>
+<p><em>Construct an explanation of how cell structures, including the nucleus, cytoplasm, cell membrane, cell wall, chloroplasts, lysosomes, Golgi apparatus, endoplasmic reticulum, vacuoles, and mitochondria, facilitate physiological processes of life.</em></p>
+</blockquote>
+</li>
+<li><strong>Curriculum Alignment:</strong></li>
+<li><strong>Cell Theory &amp; Foundations:</strong> All living organisms are made of cells, cells are the basic unit of life, and all cells arise from pre-existing cells.</li>
+<li><strong>Prokaryotic vs. Eukaryotic Cells:</strong><ul>
+<li><em>Prokaryotes:</em> Lack a membrane-bound nucleus and organelles; circular DNA in nucleoid; unicellular (e.g., bacteria).</li>
+<li><em>Eukaryotes:</em> Possess a true membrane-bound nucleus and specialized membrane-bound organelles; linear chromosomes; unicellular or multicellular (plants, animals, fungi, protists).</li>
+<li><em>Universal Cellular Features:</em> All cells contain DNA, ribosomes, cytoplasm, and a cell membrane.</li>
+</ul>
+</li>
+<li><strong>Plant Cells vs. Animal Cells:</strong><ul>
+<li><em>Plant Cells:</em> Contain cellulose <strong>cell walls</strong>, photosynthetic <strong>chloroplasts</strong>, and a massive <strong>large central vacuole</strong> for turgor pressure.</li>
+<li><em>Animal Cells:</em> Contain <strong>centrioles</strong> (centrosomes for cell division) and abundant <strong>lysosomes</strong> for enzymatic waste breakdown; have smaller, multiple vacuoles.</li>
+</ul>
+</li>
+<li><strong>Organelle Specialization &amp; System Interactions:</strong><ul>
+<li><strong>Nucleus:</strong> Houses DNA and regulates gene expression and cell activities.</li>
+<li><strong>Ribosomes:</strong> Synthesize polypeptides and proteins from mRNA transcripts.</li>
+<li><strong>Endoplasmic Reticulum (ER):</strong> Rough ER (studded with ribosomes; folds and modifies proteins) and Smooth ER (lipid synthesis and detoxification); acts as intracellular highway.</li>
+<li><strong>Golgi Apparatus:</strong> Sorts, modifies, tags, and packages cellular products into vesicles for export or distribution.</li>
+<li><strong>Mitochondria:</strong> Sites of cellular respiration; oxidize glucose to synthesize ATP (cellular energy).</li>
+<li><strong>Chloroplasts:</strong> Sites of photosynthesis; capture radiant solar energy to synthesize glucose.</li>
+<li><strong>Lysosomes:</strong> Contain hydrolytic enzymes to digest metabolic wastes, pathogens, and worn-out organelles.</li>
+<li><strong>Vacuoles:</strong> Storage reservoirs for water, ions, nutrients, and cellular waste.</li>
+<li><strong>Cytoplasm:</strong> Semifluid cytosol matrix suspending organelles and enabling biochemical reactions.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h4 id="2-sb1d-cellular-transport-homeostasis-unit-2-part-1-focus"><strong>2. SB1.d — Cellular Transport &amp; Homeostasis (Unit 2, Part 1 Focus)</strong></h4>
+<ul>
+<li><strong>Standard Description:</strong><blockquote>
+<p><em>Plan and carry out investigations to determine the role of cellular transport (e.g., active, passive, and osmosis) in maintaining homeostasis.</em></p>
+</blockquote>
+</li>
+<li><strong>Curriculum Alignment:</strong></li>
+<li><strong>Cell Membrane Architecture (Fluid Mosaic Model):</strong><ul>
+<li>Phospholipid bilayer composed of hydrophilic (polar) phosphate heads facing aqueous environments and hydrophobic (nonpolar) fatty acid tails facing inwards.</li>
+<li>Integral transport proteins (channel proteins, carrier proteins), peripheral proteins, cholesterol (fluidity buffer), and carbohydrates/glycoproteins (cell-cell recognition).</li>
+</ul>
+</li>
+<li><strong>Passive Transport (Down Concentration Gradient: High $\to$ Low; No Energy / ATP):</strong><ul>
+<li><strong>Simple Diffusion:</strong> Direct passage of small, nonpolar molecules ($O_2, CO_2$) across the phospholipid bilayer.</li>
+<li><strong>Facilitated Diffusion:</strong> Movement of larger, polar, or charged particles (e.g., glucose, ions) through specific transmembrane protein channels.</li>
+<li><strong>Osmosis:</strong> Net diffusion of water molecules across a selectively permeable membrane towards regions of higher solute concentration (<em>"Water follows solute"</em> / <em>"Dilute the solute"</em>).</li>
+</ul>
+</li>
+<li><strong>Tonicity &amp; Osmotic Environments:</strong><ul>
+<li><strong>Hypotonic Environment:</strong> External solute concentration is lower than internal solute concentration $\to$ water enters the cell $\to$ cell swells (turgid in plant cells; risk of lysis in animal cells).</li>
+<li><strong>Hypertonic Environment:</strong> External solute concentration is higher than internal solute concentration $\to$ water exits the cell $\to$ cell shrinks/shrivels (crenation in animal cells; plasmolysis in plant cells).</li>
+<li><strong>Isotonic Environment:</strong> Solute concentrations are equal inside and out $\to$ water enters and leaves at identical rates (<strong>dynamic equilibrium</strong>) $\to$ constant cell volume.</li>
+</ul>
+</li>
+<li><strong>Active Transport (Against Concentration Gradient: Low $\to$ High; Requires Energy / ATP):</strong><ul>
+<li><strong>Molecular Pumps:</strong> Carrier proteins that consume ATP to pump ions against concentration gradients (e.g., $Na^+ / K^+$ ATPase pump).</li>
+<li><strong>Bulk Transport:</strong></li>
+<li><strong>Endocytosis:</strong> Vesicular engulfment of external particles, large solutes, or fluids into the cell (phagocytosis = cell eating, pinocytosis = cell drinking).</li>
+<li><strong>Exocytosis:</strong> Fusion of intracellular vesicles with the plasma membrane to secrete bulk materials, hormones, or wastes out of the cell.</li>
+</ul>
+</li>
+<li><strong>Homeostasis:</strong> The active maintenance of internal equilibrium despite changing extracellular environments.</li>
+</ul>
+<hr />
+<h3 id="unit-2-success-criteria-alignment-matrix"><strong>Unit 2 Success Criteria Alignment Matrix</strong></h3>
+<div class="overflow-x-auto my-4"><table>
+<thead>
+<tr>
+<th style="text-align: left;">Unit 2 Target Learning Objective</th>
+<th style="text-align: center;">Standard Code</th>
+<th style="text-align: left;">Method of Assessment / Application</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Identify organelles by function or visual diagram</td>
+<td style="text-align: center;"><strong>SB1.a</strong></td>
+<td style="text-align: left;">Organelle Scavenger Hunt, Cells Gimkit, Unit 2 Exam</td>
+</tr>
+<tr>
+<td style="text-align: left;">Compare and contrast prokaryotic and eukaryotic cells</td>
+<td style="text-align: center;"><strong>SB1.a</strong></td>
+<td style="text-align: left;">Cell Theory Notes, Venn diagrams, Scavenger Hunt</td>
+</tr>
+<tr>
+<td style="text-align: left;">Compare and contrast plant and animal cell structures</td>
+<td style="text-align: center;"><strong>SB1.a</strong></td>
+<td style="text-align: left;">Station Labs, PurposeGames Labeling, Lab Packet Part 2</td>
+</tr>
+<tr>
+<td style="text-align: left;">Explain how membrane components enable selective transport</td>
+<td style="text-align: center;"><strong>SB1.d</strong></td>
+<td style="text-align: left;">Unit 2 Part 1 Packet, Cell Membrane Diagrams</td>
+</tr>
+<tr>
+<td style="text-align: left;">Distinguish between passive and active transport</td>
+<td style="text-align: center;"><strong>SB1.d</strong></td>
+<td style="text-align: left;">PT &amp; AT Quiz, Transport Situation Cards</td>
+</tr>
+<tr>
+<td style="text-align: left;">Predict osmotic effects across solutions (Hypo/Hyper/Iso)</td>
+<td style="text-align: center;"><strong>SB1.d</strong></td>
+<td style="text-align: left;">Situation Cards, Whiteboard Review, Gimkit</td>
+</tr>
+<tr>
+<td style="text-align: left;">Carry out osmosis/tonicity investigations</td>
+<td style="text-align: center;"><strong>SB1.d</strong></td>
+<td style="text-align: left;">Osmosis Dialysis Bag / Cell Membrane Labs</td>
+</tr>
+<tr>
+<td style="text-align: left;">Explain how transport mechanisms sustain homeostasis</td>
+<td style="text-align: center;"><strong>SB1.d</strong></td>
+<td style="text-align: left;">Lab Questions (pg. 18–19), Unit 2 Summative Exam</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h3 id="standards-summary-table"><strong>Standards Summary Table</strong></h3>
+<div class="overflow-x-auto my-4"><table>
+<thead>
+<tr>
+<th style="text-align: left;">Standard Code</th>
+<th style="text-align: left;">Standard Title / Focus</th>
+<th style="text-align: left;">Specific Topics in Unit 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>SB1</strong></td>
+<td style="text-align: left;">Cell Structure and Function</td>
+<td style="text-align: left;">Overarching Cellular Biology &amp; Physiology Standard</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SB1.a</strong></td>
+<td style="text-align: left;">Cell Structures &amp; Physiological Processes</td>
+<td style="text-align: left;">Cell Theory, Prokaryote vs. Eukaryote, Plant vs. Animal, Organelle Functions &amp; Systems</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SB1.d</strong></td>
+<td style="text-align: left;">Cellular Transport &amp; Homeostasis</td>
+<td style="text-align: left;">Membrane Structure, Diffusion, Facilitated Diffusion, Osmosis, Tonicity, Active Transport Pumps, Endo/Exocytosis</td>
+</tr>
+</tbody>
+</table></div>
+      </article>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800 bg-slate-950 py-8 text-center text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>Grade 9 Biology I Honors • South Forsyth High School • Dr. Sarah Irwin</p>
+      <div class="flex items-center gap-4">
+        <a href="../../../../index.html" class="hover:text-slate-300 transition">Portal Home</a>
+        <a href="../../../../schedule/semester-1.html" class="hover:text-slate-300 transition">Schedule</a>
+        <a href="../../../../notInLocal.html" class="hover:text-slate-300 transition">Cloud Links</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
