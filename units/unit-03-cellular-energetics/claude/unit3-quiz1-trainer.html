@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 3 Quiz 1 Trainer</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#16202a;--mute:#5b6773;--line:#dde2e8;--accent:#0f766e;--accent-ink:#fff;--good:#15803d;--goodbg:#e7f6ec;--bad:#b91c1c;--badbg:#fdecec;--hint:#fff7e0;--hintline:#e8c766}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1419;--card:#16202a;--ink:#e8edf2;--mute:#9aa7b4;--line:#2a3743;--accent:#2dd4bf;--accent-ink:#06201d;--good:#4ade80;--goodbg:#10301c;--bad:#f87171;--badbg:#3a1618;--hint:#2e2711;--hintline:#8a7020}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+header{padding:20px 16px 0;max-width:820px;margin:0 auto}
+h1{font-size:1.4rem;margin:0 0 2px}
+.sub{color:var(--mute);font-size:.9rem}
+nav{display:flex;gap:6px;max-width:820px;margin:14px auto 0;padding:0 16px;border-bottom:1px solid var(--line)}
+nav button{background:none;border:0;border-bottom:3px solid transparent;color:var(--mute);font:inherit;font-weight:600;padding:10px 14px;cursor:pointer}
+nav button[aria-selected="true"]{color:var(--ink);border-color:var(--accent)}
+main{max-width:820px;margin:0 auto;padding:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:12px}
+h2{font-size:1.15rem;margin:0 0 8px}
+h3{font-size:1rem;margin:14px 0 4px}
+button.pri{background:var(--accent);color:var(--accent-ink);border:0;border-radius:8px;padding:10px 16px;font:inherit;font-weight:700;cursor:pointer}
+button.sec{background:none;color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:8px 12px;font:inherit;cursor:pointer}
+button:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+details{border:1px solid var(--line);border-radius:10px;margin-bottom:8px;background:var(--card)}
+summary{cursor:pointer;padding:12px 14px;font-weight:700}
+details .body{padding:0 14px 12px}
+ul{padding-left:20px;margin:6px 0}
+.trap{background:var(--badbg);border-left:4px solid var(--bad);padding:8px 12px;border-radius:6px;margin:8px 0}
+table{border-collapse:collapse;width:100%;font-size:.92rem;margin:8px 0}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{background:var(--bg)}
+.tablewrap{overflow-x:auto}
+.plan label{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--line);cursor:pointer}
+.plan input{margin-top:5px;width:18px;height:18px}
+.tag{font-size:.75rem;font-weight:700;padding:2px 8px;border-radius:99px;border:1px solid var(--line);color:var(--mute);white-space:nowrap}
+.tag.high{color:var(--bad);border-color:var(--bad)}
+.bar{height:8px;background:var(--line);border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent);width:0}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.opt{display:block;width:100%;text-align:left;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:8px 0;font:inherit;cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--accent)}
+.opt.good{background:var(--goodbg);border-color:var(--good)}
+.opt.bad{background:var(--badbg);border-color:var(--bad)}
+.hint{background:var(--hint);border:1px solid var(--hintline);border-radius:8px;padding:10px 12px;margin:8px 0}
+.expl{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin-top:10px}
+.topic{font-size:.78rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.04em}
+select{font:inherit;padding:8px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+[hidden]{display:none!important}
+.big{font-size:2.2rem;font-weight:800}
+</style>
+</head>
+<body>
+<header>
+  <h1>Unit 3 Quiz 1 Trainer</h1>
+  <div class="sub">Biology I Honors · Dr. Irwin · Quiz Thu Oct 22 · GSE SB1.e</div>
+</header>
+<nav role="tablist" aria-label="Sections">
+  <button role="tab" id="t-plan" aria-selected="true" aria-controls="v-plan">Plan</button>
+  <button role="tab" id="t-learn" aria-selected="false" aria-controls="v-learn">Learn</button>
+  <button role="tab" id="t-quiz" aria-selected="false" aria-controls="v-quiz">Quiz</button>
+</nav>
+<main>
+
+<!-- PLAN -->
+<section id="v-plan" role="tabpanel" aria-labelledby="t-plan">
+  <div class="card">
+    <h2>Study plan (about 3 hours)</h2>
+    <div class="sub">Tick each block when done. Your progress is saved in this browser.</div>
+    <div class="bar" style="margin:10px 0"><i id="planbar"></i></div>
+    <div id="planprog" class="sub"></div>
+    <div class="plan" id="planlist"></div>
+  </div>
+  <div class="card">
+    <h2>How to study each block</h2>
+    <ul>
+      <li><b>Learn</b> the area in the Learn tab (5–10 min).</li>
+      <li><b>Close it</b>, then quiz yourself on that area only (Quiz tab, pick the area).</li>
+      <li>Use the hint only after you have committed to an answer in your head.</li>
+      <li>Read every explanation, including the ones you got right. The wrong options teach the traps.</li>
+      <li>Finish with a full mixed quiz. Any area under 80% gets another pass.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h2>Night before and morning</h2>
+    <ul>
+      <li>Stop new material an hour before bed. Read the "Must-know" lines once.</li>
+      <li>Sleep. Recall is worse on a short night.</li>
+      <li>Morning: 10 minutes on the poison table and inhibition table, nothing new.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- LEARN -->
+<section id="v-learn" role="tabpanel" aria-labelledby="t-learn" hidden>
+  <div class="row" style="margin-bottom:10px"><button class="sec" id="openall">Expand all</button><button class="sec" id="closeall">Collapse all</button></div>
+
+  <details open><summary>1. Enzymes (high priority)</summary><div class="body">
+    <ul>
+      <li>An enzyme is a <b>protein catalyst</b>. It speeds up a reaction and is <b>not consumed</b>.</li>
+      <li>It lowers <b>activation energy (Ea)</b>, the energy needed to start the reaction.</li>
+      <li>It does <b>not</b> change ΔG, the start or end energy levels, or the products formed.</li>
+      <li><b>Substrate</b> binds the <b>active site</b> to form an enzyme-substrate complex. Enzymes are specific because of active-site shape.</li>
+      <li><b>Lock and key</b>: site is rigid and matches. <b>Induced fit</b>: site adjusts around the substrate (the accepted model).</li>
+      <li>Shape comes from tertiary structure (H bonds, ionic bonds, disulfide bridges, hydrophobic interactions).</li>
+    </ul>
+    <div class="trap">Trap: never say heat "killed" an enzyme. It is a molecule, not alive. Say <b>denatured</b>. Also, enzymes do not give a reaction energy. They lower the barrier.</div>
+  </div></details>
+
+  <details><summary>2. Enzyme rate graphs (high priority)</summary><div class="body">
+    <div class="tablewrap"><table>
+      <tr><th>Variable</th><th>Shape</th><th>Why</th></tr>
+      <tr><td>Temperature</td><td>Rises to an optimum, then drops sharply</td><td>More collisions up to the optimum. Past it, bonds break and the enzyme denatures. Human enzymes peak near 37 °C.</td></tr>
+      <tr><td>pH</td><td>Bell shape, each enzyme its own optimum</td><td>Extreme pH disrupts ionic and H bonds, changing the active site. Pepsin ≈ 2, most ≈ 7, trypsin ≈ 8.</td></tr>
+      <tr><td>Substrate concentration</td><td>Rises, then plateaus at Vmax</td><td>At the plateau all active sites are busy (saturated). Enzyme amount is now limiting.</td></tr>
+      <tr><td>Enzyme concentration</td><td>Rate rises in proportion (with excess substrate)</td><td>More active sites available. Vmax goes up.</td></tr>
+    </table></div>
+    <div class="trap">Trap: cold <b>slows</b> an enzyme but does <b>not</b> denature it. Warming it again restores activity. Denaturation by heat is permanent.</div>
+    <div class="trap">Trap: adding more substrate on the plateau does nothing. Adding more enzyme raises it.</div>
+  </div></details>
+
+  <details><summary>3. Inhibition (high priority)</summary><div class="body">
+    <div class="tablewrap"><table>
+      <tr><th></th><th>Competitive</th><th>Noncompetitive (allosteric)</th></tr>
+      <tr><td>Binds at</td><td>Active site</td><td>Allosteric site (elsewhere)</td></tr>
+      <tr><td>Resembles substrate?</td><td>Yes</td><td>No</td></tr>
+      <tr><td>Fix with more substrate?</td><td>Yes</td><td>No</td></tr>
+      <tr><td>Vmax</td><td>Unchanged (reached at higher substrate)</td><td>Lowered</td></tr>
+      <tr><td>Mechanism</td><td>Blocks substrate from entering</td><td>Changes active-site shape</td></tr>
+    </table></div>
+    <ul><li><b>Feedback inhibition</b>: the end product of a pathway inhibits an early enzyme, so the cell does not overproduce it.</li></ul>
+  </div></details>
+
+  <details><summary>4. ATP and ADP (high priority)</summary><div class="body">
+    <ul>
+      <li>ATP = adenine + ribose + <b>3 phosphates</b>. ADP has 2.</li>
+      <li><b>Hydrolysis</b>: ATP + H₂O → ADP + Pi. <b>Exergonic</b>, releases usable energy.</li>
+      <li><b>Phosphorylation</b>: ADP + Pi → ATP. <b>Endergonic</b>, energy comes from food (respiration) or light.</li>
+      <li><b>Coupling</b>: ATP hydrolysis is paired with an endergonic reaction (muscle contraction, active transport, making molecules), usually by adding a phosphate to the target.</li>
+      <li>ATP is recycled constantly, not stored in large amounts.</li>
+    </ul>
+    <div class="trap">Trap: the energy is not "in the phosphate" as a thing. It is released because the products (ADP + Pi) are more stable than ATP. Just know: breaking the terminal bond by hydrolysis releases energy.</div>
+  </div></details>
+
+  <details><summary>5. Cellular respiration (medium)</summary><div class="body">
+    <p><b>C₆H₁₂O₆ + 6 O₂ → 6 CO₂ + 6 H₂O + ATP</b></p>
+    <div class="tablewrap"><table>
+      <tr><th>Stage</th><th>Where</th><th>In</th><th>Out</th></tr>
+      <tr><td>Glycolysis</td><td>Cytoplasm</td><td>Glucose</td><td>2 pyruvate, net 2 ATP, 2 NADH</td></tr>
+      <tr><td>Pyruvate oxidation</td><td>Mitochondrial matrix</td><td>2 pyruvate</td><td>2 acetyl-CoA, 2 CO₂, 2 NADH</td></tr>
+      <tr><td>Krebs cycle</td><td>Matrix</td><td>Acetyl-CoA</td><td>CO₂, NADH, FADH₂, 2 ATP (per glucose)</td></tr>
+      <tr><td>ETC + chemiosmosis</td><td>Inner membrane (cristae)</td><td>NADH, FADH₂, O₂</td><td>Most of the ATP; H₂O</td></tr>
+    </table></div>
+    <ul>
+      <li>ETC pumps H⁺ into the <b>intermembrane space</b>. H⁺ flows back through <b>ATP synthase</b> (chemiosmosis), which makes ATP.</li>
+      <li><b>O₂ is the final electron acceptor</b>; it combines with electrons and H⁺ to make water.</li>
+      <li>Glycolysis does not need oxygen. Pyruvate oxidation, Krebs and ETC are the aerobic parts.</li>
+      <li>Cristae (folds) increase surface area for more ETC complexes and ATP synthase.</li>
+      <li>NADH and FADH₂ carry electrons to the ETC.</li>
+    </ul>
+    <div class="trap">Trap: CO₂ is released in pyruvate oxidation and Krebs, <b>not</b> in the ETC. Water is made in the ETC.</div>
+  </div></details>
+
+  <details><summary>6. Fermentation (medium)</summary><div class="body">
+    <ul>
+      <li>Used when O₂ is absent. Glycolysis continues; ETC is stalled.</li>
+      <li>Its real job: <b>regenerate NAD⁺</b> from NADH so glycolysis can keep running. It makes <b>no extra ATP</b>.</li>
+      <li><b>Lactic acid fermentation</b> (muscles, some bacteria): pyruvate → lactate.</li>
+      <li><b>Alcoholic fermentation</b> (yeast): pyruvate → ethanol + CO₂.</li>
+      <li>Fermentation gives about 2 ATP per glucose total vs far more with oxygen.</li>
+    </ul>
+  </div></details>
+
+  <details><summary>7. Poison case study (medium)</summary><div class="body">
+    <p>Normal ranges (mM): pyruvate 0.09–0.15 · intermembrane H⁺ 0.25–0.35 · NADH 0.25–0.40</p>
+    <div class="tablewrap"><table>
+      <tr><th>Poison</th><th>Blocks</th><th>Lab signature</th></tr>
+      <tr><td>2-deoxyglucose</td><td>Start of glycolysis</td><td>Pyruvate very low (≈0.02)</td></tr>
+      <tr><td>Arsenic</td><td>Pyruvate cannot be processed to enter Krebs</td><td>Pyruvate high (≈0.25); H⁺ and NADH low</td></tr>
+      <tr><td>Oligomycin</td><td>ATP synthase</td><td>Intermembrane H⁺ very high (≈1.10)</td></tr>
+      <tr><td>Cyanide</td><td>ETC (cytochrome oxidase, final step)</td><td>NADH very high (≈0.50); H⁺ low</td></tr>
+    </table></div>
+    <p><b>Method:</b> find the step that is blocked. Everything before it piles up, everything after it runs short.</p>
+    <p>Cases: Tim (Pixy Stix), Mei and Genji (garden pesticide), Vanessa (cancer drug overdose), Nadia (raw cassava). Match each to its lab values using the cards.</p>
+  </div></details>
+
+  <details><summary>8. Photosynthesis (low)</summary><div class="body">
+    <p><b>6 CO₂ + 6 H₂O + light → C₆H₁₂O₆ + 6 O₂</b> · in chloroplasts</p>
+    <ul>
+      <li><b>Light reactions</b>: thylakoid membranes. Light + water → ATP, NADPH, and O₂ (from splitting water).</li>
+      <li><b>Calvin cycle</b>: stroma. Uses ATP + NADPH to fix CO₂ into sugar (G3P).</li>
+      <li>Respiration and photosynthesis are linked: the products of one are the reactants of the other.</li>
+      <li>Mitochondria (respiration) and chloroplasts (photosynthesis) both make ATP using an H⁺ gradient and ATP synthase.</li>
+    </ul>
+  </div></details>
+</section>
+
+<!-- QUIZ -->
+<section id="v-quiz" role="tabpanel" aria-labelledby="t-quiz" hidden>
+  <div id="setup" class="card">
+    <h2>Build a quiz</h2>
+    <div class="row">
+      <label>Area <select id="area"></select></label>
+      <label>Questions <select id="count"><option>10</option><option>20</option><option value="999">All</option></select></label>
+    </div>
+    <p class="sub">Each question has a hidden hint, then a full explanation after you answer. Answer order is shuffled every time.</p>
+    <div class="row"><button class="pri" id="start">Start</button><span class="sub" id="bank"></span></div>
+    <div id="history" class="sub" style="margin-top:12px"></div>
+  </div>
+  <div id="play" hidden>
+    <div class="row" style="justify-content:space-between;margin-bottom:8px">
+      <span class="sub" id="prog"></span><span class="sub" id="live"></span>
+    </div>
+    <div class="bar" style="margin-bottom:12px"><i id="qbar"></i></div>
+    <div class="card" id="qcard">
+      <div class="topic" id="qtopic"></div>
+      <h2 id="qtext" style="margin-top:4px"></h2>
+      <div id="opts"></div>
+      <div class="row"><button class="sec" id="hintbtn">Show hint</button></div>
+      <div class="hint" id="hint" hidden></div>
+      <div class="expl" id="expl" hidden></div>
+    </div>
+    <div class="row"><button class="pri" id="next" hidden>Next</button><button class="sec" id="quit">End quiz</button></div>
+  </div>
+  <div id="result" class="card" hidden></div>
+</section>
+
+</main>
+
+<script>
+const Q = [
+/* ---------- Enzymes ---------- */
+{t:"Enzymes",q:"How do enzymes speed up a chemical reaction?",o:["They lower the activation energy","They raise the free energy of the products","They supply extra heat to the reactants","They are used up as they form products"],h:"Think about the hill on an energy diagram, not the start or end levels.",e:"Enzymes lower activation energy (Ea). They do not add energy, do not change the start or end energy levels (ΔG), and are not consumed."},
+{t:"Enzymes",q:"Which statement about an enzyme-catalyzed reaction is TRUE?",o:["The enzyme is unchanged after the reaction and can be reused","The enzyme becomes part of the product","The reaction releases more total energy than it would without the enzyme","The enzyme changes which products are formed"],h:"What happens to a catalyst when the reaction is over?",e:"A catalyst is not permanently altered or used up. ΔG (total energy released) is the same with or without the enzyme; only the rate changes."},
+{t:"Enzymes",q:"The enzyme-specific region where the substrate binds is called the",o:["active site","allosteric site","product site","denaturation site"],h:"The place where the chemistry happens.",e:"The active site has a shape and chemistry that fit its substrate, which is why enzymes are specific. The allosteric site is a different spot, away from the active site."},
+{t:"Enzymes",q:"In the induced-fit model, what happens when the substrate binds?",o:["The active site changes shape slightly to fit the substrate more tightly","The substrate changes into the enzyme","The enzyme is denatured and then reforms","The active site is completely rigid and unchanged"],h:"The word 'induced' means the binding causes something.",e:"Induced fit (Koshland): the active site adjusts around the substrate. Lock-and-key (Fischer) says the site is a rigid match. Induced fit is the accepted model."},
+{t:"Enzymes",q:"A student writes 'the heat killed the enzyme.' What is the best correction?",o:["The heat denatured the enzyme, changing its 3D shape","The heat melted the substrate","The heat made the enzyme more active","Enzymes cannot be affected by heat"],h:"Is a protein molecule alive?",e:"Enzymes are molecules, not organisms, so they cannot be 'killed'. High heat breaks bonds that hold the tertiary structure, so the active site loses its shape: it is denatured."},
+{t:"Enzymes",q:"Which type of molecule are almost all enzymes?",o:["Proteins","Lipids","Carbohydrates","Nucleotides"],h:"Their activity depends on a folded 3D structure made of amino acids.",e:"Almost all enzymes are proteins (a few RNA molecules, ribozymes, also catalyze). That is why temperature and pH, which alter protein folding, matter so much."},
+{t:"Enzymes",q:"On a reaction energy diagram, adding an enzyme changes which feature?",o:["The height of the activation-energy peak","The energy level of the reactants","The energy level of the products","The overall ΔG of the reaction"],h:"Three of these four stay fixed.",e:"Only the peak is lowered. Reactant and product energy levels, and therefore ΔG, are the same."},
+{t:"Enzymes",q:"Which bonds and forces hold an enzyme's tertiary structure in shape?",o:["Hydrogen bonds, ionic bonds, disulfide bridges and hydrophobic interactions","Only peptide bonds","Only covalent bonds between sugars","Phosphodiester bonds"],h:"Think of interactions between the R-groups of amino acids.",e:"Tertiary structure comes from R-group interactions. Peptide bonds make the primary structure; phosphodiester bonds are in nucleic acids."},
+
+/* ---------- Graphs ---------- */
+{t:"Rate graphs",q:"An enzyme's activity rises with temperature, then drops sharply above its optimum. What explains the drop?",o:["The enzyme denatures and the active site loses its shape","The substrate runs out","Fewer collisions occur at high temperature","The enzyme is used up in the reaction"],h:"Higher temperature means more collisions, so something else must cause the fall.",e:"Past the optimum, heat breaks the bonds that hold the 3D shape. The active site is distorted and the substrate no longer fits."},
+{t:"Rate graphs",q:"An enzyme is kept in an ice bath, then returned to its optimum temperature. What happens?",o:["Its activity returns, since cold slows but does not denature it","It stays permanently inactive","It becomes a different enzyme","It works faster than before the ice bath"],h:"Compare what cold does to molecules with what heat does to protein shape.",e:"Cold reduces molecular motion and collisions, but the protein folding is intact. Warming restores activity. Heat denaturation is the permanent kind."},
+{t:"Rate graphs",q:"Pepsin works best at pH 2, in the stomach. What is likely at pH 8 in the small intestine?",o:["Its rate falls because its shape is altered","Its rate stays the same","Its rate rises because the pH is higher","It changes into trypsin"],h:"Every enzyme has its own optimum.",e:"Each enzyme has an optimum pH matching its location. Far from the optimum, ionic and H bonds change and the active site is distorted, so activity falls."},
+{t:"Rate graphs",q:"On a graph, reaction rate rises with substrate concentration and then levels off. Why does it level off?",o:["All enzyme active sites are occupied (saturated)","The enzyme has been denatured","The substrate has become an inhibitor","The activation energy increases"],h:"Think about what is limiting once there is plenty of substrate.",e:"At saturation every active site is busy, so extra substrate cannot raise the rate. The maximum rate is Vmax."},
+{t:"Rate graphs",q:"A reaction is at its plateau (Vmax). Which change will raise the rate?",o:["Adding more enzyme","Adding more substrate","Adding more product","Cooling by 5 °C"],h:"What is limiting at the plateau, enzyme or substrate?",e:"At the plateau the enzyme is limiting. More enzyme gives more active sites and a higher Vmax. More substrate does nothing."},
+{t:"Rate graphs",q:"A scientist measures a reaction at 10, 20, 30, 40, 50 and 60 °C. Rates are 1, 3, 6, 8, 2, 0. Which is the best estimate of the optimum?",o:["About 40 °C","60 °C","10 °C","50 °C"],h:"Find the highest rate, not the highest temperature.",e:"The highest rate (8) is at 40 °C. At 50 °C the rate has fallen sharply because of denaturation; at 60 °C it is zero."},
+{t:"Rate graphs",q:"With plenty of substrate, doubling the enzyme concentration will most likely",o:["roughly double the reaction rate","halve the rate","not change the rate","denature the substrate"],h:"More catalysts with substrate available.",e:"More enzyme molecules means more active sites working at once, so the rate rises roughly in proportion until substrate becomes limiting."},
+{t:"Rate graphs",q:"Which variable on the x-axis gives a bell-shaped curve with an optimum?",o:["Temperature or pH","Substrate concentration","Enzyme concentration","Time with unlimited substrate"],h:"Two variables can ruin the protein if pushed too far.",e:"Temperature and pH both have an optimum and drop on either side. Substrate gives a plateau; enzyme concentration gives a rising line."},
+
+/* ---------- Inhibition ---------- */
+{t:"Inhibition",q:"A molecule that resembles the substrate and binds the active site is a",o:["competitive inhibitor","noncompetitive inhibitor","coenzyme","product"],h:"It is competing for something.",e:"Competitive inhibitors compete with substrate for the active site, blocking it."},
+{t:"Inhibition",q:"Adding much more substrate overcomes the inhibition. Which inhibitor type is it?",o:["Competitive","Noncompetitive","Allosteric","Irreversible"],h:"More substrate wins a competition.",e:"Flooding with substrate outcompetes a competitive inhibitor, so the same Vmax is eventually reached. Noncompetitive inhibitors are not overcome."},
+{t:"Inhibition",q:"An inhibitor binds at a site other than the active site, changing the active site's shape. This is",o:["noncompetitive (allosteric) inhibition","competitive inhibition","feedback activation","denaturation by heat"],h:"Where does it bind relative to the active site?",e:"Binding at the allosteric site distorts the active site, so substrate fits poorly no matter how much there is."},
+{t:"Inhibition",q:"Compared with an uninhibited enzyme, a noncompetitive inhibitor produces a graph with",o:["a lower plateau (lower Vmax)","the same plateau at higher substrate","a higher plateau","no plateau"],h:"Some enzymes are permanently out of action.",e:"Noncompetitive inhibitors take some enzyme molecules out of action, which lowers Vmax. Competitive inhibitors only shift how much substrate is needed."},
+{t:"Inhibition",q:"In feedback inhibition, the molecule that shuts down an early enzyme is usually the",o:["end product of the pathway","first substrate","enzyme itself","ATP synthase"],h:"The cell wants to avoid overproduction.",e:"When enough end product builds up, it binds an early enzyme (often allosterically) and slows the pathway, saving resources."},
+{t:"Inhibition",q:"Which pair correctly matches the binding site?",o:["Competitive: active site; noncompetitive: allosteric site","Competitive: allosteric site; noncompetitive: active site","Both: active site","Both: allosteric site"],h:"The names tell you: one competes.",e:"Competitive inhibitors compete at the active site. Noncompetitive inhibitors bind elsewhere (allosteric site)."},
+
+/* ---------- ATP ---------- */
+{t:"ATP",q:"How many phosphate groups does ATP have, and ADP?",o:["ATP 3, ADP 2","ATP 2, ADP 3","ATP 3, ADP 1","ATP 1, ADP 0"],h:"The T and the D in the names are tri- and di-.",e:"ATP = adenosine triphosphate (3). ADP = adenosine diphosphate (2). AMP has 1."},
+{t:"ATP",q:"ATP + H₂O → ADP + Pi is best described as",o:["exergonic hydrolysis","endergonic hydrolysis","exergonic dehydration synthesis","endergonic dehydration synthesis"],h:"Water is added, and energy is available to do work.",e:"Water splits the terminal phosphate bond (hydrolysis), releasing energy (exergonic). Building ATP is the reverse: dehydration synthesis, endergonic."},
+{t:"ATP",q:"What does coupling ATP hydrolysis to another reaction accomplish?",o:["It provides energy for an endergonic reaction","It makes the other reaction exergonic with no energy transfer","It removes the need for enzymes","It changes the substrate into ATP"],h:"Exergonic powers endergonic.",e:"Energy released by ATP hydrolysis drives reactions that would not occur alone, such as active transport, muscle contraction and biosynthesis."},
+{t:"ATP",q:"A cell makes ATP from ADP + Pi. Where does that energy come from in the mitochondria?",o:["Breakdown of food molecules, via the H⁺ gradient","The water used in the reaction","Sunlight","The phosphate group itself"],h:"Think about what the cell oxidizes to power the gradient.",e:"Energy from the oxidation of food (glucose) builds the H⁺ gradient used by ATP synthase. In chloroplasts, light powers the process."},
+{t:"ATP",q:"Why is ATP called an energy 'currency'?",o:["It is made where energy is available and spent where energy is needed, and is constantly recycled","It is stored in large amounts for months","It is only found in mitochondria","It is made from lipids only"],h:"Think of money moving between places.",e:"ATP carries usable energy between reactions. Cells hold only a small supply and recycle ADP and Pi into ATP rapidly."},
+{t:"ATP",q:"Which process uses the energy of ATP hydrolysis?",o:["Active transport such as the Na⁺/K⁺ pump","Facilitated diffusion","Osmosis","Simple diffusion of O₂"],h:"Which type of transport goes against a gradient?",e:"Active transport moves substances against their gradient and needs ATP. The other three are passive."},
+
+/* ---------- Respiration ---------- */
+{t:"Respiration",q:"Where does glycolysis occur?",o:["Cytoplasm","Mitochondrial matrix","Inner mitochondrial membrane","Chloroplast stroma"],h:"It does not need the mitochondrion at all.",e:"Glycolysis takes place in the cytoplasm and does not require oxygen."},
+{t:"Respiration",q:"What is the NET ATP gain from glycolysis per glucose?",o:["2","4","32","0"],h:"Two are spent, then more are made.",e:"Glycolysis uses 2 ATP and makes 4, for a net gain of 2 ATP, plus 2 NADH and 2 pyruvate."},
+{t:"Respiration",q:"Which stage produces most of the ATP in aerobic respiration?",o:["Electron transport chain and chemiosmosis","Glycolysis","Krebs cycle","Pyruvate oxidation"],h:"It is the stage that uses oxygen.",e:"The ETC and ATP synthase make the large majority of ATP. Glycolysis and Krebs make only 2 ATP each (per glucose)."},
+{t:"Respiration",q:"What is the final electron acceptor of the ETC, and what does it become?",o:["Oxygen; water","Carbon dioxide; glucose","NAD⁺; NADH","Pyruvate; lactate"],h:"This is why we breathe.",e:"O₂ accepts electrons (and H⁺) at the end of the chain, forming H₂O. Without O₂ the chain backs up."},
+{t:"Respiration",q:"Where is the H⁺ concentration highest during the ETC?",o:["Intermembrane space","Mitochondrial matrix","Cytoplasm","Outside the cell"],h:"The pumps move protons across the inner membrane.",e:"ETC complexes pump H⁺ from the matrix to the intermembrane space, building a gradient. H⁺ flows back through ATP synthase."},
+{t:"Respiration",q:"What does ATP synthase use to make ATP?",o:["Flow of H⁺ down its concentration gradient","Direct breakdown of glucose","Light energy","Flow of oxygen"],h:"Chemiosmosis.",e:"The H⁺ gradient (proton-motive force) drives the rotor of ATP synthase, which attaches Pi to ADP."},
+{t:"Respiration",q:"Where is CO₂ released during aerobic respiration?",o:["Pyruvate oxidation and the Krebs cycle","Glycolysis and ETC","ETC only","Glycolysis only"],h:"Carbon atoms are stripped from pyruvate and acetyl-CoA.",e:"Pyruvate oxidation (1 CO₂ per pyruvate) and the Krebs cycle (2 CO₂ per acetyl-CoA) release all 6 carbons of glucose as CO₂."},
+{t:"Respiration",q:"Why is the inner mitochondrial membrane folded into cristae?",o:["To increase surface area for the ETC and ATP synthase","To store more glucose","To keep out oxygen","To hold DNA"],h:"More membrane means more of what is embedded in it.",e:"Folding increases the area available for ETC complexes and ATP synthase, so more ATP can be produced."},
+{t:"Respiration",q:"Which molecules carry electrons to the ETC?",o:["NADH and FADH₂","ATP and ADP","CO₂ and O₂","Pyruvate and acetyl-CoA"],h:"Reduced electron carriers.",e:"NADH and FADH₂ deliver electrons to the ETC and become NAD⁺ and FAD again."},
+{t:"Respiration",q:"The overall equation for aerobic respiration is",o:["C₆H₁₂O₆ + 6 O₂ → 6 CO₂ + 6 H₂O + ATP","6 CO₂ + 6 H₂O → C₆H₁₂O₆ + 6 O₂","C₆H₁₂O₆ → 2 lactate + ATP","ADP + Pi → ATP"],h:"Glucose and oxygen go in.",e:"Respiration oxidizes glucose using oxygen, releasing CO₂, water and energy that is captured as ATP. Option B is photosynthesis."},
+
+/* ---------- Fermentation ---------- */
+{t:"Fermentation",q:"What is the main purpose of fermentation?",o:["Regenerate NAD⁺ so glycolysis can continue","Make large amounts of ATP","Produce oxygen","Break down ATP"],h:"Glycolysis runs out of an electron carrier without it.",e:"Glycolysis needs NAD⁺. Without the ETC to recycle NADH, fermentation converts NADH back to NAD⁺. No extra ATP is made."},
+{t:"Fermentation",q:"Yeast in a sealed flask with sugar produces",o:["ethanol and CO₂","lactic acid and oxygen","water and CO₂ only","glucose"],h:"Think of bread rising or brewing.",e:"Alcoholic fermentation turns pyruvate into ethanol and CO₂. Animal muscle cells do lactic acid fermentation instead."},
+{t:"Fermentation",q:"During a sprint, muscle cells run low on oxygen. They",o:["use lactic acid fermentation to keep glycolysis going","stop making any ATP at once","run the Krebs cycle faster","switch to photosynthesis"],h:"No oxygen means the ETC stalls.",e:"Muscle cells convert pyruvate to lactate, regenerating NAD⁺ so glycolysis continues to give 2 ATP per glucose."},
+{t:"Fermentation",q:"Compared with aerobic respiration, fermentation yields",o:["far less ATP per glucose","about the same ATP","far more ATP","no ATP at all"],h:"Only glycolysis makes ATP.",e:"Only the 2 net ATP of glycolysis are made. Aerobic respiration yields many times more because of the ETC."},
+{t:"Fermentation",q:"Which stage is shared by both aerobic respiration and fermentation?",o:["Glycolysis","Krebs cycle","Electron transport chain","Pyruvate oxidation"],h:"It does not need oxygen.",e:"Glycolysis is the common first step and is oxygen independent. The other stages need oxygen."},
+
+/* ---------- Poisons ---------- */
+{t:"Poisons",q:"A patient's pyruvate is near zero (0.02 mM; normal 0.09–0.15). Which poison fits?",o:["2-deoxyglucose","Arsenic","Oligomycin","Cyanide"],h:"Where is pyruvate made? The poison acts before that.",e:"2-deoxyglucose blocks the start of glycolysis, so pyruvate is never made. Everything downstream runs short."},
+{t:"Poisons",q:"Pyruvate is high (0.25 mM) while H⁺ and NADH are low. Which poison fits?",o:["Arsenic","Cyanide","Oligomycin","2-deoxyglucose"],h:"Pyruvate is being made but is not being used.",e:"Arsenic stops pyruvate from being processed into the Krebs cycle, so pyruvate piles up and the later stages (NADH, H⁺) run low."},
+{t:"Poisons",q:"Intermembrane H⁺ is very high (1.10 mM; normal 0.25–0.35). Which poison fits?",o:["Oligomycin","Cyanide","Arsenic","2-deoxyglucose"],h:"Protons are being pumped, but cannot return.",e:"Oligomycin blocks ATP synthase, so H⁺ cannot flow back into the matrix. The ETC keeps pumping until the gradient is huge, and ATP production collapses."},
+{t:"Poisons",q:"Mitochondrial NADH is very high and H⁺ is low. Which poison fits?",o:["Cyanide","Oligomycin","Arsenic","2-deoxyglucose"],h:"If the chain stops, NADH cannot unload electrons.",e:"Cyanide blocks the final step of the ETC, so electrons cannot move on, NADH cannot be oxidized, and H⁺ pumping stops."},
+{t:"Poisons",q:"Why does cyanide cause rapid death even though glycolysis still works?",o:["Glycolysis gives only 2 ATP, far too little for the cell's needs","Glycolysis stops too","Cyanide destroys glucose","It increases oxygen"],h:"Compare ATP yields.",e:"With the ETC blocked, cells rely on glycolysis alone, which makes only about 6% of the ATP of full respiration. Energy-hungry tissues like brain and heart fail."},
+{t:"Poisons",q:"Oligomycin and cyanide both stop ATP production. Which difference in lab values separates them?",o:["Oligomycin: H⁺ high; cyanide: H⁺ low and NADH high","Oligomycin: NADH low; cyanide: H⁺ high","Both give high H⁺","Both give low NADH"],h:"Compare the proton gradient with the chain itself.",e:"Oligomycin lets the chain run and block only ATP synthase, so H⁺ builds up. Cyanide blocks the chain itself, so no gradient forms and NADH piles up."},
+{t:"Poisons",q:"Rule for decoding any poison lab result:",o:["Substances before the block pile up; those after it run short","Substances after the block pile up","All values rise","All values fall"],h:"Think of a traffic jam on a road.",e:"A blocked step causes a build-up of its inputs and earlier carriers, and a shortage of everything downstream."},
+
+/* ---------- Photosynthesis ---------- */
+{t:"Photosynthesis",q:"The overall equation for photosynthesis is",o:["6 CO₂ + 6 H₂O + light → C₆H₁₂O₆ + 6 O₂","C₆H₁₂O₆ + 6 O₂ → 6 CO₂ + 6 H₂O","6 O₂ + 6 H₂O → C₆H₁₂O₆","CO₂ → O₂ + ATP"],h:"It is the reverse of respiration.",e:"Photosynthesis uses light to convert CO₂ and water into glucose and oxygen, in chloroplasts."},
+{t:"Photosynthesis",q:"Where do the light reactions occur?",o:["Thylakoid membranes","Stroma","Mitochondrial matrix","Cytoplasm"],h:"The membrane stacks inside the chloroplast.",e:"Light reactions occur in the thylakoid membranes, making ATP, NADPH and O₂. The Calvin cycle occurs in the stroma."},
+{t:"Photosynthesis",q:"The O₂ released in photosynthesis comes from",o:["water","carbon dioxide","glucose","ATP"],h:"Which reactant is split by light?",e:"Water is split in the light reactions, releasing O₂, H⁺ and electrons."},
+{t:"Photosynthesis",q:"What does the Calvin cycle use to build sugar?",o:["CO₂, ATP and NADPH","O₂, ADP and NADH","Light directly","Water only"],h:"Products of the light reactions plus a gas from the air.",e:"The Calvin cycle (stroma) uses ATP and NADPH from the light reactions to fix CO₂ into sugar (G3P)."},
+{t:"Photosynthesis",q:"How are photosynthesis and respiration related?",o:["Products of one are reactants of the other","They use the same equation","Both occur only in plants","Respiration only occurs at night"],h:"Compare the two equations side by side.",e:"Photosynthesis makes glucose and O₂; respiration uses them and releases CO₂ and water. Plants do both; they need mitochondria too."}
+];
+
+const AREAS=["Enzymes","Rate graphs","Inhibition","ATP","Respiration","Fermentation","Poisons","Photosynthesis"];
+const PLAN=[
+ ["Enzymes: structure, Ea, active site","Enzymes","25 min",1],
+ ["Rate graphs: temp, pH, substrate, enzyme","Rate graphs","30 min",1],
+ ["Inhibition: competitive vs noncompetitive","Inhibition","20 min",1],
+ ["ATP/ADP cycle and coupling","ATP","20 min",1],
+ ["Cellular respiration stages","Respiration","35 min",0],
+ ["Fermentation","Fermentation","10 min",0],
+ ["Poison case study","Poisons","20 min",0],
+ ["Photosynthesis overview","Photosynthesis","10 min",0],
+ ["Full mixed quiz, then redo weak areas","All","30 min",1]
+];
+
+const $=s=>document.querySelector(s);
+const store={get(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+
+/* tabs */
+const tabs=["plan","learn","quiz"];
+tabs.forEach(n=>$("#t-"+n).addEventListener("click",()=>{
+  tabs.forEach(m=>{$("#t-"+m).setAttribute("aria-selected",m===n);$("#v-"+m).hidden=m!==n});
+}));
+$("#openall").onclick=()=>document.querySelectorAll("#v-learn details").forEach(d=>d.open=true);
+$("#closeall").onclick=()=>document.querySelectorAll("#v-learn details").forEach(d=>d.open=false);
+
+/* plan */
+let done=store.get("u3q1plan",{});
+function drawPlan(){
+  const el=$("#planlist");el.innerHTML="";
+  PLAN.forEach((p,i)=>{
+    const l=document.createElement("label");
+    l.innerHTML=`<input type="checkbox" ${done[i]?"checked":""}><span style="flex:1"><b>${p[0]}</b><br><span class="sub">${p[2]}</span></span><span class="tag ${p[3]?"high":""}">${p[3]?"High":"Medium/Low"}</span>`;
+    l.querySelector("input").onchange=e=>{done[i]=e.target.checked;store.set("u3q1plan",done);prog()};
+    el.appendChild(l);
+  });
+  prog();
+}
+function prog(){
+  const n=PLAN.filter((_,i)=>done[i]).length;
+  $("#planbar").style.width=(100*n/PLAN.length)+"%";
+  $("#planprog").textContent=n+" of "+PLAN.length+" blocks done";
+}
+drawPlan();
+
+/* quiz */
+const sel=$("#area");
+sel.innerHTML='<option value="All">All areas ('+Q.length+')</option>'+AREAS.map(a=>`<option value="${a}">${a} (${Q.filter(q=>q.t===a).length})</option>`).join("");
+$("#bank").textContent=Q.length+" questions in the bank";
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function hist(){
+  const h=store.get("u3q1hist",[]);
+  $("#history").innerHTML=h.length?"Recent: "+h.slice(-5).reverse().map(r=>`${r.area} ${r.score}/${r.total}`).join(" · "):"";
+}
+hist();
+
+let run=null;
+$("#start").onclick=()=>{
+  const area=sel.value,n=+$("#count").value;
+  let pool=Q.filter(q=>area==="All"||q.t===area);
+  pool=shuffle(pool).slice(0,n);
+  run={area,pool,i:0,score:0,hints:0,miss:[],by:{},answered:0};
+  $("#setup").hidden=true;$("#result").hidden=true;$("#play").hidden=false;
+  show();
+};
+function show(){
+  const q=run.pool[run.i];
+  run.cur={q,opts:shuffle(q.o.map((t,k)=>({t,ok:k===0}))),done:false};
+  $("#prog").textContent="Question "+(run.i+1)+" of "+run.pool.length;
+  $("#live").textContent="Score "+run.score+" · hints "+run.hints;
+  $("#qbar").style.width=(100*run.i/run.pool.length)+"%";
+  $("#qtopic").textContent=q.t;
+  $("#qtext").textContent=q.q;
+  $("#hint").hidden=true;$("#expl").hidden=true;$("#next").hidden=true;
+  $("#hintbtn").hidden=false;$("#hintbtn").textContent="Show hint";
+  const box=$("#opts");box.innerHTML="";
+  run.cur.opts.forEach((o,k)=>{
+    const b=document.createElement("button");b.className="opt";b.textContent=String.fromCharCode(65+k)+". "+o.t;
+    b.onclick=()=>answer(k,b);box.appendChild(b);
+  });
+}
+$("#hintbtn").onclick=()=>{
+  const h=$("#hint");
+  if(h.hidden){h.hidden=false;h.textContent="Hint: "+run.cur.q.h;$("#hintbtn").textContent="Hide hint";if(!run.cur.hinted){run.cur.hinted=true;run.hints++}}
+  else{h.hidden=true;$("#hintbtn").textContent="Show hint"}
+};
+function answer(k,btn){
+  if(run.cur.done)return;run.cur.done=true;run.answered++;
+  const btns=[...document.querySelectorAll(".opt")];
+  const ok=run.cur.opts[k].ok;
+  btns.forEach((b,i)=>{b.disabled=true;if(run.cur.opts[i].ok)b.classList.add("good")});
+  if(!ok)btn.classList.add("bad");
+  const q=run.cur.q;
+  run.by[q.t]=run.by[q.t]||[0,0];run.by[q.t][1]++;
+  if(ok){run.score++;run.by[q.t][0]++}else run.miss.push(q);
+  const ex=$("#expl");ex.hidden=false;
+  ex.innerHTML=`<b>${ok?"Correct.":"Not quite."}</b> ${ok?"":"Correct answer: "+String.fromCharCode(65+run.cur.opts.findIndex(o=>o.ok))+". "}<br>`;
+  ex.append(q.e);
+  $("#hintbtn").hidden=true;$("#hint").hidden=true;
+  $("#live").textContent="Score "+run.score+" · hints "+run.hints;
+  $("#next").hidden=false;
+  $("#next").textContent=run.i+1<run.pool.length?"Next":"See results";
+  $("#next").focus();
+}
+$("#next").onclick=()=>{run.i++;run.i<run.pool.length?show():finish()};
+$("#quit").onclick=()=>{const n=run.answered||0;if(!n)return reset();run.pool=run.pool.slice(0,n);finish()};
+function reset(){$("#play").hidden=true;$("#result").hidden=true;$("#setup").hidden=false;hist()}
+function finish(){
+  $("#play").hidden=true;
+  const total=run.pool.length,pct=Math.round(100*run.score/total);
+  const h=store.get("u3q1hist",[]);h.push({area:run.area,score:run.score,total});store.set("u3q1hist",h.slice(-30));
+  const rows=Object.entries(run.by).map(([a,[c,n]])=>{const p=Math.round(100*c/n);return `<tr><td>${a}</td><td>${c}/${n}</td><td>${p}%</td><td>${p>=80?"Solid":"Review this area"}</td></tr>`}).join("");
+  const miss=run.miss.map(q=>`<details><summary>${q.q}</summary><div class="body"><b>Answer:</b> ${q.o[0]}<br>${q.e}</div></details>`).join("");
+  $("#result").hidden=false;
+  $("#result").innerHTML=`<div class="big">${run.score}/${total} · ${pct}%</div><div class="sub">Hints used: ${run.hints}</div>
+  <h3>By area</h3><div class="tablewrap"><table><tr><th>Area</th><th>Score</th><th>%</th><th>Status</th></tr>${rows}</table></div>
+  ${run.miss.length?"<h3>Missed questions</h3>"+miss:"<p>No misses. Try a different area or the full bank.</p>"}
+  <div class="row" style="margin-top:12px">${run.miss.length?'<button class="pri" id="retry">Retry missed</button>':""}<button class="sec" id="again">New quiz</button></div>`;
+  $("#again").onclick=reset;
+  const r=$("#retry");if(r)r.onclick=()=>{
+    const pool=shuffle(run.miss);run={area:"Missed",pool,i:0,score:0,hints:0,miss:[],by:{},answered:0};
+    $("#result").hidden=true;$("#play").hidden=false;show();
+  };
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biology I Honors • Unit 3: Quiz 1 Master Study Guide (Dr. Irwin)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    h1, h2, h3, h4, .font-heading { font-family: 'Outfit', sans-serif; }
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen antialiased selection:bg-emerald-500 selection:text-white pb-24">
+
+  <!-- TOP STICKY BAR -->
+  <header class="border-b border-slate-800 bg-slate-900/95 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="../../index.html" class="w-9 h-9 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-sm font-bold text-slate-200 hover:bg-slate-700 transition" title="Back to Biology Portal">
+          ←
+        </a>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="px-2 py-0.5 rounded text-[10px] font-extrabold uppercase tracking-wide bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+              🔬 Formative Quiz 1 Study Guide
+            </span>
+            <span class="text-xs text-slate-400 hidden sm:inline">Dr. Sarah Irwin • Room #371 • Biology I Honors</span>
+          </div>
+          <h1 class="text-sm sm:text-base font-bold text-white tracking-tight">Unit 3: Cellular Energetics &amp; Enzymes</h1>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="px-3 py-1.5 rounded-lg bg-emerald-500 text-slate-950 text-xs font-black shadow-md">
+          Quiz: Thu, Oct 22
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="border-b border-slate-800 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950 py-12 px-4">
+    <div class="max-w-4xl mx-auto text-center space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold tracking-wider uppercase">
+        <span>South Forsyth High School</span>
+        <span>•</span>
+        <span>Georgia Standard GSE SB1.e</span>
+      </div>
+      <h2 class="text-3xl sm:text-5xl font-black text-white font-heading tracking-tight leading-tight">
+        Enzymes &amp; ATP <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">Mastery Guide</span>
+      </h2>
+      <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+        Everything you need for Dr. Irwin’s Unit 3 Quiz 1 on <strong>Thursday, Oct 22</strong>. Clear, humanized breakdowns of activation energy, lock-and-key vs. induced fit, rate graphs, inhibitors, and the ATP-ADP cycle.
+      </p>
+
+      <!-- CHAPTER JUMP LINKS -->
+      <div class="pt-4 flex flex-wrap items-center justify-center gap-2 text-xs">
+        <a href="#ch1" class="px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:border-emerald-500/50 hover:text-emerald-300 transition">1. Enzyme Biochemistry</a>
+        <a href="#ch2" class="px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:border-emerald-500/50 hover:text-emerald-300 transition">2. Rate Graphs (Temp, pH, Substrate)</a>
+        <a href="#ch3" class="px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:border-emerald-500/50 hover:text-emerald-300 transition">3. Competitive vs. Allosteric</a>
+        <a href="#ch4" class="px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:border-emerald-500/50 hover:text-emerald-300 transition">4. ATP/ADP Phosphorylation</a>
+        <a href="#ch5" class="px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:border-emerald-500/50 hover:text-emerald-300 transition">5. Photo &amp; Respiration Overview</a>
+        <a href="#simulator" class="px-3 py-1.5 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 font-bold hover:bg-emerald-500/30 transition">🎯 Live Quiz Simulator (10 Qs)</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTAINER -->
+  <div class="max-w-5xl mx-auto px-4 py-10 grid grid-cols-1 lg:grid-cols-4 gap-8">
+
+    <!-- DESKTOP TOC -->
+    <aside class="hidden lg:block lg:col-span-1">
+      <div class="sticky top-20 space-y-4 p-4 rounded-2xl bg-slate-900/80 border border-slate-800 text-xs">
+        <div class="font-bold text-slate-400 uppercase tracking-wider">Quiz 1 Navigation</div>
+        <nav class="space-y-1.5">
+          <a href="#ch1" class="block p-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-emerald-400 transition font-medium">1. Enzyme Catalysis &amp; Ea</a>
+          <a href="#ch2" class="block p-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-emerald-400 transition font-medium">2. Environmental Graphs</a>
+          <a href="#ch3" class="block p-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-emerald-400 transition font-medium">3. Enzyme Inhibition</a>
+          <a href="#ch4" class="block p-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-emerald-400 transition font-medium">4. ATP-ADP Energy Coupling</a>
+          <a href="#ch5" class="block p-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-emerald-400 transition font-medium">5. Cellular Respiration Preview</a>
+          <a href="#simulator" class="block p-2 rounded-lg bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 font-bold">🎯 Quiz 1 Interactive Test</a>
+        </nav>
+
+        <div class="pt-4 border-t border-slate-800 text-[11px] text-slate-400 space-y-2">
+          <div class="font-bold text-slate-300">Quiz Specifications:</div>
+          <div>• <strong>Teacher:</strong> Dr. Irwin (SFHS #371)</div>
+          <div>• <strong>Date:</strong> Thursday, Oct 22</div>
+          <div>• <strong>Format:</strong> Multiple Choice + Graphical Interpretation</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- CONTENT BODY -->
+    <main class="lg:col-span-3 space-y-12">
+
+      <!-- CHAPTER 1: ENZYME BIOCHEMISTRY -->
+      <section id="ch1" class="p-6 sm:p-8 rounded-3xl bg-slate-900/60 border border-slate-800 space-y-6">
+        <div class="flex items-center gap-3">
+          <span class="w-9 h-9 rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center font-black text-sm">
+            01
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white font-heading">Enzyme Biochemistry &amp; Activation Energy</h2>
+        </div>
+
+        <p class="text-slate-300 text-sm leading-relaxed">
+          An <strong>enzyme</strong> is a biological protein catalyst. It accelerates chemical reactions without being permanently altered or consumed in the process.
+        </p>
+
+        <!-- EA COMPARISON BOX -->
+        <div class="p-5 rounded-2xl bg-slate-950 border border-emerald-500/30 space-y-4">
+          <h3 class="text-base font-bold text-white font-heading flex items-center gap-2">
+            <span>⚡</span> The Activation Energy ($E_a$) Principle
+          </h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Every chemical reaction has an energetic barrier called the <strong>Activation Energy ($E_a$)</strong>—the initial energy required to break chemical bonds in the reactants so that new bonds can form.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+            <div class="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 space-y-1">
+              <div class="font-extrabold text-sm">What Enzymes DO:</div>
+              <div>• <strong>Dramatically lower $E_a$</strong>, speeding up reactions millions of times.</div>
+              <div>• Stabilize the transition state complex.</div>
+              <div>• Remain reusable and unchanged after releasing products.</div>
+            </div>
+            <div class="p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-300 space-y-1">
+              <div class="font-extrabold text-sm">What Enzymes NEVER DO:</div>
+              <div>• <strong>Do NOT change $\Delta G$</strong> (the net free energy change of the reaction).</div>
+              <div>• Do NOT make an endergonic reaction exergonic.</div>
+              <div>• Do NOT get used up or consumed as a reactant.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LOCK & KEY VS INDUCED FIT -->
+        <div class="space-y-3">
+          <h3 class="text-base font-bold text-white font-heading">Substrate Binding: Lock-and-Key vs. Induced Fit</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+            <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-2">
+              <div class="font-bold text-amber-400">Lock and Key Model (Fischer, 1894)</div>
+              <p class="text-slate-300 leading-relaxed">
+                Views the enzyme's active site as a <strong>rigid, pre-existing geometrical slot</strong> where only a substrate with the exact complementary shape fits (like a key into a deadbolt).
+              </p>
+              <div class="text-[11px] text-slate-500">Historical model; does not explain transitional bond-bending.</div>
+            </div>
+            <div class="p-4 rounded-2xl bg-slate-950 border border-emerald-500/30 space-y-2">
+              <div class="font-bold text-emerald-400">Induced Fit Model (Koshland, 1958 — Accepted)</div>
+              <p class="text-slate-300 leading-relaxed">
+                The active site is <strong>flexible</strong>. When the substrate enters, chemical interactions cause the enzyme to slightly alter its shape, wrapping snugly around the substrate (like a handshake or a glove).
+              </p>
+              <div class="text-[11px] text-emerald-400/80">This physical strain stretches and destabilizes chemical bonds, drastically lowering $E_a$!</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHAPTER 2: ENVIRONMENTAL RATE GRAPHS -->
+      <section id="ch2" class="p-6 sm:p-8 rounded-3xl bg-slate-900/60 border border-slate-800 space-y-6">
+        <div class="flex items-center gap-3">
+          <span class="w-9 h-9 rounded-xl bg-teal-500/20 text-teal-400 border border-teal-500/30 flex items-center justify-center font-black text-sm">
+            02
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white font-heading">Interpreting Environmental Rate Graphs</h2>
+        </div>
+
+        <p class="text-slate-300 text-sm leading-relaxed">
+          Dr. Irwin's quizzes always include graphs. Understand the molecular physics behind each curve:
+        </p>
+
+        <!-- 3 GRAPH EXPLANATIONS -->
+        <div class="space-y-4">
+          <!-- TEMPERATURE -->
+          <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
+            <div class="flex items-center justify-between">
+              <h3 class="text-sm font-bold text-amber-400 font-heading">Graph 1: Temperature vs. Reaction Velocity</h3>
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-500/20 text-amber-300">Asymmetrical Bell Curve</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs text-slate-300">
+              <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+                <strong class="text-white block mb-1">Low Temp (0°C – 20°C):</strong>
+                Molecules have low kinetic energy. They move slowly, causing fewer collisions between substrate and active site. <em>Note: Cold does NOT denature!</em>
+              </div>
+              <div class="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-300">
+                <strong class="block mb-1">Optimum Temp (~37°C in humans):</strong>
+                Maximum rate of productive collisions per second before structural hydrogen bonds are disrupted.
+              </div>
+              <div class="p-3 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-300">
+                <strong class="block mb-1">High Temp (> 45°C - 60°C):</strong>
+                Excess thermal motion vibrates and breaks hydrogen and ionic bonds. The enzyme <strong>denatures</strong> (unfolds irreversibly).
+              </div>
+            </div>
+          </div>
+
+          <!-- PH -->
+          <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
+            <div class="flex items-center justify-between">
+              <h3 class="text-sm font-bold text-cyan-400 font-heading">Graph 2: pH vs. Reaction Velocity</h3>
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-cyan-500/20 text-cyan-300">Symmetrical Bell Curve</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs text-slate-300">
+              <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+                <strong class="text-white block mb-1">Pepsin (Stomach):</strong>
+                Optimum **pH 1.5 – 2.0**. Highly acidic. Denatures quickly if moved to neutral mouth saliva.
+              </div>
+              <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+                <strong class="text-white block mb-1">Salivary Amylase (Mouth):</strong>
+                Optimum **pH 6.8 – 7.0**. Neutral. Digestion starts here, stops in stomach acid.
+              </div>
+              <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+                <strong class="text-white block mb-1">Trypsin (Small Intestine):</strong>
+                Optimum **pH 8.0**. Alkaline due to bicarbonate secretion from the pancreas.
+              </div>
+            </div>
+            <p class="text-[11px] text-slate-400 pt-1">
+              *Molecular cause:* Excess H⁺ (acid) or OH⁻ (base) alters charges on amino acid R-groups, disrupting ionic bonds and denaturing the active site.
+            </p>
+          </div>
+
+          <!-- SUBSTRATE CONCENTRATION -->
+          <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
+            <div class="flex items-center justify-between">
+              <h3 class="text-sm font-bold text-purple-400 font-heading">Graph 3: Substrate Concentration vs. Reaction Velocity</h3>
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-purple-500/20 text-purple-300">Hyperbolic Saturation Curve (Plateau)</span>
+            </div>
+            <div class="text-xs text-slate-300 space-y-2">
+              <p>
+                • <strong>Initial Rise:</strong> At low substrate levels, active sites are empty. Adding substrate increases collisions and boosts reaction rate linearly.
+              </p>
+              <p>
+                • <strong>Plateau ($V_{\max}$ / Saturation):</strong> Every active site is constantly filled. The enzyme is working at maximum catalytic capacity. <strong>Enzyme concentration is now the limiting factor.</strong> Adding more substrate will NOT speed up the rate.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHAPTER 3: COMPETITIVE VS NONCOMPETITIVE INHIBITION -->
+      <section id="ch3" class="p-6 sm:p-8 rounded-3xl bg-slate-900/60 border border-slate-800 space-y-6">
+        <div class="flex items-center gap-3">
+          <span class="w-9 h-9 rounded-xl bg-rose-500/20 text-rose-400 border border-rose-500/30 flex items-center justify-center font-black text-sm">
+            03
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white font-heading">Enzyme Inhibition: Competitive vs. Allosteric</h2>
+        </div>
+
+        <p class="text-slate-300 text-sm leading-relaxed">
+          Inhibitors reduce or eliminate enzyme catalytic activity. Dr. Irwin loves testing the difference between competitive and allosteric inhibitors on rate graphs!
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- COMPETITIVE -->
+          <div class="p-5 rounded-2xl bg-slate-950 border border-amber-500/30 space-y-3 text-xs">
+            <div class="flex items-center justify-between">
+              <span class="font-extrabold text-sm text-amber-400">Competitive Inhibitor</span>
+              <span class="px-2 py-0.5 rounded bg-amber-500/10 text-amber-300">Blocks Active Site</span>
+            </div>
+            <ul class="text-slate-300 space-y-2 list-disc pl-4">
+              <li><strong>Where it binds:</strong> Directly inside the <strong>Active Site</strong>.</li>
+              <li><strong>Molecular shape:</strong> Structurally resembles the real substrate.</li>
+              <li><strong>Can you overcome it?</strong> <strong>YES!</strong> Flooding the test tube with a massive excess of natural substrate out-competes the inhibitor for open active sites.</li>
+              <li><strong>Effect on $V_{\max}$ Graph:</strong> <strong>$V_{\max}$ is eventually reached</strong>, but requires much higher substrate concentrations.</li>
+            </ul>
+          </div>
+
+          <!-- NONCOMPETITIVE -->
+          <div class="p-5 rounded-2xl bg-slate-950 border border-rose-500/30 space-y-3 text-xs">
+            <div class="flex items-center justify-between">
+              <span class="font-extrabold text-sm text-rose-400">Noncompetitive (Allosteric)</span>
+              <span class="px-2 py-0.5 rounded bg-rose-500/10 text-rose-300">Alters Active Site Shape</span>
+            </div>
+            <ul class="text-slate-300 space-y-2 list-disc pl-4">
+              <li><strong>Where it binds:</strong> To an <strong>Allosteric Site</strong> (a regulatory site away from the active site).</li>
+              <li><strong>Molecular mechanism:</strong> Causes a conformational change that warps the active site shape so the substrate can no longer fit.</li>
+              <li><strong>Can you overcome it?</strong> <strong>NO!</strong> Adding more substrate has no effect because the active site is distorted.</li>
+              <li><strong>Effect on $V_{\max}$ Graph:</strong> <strong>$V_{\max}$ is permanently lowered.</strong></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHAPTER 4: THE ATP/ADP CYCLE -->
+      <section id="ch4" class="p-6 sm:p-8 rounded-3xl bg-slate-900/60 border border-slate-800 space-y-6">
+        <div class="flex items-center gap-3">
+          <span class="w-9 h-9 rounded-xl bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 flex items-center justify-center font-black text-sm">
+            04
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white font-heading">The ATP/ADP Energy Cycle</h2>
+        </div>
+
+        <p class="text-slate-300 text-sm leading-relaxed">
+          Cells cannot spend raw glucose directly. They convert glucose energy into <strong>Adenosine Triphosphate (ATP)</strong>, the universal energy coin of life.
+        </p>
+
+        <!-- ATP ANATOMY -->
+        <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-3 text-xs">
+          <h3 class="text-sm font-bold text-white font-heading">Anatomy of ATP (3 Key Parts)</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-center">
+            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+              <div class="text-slate-400">1. Nitrogenous Base</div>
+              <div class="text-sm font-bold text-cyan-400 mt-1">Adenine</div>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+              <div class="text-slate-400">2. 5-Carbon Pentose</div>
+              <div class="text-sm font-bold text-amber-400 mt-1">Ribose Sugar</div>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+              <div class="text-slate-400">3. Energy Carrier</div>
+              <div class="text-sm font-bold text-rose-400 mt-1">3 Phosphate Groups</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PHOSPHORYLATION EQUATIONS -->
+        <div class="p-5 rounded-2xl bg-slate-950 border border-cyan-500/30 space-y-3 text-xs text-slate-300">
+          <div class="font-bold text-white text-sm">The Hydrolysis &amp; Recharge Reaction:</div>
+          <div class="p-3 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-300">
+            <strong>Energy Release (Hydrolysis / Exergonic):</strong><br>
+            $$\text{ATP} + \text{H}_2\text{O} \to \text{ADP} + \text{P}_i + \text{Energy}\quad (\Delta G = -7.3\text{ kcal/mol})$$
+            Breaking the high-energy bond between the 2nd and 3rd phosphate releases energy to power muscle contraction, active transport (Na⁺/K⁺ pump), and protein synthesis.
+          </div>
+          <div class="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-300">
+            <strong>Recharge (Cellular Respiration / Endergonic):</strong><br>
+            $$\text{ADP} + \text{P}_i + \text{Energy from Food} \to \text{ATP} + \text{H}_2\text{O}$$
+            The mitochondria continuously adds the 3rd phosphate back onto ADP using energy harvested from glucose breakdown.
+          </div>
+        </div>
+      </section>
+
+      <!-- CHAPTER 5: PHOTOSYNTHESIS & RESPIRATION PREVIEW -->
+      <section id="ch5" class="p-6 sm:p-8 rounded-3xl bg-slate-900/60 border border-slate-800 space-y-6">
+        <div class="flex items-center gap-3">
+          <span class="w-9 h-9 rounded-xl bg-purple-500/20 text-purple-400 border border-purple-500/30 flex items-center justify-center font-black text-sm">
+            05
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white font-heading">Photosynthesis vs. Cellular Respiration Preview</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+          <div class="p-4 rounded-2xl bg-slate-950 border border-emerald-500/30 space-y-2">
+            <div class="font-bold text-emerald-400 text-sm">Photosynthesis (Chloroplast)</div>
+            <div class="text-slate-400 font-mono">6CO₂ + 6H₂O + Light → C₆H₁₂O₆ + 6O₂</div>
+            <p class="text-slate-300 leading-relaxed">
+              • <strong>Type:</strong> Endergonic (stores light energy as chemical bonds in glucose).<br>
+              • <strong>Pigments:</strong> Chlorophyll a/b in thylakoid membranes absorbing blue/red light (reflecting green).
+            </p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-950 border border-cyan-500/30 space-y-2">
+            <div class="font-bold text-cyan-400 text-sm">Cellular Respiration (Mitochondria)</div>
+            <div class="text-slate-400 font-mono">C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + 36-38 ATP</div>
+            <p class="text-slate-300 leading-relaxed">
+              • <strong>Type:</strong> Exergonic (breaks glucose bonds to synthesize ATP).<br>
+              • <strong>Carried out by:</strong> Both autotrophs and heterotrophs!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- QUIZ 1 INTERACTIVE SIMULATOR -->
+      <section id="simulator" class="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-slate-900 via-slate-900 to-emerald-950/40 border-2 border-emerald-500/40 space-y-6">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="w-10 h-10 rounded-xl bg-emerald-500 flex items-center justify-center font-black text-slate-950 text-xl shadow-lg">
+              🎯
+            </span>
+            <div>
+              <h2 class="text-xl sm:text-2xl font-black text-white font-heading">Unit 3 Quiz 1 Simulator</h2>
+              <p class="text-xs text-emerald-400 font-medium">10 Rigorous Formative Questions with Immediate Feedback</p>
+            </div>
+          </div>
+          <button onclick="resetQuiz1()" class="text-xs px-3 py-1.5 rounded-xl bg-slate-800 border border-slate-700 text-slate-300 hover:text-white transition">
+            ↺ Reset
+          </button>
+        </div>
+
+        <div class="p-3 rounded-2xl bg-slate-950/80 border border-slate-800 flex items-center justify-between text-xs px-4">
+          <div class="text-slate-400">Score: <span id="q-score" class="font-bold text-emerald-400">0</span> / 10</div>
+          <div class="text-slate-400">Answered: <span id="q-answered" class="font-bold text-white">0</span> / 10</div>
+          <div class="text-slate-400">Grade: <span id="q-pct" class="font-black text-teal-300">0%</span></div>
+        </div>
+
+        <div id="quiz1-container" class="space-y-4">
+          <!-- Rendered by JS -->
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        scenario: "Activation Energy Mechanism",
+        prompt: "How does the addition of an enzyme affect the activation energy (Ea) and the net free energy change (ΔG) of a chemical reaction?",
+        options: [
+          "It lowers Ea and lowers ΔG",
+          "It lowers Ea and does not change ΔG",
+          "It raises Ea and increases ΔG",
+          "It does not affect Ea but increases ΔG"
+        ],
+        correct: 1,
+        explanation: "Enzymes act solely by lowering the activation energy barrier (Ea) needed to reach the transition state. They do NOT change the initial or final energy states of reactants/products, meaning ΔG is unchanged."
+      },
+      {
+        scenario: "Induced Fit Model",
+        prompt: "According to the Induced Fit Model, what happens when a substrate enters an enzyme's active site?",
+        options: [
+          "The enzyme breaks down into individual amino acids",
+          "The active site remains completely rigid and unmoving like a lock",
+          "The enzyme slightly adjusts its conformation to mold snugly around the substrate, straining its bonds",
+          "The substrate permanently binds to the allosteric site"
+        ],
+        correct: 2,
+        explanation: "Daniel Koshland's Induced Fit Model describes the active site as flexible. As the substrate binds, the enzyme subtly changes shape, which physically strains the substrate's chemical bonds and accelerates the reaction."
+      },
+      {
+        scenario: "Temperature and Denaturation",
+        prompt: "A student boils a sample of catalase enzyme at 100°C for 10 minutes and then cools it back down to human body temperature (37°C). When hydrogen peroxide is added, no reaction occurs. Why?",
+        options: [
+          "Cold temperatures during cooling caused the enzyme to freeze",
+          "Excessive heat broke hydrogen and ionic bonds, permanently disrupting the tertiary structure of the active site (denaturation)",
+          "The enzyme was consumed in the first minute of boiling",
+          "The substrate turned into a competitive inhibitor"
+        ],
+        correct: 1,
+        explanation: "Extreme heat disrupts weak hydrogen bonds and electrostatic attractions that maintain the enzyme's 3D tertiary structure. The enzyme denatures; once unfolded, cooling it back to 37°C cannot restore the precise active site shape."
+      },
+      {
+        scenario: "Competitive vs. Allosteric Inhibition",
+        prompt: "An experimenter introduces an unknown inhibitor to an enzyme reaction. They find that by increasing the substrate concentration to extremely high levels, the original maximum reaction rate (Vmax) can still be reached. What type of inhibitor was used?",
+        options: [
+          "Noncompetitive (Allosteric) inhibitor",
+          "Competitive inhibitor",
+          "Irreversible heavy metal poison",
+          "Co-enzyme"
+        ],
+        correct: 1,
+        explanation: "Competitive inhibitors bind directly to the active site. Because the binding is reversible and dynamic, adding an overwhelming excess of natural substrate out-competes the inhibitor for open active sites, restoring Vmax."
+      },
+      {
+        scenario: "Substrate Saturation Curve",
+        prompt: "On a graph of substrate concentration versus reaction rate, the curve eventually levels off at a plateau (Vmax). Why does the reaction rate stop increasing even when more substrate is added?",
+        options: [
+          "All enzymes have been completely denatured",
+          "Every enzyme active site is saturated and operating at maximum catalytic capacity",
+          "The reaction has run out of activation energy",
+          "The product begins acting as an allosteric inhibitor"
+        ],
+        correct: 1,
+        explanation: "At Vmax, every active site is continuously occupied by substrate. The enzyme concentration has become the limiting factor; adding additional substrate will not increase the rate because no free active sites exist."
+      },
+      {
+        scenario: "pH Specificity in the Digestive Tract",
+        prompt: "Pepsin operates efficiently in the stomach at pH 2. If pepsin enters the small intestine where the pH is approximately 8, what will occur?",
+        options: [
+          "Pepsin will work 4 times faster",
+          "The alkaline environment will alter ionic bonds in pepsin, denaturing its active site and halting digestion",
+          "Pepsin will convert directly into trypsin",
+          "The activation energy of the stomach reaction will decrease"
+        ],
+        correct: 1,
+        explanation: "Enzymes have narrow optimal pH ranges. The high concentration of OH⁻ ions at pH 8 alters the charges of amino acid R-groups, causing pepsin's tertiary structure to denature and lose catalytic activity."
+      },
+      {
+        scenario: "ATP Structure and High-Energy Bonds",
+        prompt: "Where is the high-energy bond that is hydrolyzed to release energy for cellular work located within an ATP molecule?",
+        options: [
+          "Between the adenine base and the ribose sugar",
+          "Between the ribose sugar and the first phosphate group",
+          "Between the second and third (terminal) phosphate groups",
+          "Inside the nitrogen rings of the adenine base"
+        ],
+        correct: 2,
+        explanation: "The terminal phosphoanhydride bond between the 2nd and 3rd phosphate groups carries intense electrostatic repulsion due to adjacent negative charges. Hydrolyzing this bond releases ~7.3 kcal/mol of usable cellular energy."
+      },
+      {
+        scenario: "ATP Regeneration Cycle",
+        prompt: "Which cellular process provides the energy required to reattach an inorganic phosphate (Pi) onto ADP to regenerate ATP in animal cells?",
+        options: [
+          "Photosynthesis in chloroplasts",
+          "Cellular respiration in mitochondria",
+          "Active transport by the sodium-potassium pump",
+          "Simple diffusion across the plasma membrane"
+        ],
+        correct: 1,
+        explanation: "Cellular respiration oxidizes organic nutrients (like glucose) to harness free energy, powering ATP Synthase to phosphorylate ADP back into ATP."
+      },
+      {
+        scenario: "Allosteric Inhibition",
+        prompt: "How does a noncompetitive (allosteric) inhibitor decrease an enzyme's catalytic rate?",
+        options: [
+          "It binds to the active site and mimics the substrate",
+          "It binds to an allosteric site away from the active site, inducing a conformational change that distorts the active site",
+          "It breaks peptide bonds in the primary sequence",
+          "It permanently removes all electrons from the active site"
+        ],
+        correct: 1,
+        explanation: "Noncompetitive inhibitors bind to a separate allosteric site. This induces an allosteric shape change that deforms the active site, preventing normal catalytic binding regardless of how much substrate is present."
+      },
+      {
+        scenario: "Photosynthesis vs. Respiration Energetics",
+        prompt: "Which of the following correctly pairs the energy transformation type with the metabolic pathway?",
+        options: [
+          "Photosynthesis = Exergonic; Cellular Respiration = Endergonic",
+          "Photosynthesis = Endergonic; Cellular Respiration = Exergonic",
+          "Both Photosynthesis and Respiration are Exergonic",
+          "Both Photosynthesis and Respiration are Endergonic"
+        ],
+        correct: 1,
+        explanation: "Photosynthesis absorbs light energy to synthesize glucose (endergonic / anabolic), whereas cellular respiration breaks down glucose to release energy stored in ATP (exergonic / catabolic)."
+      },
+      {
+        scenario: "Cellular Respiration Stages & Locations",
+        prompt: "Where do Glycolysis, the Krebs Cycle, and the Electron Transport Chain take place within a eukaryotic cell?",
+        options: [
+          "Glycolysis: Cytoplasm; Krebs: Matrix; ETC: Cristae (Inner Membrane)",
+          "Glycolysis: Matrix; Krebs: Cristae; ETC: Cytoplasm",
+          "Glycolysis: Intermembrane Space; Krebs: Matrix; ETC: Outer Membrane",
+          "All three stages occur entirely inside the mitochondrial matrix"
+        ],
+        correct: 0,
+        explanation: "Glycolysis occurs in the cytoplasm (cytosol). Pyruvate Oxidation and the Krebs Cycle occur in the fluid mitochondrial matrix. The Electron Transport Chain and ATP Synthase are embedded in the cristae (inner folded membrane)."
+      },
+      {
+        scenario: "Glycolysis Net Yield & Evolution",
+        prompt: "Why is glycolysis considered the most ancient, universal metabolic pathway among all living organisms?",
+        options: [
+          "It produces 36 ATP without needing any enzymes",
+          "It evolved in ancestral prokaryotes before Earth had free oxygen and requires no membrane-bound organelles",
+          "It exclusively occurs in photosynthetic autotrophs",
+          "It relies on the electron transport chain inside the chloroplast"
+        ],
+        correct: 1,
+        explanation: "Glycolysis evolved >3.5 billion years ago in anaerobic prokaryotes before atmospheric oxygen or membrane-bound organelles existed. It takes place in the cytosol and yields a net of 2 ATP, 2 NADH, and 2 Pyruvate per glucose."
+      },
+      {
+        scenario: "The Biochemical Purpose of Fermentation",
+        prompt: "In the absence of oxygen, why must human muscle cells convert pyruvate into lactic acid?",
+        options: [
+          "To generate 32 additional ATP molecules per glucose",
+          "To regenerate NAD⁺ from NADH so glycolysis can continue producing ATP",
+          "To permanently store energy in toxic lactic acid crystals",
+          "To force oxygen to diffuse into the mitochondria"
+        ],
+        correct: 1,
+        explanation: "Fermentation does NOT produce additional ATP. Its primary purpose is oxidising NADH back to NAD⁺ so that Glycolysis has a steady supply of electron acceptors to keep making 2 ATP per glucose."
+      },
+      {
+        scenario: "Lactic Acid vs. Alcoholic Fermentation",
+        prompt: "How does alcoholic fermentation in yeast differ from lactic acid fermentation in animal muscle cells?",
+        options: [
+          "Alcoholic fermentation produces CO₂ gas and ethanol and is irreversible; lactic acid fermentation produces no gas and is reversible by the liver",
+          "Alcoholic fermentation produces 36 ATP, while lactic acid produces 2 ATP",
+          "Lactic acid fermentation occurs in plant chloroplasts only",
+          "Alcoholic fermentation does not consume pyruvate"
+        ],
+        correct: 0,
+        explanation: "Yeast decarboxylate pyruvate into ethanol and CO₂ (making bread rise and beverages bubbly). This dead-end process is irreversible. Muscle cells reduce pyruvate to lactate without releasing CO₂, which the liver can reverse back to pyruvate once oxygen returns."
+      },
+      {
+        scenario: "Krebs Cycle Turns and Decarboxylation",
+        prompt: "For every 1 molecule of glucose, how many turns of the Krebs Cycle occur, and what are the carbon dioxide (CO₂) outputs?",
+        options: [
+          "1 turn, yielding 6 CO₂",
+          "2 turns, yielding 4 CO₂ from the cycle (plus 2 CO₂ from pyruvate oxidation = 6 CO₂ total)",
+          "3 turns, yielding 0 CO₂",
+          "4 turns, yielding 2 CO₂"
+        ],
+        correct: 1,
+        explanation: "One glucose cleaves into 2 pyruvates, yielding 2 Acetyl-CoA. Therefore, the Krebs Cycle turns 2 times per glucose, generating 4 CO₂ (in addition to the 2 CO₂ released during pyruvate oxidation, accounting for all 6 carbons of glucose)."
+      },
+      {
+        scenario: "The Proton Gradient in Chemiosmosis",
+        prompt: "During the Electron Transport Chain, where are protons (H⁺) actively pumped, and how do they generate ATP?",
+        options: [
+          "Pumped from intermembrane space into matrix; flow out through ribosomes",
+          "Pumped from matrix into intermembrane space; diffuse back into matrix through ATP Synthase",
+          "Pumped directly into the blood stream through active transport",
+          "Diffused freely across outer membrane without any protein channels"
+        ],
+        correct: 1,
+        explanation: "Energy from electron transfers is used by ETC complexes to pump H⁺ from the matrix into the intermembrane space. The resulting high electrochemical gradient drives H⁺ back into the matrix through ATP Synthase, which rotates like a turbine to phosphorylate ADP to ATP."
+      },
+      {
+        scenario: "Role of Oxygen in Aerobic Respiration",
+        prompt: "What is the specific role of Oxygen (O₂) in cellular respiration, and what product does it form?",
+        options: [
+          "It acts as the initial electron donor in glycolysis to form glucose",
+          "It serves as the final electron acceptor at the end of the ETC, combining with electrons and protons to form H₂O",
+          "It binds allosterically to pepsin in the stomach",
+          "It converts carbon dioxide into ozone in the matrix"
+        ],
+        correct: 1,
+        explanation: "Oxygen is highly electronegative and acts as the final electron acceptor at Complex IV. It pulls electrons down the chain and binds with 2 H⁺ to form water (H₂O). Without O₂, the ETC backs up and ATP production halts."
+      },
+      {
+        scenario: "Poison Case Study: Tim Braxton Lab Interpretation",
+        prompt: "Patient Tim Braxton's lab results show Cytoplasmic Pyruvate = 0.25 mM (HIGH, ref 0.09-0.15) while Mitochondrial H⁺ (0.20 mM) and NADH (0.17 mM) are depleted. Which poison caused this condition, and what was its biochemical target?",
+        options: [
+          "Arsenic; it inhibited the first enzyme of the Krebs cycle, causing pyruvate to back up in the cytoplasm",
+          "Cyanide; it blocked Complex IV of the ETC",
+          "Oligomycin; it clogged the rotor of ATP Synthase",
+          "2-deoxyglucose; it completely prevented glucose from entering glycolysis"
+        ],
+        correct: 0,
+        explanation: "Arsenic binds to the first enzyme in the Krebs cycle. Glycolysis continues running and producing pyruvate, but because pyruvate cannot enter the Krebs cycle, it accumulates in the cytoplasm (0.25 mM). Because Krebs is blocked, minimal NADH and H⁺ are produced."
+      },
+      {
+        scenario: "Poison Case Study: Mei Nakamura Lab Interpretation",
+        prompt: "Patient Mei Nakamura's lab results show normal Pyruvate (0.12 mM), normal NADH (0.30 mM), but Mitochondrial Intermembrane H⁺ is massively elevated at 1.10 mM (ref 0.25-0.35 mM). Which toxin was present in her garden pesticide?",
+        options: [
+          "Cyanide",
+          "Oligomycin, which binds to ATP Synthase and prevents protons from flowing back into the matrix",
+          "2-deoxyglucose, which destroys cellular glucose",
+          "Arsenic, which destroys the mitochondrial outer membrane"
+        ],
+        correct: 1,
+        explanation: "Oligomycin binds directly to ATP Synthase. The upstream ETC continues pumping protons into the intermembrane space, but protons cannot flow back down into the matrix, resulting in extreme proton accumulation (1.10 mM) in the intermembrane space."
+      },
+      {
+        scenario: "Poison Case Study: Vanessa Craft Lab Interpretation",
+        prompt: "Cancer patient Vanessa Craft accidentally received a 10x overdose of an experimental compound. Her lab results show Cytoplasmic Pyruvate = 0.02 mM (EXTREMELY LOW, ref 0.09-0.15), Intermembrane H⁺ = 0.09 mM (LOW), and NADH = 0.08 mM (LOW). Which compound caused her cardiac arrest?",
+        options: [
+          "2-deoxyglucose, which mimics glucose and inhibits the first enzyme of glycolysis, preventing pyruvate formation",
+          "Arsenic, which forces excess pyruvate production",
+          "Oligomycin, which traps protons in the intermembrane space",
+          "Cyanide, which causes massive NADH accumulation"
+        ],
+        correct: 0,
+        explanation: "2-deoxyglucose is taken up like glucose but blocks the very first enzyme of glycolysis. Because glucose is never cleaved, pyruvate drops to near zero (0.02 mM), starving all downstream mitochondrial processes."
+      },
+      {
+        scenario: "Poison Case Study: Nadia Che / Cassava Root Lab Interpretation",
+        prompt: "5-year-old Nadia Che ate raw cassava root and died of respiratory collapse. Her lab results show Mitochondrial NADH = 0.50 mM (MASSIVELY ELEVATED, ref 0.25-0.40) and Intermembrane H⁺ = 0.07 mM (SEVERELY LOW). What poison formed in her digestive system, and why is NADH elevated?",
+        options: [
+          "Cyanide; it interrupts the ETC at Complex IV, preventing electrons from leaving the chain, which prevents NADH from dropping off its electrons",
+          "Arsenic; it converts all ATP into NADH",
+          "Oligomycin; it forces NADH to move into the nucleus",
+          "2-deoxyglucose; it forces cells to produce 10 times more NADH"
+        ],
+        correct: 0,
+        explanation: "Raw cassava root contains cyanogenic glycosides converted into cyanide by human digestion. Cyanide binds to inner membrane proteins (Complex IV). Because electrons cannot transfer to O₂, the ETC jams up, preventing NADH from oxidizing back to NAD⁺, causing NADH to accumulate to 0.50 mM."
+      },
+      {
+        scenario: "Cristae Surface Area Optimization",
+        prompt: "Why are the cristae of the inner mitochondrial membrane so heavily folded?",
+        options: [
+          "To allow lysosomes to store digestive enzymes inside them",
+          "To drastically increase membrane surface area for thousands of ETC protein complexes and ATP Synthase enzymes",
+          "To trap carbon dioxide gas from escaping into the cytoplasm",
+          "To provide structural rigidity against gravitational force"
+        ],
+        correct: 1,
+        explanation: "Extensive folding creates enormous surface area. Because the ETC proteins and ATP Synthase turbines are membrane-bound, increased surface area allows a single mitochondrion to generate exponentially more ATP per second."
+      }
+    ];
+
+    let userAnswers = {};
+
+    function renderQuiz() {
+      const container = document.getElementById('quiz1-container');
+      container.innerHTML = '';
+
+      questions.forEach((q, idx) => {
+        const card = document.createElement('div');
+        card.className = "p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-3 transition";
+
+        const isAnswered = userAnswers[idx] !== undefined;
+        const userAnswer = userAnswers[idx];
+
+        let optionsHtml = q.options.map((opt, optIdx) => {
+          let btnClass = "w-full text-left p-3 rounded-xl border text-xs font-semibold transition flex items-center justify-between ";
+          if (!isAnswered) {
+            btnClass += "bg-slate-900 border-slate-800 text-slate-300 hover:border-emerald-500/50 hover:text-white";
+          } else {
+            if (optIdx === q.correct) {
+              btnClass += "bg-emerald-500/20 border-emerald-500 text-emerald-300";
+            } else if (optIdx === userAnswer) {
+              btnClass += "bg-rose-500/20 border-rose-500 text-rose-300";
+            } else {
+              btnClass += "bg-slate-900/50 border-slate-800/50 text-slate-500 opacity-60";
+            }
+          }
+
+          return `
+            <button onclick="answerQuestion(${idx}, ${optIdx})" ${isAnswered ? 'disabled' : ''} class="${btnClass}">
+              <span>${opt}</span>
+              ${isAnswered && optIdx === q.correct ? '<span>✓</span>' : ''}
+              ${isAnswered && optIdx === userAnswer && optIdx !== q.correct ? '<span>✗</span>' : ''}
+            </button>
+          `;
+        }).join('');
+
+        let feedbackHtml = '';
+        if (isAnswered) {
+          const isCorrect = userAnswer === q.correct;
+          feedbackHtml = `
+            <div class="p-3 rounded-xl ${isCorrect ? 'bg-emerald-500/10 border border-emerald-500/20 text-emerald-300' : 'bg-rose-500/10 border border-rose-500/20 text-rose-300'} text-xs space-y-1">
+              <div class="font-bold">${isCorrect ? '✓ Correct!' : '✗ Incorrect'}</div>
+              <div class="text-slate-300">${q.explanation}</div>
+            </div>
+          `;
+        }
+
+        card.innerHTML = `
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400">Question ${idx + 1} • ${q.scenario}</span>
+          </div>
+          <p class="text-sm font-semibold text-white leading-snug">${q.prompt}</p>
+          <div class="space-y-2 pt-1">${optionsHtml}</div>
+          ${feedbackHtml}
+        `;
+
+        container.appendChild(card);
+      });
+
+      updateScoreCard();
+    }
+
+    function answerQuestion(qIdx, optIdx) {
+      if (userAnswers[qIdx] !== undefined) return;
+      userAnswers[qIdx] = optIdx;
+      renderQuiz();
+    }
+
+    function updateScoreCard() {
+      const answeredCount = Object.keys(userAnswers).length;
+      let correctCount = 0;
+      Object.keys(userAnswers).forEach(idx => {
+        if (userAnswers[idx] === questions[idx].correct) {
+          correctCount++;
+        }
+      });
+
+      document.getElementById('q-answered').textContent = answeredCount;
+      document.getElementById('q-score').textContent = correctCount;
+      const pct = answeredCount > 0 ? Math.round((correctCount / answeredCount) * 100) : 0;
+      document.getElementById('q-pct').textContent = pct + '%';
+    }
+
+    function resetQuiz1() {
+      userAnswers = {};
+      renderQuiz();
+    }
+
+    window.onload = function() {
+      renderQuiz();
+    };
+  </script>
+</body>
+</html>
