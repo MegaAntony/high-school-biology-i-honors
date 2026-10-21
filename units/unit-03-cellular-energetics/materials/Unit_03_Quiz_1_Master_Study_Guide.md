@@ -312,41 +312,61 @@ When oxygen is depleted or absent, cells cannot run pyruvate oxidation, the Kreb
 
 ---
 
-## ☠️ Chapter 7: The Poison Case Study & ETC Disruptors (Tuesday Review Topic)
+## ☠️ Chapter 7: The Poison Case Study & Patient Lab Diagnostics (Dr. Irwin's Class Activity)
 
-On Tuesday, Dr. Irwin reviewed the **Poison Case Study** examining cellular respiration failure. Expect scenario questions identifying which mitochondrial inhibitor caused cellular death based on patient lab results.
+On Tuesday, Dr. Irwin reviewed the **Poison Case Study** examining cellular respiration failure. Below is the **exact diagnostic breakdown** matching Dr. Irwin's patient case cards and hospital laboratory results.
+
+### 7.1 Dr. Irwin's 4 Official Poisons & Mechanisms
+
+| Poison | Biological Target | Immediate Biochemical Consequence | Key Diagnostic Marker |
+| :--- | :--- | :--- | :--- |
+| **2-deoxyglucose** | **First Enzyme of Glycolysis** (Hexokinase/Glucose breakdown) | Glucose cannot be cleaved. Glycolysis never produces pyruvate. Whole pathway stops before it starts. | **Pyruvate drops to near zero** ($0.02\text{ mM}$ vs. normal $0.09\text{--}0.15$). |
+| **Arsenic** | **First Enzyme in Krebs Cycle** (Pyruvate entering Krebs) | Pyruvate is produced by glycolysis but cannot enter the Krebs cycle. Krebs cycle halts. | **Pyruvate accumulates to high levels** ($0.25\text{ mM}$); $H^+$ and NADH are low. |
+| **Oligomycin** | **ATP Synthase Rotor/Proton Channel** | The ETC keeps pumping protons ($H^+$) into the intermembrane space, but protons cannot flow back into matrix. | **Intermembrane $H^+$ skyrockets** ($1.10\text{ mM}$ vs. normal $0.25\text{--}0.35$); severe hyper-acidity. |
+| **Cyanide ($CN^-$)** | **Inner Membrane Proteins of ETC** (Complex IV / Cytochrome Oxidase) | Electrons cannot transfer down ETC to $O_2$. Proton pumping stops. NADH cannot unload electrons. | **Mitochondrial NADH accumulates massively** ($0.50\text{ mM}$ vs. normal $0.25\text{--}0.40$); $H^+$ is low. |
+
+---
+
+### 7.2 Patient Laboratory Results Master Key
 
 ```text
-Intermembrane Space  [ High H+ concentration built here ]
-───────────────────────────────────────────────────────────────────────────
-Inner Membrane       [ Complex I ] ──► [ CoQ ] ──► [ Complex III ] ──► [ Complex IV ]      [ ATP Synthase ]
-(Cristae)                  ▲                                                 ▲                    ▲
-                           │                                                 │                    │
-Poisons:               ROTENONE                                           CYANIDE & CO       OLIGOMYCIN
-                     (Blocks transfer                                  (Blocks transfer to   (Blocks proton
-                      from NADH)                                        O2; backs up ETC)     channel / turbine)
-───────────────────────────────────────────────────────────────────────────
-Matrix               [ Low H+ ]  <===================  DNP leaks H+ across membrane (Uncoupler)
+Normal Reference Ranges:
+• Cytoplasmic Pyruvate:          0.09 – 0.15 mM
+• Mitochondrial Intermembrane H+: 0.25 – 0.35 mM
+• Mitochondrial NADH:            0.25 – 0.40 mM
 ```
 
-### The 4 Major Mitochondrial Poisons & Patient Symptoms
+#### Patient 1: Tim Braxton (Age 8) — Halloween Pixy Stix Laced Candy
+* **Hospital Lab Results:**
+  * Cytoplasmic Pyruvate: **$0.25\text{ mM}$ (HIGH ↑)**
+  * Mitochondrial Intermembrane $H^+$: **$0.20\text{ mM}$ (LOW ↓)**
+  * Mitochondrial NADH: **$0.17\text{ mM}$ (LOW ↓)**
+* **Diagnosis:** **Arsenic Poisoning**
+* **Causality:** Arsenic inhibits the first enzyme of the Krebs cycle. Glycolysis continues running and churning out pyruvate, but because pyruvate cannot enter the Krebs cycle, it backs up and accumulates in the cytoplasm. Because Krebs is blocked, minimal NADH and $FADH_2$ are delivered to the ETC, causing intermembrane $H^+$ to drop.
 
-1. **Cyanide ($CN^-$) & Carbon Monoxide ($CO$):**
-   * **Target:** Binds to **Cytochrome c oxidase (Complex IV)**, preventing electrons from transferring to Oxygen ($O_2$).
-   * **Biochemical Impact:** 
-     * Electrons cannot leave the ETC; the chain completely locks up.
-     * Proton pumping stops $\to$ proton gradient collapses $\to$ ATP synthesis drops to zero.
-     * **Patient Lab Presentation:** High blood oxygen levels (patient is breathing in $O_2$, but tissues cannot utilize it, so veins carry fully oxygenated blood!), massive buildup of **Lactic Acid** (cells desperately attempt lactic acid fermentation to survive).
-2. **Rotenone:**
-   * **Target:** Inhibits **Complex I** (NADH dehydrogenase).
-   * **Biochemical Impact:** Prevents NADH from donating its electrons. $FADH_2$ can still feed electrons to Complex II, but overall ATP generation drops drastically.
-3. **Oligomycin:**
-   * **Target:** Directly inhibits the **proton channel of ATP Synthase**.
-   * **Biochemical Impact:** The ETC continues pumping protons into the intermembrane space, but protons cannot flow back into the matrix. The proton gradient becomes abnormally high, and ATP synthesis stops.
-4. **DNP (2,4-Dinitrophenol) — The Uncoupler:**
-   * **Target:** Acts as a proton ionophore, making the inner mitochondrial membrane **leaky to protons**.
-   * **Biochemical Impact:** Protons bypass ATP Synthase and leak freely back into the matrix.
-   * **Patient Lab Presentation:** The proton gradient is destroyed, so **zero ATP is produced**. Because there is no backpressure on the ETC, the cell burns through glucose and oxygen at furious rates. The energy normally conserved in ATP bonds is released entirely as **uncontrolled body heat (hyperthermia and fatal sweating)**!
+#### Patient 2: Mei & Genji Nakamura (Age 55) — Vegetable Garden Pesticide
+* **Hospital Lab Results:**
+  * Cytoplasmic Pyruvate: **$0.12\text{ mM}$ (NORMAL)**
+  * Mitochondrial Intermembrane $H^+$: **$1.10\text{ mM}$ (MASSIVELY ELEVATED ↑↑↑)**
+  * Mitochondrial NADH: **$0.30\text{ mM}$ (NORMAL)**
+* **Diagnosis:** **Oligomycin Poisoning**
+* **Causality:** Oligomycin blocks ATP Synthase. The upstream steps (Glycolysis, Pyruvate Oxidation, Krebs, and the electron transport chain) operate normally, pumping $H^+$ into the intermembrane space. However, because ATP Synthase's channel is physically jammed, protons cannot return to the matrix. The intermembrane space fills with protons, reaching a lethal $1.10\text{ mM}$ concentration.
+
+#### Patient 3: Vanessa Craft (Age 27) — Cancer Experimental Overdose
+* **Hospital Lab Results:**
+  * Cytoplasmic Pyruvate: **$0.02\text{ mM}$ (EXTREMELY LOW ↓↓↓)**
+  * Mitochondrial Intermembrane $H^+$: **$0.09\text{ mM}$ (LOW ↓)**
+  * Mitochondrial NADH: **$0.08\text{ mM}$ (LOW ↓)**
+* **Diagnosis:** **2-deoxyglucose Poisoning**
+* **Causality:** 2-deoxyglucose is taken up like glucose but inhibits the very first enzyme of Glycolysis. Without glycolysis, glucose is never cleaved into pyruvate, causing cytoplasmic pyruvate to drop to near zero. Without pyruvate, downstream Krebs and ETC starve of substrates.
+
+#### Patient 4: Nadia Che / 20 Malaysian Children — Unprepared Raw Cassava Root
+* **Hospital Lab Results:**
+  * Cytoplasmic Pyruvate: **$0.11\text{ mM}$ (NORMAL)**
+  * Mitochondrial Intermembrane $H^+$: **$0.07\text{ mM}$ (EXTREMELY LOW ↓↓↓)**
+  * Mitochondrial NADH: **$0.50\text{ mM}$ (MASSIVELY ELEVATED ↑↑↑)**
+* **Diagnosis:** **Cyanide Poisoning**
+* **Causality:** The human digestive tract converts raw cassava linamarin into cyanide. Cyanide attaches to inner membrane proteins (Complex IV) of the ETC, stopping electron flow to $O_2$. Because the ETC is jammed, NADH molecules cannot donate their electrons, causing NADH to pile up to $0.50\text{ mM}$. Proton pumping ceases, dropping intermembrane $H^+$ to $0.07\text{ mM}$.
 
 ---
 

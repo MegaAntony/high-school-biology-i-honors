@@ -596,28 +596,52 @@
         explanation: "Oxygen is highly electronegative and acts as the final electron acceptor at Complex IV. It pulls electrons down the chain and binds with 2 H⁺ to form water (H₂O). Without O₂, the ETC backs up and ATP production halts."
       },
       {
-        scenario: "Poison Case Study: Cyanide Mechanism",
-        prompt: "In Dr. Irwin's Poison Case Study, victim autopsies revealed high blood lactic acid and abnormally high venous oxygen saturation. Why was venous blood saturated with oxygen if the victims died of cellular suffocation?",
+        scenario: "Poison Case Study: Tim Braxton Lab Interpretation",
+        prompt: "Patient Tim Braxton's lab results show Cytoplasmic Pyruvate = 0.25 mM (HIGH, ref 0.09-0.15) while Mitochondrial H⁺ (0.20 mM) and NADH (0.17 mM) are depleted. Which poison caused this condition, and what was its biochemical target?",
         options: [
-          "Cyanide forced the lungs to absorb 100 times more oxygen than normal",
-          "Cyanide poisoned Cytochrome c oxidase (Complex IV), preventing cells from transferring electrons to O₂, so oxygen in the blood was never consumed by tissues",
-          "Cyanide destroyed all red blood cells and converted them to glucose",
-          "Cyanide caused the heart to pump backwards"
+          "Arsenic; it inhibited the first enzyme of the Krebs cycle, causing pyruvate to back up in the cytoplasm",
+          "Cyanide; it blocked Complex IV of the ETC",
+          "Oligomycin; it clogged the rotor of ATP Synthase",
+          "2-deoxyglucose; it completely prevented glucose from entering glycolysis"
         ],
-        correct: 1,
-        explanation: "Cyanide blocks Complex IV (Cytochrome c oxidase). Even though the victims inhaled plenty of oxygen, their mitochondria could not transfer electrons to O₂. Because tissue extraction halted, oxygen remained unconsumed in venous blood, forcing cells into fatal lactic acidosis."
+        correct: 0,
+        explanation: "Arsenic binds to the first enzyme in the Krebs cycle. Glycolysis continues running and producing pyruvate, but because pyruvate cannot enter the Krebs cycle, it accumulates in the cytoplasm (0.25 mM). Because Krebs is blocked, minimal NADH and H⁺ are produced."
       },
       {
-        scenario: "Poison Case Study: DNP Uncoupler",
-        prompt: "DNP (2,4-Dinitrophenol) acts as a proton uncoupler by making the inner mitochondrial membrane permeable to H⁺ ions. What physiological effect does this have on a patient?",
+        scenario: "Poison Case Study: Mei Nakamura Lab Interpretation",
+        prompt: "Patient Mei Nakamura's lab results show normal Pyruvate (0.12 mM), normal NADH (0.30 mM), but Mitochondrial Intermembrane H⁺ is massively elevated at 1.10 mM (ref 0.25-0.35 mM). Which toxin was present in her garden pesticide?",
         options: [
-          "ATP production skyrockets by 500% while body temperature drops to freezing",
-          "Protons leak back into the matrix without passing through ATP Synthase, stopping ATP generation while energy is released as lethal body heat (hyperthermia)",
-          "Glycolysis and oxygen consumption immediately drop to zero",
-          "The mitochondrial cristae uncoil and convert into chloroplasts"
+          "Cyanide",
+          "Oligomycin, which binds to ATP Synthase and prevents protons from flowing back into the matrix",
+          "2-deoxyglucose, which destroys cellular glucose",
+          "Arsenic, which destroys the mitochondrial outer membrane"
         ],
         correct: 1,
-        explanation: "DNP destroys the proton gradient by allowing H⁺ to bypass ATP Synthase. The ETC runs frantically trying to rebuild the gradient, consuming massive glucose and oxygen, but zero ATP is made; all the energy is dissipated as dangerous, uncontrollable heat (fatal hyperthermia)."
+        explanation: "Oligomycin binds directly to ATP Synthase. The upstream ETC continues pumping protons into the intermembrane space, but protons cannot flow back down into the matrix, resulting in extreme proton accumulation (1.10 mM) in the intermembrane space."
+      },
+      {
+        scenario: "Poison Case Study: Vanessa Craft Lab Interpretation",
+        prompt: "Cancer patient Vanessa Craft accidentally received a 10x overdose of an experimental compound. Her lab results show Cytoplasmic Pyruvate = 0.02 mM (EXTREMELY LOW, ref 0.09-0.15), Intermembrane H⁺ = 0.09 mM (LOW), and NADH = 0.08 mM (LOW). Which compound caused her cardiac arrest?",
+        options: [
+          "2-deoxyglucose, which mimics glucose and inhibits the first enzyme of glycolysis, preventing pyruvate formation",
+          "Arsenic, which forces excess pyruvate production",
+          "Oligomycin, which traps protons in the intermembrane space",
+          "Cyanide, which causes massive NADH accumulation"
+        ],
+        correct: 0,
+        explanation: "2-deoxyglucose is taken up like glucose but blocks the very first enzyme of glycolysis. Because glucose is never cleaved, pyruvate drops to near zero (0.02 mM), starving all downstream mitochondrial processes."
+      },
+      {
+        scenario: "Poison Case Study: Nadia Che / Cassava Root Lab Interpretation",
+        prompt: "5-year-old Nadia Che ate raw cassava root and died of respiratory collapse. Her lab results show Mitochondrial NADH = 0.50 mM (MASSIVELY ELEVATED, ref 0.25-0.40) and Intermembrane H⁺ = 0.07 mM (SEVERELY LOW). What poison formed in her digestive system, and why is NADH elevated?",
+        options: [
+          "Cyanide; it interrupts the ETC at Complex IV, preventing electrons from leaving the chain, which prevents NADH from dropping off its electrons",
+          "Arsenic; it converts all ATP into NADH",
+          "Oligomycin; it forces NADH to move into the nucleus",
+          "2-deoxyglucose; it forces cells to produce 10 times more NADH"
+        ],
+        correct: 0,
+        explanation: "Raw cassava root contains cyanogenic glycosides converted into cyanide by human digestion. Cyanide binds to inner membrane proteins (Complex IV). Because electrons cannot transfer to O₂, the ETC jams up, preventing NADH from oxidizing back to NAD⁺, causing NADH to accumulate to 0.50 mM."
       },
       {
         scenario: "Cristae Surface Area Optimization",
