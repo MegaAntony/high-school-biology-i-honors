@@ -510,6 +510,126 @@
         ],
         correct: 1,
         explanation: "Photosynthesis absorbs light energy to synthesize glucose (endergonic / anabolic), whereas cellular respiration breaks down glucose to release energy stored in ATP (exergonic / catabolic)."
+      },
+      {
+        scenario: "Cellular Respiration Stages & Locations",
+        prompt: "Where do Glycolysis, the Krebs Cycle, and the Electron Transport Chain take place within a eukaryotic cell?",
+        options: [
+          "Glycolysis: Cytoplasm; Krebs: Matrix; ETC: Cristae (Inner Membrane)",
+          "Glycolysis: Matrix; Krebs: Cristae; ETC: Cytoplasm",
+          "Glycolysis: Intermembrane Space; Krebs: Matrix; ETC: Outer Membrane",
+          "All three stages occur entirely inside the mitochondrial matrix"
+        ],
+        correct: 0,
+        explanation: "Glycolysis occurs in the cytoplasm (cytosol). Pyruvate Oxidation and the Krebs Cycle occur in the fluid mitochondrial matrix. The Electron Transport Chain and ATP Synthase are embedded in the cristae (inner folded membrane)."
+      },
+      {
+        scenario: "Glycolysis Net Yield & Evolution",
+        prompt: "Why is glycolysis considered the most ancient, universal metabolic pathway among all living organisms?",
+        options: [
+          "It produces 36 ATP without needing any enzymes",
+          "It evolved in ancestral prokaryotes before Earth had free oxygen and requires no membrane-bound organelles",
+          "It exclusively occurs in photosynthetic autotrophs",
+          "It relies on the electron transport chain inside the chloroplast"
+        ],
+        correct: 1,
+        explanation: "Glycolysis evolved >3.5 billion years ago in anaerobic prokaryotes before atmospheric oxygen or membrane-bound organelles existed. It takes place in the cytosol and yields a net of 2 ATP, 2 NADH, and 2 Pyruvate per glucose."
+      },
+      {
+        scenario: "The Biochemical Purpose of Fermentation",
+        prompt: "In the absence of oxygen, why must human muscle cells convert pyruvate into lactic acid?",
+        options: [
+          "To generate 32 additional ATP molecules per glucose",
+          "To regenerate NAD⁺ from NADH so glycolysis can continue producing ATP",
+          "To permanently store energy in toxic lactic acid crystals",
+          "To force oxygen to diffuse into the mitochondria"
+        ],
+        correct: 1,
+        explanation: "Fermentation does NOT produce additional ATP. Its primary purpose is oxidising NADH back to NAD⁺ so that Glycolysis has a steady supply of electron acceptors to keep making 2 ATP per glucose."
+      },
+      {
+        scenario: "Lactic Acid vs. Alcoholic Fermentation",
+        prompt: "How does alcoholic fermentation in yeast differ from lactic acid fermentation in animal muscle cells?",
+        options: [
+          "Alcoholic fermentation produces CO₂ gas and ethanol and is irreversible; lactic acid fermentation produces no gas and is reversible by the liver",
+          "Alcoholic fermentation produces 36 ATP, while lactic acid produces 2 ATP",
+          "Lactic acid fermentation occurs in plant chloroplasts only",
+          "Alcoholic fermentation does not consume pyruvate"
+        ],
+        correct: 0,
+        explanation: "Yeast decarboxylate pyruvate into ethanol and CO₂ (making bread rise and beverages bubbly). This dead-end process is irreversible. Muscle cells reduce pyruvate to lactate without releasing CO₂, which the liver can reverse back to pyruvate once oxygen returns."
+      },
+      {
+        scenario: "Krebs Cycle Turns and Decarboxylation",
+        prompt: "For every 1 molecule of glucose, how many turns of the Krebs Cycle occur, and what are the carbon dioxide (CO₂) outputs?",
+        options: [
+          "1 turn, yielding 6 CO₂",
+          "2 turns, yielding 4 CO₂ from the cycle (plus 2 CO₂ from pyruvate oxidation = 6 CO₂ total)",
+          "3 turns, yielding 0 CO₂",
+          "4 turns, yielding 2 CO₂"
+        ],
+        correct: 1,
+        explanation: "One glucose cleaves into 2 pyruvates, yielding 2 Acetyl-CoA. Therefore, the Krebs Cycle turns 2 times per glucose, generating 4 CO₂ (in addition to the 2 CO₂ released during pyruvate oxidation, accounting for all 6 carbons of glucose)."
+      },
+      {
+        scenario: "The Proton Gradient in Chemiosmosis",
+        prompt: "During the Electron Transport Chain, where are protons (H⁺) actively pumped, and how do they generate ATP?",
+        options: [
+          "Pumped from intermembrane space into matrix; flow out through ribosomes",
+          "Pumped from matrix into intermembrane space; diffuse back into matrix through ATP Synthase",
+          "Pumped directly into the blood stream through active transport",
+          "Diffused freely across outer membrane without any protein channels"
+        ],
+        correct: 1,
+        explanation: "Energy from electron transfers is used by ETC complexes to pump H⁺ from the matrix into the intermembrane space. The resulting high electrochemical gradient drives H⁺ back into the matrix through ATP Synthase, which rotates like a turbine to phosphorylate ADP to ATP."
+      },
+      {
+        scenario: "Role of Oxygen in Aerobic Respiration",
+        prompt: "What is the specific role of Oxygen (O₂) in cellular respiration, and what product does it form?",
+        options: [
+          "It acts as the initial electron donor in glycolysis to form glucose",
+          "It serves as the final electron acceptor at the end of the ETC, combining with electrons and protons to form H₂O",
+          "It binds allosterically to pepsin in the stomach",
+          "It converts carbon dioxide into ozone in the matrix"
+        ],
+        correct: 1,
+        explanation: "Oxygen is highly electronegative and acts as the final electron acceptor at Complex IV. It pulls electrons down the chain and binds with 2 H⁺ to form water (H₂O). Without O₂, the ETC backs up and ATP production halts."
+      },
+      {
+        scenario: "Poison Case Study: Cyanide Mechanism",
+        prompt: "In Dr. Irwin's Poison Case Study, victim autopsies revealed high blood lactic acid and abnormally high venous oxygen saturation. Why was venous blood saturated with oxygen if the victims died of cellular suffocation?",
+        options: [
+          "Cyanide forced the lungs to absorb 100 times more oxygen than normal",
+          "Cyanide poisoned Cytochrome c oxidase (Complex IV), preventing cells from transferring electrons to O₂, so oxygen in the blood was never consumed by tissues",
+          "Cyanide destroyed all red blood cells and converted them to glucose",
+          "Cyanide caused the heart to pump backwards"
+        ],
+        correct: 1,
+        explanation: "Cyanide blocks Complex IV (Cytochrome c oxidase). Even though the victims inhaled plenty of oxygen, their mitochondria could not transfer electrons to O₂. Because tissue extraction halted, oxygen remained unconsumed in venous blood, forcing cells into fatal lactic acidosis."
+      },
+      {
+        scenario: "Poison Case Study: DNP Uncoupler",
+        prompt: "DNP (2,4-Dinitrophenol) acts as a proton uncoupler by making the inner mitochondrial membrane permeable to H⁺ ions. What physiological effect does this have on a patient?",
+        options: [
+          "ATP production skyrockets by 500% while body temperature drops to freezing",
+          "Protons leak back into the matrix without passing through ATP Synthase, stopping ATP generation while energy is released as lethal body heat (hyperthermia)",
+          "Glycolysis and oxygen consumption immediately drop to zero",
+          "The mitochondrial cristae uncoil and convert into chloroplasts"
+        ],
+        correct: 1,
+        explanation: "DNP destroys the proton gradient by allowing H⁺ to bypass ATP Synthase. The ETC runs frantically trying to rebuild the gradient, consuming massive glucose and oxygen, but zero ATP is made; all the energy is dissipated as dangerous, uncontrollable heat (fatal hyperthermia)."
+      },
+      {
+        scenario: "Cristae Surface Area Optimization",
+        prompt: "Why are the cristae of the inner mitochondrial membrane so heavily folded?",
+        options: [
+          "To allow lysosomes to store digestive enzymes inside them",
+          "To drastically increase membrane surface area for thousands of ETC protein complexes and ATP Synthase enzymes",
+          "To trap carbon dioxide gas from escaping into the cytoplasm",
+          "To provide structural rigidity against gravitational force"
+        ],
+        correct: 1,
+        explanation: "Extensive folding creates enormous surface area. Because the ETC proteins and ATP Synthase turbines are membrane-bound, increased surface area allows a single mitochondrion to generate exponentially more ATP per second."
       }
     ];
 

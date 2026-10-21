@@ -209,43 +209,174 @@ Cells cannot directly use the energy stored in raw glucose or starch to power ce
 
 ---
 
-## 🔄 Chapter 5: Preview to Photosynthesis & Respiration (SB1.e Connection)
+## ⚡ Chapter 5: Complete Deep-Dive on Cellular Respiration (GSE SB1.e)
 
-Unit 3 connects enzyme action and ATP directly into the complementary cycles of energy transformation:
+Cellular respiration is the multi-step biochemical pathway that oxidizes glucose to generate ATP. Dr. Irwin emphasizes understanding **location, inputs, outputs, electron carriers, and structural anatomy**.
 
-### 5.1 Photosynthesis vs. Cellular Respiration Comparison
+### 5.1 Mitochondria Anatomy & Evolutionary Perspective
+* **Double Membrane:**
+  * **Outer Membrane:** Smooth outer boundary.
+  * **Inner Membrane / Cristae:** Deeply folded inner lipid bilayer. Folding **drastically increases surface area**, allowing thousands of copies of ETC protein complexes and ATP Synthase to be embedded, maximizing ATP production rate.
+* **Intermembrane Space:** Narrow fluid-filled space between the outer and inner membranes where **protons ($H^+$)** are actively pumped to build a high-concentration electrochemical gradient ($low\ pH$).
+* **Matrix:** Central fluid interior containing enzymes for Pyruvate Oxidation and the Krebs Cycle, as well as mitochondrial **circular DNA and 70S ribosomes** (Endosymbiotic Theory evidence).
 
-| Feature | Photosynthesis | Cellular Respiration |
+### 5.2 The 4 Metabolic Stages of Aerobic Respiration
+
+```text
+Glucose (6C) 
+   │
+   ▼ [Cytoplasm / Anaerobic] 
+GLYCOLYSIS ──────────► Net: 2 ATP + 2 NADH + 2 Pyruvate (3C)
+   │
+   ▼ (Enters Matrix if O2 is present)
+PYRUVATE OXIDATION ──► 2 Acetyl-CoA (2C) + 2 CO2 + 2 NADH
+   │
+   ▼ [Mitochondrial Matrix]
+KREBS CYCLE (x2) ────► 2 ATP + 6 NADH + 2 FADH2 + 4 CO2
+   │
+   ▼ [Inner Membrane Cristae]
+ELECTRON TRANSPORT ──► ~28–34 ATP + 6 H2O (Oxygen is final e- acceptor)
+CHAIN & CHEMIOSMOSIS
+```
+
+#### Stage 1: Glycolysis
+* **Location:** **Cytoplasm / Cytosol** (NOT inside the mitochondria).
+* **Oxygen Requirement:** **Anaerobic** (proceeds identically with or without $O_2$).
+* **Evolutionary Note:** Glycolysis evolved over 3.5 billion years ago in ancestral prokaryotes before the atmosphere had free oxygen and before organelles existed. **All living organisms perform glycolysis**.
+* **Mechanism:**
+  1. **Energy Investment Phase:** Consumes **2 ATP** to phosphorylate glucose into an unstable intermediate (G3P).
+  2. **Energy Payoff Phase:** Cleaves into two 3-carbon molecules, generating **4 ATP** (via substrate-level phosphorylation) and **2 NADH**.
+* **Net Outputs per 1 Glucose:**
+  * **2 Pyruvate** (3 carbons each)
+  * **Net 2 ATP** (4 formed minus 2 invested)
+  * **2 NADH** (electron carriers routed to the ETC)
+
+#### Stage 2: Pyruvate Oxidation (The Link Reaction)
+* **Location:** **Mitochondrial Matrix**.
+* **Mechanism:** Each 3-carbon pyruvate is transported across both mitochondrial membranes into the matrix:
+  1. One carbon is cleaved off and released as **$CO_2$** (decarboxylation).
+  2. The remaining 2-carbon fragment is oxidized, transferring electrons to reduce $NAD^+ \to \mathbf{NADH}$.
+  3. Coenzyme A attaches to form **Acetyl-CoA**.
+* **Outputs per 1 Glucose (spins 2x):**
+  * **2 Acetyl-CoA**
+  * **2 $CO_2$** (exhaled as waste)
+  * **2 NADH**
+
+#### Stage 3: The Krebs Cycle (Citric Acid Cycle)
+* **Location:** **Mitochondrial Matrix**.
+* **Identified by:** Hans Krebs (1937).
+* **Turns per Glucose:** **2 turns** (one for each Acetyl-CoA).
+* **Mechanism:**
+  1. 2-carbon Acetyl-CoA combines with 4-carbon **Oxaloacetate** to form 6-carbon **Citric Acid** (CoA is recycled).
+  2. Citric acid is progressively oxidized and rearranged through a cycle of enzymes, releasing 2 $CO_2$ molecules per turn.
+  3. High-energy electrons reduce $NAD^+ \to NADH$ and $FAD \to FADH_2$.
+  4. Substrate-level phosphorylation produces 1 ATP per turn.
+  5. Oxaloacetate is regenerated at the end to bind the next Acetyl-CoA.
+* **Outputs per 1 Glucose (2 turns combined):**
+  * **2 ATP**
+  * **6 NADH**
+  * **2 $FADH_2$**
+  * **4 $CO_2$** (exhaled as waste)
+
+#### Stage 4: Electron Transport Chain (ETC) & Chemiosmosis (Oxidative Phosphorylation)
+* **Location:** **Inner Mitochondrial Membrane (Cristae)**.
+* **Step A: Building the Proton ($H^+$) Gradient:**
+  * Electron carriers **NADH** and **$FADH_2$** drop off high-energy electrons at protein complexes embedded in the cristae, oxidizing back into $NAD^+$ and $FAD$ (which return to Glycolysis/Krebs).
+  * As electrons are shuttled down the electron transport chain through a series of redox reactions, energy is released.
+  * This energy is used by the complexes to actively pump **protons ($H^+$)** from the **matrix into the intermembrane space**.
+  * This establishes a steep electrochemical and proton concentration gradient ($high\ [H^+]$, low pH in the intermembrane space).
+* **Step B: Chemiosmosis & ATP Synthesis:**
+  * Protons cannot cross the lipid bilayer freely. They must diffuse back down their electrochemical gradient into the matrix through **ATP Synthase**.
+  * The flow of protons drives the molecular rotor of ATP Synthase like a water turbine, catalyzing the phosphorylation: $\text{ADP} + \text{P}_i \to \text{ATP}$.
+* **Step C: The Role of Oxygen ($O_2$):**
+  * **Oxygen is the FINAL ELECTRON ACCEPTOR**.
+  * Highly electronegative oxygen pulls electrons down the chain and binds with matrix protons ($H^+$) to form **$H_2O$**:
+    $$\frac{1}{2}\text{O}_2 + 2\text{e}^- + 2\text{H}^+ \to \text{H}_2\text{O}$$
+  * *Crucial Principle:* Without $O_2$, the ETC backs up with electrons like a traffic jam. NADH and $FADH_2$ cannot unload electrons, $NAD^+$ is not regenerated, and aerobic ATP synthesis ceases entirely!
+
+---
+
+## 🛑 Chapter 6: Anaerobic Respiration & Fermentation
+
+When oxygen is depleted or absent, cells cannot run pyruvate oxidation, the Krebs cycle, or the ETC.
+
+* **Primary Purpose of Fermentation:** **NOT to make massive ATP!** The sole purpose of fermentation is to **oxidize NADH back into $NAD^+$** so that **Glycolysis can continue producing 2 ATP per glucose** without stalling.
+
+| Feature | Lactic Acid Fermentation | Alcoholic Fermentation |
 | :--- | :--- | :--- |
-| **Overall Equation** | $6\text{CO}_2 + 6\text{H}_2\text{O} + \text{Light} \to \text{C}_6\text{H}_{12}\text{O}_6 + 6\text{O}_2$ | $\text{C}_6\text{H}_{12}\text{O}_6 + 6\text{O}_2 \to 6\text{CO}_2 + 6\text{H}_2\text{O} + 36\text{--}38\text{ ATP}$ |
-| **Energetics** | **Endergonic** (stores radiant light energy into chemical bonds of glucose) | **Exergonic** (catabolizes glucose bonds to release energy stored in ATP) |
-| **Primary Organelle** | **Chloroplast** (Thylakoids & Stroma) | **Mitochondria** (Matrix & Inner Cristae) |
-| **Electron Carriers** | $\text{NADPH}$ / $\text{NADP}^+$ | $\text{NADH}$ / $\text{NAD}^+$ and $\text{FADH}_2$ / $\text{FAD}$ |
-| **Organisms** | Autotrophs (Plants, algae, cyanobacteria) | **All living organisms** (Autotrophs AND Heterotrophs) |
+| **Organisms** | Human skeletal muscle cells, animals, lactic acid bacteria (yogurt) | Yeast (single-celled eukaryote), certain bacteria |
+| **Pathway** | Pyruvate is reduced directly by NADH into **Lactate (Lactic Acid)** | Pyruvate is converted into **Ethanol + $\text{CO}_2$** |
+| **$CO_2$ Gas Produced?** | **NO** (remains a 3-carbon molecule: lactate) | **YES** (causes bread dough to rise, beer fizz) |
+| **Reversibility** | **Reversible:** Once $O_2$ returns, the liver converts lactate back into pyruvate | **Irreversible (Dead-end):** Toxic ethanol accumulates; yeast die when alcohol reaches ~12% |
+| **Net ATP Yield** | **2 ATP** (from Glycolysis only) | **2 ATP** (from Glycolysis only) |
 
 ---
 
-## 🎯 Chapter 6: High-Yield Practice Scenarios (Quiz 1 Simulator)
+## ☠️ Chapter 7: The Poison Case Study & ETC Disruptors (Tuesday Review Topic)
 
-Test your understanding with these exam-style questions:
+On Tuesday, Dr. Irwin reviewed the **Poison Case Study** examining cellular respiration failure. Expect scenario questions identifying which mitochondrial inhibitor caused cellular death based on patient lab results.
 
-### Question 1: Activation Energy Analysis
-*A biochemical reaction occurs in a test tube. When enzyme catalase is added, the rate of oxygen gas production increases by 500%. What happened to the Activation Energy ($E_a$) and the Free Energy Change ($\Delta G$)?*
-* **Correct Answer:** The activation energy ($E_a$) **decreased**, while $\Delta G$ **remained completely unchanged**.
+```text
+Intermembrane Space  [ High H+ concentration built here ]
+───────────────────────────────────────────────────────────────────────────
+Inner Membrane       [ Complex I ] ──► [ CoQ ] ──► [ Complex III ] ──► [ Complex IV ]      [ ATP Synthase ]
+(Cristae)                  ▲                                                 ▲                    ▲
+                           │                                                 │                    │
+Poisons:               ROTENONE                                           CYANIDE & CO       OLIGOMYCIN
+                     (Blocks transfer                                  (Blocks transfer to   (Blocks proton
+                      from NADH)                                        O2; backs up ETC)     channel / turbine)
+───────────────────────────────────────────────────────────────────────────
+Matrix               [ Low H+ ]  <===================  DNP leaks H+ across membrane (Uncoupler)
+```
 
-### Question 2: Temperature Fluctuation
-*Human salivary amylase is incubated at $0^\circ\text{C}$ for 30 minutes, and no starch digestion occurs. The tube is then warmed to $37^\circ\text{C}$, and starch digestion proceeds rapidly. If another sample is heated to $95^\circ\text{C}$ for 30 minutes and then cooled to $37^\circ\text{C}$, no starch digestion occurs. Explain why.*
-* **Correct Answer:** At $0^\circ\text{C}$, kinetic energy was low, slowing collisions, but the enzyme remained intact; warming restored kinetic movement. At $95^\circ\text{C}$, extreme thermal agitation broke hydrogen and ionic bonds, permanently **denaturing** the enzyme's active site. Cooling cannot re-fold the denatured tertiary structure.
+### The 4 Major Mitochondrial Poisons & Patient Symptoms
 
-### Question 3: Overcoming an Inhibitor
-*An experimenter finds that adding Compound X cuts the reaction rate of an enzyme in half. However, when the experimenter adds a 10-fold excess of natural substrate, the reaction rate returns to the original $V_{\max}$. What type of inhibitor is Compound X?*
-* **Correct Answer:** **Competitive Inhibitor**. Because flooding the system with substrate overcame the inhibition and restored $V_{\max}$, Compound X must be competing for the active site rather than binding allosterically.
+1. **Cyanide ($CN^-$) & Carbon Monoxide ($CO$):**
+   * **Target:** Binds to **Cytochrome c oxidase (Complex IV)**, preventing electrons from transferring to Oxygen ($O_2$).
+   * **Biochemical Impact:** 
+     * Electrons cannot leave the ETC; the chain completely locks up.
+     * Proton pumping stops $\to$ proton gradient collapses $\to$ ATP synthesis drops to zero.
+     * **Patient Lab Presentation:** High blood oxygen levels (patient is breathing in $O_2$, but tissues cannot utilize it, so veins carry fully oxygenated blood!), massive buildup of **Lactic Acid** (cells desperately attempt lactic acid fermentation to survive).
+2. **Rotenone:**
+   * **Target:** Inhibits **Complex I** (NADH dehydrogenase).
+   * **Biochemical Impact:** Prevents NADH from donating its electrons. $FADH_2$ can still feed electrons to Complex II, but overall ATP generation drops drastically.
+3. **Oligomycin:**
+   * **Target:** Directly inhibits the **proton channel of ATP Synthase**.
+   * **Biochemical Impact:** The ETC continues pumping protons into the intermembrane space, but protons cannot flow back into the matrix. The proton gradient becomes abnormally high, and ATP synthesis stops.
+4. **DNP (2,4-Dinitrophenol) — The Uncoupler:**
+   * **Target:** Acts as a proton ionophore, making the inner mitochondrial membrane **leaky to protons**.
+   * **Biochemical Impact:** Protons bypass ATP Synthase and leak freely back into the matrix.
+   * **Patient Lab Presentation:** The proton gradient is destroyed, so **zero ATP is produced**. Because there is no backpressure on the ETC, the cell burns through glucose and oxygen at furious rates. The energy normally conserved in ATP bonds is released entirely as **uncontrolled body heat (hyperthermia and fatal sweating)**!
 
 ---
 
-## 💡 Dr. Irwin’s Top 5 Quiz Tips
+## 🎯 Chapter 8: High-Yield Practice Scenarios & Review Station Drills
+
+Test your readiness with Dr. Irwin's Station and Quiz scenarios:
+
+### Scenario 1: Poison Identification Lab
+*A forensic report for a deceased patient shows: elevated blood pyruvate, extremely high blood lactic acid, elevated venous oxygen saturation ($pO_2$), and depleted cellular ATP. Cyanide poisoning is suspected. Why was blood oxygen elevated if the patient died of suffocation?*
+* **Explanation:** Cyanide blocks **Cytochrome oxidase (Complex IV)**. Because electrons cannot transfer to oxygen, cellular respiration halts and cells cannot consume $O_2$. The blood remains saturated with oxygen because oxygen is never extracted by tissue mitochondria. The patient suffocated at the **molecular cellular level**, forced into lactic acid fermentation.
+
+### Scenario 2: Folded Cristae Advantage
+*Why do mitochondria have highly folded cristae while lysosomes have a single smooth spherical membrane?*
+* **Explanation:** The inner mitochondrial membrane houses the membrane-bound protein complexes of the **Electron Transport Chain** and **ATP Synthase**. Extensive folding maximizes **membrane surface area**, packing more ATP-generating machinery per unit volume.
+
+### Scenario 3: Yeast in Sealed vs. Aerated Flasks
+*Yeast cells in Flask A are bubbling with oxygen supplied. Flask B is sealed airtight with no oxygen. Both flasks receive identical glucose.*
+* **Which flask consumes glucose faster?** **Flask B** consumes glucose much faster! Because Flask B has no oxygen, it only extracts **2 ATP per glucose** via alcoholic fermentation (Pasteur Effect). To meet the same cellular energy demands as Flask A (which gets 36–38 ATP per glucose from aerobic respiration), Flask B must metabolize ~18x more glucose!
+
+### Scenario 4: The Fate of Glucose Carbons
+*Where do the 6 carbon atoms of a glucose molecule ultimately go during cellular respiration?*
+* **Explanation:** They are completely oxidized and released into the atmosphere as **6 molecules of carbon dioxide ($CO_2$)**: 2 from Pyruvate Oxidation and 4 from the Krebs Cycle.
+
+---
+
+## 💡 Dr. Irwin’s Top 7 Quiz Tips
 1. **Never say "the enzyme was killed by heat":** Enzymes are inanimate protein molecules, not living cells! Use the term **"denatured"**.
-2. **Remember cold does NOT denature:** Freezing slows down molecular motion; it does not destroy tertiary folding.
+2. **Cold does NOT denature:** Freezing slows down molecular collisions; it does not destroy tertiary protein folding.
 3. **Competitive vs. Noncompetitive graphs:** A competitive inhibitor reaches the same $V_{\max}$ (just needs more substrate). A noncompetitive inhibitor caps at a lower $V_{\max}$.
-4. **ATP has 3 phosphates, ADP has 2:** The bond between the 2nd and 3rd phosphate is where the usable energy is transferred.
-5. **Enzymes do NOT change $\Delta G$:** Be ready for multiple-choice trick questions that claim an enzyme "makes a reaction release more total energy". It only speeds up how quickly equilibrium is achieved!
+4. **ATP has 3 phosphates, ADP has 2:** Usable energy is released when the terminal phosphoanhydride bond is hydrolyzed.
+5. **Enzymes do NOT change $\Delta G$:** Enzymes speed up rates by lowering $E_a$, not by changing starting or ending energy levels.
+6. **Fermentation's true job is $NAD^+$ regeneration:** Fermentation yields no new ATP beyond Glycolysis; its sole purpose is freeing up $NAD^+$ so Glycolysis can repeat.
+7. **Oxygen is the final electron acceptor:** $O_2$ accepts electrons and $H^+$ at the end of the ETC to form water ($H_2O$). Without $O_2$, the entire ETC locks up.
