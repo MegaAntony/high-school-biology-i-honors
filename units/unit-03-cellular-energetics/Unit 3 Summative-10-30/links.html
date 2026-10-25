@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biology I Honors — Unit 3 Study Links Index</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --g-blue: #1a73e8;
+      --g-blue-hover: #1557b0;
+      --g-blue-bg: #e8f0fe;
+      --g-green: #1e8e3e;
+      --g-green-bg: #e6f4ea;
+      --g-red: #d93025;
+      --g-red-bg: #fce8e6;
+      --g-yellow: #f9ab00;
+      --g-yellow-bg: #fef7e0;
+      --g-surface: #ffffff;
+      --g-bg: #f8f9fa;
+      --g-text-main: #202124;
+      --g-text-sub: #5f6368;
+      --g-border: #dadce0;
+      --g-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
+      --g-shadow-hover: 0 2px 6px 2px rgba(60,64,67,0.15);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Roboto", -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--g-bg);
+      color: var(--g-text-main);
+      line-height: 1.5;
+      padding-bottom: 60px;
+    }
+
+    header {
+      background: var(--g-surface);
+      border-bottom: 1px solid var(--g-border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .google-logo-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: var(--g-blue-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--g-blue);
+      font-size: 20px;
+    }
+
+    .brand h1 {
+      font-family: "Google Sans", sans-serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--g-text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand p {
+      font-size: 0.8rem;
+      color: var(--g-text-sub);
+    }
+
+    .bookmark-pill {
+      background: var(--g-blue-bg);
+      color: var(--g-blue);
+      border: 1px solid #c2e7ff;
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 24px auto;
+      padding: 0 20px;
+    }
+
+    /* Search Bar */
+    .search-box {
+      background: var(--g-surface);
+      border: 1px solid var(--g-border);
+      border-radius: 24px;
+      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      box-shadow: 0 1px 6px rgba(32,33,36,0.12);
+      transition: all 0.2s ease;
+    }
+
+    .search-box:focus-within {
+      box-shadow: 0 1px 6px rgba(26,115,232,0.4);
+      border-color: var(--g-blue);
+    }
+
+    .search-box input {
+      border: none;
+      outline: none;
+      font-size: 0.95rem;
+      width: 100%;
+      color: var(--g-text-main);
+      background: transparent;
+    }
+
+    /* Assessment Banner */
+    .schedule-card {
+      background: var(--g-surface);
+      border: 1px solid var(--g-border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 24px;
+      box-shadow: var(--g-shadow);
+    }
+
+    .schedule-title {
+      font-family: "Google Sans", sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--g-text-main);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+    }
+
+    .timeline-item {
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--g-border);
+      background: var(--g-bg);
+    }
+
+    .timeline-item.active {
+      border-color: var(--g-blue);
+      background: var(--g-blue-bg);
+    }
+
+    .timeline-item.warning {
+      border-color: var(--g-yellow);
+      background: var(--g-yellow-bg);
+    }
+
+    .timeline-item.alert {
+      border-color: var(--g-red);
+      background: var(--g-red-bg);
+    }
+
+    .timeline-item .date {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .timeline-item.active .date { color: var(--g-blue); }
+    .timeline-item.warning .date { color: #b06000; }
+    .timeline-item.alert .date { color: var(--g-red); }
+
+    .timeline-item .name {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--g-text-main);
+      margin-bottom: 2px;
+    }
+
+    .timeline-item .desc {
+      font-size: 0.78rem;
+      color: var(--g-text-sub);
+    }
+
+    /* Section Styles */
+    .section-card {
+      background: var(--g-surface);
+      border: 1px solid var(--g-border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: var(--g-shadow);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #f1f3f4;
+    }
+
+    .section-header h2 {
+      font-family: "Google Sans", sans-serif;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--g-text-main);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .chip-count {
+      background: #f1f3f4;
+      color: var(--g-text-sub);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 12px;
+    }
+
+    /* Link Rows */
+    .link-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .link-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      background: var(--g-surface);
+      transition: all 0.15s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .link-row:hover {
+      background: #f8fafd;
+      border-color: #d2e3fc;
+      box-shadow: 0 1px 3px rgba(60,64,67,0.1);
+      transform: translateY(-1px);
+    }
+
+    .link-info {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      flex: 1;
+    }
+
+    .link-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .icon-portal { background: var(--g-blue-bg); color: var(--g-blue); }
+    .icon-guide  { background: var(--g-green-bg); color: var(--g-green); }
+    .icon-pdf    { background: var(--g-red-bg); color: var(--g-red); }
+    .icon-ppt    { background: var(--g-yellow-bg); color: #c26400; }
+
+    .link-text h3 {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--g-blue);
+      margin-bottom: 2px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .link-row:hover .link-text h3 {
+      text-decoration: underline;
+    }
+
+    .link-text p {
+      font-size: 0.8rem;
+      color: var(--g-text-sub);
+    }
+
+    .tag-badge {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 2px 7px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .tag-blue { background: #e8f0fe; color: #1967d2; }
+    .tag-green { background: #e6f4ea; color: #137333; }
+    .tag-amber { background: #fef7e0; color: #b06000; }
+    .tag-red { background: #fce8e6; color: #c5221f; }
+
+    .link-action {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .open-btn {
+      background: var(--g-blue-bg);
+      color: var(--g-blue);
+      border: 1px solid #c2e7ff;
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+
+    .open-btn:hover {
+      background: #c2e7ff;
+      color: #0b57d0;
+    }
+
+    /* Study Sequence Card */
+    .step-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      background: var(--g-bg);
+      border: 1px solid var(--g-border);
+    }
+
+    .step-circle {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--g-blue);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .step-content strong {
+      font-size: 0.88rem;
+      color: var(--g-text-main);
+    }
+
+    .step-content p {
+      font-size: 0.8rem;
+      color: var(--g-text-sub);
+      margin-top: 2px;
+    }
+
+    footer {
+      text-align: center;
+      padding-top: 30px;
+      font-size: 0.8rem;
+      color: var(--g-text-sub);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Google Style Header -->
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <div class="google-logo-icon">
+          <i class="fa-solid fa-dna"></i>
+        </div>
+        <div>
+          <h1>Biology I Honors — Unit 3 Study Links Index</h1>
+          <p>Dr. Sarah Irwin (Room #371) • Antony Anish (ID: 25181) • GSE SB1.e &amp; SB1.c</p>
+        </div>
+      </div>
+      <div class="bookmark-pill">
+        <i class="fa-regular fa-bookmark"></i> Bookmark this Page
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- Search Input -->
+    <div class="search-box">
+      <i class="fa-solid fa-magnifying-glass" style="color: var(--g-text-sub);"></i>
+      <input type="text" id="filterInput" placeholder="Quick search links (e.g. lab, mcq, respiration, photosynthesis, stations)..." oninput="filterLinks()">
+    </div>
+
+    <!-- 2-Week Timeline Overview -->
+    <div class="schedule-card">
+      <div class="schedule-title">
+        <i class="fa-regular fa-calendar-check" style="color: var(--g-blue);"></i>
+        Unit 3 Assessment Milestones (Oct 28 – Nov 2, 2026)
+      </div>
+      <div class="timeline-grid">
+        <div class="timeline-item warning">
+          <div class="date">Wed/Thu • Oct 28–29</div>
+          <div class="name">📋 Unit 3 Lab Packet Check</div>
+          <div class="desc">Formative Check on Pages 1–17 (Catalase, ATP, Poison, Coral, Algae Beads).</div>
+        </div>
+        <div class="timeline-item alert">
+          <div class="date">Friday • Oct 30</div>
+          <div class="name">🚨 Unit 3 Summative (Part 1: MCQ)</div>
+          <div class="desc">Multiple choice exam on Enzymes, Respiration &amp; Photosynthesis.</div>
+        </div>
+        <div class="timeline-item active">
+          <div class="date">Monday • Nov 2</div>
+          <div class="name">✍️ Unit 3 Summative (Part 2: SA)</div>
+          <div class="desc">Short answer blueprints, pathway models &amp; CER reasoning.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 1: Interactive Portals & Study Guides -->
+    <div class="section-card">
+      <div class="section-header">
+        <h2><i class="fa-solid fa-laptop-code" style="color: var(--g-blue);"></i> Interactive Portals &amp; Master Keys</h2>
+        <span class="chip-count" id="count-portals">4 items</span>
+      </div>
+      <div class="link-list" id="list-portals">
+
+        <div class="link-row link-item" data-keywords="portal test mcq simulator practice katex interactive enzymes respiration photosynthesis">
+          <div class="link-info">
+            <div class="link-icon icon-portal"><i class="fa-solid fa-bolt"></i></div>
+            <div class="link-text">
+              <h3>
+                <a href="Unit_03_Summative_Study_Portal.html">Unit 3 Summative Master Study Portal</a>
+                <span class="tag-badge tag-red">Top Priority</span>
+              </h3>
+              <p>25-Question interactive MCQ simulator, collapsible How to Study sequence, 8-point checklist, and Respiration vs. Photosynthesis comparison tables.</p>
+            </div>
+          </div>
+          <div class="link-action">
+            <a href="Unit_03_Summative_Study_Portal.html" class="open-btn">Open Portal ➔</a>
+          </div>
+        </div>
+
+        <div class="link-row link-item" data-keywords="guide master answer keys stations labs packet short answer blueprints html web">
+          <div class="link-info">
+            <div class="link-icon icon-guide"><i class="fa-solid fa-book-open"></i></div>
+            <div class="link-text">
+              <h3>
+                <a href="Unit_03_Summative_Master_Study_Guide_and_Keys.html">Master Study Guide &amp; Worked Answer Keys (Web HTML)</a>
+                <span class="tag-badge tag-green">Full Keys</span>
+              </h3>
+              <p>Complete worked keys for Review Stations 1–8, Lab Packet Labs 1–5, the 9-step Algae Bead pH scale, and Monday Short Answer blueprints.</p>
+            </div>
+          </div>
+          <div class="link-action">
+            <a href="Unit_03_Summative_Master_Study_Guide_and_Keys.html" class="open-btn">Open Keys ➔</a>
+          </div>
+        </div>
+
+        <div class="link-row link-item" data-keywords="unit 3 hub curriculum standards quiz 1 overlap readme">
+          <div class="link-info">
+            <div class="link-icon icon-portal"><i class="fa-solid fa-compass"></i></div>
+            <div class="link-text">
+              <h3>
+                <a href="../README.html">Unit 3 Master Hub (Curriculum &amp; Quiz 1 Overlap)</a>
+                <span class="tag-badge tag-blue">Syllabus</span>
+              </h3>
+              <p>Standard SB1.e overview, breakdown of earlier Quiz 1 topics vs. the Oct 30 Summative, and full local file index.</p>
+            </div>
+          </div>
+          <div class="link-action">
+            <a href="../README.html" class="open-btn">Open Hub ➔</a>
+          </div>
+        </div>
+
+        <div class="link-row link-item" data-keywords="home main dashboard biology v2 repository units">
+          <div class="link-info">
+            <div class="link-icon icon-guide"><i class="fa-solid fa-house"></i></div>
+            <div class="link-text">
+              <h3>
+                <a href="../../../index.html">Main Biology I Honors Web Dashboard</a>
+                <span class="tag-badge tag-blue">Home</span>
+              </h3>
+              <p>Main curriculum dashboard with all 10 academic year units, master schedule, and quick links.</p>
+            </div>
+          </div>
+          <div class="link-action">
+            <a href="../../../index.html" class="open-btn">Open Home ➔</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Section 2: Teacher Source PDFs & Student Review Packets -->
+    <div class="section-card">
+      <div class="section-header">
+        <h2><i class="fa-solid fa-file-pdf" style="color: var(--g-red);"></i> Teacher Source PDFs &amp; Review Packets</h2>
+        <span class="chip-count" id="count-pdfs">9 items</span>
+      </div>
+      <div class="link-list" id="list-pdfs">
+
+        <div class="link-row link-item" data-keywords="review stations student handout packet pdf dr irwin in class">
+          <div class="link-info">
+            <div class="link-icon icon-pdf"><i class="fa-solid fa-file-pdf"></i></div>
+            <div class="link-text">
+              <h3>
+                <a href="../materials/pdf/Cellular_Energy_Review_Stations_Student_Handout.pdf" target="_blank">Review Stations Student Handout (5-Page PDF)</a>
+                <span class="tag-badge tag-amber">In-Class Review</span>
+              </h3>
+              <p>Dr. Irwin official 5-page student review packet covering Stations 1 through 8 + Extra Practice.</p>
+            </div>
+          </div>
+          <div class="link-action">
+            <a href="../materials/pdf/Cellular_Energy_Review_Stations_Student_Handout.pdf" target="_blank" class="open-btn">View PDF ↗</a>
+          </div>
+        </div>
+
+        <div class="link-row link-item" data-keywords="review stations presentation slides ppt pdf visual graphs">
+          <div class="link-info">
+            <div class="link-icon icon-ppt"><i class="fa-solid fa-file-powerpoint"></i></div>
+            <div class="link-text">
+              <h3>
+                <a href="../materials/pdf/HB_Unit_3_Cellular_Energy_Review_Stations.pdf" target="_blank">Review Stations Slide Presentation (PDF)</a>
+              </h3>
+              <p>10-slide station prompts, graphs, and diagrams displayed in class during review stations.</p>
+            </div>
+          </div>
+          <div class="link-action">
+            <a href="../materials/pdf/HB_Unit_3_Cellular_Energy_Review_Stations.pdf" target="_blank" class="open-btn">View PDF ↗</a>
+          </div>
+        </div>
+
+        <div class="link-row link-item" data-keywords="cellular respiration master outline look at this resource dr irwin summary short answer">
+          <div class="link-info">
+            <div class="link-icon icon-pdf"><i class="fa-solid fa-file-pdf"></i></div>
+            <div class="link-text">
+              <h3>
+                <a href="../materials/pdf/Honors_Biology_Cellular_Respiration_Outline.pdf" target="_blank">Cellular Respiration Master Outline ("Look at this Resource!")</a>
+                <span class="tag-badge tag-red">High-Yield</span>
+              </h3>
+              <p>Canvas File 21509385. Dr. Irwin 3-page master outline detailing carbon, electron, and energy flow for Monday SA.</p>
+            </div>
+          </div>
+          <div class="link-action">
+            <a href="../materials/pdf/Honors_Biology_Cellular_Respiration_Outline.pdf" target="_blank" class="open-btn">View PDF ↗</a>
+          </div>
+        </div>
+
+        <div class="link-row link-item" data-keywords="unit 3 lab packet catalase liver atp candy poison case algae beads coral bleaching 17 pages">
+          <div class="link-info">
+            <div class="link-icon icon-pdf"><i class="fa-solid fa-file-pdf"></i></div>
+            <div class="link-text">
+              <h3>
+                <a href="../materials/pdf/Unit%203%20Lab%20Packet%2026-27.pdf" target="_blank">Unit 3 Lab Packet (17-Page PDF)</a>
+                <span class="tag-badge tag-amber">Due Wed/Thu</span>
+              </h3>
+              <p>Official student lab booklet for Labs 1–5 checked in class on Wed/Thu Oct 28–29.</p>
+            </div>
+          </div>
+          <div class="link-action">
+            <a href="../materials/pdf/Unit%203%20Lab%20Packet%2026-27.pdf" target="_blank" class="open-btn">View PDF ↗</a>
+          </div>
+        </div>
+
+        <div class="link-row link-item" data-keywords="student notes packet unit 3 fill in blank notes">
+          <div class="link-info">
+            <div class="link-icon icon-pdf"><i class="fa-solid fa-file-pdf"></i></div>
+            <div class="link-text">
+              <h3>
+                <a href="../materials/pdf/Unit%203%20Student%20Notes%20Packet%2026-27.pdf" target="_blank">Unit 3 Student Notes Packet (PDF)</a>
+              </h3>
+              <p>Comprehensive guided note-taking packet covering all Unit 3 lecture slides.</p>
+            </div>
+          </div>
+          <div class="link-action">
+            <a href="../materials/pdf/Unit%203%20Student%20Notes%20Packet%2026-27.pdf" target="_blank" class="open-btn">View PDF ↗</a>
+          </div>
+        </div>
+
+        <div class="link-row link-item" data-keywords="photosynthesis supplementary notes 3c.1 slides 1 13 script light reactions thylakoid">
+          <div class="link-info">
+            <div class="link-icon icon-pdf"><i class="fa-solid fa-file-pdf"></i></div>
+            <div class="link-text">
+              <h3>
+                <a href="../materials/pdf/Honors_Biology_Photosynthesis_Script_Slides_1_13.pdf" target="_blank">Photosynthesis Notes 3C.1 (Slides 1–13 PDF)</a>
+              </h3>
+              <p>Canvas File 21509343. Dr. Irwin teacher script explaining chloroplast anatomy, chlorophyll light absorption, and PSII/PSI.</p>
+            </div>
+          </div>
+          <div class="link-action">
+            <a href="../materials/pdf/Honors_Biology_Photosynthesis_Script_Slides_1_13.pdf" target="_blank" class="open-btn">View PDF ↗</a>
+          </div>
+        </div>
+
+        <div class="link-row link-item" data-keywords="photosynthesis supplementary notes 3c.2 slides 14 19 script calvin cycle rubisco dark reactions">
+          <div class="link-info">
+            <div class="link-icon icon-pdf"><i class="fa-solid fa-file-pdf"></i></div>
+            <div class="link-text">
+              <h3>
+                <a href="../materials/pdf/Honors_Biology_Photosynthesis_Script_Slides_14_19.pdf" target="_blank">Photosynthesis Notes 3C.2 (Slides 14–19 PDF)</a>
+              </h3>
+              <p>Canvas File 21509353. Teacher script covering RuBisCO carbon fixation, G3P reduction, and RuBP regeneration.</p>
+            </div>
+          </div>
+          <div class="link-action">
+            <a href="../materials/pdf/Honors_Biology_Photosynthesis_Script_Slides_14_19.pdf" target="_blank" class="open-btn">View PDF ↗</a>
+          </div>
+        </div>
+
+        <div class="link-row link-item" data-keywords="poison case study cards 2-deoxyglucose arsenic cyanide oligomycin victim data">
+          <div class="link-info">
+            <div class="link-icon icon-pdf"><i class="fa-solid fa-file-pdf"></i></div>
+            <div class="link-text">
+              <h3>
+                <a href="../materials/pdf/Cards%20for%20Poison%20case%20study.pdf" target="_blank">Poison Case Study Clue Cards (PDF)</a>
+              </h3>
+              <p>Mechanisms and symptoms for the 4 cellular poisons (Vanessa Craft, Tim Braxton, Nadia Che, Mei Nakamura).</p>
+            </div>
+          </div>
+          <div class="link-action">
+            <a href="../materials/pdf/Cards%20for%20Poison%20case%20study.pdf" target="_blank" class="open-btn">View PDF ↗</a>
+          </div>
+        </div>
+
+        <div class="link-row link-item" data-keywords="victim lab results poison case study data readings control muscle cells">
+          <div class="link-info">
+            <div class="link-icon icon-pdf"><i class="fa-solid fa-file-pdf"></i></div>
+            <div class="link-text">
+              <h3>
+                <a href="../materials/pdf/Lab%20Results%20Poison%20Case%20Study.pdf" target="_blank">Victim Lab Results Toxicology Data (PDF)</a>
+              </h3>
+              <p>Exact muscle tissue metabolite measurements (pyruvate, NADH, intermembrane H+) compared to healthy control baseline.</p>
+            </div>
+          </div>
+          <div class="link-action">
+            <a href="../materials/pdf/Lab%20Results%20Poison%20Case%20Study.pdf" target="_blank" class="open-btn">View PDF ↗</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Section 3: Recommended 6-Step Study Sequence -->
+    <div class="section-card">
+      <div class="section-header">
+        <h2><i class="fa-solid fa-list-ol" style="color: var(--g-green);"></i> Recommended 6-Step Study Sequence</h2>
+        <span class="chip-count">Step-by-Step</span>
+      </div>
+      <div class="step-list">
+        <div class="step-item">
+          <div class="step-circle">1</div>
+          <div class="step-content">
+            <strong>Audit &amp; Complete Lab Packet Pages 1–17 (Due Wed/Thu Oct 28–29)</strong>
+            <p>Check your answers against the Master Worked Keys for Catalase liver reusability, ATP candy model, Poison case diagnostic table, Coral bleaching, and Algae beads.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-circle">2</div>
+          <div class="step-content">
+            <strong>Lock In the 9-Step Bicarbonate Indicator pH Scale (p. 16–17)</strong>
+            <p>Memorize: yellow = pH 7.6, orange = pH 8.0, red = pH 8.4 (equilibrium CO2), magenta = pH 8.8, dark purple = pH 9.2. Dark vial = respiration adds CO2 (acidic); Light vial = photosynthesis removes CO2 (alkaline).</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-circle">3</div>
+          <div class="step-content">
+            <strong>Master the Photosynthesis vs. Respiration Comparison Matrix</strong>
+            <p>Contrast matrix/cristae vs. thylakoid/stroma, electron carriers (NADH/FADH2 vs. NADPH), H+ pumping direction, electron source (glucose vs. water photolysis), and final electron acceptor (O2 vs. NADP+).</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-circle">4</div>
+          <div class="step-content">
+            <strong>Review Stations 1–8 Handout &amp; Drill the 4 Poisons</strong>
+            <p>Review active sites, Ea energy curves, and the 4 poisons: 2-DG (blocks glycolysis), Arsenic (blocks Krebs), Cyanide (blocks ETC Complex IV), and Oligomycin (blocks ATP Synthase).</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-circle">5</div>
+          <div class="step-content">
+            <strong>Drill the 25-Question MCQ Exam Simulator (Target: Friday, Oct 30)</strong>
+            <p>Practice on the Summative Study Portal under test conditions. Read the rationales for any missed questions until achieving 100%.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-circle">6</div>
+          <div class="step-content">
+            <strong>Rehearse Short Answer Blueprints 1–3 from Memory (Target: Monday, Nov 2)</strong>
+            <p>Write out Blueprint 1 (Carbon/electron/energy flow), Blueprint 2 (Substrate vs. oxidative phosphorylation and role of O2), and Blueprint 3 (Light reactions &amp; Calvin cycle coupling).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>Biology I Honors (Grade 9) • South Forsyth High School • Dr. Sarah Irwin (Room #371)</p>
+      <p style="margin-top: 4px;">Clean Google-Style Study Link Index • Bookmark this page for direct access</p>
+    </footer>
+
+  </div>
+
+  <script>
+    function filterLinks() {
+      const q = document.getElementById("filterInput").value.toLowerCase().trim();
+      const rows = document.querySelectorAll(".link-item");
+      rows.forEach(row => {
+        const text = (row.textContent + " " + (row.getAttribute("data-keywords") || "")).toLowerCase();
+        row.style.display = text.includes(q) ? "flex" : "none";
+      });
+    }
+  </script>
+</body>
+</html>
