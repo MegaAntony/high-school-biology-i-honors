@@ -402,6 +402,133 @@
       margin-top: 2px;
     }
 
+    /* Top Featured Study Guides */
+    .top-guides-card {
+      background: var(--g-surface);
+      border: 1px solid #d2e3fc;
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 1px 3px rgba(26,115,232,0.12), var(--g-shadow);
+      background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+    }
+
+    .top-guides-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .badge-featured {
+      font-family: "Google Sans", sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--g-blue);
+      background: var(--g-blue-bg);
+      border: 1px solid #c2e7ff;
+      padding: 4px 10px;
+      border-radius: 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .top-guides-sub {
+      font-size: 0.8rem;
+      color: var(--g-text-sub);
+    }
+
+    .top-guides-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+    }
+
+    .guide-btn {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1.5px solid transparent;
+      position: relative;
+    }
+
+    .guide-btn-respiration {
+      background: #fff8f6;
+      border-color: #ffdcd2;
+      color: #9c2810;
+    }
+
+    .guide-btn-respiration:hover {
+      background: #ffebe5;
+      border-color: #f7a58d;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(217,48,37,0.15);
+    }
+
+    .guide-btn-photosynthesis {
+      background: #f4fbf6;
+      border-color: #ceead6;
+      color: #0d652d;
+    }
+
+    .guide-btn-photosynthesis:hover {
+      background: #e6f6ec;
+      border-color: #81c995;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(30,142,62,0.15);
+    }
+
+    .guide-btn-icon {
+      font-size: 26px;
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--g-surface);
+      box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+    }
+
+    .guide-btn-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .guide-btn-title {
+      font-family: "Google Sans", sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 3px;
+    }
+
+    .guide-btn-desc {
+      font-size: 0.77rem;
+      color: var(--g-text-sub);
+      line-height: 1.35;
+    }
+
+    .guide-btn-arrow {
+      font-size: 0.9rem;
+      opacity: 0.7;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .guide-btn:hover .guide-btn-arrow {
+      transform: translateX(4px);
+      opacity: 1;
+    }
+
     footer {
       text-align: center;
       padding-top: 30px;
@@ -431,6 +558,32 @@
   </header>
 
   <div class="container">
+
+    <!-- Featured Interactive Deep-Dive Study Guides (Top Buttons) -->
+    <div class="top-guides-card">
+      <div class="top-guides-header">
+        <span class="badge-featured"><i class="fa-solid fa-graduation-cap"></i> Interactive Deep-Dive Study Guides</span>
+        <span class="top-guides-sub">Self-paced modules with diagrams, ATP math, and scoreable practice quizzes</span>
+      </div>
+      <div class="top-guides-grid">
+        <a href="../study/cellular-respiration.html" class="guide-btn guide-btn-respiration">
+          <div class="guide-btn-icon">🔥</div>
+          <div class="guide-btn-content">
+            <div class="guide-btn-title">Cellular Respiration: Beginner to Expert</div>
+            <div class="guide-btn-desc">Glycolysis, Krebs cycle, ETC &amp; ATP accounting • Cyanide case study • Practice quiz</div>
+          </div>
+          <div class="guide-btn-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+        </a>
+        <a href="../study/photosynthesis.html" class="guide-btn guide-btn-photosynthesis">
+          <div class="guide-btn-icon">🌿</div>
+          <div class="guide-btn-content">
+            <div class="guide-btn-title">Photosynthesis: Beginner to Expert</div>
+            <div class="guide-btn-desc">Light reactions, Calvin cycle, chloroplast &amp; stoma diagrams, algae beads • Practice quiz</div>
+          </div>
+          <div class="guide-btn-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+        </a>
+      </div>
+    </div>
 
     <!-- Search Input -->
     <div class="search-box">
@@ -467,9 +620,41 @@
     <div class="section-card">
       <div class="section-header">
         <h2><i class="fa-solid fa-laptop-code" style="color: var(--g-blue);"></i> Interactive Portals &amp; Master Keys</h2>
-        <span class="chip-count" id="count-portals">4 items</span>
+        <span class="chip-count" id="count-portals">6 items</span>
       </div>
       <div class="link-list" id="list-portals">
+
+        <div class="link-row link-item" data-keywords="study guide cellular respiration glycolysis krebs cycle electron transport etc chemiosmosis poison cyanide practice quiz intermediate expert">
+          <div class="link-info">
+            <div class="link-icon" style="background: #fff8f6; color: #d93025;"><i class="fa-solid fa-fire"></i></div>
+            <div class="link-text">
+              <h3>
+                <a href="../study/cellular-respiration.html">Cellular Respiration: Beginner to Expert Study Guide</a>
+                <span class="tag-badge tag-red">Interactive</span>
+              </h3>
+              <p>Step-by-step breakdown from basics to advanced: Glycolysis, Krebs, ETC &amp; ATP accounting, Cyanide Case Study, and 10-question scoreable practice quiz.</p>
+            </div>
+          </div>
+          <div class="link-action">
+            <a href="../study/cellular-respiration.html" class="open-btn">Open Guide ➔</a>
+          </div>
+        </div>
+
+        <div class="link-row link-item" data-keywords="study guide photosynthesis light reactions calvin cycle stroma thylakoid chloroplast stoma algae beads practice quiz beginner expert">
+          <div class="link-info">
+            <div class="link-icon" style="background: #f4fbf6; color: #1e8e3e;"><i class="fa-solid fa-seedling"></i></div>
+            <div class="link-text">
+              <h3>
+                <a href="../study/photosynthesis.html">Photosynthesis: Beginner to Expert Study Guide</a>
+                <span class="tag-badge tag-green">Interactive</span>
+              </h3>
+              <p>Thylakoid light reactions, Calvin cycle, Kelvinsong Chloroplast &amp; Tschirhart Stoma diagrams, Algae beads, and 10-question scoreable practice quiz.</p>
+            </div>
+          </div>
+          <div class="link-action">
+            <a href="../study/photosynthesis.html" class="open-btn">Open Guide ➔</a>
+          </div>
+        </div>
 
         <div class="link-row link-item" data-keywords="portal test mcq simulator practice katex interactive enzymes respiration photosynthesis">
           <div class="link-info">
