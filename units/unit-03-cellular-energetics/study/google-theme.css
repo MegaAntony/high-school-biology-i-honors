@@ -648,3 +648,27 @@ html:not(.dark) p.text-amber-300.bg-amber-500\/10 {
   border: 1px solid var(--google-amber-border) !important;
   font-weight: 600;
 }
+
+/* ===================================================================
+   DARK MODE OVERRIDES (html.dark)
+   The page markup uses hard-coded light palette classes (bg-white,
+   text-[#202124], border-[#dadce0] ...). These rules repaint them when
+   the user switches to dark mode. Light rules above are scoped to
+   html:not(.dark), so they stay inactive in dark mode.
+   =================================================================== */
+html.dark body { background-color: #0b1220; color: #e5e7eb; }
+html.dark .bg-white { background-color: #111827 !important; }
+html.dark .bg-white\/95 { background-color: rgba(11, 18, 32, 0.95) !important; }
+html.dark .bg-\[\#f8f9fa\] { background-color: #0b1220 !important; }
+html.dark .bg-\[\#f1f3f4\] { background-color: #1f2937 !important; }
+html.dark .bg-\[\#fef7e0\] { background-color: rgba(245, 158, 11, 0.12) !important; }
+html.dark .text-\[\#202124\] { color: #e5e7eb !important; }
+html.dark .text-\[\#3c4043\] { color: #d1d5db !important; }
+html.dark .text-\[\#5f6368\] { color: #9ca3af !important; }
+html.dark .text-\[\#703800\] { color: #fcd34d !important; }
+html.dark .text-\[\#7e22ce\] { color: #d8b4fe !important; }
+html.dark .text-\[\#1a73e8\] { color: #8ab4f8 !important; }
+html.dark .border-\[\#dadce0\] { border-color: #374151 !important; }
+html.dark .shadow-\[0_1px_2px_0_rgba\(60\,64\,67\,0\.15\)\,0_1px_3px_1px_rgba\(60\,64\,67\,0\.1\)\] { box-shadow: none !important; }
+html.dark header.sticky { background-color: rgba(11, 18, 32, 0.95); border-bottom-color: #374151; }
+html.dark details > summary { color: #f3f4f6; }
