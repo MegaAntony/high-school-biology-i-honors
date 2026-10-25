@@ -1,1 +1,4 @@
 .DS_Store
+
+# Raw Canvas API JSON snapshots contain personal identifiers; keep local only
+**/canvas_sources/*.json
