@@ -807,6 +807,37 @@
         if (arrow) arrow.textContent = '▼';
     }
 
+    // ----- Google Clean Theme Toggle (Light / Dark) -----
+    window.toggleTheme = function() {
+        const isDark = document.documentElement.classList.toggle('dark');
+        try {
+            localStorage.setItem('bio_theme', isDark ? 'dark' : 'light');
+        } catch (e) {}
+        updateThemeToggleButtons(isDark);
+    };
+
+    function updateThemeToggleButtons(isDark) {
+        const btn = document.getElementById('themeToggleBtn');
+        if (btn) {
+            btn.innerHTML = isDark ? '☀️ Google Clean' : '🌙 Dark Mode';
+            btn.setAttribute('aria-pressed', String(isDark));
+            btn.setAttribute('title', isDark ? 'Switch to Google Clean Light Theme (WCAG AAA)' : 'Switch to Dark Mode');
+        }
+    }
+
+    function initTheme() {
+        try {
+            const isDark = localStorage.getItem('bio_theme') === 'dark';
+            if (isDark) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+            updateThemeToggleButtons(isDark);
+        } catch (e) {}
+    }
+    initTheme();
+
     // ----- Mastery checklist + progress bar -----
     const goals = document.querySelectorAll('.goal');
     const bar = document.getElementById('progress-bar');
