@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 3 Cellular Energy Summative Study Portal (MCQ &amp; SA) — Biology I Honors</title>
+    
+    <!-- KaTeX: 100% Local Offline Standard for Mathematical & Scientific Typography -->
+    <link rel="stylesheet" href="./katex/katex.min.css">
+    <script defer src="./katex/katex.min.js"></script>
+    <script defer src="./katex/auto-render.min.js"
+            onload="renderMathInElement(document.body, {
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false}
+                ],
+                throwOnError: false
+            });"></script>
+
+    <style>
+        :root {
+            --bg-primary: #0a0f1d;
+            --bg-secondary: #111827;
+            --bg-card: #1f2937;
+            --bg-card-hover: #263346;
+            --border-color: #374151;
+            --text-primary: #f9fafb;
+            --text-secondary: #9ca3af;
+            --accent-blue: #38bdf8;
+            --accent-green: #34d399;
+            --accent-amber: #fbbf24;
+            --accent-rose: #f43f5e;
+            --accent-purple: #a855f7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 24px;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        header {
+            background: linear-gradient(135deg, #064e3b 0%, #0f172a 60%, #1e1b4b 100%);
+            border: 1px solid #10b981;
+            border-radius: 14px;
+            padding: 28px;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.45);
+        }
+
+        .badge-bar { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+
+        .badge {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 4px 10px;
+            border-radius: 9999px;
+            font-weight: 700;
+        }
+
+        .badge-course { background: rgba(56, 189, 248, 0.15); color: var(--accent-blue); border: 1px solid var(--accent-blue); }
+        .badge-exam { background: rgba(244, 63, 94, 0.2); color: #fda4af; border: 1px solid var(--accent-rose); }
+        .badge-sa { background: rgba(168, 85, 247, 0.2); color: #d8b4fe; border: 1px solid var(--accent-purple); }
+        .badge-standards { background: rgba(52, 211, 153, 0.15); color: var(--accent-green); border: 1px solid var(--accent-green); }
+
+        h1 { font-size: 2.1rem; font-weight: 800; color: #fff; margin-bottom: 8px; }
+        .subtitle { color: #d1fae5; font-size: 1.02rem; margin-bottom: 16px; }
+
+        .action-links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary { background: #10b981; color: #052e16; font-weight: 700; }
+        .btn-primary:hover { background: #34d399; }
+        .btn-secondary { background: var(--bg-card); color: var(--text-primary); border-color: var(--border-color); }
+        .btn-secondary:hover { background: var(--bg-card-hover); border-color: var(--accent-blue); }
+        .btn-amber { background: rgba(251, 191, 36, 0.15); color: var(--accent-amber); border-color: rgba(251, 191, 36, 0.4); }
+        .btn-amber:hover { background: rgba(251, 191, 36, 0.25); }
+        .btn-purple { background: rgba(168, 85, 247, 0.18); color: #d8b4fe; border-color: rgba(168, 85, 247, 0.45); }
+        .btn-purple:hover { background: rgba(168, 85, 247, 0.3); }
+
+        .progress-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        .progress-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .progress-bar-bg { background: rgba(255, 255, 255, 0.08); height: 12px; border-radius: 999px; overflow: hidden; }
+        .progress-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #34d399, #38bdf8);
+            border-radius: 999px;
+            transition: width 0.3s ease;
+        }
+
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--bg-card);
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            cursor: pointer;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+        }
+        .check-item:hover { border-color: var(--accent-green); }
+        .check-item input[type="checkbox"] { accent-color: var(--accent-green); width: 18px; height: 18px; cursor: pointer; }
+
+        .section-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #fff;
+            margin: 32px 0 16px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+
+        .accordion-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            transition: border-color 0.2s ease;
+        }
+        .accordion-item:hover { border-color: var(--accent-blue); }
+
+        .accordion-header {
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.02rem;
+            background: var(--bg-card);
+            user-select: none;
+        }
+
+        .accordion-header .title-badge {
+            display: inline-block;
+            font-size: 0.72rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-left: 8px;
+            background: rgba(52, 211, 153, 0.15);
+            color: var(--accent-green);
+        }
+
+        .accordion-body {
+            padding: 20px;
+            display: none;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            font-size: 0.94rem;
+        }
+        .accordion-item.active .accordion-body { display: block; }
+        .accordion-header::after { content: "+"; font-size: 1.3rem; color: var(--accent-green); }
+        .accordion-item.active .accordion-header::after { content: "−"; }
+
+        table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.88rem; }
+        th, td { padding: 10px 12px; text-align: left; border: 1px solid var(--border-color); }
+        th { background: #1e293b; color: var(--accent-blue); font-weight: 700; }
+        tr:nth-child(even) td { background: rgba(255, 255, 255, 0.02); }
+
+        .callout {
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin: 14px 0;
+            border-left: 4px solid;
+            font-size: 0.92rem;
+        }
+        .callout-info { background: rgba(56, 189, 248, 0.08); border-color: var(--accent-blue); }
+        .callout-warning { background: rgba(251, 191, 36, 0.08); border-color: var(--accent-amber); }
+        .callout-danger { background: rgba(244, 63, 94, 0.08); border-color: var(--accent-rose); }
+        .callout-success { background: rgba(52, 211, 153, 0.08); border-color: var(--accent-green); }
+
+        /* KaTeX Typography Polish */
+        .katex { font-size: 1.12em !important; color: #f8fafc; }
+        .katex-display { margin: 0.35em 0 !important; }
+        .formula-row {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 8px 14px;
+            margin: 8px 0;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 6px;
+            border-left: 3px solid var(--accent-green);
+            min-height: 44px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+            gap: 16px;
+            margin: 16px 0;
+        }
+        .card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 18px;
+        }
+        .card h3 { font-size: 1.05rem; margin-bottom: 8px; color: var(--accent-green); }
+
+        /* Quiz Simulator Styles */
+        .quiz-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 18px;
+            margin-bottom: 14px;
+        }
+        .quiz-opt {
+            display: block;
+            width: 100%;
+            text-align: left;
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 10px 14px;
+            margin-top: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.15s ease;
+        }
+        .quiz-opt:hover:not(:disabled) { border-color: var(--accent-blue); background: var(--bg-card-hover); }
+        .quiz-opt.correct { background: rgba(16, 185, 129, 0.2) !important; border-color: #10b981 !important; color: #6ee7b7 !important; font-weight: 600; }
+        .quiz-opt.wrong { background: rgba(244, 63, 94, 0.2) !important; border-color: #f43f5e !important; color: #fda4af !important; }
+        .quiz-exp {
+            display: none;
+            margin-top: 12px;
+            padding: 12px;
+            border-radius: 8px;
+            background: rgba(56, 189, 248, 0.08);
+            border-left: 3px solid var(--accent-blue);
+            font-size: 0.88rem;
+            color: #e2e8f0;
+        }
+
+        footer {
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="badge-bar">
+            <span class="badge badge-course">Biology I Honors • Dr. Irwin (Room #371)</span>
+            <span class="badge badge-standards">GSE Standard: SB1.e &amp; SB1.c</span>
+            <span class="badge badge-amber" style="background: rgba(251, 191, 36, 0.2); color: #fde68a; border: 1px solid #fbbf24;">📋 Lab Packet Check: Wed/Thu Oct 28–29</span>
+            <span class="badge badge-exam">🚨 Summative Part 1 (MCQ): Fri, Oct 30 (Week 1)</span>
+            <span class="badge badge-sa">✍️ Summative Part 2 (Short Answer / SA): Mon, Nov 2 (Week 2)</span>
+        </div>
+        <h1>⚡🌱 Unit 3: Cellular Energy Summative Master Portal</h1>
+        <p class="subtitle">100% Zero-Auth Local Study Hub: Enzymes &amp; ATP, Cellular Respiration, Fermentation, Poison Case Study, Photosynthesis (Light Reactions &amp; Calvin Cycle), Algae Beads Lab, &amp; Full Review Stations Keys.</p>
+        
+        <div class="action-links">
+            <a href="./Unit_03_Summative_Master_Study_Guide_and_Keys.html" class="btn btn-primary">📖 Master Study Guide &amp; Worked Keys (Web HTML)</a>
+            <a href="./Unit_03_Summative_Master_Study_Guide_and_Keys.md" class="btn btn-secondary">📝 Master Guide (.md)</a>
+            <a href="./materials/Cellular_Energy_Review_Stations_Student_Handout.pdf" class="btn btn-amber" target="_blank">📄 Review Stations Handout (8p PDF)</a>
+            <a href="./materials/HB_Unit_3_Cellular_Energy_Review_Stations.pdf" class="btn btn-secondary" target="_blank">🖼️ Review Stations Slides (PDF)</a>
+            <a href="./materials/Honors_Biology_Cellular_Respiration_Outline.pdf" class="btn btn-purple" target="_blank">🔥 Dr. Irwin CR Outline ("Look at this Resource!")</a>
+            <a href="./materials/Honors_Biology_Photosynthesis_Script_Slides_1_13.pdf" class="btn btn-secondary" target="_blank">🌿 Notes 3C.1 (Slides 1–13)</a>
+            <a href="./materials/Honors_Biology_Photosynthesis_Script_Slides_14_19.pdf" class="btn btn-secondary" target="_blank">☀️ Notes 3C.2 (Slides 14–19)</a>
+            <a href="./materials/HB_Unit_3C_Photosynthesis_PPT.pdf" class="btn btn-secondary" target="_blank">📊 3C Photosynthesis PPT</a>
+            <a href="./materials/HB_Unit_3B_Cellular_Respiration_PPT.pdf" class="btn btn-secondary" target="_blank">📊 3B Respiration PPT</a>
+            <a href="./materials/HB_Unit_3A_Enzymes_PPT.pdf" class="btn btn-secondary" target="_blank">📊 3A Enzymes PPT</a>
+            <a href="./materials/Unit 3 Lab Packet 26-27.pdf" class="btn btn-amber" target="_blank">🧪 Unit 3 Lab Packet (17p PDF)</a>
+            <a href="./materials/Unit 3 Student Notes Packet 26-27.pdf" class="btn btn-secondary" target="_blank">📝 Student Notes Packet</a>
+        </div>
+    </header>
+
+    <!-- Progress Tracker -->
+    <div class="progress-card">
+        <div class="progress-header">
+            <h3><strong>Unit 3 Summative Mastery Checklist (Oct 28 – Nov 2)</strong></h3>
+            <span id="progress-percent" style="font-weight: 700; color: var(--accent-green);">0% Completed</span>
+        </div>
+        <div class="progress-bar-bg">
+            <div id="progress-bar" class="progress-bar-fill"></div>
+        </div>
+
+        <div class="checklist-grid">
+            <label class="check-item"><input type="checkbox" class="task-check" onchange="updateProgress()"> 1. Enzymes: $E_a$, Temp/pH Denaturation &amp; Inhibition Graphs</label>
+            <label class="check-item"><input type="checkbox" class="task-check" onchange="updateProgress()"> 2. ATP-ADP Cycle: Adenine + Ribose + 3 Phosphates</label>
+            <label class="check-item"><input type="checkbox" class="task-check" onchange="updateProgress()"> 3. Glycolysis, Pyruvate Oxidation &amp; Krebs Cycle Matrix</label>
+            <label class="check-item"><input type="checkbox" class="task-check" onchange="updateProgress()"> 4. ETC, Chemiosmosis, Role of $\text{O}_2$ &amp; Fermentation ($\text{NAD}^+$)</label>
+            <label class="check-item"><input type="checkbox" class="task-check" onchange="updateProgress()"> 5. Poison Case Study (2-DG, Arsenic, Cyanide, Oligomycin)</label>
+            <label class="check-item"><input type="checkbox" class="task-check" onchange="updateProgress()"> 6. Photosynthesis Light Rxns: PSII (ETC 1) vs. PSI (ETC 2)</label>
+            <label class="check-item"><input type="checkbox" class="task-check" onchange="updateProgress()"> 7. Calvin Cycle: RuBisCO, 3-PGA, G3P, RuBP &amp; Stomata</label>
+            <label class="check-item"><input type="checkbox" class="task-check" onchange="updateProgress()"> 8. Lab Packet Check (Algae Beads pH Indicator &amp; STEM Case)</label>
+        </div>
+    </div>
+
+    <!-- SECTION 1: PHOTOSYNTHESIS VS CELLULAR RESPIRATION MASTER COMPARISON -->
+    <div class="section-title">🔄 1. Master Comparison: Cellular Respiration vs. Photosynthesis (Station 3, 4, 5 &amp; 6)</div>
+    <div class="callout callout-info">
+        <strong>⚡ Core Cycling Principle:</strong> Matter ($\text{C}, \text{H}, \text{O}$) cycles continuously between chloroplasts and mitochondria, whereas energy flows <strong>one-way</strong>: $\text{Sunlight} \xrightarrow{\text{Photosynthesis}} \text{Glucose (Chemical Bonds)} \xrightarrow{\text{Respiration}} \text{ATP} \longrightarrow \text{Heat}$.
+    </div>
+
+    <div class="formula-row">
+        $$\textbf{Photosynthesis (Anabolic / Endergonic, }\Delta G > 0\textbf{):}\quad 6\text{CO}_2 + 6\text{H}_2\text{O} + \text{Light Energy} \xrightarrow{\text{Chloroplast}} \text{C}_6\text{H}_{12}\text{O}_6 + 6\text{O}_2$$
+    </div>
+    <div class="formula-row">
+        $$\textbf{Cellular Respiration (Catabolic / Exergonic, }\Delta G < 0\textbf{):}\quad \text{C}_6\text{H}_{12}\text{O}_6 + 6\text{O}_2 \xrightarrow{\text{Mitochondria}} 6\text{CO}_2 + 6\text{H}_2\text{O} + 36\text{–}38\text{ ATP}$$
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Feature / Question</th>
+                <th>Cellular Respiration (Unit 3B)</th>
+                <th>Photosynthesis (Unit 3C)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>WHO performs it?</strong></td>
+                <td><strong>ALL Eukaryotes</strong> (Plants/Autotrophs <strong>AND</strong> Animals/Fungi/Heterotrophs!)</td>
+                <td><strong>Photoautotrophs (Producers) only</strong>: Plants, algae, cyanobacteria</td>
+            </tr>
+            <tr>
+                <td><strong>WHERE does it occur?</strong></td>
+                <td><strong>Cytosol</strong> (Glycolysis) &amp; <strong>Mitochondria</strong> (Matrix = Link &amp; Krebs; Cristae = ETC)</td>
+                <td><strong>Chloroplast</strong> (Thylakoid Membrane = Light Rxns; Stroma = Calvin Cycle)</td>
+            </tr>
+            <tr>
+                <td><strong>Electron Carriers Used</strong></td>
+                <td><strong>$\text{NAD}^+ \to \text{NADH}$</strong> ($10$) and <strong>$\text{FAD} \to \text{FADH}_2$</strong> ($2$)</td>
+                <td><strong>$\text{NADP}^+ \to \text{NADPH}$</strong> (<strong>P</strong> = <strong>P</strong>hotosynthesis!)</td>
+            </tr>
+            <tr>
+                <td><strong>ETC Location &amp; $\text{H}^+$ Pumping</strong></td>
+                <td><strong>Inner Mitochondrial Membrane (Cristae)</strong>: $\text{H}^+$ pumped from <strong>Matrix $\to$ Intermembrane Space</strong>; diffuses back into Matrix via ATP Synthase.</td>
+                <td><strong>Thylakoid Membrane</strong>: $\text{H}^+$ pumped from <strong>Stroma $\to$ Thylakoid Lumen (Interior)</strong>; diffuses back into Stroma via ATP Synthase.</td>
+            </tr>
+            <tr>
+                <td><strong>Source of Electrons for ETC</strong></td>
+                <td>Oxidation of <strong>Glucose</strong> ($\text{C}_6\text{H}_{12}\text{O}_6 \to \text{CO}_2$) delivered by $\text{NADH}/\text{FADH}_2$.</td>
+                <td><strong>Photolysis (splitting) of Water ($\text{H}_2\text{O}$)</strong> at Photosystem II ($\text{H}_2\text{O} \to \frac{1}{2}\text{O}_2 + 2\text{H}^+ + 2\text{e}^-$).</td>
+            </tr>
+            <tr>
+                <td><strong>Final Electron Acceptor at End of ETC</strong></td>
+                <td><strong>Oxygen ($\text{O}_2$)</strong> $\longrightarrow$ combines with $\text{e}^-$ and $\text{H}^+$ to form <strong>$\text{H}_2\text{O}$</strong>.</td>
+                <td><strong>$\text{NADP}^+$</strong> (at Photosystem I via $\text{NADP}^+$ reductase) $\longrightarrow$ forms <strong>$\text{NADPH}$</strong>.</td>
+            </tr>
+            <tr>
+                <td><strong>Role of ATP</strong></td>
+                <td>Main final energy output ($36\text{–}38\text{ ATP}$) used for all cellular work.</td>
+                <td>Produced in Light Reactions (ETC 1) and immediately consumed in the <strong>Calvin Cycle</strong> ($18\text{ ATP}$ per glucose) to fix $\text{CO}_2$ into sugar.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- SECTION 2: COMPLETE STEP-BY-STEP PATHWAY TABLES -->
+    <div class="section-title">🔬 2. Step-by-Step Pathway Breakdown: Respiration (3B) &amp; Photosynthesis (3C)</div>
+
+    <div class="card-grid">
+        <div class="card">
+            <h3>🔥 Cellular Respiration: 4 Stages (Per 1 Glucose)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Stage</th>
+                        <th>Location</th>
+                        <th>Inputs</th>
+                        <th>Outputs</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. Glycolysis</strong> *(Anaerobic)*</td>
+                        <td>Cytosol</td>
+                        <td>$1\text{ Glucose}$, $2\text{ ATP}$, $2\text{ NAD}^+$</td>
+                        <td><strong>$2\text{ Pyruvate}$</strong>, <strong>$2\text{ NADH}$</strong>, <strong>$2\text{ net ATP}$</strong> ($4$ made, Substrate-Level)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Pyruvate Oxidation</strong></td>
+                        <td>Mitochondrial Matrix</td>
+                        <td>$2\text{ Pyruvate}$, $2\text{ NAD}^+$, $2\text{ CoA}$</td>
+                        <td><strong>$2\text{ Acetyl-CoA}$</strong>, <strong>$2\text{ NADH}$</strong>, <strong>$2\text{ CO}_2$</strong> ($0\text{ ATP}$)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Krebs Cycle</strong> *(2 Turns)*</td>
+                        <td>Mitochondrial Matrix</td>
+                        <td>$2\text{ Acetyl-CoA}$ (+ Oxaloacetate), $6\text{ NAD}^+$, $2\text{ FAD}$</td>
+                        <td><strong>$4\text{ CO}_2$</strong>, <strong>$6\text{ NADH}$</strong>, <strong>$2\text{ FADH}_2$</strong>, <strong>$2\text{ ATP}$</strong> (Substrate-Level)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. ETC &amp; Chemiosmosis</strong></td>
+                        <td>Inner Membrane (Cristae)</td>
+                        <td>$10\text{ NADH}$, $2\text{ FADH}_2$, <strong>$6\text{ O}_2$</strong></td>
+                        <td><strong>$32\text{–}34\text{ ATP}$</strong> (Oxidative Phosphorylation), <strong>$6\text{ H}_2\text{O}$</strong>, $10\text{ NAD}^+$, $2\text{ FAD}$</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h3>🌿 Photosynthesis: Light Reactions &amp; Calvin Cycle</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Stage</th>
+                        <th>Location</th>
+                        <th>Inputs</th>
+                        <th>Outputs &amp; Key Enzymes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Step 1: Photosystem II &amp; ETC 1</strong></td>
+                        <td>Thylakoid Membrane</td>
+                        <td>Light ($\text{P680}$), <strong>$\text{H}_2\text{O}$</strong>, $\text{ADP}+\text{P}_i$</td>
+                        <td>Splits $\text{H}_2\text{O} \to$ releases <strong>$\text{O}_2$</strong>; pumps $\text{H}^+$ into lumen $\to$ <strong>ATP Synthase makes $\text{ATP}$</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Step 2: Photosystem I &amp; ETC 2</strong></td>
+                        <td>Thylakoid Membrane</td>
+                        <td>Light ($\text{P700}$), $\text{e}^-$ from PSII, $\text{NADP}^+ + \text{H}^+$</td>
+                        <td><strong>$\text{NADP}^+$ Reductase</strong> reduces $\text{NADP}^+$ into <strong>$\text{NADPH}$</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Step 3: Calvin Cycle</strong> *(6 Turns)*</td>
+                        <td><strong>Stroma</strong> (Fluid)</td>
+                        <td><strong>$6\text{ CO}_2$</strong>, $18\text{ ATP}$, $12\text{ NADPH}$ (+ $6\text{ RuBP}$)</td>
+                        <td>1. <strong>Carbon Fixation</strong> by <strong>RuBisCO</strong> ($\text{CO}_2 + \text{RuBP} \to \text{3-PGA}$)<br>2. <strong>Reduction</strong> ($\to 12\text{ G3P}$; <strong>$2\text{ G3P} \to 1\text{ Glucose}$</strong>)<br>3. <strong>Regeneration</strong> ($10\text{ G3P} \to 6\text{ RuBP}$)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- SECTION 3: WORKED ANSWER KEYS FOR REVIEW STATIONS & LAB PACKET CHECK -->
+    <div class="section-title">📂 3. Complete Worked Answer Keys (Click to Expand Each Station / Lab)</div>
+
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            Station 1 &amp; Station 2 Key: Enzymes, Activation Energy &amp; Inhibition Graphs
+            <span class="title-badge">Review Handout p. 1–2</span>
+        </div>
+        <div class="accordion-body">
+            <ul>
+                <li><strong>Catabolic vs. Anabolic Enzyme Diagram:</strong> <strong>Catabolic</strong> because one bonded two-hexagon substrate is cleaved into two separate product molecules.</li>
+                <li><strong>Competitive vs. Non-Competitive Inhibition:</strong>
+                    <ul>
+                        <li><strong>Competitive (Left image):</strong> Mimics substrate shape and binds directly inside the <strong>active site</strong>. Can be overcome by adding excess substrate ($V_{\max}$ unchanged).</li>
+                        <li><strong>Non-Competitive / Allosteric (Right image):</strong> Binds to an <strong>allosteric site</strong>, warping the 3D conformation of the active site so substrate cannot fit. Cannot be overcome by adding substrate ($V_{\max}$ lowered).</li>
+                    </ul>
+                </li>
+                <li><strong>Graph A (pH):</strong> Acidic optimum = <strong>Pepsin ($\text{pH } 2$)</strong>; Neutral = <strong>Salivary Amylase ($\text{pH } 7$)</strong>; Alkaline = <strong>Trypsin ($\text{pH } 8$)</strong>. Salivary amylase at $\text{pH } 2$ has <strong>0 activity</strong> because extreme acid disrupts ionic/hydrogen bonds and <strong>denatures</strong> its active site.</li>
+                <li><strong>Graph B (Temperature):</strong> Optimum = <strong>$\sim 37^\circ\text{C}\text{–}40^\circ\text{C}$ (Point B)</strong>. Between B and C, high heat <strong>denatures</strong> the enzyme (unfolds the active site so substrate cannot bind).</li>
+                <li><strong>Graph C (Substrate Saturation):</strong> From $a \to b$, more substrate increases collision frequency and rate. At $c$, <strong>saturation ($V_{\max}$)</strong> occurs because <strong>100% of active sites are occupied</strong>.</li>
+                <li><strong>Station 2 Energy Graphs:</strong> Graph A ($\Delta G < 0$) = <strong>Exergonic</strong> (energy released, products lower than reactants, e.g., Cellular Respiration). Graph B ($\Delta G > 0$) = <strong>Endergonic</strong> (energy added, products higher than reactants, e.g., Photosynthesis). Enzymes speed up reactions solely by <strong>lowering Activation Energy ($E_a$)</strong> without changing $\Delta G$.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            Station 7 &amp; Station 8 Key: All 20 Multiple-Choice Questions (CR &amp; PS)
+            <span class="title-badge">Review Handout p. 4–7</span>
+        </div>
+        <div class="accordion-body">
+            <div class="card-grid">
+                <div>
+                    <h4 style="color: var(--accent-blue); margin-bottom: 8px;">Station 7: Cellular Respiration (1–10)</h4>
+                    <ol style="margin-left: 18px; line-height: 1.75;">
+                        <li><strong>C</strong> — Glycolysis (requires no organelles and no oxygen; evolved first on anoxic early Earth).</li>
+                        <li><strong>B</strong> — Anaerobic respiration (fermentation produces alcohol or lactic acid).</li>
+                        <li><strong>C</strong> — Aerobic respiration because it produces 36 ATP (vs. 2 ATP in anaerobic).</li>
+                        <li><strong>A</strong> — Electron transport chain (produces 32–34 ATP via oxidative phosphorylation).</li>
+                        <li><strong>C</strong> — Fermentation (regenerates $\text{NAD}^+$ when $\text{O}_2$ is absent).</li>
+                        <li><strong>D ($\text{O}_2; \text{H}_2\text{O}$)</strong> — $\text{H}^+$ is pumped into intermembrane space, $\text{O}_2$ is reduced to form $\text{H}_2\text{O}$ byproduct.</li>
+                        <li><strong>B (II, IV, and V)</strong> — II is backwards ($\text{FAD}$ is reduced to $\text{FADH}_2$), IV is Pyruvate Oxidation, and V lists products as reactants.</li>
+                        <li><strong>A</strong> — Cell A is an animal cell in an anaerobic environment (lactic acid + 2 ATP); Cell B is an animal cell in an aerobic environment ($\text{H}_2\text{O}$ + up to 32–38 ATP).</li>
+                        <li><strong>C</strong> — Water; ATP (heterotrophs convert food mass + $\text{O}_2$ into $\text{CO}_2$, $\text{H}_2\text{O}$, and $\text{ATP}$).</li>
+                        <li><strong>C</strong> — Oxygen (consumed by germinating peas during aerobic respiration).</li>
+                    </ol>
+                </div>
+                <div>
+                    <h4 style="color: var(--accent-green); margin-bottom: 8px;">Station 8: Photosynthesis (1–10)</h4>
+                    <ol style="margin-left: 18px; line-height: 1.75;">
+                        <li><strong>D</strong> — Converting oxygen and hydrogen into water (that happens in the mitochondrial ETC, not photosynthesis!).</li>
+                        <li><strong>B</strong> — Chlorophyll (absorbs red and blue-violet light, reflects green).</li>
+                        <li><strong>D</strong> — ATP (made in light reactions along with NADPH to power the Calvin cycle).</li>
+                        <li><strong>C</strong> — Stomata (leaf pores regulated by guard cells for $\text{CO}_2/\text{O}_2$ gas exchange).</li>
+                        <li><strong>C</strong> — Oxygen concentration (light, temp, and $\text{CO}_2$ directly affect photosynthesis rate; $\text{O}_2$ is a product).</li>
+                        <li><strong>C</strong> — Green (least absorbed / mostly reflected by chlorophyll, so slowest $\text{O}_2$ release).</li>
+                        <li><strong>C</strong> — thylakoid; light-dependent.</li>
+                        <li><strong>C</strong> — PS I involves $\text{NADP}^+$ Reductase (making NADPH) while PS II involves ATP Synthase (via ETC 1 $\text{H}^+$ gradient) and splits water.</li>
+                        <li><strong>A (I, V, and VI)</strong> — Light-independent reaction (I), occurs in stroma (V), glucose made from $\text{CO}_2$ (VI).</li>
+                        <li><strong>B</strong> — Glucose and oxygen gas (products) have higher energy levels compared to water and carbon dioxide (reactants).</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            Lab Packet Check Key (Part 1): Catalase Liver Lab, ATP Candy Lab &amp; Poison Case Study
+            <span class="title-badge">Due Wed/Thu Oct 28–29 • Lab Packet p. 1–13</span>
+        </div>
+        <div class="accordion-body">
+            <ul>
+                <li><strong>Catalase Liver Lab ($2\text{H}_2\text{O}_2 \to 2\text{H}_2\text{O} + \text{O}_2$):</strong>
+                    <ul>
+                        <li><strong>Bubbles released:</strong> Oxygen gas ($\text{O}_2$).</li>
+                        <li><strong>Is catalase reusable?</strong> <strong>Yes</strong> — adding new $\text{H}_2\text{O}_2$ to used liver in Tube A bubbled again because enzymes are not consumed.</li>
+                        <li><strong>Is substrate reusable?</strong> <strong>No</strong> — the poured-off liquid in Tube B had already been converted to water ($\text{H}_2\text{O}$).</li>
+                        <li><strong>Boiled (Tube C) vs. Frozen (Tube D) vs. Acidic Lemon Juice (Tube E):</strong> Boiling and strong acid <strong>denature</strong> catalase (0 foam), whereas freezing only slows kinetic collisions temporarily without denaturing! Optimum pH = <strong>7</strong>; Optimum Temp = <strong>$98^\circ\text{F}$ ($37^\circ\text{C}$)</strong>; fever of $104^\circ\text{F}$ denatures catalase (rate drops from 110 to 25).</li>
+                    </ul>
+                </li>
+                <li><strong>ATP Candy Modeling (p. 6–7):</strong> Ribose = $\text{C}_5\text{H}_{10}\text{O}_5$ (has Oxygen; big marshmallow); Adenine = $\text{C}_5\text{H}_5\text{N}_5$ (has Nitrogen; gummy bear); Phosphoric acid = $\text{H}_3\text{PO}_4$ (3 mini marshmallows); Toothpicks = covalent bonds. Hydrolysis: $\text{ATP} \to \text{ADP} + \text{P}_i + \text{Energy}$. Recharge: $\text{ADP} + \text{P}_i + \text{Energy} \to \text{ATP}$.</li>
+                <li><strong>Poison Case Study Master Diagnostic Table (p. 8–13):</strong>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Poison &amp; Victim</th>
+                                <th>Target Step Blocked</th>
+                                <th>Pyruvate</th>
+                                <th>NADH</th>
+                                <th>Intermembrane $\text{H}^+$</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>2-Deoxyglucose</strong> (Case #3: Vanessa Craft)</td>
+                                <td>Blocks 1st enzyme of <strong>Glycolysis</strong></td>
+                                <td>$\downarrow$ ($0.02$)</td>
+                                <td>$\downarrow$ ($0.08$)</td>
+                                <td>$\downarrow$ ($0.09$)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Arsenic</strong> (Case #1: Tim Braxton)</td>
+                                <td>Blocks 1st enzyme of <strong>Krebs Cycle</strong></td>
+                                <td><strong>$\uparrow$ ($0.25$)</strong></td>
+                                <td>$\downarrow$ ($0.17$)</td>
+                                <td>$\downarrow$ ($0.20$)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cyanide</strong> (Case #4: Nadia Che / Cassava)</td>
+                                <td>Blocks <strong>ETC Complex IV</strong> (no $\text{e}^-$ to $\text{O}_2$)</td>
+                                <td>$=$ ($0.10$)</td>
+                                <td><strong>$\uparrow$ ($0.50$)</strong></td>
+                                <td>$\downarrow$ ($0.07$)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Oligomycin</strong> (Case #2: Mei Nakamura)</td>
+                                <td>Blocks <strong>ATP Synthase</strong> channel</td>
+                                <td>$=$ ($0.12$)</td>
+                                <td>$=$ ($0.30$)</td>
+                                <td><strong>$\uparrow\uparrow$ ($1.10$)</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            Lab Packet Check Key (Part 2): Photosynthesis STEM Case &amp; Algae Beads Lab + CER
+            <span class="title-badge">Due Wed/Thu Oct 28–29 • Lab Packet p. 14–17</span>
+        </div>
+        <div class="accordion-body">
+            <h4>1. Photosynthesis STEM Case Inhibition Table (Lab Packet p. 15 — High-Yield!)</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>If This Step Stops Working...</th>
+                        <th>Effect on [ATP]</th>
+                        <th>Effect on [NADPH]</th>
+                        <th>Effect on [Sugars]</th>
+                        <th>Mechanism Explanation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. Photosystem II (PSII) Stops</strong></td>
+                        <td><strong>Decreases ($\downarrow$)</strong></td>
+                        <td><strong>Decreases ($\downarrow$)</strong></td>
+                        <td><strong>Decreases ($\downarrow$)</strong></td>
+                        <td>No water split $\to$ no $\text{e}^-$ for ETC 1 (no ATP) or PSI/ETC 2 (no NADPH) $\to$ Calvin Cycle starves.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Photosystem I (PSI) Stops</strong></td>
+                        <td><strong>Stays Same ($=$)</strong></td>
+                        <td><strong>Decreases ($\downarrow$)</strong></td>
+                        <td><strong>Decreases ($\downarrow$)</strong></td>
+                        <td>PSII &amp; ETC 1 still pump $\text{H}^+$ to make ATP, but PSI/ETC 2 cannot reduce $\text{NADP}^+ \to \text{NADPH}$, halting Calvin Cycle reduction.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Calvin Cycle Stops</strong></td>
+                        <td><strong>Increases ($\uparrow$)</strong></td>
+                        <td><strong>Increases ($\uparrow$)</strong></td>
+                        <td><strong>Decreases ($\downarrow$)</strong></td>
+                        <td>No glucose made; because Calvin Cycle stops using ATP &amp; NADPH from the light reactions, <strong>ATP and NADPH pile up!</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 style="margin-top: 14px;">2. Algae Beads Bicarbonate Indicator Scale &amp; CER (Verified vs. Lab Packet p. 16–17)</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>pH 7.6</th>
+                        <th>pH 7.8</th>
+                        <th>pH 8.0</th>
+                        <th>pH 8.2</th>
+                        <th>pH 8.4 (0.04% Atm. $\text{CO}_2$)</th>
+                        <th>pH 8.6</th>
+                        <th>pH 8.8</th>
+                        <th>pH 9.0</th>
+                        <th>pH 9.2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>yellow</strong></td>
+                        <td><em>(yellow-orange)</em></td>
+                        <td><strong>orange</strong></td>
+                        <td><em>(red-orange)</em></td>
+                        <td><strong>red</strong></td>
+                        <td><em>(red-magenta)</em></td>
+                        <td><strong>magenta</strong></td>
+                        <td><em>(magenta-purple)</em></td>
+                        <td><strong>purple</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+            <ul>
+                <li><strong>Bicarbonate Indicator Rule (Page 16 Verbatim Scale):</strong>
+                    <ul>
+                        <li><strong>Darkness (Foil-Covered Vial):</strong> Photosynthesis = OFF, Cellular Respiration = ON $\longrightarrow$ Net <strong>$\text{CO}_2$ added</strong> $\longrightarrow$ turns from red ($\text{pH } 8.4$) through <strong>orange ($\text{pH } 8.0$)</strong> to <strong>yellow ($\text{pH } 7.6$)</strong>.</li>
+                        <li><strong>Atmospheric Control ($0.04\%\text{ CO}_2$):</strong> Equilibrium $\text{CO}_2$ $\longrightarrow$ <strong>$\text{pH } 8.4$ (red)</strong>.</li>
+                        <li><strong>Bright Light (Uncovered Vial):</strong> Photosynthesis Rate $>$ Respiration Rate $\longrightarrow$ Net <strong>$\text{CO}_2$ removed</strong> $\longrightarrow$ turns from red ($\text{pH } 8.4$) through <strong>magenta ($\text{pH } 8.8$)</strong> to <strong>dark purple ($\text{pH } 9.2$)</strong>.</li>
+                    </ul>
+                </li>
+                <li><strong>Model CER (Page 17):</strong>
+                    <ul>
+                        <li><strong>Claim:</strong> Exposure to light drives net photosynthesis in algae beads, consuming dissolved $\text{CO}_2$ and raising the solution pH, whereas darkness halts photosynthesis while cellular respiration continues, releasing $\text{CO}_2$ and lowering pH.</li>
+                        <li><strong>Evidence:</strong> Both vials started at red ($\text{pH } 8.4$). After incubation, the uncovered vial in the light turned <strong>purple ($\text{pH } 9.2$)</strong>, while the aluminum-foil-covered dark vial turned <strong>yellow ($\text{pH } 7.6$)</strong>.</li>
+                        <li><strong>Reasoning:</strong> In the light vial, chlorophyll absorbed photons to produce ATP and NADPH in the light reactions, enabling the Calvin cycle to fix dissolved $\text{CO}_2$ into glucose faster than respiration released it, reducing acidity and raising pH to $9.2$. In the foil-covered vial, lack of light halted the light-dependent reactions and Calvin cycle, but mitochondrial cellular respiration continued breaking down glucose and releasing $\text{CO}_2$, which formed carbonic acid and lowered the pH to $7.6$.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            Monday, Nov 2 Short Answer (SA) Exam Blueprints: Dr. Irwin's Success Criteria
+            <span class="title-badge">Week 2 Summative SA Prep</span>
+        </div>
+        <div class="accordion-body">
+            <div class="callout callout-success">
+                <strong>✍️ How to Score 100% on Monday's Short Answer (SA) Section:</strong> Always name the <strong>exact organelle compartment</strong> (cytosol, mitochondrial matrix, cristae/inner membrane, intermembrane space, thylakoid membrane, thylakoid lumen, stroma), the <strong>exact electron carriers</strong> ($\text{NADH}/\text{FADH}_2$ vs. $\text{NADPH}$), and the <strong>direction of $\text{H}^+$ movement</strong>!
+            </div>
+            <ol style="margin-left: 18px; line-height: 1.8;">
+                <li><strong>Why Aerobic Respiration makes 36–38 ATP vs. Anaerobic 2 ATP (Role of $\text{O}_2$):</strong> Aerobic respiration uses <strong>Oxygen ($\text{O}_2$)</strong> as the final electron acceptor at the end of the ETC (forming $\text{H}_2\text{O}$). This allows the ETC to continuously accept electrons from $10\text{ NADH}$ and $2\text{ FADH}_2$, pumping $\text{H}^+$ into the intermembrane space to power <strong>ATP Synthase (oxidative phosphorylation = $32\text{–}34\text{ ATP}$)</strong> while regenerating $\text{NAD}^+$ and $\text{FAD}$ so Pyruvate Oxidation and the Krebs Cycle ($2\text{ ATP}$) can run. Without $\text{O}_2$, the ETC, Pyruvate Oxidation, and Krebs Cycle all stop; the cell can only run <strong>Glycolysis ($2\text{ net ATP}$ via substrate-level phosphorylation)</strong> paired with <strong>Fermentation</strong> (which makes $0\text{ ATP}$ and only regenerates $\text{NAD}^+$).</li>
+                <li><strong>Carbon, Electron, and Energy Flow in Respiration (From Dr. Irwin's Outline):</strong>
+                    <ul>
+                        <li><strong>Carbon Flow:</strong> $\text{Glucose (6C)} \to 2\text{ Pyruvate (3C)} \to 2\text{ Acetyl-CoA (2C)} \to 6\text{ CO}_2\text{ (waste)}$.</li>
+                        <li><strong>Electron Flow:</strong> $\text{Glucose} \to \text{NADH \& FADH}_2 \to \text{ETC complexes in cristae} \to \text{O}_2\text{ (forming H}_2\text{O)}$.</li>
+                        <li><strong>Energy Flow:</strong> $\text{Glucose chemical bonds} \to \text{NADH/FADH}_2 \to \text{H}^+\text{ electrochemical gradient} \to \text{ATP}$.</li>
+                    </ul>
+                </li>
+                <li><strong>Why Leaves Turn Orange/Yellow in the Fall (Slide 13):</strong> Chlorophyll $a$ and $b$ absorb red and blue light and reflect green light. In the fall, cooler temperatures and shorter days cause plants to stop producing chlorophyll and existing chlorophyll breaks down, unmasking the already-present <strong>accessory pigments</strong> like <strong>carotenoids/carotene (orange)</strong> and <strong>xanthophylls (yellow)</strong>.</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- SECTION 4: 25-QUESTION SUMMATIVE PRACTICE SIMULATOR -->
+    <div class="section-title">🎯 4. Unit 3 Summative MCQ Simulator (25 Exam-Level Questions)</div>
+    <div class="progress-card" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+        <div>
+            <strong>Live Practice Score:</strong> <span id="sim-score" style="color: var(--accent-green); font-weight: 800;">0</span> / <span id="sim-total">25</span>
+            (<span id="sim-pct" style="color: var(--accent-blue); font-weight: 700;">0%</span>)
+        </div>
+        <button class="btn btn-secondary" onclick="resetSim()">↺ Reset Simulator</button>
+    </div>
+
+    <div id="sim-container"></div>
+
+    <footer>
+        <p>Biology I Honors (Course 276259) • South Forsyth High School • Dr. Sarah Irwin (Room #371)</p>
+        <p>Unit 3 Cellular Energy Summative Hub • Local Zero-Auth Archive</p>
+    </footer>
+</div>
+
+<script>
+    function toggleAccordion(header) {
+        header.parentElement.classList.toggle('active');
+    }
+
+    function updateProgress() {
+        const checks = document.querySelectorAll('.task-check');
+        const checked = document.querySelectorAll('.task-check:checked');
+        const pct = Math.round((checked.length / checks.length) * 100);
+        document.getElementById('progress-bar').style.width = pct + '%';
+        document.getElementById('progress-percent').innerText = pct + '% Completed';
+    }
+
+    const simQuestions = [
+        {
+            q: "How does an enzyme increase the rate of a biochemical reaction without altering the net free energy change (ΔG)?",
+            opts: [
+                "It increases the kinetic energy of reactants by raising cellular temperature",
+                "It lowers the activation energy (Ea) barrier by stabilizing the transition state via induced fit",
+                "It converts endergonic reactions into exergonic reactions",
+                "It is consumed as a reactant to donate phosphate groups"
+            ],
+            ans: 1,
+            exp: "Enzymes physically strain substrate bonds (induced fit) to lower the activation energy (Ea) barrier, speeding up the reaction without changing the free energy of reactants or products (ΔG)."
+        },
+        {
+            q: "A scientist adds an inhibitor to an enzyme-catalyzed reaction. Even after adding a 100-fold excess of natural substrate, the maximum reaction velocity (Vmax) remains permanently reduced. What is the mechanism of this inhibitor?",
+            opts: [
+                "Competitive inhibitor binding directly to the active site",
+                "Non-competitive (allosteric) inhibitor binding to an allosteric site and distorting the active site shape",
+                "Substrate saturation of all available active sites",
+                "Coenzyme activation of the primary sequence"
+            ],
+            ans: 1,
+            exp: "Non-competitive (allosteric) inhibitors bind away from the active site and alter the enzyme's 3D conformation, warping the active site so substrate cannot react regardless of how much substrate is added."
+        },
+        {
+            q: "Where is usable chemical energy stored within an ATP molecule, and what reaction releases it?",
+            opts: [
+                "In the glycosidic bond between adenine and ribose; released by dehydration synthesis",
+                "In the terminal phosphate bond between the 2nd and 3rd phosphate groups; released by hydrolysis (ATP → ADP + Pi + Energy)",
+                "In the nitrogen rings of adenine; released by oxidation",
+                "In the C-H bonds of ribose; released by fermentation"
+            ],
+            ans: 1,
+            exp: "ATP stores high potential energy in the negatively charged phosphoanhydride bond between its 2nd and 3rd phosphate groups. Hydrolysis cleaves the 3rd phosphate to yield ADP + Pi + usable cellular energy."
+        },
+        {
+            q: "According to Dr. Irwin's Cellular Respiration Outline, which stages of cellular respiration produce ATP via substrate-level phosphorylation vs. oxidative phosphorylation?",
+            opts: [
+                "Substrate-level: Glycolysis & Krebs Cycle (2 ATP each); Oxidative: Electron Transport Chain & Chemiosmosis (32–34 ATP)",
+                "Substrate-level: Pyruvate Oxidation & ETC; Oxidative: Glycolysis & Fermentation",
+                "Substrate-level: ETC only; Oxidative: Krebs Cycle only",
+                "Substrate-level: Fermentation (36 ATP); Oxidative: Glycolysis (2 ATP)"
+            ],
+            ans: 0,
+            exp: "Substrate-level phosphorylation directly transfers a phosphate from a substrate to ADP during Glycolysis (2 net ATP) and the Krebs Cycle (2 ATP). Oxidative phosphorylation uses the ETC proton gradient and ATP Synthase to make 32–34 ATP."
+        },
+        {
+            q: "What are the exact products per 1 molecule of glucose during Pyruvate Oxidation (the link reaction in the mitochondrial matrix)?",
+            opts: [
+                "2 Pyruvate, 2 NADH, and 2 net ATP",
+                "2 Acetyl-CoA, 2 NADH, 2 CO₂, and 0 ATP",
+                "4 CO₂, 6 NADH, 2 FADH₂, and 2 ATP",
+                "6 H₂O and 32–34 ATP"
+            ],
+            ans: 1,
+            exp: "Pyruvate Oxidation converts 2 Pyruvate (3C) into 2 Acetyl-CoA (2C), releasing 2 CO₂ and reducing 2 NAD⁺ to 2 NADH while producing 0 ATP."
+        },
+        {
+            q: "Why do Pyruvate Oxidation and the Krebs Cycle stop almost immediately when a cell is deprived of oxygen (O₂), even though neither pathway directly uses O₂ as a reactant?",
+            opts: [
+                "Oxygen is required to pump glucose into the cytoplasm",
+                "Without O₂ as the final electron acceptor, the ETC stops and can no longer regenerate NAD⁺ and FAD from NADH and FADH₂",
+                "Without O₂, RuBisCO denatures in the mitochondrial matrix",
+                "Oxygen directly phosphorylates ADP during the Krebs cycle"
+            ],
+            ans: 1,
+            exp: "As emphasized in Dr. Irwin's Cellular Respiration Outline, Pyruvate Oxidation and the Krebs Cycle depend indirectly on O₂ because the ETC must oxidize NADH and FADH₂ back into NAD⁺ and FAD for those matrix reactions to continue."
+        },
+        {
+            q: "What is the sole biochemical purpose of anaerobic fermentation (both lactic acid and alcoholic), and how much additional ATP does fermentation itself generate?",
+            opts: [
+                "To generate 34 additional ATP in the cristae",
+                "To oxidize NADH back into NAD⁺ so glycolysis can continue producing 2 net ATP; fermentation itself adds 0 ATP",
+                "To convert lactate into oxygen gas in the matrix",
+                "To pump protons into the thylakoid lumen"
+            ],
+            ans: 1,
+            exp: "Fermentation produces 0 ATP of its own. Its sole purpose is to recycle NADH back into NAD⁺ so that glycolysis does not run out of electron acceptors and can keep generating 2 net ATP per glucose."
+        },
+        {
+            q: "How many total carbon dioxide (CO₂) molecules are released per glucose during aerobic respiration, and which exact stages produce them?",
+            opts: [
+                "6 CO₂ total: 2 from Glycolysis and 4 from the ETC",
+                "6 CO₂ total: 2 from Pyruvate Oxidation and 4 from the Krebs Cycle (2 turns)",
+                "4 CO₂ total: all 4 from the Krebs Cycle",
+                "12 CO₂ total: 6 from Glycolysis and 6 from Fermentation"
+            ],
+            ans: 1,
+            exp: "All 6 carbons of glucose are exhaled as 6 CO₂: 2 CO₂ are cleaved off during Pyruvate Oxidation and 4 CO₂ are released during 2 turns of the Krebs Cycle."
+        },
+        {
+            q: "During the mitochondrial Electron Transport Chain, where are H⁺ ions actively pumped, and which direction do they diffuse through ATP Synthase?",
+            opts: [
+                "Pumped from intermembrane space into matrix; diffuse out into cytosol",
+                "Pumped from mitochondrial matrix into the intermembrane space; diffuse back into the matrix through ATP Synthase",
+                "Pumped from stroma into thylakoid lumen; diffuse back into stroma",
+                "Pumped from cytosol into the nucleus"
+            ],
+            ans: 1,
+            exp: "ETC protein complexes in the cristae pump H⁺ from the matrix into the intermembrane space (building a high [H⁺] gradient). H⁺ then flows down its electrochemical gradient back into the matrix through ATP Synthase."
+        },
+        {
+            q: "In the Poison Case Study, victim Nadia Che ate raw cassava root (which releases cyanide). Her toxicology report showed normal Pyruvate (0.10 mM), massively elevated NADH (0.50 mM), and severely depleted intermembrane H⁺ (0.07 mM). Why?",
+            opts: [
+                "Cyanide blocked Glycolysis, preventing pyruvate synthesis",
+                "Cyanide blocked Complex IV of the ETC, preventing NADH from donating electrons and halting H⁺ pumping into the intermembrane space",
+                "Cyanide blocked ATP Synthase, trapping H⁺ in the intermembrane space",
+                "Cyanide inhibited the first enzyme of the Krebs cycle"
+            ],
+            ans: 1,
+            exp: "Cyanide binds Complex IV (cytochrome c oxidase) of the ETC, blocking electron transfer to O₂. Consequently, NADH cannot be oxidized (piling up to 0.50 mM) and complexes cannot pump H⁺ into the intermembrane space (dropping to 0.07 mM)."
+        },
+        {
+            q: "In the Poison Case Study, victim Mei Nakamura inhaled an antibiotic pesticide containing Oligomycin. Her intermembrane H⁺ concentration spiked to 1.10 mM (normal: 0.25–0.35 mM) while ATP production crashed. What did Oligomycin block?",
+            opts: [
+                "Hexokinase in Glycolysis",
+                "Citrate synthase in the Krebs Cycle",
+                "The proton channel of ATP Synthase, preventing H⁺ from diffusing back into the matrix",
+                "Stomata guard cells"
+            ],
+            ans: 2,
+            exp: "Oligomycin directly blocks ATP Synthase. The upstream ETC continues pumping H⁺ into the intermembrane space, causing a massive buildup of H⁺ (1.10 mM) that cannot flow back into the matrix to phosphorylate ADP."
+        },
+        {
+            q: "Which of the following accurately describes the relationship between autotrophs (plants) and cellular respiration?",
+            opts: [
+                "Plants only perform photosynthesis and do not have mitochondria",
+                "Plants perform photosynthesis in chloroplasts to build glucose AND perform cellular respiration in mitochondria to convert glucose into ATP",
+                "Plants only perform cellular respiration when their leaves fall off in winter",
+                "Plants use ATP from the light reactions to power active transport in roots directly without respiration"
+            ],
+            ans: 1,
+            exp: "As emphasized in Dr. Irwin's Slide 2 (3C.1), both autotrophs and heterotrophs use cellular respiration in mitochondria to transfer energy from food molecules (glucose) into ATP for cellular work!"
+        },
+        {
+            q: "What is the role of stomata and guard cells in a plant leaf, and how does closing stomata on a hot, dry day affect the Calvin Cycle?",
+            opts: [
+                "Stomata absorb water from soil; closing them increases glucose output",
+                "Stomata are pores regulated by guard cells for gas exchange; closing them conserves water (reduces transpiration) but starves the Calvin Cycle of CO₂",
+                "Stomata contain chlorophyll a; closing them blocks light absorption",
+                "Stomata pump H⁺ into the matrix; closing them stops glycolysis"
+            ],
+            ans: 1,
+            exp: "Guard cells regulate stomata to balance CO₂ intake with water conservation (transpiration). When stomata close, CO₂ cannot enter the leaf, starving RuBisCO and halting the Calvin Cycle."
+        },
+        {
+            q: "Why do healthy plant leaves appear green, and why do they turn yellow and orange in the autumn?",
+            opts: [
+                "Chlorophyll absorbs green light best; in autumn, leaves synthesize green carotene",
+                "Chlorophyll a and b absorb red and blue-violet light while reflecting green light; in autumn, cooler temperatures and shorter days cause chlorophyll breakdown, unmasking yellow xanthophylls and orange carotenes",
+                "Thylakoids reflect blue light; in autumn, RuBisCO turns orange",
+                "Water absorbs red light; in autumn, stomata reflect yellow light"
+            ],
+            ans: 1,
+            exp: "Per Slide 11–13 (3C.1), chlorophyll absorbs blue-violet and red wavelengths strongly and reflects green. In fall, chlorophyll production stops and existing chlorophyll degrades, revealing accessory pigments (carotenoids and xanthophylls)."
+        },
+        {
+            q: "During the Light-Dependent Reactions of photosynthesis, why is water (H₂O) required at Photosystem II, and what happens to the oxygen atom in H₂O?",
+            opts: [
+                "Water is combined with CO₂ by RuBisCO in the stroma",
+                "Water is split (photolysis) by the oxygen-evolving complex to replace excited electrons lost by chlorophyll P680, releasing H⁺ into the thylakoid lumen and O₂ gas as a byproduct",
+                "Water accepts electrons at the end of ETC 2 to form NADPH",
+                "Water hydrolyzes glucose in the thylakoid membrane"
+            ],
+            ans: 1,
+            exp: "Per Slide 18 (3C.2), when light excites electrons in PSII (P680), an oxygen-evolving complex splits water (H₂O) to supply replacement electrons, releasing H⁺ into the thylakoid interior and producing all of the O₂ gas released by photosynthesis."
+        },
+        {
+            q: "How do Photosystem II (ETC 1) and Photosystem I (ETC 2) differ in their specific roles during the Light-Dependent Reactions?",
+            opts: [
+                "PSII occurs in the stroma and makes glucose; PSI occurs in the cristae and makes NADH",
+                "PSII pairs with ETC 1 (splitting water and building the H⁺ gradient to make ATP via ATP Synthase), whereas PSI pairs with ETC 2 (re-energizing electrons to reduce NADP⁺ into NADPH via NADP⁺ reductase)",
+                "PSI splits water and acts first; PSII reduces NADP⁺ and acts second",
+                "PSII consumes ATP while PSI consumes NADPH"
+            ],
+            ans: 1,
+            exp: "Per Dr. Irwin's Slide 16, 18, and 20: PSII acts first and pairs with ETC 1 to pump H⁺ into the thylakoid lumen to drive ATP Synthase (making ATP). PSI acts second and pairs with ETC 2, where NADP⁺ reductase reduces NADP⁺ to NADPH."
+        },
+        {
+            q: "During chemiosmosis in chloroplasts, where is the high concentration of H⁺ ions built up, and where do ATP and NADPH form?",
+            opts: [
+                "High [H⁺] builds up in the stroma; ATP and NADPH form inside the thylakoid lumen",
+                "High [H⁺] builds up inside the thylakoid interior (lumen); H⁺ diffuses out through ATP Synthase so both ATP and NADPH form on the stroma side of the membrane",
+                "High [H⁺] builds up in the mitochondrial matrix; ATP forms in the cytosol",
+                "High [H⁺] builds up outside the cell wall"
+            ],
+            ans: 1,
+            exp: "Per Slide 17–19 (3C.2), photolysis of water and ETC 1 accumulate H⁺ inside the thylakoid interior (lumen). H⁺ then diffuses out through ATP Synthase into the stroma, where both ATP and NADPH are produced right where the Calvin Cycle needs them."
+        },
+        {
+            q: "What are the 3 major phases of the Calvin Cycle in the stroma, and what is the specific role of the enzyme RuBisCO?",
+            opts: [
+                "1. Glycolysis, 2. Krebs, 3. ETC; RuBisCO splits water",
+                "1. Carbon Fixation (RuBisCO attaches CO₂ to 5-carbon RuBP), 2. Reduction (ATP & NADPH reduce 3-PGA to G3P), 3. Regeneration of RuBP (using ATP)",
+                "1. Photolysis, 2. Chemiosmosis, 3. Fermentation; RuBisCO synthesizes chlorophyll",
+                "1. Oxidation, 2. Phosphorylation, 3. Lysis; RuBisCO pumps H⁺"
+            ],
+            ans: 1,
+            exp: "Per Slide 27–30 of Unit 3C, the Calvin Cycle has 3 phases: (1) Carbon Fixation of CO₂ onto 5C RuBP catalyzed by RuBisCO, (2) Reduction of 3-PGA into G3P using 12 ATP and 12 NADPH, and (3) Regeneration of RuBP from 10 G3P using 6 ATP."
+        },
+        {
+            q: "During 6 turns of the Calvin Cycle (fixing 6 CO₂ to synthesize 1 molecule of C₆H₁₂O₆ glucose), how many G3P molecules are produced, how many exit to make glucose, and how many ATP and NADPH are consumed?",
+            opts: [
+                "12 G3P produced (2 G3P exit to make 1 glucose; 10 G3P recycled to RuBP), consuming 18 ATP and 12 NADPH",
+                "2 G3P produced (all 2 exit), consuming 2 ATP and 2 NADPH",
+                "6 G3P produced (6 exit), consuming 36 ATP and 24 NADPH",
+                "10 G3P produced, generating 38 ATP"
+            ],
+            ans: 0,
+            exp: "Per Slide 29 & 31 of Unit 3C: 6 CO₂ + 6 RuBP yield 12 3-PGA, which are reduced to 12 G3P. Only 2 G3P are used to build 1 glucose (6C), while 10 G3P are recycled back into 6 RuBP. In total, 6 turns consume 18 ATP and 12 NADPH."
+        },
+        {
+            q: "In the Photosynthesis STEM Case (Lab Packet p. 15), if an herbicide specifically blocks the Calvin Cycle while the Light-Dependent Reactions remain unharmed in bright light, what will happen to the concentrations of ATP, NADPH, and Sugars in the chloroplast?",
+            opts: [
+                "ATP decreases, NADPH decreases, Sugars increase",
+                "ATP increases, NADPH increases, Sugars decrease",
+                "ATP stays the same, NADPH decreases, Sugars increase",
+                "All three decrease to zero immediately"
+            ],
+            ans: 1,
+            exp: "If the Calvin Cycle stops working, sugar production drops immediately (↓). Because the Calvin Cycle is no longer consuming the ATP and NADPH being generated by the light reactions, ATP (↑) and NADPH (↑) accumulate in the stroma!"
+        },
+        {
+            q: "In the Photosynthesis STEM Case (Lab Packet p. 15), if a toxin specifically disables Photosystem I (PSI) while Photosystem II (PSII) and ETC 1 remain functional, what happens to ATP, NADPH, and Sugars?",
+            opts: [
+                "ATP stays the same (still made by PSII/ETC 1), NADPH decreases, and Sugars decrease",
+                "ATP increases, NADPH increases, and Sugars increase",
+                "ATP decreases, NADPH increases, and Sugars stay the same",
+                "ATP, NADPH, and Sugars all increase"
+            ],
+            ans: 0,
+            exp: "PSII and ETC 1 still split water and pump H⁺ to generate ATP normally (=), but because PSI is blocked, electrons cannot reduce NADP⁺ to NADPH (↓). Without NADPH, the Calvin Cycle cannot reduce 3-PGA into sugars (↓)."
+        },
+        {
+            q: "In the Algae Beads Lab (Lab Packet p. 16–17), two vials containing algae beads and red bicarbonate indicator solution (initial pH 8.4) are incubated for 45 minutes: Vial A is placed under a bright lamp, and Vial B is wrapped in aluminum foil. What color and pH changes occur, and why?",
+            opts: [
+                "Vial A turns yellow (pH 7.6) because light heats the water; Vial B turns purple (pH 9.2) because dark cools the water",
+                "Vial A turns purple (pH ~9.2) because photosynthesis consumes CO₂ faster than respiration releases it; Vial B turns yellow (pH ~7.6) because photosynthesis stops in the dark while cellular respiration releases acidic CO₂",
+                "Both vials turn yellow because algae only perform cellular respiration",
+                "Both vials turn purple because algae only perform photosynthesis"
+            ],
+            ans: 1,
+            exp: "In bright light (Vial A), rate of photosynthesis > rate of respiration, resulting in net removal of CO₂ and a rise in pH to ~9.2 (purple). In darkness (Vial B), photosynthesis halts while cellular respiration continues releasing CO₂, lowering pH to ~7.6 (yellow)."
+        },
+        {
+            q: "In the Enzyme Liver Lab (Lab Packet p. 2–4), fresh hydrogen peroxide (H₂O₂) was poured onto a piece of liver in Tube A, producing tall oxygen foam. When the remaining liquid was poured into Tube B and a fresh piece of liver was added to Tube B, no bubbles formed. Why?",
+            opts: [
+                "The catalase enzyme in the fresh liver was denatured by room temperature",
+                "All of the substrate (H₂O₂) in the poured-off liquid had already been converted into water (H₂O), demonstrating that substrate is not reusable",
+                "Catalase is consumed during the reaction and cannot be reused",
+                "Oxygen gas inhibited the fresh liver allosterically"
+            ],
+            ans: 1,
+            exp: "In Tube A, catalase broke down the H₂O₂ into H₂O and O₂ gas. The liquid poured into Tube B was just water (product)—proving that while the catalase enzyme in Tube A is reusable, the substrate (H₂O₂) is consumed and not reusable."
+        },
+        {
+            q: "Which molecule is regenerated by the Calvin Cycle and returned to the thylakoid membrane to keep the Light-Dependent Reactions running?",
+            opts: [
+                "NADH and FADH₂",
+                "NADP⁺ and ADP + Pi",
+                "Glucose and O₂",
+                "Pyruvate and Acetyl-CoA"
+            ],
+            ans: 1,
+            exp: "The Calvin Cycle consumes ATP and NADPH and regenerates ADP + Pi and NADP⁺, which return to the thylakoid membrane to be recharged by the Light-Dependent Reactions."
+        },
+        {
+            q: "Why is calling the Calvin Cycle 'light-independent' slightly misleading if taken too literally?",
+            opts: [
+                "Because RuBisCO only works in total midnight darkness",
+                "Because even though the Calvin Cycle does not directly absorb photons, it strictly depends on the ATP and NADPH continuously supplied by the light-dependent reactions",
+                "Because the Calvin Cycle splits water using green light",
+                "Because the Calvin Cycle occurs inside the mitochondrial cristae"
+            ],
+            ans: 1,
+            exp: "As noted in Dr. Irwin's Slide 8 script (3C.1), calling the Calvin cycle 'light-independent' only means it does not directly absorb light photons—it still depends immediately on the ATP and NADPH produced by the light reactions."
+        }
+    ];
+
+    let simAnswered = 0;
+    let simCorrect = 0;
+
+    function renderSim() {
+        const container = document.getElementById('sim-container');
+        container.innerHTML = '';
+        document.getElementById('sim-total').innerText = simQuestions.length;
+        simQuestions.forEach((item, idx) => {
+            const card = document.createElement('div');
+            card.className = 'quiz-card';
+            card.id = 'sim-q-' + idx;
+
+            const title = document.createElement('div');
+            title.style.fontWeight = '700';
+            title.style.marginBottom = '10px';
+            title.innerHTML = `<span style="color: var(--accent-green); margin-right: 6px;">Q${idx + 1}.</span> ${item.q}`;
+            card.appendChild(title);
+
+            item.opts.forEach((opt, oIdx) => {
+                const btn = document.createElement('button');
+                btn.className = 'quiz-opt';
+                btn.innerHTML = `<strong>${String.fromCharCode(65 + oIdx)}.</strong> ${opt}`;
+                btn.onclick = () => checkSim(idx, oIdx);
+                card.appendChild(btn);
+            });
+
+            const exp = document.createElement('div');
+            exp.className = 'quiz-exp';
+            exp.id = 'sim-exp-' + idx;
+            card.appendChild(exp);
+
+            container.appendChild(card);
+        });
+    }
+
+    function checkSim(qIdx, oIdx) {
+        const card = document.getElementById('sim-q-' + qIdx);
+        const btns = card.querySelectorAll('.quiz-opt');
+        if (btns[0].disabled) return;
+
+        const item = simQuestions[qIdx];
+        btns.forEach((b, i) => {
+            b.disabled = true;
+            if (i === item.ans) b.classList.add('correct');
+            if (i === oIdx && i !== item.ans) b.classList.add('wrong');
+        });
+
+        simAnswered++;
+        if (oIdx === item.ans) simCorrect++;
+
+        const pct = Math.round((simCorrect / simAnswered) * 100);
+        document.getElementById('sim-score').innerText = simCorrect;
+        document.getElementById('sim-pct').innerText = pct + '%';
+
+        const exp = document.getElementById('sim-exp-' + qIdx);
+        exp.style.display = 'block';
+        exp.innerHTML = `<strong>${oIdx === item.ans ? '✅ Correct!' : '❌ Incorrect.'}</strong> ${item.exp}`;
+    }
+
+    function resetSim() {
+        simAnswered = 0;
+        simCorrect = 0;
+        document.getElementById('sim-score').innerText = '0';
+        document.getElementById('sim-pct').innerText = '0%';
+        renderSim();
+    }
+
+    renderSim();
+</script>
+</body>
+</html>

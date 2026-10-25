@@ -1,4 +1,6 @@
-# Cheat Sheet
+# Cheat Sheet (Unit 3A & 3B Core + Summative Alignment)
+
+> 🔥 **Studying for the Oct 30 (MCQ) & Nov 2 (SA) Unit 3 Summative?** Open the full summative hub at [`../Unit 3 Summative-10-30/Unit_03_Summative_Study_Portal.html`](../Unit%203%20Summative-10-30/Unit_03_Summative_Study_Portal.html) and [`../Unit 3 Summative-10-30/Unit_03_Summative_Master_Study_Guide_and_Keys.md`](../Unit%203%20Summative-10-30/Unit_03_Summative_Master_Study_Guide_and_Keys.md) (which adds full 3C Photosynthesis, Review Stations 1–8, Lab Packet Labs 1–5 including the Algae Bead pH scale, and Nov 2 Short Answer Blueprints).
 
 ## Enzymes
 - Protein catalysts; **lower Ea**, do NOT change ΔG, not consumed. Say "denatured", never "killed".
@@ -18,8 +20,8 @@
 |---|---|---|
 | Glycolysis | cytoplasm | glucose → 2 pyruvate, 2 ATP net, 2 NADH |
 | Pyruvate oxidation | matrix | pyruvate → acetyl-CoA, CO2, NADH |
-| Krebs | matrix | CO2, NADH, FADH2, ATP |
-| ETC + chemiosmosis | inner membrane (cristae) | NADH/FADH2 → ~26-28 ATP, O2 → H2O |
+| Krebs | matrix | CO2, NADH, FADH2, 2 ATP |
+| ETC + chemiosmosis | inner membrane (cristae) | NADH/FADH2 → **32-34 ATP** (36-38 total ATP/glucose per Dr. Irwin's script & outline), O2 → H2O |
 - O2 = final electron acceptor. ATP synthase makes ATP as H+ flows down gradient into matrix.
 - Fermentation (no O2): regenerates **NAD+** so glycolysis continues; no extra ATP. Lactic acid (muscle) / ethanol + CO2 (yeast).
 - Cristae = more surface area for ETC.

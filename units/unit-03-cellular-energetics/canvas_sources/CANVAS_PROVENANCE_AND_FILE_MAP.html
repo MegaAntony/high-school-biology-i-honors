@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semester 1 Master Schedule  Weekly Agendas - Biology I Honors</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    code, pre { font-family: 'JetBrains Mono', monospace; }
+    
+    /* Markdown Content Typography */
+    .prose-biology h1 {
+      font-size: 1.875rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #334155;
+      letter-spacing: -0.025em;
+    }
+    .prose-biology h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+    .prose-biology h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #38bdf8;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .prose-biology h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #34d399;
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .prose-biology p {
+      color: #cbd5e1;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    .prose-biology strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .prose-biology ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+      color: #cbd5e1;
+    }
+    .prose-biology ol {
+      list-style-type: decimal;
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+      color: #cbd5e1;
+    }
+    .prose-biology li {
+      margin-bottom: 0.375rem;
+      line-height: 1.6;
+    }
+    .prose-biology li strong {
+      color: #f8fafc;
+    }
+    .prose-biology a {
+      color: #38bdf8;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.15s ease;
+    }
+    .prose-biology a:hover {
+      color: #7dd3fc;
+      text-decoration: none;
+    }
+    .prose-biology blockquote {
+      border-left: 4px solid #10b981;
+      background-color: rgba(16, 185, 129, 0.08);
+      padding: 0.75rem 1rem;
+      margin: 1.25rem 0;
+      border-radius: 0 0.5rem 0.5rem 0;
+      color: #e2e8f0;
+      font-style: italic;
+    }
+    .prose-biology blockquote p {
+      margin-bottom: 0;
+      color: #e2e8f0;
+    }
+    .prose-biology code {
+      background-color: #1e293b;
+      color: #fbbf24;
+      padding: 0.2rem 0.4rem;
+      border-radius: 0.375rem;
+      font-size: 0.85em;
+      border: 1px solid #334155;
+    }
+    .prose-biology pre {
+      background-color: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 0.75rem;
+      padding: 1rem;
+      overflow-x: auto;
+      margin: 1.25rem 0;
+    }
+    .prose-biology pre code {
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      color: #34d399;
+      font-size: 0.875rem;
+    }
+    .prose-biology hr {
+      border: 0;
+      border-top: 1px solid #334155;
+      margin: 2rem 0;
+    }
+    /* Table Styling */
+    .prose-biology table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.875rem;
+      background-color: #1e293b;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      border: 1px solid #334155;
+    }
+    .prose-biology th {
+      background-color: #0f172a;
+      color: #34d399;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.75rem;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #334155;
+      text-align: left;
+    }
+    .prose-biology td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #334155;
+      color: #cbd5e1;
+      vertical-align: top;
+    }
+    .prose-biology tr:last-child td {
+      border-bottom: none;
+    }
+    .prose-biology tr:nth-child(even) td {
+      background-color: rgba(15, 23, 42, 0.4);
+    }
+    .prose-biology tr:hover td {
+      background-color: rgba(51, 65, 85, 0.4);
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between">
+
+  <!-- HEADER -->
+  <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="../../../index.html" class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center text-slate-950 font-black text-lg shadow-lg shadow-emerald-500/20 hover:scale-105 transition">
+          <i class="fa-solid fa-dna"></i>
+        </a>
+        <div>
+          <a href="../../../index.html" class="text-lg font-black tracking-tight text-white hover:text-emerald-400 transition">Biology I Honors V2</a>
+          <p class="text-xs text-slate-400 font-medium">South Forsyth High School • Dr. Irwin (2026/2027)</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2.5">
+        <a href="../../../index.html" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 px-3.5 py-2 rounded-xl border border-slate-700 transition flex items-center gap-1.5">
+          <i class="fa-solid fa-house text-emerald-400"></i> Home
+        </a>
+        <a href="../../../schedule/semester-1.html" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 px-3.5 py-2 rounded-xl border border-slate-700 transition flex items-center gap-1.5">
+          <i class="fa-regular fa-calendar text-teal-400"></i> S1 Schedule
+        </a>
+        <a href="../../../units/unit-03-cellular-energetics/Unit%203%20Summative-10-30/Unit_03_Summative_Study_Portal.html" class="text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-md shadow-emerald-600/30">
+          <i class="fa-solid fa-vial"></i> Practice Tests
+        </a>
+        <a href="../../../notInLocal.html" class="text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-md shadow-indigo-600/30 hidden sm:flex">
+          <i class="fa-solid fa-cloud"></i> Cloud Links
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB & CONTENT CONTAINER -->
+  <main class="max-w-5xl mx-auto px-6 py-8 flex-1 w-full space-y-6">
+
+    <!-- BREADCRUMB -->
+    <nav class="flex items-center gap-2 text-xs text-slate-400">
+      <a href="../../../index.html" class="hover:text-emerald-400 transition flex items-center gap-1">
+        <i class="fa-solid fa-house text-[10px]"></i> Home
+      </a>
+      <i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i>
+      <span class="text-slate-400">Schedule</span><i class="fa-solid fa-chevron-right text-[9px] text-slate-600"></i>
+      <span class="text-slate-200 font-semibold truncate max-w-xs">Semester 1 Master Schedule &amp; Weekly Agendas</span>
+    </nav>
+
+    <!-- CONTENT CARD -->
+    <div class="bg-slate-800/60 border border-slate-700/60 rounded-3xl p-6 sm:p-10 shadow-xl backdrop-blur">
+      <article class="prose-biology">
+<h1 id="canvas-api-provenance-local-file-verification-map-course-276259">Canvas API Provenance &amp; Local File Verification Map (Course <code>276259</code>)</h1>
+<p>All raw Canvas REST API JSON responses fetched from <code>https://forsyth.instructure.com/api/v1/courses/276259</code> are stored in this directory (<code>canvas_sources/</code>) so that every weekly agenda (<code>S1W8</code>–<code>S1W10</code>), resource page, module item, Canvas file ID, and Google Drive/Docs/Slides ID can be verified offline directly from disk.</p>
+<h2 id="1-raw-canvas-api-json-snapshots-in-canvas_sources">1. Raw Canvas API JSON Snapshots in <code>canvas_sources/</code></h2>
+<ul>
+<li><a href="modules_276259.json"><code>modules_276259.json</code></a> — Full course modules and module items list (<code>/api/v1/courses/276259/modules?include[]=items&amp;per_page=50</code>).</li>
+<li><a href="page_unit-3-cellular-energy.json"><code>page_unit-3-cellular-energy.json</code></a> — Master Unit 3 resource page (<code>/api/v1/courses/276259/pages/unit-3-cellular-energy</code>) containing the embedded <code>iframe</code> Google Slides (<code>3A</code>, <code>3B</code>, <code>3C</code>) and links for the Student Notes Packet, Lab Packet, Poison Case Study Cards &amp; Victim Lab Results, Cellular Energy Review Stations PPT, and Review Stations Student Handout.</li>
+<li><a href="page_s1w8-10-slash-5-10-slash-9.json"><code>page_s1w8-10-slash-5-10-slash-9.json</code></a> — Weekly agenda for <strong>S1W8 (Oct 5 – Oct 9)</strong>: Enzymes, Catalase Liver Lab, ATP Candy Modeling (<code>files/21257074</code>, <code>files/21325263</code>).</li>
+<li><a href="page_s1w9-10-slash-12-10-slash-16.json"><code>page_s1w9-10-slash-12-10-slash-16.json</code></a> — Weekly agenda for <strong>S1W9 (Oct 12 – Oct 16)</strong>: Cellular Respiration Intro (<code>files/21369044</code>), Glycolysis &amp; Fermentation (<code>files/21369085</code>), Pyruvate Oxidation &amp; Krebs Cycle (<code>files/21412960</code>), and Electron Transport Chain (<code>files/21412950</code>).</li>
+<li><a href="page_s1w10-10-slash-19-10-slash-23.json"><code>page_s1w10-10-slash-19-10-slash-23.json</code></a> — Weekly agenda for <strong>S1W10 (Oct 19 – Oct 23)</strong> (also identical to <a href="front_page.json"><code>front_page.json</code></a>): Photosynthesis Supplementary Notes 3C.1 (<code>files/21509343</code>), Supplementary Notes 3C.2 (<code>files/21509353</code>), Cellular Respiration Master Outline "Look at this Resource!" (<code>files/21509385</code>), Review Stations, Lab Packet Check, and Unit 3 Summative (MCQ + Short Answer).</li>
+<li><a href="page_honors-biology-vocabulary-links-and-blooket-practice-by-unit.json"><code>page_honors-biology-vocabulary-links-and-blooket-practice-by-unit.json</code></a> — Course-wide Vocabulary &amp; Blooket page (<code>1Gw_RmtW-IZw39J8JikmEPSyVg0n8bl55SX6UGAIm1f0</code> for Blooket Practice; note that <code>1dSTRGk3MNSZlcQTs7GaSJRLuAxVGBp6rfkASiI6-2c0</code> for Unit 3 Extended Academic Vocabulary returns <code>HTTP 410 Gone</code> on Google Drive).</li>
+<li><a href="page_biology-videos-2.json"><code>page_biology-videos-2.json</code></a> — Curated Biology Videos page (<code>/api/v1/courses/276259/pages/biology-videos-2</code>).</li>
+<li><a href="assignments_276259.json"><code>assignments_276259.json</code></a> — Course assignments metadata (<code>/api/v1/courses/276259/assignments?per_page=50</code>).</li>
+</ul>
+<h2 id="2-complete-21-pdf-provenance-verbatim-ids-sha-256-checksums">2. Complete 21-PDF Provenance, Verbatim IDs &amp; SHA-256 Checksums</h2>
+<div class="overflow-x-auto my-4"><table>
+<thead>
+<tr>
+<th style="text-align: center;">#</th>
+<th style="text-align: left;">Local PDF in <code>materials/pdf/</code></th>
+<th style="text-align: left;">Source JSON in <code>canvas_sources/</code></th>
+<th style="text-align: left;">Verbatim Canvas File ID / Google Drive ID in JSON</th>
+<th style="text-align: center;">Size (Bytes)</th>
+<th style="text-align: left;">SHA-256 (First 16 Hex)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;"><a href="../materials/pdf/HB_Unit_3A_Enzymes_PPT.pdf"><code>HB_Unit_3A_Enzymes_PPT.pdf</code></a></td>
+<td style="text-align: left;"><code>page_unit-3-cellular-energy.json</code></td>
+<td style="text-align: left;">Google Slides iframe: <code>1NQ8uZlj1Kx65XSWIV_z7cg6N4UlMYyd2KZystDQ53Pc</code></td>
+<td style="text-align: center;"><code>2,829,637</code></td>
+<td style="text-align: left;"><code>2efddc060f28838d</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;"><a href="../materials/pdf/HB_Unit_3A_Enzymes_ATP_Script_Slides_1_16.pdf"><code>HB_Unit_3A_Enzymes_ATP_Script_Slides_1_16.pdf</code></a></td>
+<td style="text-align: left;"><code>page_s1w8-10-slash-5-10-slash-9.json</code></td>
+<td style="text-align: left;">Canvas File ID: <code>21257074</code> (<code>/courses/276259/files/21257074</code>)</td>
+<td style="text-align: center;"><code>116,539</code></td>
+<td style="text-align: left;"><code>dc836b7d4eeca6ed</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;"><a href="../materials/pdf/HB_Unit_3A_Enzymes_ATP_Script_Slides_17_27.pdf"><code>HB_Unit_3A_Enzymes_ATP_Script_Slides_17_27.pdf</code></a></td>
+<td style="text-align: left;"><code>page_s1w8-10-slash-5-10-slash-9.json</code></td>
+<td style="text-align: left;">Canvas File ID: <code>21325263</code> (<code>/courses/276259/files/21325263</code>)</td>
+<td style="text-align: center;"><code>27,535</code></td>
+<td style="text-align: left;"><code>ea73c94b74eb5f13</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;"><a href="../materials/pdf/HB_Unit_3B_Cellular_Respiration_PPT.pdf"><code>HB_Unit_3B_Cellular_Respiration_PPT.pdf</code></a></td>
+<td style="text-align: left;"><code>page_unit-3-cellular-energy.json</code></td>
+<td style="text-align: left;">Google Slides iframe: <code>1LREEoD8Q81D9IjF1KuQAA3W0_4PtA8ja-O4ow1U3nIs</code></td>
+<td style="text-align: center;"><code>2,182,699</code></td>
+<td style="text-align: left;"><code>92c873598533c054</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;"><a href="../materials/pdf/Honors_Biology_3B_Cellular_Respiration_Script_Slides_1_7.pdf"><code>Honors_Biology_3B_Cellular_Respiration_Script_Slides_1_7.pdf</code></a></td>
+<td style="text-align: left;"><code>page_s1w9-10-slash-12-10-slash-16.json</code></td>
+<td style="text-align: left;">Canvas File ID: <code>21369044</code> (<code>/courses/276259/files/21369044</code>)</td>
+<td style="text-align: center;"><code>168,218</code></td>
+<td style="text-align: left;"><code>817ae0fb1ba9bf89</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;"><a href="../materials/pdf/Honors_Biology_3B_Glycolysis_and_Fermentation_Script_Slides_8_16.pdf"><code>Honors_Biology_3B_Glycolysis_and_Fermentation_Script_Slides_8_16.pdf</code></a></td>
+<td style="text-align: left;"><code>page_s1w9-10-slash-12-10-slash-16.json</code></td>
+<td style="text-align: left;">Canvas File ID: <code>21369085</code> (<code>/courses/276259/files/21369085</code>)</td>
+<td style="text-align: center;"><code>175,026</code></td>
+<td style="text-align: left;"><code>3057934f99dfd5c6</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: left;"><a href="../materials/pdf/Honors_Biology_Pyruvate_Oxidation_and_Krebs_Cycle_Script_Slides_17_26.pdf"><code>Honors_Biology_Pyruvate_Oxidation_and_Krebs_Cycle_Script_Slides_17_26.pdf</code></a></td>
+<td style="text-align: left;"><code>page_s1w9-10-slash-12-10-slash-16.json</code></td>
+<td style="text-align: left;">Canvas File ID: <code>21412960</code> (<code>/courses/276259/files/21412960</code>)</td>
+<td style="text-align: center;"><code>176,950</code></td>
+<td style="text-align: left;"><code>bb822a9a20db52bc</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: left;"><a href="../materials/pdf/Honors_Biology_Electron_Transport_Chain_Script_Slides_27_36.pdf"><code>Honors_Biology_Electron_Transport_Chain_Script_Slides_27_36.pdf</code></a></td>
+<td style="text-align: left;"><code>page_s1w9-10-slash-12-10-slash-16.json &amp; page_s1w10-10-slash-19-10-slash-23.json</code></td>
+<td style="text-align: left;">Canvas File ID: <code>21412950</code> (<code>/courses/276259/files/21412950</code>)</td>
+<td style="text-align: center;"><code>179,851</code></td>
+<td style="text-align: left;"><code>8fb5c6aa0d9ada74</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td style="text-align: left;"><a href="../materials/pdf/Honors_Biology_Cellular_Respiration_Outline.pdf"><code>Honors_Biology_Cellular_Respiration_Outline.pdf</code></a></td>
+<td style="text-align: left;"><code>page_s1w10-10-slash-19-10-slash-23.json</code></td>
+<td style="text-align: left;">Canvas File ID: <code>21509385</code> (<code>/courses/276259/files/21509385</code> — "Look at this Resource!")</td>
+<td style="text-align: center;"><code>160,958</code></td>
+<td style="text-align: left;"><code>c729bbb7943dcd7c</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td style="text-align: left;"><a href="../materials/pdf/HB_Unit_3C_Photosynthesis_PPT.pdf"><code>HB_Unit_3C_Photosynthesis_PPT.pdf</code></a></td>
+<td style="text-align: left;"><code>page_unit-3-cellular-energy.json</code></td>
+<td style="text-align: left;">Google Slides iframe: <code>1atICmhPIZnpfiSvKzXgVoxultmYh-DEuV41hq5jezaA</code></td>
+<td style="text-align: center;"><code>3,101,222</code></td>
+<td style="text-align: left;"><code>24bf8aeb5e40619a</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">11</td>
+<td style="text-align: left;"><a href="../materials/pdf/Honors_Biology_Photosynthesis_Script_Slides_1_13.pdf"><code>Honors_Biology_Photosynthesis_Script_Slides_1_13.pdf</code></a></td>
+<td style="text-align: left;"><code>page_s1w10-10-slash-19-10-slash-23.json</code></td>
+<td style="text-align: left;">Canvas File ID: <code>21509343</code> (<code>/courses/276259/files/21509343</code> — Supplementary Notes 3C.1)</td>
+<td style="text-align: center;"><code>185,602</code></td>
+<td style="text-align: left;"><code>e02d280c2f45d52e</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">12</td>
+<td style="text-align: left;"><a href="../materials/pdf/Honors_Biology_Photosynthesis_Script_Slides_14_19.pdf"><code>Honors_Biology_Photosynthesis_Script_Slides_14_19.pdf</code></a></td>
+<td style="text-align: left;"><code>page_s1w10-10-slash-19-10-slash-23.json</code></td>
+<td style="text-align: left;">Canvas File ID: <code>21509353</code> (<code>/courses/276259/files/21509353</code> — Supplementary Notes 3C.2)</td>
+<td style="text-align: center;"><code>168,195</code></td>
+<td style="text-align: left;"><code>84c4b6f40a1b0a44</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">13</td>
+<td style="text-align: left;"><a href="../materials/pdf/HB_Unit_3_Cellular_Energy_Review_Stations.pdf"><code>HB_Unit_3_Cellular_Energy_Review_Stations.pdf</code></a></td>
+<td style="text-align: left;"><code>page_unit-3-cellular-energy.json</code></td>
+<td style="text-align: left;">Google Slides href: <code>1zC-NdXNITL101vuiGH2vATsBYGPjAXct</code></td>
+<td style="text-align: center;"><code>1,063,598</code></td>
+<td style="text-align: left;"><code>d160b67c1676e6cf</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">14</td>
+<td style="text-align: left;"><a href="../materials/pdf/Cellular_Energy_Review_Stations_Student_Handout.pdf"><code>Cellular_Energy_Review_Stations_Student_Handout.pdf</code></a></td>
+<td style="text-align: left;"><code>page_unit-3-cellular-energy.json</code></td>
+<td style="text-align: left;">Google Doc href: <code>1IECKsV15ktV8xbp38qDCCglGRsP6bRfzTPPXlrPdBH8</code></td>
+<td style="text-align: center;"><code>838,538</code></td>
+<td style="text-align: left;"><code>cf8e09074be83e75</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">15</td>
+<td style="text-align: left;"><a href="../materials/pdf/Unit%203%20Student%20Notes%20Packet%2026-27.pdf"><code>Unit 3 Student Notes Packet 26-27.pdf</code></a></td>
+<td style="text-align: left;"><code>page_unit-3-cellular-energy.json &amp; S1W8–S1W10</code></td>
+<td style="text-align: left;">Google Drive href: <code>1KKcJAhVG56Yw9e9CGDtXrmoIjDIPOKLL</code></td>
+<td style="text-align: center;"><code>8,179,493</code></td>
+<td style="text-align: left;"><code>a7ff0a8faa50660f</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">16</td>
+<td style="text-align: left;"><a href="../materials/pdf/HB_Unit_3_Student_Notes_Packet.pdf"><code>HB_Unit_3_Student_Notes_Packet.pdf</code></a></td>
+<td style="text-align: left;"><code>page_unit-3-cellular-energy.json</code></td>
+<td style="text-align: left;">Google Drive href: <code>1KKcJAhVG56Yw9e9CGDtXrmoIjDIPOKLL</code> (normalized filename copy)</td>
+<td style="text-align: center;"><code>8,179,493</code></td>
+<td style="text-align: left;"><code>a7ff0a8faa50660f</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">17</td>
+<td style="text-align: left;"><a href="../materials/pdf/Unit%203%20Lab%20Packet%2026-27.pdf"><code>Unit 3 Lab Packet 26-27.pdf</code></a></td>
+<td style="text-align: left;"><code>page_unit-3-cellular-energy.json &amp; S1W8</code></td>
+<td style="text-align: left;">Google Drive href: <code>1EqxSfY0qu-liCtqLz4iMehkVdlPKde9U</code></td>
+<td style="text-align: center;"><code>5,886,947</code></td>
+<td style="text-align: left;"><code>081f8a4e1275669c</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">18</td>
+<td style="text-align: left;"><a href="../materials/pdf/HB_Unit_3_Lab_Packet.pdf"><code>HB_Unit_3_Lab_Packet.pdf</code></a></td>
+<td style="text-align: left;"><code>page_unit-3-cellular-energy.json</code></td>
+<td style="text-align: left;">Google Drive href: <code>1EqxSfY0qu-liCtqLz4iMehkVdlPKde9U</code> (normalized filename copy)</td>
+<td style="text-align: center;"><code>5,886,947</code></td>
+<td style="text-align: left;"><code>081f8a4e1275669c</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">19</td>
+<td style="text-align: left;"><a href="../materials/pdf/Cards%20for%20Poison%20case%20study.pdf"><code>Cards for Poison case study.pdf</code></a></td>
+<td style="text-align: left;"><code>page_unit-3-cellular-energy.json</code></td>
+<td style="text-align: left;">Google Drive href: <code>1YvTA5DtCmdtXEa3ZGj_bCQNPFDuLxMQI</code></td>
+<td style="text-align: center;"><code>916,167</code></td>
+<td style="text-align: left;"><code>06d1dbc02a86db26</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">20</td>
+<td style="text-align: left;"><a href="../materials/pdf/Lab%20Results%20Poison%20Case%20Study.pdf"><code>Lab Results Poison Case Study.pdf</code></a></td>
+<td style="text-align: left;"><code>page_unit-3-cellular-energy.json</code></td>
+<td style="text-align: left;">Google Drive href: <code>1X3eH1B3GqW4sCs6H_nGR8ZAS42dQDkpA</code></td>
+<td style="text-align: center;"><code>197,128</code></td>
+<td style="text-align: left;"><code>1b8a07e7a0d66027</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">21</td>
+<td style="text-align: left;"><a href="../materials/pdf/Honors%20Biology%20Blooket%20Practice.pdf"><code>Honors Biology Blooket Practice.pdf</code></a></td>
+<td style="text-align: left;"><code>page_s1w9 &amp; page_s1w10 &amp; vocab_blooket</code></td>
+<td style="text-align: left;">Google Doc href: <code>1Gw_RmtW-IZw39J8JikmEPSyVg0n8bl55SX6UGAIm1f0</code></td>
+<td style="text-align: center;"><code>65,667</code></td>
+<td style="text-align: left;"><code>dc1ef96733d471f9</code></td>
+</tr>
+</tbody>
+</table></div>
+      </article>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800 bg-slate-950 py-8 text-center text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>Grade 9 Biology I Honors • South Forsyth High School • Dr. Sarah Irwin</p>
+      <div class="flex items-center gap-4">
+        <a href="../../../index.html" class="hover:text-slate-300 transition">Portal Home</a>
+        <a href="../../../schedule/semester-1.html" class="hover:text-slate-300 transition">Schedule</a>
+        <a href="../../../notInLocal.html" class="hover:text-slate-300 transition">Cloud Links</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
