@@ -845,22 +845,6 @@
     if (savedQuiz) {
         scoreBox.textContent = 'Last score: ' + savedQuiz.correct + ' / ' + savedQuiz.total + '. Retake to improve it.';
     }
-
-    // ----- Theme Switcher & Persistence -----
-    window.toggleTheme = function() {
-        const isDark = document.documentElement.classList.toggle('dark');
-        save('bio_theme', isDark ? 'dark' : 'light');
-        updateThemeToggleBtn();
-    };
-
-    function updateThemeToggleBtn() {
-        const btn = document.getElementById('themeToggleBtn');
-        if (!btn) return;
-        const isDark = document.documentElement.classList.contains('dark');
-        btn.innerHTML = isDark ? '☀️ Google Clean' : '🌙 Dark Mode';
-        btn.setAttribute('aria-label', isDark ? 'Switch to Google Clean Light Theme' : 'Switch to Dark Mode');
-    }
-    updateThemeToggleBtn();
 })();
 </script>
 </body>
