@@ -136,23 +136,54 @@ html:not(.dark) header nav a[href="#short-answer"]:hover {
   background-color: #feefc3 !important;
 }
 
-/* Base Canvas & Background Overrides */
+/* ==========================================================================
+   UNIVERSAL BACKGROUND & CARD OVERRIDES (Light Mode)
+   ========================================================================== */
+
+/* Dark Slate 950 Overrides */
 html:not(.dark) .bg-slate-950,
-html:not(.dark) .bg-slate-950\/90 {
-  background-color: var(--google-bg-canvas) !important;
+html:not(.dark) .bg-slate-950\/60,
+html:not(.dark) .bg-slate-950\/70,
+html:not(.dark) .bg-slate-950\/80,
+html:not(.dark) .bg-slate-950\/85,
+html:not(.dark) .bg-slate-950\/90,
+html:not(.dark) .bg-slate-950\/95 {
+  background-color: #ffffff !important;
+  border-color: var(--google-border) !important;
+  color: var(--google-text-primary) !important;
 }
 
+/* Dark Slate 900 Overrides */
 html:not(.dark) .bg-slate-900,
-html:not(.dark) .bg-slate-900\/90 {
+html:not(.dark) .bg-slate-900\/60,
+html:not(.dark) .bg-slate-900\/70,
+html:not(.dark) .bg-slate-900\/80,
+html:not(.dark) .bg-slate-900\/85,
+html:not(.dark) .bg-slate-900\/90,
+html:not(.dark) .bg-slate-900\/95 {
   background-color: var(--google-bg-card) !important;
   border-color: var(--google-border) !important;
   box-shadow: var(--google-card-shadow) !important;
 }
 
-html:not(.dark) .bg-slate-800 {
+/* Dark Slate 800 Overrides */
+html:not(.dark) .bg-slate-800,
+html:not(.dark) .bg-slate-800\/60,
+html:not(.dark) .bg-slate-800\/70,
+html:not(.dark) .bg-slate-800\/80,
+html:not(.dark) .bg-slate-800\/90 {
   background-color: var(--google-bg-subtle) !important;
   border-color: var(--google-border) !important;
   color: var(--google-text-primary) !important;
+}
+
+/* Gradients on Panels in Light Mode */
+html:not(.dark) .bg-gradient-to-br,
+html:not(.dark) #how-to-study-panel {
+  background-image: none !important;
+  background-color: #ffffff !important;
+  border: 2px solid var(--google-blue-border) !important;
+  box-shadow: 0 4px 12px rgba(26, 115, 232, 0.1) !important;
 }
 
 /* Card Borders */
@@ -161,7 +192,11 @@ html:not(.dark) .border-slate-700 {
   border-color: var(--google-border) !important;
 }
 
-/* Text Colors */
+/* ==========================================================================
+   TYPOGRAPHY & ACCENTS (High Contrast in Light Mode)
+   ========================================================================== */
+
+/* Primary, Secondary, Muted Text */
 html:not(.dark) .text-white {
   color: var(--google-text-primary) !important;
 }
@@ -174,49 +209,63 @@ html:not(.dark) .text-slate-500 {
   color: var(--google-text-muted) !important;
 }
 
-/* Accent Badges in Light Mode */
+/* High Contrast Green (Emerald) */
+html:not(.dark) .text-emerald-200,
 html:not(.dark) .text-emerald-300,
 html:not(.dark) .text-emerald-400 {
   color: var(--google-green-text) !important;
+  font-weight: 700;
 }
 html:not(.dark) .bg-emerald-500\/10,
 html:not(.dark) .bg-emerald-500\/15,
-html:not(.dark) .bg-emerald-500\/20 {
+html:not(.dark) .bg-emerald-500\/20,
+html:not(.dark) .bg-emerald-500\/30 {
   background-color: var(--google-green-bg) !important;
   color: var(--google-green-text) !important;
   border-color: rgba(52, 168, 83, 0.35) !important;
 }
 
+/* High Contrast Blue (Sky/Indigo) */
 html:not(.dark) .text-sky-200,
 html:not(.dark) .text-sky-300,
-html:not(.dark) .text-sky-400 {
+html:not(.dark) .text-sky-400,
+html:not(.dark) .text-indigo-200,
+html:not(.dark) .text-indigo-300 {
   color: var(--google-blue) !important;
+  font-weight: 700;
 }
 html:not(.dark) .bg-sky-500\/10,
 html:not(.dark) .bg-sky-500\/20,
-html:not(.dark) .bg-sky-900 {
+html:not(.dark) .bg-sky-500\/30,
+html:not(.dark) .bg-sky-900,
+html:not(.dark) .bg-indigo-500\/20 {
   background-color: var(--google-blue-bg) !important;
   color: var(--google-blue) !important;
   border-color: rgba(26, 115, 232, 0.35) !important;
 }
 
+/* High Contrast Amber */
 html:not(.dark) .text-amber-200,
 html:not(.dark) .text-amber-300,
 html:not(.dark) .text-amber-400 {
   color: var(--google-amber) !important;
+  font-weight: 700;
 }
 html:not(.dark) .bg-amber-500\/10,
 html:not(.dark) .bg-amber-500\/15,
-html:not(.dark) .bg-amber-500\/20 {
+html:not(.dark) .bg-amber-500\/20,
+html:not(.dark) .bg-amber-500\/30 {
   background-color: var(--google-amber-bg) !important;
   color: var(--google-amber-text) !important;
   border-color: rgba(249, 171, 0, 0.35) !important;
 }
 
+/* High Contrast Red (Rose) */
 html:not(.dark) .text-rose-200,
 html:not(.dark) .text-rose-300,
 html:not(.dark) .text-rose-400 {
   color: var(--google-red-text) !important;
+  font-weight: 700;
 }
 html:not(.dark) .bg-rose-500\/10,
 html:not(.dark) .bg-rose-500\/15,
@@ -226,24 +275,162 @@ html:not(.dark) .bg-rose-500\/20 {
   border-color: rgba(234, 67, 53, 0.35) !important;
 }
 
+/* High Contrast Purple & Pink */
 html:not(.dark) .text-pink-200,
 html:not(.dark) .text-pink-300,
-html:not(.dark) .text-pink-400 {
+html:not(.dark) .text-pink-400,
+html:not(.dark) .text-purple-200,
+html:not(.dark) .text-purple-300 {
   color: var(--google-purple) !important;
+  font-weight: 700;
 }
 html:not(.dark) .bg-pink-500\/10,
 html:not(.dark) .bg-pink-500\/15,
 html:not(.dark) .bg-pink-500\/20,
-html:not(.dark) .bg-pink-500\/30 {
+html:not(.dark) .bg-pink-500\/30,
+html:not(.dark) .bg-purple-500\/20 {
   background-color: var(--google-purple-bg) !important;
   color: var(--google-purple) !important;
   border-color: rgba(147, 52, 230, 0.35) !important;
 }
 
-/* Flow Strip Cards */
-html:not(.dark) .flex.flex-wrap.items-center.gap-2 span.rounded {
+/* ==========================================================================
+   COMPARTMENT GUIDE LIST & STAGE MAP (High Contrast & Clear Readability)
+   ========================================================================= */
+
+/* Compartment Guide items: Cytosol, Matrix, Cristae, Intermembrane Space */
+html:not(.dark) li.bg-slate-950\/70,
+html:not(.dark) .bg-slate-950\/70 {
+  background-color: #ffffff !important;
   border: 1px solid var(--google-border) !important;
-  box-shadow: 0 1px 2px rgba(60,64,67,0.1) !important;
+  box-shadow: 0 1px 3px rgba(60, 64, 67, 0.08) !important;
+}
+html:not(.dark) li.bg-slate-950\/70:hover {
+  background-color: var(--google-bg-subtle) !important;
+  border-color: var(--google-blue) !important;
+}
+html:not(.dark) li.bg-slate-950\/70 b,
+html:not(.dark) li.bg-slate-950\/70 .text-white {
+  color: var(--google-text-primary) !important;
+  font-weight: 800 !important;
+}
+html:not(.dark) li.bg-slate-950\/70 span.text-slate-300 {
+  color: var(--google-blue) !important;
+  font-weight: 700 !important;
+}
+html:not(.dark) li.bg-slate-950\/70 div.text-slate-400 {
+  color: var(--google-text-secondary) !important;
+  font-weight: 500 !important;
+}
+
+/* Stage Flowchart Box */
+html:not(.dark) .bg-slate-950\/90 {
+  background-color: #ffffff !important;
+  border: 1px solid var(--google-border) !important;
+  box-shadow: 0 1px 3px rgba(60, 64, 67, 0.1) !important;
+}
+html:not(.dark) .bg-slate-950\/90 .bg-slate-900 {
+  background-color: #f8f9fa !important;
+  border-width: 1px !important;
+  box-shadow: 0 1px 2px rgba(60, 64, 67, 0.06) !important;
+}
+html:not(.dark) .bg-slate-950\/90 .bg-slate-900 .text-slate-300 {
+  color: #3c4043 !important;
+}
+
+/* Overall Equation Box & Reactant Cards */
+html:not(.dark) .bg-slate-950.rounded-xl.p-5,
+html:not(.dark) .bg-slate-950.rounded-lg.p-4 {
+  background-color: #f8f9fa !important;
+  border: 1px solid var(--google-border) !important;
+}
+html:not(.dark) .bg-slate-950.rounded-xl.p-5 p,
+html:not(.dark) .bg-slate-950.rounded-lg.p-4 {
+  color: var(--google-text-primary) !important;
+}
+html:not(.dark) .p-4.rounded-lg.bg-slate-950 {
+  background-color: #ffffff !important;
+  border: 1px solid var(--google-border) !important;
+  color: var(--google-text-secondary) !important;
+  box-shadow: 0 1px 2px rgba(60, 64, 67, 0.06) !important;
+}
+
+/* ==========================================================================
+   BUTTONS & ACTIONS (Step 1-5 Blueprint & Portal Nav)
+   ========================================================================== */
+
+/* Step 1-5 Blueprint Jump Buttons (Both <a> and <button>) */
+html:not(.dark) a.bg-emerald-600\/25,
+html:not(.dark) button.bg-emerald-600\/25,
+html:not(.dark) .bg-emerald-600\/25 {
+  background-color: #e6f4ea !important;
+  border: 1px solid #34a853 !important;
+  color: #137333 !important;
+  font-weight: 800 !important;
+}
+html:not(.dark) a.bg-emerald-600\/25:hover,
+html:not(.dark) button.bg-emerald-600\/25:hover,
+html:not(.dark) .bg-emerald-600\/25:hover {
+  background-color: #1e8e3e !important;
+  color: #ffffff !important;
+}
+
+html:not(.dark) a.bg-sky-600\/25,
+html:not(.dark) button.bg-sky-600\/25,
+html:not(.dark) .bg-sky-600\/25 {
+  background-color: #e8f0fe !important;
+  border: 1px solid #1a73e8 !important;
+  color: #1a73e8 !important;
+  font-weight: 800 !important;
+}
+html:not(.dark) a.bg-sky-600\/25:hover,
+html:not(.dark) button.bg-sky-600\/25:hover,
+html:not(.dark) .bg-sky-600\/25:hover {
+  background-color: #1a73e8 !important;
+  color: #ffffff !important;
+}
+
+html:not(.dark) a.bg-pink-600\/25,
+html:not(.dark) button.bg-pink-600\/25,
+html:not(.dark) .bg-pink-600\/25 {
+  background-color: #fce4ec !important;
+  border: 1px solid #ec407a !important;
+  color: #c2185b !important;
+  font-weight: 800 !important;
+}
+html:not(.dark) a.bg-pink-600\/25:hover,
+html:not(.dark) button.bg-pink-600\/25:hover,
+html:not(.dark) .bg-pink-600\/25:hover {
+  background-color: #d81b60 !important;
+  color: #ffffff !important;
+}
+
+html:not(.dark) a.bg-amber-600\/25,
+html:not(.dark) button.bg-amber-600\/25,
+html:not(.dark) .bg-amber-600\/25 {
+  background-color: #fef7e0 !important;
+  border: 1px solid #f9ab00 !important;
+  color: #b06000 !important;
+  font-weight: 800 !important;
+}
+html:not(.dark) a.bg-amber-600\/25:hover,
+html:not(.dark) button.bg-amber-600\/25:hover,
+html:not(.dark) .bg-amber-600\/25:hover {
+  background-color: #f9ab00 !important;
+  color: #202124 !important;
+}
+
+/* How to Study Sub-Cards */
+html:not(.dark) #how-to-study-panel .bg-slate-950\/85 {
+  background-color: #ffffff !important;
+  border: 1px solid var(--google-border) !important;
+  box-shadow: 0 1px 3px rgba(60,64,67,0.08) !important;
+}
+html:not(.dark) #how-to-study-panel h3 {
+  color: var(--google-text-primary) !important;
+}
+html:not(.dark) #how-to-study-panel p {
+  color: var(--google-text-secondary) !important;
 }
 
 /* Level Indicator Left Borders */
@@ -329,7 +516,7 @@ html:not(.dark) #quiz-form legend {
   font-family: 'Google Sans', sans-serif !important;
 }
 html:not(.dark) #quiz-form label {
-  background-color: var(--google-bg-canvas) !important;
+  background-color: #ffffff !important;
   border-color: var(--google-border) !important;
   color: var(--google-text-primary) !important;
   transition: all 0.15s ease !important;
@@ -342,7 +529,7 @@ html:not(.dark) #quiz-form label:has(input:checked) {
   background-color: var(--google-blue-bg) !important;
   border-color: var(--google-blue) !important;
   color: var(--google-blue) !important;
-  font-weight: 600;
+  font-weight: 700;
 }
 html:not(.dark) #quiz-form input[type="radio"] {
   accent-color: var(--google-blue) !important;
@@ -460,110 +647,4 @@ html:not(.dark) p.text-amber-300.bg-amber-500\/10 {
   color: var(--google-amber-text) !important;
   border: 1px solid var(--google-amber-border) !important;
   font-weight: 600;
-}
-
-/* Step 1-5 Blueprint Jump Buttons (High Contrast WCAG AAA in Light Mode) */
-html:not(.dark) a.bg-emerald-600\/25,
-html:not(.dark) .bg-emerald-600\/25 {
-  background-color: #1e8e3e !important;
-  border-color: #137333 !important;
-  color: #ffffff !important;
-  font-weight: 700 !important;
-  box-shadow: 0 1px 2px rgba(30, 142, 62, 0.3) !important;
-}
-html:not(.dark) a.bg-emerald-600\/25:hover,
-html:not(.dark) .bg-emerald-600\/25:hover {
-  background-color: #137333 !important;
-  color: #ffffff !important;
-}
-
-html:not(.dark) a.bg-sky-600\/25,
-html:not(.dark) .bg-sky-600\/25 {
-  background-color: #1a73e8 !important;
-  border-color: #1557b0 !important;
-  color: #ffffff !important;
-  font-weight: 700 !important;
-  box-shadow: 0 1px 2px rgba(26, 115, 232, 0.3) !important;
-}
-html:not(.dark) a.bg-sky-600\/25:hover,
-html:not(.dark) .bg-sky-600\/25:hover {
-  background-color: #1557b0 !important;
-  color: #ffffff !important;
-}
-
-html:not(.dark) a.bg-pink-600\/25,
-html:not(.dark) .bg-pink-600\/25 {
-  background-color: #7e22ce !important;
-  border-color: #6b21a8 !important;
-  color: #ffffff !important;
-  font-weight: 700 !important;
-  box-shadow: 0 1px 2px rgba(126, 34, 206, 0.3) !important;
-}
-html:not(.dark) a.bg-pink-600\/25:hover,
-html:not(.dark) .bg-pink-600\/25:hover {
-  background-color: #6b21a8 !important;
-  color: #ffffff !important;
-}
-
-html:not(.dark) a.bg-amber-500\/20,
-html:not(.dark) .bg-amber-500\/20,
-html:not(.dark) a.bg-amber-600\/25,
-html:not(.dark) .bg-amber-600\/25 {
-  background-color: #b06000 !important;
-  border-color: #904b00 !important;
-  color: #ffffff !important;
-  font-weight: 700 !important;
-  box-shadow: 0 1px 2px rgba(176, 96, 0, 0.3) !important;
-}
-html:not(.dark) a.bg-amber-500\/20:hover,
-html:not(.dark) .bg-amber-500\/20:hover,
-html:not(.dark) a.bg-amber-600\/25:hover,
-html:not(.dark) .bg-amber-600\/25:hover {
-  background-color: #904b00 !important;
-  color: #ffffff !important;
-}
-
-/* How to Study Card Container & Button in Light Mode */
-html:not(.dark) #how-to-study-btn {
-  background: linear-gradient(135deg, #1a73e8 0%, #1557b0 100%) !important;
-  color: #ffffff !important;
-  border: 1px solid #1557b0 !important;
-  box-shadow: 0 1px 3px rgba(26, 115, 232, 0.35) !important;
-}
-html:not(.dark) #how-to-study-btn:hover {
-  background: linear-gradient(135deg, #1557b0 0%, #0d47a1 100%) !important;
-}
-
-html:not(.dark) #how-to-study-panel {
-  background: #ffffff !important;
-  border: 2px solid var(--google-border) !important;
-  box-shadow: var(--google-card-shadow) !important;
-}
-html:not(.dark) #how-to-study-panel .bg-slate-950\/85,
-html:not(.dark) #how-to-study-panel .bg-slate-950\/90 {
-  background-color: #f8f9fa !important;
-  border: 1px solid var(--google-border) !important;
-  box-shadow: 0 1px 2px rgba(60,64,67,0.06) !important;
-}
-html:not(.dark) #how-to-study-panel h2,
-html:not(.dark) #how-to-study-panel h3 {
-  color: #202124 !important;
-}
-html:not(.dark) #how-to-study-panel p {
-  color: #3c4043 !important;
-}
-html:not(.dark) #how-to-study-panel button.bg-slate-800 {
-  background-color: #f1f3f4 !important;
-  color: #3c4043 !important;
-  border: 1px solid var(--google-border) !important;
-}
-html:not(.dark) #how-to-study-panel button.bg-slate-800:hover {
-  background-color: #e8eaed !important;
-  color: #202124 !important;
-}
-
-/* Accessibility: Keyboard focus outlines */
-:focus-visible {
-  outline: 3px solid #1a73e8 !important;
-  outline-offset: 2px !important;
 }
