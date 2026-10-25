@@ -5,7 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Photosynthesis: Beginner to Expert</title>
     <meta name="description" content="Study guide for Biology I Honors Unit 3: photosynthesis, from basics to exam-level practice. Based on Dr. Irwin's Unit 3 materials.">
+    <script>
+        // Anti-flash script: apply theme before paint
+        (function() {
+            try {
+                var raw = localStorage.getItem('bio_theme');
+                var theme = raw ? (raw.startsWith('"') ? JSON.parse(raw) : raw) : null;
+                if (theme === 'dark') {
+                    document.documentElement.classList.add('dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                }
+            } catch(e) {}
+        })();
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="google-theme.css">
     <style>
         html { scroll-behavior: smooth; }
         .level-beginner { border-color: #34d399; }
@@ -20,23 +35,29 @@
 <!-- Sticky navigation + progress -->
 <header class="sticky top-0 z-40 bg-slate-950/90 backdrop-blur border-b border-slate-800">
     <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center gap-3 justify-between">
-        <div class="flex items-center gap-3">
-            <a href="#top" class="font-extrabold text-white tracking-tight">🌿 Photosynthesis</a>
+        <div class="flex items-center gap-2 flex-wrap">
+            <a href="../Unit%203%20Summative-10-30/Unit_03_Summative_Study_Portal.html" class="portal-nav-btn" title="Back to Unit 3 Summative Portal">← Unit 3 Portal</a>
+            <a href="../../../links.html" class="portal-nav-btn" title="All Biology Study Links">🔖 Study Links</a>
+            <a href="#top" class="font-extrabold text-white tracking-tight ml-1">🌿 Photosynthesis</a>
             <button id="how-to-study-btn" onclick="toggleHowToStudy()" aria-expanded="true" aria-controls="how-to-study-panel" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-black bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 shadow-md shadow-amber-500/20 transition cursor-pointer">
                 <span>🧭</span>
                 <span id="how-to-study-btn-text">Hide: How to Study Guide</span>
                 <span id="how-to-study-arrow">▲</span>
             </button>
         </div>
-        <nav class="flex flex-wrap gap-2 text-xs font-bold">
-            <a href="#big-picture" class="px-2 py-1 rounded bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500/30">1 · Beginner</a>
-            <a href="#light" class="px-2 py-1 rounded bg-sky-500/20 text-sky-300 hover:bg-sky-500/30">2 · Light Reactions</a>
-            <a href="#calvin" class="px-2 py-1 rounded bg-sky-500/20 text-sky-300 hover:bg-sky-500/30">3 · Calvin Cycle</a>
-            <a href="#expert" class="px-2 py-1 rounded bg-pink-500/20 text-pink-300 hover:bg-pink-500/30">4 · Expert</a>
-            <a href="#quiz" class="px-2 py-1 rounded bg-amber-500/20 text-amber-300 hover:bg-amber-500/30">5 · Score Quiz</a>
-            <a href="#short-answer" class="px-2 py-1 rounded bg-amber-500/20 text-amber-300 hover:bg-amber-500/30">6 · Short Answer</a>
-            <a href="../Unit 3 Summative-10-30/index.html" class="px-2 py-1 rounded bg-indigo-500/20 text-indigo-300 hover:bg-indigo-500/30">⚡ Portal</a>
-        </nav>
+        <div class="flex items-center gap-2">
+            <nav class="flex flex-wrap gap-2 text-xs font-bold">
+                <a href="#big-picture" class="px-2 py-1 rounded bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500/30">1 · Beginner</a>
+                <a href="#light" class="px-2 py-1 rounded bg-sky-500/20 text-sky-300 hover:bg-sky-500/30">2 · Light Reactions</a>
+                <a href="#calvin" class="px-2 py-1 rounded bg-sky-500/20 text-sky-300 hover:bg-sky-500/30">3 · Calvin Cycle</a>
+                <a href="#expert" class="px-2 py-1 rounded bg-pink-500/20 text-pink-300 hover:bg-pink-500/30">4 · Expert</a>
+                <a href="#quiz" class="px-2 py-1 rounded bg-amber-500/20 text-amber-300 hover:bg-amber-500/30">5 · Score Quiz</a>
+                <a href="#short-answer" class="px-2 py-1 rounded bg-amber-500/20 text-amber-300 hover:bg-amber-500/30">6 · Short Answer</a>
+            </nav>
+            <button onclick="toggleTheme()" id="themeToggleBtn" class="theme-toggle-btn" title="Toggle Light / Dark Mode">
+                🌙 Dark Mode
+            </button>
+        </div>
     </div>
     <div class="h-1 bg-slate-800">
         <div id="progress-bar" class="h-1 bg-emerald-400 transition-all duration-300" style="width: 0%"></div>
@@ -636,6 +657,37 @@
         if (arrow) arrow.textContent = '▼';
     }
 
+    // ----- Google Clean Theme Toggle (Light / Dark) -----
+    window.toggleTheme = function() {
+        const isDark = document.documentElement.classList.toggle('dark');
+        try {
+            localStorage.setItem('bio_theme', isDark ? 'dark' : 'light');
+        } catch (e) {}
+        updateThemeToggleButtons(isDark);
+    };
+
+    function updateThemeToggleButtons(isDark) {
+        const btn = document.getElementById('themeToggleBtn');
+        if (btn) {
+            btn.innerHTML = isDark ? '☀️ Google Clean' : '🌙 Dark Mode';
+            btn.setAttribute('aria-pressed', String(isDark));
+            btn.setAttribute('title', isDark ? 'Switch to Google Clean Light Theme (WCAG AAA)' : 'Switch to Dark Mode');
+        }
+    }
+
+    function initTheme() {
+        try {
+            const isDark = localStorage.getItem('bio_theme') === 'dark';
+            if (isDark) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+            updateThemeToggleButtons(isDark);
+        } catch (e) {}
+    }
+    initTheme();
+
     // ----- Mastery checklist + progress bar -----
     const goals = document.querySelectorAll('.goal');
     const bar = document.getElementById('progress-bar');
@@ -793,6 +845,22 @@
     if (savedQuiz) {
         scoreBox.textContent = 'Last score: ' + savedQuiz.correct + ' / ' + savedQuiz.total + '. Retake to improve it.';
     }
+
+    // ----- Theme Switcher & Persistence -----
+    window.toggleTheme = function() {
+        const isDark = document.documentElement.classList.toggle('dark');
+        save('bio_theme', isDark ? 'dark' : 'light');
+        updateThemeToggleBtn();
+    };
+
+    function updateThemeToggleBtn() {
+        const btn = document.getElementById('themeToggleBtn');
+        if (!btn) return;
+        const isDark = document.documentElement.classList.contains('dark');
+        btn.innerHTML = isDark ? '☀️ Google Clean' : '🌙 Dark Mode';
+        btn.setAttribute('aria-label', isDark ? 'Switch to Google Clean Light Theme' : 'Switch to Dark Mode');
+    }
+    updateThemeToggleBtn();
 })();
 </script>
 </body>

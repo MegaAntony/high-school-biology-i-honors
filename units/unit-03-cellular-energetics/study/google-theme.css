@@ -1,0 +1,569 @@
+/* ==========================================================================
+   Google Style Clean Theme for Biology I Honors Study Guides
+   Aesthetic: Google Classroom / Google Docs / Material Design
+   Default: Clean Light Theme (WCAG AAA High Contrast) with Dark Mode Toggle
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@400;500;700&family=Outfit:wght@600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap');
+
+:root {
+  --google-bg-canvas: #f8f9fa;
+  --google-bg-card: #ffffff;
+  --google-bg-subtle: #f1f3f4;
+  --google-bg-hover: #e8eaed;
+  --google-border: #dadce0;
+  --google-border-subtle: #e8eaed;
+  --google-text-primary: #202124;
+  --google-text-secondary: #3c4043;
+  --google-text-muted: #5f6368;
+  
+  --google-blue: #1a73e8;
+  --google-blue-hover: #1557b0;
+  --google-blue-bg: #e8f0fe;
+  --google-blue-border: #8ab4f8;
+  
+  --google-green: #1e8e3e;
+  --google-green-hover: #137333;
+  --google-green-bg: #e6f4ea;
+  --google-green-border: #34a853;
+  --google-green-text: #137333;
+  
+  --google-amber: #b06000;
+  --google-amber-bg: #fef7e0;
+  --google-amber-border: #f9ab00;
+  --google-amber-text: #904b00;
+  
+  --google-red: #d93025;
+  --google-red-bg: #fce8e6;
+  --google-red-border: #ea4335;
+  --google-red-text: #c5221f;
+  
+  --google-purple: #7e22ce;
+  --google-purple-bg: #f3e8fd;
+  --google-purple-border: #9334e6;
+  
+  --google-pink: #c2185b;
+  --google-pink-bg: #fce4ec;
+  --google-pink-border: #ec407a;
+  
+  --google-card-shadow: 0 1px 3px rgba(60, 64, 67, 0.12), 0 1px 2px rgba(60, 64, 67, 0.24);
+  --google-card-hover-shadow: 0 4px 8px rgba(60, 64, 67, 0.15), 0 1px 3px rgba(60, 64, 67, 0.3);
+}
+
+/* ==========================================================================
+   DEFAULT: GOOGLE CLEAN LIGHT MODE (When html does NOT have class "dark")
+   ========================================================================== */
+
+html:not(.dark) body {
+  background-color: var(--google-bg-canvas) !important;
+  color: var(--google-text-primary) !important;
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Headings Google Sans */
+html:not(.dark) h1,
+html:not(.dark) h2,
+html:not(.dark) h3,
+html:not(.dark) h4,
+html:not(.dark) .font-black,
+html:not(.dark) .font-extrabold {
+  font-family: 'Google Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  color: var(--google-text-primary) !important;
+}
+
+/* Sticky Header Bar */
+html:not(.dark) header.sticky {
+  background-color: rgba(255, 255, 255, 0.96) !important;
+  border-bottom: 1px solid var(--google-border) !important;
+  box-shadow: 0 1px 3px rgba(60, 64, 67, 0.12) !important;
+}
+html:not(.dark) header.sticky a.font-extrabold {
+  color: var(--google-text-primary) !important;
+}
+
+/* Progress bar rail & fill */
+html:not(.dark) header .h-1.bg-slate-800 {
+  background-color: var(--google-border-subtle) !important;
+}
+html:not(.dark) #progress-bar {
+  background-color: var(--google-green) !important;
+}
+
+/* Top Nav Pill Buttons in Header */
+html:not(.dark) header nav a {
+  border: 1px solid transparent !important;
+  transition: all 0.15s ease !important;
+}
+html:not(.dark) header nav a[href="#big-picture"] {
+  background-color: var(--google-green-bg) !important;
+  color: var(--google-green-text) !important;
+  border-color: rgba(52, 168, 83, 0.3) !important;
+}
+html:not(.dark) header nav a[href="#big-picture"]:hover {
+  background-color: #ceead6 !important;
+}
+html:not(.dark) header nav a[href="#stages"],
+html:not(.dark) header nav a[href="#atp"],
+html:not(.dark) header nav a[href="#light"],
+html:not(.dark) header nav a[href="#calvin"] {
+  background-color: var(--google-blue-bg) !important;
+  color: var(--google-blue) !important;
+  border-color: rgba(26, 115, 232, 0.3) !important;
+}
+html:not(.dark) header nav a[href="#stages"]:hover,
+html:not(.dark) header nav a[href="#atp"]:hover,
+html:not(.dark) header nav a[href="#light"]:hover,
+html:not(.dark) header nav a[href="#calvin"]:hover {
+  background-color: #d2e3fc !important;
+}
+html:not(.dark) header nav a[href="#expert"] {
+  background-color: var(--google-purple-bg) !important;
+  color: var(--google-purple) !important;
+  border-color: rgba(147, 52, 230, 0.3) !important;
+}
+html:not(.dark) header nav a[href="#expert"]:hover {
+  background-color: #e9d5ff !important;
+}
+html:not(.dark) header nav a[href="#quiz"],
+html:not(.dark) header nav a[href="#short-answer"] {
+  background-color: var(--google-amber-bg) !important;
+  color: var(--google-amber) !important;
+  border-color: rgba(249, 171, 0, 0.35) !important;
+}
+html:not(.dark) header nav a[href="#quiz"]:hover,
+html:not(.dark) header nav a[href="#short-answer"]:hover {
+  background-color: #feefc3 !important;
+}
+
+/* Base Canvas & Background Overrides */
+html:not(.dark) .bg-slate-950,
+html:not(.dark) .bg-slate-950\/90 {
+  background-color: var(--google-bg-canvas) !important;
+}
+
+html:not(.dark) .bg-slate-900,
+html:not(.dark) .bg-slate-900\/90 {
+  background-color: var(--google-bg-card) !important;
+  border-color: var(--google-border) !important;
+  box-shadow: var(--google-card-shadow) !important;
+}
+
+html:not(.dark) .bg-slate-800 {
+  background-color: var(--google-bg-subtle) !important;
+  border-color: var(--google-border) !important;
+  color: var(--google-text-primary) !important;
+}
+
+/* Card Borders */
+html:not(.dark) .border-slate-800,
+html:not(.dark) .border-slate-700 {
+  border-color: var(--google-border) !important;
+}
+
+/* Text Colors */
+html:not(.dark) .text-white {
+  color: var(--google-text-primary) !important;
+}
+html:not(.dark) .text-slate-200,
+html:not(.dark) .text-slate-300 {
+  color: var(--google-text-secondary) !important;
+}
+html:not(.dark) .text-slate-400,
+html:not(.dark) .text-slate-500 {
+  color: var(--google-text-muted) !important;
+}
+
+/* Accent Badges in Light Mode */
+html:not(.dark) .text-emerald-300,
+html:not(.dark) .text-emerald-400 {
+  color: var(--google-green-text) !important;
+}
+html:not(.dark) .bg-emerald-500\/10,
+html:not(.dark) .bg-emerald-500\/15,
+html:not(.dark) .bg-emerald-500\/20 {
+  background-color: var(--google-green-bg) !important;
+  color: var(--google-green-text) !important;
+  border-color: rgba(52, 168, 83, 0.35) !important;
+}
+
+html:not(.dark) .text-sky-200,
+html:not(.dark) .text-sky-300,
+html:not(.dark) .text-sky-400 {
+  color: var(--google-blue) !important;
+}
+html:not(.dark) .bg-sky-500\/10,
+html:not(.dark) .bg-sky-500\/20,
+html:not(.dark) .bg-sky-900 {
+  background-color: var(--google-blue-bg) !important;
+  color: var(--google-blue) !important;
+  border-color: rgba(26, 115, 232, 0.35) !important;
+}
+
+html:not(.dark) .text-amber-200,
+html:not(.dark) .text-amber-300,
+html:not(.dark) .text-amber-400 {
+  color: var(--google-amber) !important;
+}
+html:not(.dark) .bg-amber-500\/10,
+html:not(.dark) .bg-amber-500\/15,
+html:not(.dark) .bg-amber-500\/20 {
+  background-color: var(--google-amber-bg) !important;
+  color: var(--google-amber-text) !important;
+  border-color: rgba(249, 171, 0, 0.35) !important;
+}
+
+html:not(.dark) .text-rose-200,
+html:not(.dark) .text-rose-300,
+html:not(.dark) .text-rose-400 {
+  color: var(--google-red-text) !important;
+}
+html:not(.dark) .bg-rose-500\/10,
+html:not(.dark) .bg-rose-500\/15,
+html:not(.dark) .bg-rose-500\/20 {
+  background-color: var(--google-red-bg) !important;
+  color: var(--google-red-text) !important;
+  border-color: rgba(234, 67, 53, 0.35) !important;
+}
+
+html:not(.dark) .text-pink-200,
+html:not(.dark) .text-pink-300,
+html:not(.dark) .text-pink-400 {
+  color: var(--google-purple) !important;
+}
+html:not(.dark) .bg-pink-500\/10,
+html:not(.dark) .bg-pink-500\/15,
+html:not(.dark) .bg-pink-500\/20,
+html:not(.dark) .bg-pink-500\/30 {
+  background-color: var(--google-purple-bg) !important;
+  color: var(--google-purple) !important;
+  border-color: rgba(147, 52, 230, 0.35) !important;
+}
+
+/* Flow Strip Cards */
+html:not(.dark) .flex.flex-wrap.items-center.gap-2 span.rounded {
+  border: 1px solid var(--google-border) !important;
+  box-shadow: 0 1px 2px rgba(60,64,67,0.1) !important;
+}
+
+/* Level Indicator Left Borders */
+html:not(.dark) .level-beginner {
+  border-left-color: var(--google-green) !important;
+  border-left-width: 5px !important;
+}
+html:not(.dark) .level-core {
+  border-left-color: var(--google-blue) !important;
+  border-left-width: 5px !important;
+}
+html:not(.dark) .level-expert {
+  border-left-color: var(--google-purple) !important;
+  border-left-width: 5px !important;
+}
+
+/* Checklist items */
+html:not(.dark) .goal {
+  accent-color: var(--google-green) !important;
+}
+html:not(.dark) label.flex.gap-3.items-start {
+  background-color: var(--google-bg-card) !important;
+  border-color: var(--google-border) !important;
+  color: var(--google-text-primary) !important;
+  box-shadow: 0 1px 2px rgba(60,64,67,0.08) !important;
+  transition: all 0.15s ease !important;
+}
+html:not(.dark) label.flex.gap-3.items-start:hover {
+  background-color: var(--google-bg-subtle) !important;
+  border-color: var(--google-blue) !important;
+}
+
+/* Tables in Light Mode */
+html:not(.dark) table {
+  color: var(--google-text-primary) !important;
+}
+html:not(.dark) thead {
+  background-color: var(--google-bg-subtle) !important;
+  border-bottom: 2px solid var(--google-border) !important;
+}
+html:not(.dark) thead th {
+  color: var(--google-text-secondary) !important;
+  font-weight: 700 !important;
+}
+html:not(.dark) tbody tr {
+  border-bottom: 1px solid var(--google-border-subtle) !important;
+}
+html:not(.dark) tbody tr:hover {
+  background-color: rgba(26, 115, 232, 0.04) !important;
+}
+html:not(.dark) tbody tr.bg-slate-950 {
+  background-color: var(--google-blue-bg) !important;
+  color: var(--google-blue) !important;
+  border-top: 2px solid var(--google-blue-border) !important;
+}
+html:not(.dark) tbody tr.bg-slate-950 td {
+  color: var(--google-blue) !important;
+}
+
+/* Details & Summaries (Accordions) */
+html:not(.dark) details {
+  background-color: var(--google-bg-card) !important;
+  border: 1px solid var(--google-border) !important;
+  box-shadow: var(--google-card-shadow) !important;
+  transition: box-shadow 0.2s ease;
+}
+html:not(.dark) details:hover {
+  box-shadow: var(--google-card-hover-shadow) !important;
+}
+html:not(.dark) details summary {
+  color: var(--google-text-primary) !important;
+  font-family: 'Google Sans', sans-serif !important;
+}
+
+/* MCQ Quiz Cards */
+html:not(.dark) #quiz-form fieldset {
+  background-color: var(--google-bg-card) !important;
+  border: 1px solid var(--google-border) !important;
+  box-shadow: var(--google-card-shadow) !important;
+}
+html:not(.dark) #quiz-form legend {
+  color: var(--google-text-primary) !important;
+  font-family: 'Google Sans', sans-serif !important;
+}
+html:not(.dark) #quiz-form label {
+  background-color: var(--google-bg-canvas) !important;
+  border-color: var(--google-border) !important;
+  color: var(--google-text-primary) !important;
+  transition: all 0.15s ease !important;
+}
+html:not(.dark) #quiz-form label:hover {
+  background-color: var(--google-bg-subtle) !important;
+  border-color: var(--google-blue) !important;
+}
+html:not(.dark) #quiz-form label:has(input:checked) {
+  background-color: var(--google-blue-bg) !important;
+  border-color: var(--google-blue) !important;
+  color: var(--google-blue) !important;
+  font-weight: 600;
+}
+html:not(.dark) #quiz-form input[type="radio"] {
+  accent-color: var(--google-blue) !important;
+}
+
+/* Buttons */
+html:not(.dark) #check-btn {
+  background-color: var(--google-blue) !important;
+  color: #ffffff !important;
+  box-shadow: 0 1px 3px rgba(26, 115, 232, 0.4) !important;
+  font-family: 'Google Sans', sans-serif !important;
+}
+html:not(.dark) #check-btn:hover {
+  background-color: var(--google-blue-hover) !important;
+  box-shadow: 0 2px 6px rgba(26, 115, 232, 0.5) !important;
+}
+html:not(.dark) #reset-btn {
+  background-color: var(--google-bg-card) !important;
+  color: var(--google-text-secondary) !important;
+  border-color: var(--google-border) !important;
+}
+html:not(.dark) #reset-btn:hover {
+  background-color: var(--google-bg-subtle) !important;
+  color: var(--google-text-primary) !important;
+  border-color: var(--google-text-secondary) !important;
+}
+
+/* Score Box */
+html:not(.dark) #score-box {
+  background-color: var(--google-bg-card) !important;
+  border-color: var(--google-border) !important;
+  color: var(--google-text-primary) !important;
+}
+
+/* Footer */
+html:not(.dark) footer {
+  background-color: var(--google-bg-card) !important;
+  border-top-color: var(--google-border) !important;
+}
+html:not(.dark) footer p {
+  color: var(--google-text-muted) !important;
+}
+
+/* ==========================================================================
+   THEME TOGGLE BUTTON & QUICK NAV BUTTONS
+   ========================================================================== */
+
+.theme-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  border: 1px solid var(--google-border);
+  background: #ffffff;
+  color: var(--google-text-primary);
+  box-shadow: 0 1px 2px rgba(60, 64, 67, 0.15);
+}
+.theme-toggle-btn:hover {
+  background: #f1f3f4;
+  border-color: var(--google-blue);
+  color: var(--google-blue);
+  box-shadow: 0 2px 5px rgba(26, 115, 232, 0.25);
+}
+html.dark .theme-toggle-btn {
+  background: #1e293b;
+  color: #f8fafc;
+  border-color: #334155;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+html.dark .theme-toggle-btn:hover {
+  background: rgba(56, 189, 248, 0.2);
+  color: #38bdf8;
+  border-color: #38bdf8;
+}
+
+.portal-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  user-select: none;
+  border: 1px solid var(--google-border);
+  background: #ffffff;
+  color: var(--google-blue);
+  box-shadow: 0 1px 2px rgba(60, 64, 67, 0.1);
+}
+.portal-nav-btn:hover {
+  background: var(--google-blue-bg);
+  border-color: var(--google-blue);
+}
+html.dark .portal-nav-btn {
+  background: #0f172a;
+  color: #38bdf8;
+  border-color: #334155;
+}
+html.dark .portal-nav-btn:hover {
+  background: #1e293b;
+  border-color: #38bdf8;
+}
+
+/* High Contrast Traps Callouts in Light Mode */
+html:not(.dark) p.text-amber-300.bg-amber-500\/10 {
+  background-color: var(--google-amber-bg) !important;
+  color: var(--google-amber-text) !important;
+  border: 1px solid var(--google-amber-border) !important;
+  font-weight: 600;
+}
+
+/* Step 1-5 Blueprint Jump Buttons (High Contrast WCAG AAA in Light Mode) */
+html:not(.dark) a.bg-emerald-600\/25,
+html:not(.dark) .bg-emerald-600\/25 {
+  background-color: #1e8e3e !important;
+  border-color: #137333 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 1px 2px rgba(30, 142, 62, 0.3) !important;
+}
+html:not(.dark) a.bg-emerald-600\/25:hover,
+html:not(.dark) .bg-emerald-600\/25:hover {
+  background-color: #137333 !important;
+  color: #ffffff !important;
+}
+
+html:not(.dark) a.bg-sky-600\/25,
+html:not(.dark) .bg-sky-600\/25 {
+  background-color: #1a73e8 !important;
+  border-color: #1557b0 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 1px 2px rgba(26, 115, 232, 0.3) !important;
+}
+html:not(.dark) a.bg-sky-600\/25:hover,
+html:not(.dark) .bg-sky-600\/25:hover {
+  background-color: #1557b0 !important;
+  color: #ffffff !important;
+}
+
+html:not(.dark) a.bg-pink-600\/25,
+html:not(.dark) .bg-pink-600\/25 {
+  background-color: #7e22ce !important;
+  border-color: #6b21a8 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 1px 2px rgba(126, 34, 206, 0.3) !important;
+}
+html:not(.dark) a.bg-pink-600\/25:hover,
+html:not(.dark) .bg-pink-600\/25:hover {
+  background-color: #6b21a8 !important;
+  color: #ffffff !important;
+}
+
+html:not(.dark) a.bg-amber-500\/20,
+html:not(.dark) .bg-amber-500\/20,
+html:not(.dark) a.bg-amber-600\/25,
+html:not(.dark) .bg-amber-600\/25 {
+  background-color: #b06000 !important;
+  border-color: #904b00 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 1px 2px rgba(176, 96, 0, 0.3) !important;
+}
+html:not(.dark) a.bg-amber-500\/20:hover,
+html:not(.dark) .bg-amber-500\/20:hover,
+html:not(.dark) a.bg-amber-600\/25:hover,
+html:not(.dark) .bg-amber-600\/25:hover {
+  background-color: #904b00 !important;
+  color: #ffffff !important;
+}
+
+/* How to Study Card Container & Button in Light Mode */
+html:not(.dark) #how-to-study-btn {
+  background: linear-gradient(135deg, #1a73e8 0%, #1557b0 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid #1557b0 !important;
+  box-shadow: 0 1px 3px rgba(26, 115, 232, 0.35) !important;
+}
+html:not(.dark) #how-to-study-btn:hover {
+  background: linear-gradient(135deg, #1557b0 0%, #0d47a1 100%) !important;
+}
+
+html:not(.dark) #how-to-study-panel {
+  background: #ffffff !important;
+  border: 2px solid var(--google-border) !important;
+  box-shadow: var(--google-card-shadow) !important;
+}
+html:not(.dark) #how-to-study-panel .bg-slate-950\/85,
+html:not(.dark) #how-to-study-panel .bg-slate-950\/90 {
+  background-color: #f8f9fa !important;
+  border: 1px solid var(--google-border) !important;
+  box-shadow: 0 1px 2px rgba(60,64,67,0.06) !important;
+}
+html:not(.dark) #how-to-study-panel h2,
+html:not(.dark) #how-to-study-panel h3 {
+  color: #202124 !important;
+}
+html:not(.dark) #how-to-study-panel p {
+  color: #3c4043 !important;
+}
+html:not(.dark) #how-to-study-panel button.bg-slate-800 {
+  background-color: #f1f3f4 !important;
+  color: #3c4043 !important;
+  border: 1px solid var(--google-border) !important;
+}
+html:not(.dark) #how-to-study-panel button.bg-slate-800:hover {
+  background-color: #e8eaed !important;
+  color: #202124 !important;
+}
+
+/* Accessibility: Keyboard focus outlines */
+:focus-visible {
+  outline: 3px solid #1a73e8 !important;
+  outline-offset: 2px !important;
+}

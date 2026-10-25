@@ -5,7 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cellular Respiration: Beginner to Expert</title>
     <meta name="description" content="Study guide for Biology I Honors Unit 3: cellular respiration, from basics to exam-level practice. Based on Dr. Irwin's Unit 3 materials.">
+    <script>
+        // Anti-flash script: apply theme before paint
+        (function() {
+            try {
+                var raw = localStorage.getItem('bio_theme');
+                var theme = raw ? (raw.startsWith('"') ? JSON.parse(raw) : raw) : null;
+                if (theme === 'dark') {
+                    document.documentElement.classList.add('dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                }
+            } catch(e) {}
+        })();
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="google-theme.css">
     <style>
         html { scroll-behavior: smooth; }
         .level-beginner { border-color: #34d399; }
@@ -20,23 +35,29 @@
 <!-- Sticky navigation + progress -->
 <header class="sticky top-0 z-40 bg-slate-950/90 backdrop-blur border-b border-slate-800">
     <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center gap-3 justify-between">
-        <div class="flex items-center gap-3">
-            <a href="#top" class="font-extrabold text-white tracking-tight">🔥 Cellular Respiration</a>
+        <div class="flex items-center gap-2 flex-wrap">
+            <a href="../Unit%203%20Summative-10-30/Unit_03_Summative_Study_Portal.html" class="portal-nav-btn" title="Back to Unit 3 Summative Portal">← Unit 3 Portal</a>
+            <a href="../../../links.html" class="portal-nav-btn" title="All Biology Study Links">🔖 Study Links</a>
+            <a href="#top" class="font-extrabold text-white tracking-tight ml-1">🔥 Cellular Respiration</a>
             <button id="how-to-study-btn" onclick="toggleHowToStudy()" aria-expanded="true" aria-controls="how-to-study-panel" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-black bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 shadow-md shadow-amber-500/20 transition cursor-pointer">
                 <span>🧭</span>
                 <span id="how-to-study-btn-text">Hide: How to Study Guide</span>
                 <span id="how-to-study-arrow">▲</span>
             </button>
         </div>
-        <nav class="flex flex-wrap gap-2 text-xs font-bold">
-            <a href="#big-picture" class="px-2 py-1 rounded bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500/30">1 · Beginner</a>
-            <a href="#stages" class="px-2 py-1 rounded bg-sky-500/20 text-sky-300 hover:bg-sky-500/30">2 · Core</a>
-            <a href="#atp" class="px-2 py-1 rounded bg-sky-500/20 text-sky-300 hover:bg-sky-500/30">3 · ATP Math</a>
-            <a href="#expert" class="px-2 py-1 rounded bg-pink-500/20 text-pink-300 hover:bg-pink-500/30">4 · Expert</a>
-            <a href="#quiz" class="px-2 py-1 rounded bg-amber-500/20 text-amber-300 hover:bg-amber-500/30">5 · Score Quiz</a>
-            <a href="#short-answer" class="px-2 py-1 rounded bg-amber-500/20 text-amber-300 hover:bg-amber-500/30">6 · Short Answer</a>
-            <a href="../Unit 3 Summative-10-30/index.html" class="px-2 py-1 rounded bg-indigo-500/20 text-indigo-300 hover:bg-indigo-500/30">⚡ Portal</a>
-        </nav>
+        <div class="flex items-center gap-2">
+            <nav class="flex flex-wrap gap-2 text-xs font-bold">
+                <a href="#big-picture" class="px-2 py-1 rounded bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500/30">1 · Beginner</a>
+                <a href="#stages" class="px-2 py-1 rounded bg-sky-500/20 text-sky-300 hover:bg-sky-500/30">2 · Core</a>
+                <a href="#atp" class="px-2 py-1 rounded bg-sky-500/20 text-sky-300 hover:bg-sky-500/30">3 · ATP Math</a>
+                <a href="#expert" class="px-2 py-1 rounded bg-pink-500/20 text-pink-300 hover:bg-pink-500/30">4 · Expert</a>
+                <a href="#quiz" class="px-2 py-1 rounded bg-amber-500/20 text-amber-300 hover:bg-amber-500/30">5 · Score Quiz</a>
+                <a href="#short-answer" class="px-2 py-1 rounded bg-amber-500/20 text-amber-300 hover:bg-amber-500/30">6 · Short Answer</a>
+            </nav>
+            <button onclick="toggleTheme()" id="themeToggleBtn" class="theme-toggle-btn" title="Toggle Light / Dark Mode">
+                🌙 Dark Mode
+            </button>
+        </div>
     </div>
     <div class="h-1 bg-slate-800">
         <div id="progress-bar" class="h-1 bg-emerald-400 transition-all duration-300" style="width: 0%"></div>
@@ -54,34 +75,87 @@
         <div class="flex flex-wrap gap-3 text-sm">
             <span class="px-3 py-1.5 rounded-lg bg-rose-500/20 border border-rose-500/40 text-rose-200 font-bold">🚨 Unit 3 MCQ · Fri Oct 30</span>
             <span class="px-3 py-1.5 rounded-lg bg-amber-500/20 border border-amber-500/40 text-amber-200 font-bold">✍️ Short Answer · Mon Nov 2</span>
-            <a href="../Unit%203%20Summative-10-30/Unit_03_Summative_Master_Study_Guide_and_Keys.md" class="px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 hover:border-slate-500 font-bold">📖 Teacher key (Stations 4 & 7)</a>
+            <a href="../Unit%203%20Summative-10-30/Unit_03_Summative_Master_Study_Guide_and_Keys.html" class="px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 hover:border-slate-500 font-bold text-sky-400">📖 Teacher Key (Stations 4 &amp; 7 Web)</a>
+            <a href="../Unit%203%20Summative-10-30/Unit_03_Summative_Master_Study_Guide_and_Keys.md" class="px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 hover:border-slate-500 font-bold text-slate-300">📝 (.md)</a>
         </div>
     </div>
-    <figure class="lg:col-span-2 bg-white rounded-2xl p-4 shadow-xl">
-        <svg viewBox="0 0 600 300" class="w-full h-auto" role="img" aria-label="Labeled mitochondrion diagram">
-            <!-- Outer membrane -->
-            <rect x="20" y="50" width="560" height="200" rx="100" fill="#fed7aa" stroke="#c2410c" stroke-width="8"/>
-            <!-- Inner membrane (folded boundary of matrix) -->
-            <rect x="50" y="80" width="500" height="140" rx="70" fill="#7dd3fc" stroke="#0369a1" stroke-width="6"/>
-            <!-- Cristae folds -->
-            <g fill="none" stroke="#0c4a6e" stroke-width="7" stroke-linecap="round">
-                <path d="M130 90 Q165 150 130 210"/>
-                <path d="M200 90 Q235 150 200 210"/>
-                <path d="M270 90 Q305 150 270 210"/>
-                <path d="M340 90 Q375 150 340 210"/>
-                <path d="M410 90 Q445 150 410 210"/>
-                <path d="M480 90 Q515 150 480 210"/>
+    <figure class="lg:col-span-2 bg-white rounded-2xl p-4 shadow-xl border border-slate-200">
+        <svg viewBox="0 0 620 320" class="w-full h-auto" role="img" aria-label="Scientifically accurate labeled mitochondrion diagram">
+            <defs>
+                <linearGradient id="outerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#fed7aa"/>
+                    <stop offset="100%" stop-color="#ffedd5"/>
+                </linearGradient>
+                <linearGradient id="matrixGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#bae6fd"/>
+                    <stop offset="100%" stop-color="#e0f2fe"/>
+                </linearGradient>
+                <marker id="arrowHead" markerWidth="6" markerHeight="6" refX="4" refY="3" orient="auto">
+                    <polygon points="0 0, 6 3, 0 6" fill="#1e293b"/>
+                </marker>
+            </defs>
+
+            <!-- 1. Outer Membrane (Capsule) -->
+            <rect x="30" y="55" width="560" height="200" rx="100" fill="url(#outerGrad)" stroke="#c2410c" stroke-width="5"/>
+            
+            <!-- Intermembrane space indicator H+ text -->
+            <g font-family="Roboto, sans-serif" font-size="11" font-weight="bold" fill="#ea580c" opacity="0.75">
+                <text x="60" y="115">H⁺</text>
+                <text x="80" y="210">H⁺</text>
+                <text x="170" y="73">H⁺</text>
+                <text x="250" y="73">H⁺</text>
+                <text x="360" y="73">H⁺</text>
+                <text x="470" y="73">H⁺</text>
+                <text x="545" y="160">H⁺</text>
+                <text x="180" y="245">H⁺</text>
+                <text x="320" y="245">H⁺</text>
+                <text x="450" y="245">H⁺</text>
             </g>
-            <!-- Number markers -->
-            <g font-family="Arial, sans-serif" font-weight="800" font-size="26" text-anchor="middle">
-                <circle cx="58" cy="150" r="18" fill="#ffffff" stroke="#c2410c" stroke-width="3"/><text x="58" y="158" fill="#9a3412">1</text>
-                <circle cx="44" cy="260" r="18" fill="#ffffff" stroke="#c2410c" stroke-width="3"/><text x="44" y="268" fill="#9a3412">2</text>
-                <circle cx="300" cy="62" r="18" fill="#ffffff" stroke="#0369a1" stroke-width="3"/><text x="300" y="70" fill="#0c4a6e">3</text>
-                <circle cx="230" cy="150" r="18" fill="#ffffff" stroke="#0369a1" stroke-width="3"/><text x="230" y="158" fill="#0c4a6e">4</text>
+
+            <!-- 2. Inner Membrane & Matrix boundary -->
+            <rect x="65" y="80" width="490" height="150" rx="75" fill="url(#matrixGrad)" stroke="#0284c7" stroke-width="4"/>
+
+            <!-- 3. Cristae Infoldings (Inner membrane folds into matrix) -->
+            <g fill="none" stroke="#0369a1" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M 140 80 C 150 115, 160 145, 140 180 C 130 195, 115 175, 115 150"/>
+                <path d="M 210 230 C 195 190, 195 140, 215 110 C 225 95, 240 115, 235 145"/>
+                <path d="M 285 80 C 300 120, 305 155, 285 190 C 275 205, 260 185, 260 155"/>
+                <path d="M 360 230 C 345 190, 345 140, 365 110 C 375 95, 390 115, 385 145"/>
+                <path d="M 435 80 C 450 120, 455 155, 435 190 C 425 205, 410 185, 410 155"/>
             </g>
+
+            <!-- Matrix Mitochondrial Ribosomes & DNA -->
+            <g opacity="0.65">
+                <circle cx="490" cy="130" r="14" fill="none" stroke="#0284c7" stroke-width="1.8" stroke-dasharray="3 2"/>
+                <text x="490" y="133" font-size="8" font-family="Roboto, sans-serif" text-anchor="middle" fill="#0369a1">mtDNA</text>
+                <circle cx="485" cy="170" r="2.5" fill="#0369a1"/>
+                <circle cx="510" cy="155" r="2.5" fill="#0369a1"/>
+                <circle cx="465" cy="145" r="2.5" fill="#0369a1"/>
+            </g>
+
+            <!-- Leader Lines & Callout Badges -->
+            <!-- Marker 1: Outer Membrane -->
+            <line x1="85" y1="26" x2="85" y2="54" stroke="#c2410c" stroke-width="2" marker-end="url(#arrowHead)"/>
+            <rect x="15" y="8" width="140" height="24" rx="12" fill="#c2410c"/>
+            <text x="85" y="24" fill="#ffffff" font-family="'Google Sans', Roboto, sans-serif" font-weight="bold" font-size="11" text-anchor="middle">1. Outer Membrane</text>
+
+            <!-- Marker 2: Intermembrane Space (between outer and inner membrane) -->
+            <line x1="240" y1="26" x2="240" y2="67" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowHead)"/>
+            <rect x="165" y="8" width="165" height="24" rx="12" fill="#ea580c"/>
+            <text x="247" y="24" fill="#ffffff" font-family="'Google Sans', Roboto, sans-serif" font-weight="bold" font-size="11" text-anchor="middle">2. Intermembrane (H⁺)</text>
+
+            <!-- Marker 3: Inner Membrane / Cristae (fold) -->
+            <line x1="285" y1="294" x2="285" y2="200" stroke="#0369a1" stroke-width="2" marker-end="url(#arrowHead)"/>
+            <rect x="200" y="286" width="170" height="24" rx="12" fill="#0369a1"/>
+            <text x="285" y="302" fill="#ffffff" font-family="'Google Sans', Roboto, sans-serif" font-weight="bold" font-size="11" text-anchor="middle">3. Inner Cristae (ETC)</text>
+
+            <!-- Marker 4: Matrix (Internal gel space) -->
+            <line x1="480" y1="294" x2="480" y2="215" stroke="#0284c7" stroke-width="2" marker-end="url(#arrowHead)"/>
+            <rect x="400" y="286" width="160" height="24" rx="12" fill="#0284c7"/>
+            <text x="480" y="302" fill="#ffffff" font-family="'Google Sans', Roboto, sans-serif" font-weight="bold" font-size="11" text-anchor="middle">4. Matrix (Krebs Cycle)</text>
         </svg>
-        <figcaption class="mt-3 text-xs text-slate-700 leading-relaxed">
-            <b>1</b> Outer membrane · <b>2</b> Intermembrane space (H⁺ builds up here) · <b>3</b> Inner membrane with cristae (ETC + ATP synthase) · <b>4</b> Matrix (Pyruvate oxidation + Krebs cycle). Diagram drawn for this guide.
+        <figcaption class="mt-3 text-xs text-slate-700 leading-relaxed font-medium">
+            <b>1</b> Outer membrane (smooth barrier) · <b>2</b> Intermembrane space (high H⁺ proton buildup) · <b>3</b> Inner membrane with cristae (ETC + ATP synthase) · <b>4</b> Matrix (Pyruvate oxidation + Krebs cycle).
         </figcaption>
     </figure>
 </section>
@@ -389,22 +463,93 @@
         </article>
     </div>
 
-    <!-- Diagram of the matrix/cristae with image -->
-    <div class="grid lg:grid-cols-2 gap-6 items-center bg-slate-900 border border-slate-800 rounded-2xl p-6">
-        <div class="space-y-3">
-            <h3 class="text-xl font-bold text-white">Where each stage happens</h3>
-            <ul class="text-sm space-y-2">
-                <li>🟠 <b>Cytosol:</b> glycolysis (the only stage that doesn't need mitochondria).</li>
-                <li>🔵 <b>Matrix:</b> pyruvate oxidation and the Krebs cycle.</li>
-                <li>🟣 <b>Inner membrane (cristae):</b> the ETC and ATP synthase.</li>
-                <li>⚪ <b>Intermembrane space:</b> where H⁺ builds up before flowing back.</li>
+    <!-- Dedicated Subcellular Stage Map & Compartments Guide -->
+    <div class="grid lg:grid-cols-2 gap-6 items-stretch bg-slate-900 border border-slate-800 rounded-2xl p-6">
+        <div class="space-y-4 flex flex-col justify-between">
+            <div>
+                <span class="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-black uppercase bg-sky-500/20 text-sky-300 border border-sky-500/30 mb-2">Compartment Guide</span>
+                <h3 class="text-xl font-bold text-white">Where Each Stage Takes Place</h3>
+                <p class="text-xs text-slate-400 mt-1">Four distinct subcellular zones work in sequential harmony to convert 1 glucose into 36–38 ATP:</p>
+            </div>
+            <ul class="text-sm space-y-2.5">
+                <li class="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800 flex items-start gap-2.5">
+                    <span class="text-base">🟠</span>
+                    <div>
+                        <b class="text-white">Cytosol (Cytoplasm):</b> <span class="text-slate-300 font-semibold">Glycolysis</span>
+                        <div class="text-xs text-slate-400">The only stage outside mitochondria; requires no O₂ and no organelles. Net 2 ATP + 2 NADH.</div>
+                    </div>
+                </li>
+                <li class="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800 flex items-start gap-2.5">
+                    <span class="text-base">🔵</span>
+                    <div>
+                        <b class="text-white">Mitochondrial Matrix:</b> <span class="text-slate-300 font-semibold">Pyruvate Oxidation &amp; Krebs Cycle</span>
+                        <div class="text-xs text-slate-400">Pyruvate converts to Acetyl-CoA (2 CO₂, 2 NADH), then 2 turns of Krebs release 4 CO₂, 2 ATP, 6 NADH, 2 FADH₂.</div>
+                    </div>
+                </li>
+                <li class="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800 flex items-start gap-2.5">
+                    <span class="text-base">🟣</span>
+                    <div>
+                        <b class="text-white">Inner Membrane (Cristae):</b> <span class="text-slate-300 font-semibold">ETC &amp; ATP Synthase</span>
+                        <div class="text-xs text-slate-400">10 NADH + 2 FADH₂ drop electrons into Complexes I–IV. Energy pumps H⁺ out into intermembrane space.</div>
+                    </div>
+                </li>
+                <li class="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800 flex items-start gap-2.5">
+                    <span class="text-base">⚪</span>
+                    <div>
+                        <b class="text-white">Intermembrane Space:</b> <span class="text-slate-300 font-semibold">H⁺ Reservoir (Proton Gradient)</span>
+                        <div class="text-xs text-slate-400">High H⁺ concentration rushes back into matrix through ATP Synthase (Chemiosmosis) making 32–34 ATP.</div>
+                    </div>
+                </li>
             </ul>
-            <p class="text-xs text-slate-500">Use the labeled diagram at the top of the page. Cover the labels and try to name each part.</p>
         </div>
-        <div class="bg-white rounded-xl p-3 text-center">
-            <p class="text-xs text-slate-600 font-bold mb-2">Chloroplast (for comparison). Respiration's ETC works like the thylakoid's, but in the mitochondrion.</p>
-            <img src="images/chloroplast.png" alt="Labeled diagram of a chloroplast showing thylakoids, stroma, and envelope" class="mx-auto max-h-72 rounded">
-            <p class="text-[11px] text-slate-600 mt-2">Image: "Chloroplast II" by Kelvinsong, CC BY 3.0, via Wikimedia Commons.</p>
+
+        <div class="bg-slate-950/90 rounded-2xl p-5 border border-slate-800 flex flex-col justify-between space-y-4">
+            <div>
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-xs font-black uppercase tracking-wider text-emerald-400">⚡ Stage Flowchart</span>
+                    <span class="text-[11px] font-mono text-slate-400">Station 4 &amp; 7 Exam Key</span>
+                </div>
+                <h4 class="font-extrabold text-white text-base">From Glucose to 36–38 ATP</h4>
+            </div>
+
+            <!-- Stage Boxes Diagram -->
+            <div class="space-y-2 text-xs">
+                <div class="p-3 rounded-xl bg-slate-900 border border-emerald-500/40">
+                    <div class="flex items-center justify-between font-bold text-emerald-300">
+                        <span>1. Glycolysis (Cytosol)</span>
+                        <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[10px]">Net 2 ATP</span>
+                    </div>
+                    <div class="text-[11px] text-slate-300 mt-1">1 Glucose (6C) → 2 Pyruvate (3C) + 2 NADH (Substrate-level)</div>
+                </div>
+                <div class="text-center text-slate-400 font-bold text-xs py-0.5">↓ Pyruvate enters Mitochondrion</div>
+                <div class="p-3 rounded-xl bg-slate-900 border border-sky-500/40">
+                    <div class="flex items-center justify-between font-bold text-sky-300">
+                        <span>2. Pyruvate Oxidation (Matrix)</span>
+                        <span class="px-2 py-0.5 rounded bg-sky-500/20 text-sky-300 text-[10px]">0 ATP</span>
+                    </div>
+                    <div class="text-[11px] text-slate-300 mt-1">2 Pyruvate → 2 Acetyl-CoA (2C) + 2 CO₂ + 2 NADH</div>
+                </div>
+                <div class="text-center text-slate-400 font-bold text-xs py-0.5">↓ Acetyl-CoA enters Citric Acid Cycle</div>
+                <div class="p-3 rounded-xl bg-slate-900 border border-purple-500/40">
+                    <div class="flex items-center justify-between font-bold text-purple-300">
+                        <span>3. Krebs Cycle (Matrix)</span>
+                        <span class="px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 text-[10px]">2 ATP</span>
+                    </div>
+                    <div class="text-[11px] text-slate-300 mt-1">2 Turns: 4 CO₂ + 6 NADH + 2 FADH₂ + 2 ATP (Substrate-level)</div>
+                </div>
+                <div class="text-center text-slate-400 font-bold text-xs py-0.5">↓ 10 NADH + 2 FADH₂ deliver electrons</div>
+                <div class="p-3 rounded-xl bg-slate-900 border border-amber-500/40">
+                    <div class="flex items-center justify-between font-bold text-amber-300">
+                        <span>4. ETC + Chemiosmosis (Cristae)</span>
+                        <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[10px]">32–34 ATP</span>
+                    </div>
+                    <div class="text-[11px] text-slate-300 mt-1">H⁺ pumped to intermembrane space; O₂ is final acceptor forming 6 H₂O</div>
+                </div>
+            </div>
+
+            <div class="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs text-slate-300">
+                <b class="text-emerald-300">Station 7 Exam Rule:</b> Cellular respiration turns chemical glucose energy into ATP. In contrast, photosynthesis absorbs sunlight photons in chloroplast thylakoids &amp; stroma.
+            </div>
         </div>
     </div>
 </section>
@@ -819,6 +964,22 @@
     if (savedQuiz) {
         scoreBox.textContent = 'Last score: ' + savedQuiz.correct + ' / ' + savedQuiz.total + '. Retake to improve it.';
     }
+
+    // ----- Theme Switcher & Persistence -----
+    window.toggleTheme = function() {
+        const isDark = document.documentElement.classList.toggle('dark');
+        save('bio_theme', isDark ? 'dark' : 'light');
+        updateThemeToggleBtn();
+    };
+
+    function updateThemeToggleBtn() {
+        const btn = document.getElementById('themeToggleBtn');
+        if (!btn) return;
+        const isDark = document.documentElement.classList.contains('dark');
+        btn.innerHTML = isDark ? '☀️ Google Clean' : '🌙 Dark Mode';
+        btn.setAttribute('aria-label', isDark ? 'Switch to Google Clean Light Theme' : 'Switch to Dark Mode');
+    }
+    updateThemeToggleBtn();
 })();
 </script>
 </body>
