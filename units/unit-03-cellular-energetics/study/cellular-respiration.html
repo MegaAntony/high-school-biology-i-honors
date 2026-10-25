@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cellular Respiration: Beginner to Expert</title>
+    <meta name="description" content="Study guide for Biology I Honors Unit 3: cellular respiration, from basics to exam-level practice. Based on Dr. Irwin's Unit 3 materials.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .level-beginner { border-color: #34d399; }
+        .level-core { border-color: #38bdf8; }
+        .level-expert { border-color: #f472b6; }
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200 antialiased">
+
+<!-- Sticky navigation + progress -->
+<header class="sticky top-0 z-40 bg-slate-950/90 backdrop-blur border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center gap-3 justify-between">
+        <a href="#top" class="font-extrabold text-white tracking-tight">🔥 Cellular Respiration</a>
+        <nav class="flex flex-wrap gap-2 text-xs font-bold">
+            <a href="#big-picture" class="px-2 py-1 rounded bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500/30">1 · Beginner</a>
+            <a href="#stages" class="px-2 py-1 rounded bg-sky-500/20 text-sky-300 hover:bg-sky-500/30">2 · Core</a>
+            <a href="#atp" class="px-2 py-1 rounded bg-sky-500/20 text-sky-300 hover:bg-sky-500/30">3 · ATP Math</a>
+            <a href="#expert" class="px-2 py-1 rounded bg-pink-500/20 text-pink-300 hover:bg-pink-500/30">4 · Expert</a>
+            <a href="#quiz" class="px-2 py-1 rounded bg-amber-500/20 text-amber-300 hover:bg-amber-500/30">5 · Score Quiz</a>
+            <a href="#short-answer" class="px-2 py-1 rounded bg-amber-500/20 text-amber-300 hover:bg-amber-500/30">6 · Short Answer</a>
+        </nav>
+    </div>
+    <div class="h-1 bg-slate-800">
+        <div id="progress-bar" class="h-1 bg-emerald-400 transition-all duration-300" style="width: 0%"></div>
+    </div>
+</header>
+
+<main id="top" class="max-w-6xl mx-auto px-4 py-10 space-y-16">
+
+<!-- HERO -->
+<section class="grid lg:grid-cols-5 gap-8 items-center">
+    <div class="lg:col-span-3 space-y-5">
+        <p class="text-xs uppercase tracking-widest font-bold text-emerald-300">Biology I Honors · Unit 3 · GSE SB1.e</p>
+        <h1 class="text-4xl md:text-5xl font-black text-white leading-tight">Cellular Respiration:<br>from glucose to ATP</h1>
+        <p class="text-lg text-slate-300">Learn it in three levels: <span class="text-emerald-300 font-bold">Beginner</span> (the big idea), <span class="text-sky-300 font-bold">Core</span> (every stage and number you must know), and <span class="text-pink-300 font-bold">Expert</span> (the reasoning behind the exam questions).</p>
+        <div class="flex flex-wrap gap-3 text-sm">
+            <span class="px-3 py-1.5 rounded-lg bg-rose-500/20 border border-rose-500/40 text-rose-200 font-bold">🚨 Unit 3 MCQ · Fri Oct 30</span>
+            <span class="px-3 py-1.5 rounded-lg bg-amber-500/20 border border-amber-500/40 text-amber-200 font-bold">✍️ Short Answer · Mon Nov 2</span>
+            <a href="../Unit%203%20Summative-10-30/Unit_03_Summative_Master_Study_Guide_and_Keys.md" class="px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 hover:border-slate-500 font-bold">📖 Teacher key (Stations 4 & 7)</a>
+        </div>
+    </div>
+    <figure class="lg:col-span-2 bg-white rounded-2xl p-4 shadow-xl">
+        <svg viewBox="0 0 600 300" class="w-full h-auto" role="img" aria-label="Labeled mitochondrion diagram">
+            <!-- Outer membrane -->
+            <rect x="20" y="50" width="560" height="200" rx="100" fill="#fed7aa" stroke="#c2410c" stroke-width="8"/>
+            <!-- Inner membrane (folded boundary of matrix) -->
+            <rect x="50" y="80" width="500" height="140" rx="70" fill="#7dd3fc" stroke="#0369a1" stroke-width="6"/>
+            <!-- Cristae folds -->
+            <g fill="none" stroke="#0c4a6e" stroke-width="7" stroke-linecap="round">
+                <path d="M130 90 Q165 150 130 210"/>
+                <path d="M200 90 Q235 150 200 210"/>
+                <path d="M270 90 Q305 150 270 210"/>
+                <path d="M340 90 Q375 150 340 210"/>
+                <path d="M410 90 Q445 150 410 210"/>
+                <path d="M480 90 Q515 150 480 210"/>
+            </g>
+            <!-- Number markers -->
+            <g font-family="Arial, sans-serif" font-weight="800" font-size="26" text-anchor="middle">
+                <circle cx="58" cy="150" r="18" fill="#ffffff" stroke="#c2410c" stroke-width="3"/><text x="58" y="158" fill="#9a3412">1</text>
+                <circle cx="44" cy="260" r="18" fill="#ffffff" stroke="#c2410c" stroke-width="3"/><text x="44" y="268" fill="#9a3412">2</text>
+                <circle cx="300" cy="62" r="18" fill="#ffffff" stroke="#0369a1" stroke-width="3"/><text x="300" y="70" fill="#0c4a6e">3</text>
+                <circle cx="230" cy="150" r="18" fill="#ffffff" stroke="#0369a1" stroke-width="3"/><text x="230" y="158" fill="#0c4a6e">4</text>
+            </g>
+        </svg>
+        <figcaption class="mt-3 text-xs text-slate-700 leading-relaxed">
+            <b>1</b> Outer membrane · <b>2</b> Intermembrane space (H⁺ builds up here) · <b>3</b> Inner membrane with cristae (ETC + ATP synthase) · <b>4</b> Matrix (Pyruvate oxidation + Krebs cycle). Diagram drawn for this guide.
+        </figcaption>
+    </figure>
+</section>
+
+<!-- LEARNING GOALS + CHECKLIST -->
+<section class="bg-slate-900 border border-slate-800 rounded-2xl p-6 md:p-8">
+    <h2 class="text-2xl font-black text-white mb-4">✅ Mastery checklist</h2>
+    <p class="text-sm text-slate-400 mb-5">Tick each goal as you master it. Progress is saved in this browser only.</p>
+    <ul class="grid md:grid-cols-2 gap-3 text-sm">
+        <li><label class="flex gap-3 items-start p-3 rounded-lg bg-slate-950 border border-slate-800 cursor-pointer"><input type="checkbox" class="goal mt-1 accent-emerald-400" data-key="goal-1"><span>I can write the overall equation and explain why O₂ and CO₂ appear in it.</span></label></li>
+        <li><label class="flex gap-3 items-start p-3 rounded-lg bg-slate-950 border border-slate-800 cursor-pointer"><input type="checkbox" class="goal mt-1 accent-emerald-400" data-key="goal-2"><span>I can name the location and inputs/outputs of all four stages.</span></label></li>
+        <li><label class="flex gap-3 items-start p-3 rounded-lg bg-slate-950 border border-slate-800 cursor-pointer"><input type="checkbox" class="goal mt-1 accent-emerald-400" data-key="goal-3"><span>I can explain substrate-level vs. oxidative phosphorylation.</span></label></li>
+        <li><label class="flex gap-3 items-start p-3 rounded-lg bg-slate-950 border border-slate-800 cursor-pointer"><input type="checkbox" class="goal mt-1 accent-emerald-400" data-key="goal-4"><span>I can account for 36–38 ATP step by step.</span></label></li>
+        <li><label class="flex gap-3 items-start p-3 rounded-lg bg-slate-950 border border-slate-800 cursor-pointer"><input type="checkbox" class="goal mt-1 accent-emerald-400" data-key="goal-5"><span>I can explain what happens without oxygen, including fermentation.</span></label></li>
+        <li><label class="flex gap-3 items-start p-3 rounded-lg bg-slate-950 border border-slate-800 cursor-pointer"><input type="checkbox" class="goal mt-1 accent-emerald-400" data-key="goal-6"><span>I can predict what happens to ATP, NADH, and pyruvate when a poison blocks one step.</span></label></li>
+    </ul>
+</section>
+
+<!-- ===================== BEGINNER ===================== -->
+<section id="big-picture" class="scroll-mt-28 space-y-8">
+    <div>
+        <span class="inline-block px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-extrabold uppercase tracking-wider">Level 1 · Beginner</span>
+        <h2 class="text-3xl md:text-4xl font-black text-white mt-3">The big idea</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+        <article class="level-beginner border-l-4 bg-slate-900 rounded-xl p-6 space-y-3">
+            <h3 class="text-xl font-bold text-white">🍬 What is it?</h3>
+            <p>Cellular respiration is how cells <b>break apart glucose</b> (sugar) and <b>capture some of its energy</b> in a form the cell can spend: <b>ATP</b>.</p>
+            <p class="text-slate-400 text-sm">Think of glucose as a <b>full charged battery</b>. Respiration slowly drains it in small steps, storing the energy in ATP "coins" instead of letting it all out as heat at once.</p>
+        </article>
+        <article class="level-beginner border-l-4 bg-slate-900 rounded-xl p-6 space-y-3">
+            <h3 class="text-xl font-bold text-white">💰 ATP = cell money</h3>
+            <p>ATP (adenosine triphosphate) powers muscle movement, building molecules, and sending nerve signals. When ATP loses a phosphate it becomes ADP and releases energy.</p>
+            <p class="text-slate-400 text-sm">Cells spend ATP all day. Respiration is how they <b>earn it back</b>.</p>
+        </article>
+    </div>
+
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 md:p-8 space-y-5">
+        <h3 class="text-xl font-bold text-white">The overall equation</h3>
+        <div class="bg-slate-950 rounded-xl p-5 overflow-x-auto text-center">
+            <p class="text-lg md:text-2xl font-bold text-white whitespace-nowrap">C<sub>6</sub>H<sub>12</sub>O<sub>6</sub> + 6 O<sub>2</sub> <span class="text-emerald-300">→</span> 6 CO<sub>2</sub> + 6 H<sub>2</sub>O + <span class="text-amber-300">energy (ATP)</span></p>
+            <p class="text-slate-400 text-sm mt-2">glucose + oxygen → carbon dioxide + water + ATP</p>
+        </div>
+        <div class="grid sm:grid-cols-3 gap-4 text-sm">
+            <div class="p-4 rounded-lg bg-slate-950"><b class="text-emerald-300">Glucose</b><br>Fuel. Gets oxidized (loses electrons).</div>
+            <div class="p-4 rounded-lg bg-slate-950"><b class="text-emerald-300">Oxygen</b><br>Final electron acceptor. Gets reduced.</div>
+            <div class="p-4 rounded-lg bg-slate-950"><b class="text-emerald-300">CO₂ and H₂O</b><br>Waste products. CO₂ is exhaled.</div>
+        </div>
+        <p class="text-sm text-slate-400"><b>Why does oxygen appear?</b> Oxygen is needed at the very end, to accept the electrons. If it isn't there, the whole energy-making line jams (see Expert, section 4).</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-slate-900 rounded-xl p-6 border border-slate-800 space-y-3">
+            <h3 class="text-xl font-bold text-white">⚡ Oxidation & reduction</h3>
+            <p><b>OIL RIG:</b> <i>O</i>xidation <i>I</i>s <i>L</i>oss, <i>R</i>eduction <i>I</i>s <i>G</i>ain (of electrons).</p>
+            <p class="text-sm text-slate-400">Glucose loses electrons (oxidized). Those electrons ride on carrier molecules <b>NAD⁺ → NADH</b> and <b>FAD → FADH₂</b>, then reach oxygen (reduced to water).</p>
+        </div>
+        <div class="bg-slate-900 rounded-xl p-6 border border-slate-800 space-y-3">
+            <h3 class="text-xl font-bold text-white">🫁 Aerobic vs. anaerobic</h3>
+            <p><b>Aerobic</b> (with O₂): full pathway, <b>36–38 ATP</b> per glucose.</p>
+            <p><b>Anaerobic</b> (no O₂): only glycolysis plus fermentation, <b>2 ATP</b> per glucose.</p>
+            <p class="text-sm text-slate-400">Your body does both. During hard sprints muscles can't get enough O₂ fast enough, so they lean on fermentation.</p>
+        </div>
+    </div>
+
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 md:p-8">
+        <h3 class="text-xl font-bold text-white mb-4">📘 Vocabulary bank (learn these words)</h3>
+        <div class="overflow-x-auto">
+        <table class="w-full text-sm text-left">
+            <thead class="text-xs uppercase text-slate-400 border-b border-slate-700">
+                <tr><th class="py-2 pr-4">Term</th><th class="py-2 pr-4">Plain-English meaning</th><th class="py-2">Where you'll see it</th></tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800 align-top">
+                <tr><td class="py-2 pr-4 font-bold text-white">ATP</td><td class="py-2 pr-4">The cell's usable energy "coin"</td><td class="py-2">Every stage makes or uses it</td></tr>
+                <tr><td class="py-2 pr-4 font-bold text-white">NAD⁺ / NADH</td><td class="py-2 pr-4">Electron taxi. Empty (NAD⁺) or loaded (NADH)</td><td class="py-2">Glycolysis, pyruvate oxidation, Krebs</td></tr>
+                <tr><td class="py-2 pr-4 font-bold text-white">FAD / FADH₂</td><td class="py-2 pr-4">Second electron taxi, carries less than NADH</td><td class="py-2">Krebs cycle only</td></tr>
+                <tr><td class="py-2 pr-4 font-bold text-white">Pyruvate</td><td class="py-2 pr-4">3-carbon product of glycolysis</td><td class="py-2">Enters the mitochondrion</td></tr>
+                <tr><td class="py-2 pr-4 font-bold text-white">Acetyl-CoA</td><td class="py-2 pr-4">2-carbon fuel package that enters Krebs</td><td class="py-2">Made by pyruvate oxidation</td></tr>
+                <tr><td class="py-2 pr-4 font-bold text-white">Substrate-level phosphorylation</td><td class="py-2 pr-4">An enzyme passes a phosphate straight to ADP</td><td class="py-2">Glycolysis and Krebs</td></tr>
+                <tr><td class="py-2 pr-4 font-bold text-white">Oxidative phosphorylation</td><td class="py-2 pr-4">ATP made from the H⁺ gradient powered by the ETC</td><td class="py-2">Inner mitochondrial membrane</td></tr>
+                <tr><td class="py-2 pr-4 font-bold text-white">Chemiosmosis</td><td class="py-2 pr-4">H⁺ flowing back through ATP synthase makes ATP</td><td class="py-2">ETC stage</td></tr>
+                <tr><td class="py-2 pr-4 font-bold text-white">Fermentation</td><td class="py-2 pr-4">Recycles NAD⁺ without O₂ so glycolysis can continue</td><td class="py-2">Anaerobic pathway</td></tr>
+            </tbody>
+        </table>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== CORE ===================== -->
+<section id="stages" class="scroll-mt-28 space-y-8">
+    <div>
+        <span class="inline-block px-3 py-1 rounded-full bg-sky-500/20 text-sky-300 text-xs font-extrabold uppercase tracking-wider">Level 2 · Core</span>
+        <h2 class="text-3xl md:text-4xl font-black text-white mt-3">The four stages, in order</h2>
+        <p class="text-slate-400 mt-2">Follow the carbon, the electrons, and the energy through the pathway. Each card gives location, inputs, outputs, and what to remember for the test.</p>
+    </div>
+
+    <!-- Flow strip -->
+    <div class="flex flex-wrap items-center gap-2 text-xs font-bold text-center">
+        <span class="px-3 py-2 rounded bg-slate-800">Glucose</span><span>→</span>
+        <span class="px-3 py-2 rounded bg-sky-900 text-sky-200">1 Glycolysis</span><span>→</span>
+        <span class="px-3 py-2 rounded bg-sky-900 text-sky-200">2 Pyruvate oxidation</span><span>→</span>
+        <span class="px-3 py-2 rounded bg-sky-900 text-sky-200">3 Krebs cycle</span><span>→</span>
+        <span class="px-3 py-2 rounded bg-sky-900 text-sky-200">4 ETC + chemiosmosis</span><span>→</span>
+        <span class="px-3 py-2 rounded bg-slate-800">ATP + H₂O</span>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+
+        <article class="level-core border-l-4 bg-slate-900 rounded-xl p-6 space-y-3">
+            <h3 class="text-xl font-bold text-white">1 · Glycolysis</h3>
+            <p class="text-sm"><b>Where:</b> Cytosol (no membrane-bound organelles, no O₂ needed).</p>
+            <p class="text-sm"><b>In:</b> 1 glucose, 2 ATP (invested), 2 NAD⁺, ADP + Pᵢ</p>
+            <p class="text-sm"><b>Out:</b> 2 pyruvate (3C each), 2 NADH, 4 ATP made → <b>net 2 ATP</b></p>
+            <ol class="list-decimal list-inside text-sm text-slate-300 space-y-1">
+                <li>Energy investment: 2 ATP activate glucose.</li>
+                <li>The 6-carbon sugar splits into two 3-carbon molecules.</li>
+                <li>Oxidation: electrons go to NAD⁺ → NADH.</li>
+                <li>Substrate-level phosphorylation makes ATP directly.</li>
+            </ol>
+            <p class="text-xs text-amber-300 bg-amber-500/10 rounded p-2">⚠️ Trap: glycolysis makes 4 ATP but spends 2, so the net is 2.</p>
+        </article>
+
+        <article class="level-core border-l-4 bg-slate-900 rounded-xl p-6 space-y-3">
+            <h3 class="text-xl font-bold text-white">2 · Pyruvate oxidation (link reaction)</h3>
+            <p class="text-sm"><b>Where:</b> Mitochondrial matrix.</p>
+            <p class="text-sm"><b>In:</b> 2 pyruvate, 2 NAD⁺, 2 coenzyme A</p>
+            <p class="text-sm"><b>Out:</b> 2 acetyl-CoA, 2 NADH, 2 CO₂, <b>0 ATP</b></p>
+            <ol class="list-decimal list-inside text-sm text-slate-300 space-y-1">
+                <li>One carbon leaves each pyruvate as CO₂.</li>
+                <li>Electrons reduce NAD⁺ → NADH.</li>
+                <li>CoA attaches to the 2-carbon acetyl group.</li>
+            </ol>
+            <p class="text-xs text-amber-300 bg-amber-500/10 rounded p-2">⚠️ Trap: no ATP is made here. Students often count it as a stage that makes energy.</p>
+        </article>
+
+        <article class="level-core border-l-4 bg-slate-900 rounded-xl p-6 space-y-3">
+            <h3 class="text-xl font-bold text-white">3 · Krebs cycle (citric acid cycle)</h3>
+            <p class="text-sm"><b>Where:</b> Mitochondrial matrix.</p>
+            <p class="text-sm"><b>In:</b> 2 acetyl-CoA, NAD⁺, FAD, ADP + Pᵢ (per glucose: the cycle turns <b>twice</b>)</p>
+            <p class="text-sm"><b>Out (per glucose):</b> 4 CO₂, <b>6 NADH</b>, <b>2 FADH₂</b>, <b>2 ATP</b></p>
+            <ol class="list-decimal list-inside text-sm text-slate-300 space-y-1">
+                <li>Acetyl group joins 4-carbon oxaloacetate → 6-carbon citrate.</li>
+                <li>Citrate is oxidized and decarboxylated (CO₂ released).</li>
+                <li>NAD⁺ and FAD pick up electrons.</li>
+                <li>Oxaloacetate is regenerated so the cycle continues.</li>
+            </ol>
+            <p class="text-xs text-amber-300 bg-amber-500/10 rounded p-2">⚠️ Trap: the cycle makes very little ATP directly. Its real job is loading NADH and FADH₂ for the ETC.</p>
+        </article>
+
+        <article class="level-core border-l-4 bg-slate-900 rounded-xl p-6 space-y-3">
+            <h3 class="text-xl font-bold text-white">4 · Electron transport chain + chemiosmosis</h3>
+            <p class="text-sm"><b>Where:</b> Inner mitochondrial membrane (the cristae).</p>
+            <p class="text-sm"><b>In:</b> 10 NADH, 2 FADH₂, O₂, ADP + Pᵢ</p>
+            <p class="text-sm"><b>Out:</b> about <b>32–34 ATP</b>, H₂O, and regenerated NAD⁺ and FAD</p>
+            <ol class="list-decimal list-inside text-sm text-slate-300 space-y-1">
+                <li>NADH and FADH₂ drop their electrons into the chain.</li>
+                <li>Energy from the electrons pumps H⁺ from the matrix into the intermembrane space.</li>
+                <li>H⁺ builds a gradient ("water behind a dam").</li>
+                <li>H⁺ flows back through ATP synthase, which makes ATP (chemiosmosis).</li>
+                <li>O₂ accepts the electrons and H⁺ to form H₂O.</li>
+            </ol>
+            <p class="text-xs text-amber-300 bg-amber-500/10 rounded p-2">⚠️ Trap: O₂ is not used until the very end. Its job is the <i>final electron acceptor</i>.</p>
+        </article>
+    </div>
+
+    <!-- Diagram of the matrix/cristae with image -->
+    <div class="grid lg:grid-cols-2 gap-6 items-center bg-slate-900 border border-slate-800 rounded-2xl p-6">
+        <div class="space-y-3">
+            <h3 class="text-xl font-bold text-white">Where each stage happens</h3>
+            <ul class="text-sm space-y-2">
+                <li>🟠 <b>Cytosol:</b> glycolysis (the only stage that doesn't need mitochondria).</li>
+                <li>🔵 <b>Matrix:</b> pyruvate oxidation and the Krebs cycle.</li>
+                <li>🟣 <b>Inner membrane (cristae):</b> the ETC and ATP synthase.</li>
+                <li>⚪ <b>Intermembrane space:</b> where H⁺ builds up before flowing back.</li>
+            </ul>
+            <p class="text-xs text-slate-500">Use the labeled diagram at the top of the page. Cover the labels and try to name each part.</p>
+        </div>
+        <div class="bg-white rounded-xl p-3 text-center">
+            <p class="text-xs text-slate-600 font-bold mb-2">Chloroplast (for comparison). Respiration's ETC works like the thylakoid's, but in the mitochondrion.</p>
+            <img src="images/chloroplast.png" alt="Labeled diagram of a chloroplast showing thylakoids, stroma, and envelope" class="mx-auto max-h-72 rounded">
+            <p class="text-[11px] text-slate-600 mt-2">Image: "Chloroplast II" by Kelvinsong, CC BY 3.0, via Wikimedia Commons.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ATP MATH -->
+<section id="atp" class="scroll-mt-28 space-y-8">
+    <div>
+        <span class="inline-block px-3 py-1 rounded-full bg-sky-500/20 text-sky-300 text-xs font-extrabold uppercase tracking-wider">Level 2 · Core</span>
+        <h2 class="text-3xl md:text-4xl font-black text-white mt-3">Count it: per-glucose accounting</h2>
+        <p class="text-slate-400 mt-2">The teacher's table gives these numbers for one glucose. Learn the table, then the totals follow.</p>
+    </div>
+
+    <div class="overflow-x-auto bg-slate-900 border border-slate-800 rounded-2xl">
+        <table class="w-full text-sm text-left">
+            <thead class="text-xs uppercase text-slate-400 border-b border-slate-700">
+                <tr><th class="p-3">Stage</th><th class="p-3">ATP</th><th class="p-3">NADH</th><th class="p-3">FADH₂</th><th class="p-3">CO₂</th></tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800 text-center">
+                <tr><td class="p-3 text-left font-bold text-white">Glycolysis</td><td class="p-3">2 (net)</td><td class="p-3">2</td><td class="p-3">0</td><td class="p-3">0</td></tr>
+                <tr><td class="p-3 text-left font-bold text-white">Pyruvate oxidation</td><td class="p-3">0</td><td class="p-3">2</td><td class="p-3">0</td><td class="p-3">2</td></tr>
+                <tr><td class="p-3 text-left font-bold text-white">Krebs cycle</td><td class="p-3">2</td><td class="p-3">6</td><td class="p-3">2</td><td class="p-3">4</td></tr>
+                <tr><td class="p-3 text-left font-bold text-white">ETC + chemiosmosis</td><td class="p-3">32–34</td><td class="p-3">(10 total used)</td><td class="p-3">(2 total used)</td><td class="p-3">0</td></tr>
+                <tr class="bg-slate-950 font-extrabold text-white"><td class="p-3 text-left">Total</td><td class="p-3 text-emerald-300">36–38</td><td class="p-3">10</td><td class="p-3">2</td><td class="p-3">6</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4">
+            <h3 class="text-lg font-bold text-white">Where the ATP comes from</h3>
+            <div class="space-y-3 text-sm">
+                <div><div class="flex justify-between"><span>Substrate-level (glycolysis + Krebs)</span><b>4</b></div><div class="h-3 bg-slate-800 rounded"><div class="h-3 bg-sky-400 rounded" style="width: 11%"></div></div></div>
+                <div><div class="flex justify-between"><span>Oxidative phosphorylation (ETC)</span><b>32–34</b></div><div class="h-3 bg-slate-800 rounded"><div class="h-3 bg-emerald-400 rounded" style="width: 89%"></div></div></div>
+            </div>
+            <p class="text-xs text-slate-400">Bars use the 36–38 total as the whole. Oxidative phosphorylation makes about 90% of the ATP.</p>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-3">
+            <h3 class="text-lg font-bold text-white">Step-by-step worked example</h3>
+            <ol class="list-decimal list-inside text-sm text-slate-300 space-y-2">
+                <li><b>Glycolysis:</b> 4 ATP made − 2 invested = <b>2 net</b>.</li>
+                <li><b>Pyruvate oxidation:</b> 2 pyruvate → 2 NADH, 2 CO₂, 0 ATP.</li>
+                <li><b>Krebs (2 turns):</b> 2 ATP, 6 NADH, 2 FADH₂, 4 CO₂.</li>
+                <li><b>Count the carriers:</b> NADH = 2 + 2 + 6 = <b>10</b>; FADH₂ = <b>2</b>.</li>
+                <li><b>ETC:</b> 10 NADH + 2 FADH₂ → 32–34 ATP.</li>
+                <li><b>Total:</b> 2 + 2 + 32–34 = <b>36–38 ATP</b>.</li>
+            </ol>
+            <p class="text-xs text-amber-300 bg-amber-500/10 rounded p-2">Note: the course uses 36–38 ATP. Your teacher explains that ATP totals vary by cell and by convention, so use the numbers from the unit when you write answers.</p>
+        </div>
+    </div>
+
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-2 text-sm">
+        <h3 class="text-lg font-bold text-white">CO₂ and O₂ counting (common test items)</h3>
+        <p>• CO₂ out: <b>2</b> from pyruvate oxidation + <b>4</b> from Krebs = <b>6</b> per glucose.</p>
+        <p>• O₂ in: <b>6</b> per glucose, all used at the end of the ETC (as the final electron acceptor).</p>
+        <p>• H₂O out: <b>6</b> per glucose, formed when O₂ accepts electrons and H⁺ at the end of the ETC.</p>
+    </div>
+</section>
+
+<!-- ===================== EXPERT ===================== -->
+<section id="expert" class="scroll-mt-28 space-y-8">
+    <div>
+        <span class="inline-block px-3 py-1 rounded-full bg-pink-500/20 text-pink-300 text-xs font-extrabold uppercase tracking-wider">Level 3 · Expert</span>
+        <h2 class="text-3xl md:text-4xl font-black text-white mt-3">Reason like the exam</h2>
+        <p class="text-slate-400 mt-2">The exam asks you to predict what happens when one step breaks. Trace the carriers, the protons, and the ATP.</p>
+    </div>
+
+    <!-- 1 Poisons -->
+    <details open class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+        <summary class="cursor-pointer text-xl font-bold text-white flex justify-between items-center">1 · Blocked steps: the poison case study <span class="text-pink-300 text-sm">▼</span></summary>
+        <p class="mt-4 text-sm text-slate-300">Lab 3 (Poison Case Study) compares each victim with a healthy control. Use the pattern below and you can answer any blocked-step question.</p>
+        <div class="overflow-x-auto mt-4">
+        <table class="w-full text-sm text-left">
+            <thead class="text-xs uppercase text-slate-400 border-b border-slate-700">
+                <tr><th class="py-2 pr-3">Blocked step</th><th class="py-2 pr-3">Pyruvate</th><th class="py-2 pr-3">Mito NADH</th><th class="py-2 pr-3">Intermembrane H⁺</th><th class="py-2">Why</th></tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800 align-top">
+                <tr><td class="py-2 pr-3 font-bold text-white">Glycolysis (2-deoxyglucose)</td><td class="py-2 pr-3 text-rose-300">↓</td><td class="py-2 pr-3 text-rose-300">↓</td><td class="py-2 pr-3 text-rose-300">↓</td><td class="py-2">No pyruvate to feed the rest of the pathway.</td></tr>
+                <tr><td class="py-2 pr-3 font-bold text-white">Pyruvate dehydrogenase (arsenic)</td><td class="py-2 pr-3 text-emerald-300">↑</td><td class="py-2 pr-3 text-rose-300">↓</td><td class="py-2 pr-3 text-rose-300">↓</td><td class="py-2">Pyruvate backs up; no NADH or acetyl-CoA made for Krebs.</td></tr>
+                <tr><td class="py-2 pr-3 font-bold text-white">ETC Complex IV (cyanide)</td><td class="py-2 pr-3">=</td><td class="py-2 pr-3 text-emerald-300">↑</td><td class="py-2 pr-3 text-rose-300">↓</td><td class="py-2">Electrons can't reach O₂, so NADH backs up and H⁺ pumping stops.</td></tr>
+                <tr><td class="py-2 pr-3 font-bold text-white">ATP synthase (oligomycin)</td><td class="py-2 pr-3">=</td><td class="py-2 pr-3">=</td><td class="py-2 pr-3 text-emerald-300">↑↑</td><td class="py-2">The chain still pumps H⁺, but the H⁺ can't flow back, so it piles up and ATP stops.</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <div class="mt-5 bg-pink-500/10 border border-pink-500/30 rounded-xl p-4 text-sm space-y-2">
+            <p><b class="text-pink-200">Expert rule:</b> Ask "what is upstream and downstream?" Anything upstream of the block piles up. Anything downstream starves.</p>
+            <p>Cyanide blocks the end, so NADH, the upstream carrier, rises. Oligomycin blocks the H⁺ exit, so the gradient rises. Both stop ATP.</p>
+        </div>
+    </details>
+
+    <!-- 2 Kearns-Sayre -->
+    <details class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+        <summary class="cursor-pointer text-xl font-bold text-white flex justify-between items-center">2 · Mitochondrial disease (Kearns-Sayre) <span class="text-pink-300 text-sm">▼</span></summary>
+        <div class="mt-4 text-sm space-y-3 text-slate-300">
+            <p>If oxidative phosphorylation is damaged, the ETC cannot pump H⁺ or run ATP synthase. Two things follow:</p>
+            <ul class="list-disc list-inside space-y-1">
+                <li><b>ATP falls</b> from 36–38 to roughly 2–4 per glucose (teacher's key).</li>
+                <li><b>NAD⁺ and FAD run out</b>, because NADH and FADH₂ can't drop their electrons. Pyruvate oxidation and Krebs then stop.</li>
+            </ul>
+            <p>Cells that need the most ATP, such as muscle and the brain, suffer most. They fall back on glycolysis and lactic acid fermentation.</p>
+        </div>
+    </details>
+
+    <!-- 3 Anaerobic -->
+    <details class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+        <summary class="cursor-pointer text-xl font-bold text-white flex justify-between items-center">3 · Without oxygen: fermentation <span class="text-pink-300 text-sm">▼</span></summary>
+        <div class="mt-4 overflow-x-auto">
+        <table class="w-full text-sm text-left">
+            <thead class="text-xs uppercase text-slate-400 border-b border-slate-700">
+                <tr><th class="py-2 pr-3">Type</th><th class="py-2 pr-3">Who</th><th class="py-2 pr-3">Product</th><th class="py-2">ATP per glucose</th></tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800">
+                <tr><td class="py-2 pr-3 font-bold text-white">Lactic acid fermentation</td><td class="py-2 pr-3">Animal cells (muscle), some bacteria</td><td class="py-2 pr-3">Lactate (lactic acid)</td><td class="py-2">2 (glycolysis only)</td></tr>
+                <tr><td class="py-2 pr-3 font-bold text-white">Alcoholic fermentation</td><td class="py-2 pr-3">Yeast and some microbes</td><td class="py-2 pr-3">Ethanol + CO₂</td><td class="py-2">2 (glycolysis only)</td></tr>
+                <tr><td class="py-2 pr-3 font-bold text-white">Aerobic respiration</td><td class="py-2 pr-3">Most eukaryotes with O₂</td><td class="py-2 pr-3">CO₂ + H₂O</td><td class="py-2 text-emerald-300 font-bold">36–38</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p class="mt-4 text-sm text-slate-300"><b>Why fermentation exists:</b> it converts pyruvate and NADH back into NAD⁺. Glycolysis needs NAD⁺ to keep making ATP. Fermentation adds no new ATP; it just keeps the 2 ATP from glycolysis running.</p>
+    </details>
+
+    <!-- 4 Oxygen and ETC jam -->
+    <details class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+        <summary class="cursor-pointer text-xl font-bold text-white flex justify-between items-center">4 · Why oxygen is "the final electron acceptor" <span class="text-pink-300 text-sm">▼</span></summary>
+        <div class="mt-4 text-sm text-slate-300 space-y-3">
+            <p>The ETC is a conveyor belt. Electrons move down it, losing energy each step. Something has to take the electrons off the end, or the belt stops.</p>
+            <p>Oxygen is that something. It is pulled strongly toward electrons, so it takes them and combines them with H⁺ to form water.</p>
+            <p><b class="text-pink-200">Chain of logic for a 3-mark answer:</b> No O₂ → electrons can't leave the chain → NADH and FADH₂ stay loaded → NAD⁺ and FAD aren't regenerated → pyruvate oxidation and Krebs stop → H⁺ gradient collapses → ATP synthase stops.</p>
+        </div>
+    </details>
+
+    <!-- 5 Extension -->
+    <details class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+        <summary class="cursor-pointer text-xl font-bold text-white flex justify-between items-center">5 · Extension (beyond the teacher's notes) <span class="text-pink-300 text-sm">▼</span></summary>
+        <div class="mt-4 text-sm text-slate-300 space-y-3">
+            <p class="text-amber-300 bg-amber-500/10 rounded p-2 text-xs">Not required for the Oct 30 or Nov 2 exams. Read it to see where the topic goes next.</p>
+            <ul class="list-disc list-inside space-y-2">
+                <li><b>Regulation:</b> Glycolysis is controlled at phosphofructokinase. High ATP slows it down, so the cell doesn't burn glucose when energy is plentiful.</li>
+                <li><b>Why some cells prefer glycolysis:</b> Fast-growing cancer cells and some fast-twitch muscles make lots of lactate even with oxygen around. The reason is speed, not oxygen shortage.</li>
+                <li><b>Brown fat:</b> uncoupling proteins let H⁺ leak back into the matrix without ATP synthase, so energy becomes heat.</li>
+            </ul>
+        </div>
+    </details>
+</section>
+
+<!-- ===================== QUIZ ===================== -->
+<section id="quiz" class="scroll-mt-28 space-y-6">
+    <div>
+        <span class="inline-block px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-extrabold uppercase tracking-wider">Exam practice · MCQ</span>
+        <h2 class="text-3xl md:text-4xl font-black text-white mt-3">Score quiz (12 questions)</h2>
+        <p class="text-slate-400 mt-2">Answer everything, then press <b>Check score</b>. Each explanation tells you why the wrong options are wrong. Target: <b class="text-emerald-300">10 / 12 or better</b> before Friday.</p>
+    </div>
+    <form id="quiz-form" class="space-y-5"></form>
+    <div class="flex flex-wrap gap-3 items-center">
+        <button id="check-btn" type="button" class="px-5 py-3 rounded-xl bg-amber-400 text-slate-950 font-extrabold hover:bg-amber-300">Check score</button>
+        <button id="reset-btn" type="button" class="px-5 py-3 rounded-xl bg-slate-800 border border-slate-700 font-bold hover:border-slate-500">Reset</button>
+        <div id="score-box" class="px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-sm font-bold" aria-live="polite">Not scored yet.</div>
+    </div>
+</section>
+
+<!-- ===================== SHORT ANSWER ===================== -->
+<section id="short-answer" class="scroll-mt-28 space-y-6">
+    <div>
+        <span class="inline-block px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-extrabold uppercase tracking-wider">Exam practice · Short answer</span>
+        <h2 class="text-3xl md:text-4xl font-black text-white mt-3">Short-answer practice (Nov 2)</h2>
+        <p class="text-slate-400 mt-2">Write your answer on paper first, then open the model. Use <b>Claim → Evidence → Reasoning</b> (CER) and name the stage, location, and molecule each time.</p>
+    </div>
+
+    <details class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+        <summary class="cursor-pointer text-lg font-bold text-white">Q1 · Trace the carbon from one glucose molecule through respiration. Where does each carbon go? (4 pts)</summary>
+        <div class="mt-4 text-sm space-y-2 text-slate-300">
+            <p><b class="text-emerald-300">Model:</b> One glucose (6 C) splits in glycolysis into two pyruvate (3 C each), which stay in the cell. In pyruvate oxidation, each pyruvate loses one carbon as CO₂ (2 CO₂ total) and becomes acetyl-CoA (2 C). In the Krebs cycle, the acetyl groups are fully oxidized, releasing 4 CO₂. So all 6 carbons leave as CO₂: 2 from pyruvate oxidation and 4 from Krebs.</p>
+            <p class="text-xs text-slate-500">Scoring: glucose → pyruvate (1) · CO₂ from pyruvate oxidation (1) · 4 CO₂ from Krebs (1) · total 6 C leave as CO₂ (1).</p>
+        </div>
+    </details>
+
+    <details class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+        <summary class="cursor-pointer text-lg font-bold text-white">Q2 · Explain how the ETC produces ATP, and name the molecule that makes it. (4 pts)</summary>
+        <div class="mt-4 text-sm space-y-2 text-slate-300">
+            <p><b class="text-emerald-300">Model:</b> NADH and FADH₂ donate electrons to the ETC on the inner mitochondrial membrane. As electrons pass along the chain, energy pumps H⁺ from the matrix into the intermembrane space, creating an electrochemical gradient. H⁺ flows back through ATP synthase, and the flow drives ADP + Pᵢ → ATP. This is chemiosmosis, and it is oxidative phosphorylation. O₂ accepts the electrons at the end and forms H₂O.</p>
+            <p class="text-xs text-slate-500">Scoring: electron carriers donate electrons (1) · H⁺ pumped into intermembrane space (1) · H⁺ flows through ATP synthase, making ATP (1) · O₂ is the final electron acceptor forming H₂O (1).</p>
+        </div>
+    </details>
+
+    <details class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+        <summary class="cursor-pointer text-lg font-bold text-white">Q3 · A poison blocks ATP synthase (oligomycin). Predict the change in intermembrane H⁺ and ATP, and explain. (4 pts)</summary>
+        <div class="mt-4 text-sm space-y-2 text-slate-300">
+            <p><b class="text-emerald-300">Model:</b> The ETC keeps pumping H⁺ into the intermembrane space, but ATP synthase is blocked, so H⁺ cannot flow back into the matrix. Intermembrane H⁺ increases sharply. Without the H⁺ flow, ATP synthase cannot make ATP, so ATP production falls to the substrate-level amount (about 4 ATP). NADH stays about the same because the chain still runs.</p>
+            <p class="text-xs text-slate-500">Scoring: H⁺ increases (1) · H⁺ can't flow through ATP synthase (1) · ATP falls (1) · explanation links the blocked channel to the drop (1).</p>
+        </div>
+    </details>
+
+    <details class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+        <summary class="cursor-pointer text-lg font-bold text-white">Q4 · Explain why an animal cell with no oxygen produces lactic acid and only 2 ATP. (3 pts)</summary>
+        <div class="mt-4 text-sm space-y-2 text-slate-300">
+            <p><b class="text-emerald-300">Model:</b> Without O₂, the ETC cannot run, so NADH cannot give up its electrons and NAD⁺ is not regenerated. Pyruvate cannot enter the Krebs cycle. Lactic acid fermentation reduces pyruvate to lactate, which regenerates NAD⁺ so glycolysis can keep running. Glycolysis is the only ATP source, giving a net of 2 ATP.</p>
+            <p class="text-xs text-slate-500">Scoring: no O₂ means the ETC stops and NAD⁺ isn't regenerated (1) · lactate regenerates NAD⁺ (1) · glycolysis gives only 2 net ATP (1).</p>
+        </div>
+    </details>
+
+    <details class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+        <summary class="cursor-pointer text-lg font-bold text-white">Q5 · Kearns-Sayre syndrome damages oxidative phosphorylation. Explain the effect on ATP and on the Krebs cycle. (4 pts)</summary>
+        <div class="mt-4 text-sm space-y-2 text-slate-300">
+            <p><b class="text-emerald-300">Model:</b> Oxidative phosphorylation supplies 32–34 of the 36–38 ATP, so ATP falls to only the substrate-level amount (about 2–4 per glucose). Because NADH and FADH₂ can't pass electrons to the ETC, NAD⁺ and FAD are not regenerated. Pyruvate oxidation and the Krebs cycle then stop, so the cell depends mainly on glycolysis and fermentation.</p>
+            <p class="text-xs text-slate-500">Scoring: ATP drops to about 2–4 (1) · ETC/ATP synthase can't make most ATP (1) · NAD⁺/FAD not regenerated (1) · Krebs/pyruvate oxidation stop (1).</p>
+        </div>
+    </details>
+</section>
+
+</main>
+
+<footer class="border-t border-slate-800 mt-16">
+    <div class="max-w-6xl mx-auto px-4 py-8 text-xs text-slate-500 space-y-2">
+        <p>Study guide built from Dr. Irwin's Unit 3 materials (Cellular Respiration Outline, Unit 3B slide scripts, Review Stations, Lab Packet). Image credit: "Chloroplast II" by Kelvinsong (CC BY 3.0), Wikimedia Commons. Mitochondrion diagram drawn for this guide.</p>
+        <p>Progress and quiz scores are saved only in your browser.</p>
+    </div>
+</footer>
+
+<script>
+(function () {
+    // ----- Storage helpers (never throw) -----
+    function load(key, fallback) {
+        try { return JSON.parse(localStorage.getItem(key)) ?? fallback; } catch (e) { return fallback; }
+    }
+    function save(key, value) {
+        try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) { /* private window: ignore */ }
+    }
+
+    // ----- Mastery checklist + progress bar -----
+    const goals = document.querySelectorAll('.goal');
+    const bar = document.getElementById('progress-bar');
+    const saved = load('bio-resp-goals', {});
+    function updateBar() {
+        const done = [...goals].filter(g => g.checked).length;
+        bar.style.width = Math.round((done / goals.length) * 100) + '%';
+    }
+    goals.forEach(g => {
+        g.checked = !!saved[g.dataset.key];
+        g.addEventListener('change', () => {
+            saved[g.dataset.key] = g.checked;
+            save('bio-resp-goals', saved);
+            updateBar();
+        });
+    });
+    updateBar();
+
+    // ----- MCQ quiz -----
+    const questions = [
+        {
+            q: 'Which stage makes the most ATP per glucose?',
+            opts: ['Glycolysis', 'Krebs cycle', 'Electron transport chain + chemiosmosis', 'Fermentation'],
+            ans: 2,
+            exp: 'The ETC with chemiosmosis makes about 32–34 of the 36–38 ATP. Glycolysis and Krebs make 2 each, and fermentation makes none beyond glycolysis.'
+        },
+        {
+            q: 'Where does glycolysis take place?',
+            opts: ['Inner mitochondrial membrane', 'Mitochondrial matrix', 'Cytosol', 'Thylakoid membrane'],
+            ans: 2,
+            exp: 'Glycolysis happens in the cytosol. It needs no organelles and no oxygen. The inner membrane is the ETC, the matrix is pyruvate oxidation and Krebs, and the thylakoid belongs to photosynthesis.'
+        },
+        {
+            q: 'What is the net ATP gain from glycolysis per glucose?',
+            opts: ['4', '2', '0', '36–38'],
+            ans: 1,
+            exp: 'Glycolysis makes 4 ATP but invests 2, so the net is 2. Students who answer 4 forgot to subtract the investment.'
+        },
+        {
+            q: 'What is the final electron acceptor in aerobic respiration?',
+            opts: ['NAD⁺', 'Pyruvate', 'Oxygen (O₂)', 'ATP synthase'],
+            ans: 2,
+            exp: 'O₂ accepts electrons and H⁺ at the end of the ETC to form water. NAD⁺ accepts electrons earlier in the pathway, and ATP synthase is an enzyme, not an acceptor.'
+        },
+        {
+            q: 'Which product is NOT made in the Krebs cycle?',
+            opts: ['CO₂', 'ATP', 'H₂O', 'NADH'],
+            ans: 2,
+            exp: 'Krebs makes CO₂, ATP, NADH and FADH₂. Water forms later, at the end of the ETC, when O₂ accepts electrons.'
+        },
+        {
+            q: 'Pyruvate oxidation (link reaction) makes which of these?',
+            opts: ['2 acetyl-CoA, 2 NADH, 2 CO₂, and 0 ATP', '6 NADH, 2 FADH₂, and 2 ATP', '32–34 ATP', '2 pyruvate and 2 ATP'],
+            ans: 0,
+            exp: 'Pyruvate oxidation makes no ATP. It creates the acetyl-CoA that enters Krebs, plus one NADH and one CO₂ per pyruvate.'
+        },
+        {
+            q: 'A poison blocks Complex IV (cyanide). What happens to NADH and intermembrane H⁺?',
+            opts: ['NADH falls, H⁺ rises', 'NADH rises, H⁺ falls', 'Both rise', 'Both fall'],
+            ans: 1,
+            exp: 'Electrons can\'t reach O₂, so NADH backs up (rises) and H⁺ pumping stops (falls). This matches the Lab 3 cyanide data.'
+        },
+        {
+            q: 'Oligomycin blocks ATP synthase. Predict intermembrane H⁺ and ATP.',
+            opts: ['H⁺ falls, ATP rises', 'H⁺ rises, ATP falls', 'H⁺ falls, ATP falls', 'H⁺ rises, ATP rises'],
+            ans: 1,
+            exp: 'The chain still pumps H⁺, but it can\'t flow back through ATP synthase, so it piles up. With no H⁺ flow, ATP stops being made by oxidative phosphorylation.'
+        },
+        {
+            q: 'A poison blocks the first enzyme of glycolysis (2-deoxyglucose). Which result is most likely?',
+            opts: ['Pyruvate rises', 'Pyruvate falls and downstream stages starve', 'NADH rises but pyruvate is unchanged', 'ATP synthase is blocked'],
+            ans: 1,
+            exp: 'With no pyruvate made, every downstream stage starves: pyruvate, mitochondrial NADH, and H⁺ all fall (teacher data: pyruvate 0.02 mM vs 0.09–0.15 control).'
+        },
+        {
+            q: 'During lactic acid fermentation, what is the main job?',
+            opts: ['Make most of the cell\'s ATP', 'Regenerate NAD⁺ so glycolysis can continue', 'Make O₂ for the ETC', 'Split water in the thylakoid'],
+            ans: 1,
+            exp: 'Fermentation recycles NADH back to NAD⁺. It adds no ATP beyond glycolysis\'s 2.'
+        },
+        {
+            q: 'Why does the ETC need oxygen?',
+            opts: ['To make glucose', 'To make the H⁺ gradient', 'To accept electrons at the end so the chain keeps running', 'To split water'],
+            ans: 2,
+            exp: 'Without a final electron acceptor, the chain stops, NADH and FADH₂ stay loaded, and the whole pathway jams. Splitting water is photosynthesis.'
+        },
+        {
+            q: 'Which best explains why cells need 36–38 ATP per glucose instead of just glycolysis\'s 2?',
+            opts: ['Glycolysis produces no energy', 'Organs like the brain and heart have large ATP needs that 2 ATP can\'t meet', 'Pyruvate contains more ATP', 'Fermentation makes more ATP'],
+            ans: 1,
+            exp: 'Aerobic respiration gives about 18 times more ATP per glucose than glycolysis alone, which high-demand tissues need.'
+        }
+    ];
+
+    const form = document.getElementById('quiz-form');
+    const choiceLetters = ['A', 'B', 'C', 'D'];
+    questions.forEach((item, i) => {
+        const card = document.createElement('fieldset');
+        card.className = 'bg-slate-900 border border-slate-800 rounded-2xl p-5';
+        card.dataset.index = i;
+        const legend = document.createElement('legend');
+        legend.className = 'font-bold text-white mb-3';
+        legend.textContent = (i + 1) + '. ' + item.q;
+        card.appendChild(legend);
+        item.opts.forEach((opt, j) => {
+            const label = document.createElement('label');
+            label.className = 'flex gap-3 items-start p-3 mb-2 rounded-lg bg-slate-950 border border-slate-800 cursor-pointer hover:border-slate-600';
+            const input = document.createElement('input');
+            input.type = 'radio';
+            input.name = 'q' + i;
+            input.value = j;
+            input.className = 'mt-1 accent-amber-400';
+            const text = document.createElement('span');
+            text.textContent = choiceLetters[j] + '. ' + opt;
+            label.append(input, text);
+            card.appendChild(label);
+        });
+        const exp = document.createElement('p');
+        exp.className = 'hidden text-sm mt-3 p-3 rounded-lg';
+        exp.dataset.exp = i;
+        card.appendChild(exp);
+        form.appendChild(card);
+    });
+
+    const scoreBox = document.getElementById('score-box');
+    const savedQuiz = load('bio-resp-quiz', null);
+
+    function showResults() {
+        let correct = 0;
+        questions.forEach((item, i) => {
+            const picked = form.querySelector('input[name="q' + i + '"]:checked');
+            const card = form.querySelector('fieldset[data-index="' + i + '"]');
+            const exp = card.querySelector('[data-exp="' + i + '"]');
+            const ok = picked && Number(picked.value) === item.ans;
+            if (ok) correct++;
+            exp.classList.remove('hidden');
+            exp.className = 'text-sm mt-3 p-3 rounded-lg ' + (ok ? 'bg-emerald-500/15 text-emerald-200' : 'bg-rose-500/15 text-rose-200');
+            exp.textContent = (ok ? '✅ Correct. ' : (picked ? '❌ Not quite. ' : '⏭️ Skipped. ')) + item.exp;
+        });
+        const pct = Math.round((correct / questions.length) * 100);
+        const verdict = correct >= 10 ? 'Exam-ready. Keep it sharp.' : 'Review the Core and Expert sections, then retry.';
+        scoreBox.textContent = 'Score: ' + correct + ' / ' + questions.length + ' (' + pct + '%). ' + verdict;
+        scoreBox.className = 'px-4 py-3 rounded-xl border text-sm font-bold ' + (correct >= 10 ? 'bg-emerald-500/15 border-emerald-500/40 text-emerald-200' : 'bg-amber-500/15 border-amber-500/40 text-amber-200');
+        save('bio-resp-quiz', { correct: correct, total: questions.length, when: new Date().toISOString() });
+    }
+
+    document.getElementById('check-btn').addEventListener('click', showResults);
+    document.getElementById('reset-btn').addEventListener('click', () => {
+        form.reset();
+        form.querySelectorAll('[data-exp]').forEach(e => { e.classList.add('hidden'); e.textContent = ''; });
+        scoreBox.textContent = 'Not scored yet.';
+        scoreBox.className = 'px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-sm font-bold';
+    });
+
+    if (savedQuiz) {
+        scoreBox.textContent = 'Last score: ' + savedQuiz.correct + ' / ' + savedQuiz.total + '. Retake to improve it.';
+    }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photosynthesis: Beginner to Expert</title>
+    <meta name="description" content="Study guide for Biology I Honors Unit 3: photosynthesis, from basics to exam-level practice. Based on Dr. Irwin's Unit 3 materials.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .level-beginner { border-color: #34d399; }
+        .level-core { border-color: #38bdf8; }
+        .level-expert { border-color: #f472b6; }
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200 antialiased">
+
+<!-- Sticky navigation + progress -->
+<header class="sticky top-0 z-40 bg-slate-950/90 backdrop-blur border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center gap-3 justify-between">
+        <a href="#top" class="font-extrabold text-white tracking-tight">🌿 Photosynthesis</a>
+        <nav class="flex flex-wrap gap-2 text-xs font-bold">
+            <a href="#big-picture" class="px-2 py-1 rounded bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500/30">1 · Beginner</a>
+            <a href="#light" class="px-2 py-1 rounded bg-sky-500/20 text-sky-300 hover:bg-sky-500/30">2 · Light Reactions</a>
+            <a href="#calvin" class="px-2 py-1 rounded bg-sky-500/20 text-sky-300 hover:bg-sky-500/30">3 · Calvin Cycle</a>
+            <a href="#expert" class="px-2 py-1 rounded bg-pink-500/20 text-pink-300 hover:bg-pink-500/30">4 · Expert</a>
+            <a href="#quiz" class="px-2 py-1 rounded bg-amber-500/20 text-amber-300 hover:bg-amber-500/30">5 · Score Quiz</a>
+            <a href="#short-answer" class="px-2 py-1 rounded bg-amber-500/20 text-amber-300 hover:bg-amber-500/30">6 · Short Answer</a>
+        </nav>
+    </div>
+    <div class="h-1 bg-slate-800">
+        <div id="progress-bar" class="h-1 bg-emerald-400 transition-all duration-300" style="width: 0%"></div>
+    </div>
+</header>
+
+<main id="top" class="max-w-6xl mx-auto px-4 py-10 space-y-16">
+
+<!-- HERO -->
+<section class="grid lg:grid-cols-5 gap-8 items-center">
+    <div class="lg:col-span-3 space-y-5">
+        <p class="text-xs uppercase tracking-widest font-bold text-emerald-300">Biology I Honors · Unit 3 · GSE SB1.e</p>
+        <h1 class="text-4xl md:text-5xl font-black text-white leading-tight">Photosynthesis:<br>from sunlight to sugar</h1>
+        <p class="text-lg text-slate-300">Learn it in three levels: <span class="text-emerald-300 font-bold">Beginner</span> (the big idea), <span class="text-sky-300 font-bold">Core</span> (the two stages, step by step), and <span class="text-pink-300 font-bold">Expert</span> (the reasoning behind the STEM case and the exam's "what if" questions).</p>
+        <div class="flex flex-wrap gap-3 text-sm">
+            <span class="px-3 py-1.5 rounded-lg bg-rose-500/20 border border-rose-500/40 text-rose-200 font-bold">🚨 Unit 3 MCQ · Fri Oct 30</span>
+            <span class="px-3 py-1.5 rounded-lg bg-amber-500/20 border border-amber-500/40 text-amber-200 font-bold">✍️ Short Answer · Mon Nov 2</span>
+        </div>
+    </div>
+    <figure class="lg:col-span-2 bg-white rounded-2xl p-4 shadow-xl">
+        <img src="images/chloroplast.png" alt="Labeled diagram of a chloroplast showing outer membrane, thylakoids, grana, stroma, and the light-reaction inset" class="w-full h-auto rounded">
+        <figcaption class="mt-3 text-xs text-slate-700 leading-relaxed">
+            Chloroplast with the thylakoid inset. Light reactions happen on the thylakoid membrane; the Calvin cycle happens in the stroma. Image: "Chloroplast II" by Kelvinsong, CC BY 3.0, via Wikimedia Commons.
+        </figcaption>
+    </figure>
+</section>
+
+<!-- LEARNING GOALS + CHECKLIST -->
+<section class="bg-slate-900 border border-slate-800 rounded-2xl p-6 md:p-8">
+    <h2 class="text-2xl font-black text-white mb-4">✅ Mastery checklist</h2>
+    <p class="text-sm text-slate-400 mb-5">Tick each goal as you master it. Progress is saved in this browser only.</p>
+    <ul class="grid md:grid-cols-2 gap-3 text-sm">
+        <li><label class="flex gap-3 items-start p-3 rounded-lg bg-slate-950 border border-slate-800 cursor-pointer"><input type="checkbox" class="goal mt-1 accent-emerald-400" data-key="goal-1"><span>I can write the overall equation and say where the O₂ comes from.</span></label></li>
+        <li><label class="flex gap-3 items-start p-3 rounded-lg bg-slate-950 border border-slate-800 cursor-pointer"><input type="checkbox" class="goal mt-1 accent-emerald-400" data-key="goal-2"><span>I can explain why leaves look green and what pigments do.</span></label></li>
+        <li><label class="flex gap-3 items-start p-3 rounded-lg bg-slate-950 border border-slate-800 cursor-pointer"><input type="checkbox" class="goal mt-1 accent-emerald-400" data-key="goal-3"><span>I can trace an electron from water to NADPH, step by step.</span></label></li>
+        <li><label class="flex gap-3 items-start p-3 rounded-lg bg-slate-950 border border-slate-800 cursor-pointer"><input type="checkbox" class="goal mt-1 accent-emerald-400" data-key="goal-4"><span>I can explain how ATP and NADPH move from the thylakoid to the Calvin cycle.</span></label></li>
+        <li><label class="flex gap-3 items-start p-3 rounded-lg bg-slate-950 border border-slate-800 cursor-pointer"><input type="checkbox" class="goal mt-1 accent-emerald-400" data-key="goal-5"><span>I can predict ATP, NADPH, and sugar when PSI, PSII, or the Calvin cycle is blocked.</span></label></li>
+        <li><label class="flex gap-3 items-start p-3 rounded-lg bg-slate-950 border border-slate-800 cursor-pointer"><input type="checkbox" class="goal mt-1 accent-emerald-400" data-key="goal-6"><span>I can connect photosynthesis to cellular respiration (products ↔ reactants).</span></label></li>
+    </ul>
+</section>
+
+<!-- ===================== BEGINNER ===================== -->
+<section id="big-picture" class="scroll-mt-28 space-y-8">
+    <div>
+        <span class="inline-block px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-extrabold uppercase tracking-wider">Level 1 · Beginner</span>
+        <h2 class="text-3xl md:text-4xl font-black text-white mt-3">The big idea</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+        <article class="level-beginner border-l-4 bg-slate-900 rounded-xl p-6 space-y-3">
+            <h3 class="text-xl font-bold text-white">☀️ Light → chemical energy</h3>
+            <p>Photosynthesis captures <b>light energy</b> and stores part of it in the bonds of <b>glucose</b>. Plants, algae, and cyanobacteria are <b>autotrophs</b>: they make their own food.</p>
+            <p class="text-slate-400 text-sm">A plant is a solar panel that stores energy as sugar instead of electricity. Respiration is what later <i>unlocks</i> that stored energy.</p>
+        </article>
+        <article class="level-beginner border-l-4 bg-slate-900 rounded-xl p-6 space-y-3">
+            <h3 class="text-xl font-bold text-white">🔁 The two halves</h3>
+            <p><b>Light reactions</b> (thylakoid membrane): light + water → O₂ + <b>ATP</b> + <b>NADPH</b>.</p>
+            <p><b>Calvin cycle</b> (stroma): CO₂ + <b>ATP</b> + <b>NADPH</b> → sugar (G3P → glucose).</p>
+            <p class="text-slate-400 text-sm">The light reactions make the energy and the electrons. The Calvin cycle uses them to build the sugar.</p>
+        </article>
+    </div>
+
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 md:p-8 space-y-5">
+        <h3 class="text-xl font-bold text-white">The overall equation</h3>
+        <div class="bg-slate-950 rounded-xl p-5 overflow-x-auto text-center">
+            <p class="text-lg md:text-2xl font-bold text-white whitespace-nowrap">6 CO<sub>2</sub> + 6 H<sub>2</sub>O + <span class="text-amber-300">light energy</span> <span class="text-emerald-300">→</span> C<sub>6</sub>H<sub>12</sub>O<sub>6</sub> + 6 O<sub>2</sub></p>
+            <p class="text-slate-400 text-sm mt-2">carbon dioxide + water + light → glucose + oxygen</p>
+        </div>
+        <div class="grid sm:grid-cols-3 gap-4 text-sm">
+            <div class="p-4 rounded-lg bg-slate-950"><b class="text-emerald-300">CO₂</b><br>Carbon source. Enters through stomata and is fixed into sugar.</div>
+            <div class="p-4 rounded-lg bg-slate-950"><b class="text-emerald-300">H₂O</b><br>Split by light. Supplies electrons, H⁺, and the O₂ we breathe.</div>
+            <div class="p-4 rounded-lg bg-slate-950"><b class="text-emerald-300">O₂</b><br>Byproduct of splitting water. Not from CO₂.</div>
+        </div>
+        <p class="text-sm text-slate-400"><b>Key idea:</b> photosynthesis is <b>anabolic and endergonic</b>. It builds big molecules and stores energy. Respiration is the reverse: catabolic and exergonic.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-slate-900 rounded-xl p-6 border border-slate-800 space-y-3">
+            <h3 class="text-xl font-bold text-white">🌱 What plants need</h3>
+            <ul class="list-disc list-inside text-sm space-y-1 text-slate-300">
+                <li><b>Light</b>, collected by leaves</li>
+                <li><b>CO₂</b>, taken in through <b>stomata</b> (guard-cell pores)</li>
+                <li><b>Water</b>, absorbed by roots and carried up the xylem</li>
+                <li><b>Minerals</b> (N, P, Mg, and others) for building molecules</li>
+            </ul>
+            <p class="text-xs text-slate-400">Leaves are wide and thin on purpose: they maximize light capture and gas exchange.</p>
+        </div>
+        <div class="bg-slate-900 rounded-xl p-6 border border-slate-800 space-y-3">
+            <h3 class="text-xl font-bold text-white">🫧 Stomata: the gate</h3>
+            <p class="text-sm text-slate-300">Guard cells open and close each stoma. Open lets CO₂ in and O₂ and water vapor out. Closed saves water but blocks CO₂.</p>
+            <figure class="bg-white rounded-lg p-2">
+                <img src="images/stoma.jpg" alt="Micrograph of a stoma with its guard cells" class="w-full h-auto rounded">
+                <figcaption class="text-[11px] text-slate-700 mt-1">Stoma with guard cells. Photo: Charles Tschirhart, CC BY-SA 3.0, via Wikimedia Commons.</figcaption>
+            </figure>
+        </div>
+    </div>
+
+    <!-- Light spectrum -->
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 md:p-8 space-y-4">
+        <h3 class="text-xl font-bold text-white">🌈 Light, wavelength, and color</h3>
+        <p class="text-sm text-slate-300">Shorter wavelength = more energy per photon. Pigments absorb only certain wavelengths, so not all light can drive photosynthesis.</p>
+        <div class="h-10 rounded-lg" style="background: linear-gradient(to right, #7c3aed 0%, #3b82f6 18%, #22d3ee 30%, #22c55e 45%, #facc15 58%, #f97316 72%, #ef4444 85%, #991b1b 100%);"></div>
+        <div class="flex justify-between text-xs text-slate-400 font-bold">
+            <span>Violet ~380 nm</span><span>Blue</span><span>Green ~550</span><span>Orange</span><span>Red ~700 nm</span>
+        </div>
+        <div class="grid sm:grid-cols-3 gap-4 text-sm">
+            <div class="p-4 rounded-lg bg-slate-950"><b class="text-sky-300">Chlorophyll a</b><br>Main pigment. Absorbs strongly in blue-violet and red.</div>
+            <div class="p-4 rounded-lg bg-slate-950"><b class="text-sky-300">Chlorophyll b + carotenoids</b><br>Accessory pigments. Widen the range of usable light.</div>
+            <div class="p-4 rounded-lg bg-slate-950"><b class="text-sky-300">Green light</b><br>Mostly reflected or transmitted. That's why leaves look green.</div>
+        </div>
+    </div>
+
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 md:p-8">
+        <h3 class="text-xl font-bold text-white mb-4">📘 Vocabulary bank</h3>
+        <div class="overflow-x-auto">
+        <table class="w-full text-sm text-left">
+            <thead class="text-xs uppercase text-slate-400 border-b border-slate-700">
+                <tr><th class="py-2 pr-4">Term</th><th class="py-2 pr-4">Plain-English meaning</th><th class="py-2">Where you'll see it</th></tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800 align-top">
+                <tr><td class="py-2 pr-4 font-bold text-white">Autotroph / producer</td><td class="py-2 pr-4">Makes its own food from inorganic materials</td><td class="py-2">Plants, algae, cyanobacteria</td></tr>
+                <tr><td class="py-2 pr-4 font-bold text-white">Chloroplast</td><td class="py-2 pr-4">Organelle where photosynthesis happens</td><td class="py-2">Whole unit</td></tr>
+                <tr><td class="py-2 pr-4 font-bold text-white">Thylakoid / grana / stroma</td><td class="py-2 pr-4">Membrane discs / stacks of discs / fluid around them</td><td class="py-2">Light reactions vs. Calvin cycle</td></tr>
+                <tr><td class="py-2 pr-4 font-bold text-white">Chlorophyll</td><td class="py-2 pr-4">Pigment that absorbs light, mainly blue-violet and red</td><td class="py-2">Photosystems</td></tr>
+                <tr><td class="py-2 pr-4 font-bold text-white">Photosystem II (P680)</td><td class="py-2 pr-4">Splits water and starts electron flow (acts first)</td><td class="py-2">Light reactions, step 1</td></tr>
+                <tr><td class="py-2 pr-4 font-bold text-white">Photosystem I (P700)</td><td class="py-2 pr-4">Re-energizes electrons to make NADPH</td><td class="py-2">Light reactions, step 2</td></tr>
+                <tr><td class="py-2 pr-4 font-bold text-white">Photolysis</td><td class="py-2 pr-4">Splitting water with light energy, releasing O₂</td><td class="py-2">PSII</td></tr>
+                <tr><td class="py-2 pr-4 font-bold text-white">NADP⁺ / NADPH</td><td class="py-2 pr-4">Electron carrier. NADPH carries electrons to the Calvin cycle</td><td class="py-2">End of ETC 2</td></tr>
+                <tr><td class="py-2 pr-4 font-bold text-white">RuBisCO</td><td class="py-2 pr-4">Enzyme that fixes CO₂ onto RuBP</td><td class="py-2">Calvin cycle, step 1</td></tr>
+                <tr><td class="py-2 pr-4 font-bold text-white">G3P</td><td class="py-2 pr-4">3-carbon sugar. Two make one glucose</td><td class="py-2">Calvin cycle output</td></tr>
+            </tbody>
+        </table>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== CORE: LIGHT REACTIONS ===================== -->
+<section id="light" class="scroll-mt-28 space-y-8">
+    <div>
+        <span class="inline-block px-3 py-1 rounded-full bg-sky-500/20 text-sky-300 text-xs font-extrabold uppercase tracking-wider">Level 2 · Core</span>
+        <h2 class="text-3xl md:text-4xl font-black text-white mt-3">Stage 1: Light-dependent reactions</h2>
+        <p class="text-slate-400 mt-2">Location: <b>thylakoid membrane</b>. Input: light, water, ADP + Pᵢ, NADP⁺. Output: <b>O₂</b>, <b>ATP</b>, <b>NADPH</b>.</p>
+    </div>
+
+    <!-- Electron path strip -->
+    <div class="flex flex-wrap items-center gap-2 text-xs font-bold text-center">
+        <span class="px-3 py-2 rounded bg-slate-800">Light hits PSII (P680)</span><span>→</span>
+        <span class="px-3 py-2 rounded bg-sky-900 text-sky-200">Water split → O₂ + H⁺ + e⁻</span><span>→</span>
+        <span class="px-3 py-2 rounded bg-sky-900 text-sky-200">ETC 1 pumps H⁺ into lumen</span><span>→</span>
+        <span class="px-3 py-2 rounded bg-sky-900 text-sky-200">ATP synthase → ATP</span><span>→</span>
+        <span class="px-3 py-2 rounded bg-sky-900 text-sky-200">Light hits PSI (P700)</span><span>→</span>
+        <span class="px-3 py-2 rounded bg-sky-900 text-sky-200">ETC 2 → NADP⁺ reductase</span><span>→</span>
+        <span class="px-3 py-2 rounded bg-slate-800">NADPH</span>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+        <article class="level-core border-l-4 bg-slate-900 rounded-xl p-6 space-y-3">
+            <h3 class="text-xl font-bold text-white">Step 1 · Photosystem II + ETC 1</h3>
+            <ol class="list-decimal list-inside text-sm text-slate-300 space-y-2">
+                <li>Pigments in PSII absorb light and pass energy to the reaction-center chlorophyll, <b>P680</b>.</li>
+                <li>Two excited electrons leave P680 and enter ETC 1.</li>
+                <li>P680 needs replacements, so the <b>oxygen-evolving complex splits water</b>: H₂O → ½ O₂ + 2 H⁺ + 2 e⁻.</li>
+                <li>Energy from the falling electrons pumps H⁺ from the stroma into the <b>thylakoid lumen</b>.</li>
+                <li>H⁺ flows back to the stroma through <b>ATP synthase</b>, which makes ATP (chemiosmosis).</li>
+            </ol>
+            <p class="text-xs text-amber-300 bg-amber-500/10 rounded p-2">⚠️ Trap: the O₂ comes from <b>water</b>, not CO₂. Also, H⁺ builds up <b>inside</b> the thylakoid.</p>
+        </article>
+
+        <article class="level-core border-l-4 bg-slate-900 rounded-xl p-6 space-y-3">
+            <h3 class="text-xl font-bold text-white">Step 2 · Photosystem I + ETC 2</h3>
+            <ol class="list-decimal list-inside text-sm text-slate-300 space-y-2">
+                <li>Light excites electrons in <b>P700</b> (PSI). They are re-energized.</li>
+                <li>Electrons pass through ETC 2 to <b>NADP⁺ reductase</b>.</li>
+                <li>The enzyme reduces NADP⁺ → <b>NADPH</b> (adds 2 e⁻ and H⁺).</li>
+                <li>NADPH carries high-energy electrons and H⁺ into the stroma for the Calvin cycle.</li>
+            </ol>
+            <p class="text-xs text-amber-300 bg-amber-500/10 rounded p-2">⚠️ Trap: <b>PSI does not split water</b>. PSII does. PSI only re-energizes electrons that came from PSII.</p>
+        </article>
+    </div>
+
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 md:p-8 space-y-4">
+        <h3 class="text-xl font-bold text-white">Why PSII is "first" but has the higher number</h3>
+        <p class="text-sm text-slate-300">The numbers reflect the order of discovery, not the order of electron flow. PSII acts first in the pathway, and PSI acts second.</p>
+        <p class="text-sm text-slate-300"><b>Compare with respiration:</b> both use an electron transport chain and H⁺ gradient to make ATP. The difference is the energy source: <b>light</b> here, <b>food</b> in respiration.</p>
+    </div>
+
+    <!-- Quick compare table -->
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 md:p-8 overflow-x-auto">
+        <h3 class="text-xl font-bold text-white mb-4">ETC: photosynthesis vs. respiration</h3>
+        <table class="w-full text-sm text-left">
+            <thead class="text-xs uppercase text-slate-400 border-b border-slate-700">
+                <tr><th class="py-2 pr-4">Feature</th><th class="py-2 pr-4">Photosynthesis (thylakoid)</th><th class="py-2">Respiration (mitochondrion)</th></tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800 align-top">
+                <tr><td class="py-2 pr-4 font-bold text-white">Energy source</td><td class="py-2 pr-4">Light (photons)</td><td class="py-2">Chemical energy from glucose</td></tr>
+                <tr><td class="py-2 pr-4 font-bold text-white">H⁺ pumped from → to</td><td class="py-2 pr-4">Stroma → thylakoid lumen</td><td class="py-2">Matrix → intermembrane space</td></tr>
+                <tr><td class="py-2 pr-4 font-bold text-white">Where ATP is made</td><td class="py-2 pr-4">Stroma side (ATP synthase)</td><td class="py-2">Matrix side (ATP synthase)</td></tr>
+                <tr><td class="py-2 pr-4 font-bold text-white">Final product of the chain</td><td class="py-2 pr-4">NADPH (carries e⁻ to Calvin)</td><td class="py-2">H₂O (O₂ accepts e⁻)</td></tr>
+                <tr><td class="py-2 pr-4 font-bold text-white">Byproduct</td><td class="py-2 pr-4">O₂ (from water)</td><td class="py-2">None (water is the product)</td></tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- ===================== CORE: CALVIN ===================== -->
+<section id="calvin" class="scroll-mt-28 space-y-8">
+    <div>
+        <span class="inline-block px-3 py-1 rounded-full bg-sky-500/20 text-sky-300 text-xs font-extrabold uppercase tracking-wider">Level 2 · Core</span>
+        <h2 class="text-3xl md:text-4xl font-black text-white mt-3">Stage 2: Calvin cycle (light-independent)</h2>
+        <p class="text-slate-400 mt-2">Location: <b>stroma</b>. Input: CO₂, <b>ATP</b>, <b>NADPH</b>, RuBP. Output: G3P (→ glucose), ADP + Pᵢ, NADP⁺. "Light-independent" means it does not use light directly, but it depends on the light reactions' ATP and NADPH.</p>
+    </div>
+
+    <div class="bg-white rounded-2xl p-4 shadow-xl">
+        <img src="images/calvin-cycle.png" alt="Diagram of the Calvin cycle showing CO2, ATP, and NADPH combining into G3P and regenerating ADP and NADP+" class="mx-auto w-full max-w-4xl h-auto">
+        <p class="text-[11px] text-slate-700 mt-2 text-center">Calvin cycle overview (3 CO₂ + 9 ATP + 6 NADPH → 1 G3P). Image: "Calvin cycle overall" by Peter coxhead, CC0, via Wikimedia Commons.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+        <article class="level-core border-l-4 bg-slate-900 rounded-xl p-6 space-y-3">
+            <h3 class="text-lg font-bold text-white">1 · Carbon fixation</h3>
+            <p class="text-sm text-slate-300">RuBisCO attaches CO₂ to the 5-carbon sugar <b>RuBP</b>, forming an unstable 6-carbon molecule that splits into two 3-PGA (3-carbon).</p>
+            <p class="text-xs text-slate-400">RuBisCO is the most abundant enzyme on Earth: it "makes life out of air."</p>
+        </article>
+        <article class="level-core border-l-4 bg-slate-900 rounded-xl p-6 space-y-3">
+            <h3 class="text-lg font-bold text-white">2 · Reduction</h3>
+            <p class="text-sm text-slate-300">ATP provides energy and NADPH provides electrons and H⁺, reducing 3-PGA into <b>G3P</b>. The output G3P leaves the cycle.</p>
+            <p class="text-xs text-slate-400">Each G3P is 3 carbons. Two G3P combine to make one 6-carbon glucose.</p>
+        </article>
+        <article class="level-core border-l-4 bg-slate-900 rounded-xl p-6 space-y-3">
+            <h3 class="text-lg font-bold text-white">3 · Regeneration</h3>
+            <p class="text-sm text-slate-300">Most G3P is recycled back into RuBP using ATP, so the cycle can continue. ADP, Pᵢ, and NADP⁺ return to the thylakoid to be reused.</p>
+            <p class="text-xs text-slate-400">It takes 6 turns (6 CO₂) to make 1 glucose.</p>
+        </article>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-3">
+            <h3 class="text-lg font-bold text-white">Per-glucose accounting</h3>
+            <table class="w-full text-sm text-left">
+                <thead class="text-xs uppercase text-slate-400 border-b border-slate-700"><tr><th class="py-2">Input (per glucose)</th><th class="py-2">Amount</th></tr></thead>
+                <tbody class="divide-y divide-slate-800">
+                    <tr><td class="py-2">CO₂</td><td class="py-2 font-bold text-white">6</td></tr>
+                    <tr><td class="py-2">ATP</td><td class="py-2 font-bold text-white">18</td></tr>
+                    <tr><td class="py-2">NADPH</td><td class="py-2 font-bold text-white">12</td></tr>
+                    <tr><td class="py-2">Output</td><td class="py-2 font-bold text-emerald-300">1 glucose (from 2 G3P per turn, over 6 turns)</td></tr>
+                </tbody>
+            </table>
+            <p class="text-xs text-slate-400">Matches the teacher's SA blueprint: 18 ATP and 12 NADPH per glucose.</p>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-3">
+            <h3 class="text-lg font-bold text-white">Connecting the two stages</h3>
+            <ul class="text-sm space-y-2 text-slate-300">
+                <li>🟢 <b>Thylakoid → stroma:</b> ATP and NADPH move out.</li>
+                <li>🟢 <b>Stroma → thylakoid:</b> ADP, Pᵢ, and NADP⁺ come back.</li>
+                <li>🔵 <b>Light reactions</b> store energy in ATP and NADPH. <b>Calvin</b> uses it to store energy in sugar.</li>
+            </ul>
+            <p class="text-xs text-slate-500">If one half stops, the other backs up. That's the basis of the STEM case in the expert section.</p>
+        </div>
+    </div>
+
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-2 text-sm">
+        <h3 class="text-lg font-bold text-white">Where the O₂ comes from (trap question)</h3>
+        <p>Test writers love this one. The O₂ released in photosynthesis comes from <b>water</b> (photolysis at PSII), not from CO₂. CO₂ supplies the carbon in glucose.</p>
+    </div>
+</section>
+
+<!-- ===================== EXPERT ===================== -->
+<section id="expert" class="scroll-mt-28 space-y-8">
+    <div>
+        <span class="inline-block px-3 py-1 rounded-full bg-pink-500/20 text-pink-300 text-xs font-extrabold uppercase tracking-wider">Level 3 · Expert</span>
+        <h2 class="text-3xl md:text-4xl font-black text-white mt-3">Reason like the exam</h2>
+        <p class="text-slate-400 mt-2">Block one piece of the pathway and trace what piles up and what runs out. The Lab 4 STEM case is built on this.</p>
+    </div>
+
+    <!-- 1 Prediction table -->
+    <details open class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+        <summary class="cursor-pointer text-xl font-bold text-white flex justify-between items-center">1 · What if a stage stops? (teacher's STEM predictions) <span class="text-pink-300 text-sm">▼</span></summary>
+        <div class="mt-4 overflow-x-auto">
+        <table class="w-full text-sm text-left">
+            <thead class="text-xs uppercase text-slate-400 border-b border-slate-700">
+                <tr><th class="py-2 pr-3">Condition</th><th class="py-2 pr-3">ATP</th><th class="py-2 pr-3">NADPH</th><th class="py-2 pr-3">Sugar</th><th class="py-2">Why</th></tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800 align-top">
+                <tr><td class="py-2 pr-3 font-bold text-white">PSII stops</td><td class="py-2 pr-3 text-rose-300">↓</td><td class="py-2 pr-3 text-rose-300">↓</td><td class="py-2 pr-3 text-rose-300">↓</td><td class="py-2">No water split, so no electrons and no H⁺ gradient. Nothing reaches PSI.</td></tr>
+                <tr><td class="py-2 pr-3 font-bold text-white">PSI stops</td><td class="py-2 pr-3">=</td><td class="py-2 pr-3 text-rose-300">↓</td><td class="py-2 pr-3 text-rose-300">↓</td><td class="py-2">PSII and ETC 1 still make ATP, but electrons can't reach NADP⁺, so NADPH falls and the Calvin cycle stalls.</td></tr>
+                <tr><td class="py-2 pr-3 font-bold text-white">Calvin cycle stops</td><td class="py-2 pr-3 text-emerald-300">↑</td><td class="py-2 pr-3 text-emerald-300">↑</td><td class="py-2 pr-3 text-rose-300">↓</td><td class="py-2">Nothing uses ATP or NADPH, so they build up and the light reactions back up.</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <div class="mt-5 bg-pink-500/10 border border-pink-500/30 rounded-xl p-4 text-sm">
+            <p><b class="text-pink-200">Expert rule:</b> Find the blocked step, then look at what it <i>produces</i> (falls) and what <i>feeds into</i> it (backs up). PSII feeds everything, so blocking it drops all three. Blocking the Calvin cycle is the only case where ATP and NADPH rise.</p>
+        </div>
+    </details>
+
+    <!-- 2 Stomata & photorespiration -->
+    <details class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+        <summary class="cursor-pointer text-xl font-bold text-white flex justify-between items-center">2 · Hot, dry day: closed stomata <span class="text-pink-300 text-sm">▼</span></summary>
+        <div class="mt-4 text-sm text-slate-300 space-y-3">
+            <p>Closing stomata saves water, but CO₂ can't get in. Two things happen:</p>
+            <ul class="list-disc list-inside space-y-1">
+                <li><b>Less CO₂ for RuBisCO</b>, so the Calvin cycle slows. ATP and NADPH build up.</li>
+                <li><b>O₂ accumulates inside the leaf</b> (it still forms from water). When O₂ is high and CO₂ is low, RuBisCO grabs O₂ instead, starting <b>photorespiration</b>, which wastes energy and carbon.</li>
+            </ul>
+            <p class="text-xs text-slate-400">This is the teacher's Station 5 follow-up question. Full answer: CO₂ blocked → RuBisCO has no substrate → Calvin slows → sugar production falls.</p>
+        </div>
+    </details>
+
+    <!-- 3 Coral -->
+    <details class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+        <summary class="cursor-pointer text-xl font-bold text-white flex justify-between items-center">3 · Coral bleaching (Lab 4 STEM case) <span class="text-pink-300 text-sm">▼</span></summary>
+        <div class="mt-4 text-sm text-slate-300 space-y-3">
+            <p>Corals are animals, but they host photosynthetic algae (zooxanthellae) in a <b>mutualism</b>. The algae make glucose and O₂ for the coral; the coral gives the algae shelter and CO₂ and nitrogen.</p>
+            <p>When the algae lose their pigments or stop photosynthesis, the coral loses its food supply and turns white. The investigation asks which step the stressor blocks:</p>
+            <ul class="list-disc list-inside space-y-1">
+                <li>Stressor blocks <b>PSII</b> → ATP, NADPH, and sugar all fall (fastest way to starve the coral).</li>
+                <li>Stressor blocks <b>PSI</b> → NADPH and sugar fall, ATP holds.</li>
+                <li>Stressor blocks the <b>Calvin cycle</b> → sugar falls, ATP and NADPH pile up.</li>
+            </ul>
+        </div>
+    </details>
+
+    <!-- 4 Respiration link -->
+    <details class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+        <summary class="cursor-pointer text-xl font-bold text-white flex justify-between items-center">4 · Photosynthesis ↔ respiration (the cycle) <span class="text-pink-300 text-sm">▼</span></summary>
+        <div class="mt-4 text-sm text-slate-300 space-y-3">
+            <p>The products of one process are the reactants of the other:</p>
+            <div class="bg-slate-950 rounded-lg p-4 text-center font-bold text-white">Photosynthesis: CO₂ + H₂O + light → glucose + O₂<br>Respiration: glucose + O₂ → CO₂ + H₂O + ATP</div>
+            <p><b class="text-pink-200">Energy:</b> photosynthesis stores light energy in glucose (anabolic, endergonic). Respiration releases that energy into ATP (catabolic, exergonic). Matter cycles; energy flows through once.</p>
+            <p class="text-xs text-slate-400">Plant cells do both. At night they respire, using stored glucose for ATP, because the light reactions have stopped.</p>
+        </div>
+    </details>
+
+    <!-- 5 Extension -->
+    <details class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+        <summary class="cursor-pointer text-xl font-bold text-white flex justify-between items-center">5 · Extension (beyond the teacher's notes) <span class="text-pink-300 text-sm">▼</span></summary>
+        <div class="mt-4 text-sm text-slate-300 space-y-3">
+            <p class="text-amber-300 bg-amber-500/10 rounded p-2 text-xs">Not required for the Oct 30 or Nov 2 exams.</p>
+            <ul class="list-disc list-inside space-y-2">
+                <li><b>C4 and CAM plants</b> (corn, sugarcane, cacti) add CO₂ to a 4-carbon molecule before the Calvin cycle. That keeps CO₂ concentrated near RuBisCO, which reduces photorespiration in hot, dry conditions.</li>
+                <li><b>Action spectrum:</b> plotting photosynthesis rate against wavelength matches chlorophyll's absorption spectrum, which is how scientists confirmed which pigments do the work.</li>
+            </ul>
+        </div>
+    </details>
+</section>
+
+<!-- ===================== QUIZ ===================== -->
+<section id="quiz" class="scroll-mt-28 space-y-6">
+    <div>
+        <span class="inline-block px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-extrabold uppercase tracking-wider">Exam practice · MCQ</span>
+        <h2 class="text-3xl md:text-4xl font-black text-white mt-3">Score quiz (12 questions)</h2>
+        <p class="text-slate-400 mt-2">Answer everything, then press <b>Check score</b>. Each explanation tells you why the wrong options are wrong. Target: <b class="text-emerald-300">10 / 12 or better</b> before Friday.</p>
+    </div>
+    <form id="quiz-form" class="space-y-5"></form>
+    <div class="flex flex-wrap gap-3 items-center">
+        <button id="check-btn" type="button" class="px-5 py-3 rounded-xl bg-amber-400 text-slate-950 font-extrabold hover:bg-amber-300">Check score</button>
+        <button id="reset-btn" type="button" class="px-5 py-3 rounded-xl bg-slate-800 border border-slate-700 font-bold hover:border-slate-500">Reset</button>
+        <div id="score-box" class="px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-sm font-bold" aria-live="polite">Not scored yet.</div>
+    </div>
+</section>
+
+<!-- ===================== SHORT ANSWER ===================== -->
+<section id="short-answer" class="scroll-mt-28 space-y-6">
+    <div>
+        <span class="inline-block px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-extrabold uppercase tracking-wider">Exam practice · Short answer</span>
+        <h2 class="text-3xl md:text-4xl font-black text-white mt-3">Short-answer practice (Nov 2)</h2>
+        <p class="text-slate-400 mt-2">Write your answer on paper first, then open the model. Use <b>Claim → Evidence → Reasoning</b> and name the stage, location, and molecule each time.</p>
+    </div>
+
+    <details class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+        <summary class="cursor-pointer text-lg font-bold text-white">Q1 · Trace one electron from water to NADPH. (4 pts)</summary>
+        <div class="mt-4 text-sm space-y-2 text-slate-300">
+            <p><b class="text-emerald-300">Model:</b> Light excites P680 in PSII. P680 has lost electrons, so water is split (photolysis), releasing O₂ and H⁺ and supplying replacement electrons. The excited electrons pass along ETC 1, pumping H⁺ into the thylakoid lumen. They then reach PSI, where light re-energizes them. Electrons pass through ETC 2 to NADP⁺ reductase, which reduces NADP⁺ to NADPH.</p>
+            <p class="text-xs text-slate-500">Scoring: water split at PSII (1) · electrons pass ETC 1 and H⁺ pumped into lumen (1) · PSI re-energizes electrons (1) · ETC 2 → NADP⁺ reductase → NADPH (1).</p>
+        </div>
+    </details>
+
+    <details class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+        <summary class="cursor-pointer text-lg font-bold text-white">Q2 · Explain how the light reactions and the Calvin cycle depend on each other. (4 pts)</summary>
+        <div class="mt-4 text-sm space-y-2 text-slate-300">
+            <p><b class="text-emerald-300">Model:</b> The light reactions in the thylakoid make ATP and NADPH. These move into the stroma, where the Calvin cycle uses ATP for energy and NADPH for electrons and H⁺ to reduce 3-PGA into G3P. The Calvin cycle returns ADP, Pᵢ, and NADP⁺ to the thylakoid so the light reactions can run again.</p>
+            <p class="text-xs text-slate-500">Scoring: light reactions produce ATP/NADPH (1) · they move to the stroma (1) · Calvin uses ATP/NADPH to make G3P (1) · ADP/NADP⁺ return to thylakoid (1).</p>
+        </div>
+    </details>
+
+    <details class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+        <summary class="cursor-pointer text-lg font-bold text-white">Q3 · A chemical blocks the Calvin cycle. Predict ATP, NADPH, and sugar, and explain. (3 pts)</summary>
+        <div class="mt-4 text-sm space-y-2 text-slate-300">
+            <p><b class="text-emerald-300">Model:</b> ATP and NADPH increase, because the light reactions keep running but nothing consumes them. Sugar production falls, because G3P is no longer made from CO₂.</p>
+            <p class="text-xs text-slate-500">Scoring: ATP increases (1) · NADPH increases (1) · sugar decreases with a reason (1).</p>
+        </div>
+    </details>
+
+    <details class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+        <summary class="cursor-pointer text-lg font-bold text-white">Q4 · On a hot, dry day stomata close. Explain the effect on the Calvin cycle and on O₂ inside the leaf. (4 pts)</summary>
+        <div class="mt-4 text-sm space-y-2 text-slate-300">
+            <p><b class="text-emerald-300">Model:</b> Closed stomata block CO₂ from entering, so RuBisCO has less substrate and the Calvin cycle slows; G3P and sugar production drop. O₂ from water splitting cannot leave as easily and builds up in the leaf. When O₂ is high relative to CO₂, RuBisCO can bind O₂ instead of CO₂, which starts photorespiration and wastes energy and carbon.</p>
+            <p class="text-xs text-slate-500">Scoring: CO₂ can't enter (1) · Calvin cycle slows / less sugar (1) · O₂ builds up (1) · RuBisCO binds O₂ → photorespiration (1).</p>
+        </div>
+    </details>
+
+    <details class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+        <summary class="cursor-pointer text-lg font-bold text-white">Q5 · Compare the role of O₂ in photosynthesis and in cellular respiration. (3 pts)</summary>
+        <div class="mt-4 text-sm space-y-2 text-slate-300">
+            <p><b class="text-emerald-300">Model:</b> In photosynthesis, O₂ is a <b>byproduct</b> of splitting water at PSII. In respiration, O₂ is a <b>reactant</b>: the final electron acceptor at the end of the ETC, combining with electrons and H⁺ to form water.</p>
+            <p class="text-xs text-slate-500">Scoring: photosynthesis O₂ is a byproduct of water splitting (1) · respiration O₂ is a reactant (1) · final electron acceptor in the ETC (1).</p>
+        </div>
+    </details>
+</section>
+
+</main>
+
+<footer class="border-t border-slate-800 mt-16">
+    <div class="max-w-6xl mx-auto px-4 py-8 text-xs text-slate-500 space-y-2">
+        <p>Study guide built from Dr. Irwin's Unit 3 materials (Photosynthesis slide scripts 1–19, Review Stations, Lab 4 Coral Bleaching STEM case). Image credits: "Chloroplast II" by Kelvinsong (CC BY 3.0); "Calvin cycle overall" by Peter coxhead (CC0); stoma photo by Charles Tschirhart (CC BY-SA 3.0). All via Wikimedia Commons.</p>
+        <p>Progress and quiz scores are saved only in your browser.</p>
+    </div>
+</footer>
+
+<script>
+(function () {
+    // ----- Storage helpers (never throw) -----
+    function load(key, fallback) {
+        try { return JSON.parse(localStorage.getItem(key)) ?? fallback; } catch (e) { return fallback; }
+    }
+    function save(key, value) {
+        try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) { /* private window: ignore */ }
+    }
+
+    // ----- Mastery checklist + progress bar -----
+    const goals = document.querySelectorAll('.goal');
+    const bar = document.getElementById('progress-bar');
+    const saved = load('bio-photo-goals', {});
+    function updateBar() {
+        const done = [...goals].filter(g => g.checked).length;
+        bar.style.width = Math.round((done / goals.length) * 100) + '%';
+    }
+    goals.forEach(g => {
+        g.checked = !!saved[g.dataset.key];
+        g.addEventListener('change', () => {
+            saved[g.dataset.key] = g.checked;
+            save('bio-photo-goals', saved);
+            updateBar();
+        });
+    });
+    updateBar();
+
+    // ----- MCQ quiz -----
+    const questions = [
+        {
+            q: 'Where do the light-dependent reactions take place?',
+            opts: ['Stroma', 'Thylakoid membrane', 'Cytosol', 'Inner mitochondrial membrane'],
+            ans: 1,
+            exp: 'The light reactions happen on the thylakoid membrane, where the pigments, photosystems, and ATP synthase are. The stroma is for the Calvin cycle.'
+        },
+        {
+            q: 'Where does the O₂ released in photosynthesis come from?',
+            opts: ['CO₂', 'Glucose', 'Water (split at PSII)', 'NADPH'],
+            ans: 2,
+            exp: 'Water is split at Photosystem II (photolysis), releasing O₂. CO₂ supplies carbon for glucose; it does not supply the O₂ released.'
+        },
+        {
+            q: 'Where does the Calvin cycle take place?',
+            opts: ['Thylakoid lumen', 'Stroma', 'Outer chloroplast membrane', 'Intermembrane space'],
+            ans: 1,
+            exp: 'The Calvin cycle happens in the stroma, the fluid around the grana. The thylakoid lumen is where H⁺ accumulates during the light reactions.'
+        },
+        {
+            q: 'Which two molecules from the light reactions are used by the Calvin cycle?',
+            opts: ['NADH and FADH₂', 'ATP and NADPH', 'O₂ and H₂O', 'Pyruvate and CO₂'],
+            ans: 1,
+            exp: 'ATP provides energy and NADPH provides electrons and H⁺. NADH and FADH₂ are respiration carriers.'
+        },
+        {
+            q: 'What is the function of RuBisCO?',
+            opts: ['Splits water', 'Makes ATP', 'Fixes CO₂ onto RuBP', 'Reduces NADP⁺ to NADPH'],
+            ans: 2,
+            exp: 'RuBisCO is the carbon-fixing enzyme of the Calvin cycle. It attaches CO₂ to the 5-carbon sugar RuBP.'
+        },
+        {
+            q: 'Why do leaves look green?',
+            opts: ['Chlorophyll absorbs green light most strongly', 'Chlorophyll reflects green light', 'Carotenoids reflect blue light', 'Stomata are green'],
+            ans: 1,
+            exp: 'Chlorophyll absorbs red and blue-violet strongly but reflects most green light, so green reaches our eyes. Carotenoids absorb blue-green and show as yellow or orange in fall.'
+        },
+        {
+            q: 'Why is Photosystem II numbered 2 but acts first?',
+            opts: ['It is larger than PSI', 'Numbers reflect the order of discovery, not the order of electron flow', 'It is found in the stroma', 'PSI came first in evolution'],
+            ans: 1,
+            exp: 'The photosystem numbers reflect discovery order. PSII is first in the electron pathway, PSI is second.'
+        },
+        {
+            q: 'Which carrier is the product of ETC 2 that carries electrons to the Calvin cycle?',
+            opts: ['NADH', 'FADH₂', 'NADPH', 'NAD⁺'],
+            ans: 2,
+            exp: 'NADP⁺ reductase reduces NADP⁺ to NADPH at the end of ETC 2. The "P" stands for photosynthesis.'
+        },
+        {
+            q: 'If Photosystem II is blocked, what happens to ATP, NADPH, and sugar?',
+            opts: ['All increase', 'All decrease', 'ATP stays the same, NADPH and sugar decrease', 'ATP and NADPH increase, sugar decreases'],
+            ans: 1,
+            exp: 'Blocking PSII stops water splitting, so no electrons or H⁺ gradient are made. ATP, NADPH, and sugar all fall (teacher prediction table).'
+        },
+        {
+            q: 'If the Calvin cycle is blocked, what happens to ATP and NADPH in the thylakoid?',
+            opts: ['Both decrease', 'Both increase', 'ATP decreases, NADPH increases', 'Neither changes'],
+            ans: 1,
+            exp: 'Nothing is using ATP and NADPH, so both build up. Sugar falls because G3P is no longer made.'
+        },
+        {
+            q: 'During the light reactions, where is the concentration of H⁺ highest?',
+            opts: ['Stroma', 'Thylakoid lumen (inside the thylakoid)', 'Outside the chloroplast', 'Cytosol'],
+            ans: 1,
+            exp: 'ETC 1 pumps H⁺ from the stroma into the thylakoid lumen. ATP synthase then lets it flow back out to the stroma.'
+        },
+        {
+            q: 'On a hot, dry day stomata close. Which step is directly limited?',
+            opts: ['Light absorption by chlorophyll', 'CO₂ entering the leaf, which slows the Calvin cycle', 'Splitting of water at PSI', 'Movement of ATP into the thylakoid'],
+            ans: 1,
+            exp: 'Closed stomata block CO₂ entry. RuBisCO then has less CO₂, so the Calvin cycle slows.'
+        }
+    ];
+
+    const form = document.getElementById('quiz-form');
+    const choiceLetters = ['A', 'B', 'C', 'D'];
+    questions.forEach((item, i) => {
+        const card = document.createElement('fieldset');
+        card.className = 'bg-slate-900 border border-slate-800 rounded-2xl p-5';
+        card.dataset.index = i;
+        const legend = document.createElement('legend');
+        legend.className = 'font-bold text-white mb-3';
+        legend.textContent = (i + 1) + '. ' + item.q;
+        card.appendChild(legend);
+        item.opts.forEach((opt, j) => {
+            const label = document.createElement('label');
+            label.className = 'flex gap-3 items-start p-3 mb-2 rounded-lg bg-slate-950 border border-slate-800 cursor-pointer hover:border-slate-600';
+            const input = document.createElement('input');
+            input.type = 'radio';
+            input.name = 'q' + i;
+            input.value = j;
+            input.className = 'mt-1 accent-amber-400';
+            const text = document.createElement('span');
+            text.textContent = choiceLetters[j] + '. ' + opt;
+            label.append(input, text);
+            card.appendChild(label);
+        });
+        const exp = document.createElement('p');
+        exp.className = 'hidden text-sm mt-3 p-3 rounded-lg';
+        exp.dataset.exp = i;
+        card.appendChild(exp);
+        form.appendChild(card);
+    });
+
+    const scoreBox = document.getElementById('score-box');
+    const savedQuiz = load('bio-photo-quiz', null);
+
+    function showResults() {
+        let correct = 0;
+        questions.forEach((item, i) => {
+            const picked = form.querySelector('input[name="q' + i + '"]:checked');
+            const card = form.querySelector('fieldset[data-index="' + i + '"]');
+            const exp = card.querySelector('[data-exp="' + i + '"]');
+            const ok = picked && Number(picked.value) === item.ans;
+            if (ok) correct++;
+            exp.classList.remove('hidden');
+            exp.className = 'text-sm mt-3 p-3 rounded-lg ' + (ok ? 'bg-emerald-500/15 text-emerald-200' : 'bg-rose-500/15 text-rose-200');
+            exp.textContent = (ok ? '✅ Correct. ' : (picked ? '❌ Not quite. ' : '⏭️ Skipped. ')) + item.exp;
+        });
+        const pct = Math.round((correct / questions.length) * 100);
+        const verdict = correct >= 10 ? 'Exam-ready. Keep it sharp.' : 'Review the Core and Expert sections, then retry.';
+        scoreBox.textContent = 'Score: ' + correct + ' / ' + questions.length + ' (' + pct + '%). ' + verdict;
+        scoreBox.className = 'px-4 py-3 rounded-xl border text-sm font-bold ' + (correct >= 10 ? 'bg-emerald-500/15 border-emerald-500/40 text-emerald-200' : 'bg-amber-500/15 border-amber-500/40 text-amber-200');
+        save('bio-photo-quiz', { correct: correct, total: questions.length, when: new Date().toISOString() });
+    }
+
+    document.getElementById('check-btn').addEventListener('click', showResults);
+    document.getElementById('reset-btn').addEventListener('click', () => {
+        form.reset();
+        form.querySelectorAll('[data-exp]').forEach(e => { e.classList.add('hidden'); e.textContent = ''; });
+        scoreBox.textContent = 'Not scored yet.';
+        scoreBox.className = 'px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-sm font-bold';
+    });
+
+    if (savedQuiz) {
+        scoreBox.textContent = 'Last score: ' + savedQuiz.correct + ' / ' + savedQuiz.total + '. Retake to improve it.';
+    }
+})();
+</script>
+</body>
+</html>
