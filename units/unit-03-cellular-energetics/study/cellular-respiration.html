@@ -835,7 +835,8 @@
 
     function initTheme() {
         try {
-            const isDark = localStorage.getItem('bio_theme') === 'dark';
+            const raw = localStorage.getItem('bio_theme');
+            const isDark = raw === 'dark' || raw === '"dark"';
             if (isDark) {
                 document.documentElement.classList.add('dark');
             } else {
@@ -1007,7 +1008,7 @@
     // ----- Theme Switcher & Persistence -----
     window.toggleTheme = function() {
         const isDark = document.documentElement.classList.toggle('dark');
-        save('bio_theme', isDark ? 'dark' : 'light');
+        try { localStorage.setItem('bio_theme', isDark ? 'dark' : 'light'); } catch (e) {}
         updateThemeToggleBtn();
     };
 

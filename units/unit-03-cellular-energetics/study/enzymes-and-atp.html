@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enzymes and ATP: Beginner to Expert</title>
+    <meta name="description" content="Study guide for Biology I Honors Unit 3 Part 1: enzymes, activation energy, inhibition, pH and temperature, and ATP. Based on Dr. Irwin's Unit 3A materials.">
+    <script>
+        // Anti-flash: apply the saved theme before first paint
+        (function () {
+            try {
+                var raw = localStorage.getItem('bio_theme');
+                var isDark = raw === 'dark' || raw === '"dark"';
+                document.documentElement.classList.toggle('dark', isDark);
+            } catch (e) {}
+        })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="google-theme.css">
+    <!-- KaTeX: math typography (CDN, same version as the Biology study standard) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+            onload="renderMathInElement(document.body, { delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}], throwOnError: false });"></script>
+    <style>
+        html { scroll-behavior: smooth; }
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+    </style>
+</head>
+<body class="bg-[#f8f9fa] text-[#202124] antialiased">
+
+<!-- Sticky navigation + progress -->
+<header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-[#dadce0] shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center gap-3 justify-between">
+        <div class="flex flex-wrap items-center gap-3">
+            <a href="../Unit%203%20Summative-10-30/Unit_03_Summative_Study_Portal.html" class="text-xs font-bold px-3 py-1.5 rounded-full border border-[#dadce0] text-[#1a73e8] hover:bg-[#e8f0fe]">← Unit 3 Portal</a>
+            <a href="#top" class="font-extrabold text-[#202124] tracking-tight">🧪 Enzymes &amp; ATP</a>
+        </div>
+        <div class="flex items-center gap-2">
+            <nav class="flex flex-wrap gap-2 text-xs font-bold">
+                <a href="#big-picture" class="px-2 py-1 rounded bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500/30">1 · Beginner</a>
+                <a href="#core" class="px-2 py-1 rounded bg-sky-500/20 text-sky-300 hover:bg-sky-500/30">2 · Core</a>
+                <a href="#expert" class="px-2 py-1 rounded bg-pink-500/20 text-pink-300 hover:bg-pink-500/30">3 · Expert</a>
+                <a href="#quiz" class="px-2 py-1 rounded bg-amber-500/20 text-amber-300 hover:bg-amber-500/30">4 · Score Quiz</a>
+                <a href="#short-answer" class="px-2 py-1 rounded bg-amber-500/20 text-amber-300 hover:bg-amber-500/30">5 · Short Answer</a>
+            </nav>
+            <button onclick="toggleTheme()" id="themeToggleBtn" class="theme-toggle-btn" title="Toggle Light / Dark Mode">🌙 Dark Mode</button>
+        </div>
+    </div>
+    <div class="h-1 bg-[#e8eaed]">
+        <div id="progress-bar" class="h-1 bg-[#1e8e3e] transition-all duration-300" style="width: 0%"></div>
+    </div>
+</header>
+
+<main id="top" class="max-w-6xl mx-auto px-4 py-10 space-y-16">
+
+<!-- HERO -->
+<section class="grid lg:grid-cols-5 gap-8 items-center">
+    <div class="lg:col-span-3 space-y-5">
+        <p class="text-xs uppercase tracking-widest font-bold text-[#1e8e3e]">Biology I Honors · Unit 3 · Part 1 · GSE SB1.c &amp; SB1.e</p>
+        <h1 class="text-4xl md:text-5xl font-black text-[#202124] leading-tight">Enzymes and ATP:<br>how cells speed up and power life</h1>
+        <p class="text-lg text-[#3c4043]">Learn it in three levels: <span class="text-emerald-700 font-bold">Beginner</span> (the big idea), <span class="text-sky-700 font-bold">Core</span> (every graph, term, and rule from the teacher's slides), and <span class="text-pink-700 font-bold">Expert</span> (how to read a graph and predict the exam answer).</p>
+        <div class="flex flex-wrap gap-3 text-sm">
+            <span class="px-3 py-1.5 rounded-lg bg-[#fce8e6] border border-[#f9ab00] text-[#c5221f] font-bold">🚨 Unit 3 MCQ · Fri Oct 30 (this section is on it)</span>
+            <span class="px-3 py-1.5 rounded-lg bg-[#fef7e0] border border-[#f9ab00] text-[#703800] font-bold">Lab 1 (Catalase) · Wed/Thu Oct 28–29</span>
+        </div>
+    </div>
+    <figure class="lg:col-span-2 bg-white rounded-2xl p-4 shadow-xl border border-[#dadce0]">
+        <svg viewBox="0 0 400 260" class="w-full h-auto" role="img" aria-label="Enzyme binding a substrate at its active site and releasing two products">
+            <!-- Enzyme body -->
+            <path d="M120 60 Q200 20 280 60 Q320 110 280 170 Q200 210 120 170 Q80 110 120 60 Z" fill="#e8f0fe" stroke="#1a73e8" stroke-width="4"/>
+            <!-- Active site pocket -->
+            <path d="M200 70 Q228 100 200 130 Q172 100 200 70 Z" fill="#fff" stroke="#1a73e8" stroke-width="3"/>
+            <!-- Substrate (one big molecule) -->
+            <rect x="60" y="210" width="70" height="30" rx="12" fill="#fde293" stroke="#b06000" stroke-width="3"/>
+            <!-- Arrow -->
+            <path d="M150 240 L200 170" stroke="#5f6368" stroke-width="3" fill="none" marker-end="url(#arr)"/>
+            <defs><marker id="arr" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#5f6368"/></marker></defs>
+            <!-- Products -->
+            <rect x="300" y="200" width="40" height="28" rx="10" fill="#a8dab5" stroke="#137333" stroke-width="3"/>
+            <rect x="350" y="200" width="40" height="28" rx="10" fill="#a8dab5" stroke="#137333" stroke-width="3"/>
+            <text x="200" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#202124">Enzyme → active site → 2 products</text>
+            <text x="200" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#1a73e8">Enzyme (active site)</text>
+        </svg>
+        <figcaption class="mt-3 text-xs text-[#5f6368] leading-relaxed">Catabolic example: one substrate is broken into two smaller products. The enzyme is unchanged and can be reused. Diagram drawn for this guide, matching the Station 1 key.</figcaption>
+    </figure>
+</section>
+
+<!-- CHECKLIST -->
+<section class="bg-white border border-[#dadce0] shadow-sm rounded-2xl p-6 md:p-8">
+    <h2 class="text-2xl font-black text-[#202124] mb-4">✅ Mastery checklist</h2>
+    <p class="text-sm text-[#5f6368] mb-5">Tick each goal as you master it. Progress is saved in this browser only.</p>
+    <ul class="grid md:grid-cols-2 gap-3 text-sm">
+        <li><label class="flex gap-3 items-start p-3 rounded-lg bg-[#f8f9fa] border border-[#dadce0] cursor-pointer"><input type="checkbox" class="goal mt-1 accent-[#1e8e3e]" data-key="goal-1"><span>I can explain activation energy and what a catalyst does.</span></label></li>
+        <li><label class="flex gap-3 items-start p-3 rounded-lg bg-[#f8f9fa] border border-[#dadce0] cursor-pointer"><input type="checkbox" class="goal mt-1 accent-[#1e8e3e]" data-key="goal-2"><span>I can tell exergonic from endergonic on a free-energy graph.</span></label></li>
+        <li><label class="flex gap-3 items-start p-3 rounded-lg bg-[#f8f9fa] border border-[#dadce0] cursor-pointer"><input type="checkbox" class="goal mt-1 accent-[#1e8e3e]" data-key="goal-3"><span>I can label substrate, active site, enzyme-substrate complex, and products.</span></label></li>
+        <li><label class="flex gap-3 items-start p-3 rounded-lg bg-[#f8f9fa] border border-[#dadce0] cursor-pointer"><input type="checkbox" class="goal mt-1 accent-[#1e8e3e]" data-key="goal-4"><span>I can explain denaturation, pH optima, and saturation.</span></label></li>
+        <li><label class="flex gap-3 items-start p-3 rounded-lg bg-[#f8f9fa] border border-[#dadce0] cursor-pointer"><input type="checkbox" class="goal mt-1 accent-[#1e8e3e]" data-key="goal-5"><span>I can compare competitive and noncompetitive inhibition, including whether more substrate helps.</span></label></li>
+        <li><label class="flex gap-3 items-start p-3 rounded-lg bg-[#f8f9fa] border border-[#dadce0] cursor-pointer"><input type="checkbox" class="goal mt-1 accent-[#1e8e3e]" data-key="goal-6"><span>I can describe ATP's structure, hydrolysis, and the ATP–ADP cycle.</span></label></li>
+    </ul>
+</section>
+
+<!-- ===================== BEGINNER ===================== -->
+<section id="big-picture" class="scroll-mt-28 space-y-8">
+    <div>
+        <span class="inline-block px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-extrabold uppercase tracking-wider">Level 1 · Beginner</span>
+        <h2 class="text-3xl md:text-4xl font-black text-[#202124] mt-3">The big idea</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+        <article class="level-beginner border-l-4 border-emerald-500 bg-white shadow-sm rounded-xl p-6 space-y-3">
+            <h3 class="text-xl font-bold text-[#202124]">🔁 Metabolism</h3>
+            <p>Metabolism is every chemical reaction in an organism. <b>Catabolism</b> breaks big molecules into smaller ones (and usually releases energy). <b>Anabolism</b> builds big molecules from small ones (and usually needs energy).</p>
+            <p class="text-sm text-[#5f6368]">Digestion is a catabolic example: food is broken into molecules cells can use.</p>
+        </article>
+        <article class="level-beginner border-l-4 border-emerald-500 bg-white shadow-sm rounded-xl p-6 space-y-3">
+            <h3 class="text-xl font-bold text-[#202124]">🧲 Why enzymes?</h3>
+            <p>Reactions need an <b>activation energy</b>, an energy barrier to get started. Without help many would take far too long. A <b>catalyst</b> lowers the barrier so the reaction runs faster.</p>
+            <p class="text-sm text-[#5f6368]">Enzymes are biological catalysts, mostly proteins. They do not change the total energy of reactants or products.</p>
+        </article>
+    </div>
+
+    <div class="bg-white border border-[#dadce0] shadow-sm rounded-2xl p-6 md:p-8 space-y-4">
+        <h3 class="text-xl font-bold text-[#202124]">Key words in one picture</h3>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
+            <div class="p-4 rounded-lg bg-[#f8f9fa] border border-[#dadce0]"><b class="text-[#1a73e8]">Substrate</b><br>The reactant the enzyme acts on.</div>
+            <div class="p-4 rounded-lg bg-[#f8f9fa] border border-[#dadce0]"><b class="text-[#1a73e8]">Active site</b><br>The 3D pocket where the substrate binds.</div>
+            <div class="p-4 rounded-lg bg-[#f8f9fa] border border-[#dadce0]"><b class="text-[#1a73e8]">Enzyme-substrate complex</b><br>The temporary pairing during the reaction.</div>
+            <div class="p-4 rounded-lg bg-[#f8f9fa] border border-[#dadce0]"><b class="text-[#1a73e8]">Products</b><br>What leaves. The enzyme is free to reuse.</div>
+        </div>
+        <p class="text-sm text-[#5f6368]"><b>Lock and key:</b> only substrates whose shape fits the active site bind. Real enzymes also change shape a little when the substrate binds (induced fit).</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white border border-[#dadce0] shadow-sm rounded-xl p-6 space-y-3">
+            <h3 class="text-xl font-bold text-[#202124]">⚡ Energy changes</h3>
+            <ul class="list-disc list-inside text-sm space-y-2">
+                <li><b>Exergonic:</b> products have less free energy than reactants. Energy is released. (Catabolic reactions are usually exergonic.)</li>
+                <li><b>Endergonic:</b> products have more free energy. Energy must be added. (Anabolic reactions are usually endergonic.)</li>
+            </ul>
+            <p class="text-xs text-[#5f6368]">An enzyme lowers activation energy in either case. It does not decide whether a reaction releases or needs energy.</p>
+        </div>
+        <div class="bg-white border border-[#dadce0] shadow-sm rounded-xl p-6 space-y-3">
+            <h3 class="text-xl font-bold text-[#202124]">🔋 ATP in one line</h3>
+            <p>ATP (adenosine triphosphate) is the cell's rechargeable energy carrier. Breaking off its third phosphate releases energy to power work.</p>
+            <p class="text-sm font-mono bg-[#f8f9fa] border border-[#dadce0] rounded p-3 text-center">ATP + H₂O → ADP + Pᵢ + energy</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== CORE ===================== -->
+<section id="core" class="scroll-mt-28 space-y-10">
+    <div>
+        <span class="inline-block px-3 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-extrabold uppercase tracking-wider">Level 2 · Core</span>
+        <h2 class="text-3xl md:text-4xl font-black text-[#202124] mt-3">Enzymes: the graphs and rules</h2>
+    </div>
+
+    <!-- Activation energy graph -->
+    <div class="grid lg:grid-cols-2 gap-6 items-center bg-white border border-[#dadce0] shadow-sm rounded-2xl p-6">
+        <div class="space-y-3">
+            <h3 class="text-xl font-bold text-[#202124]">Activation energy with and without an enzyme</h3>
+            <ul class="text-sm space-y-2 text-[#3c4043]">
+                <li>🟣 <b>Purple curve (no enzyme):</b> high energy barrier, tall <b>Eₐ</b>.</li>
+                <li>🟢 <b>Green curve (with enzyme):</b> lower barrier, short <b>Eₐ</b>.</li>
+                <li>🔴 <b>Red arrow (ΔG):</b> the net energy change. It is the <i>same</i> with or without the enzyme.</li>
+            </ul>
+            <p class="text-xs text-[#5f6368]">Trap: the enzyme changes how fast the reaction happens, not how much energy is released or absorbed overall.</p>
+        </div>
+        <div class="bg-white rounded-xl p-2 border border-[#dadce0]">
+            <svg viewBox="0 0 400 240" class="w-full h-auto" role="img" aria-label="Energy diagram: reactants, a higher barrier without enzyme, a lower barrier with enzyme, and products lower than reactants">
+                <line x1="40" y1="200" x2="380" y2="200" stroke="#5f6368" stroke-width="2"/>
+                <line x1="40" y1="20" x2="40" y2="200" stroke="#5f6368" stroke-width="2"/>
+                <text x="8" y="30" font-family="Arial" font-size="12" fill="#5f6368">Free energy</text>
+                <!-- no enzyme -->
+                <path d="M60 80 C120 10 170 10 200 80 S300 130 340 150" fill="none" stroke="#8430ce" stroke-width="3"/>
+                <!-- with enzyme -->
+                <path d="M60 80 C100 45 130 45 170 80 S300 130 340 150" fill="none" stroke="#137333" stroke-width="3"/>
+                <line x1="60" y1="80" x2="60" y2="200" stroke="#5f6368" stroke-dasharray="4 4"/>
+                <line x1="340" y1="150" x2="340" y2="200" stroke="#5f6368" stroke-dasharray="4 4"/>
+                <line x1="360" y1="80" x2="360" y2="150" stroke="#c5221f" stroke-width="3"/>
+                <text x="366" y="120" font-family="Arial" font-size="12" fill="#c5221f">ΔG</text>
+                <text x="48" y="222" font-family="Arial" font-size="12" fill="#202124">Reactants</text>
+                <text x="290" y="222" font-family="Arial" font-size="12" fill="#202124">Products</text>
+                <text x="160" y="8" font-family="Arial" font-size="12" fill="#8430ce">no enzyme (high Eₐ)</text>
+                <text x="100" y="60" font-family="Arial" font-size="12" fill="#137333">with enzyme</text>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Enzyme factors -->
+    <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white border border-[#dadce0] shadow-sm rounded-xl p-6 space-y-3">
+            <h3 class="text-lg font-bold text-[#202124]">🌡️ Temperature</h3>
+            <p class="text-sm">Rate rises as temperature rises (more collisions), up to an optimum near body temperature (about 37–40 °C in the teacher's graph B).</p>
+            <p class="text-sm">Past the optimum the enzyme <b>denatures</b>: hydrogen and ionic bonds break and the active site loses its shape. Denaturation is usually not reversed, so the enzyme stops working.</p>
+        </div>
+        <div class="bg-white border border-[#dadce0] shadow-sm rounded-xl p-6 space-y-3">
+            <h3 class="text-lg font-bold text-[#202124]">🧪 pH</h3>
+            <p class="text-sm">Each enzyme has a pH optimum. Moving far from it changes the bonds that hold the protein's shape, lowering activity or denaturing the enzyme.</p>
+            <table class="w-full text-sm text-left">
+                <thead class="text-xs uppercase text-[#5f6368] border-b border-[#dadce0]"><tr><th class="py-2">Enzyme</th><th class="py-2">Optimum pH</th><th class="py-2">Where</th></tr></thead>
+                <tbody class="divide-y divide-[#dadce0]">
+                    <tr><td class="py-2 font-bold">Pepsin</td><td class="py-2">≈ 1.5–2.0</td><td class="py-2">Stomach</td></tr>
+                    <tr><td class="py-2 font-bold">Salivary amylase</td><td class="py-2">≈ 6.8–7.0</td><td class="py-2">Mouth</td></tr>
+                    <tr><td class="py-2 font-bold">Trypsin</td><td class="py-2">≈ 8.0–8.5</td><td class="py-2">Small intestine</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Substrate saturation graph -->
+    <div class="grid lg:grid-cols-2 gap-6 items-center bg-white border border-[#dadce0] shadow-sm rounded-2xl p-6">
+        <div class="space-y-3">
+            <h3 class="text-xl font-bold text-[#202124]">Substrate concentration and saturation</h3>
+            <ol class="list-decimal list-inside text-sm space-y-2">
+                <li><b>a → b (rising):</b> more substrate means more active sites are filled and more collisions. Rate rises quickly.</li>
+                <li><b>c (plateau):</b> all active sites are full. The enzyme is <b>saturated</b> and working at its maximum rate (V<sub>max</sub>).</li>
+                <li><b>Past c:</b> adding substrate does nothing. Only more <i>enzyme</i> can speed the reaction up.</li>
+            </ol>
+        </div>
+        <div class="bg-white rounded-xl p-2 border border-[#dadce0]">
+            <svg viewBox="0 0 400 240" class="w-full h-auto" role="img" aria-label="Reaction rate rises with substrate concentration, then levels off at saturation">
+                <line x1="40" y1="200" x2="380" y2="200" stroke="#5f6368" stroke-width="2"/>
+                <line x1="40" y1="20" x2="40" y2="200" stroke="#5f6368" stroke-width="2"/>
+                <text x="6" y="30" font-family="Arial" font-size="12" fill="#5f6368">Rate</text>
+                <text x="300" y="222" font-family="Arial" font-size="12" fill="#5f6368">[Substrate]</text>
+                <path d="M50 190 C130 60 220 45 370 40" fill="none" stroke="#1a73e8" stroke-width="3"/>
+                <line x1="200" y1="200" x2="200" y2="52" stroke="#5f6368" stroke-dasharray="4 4"/>
+                <text x="186" y="216" font-family="Arial" font-size="12" fill="#202124">c</text>
+                <text x="130" y="140" font-family="Arial" font-size="12" fill="#202124">a → b</text>
+                <text x="250" y="36" font-family="Arial" font-size="12" fill="#1a73e8">V max (saturated)</text>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Inhibition -->
+    <div class="bg-white border border-[#dadce0] shadow-sm rounded-2xl p-6 md:p-8 space-y-4">
+        <h3 class="text-xl font-bold text-[#202124]">Inhibition: which site is blocked?</h3>
+        <div class="overflow-x-auto">
+        <table class="w-full text-sm text-left">
+            <thead class="text-xs uppercase text-[#5f6368] border-b border-[#dadce0]">
+                <tr><th class="py-2 pr-4">Feature</th><th class="py-2 pr-4">Competitive</th><th class="py-2">Noncompetitive (allosteric)</th></tr>
+            </thead>
+            <tbody class="divide-y divide-[#dadce0] align-top">
+                <tr><td class="py-2 pr-4 font-bold">Where it binds</td><td class="py-2 pr-4">Directly in the active site</td><td class="py-2">A separate allosteric site</td></tr>
+                <tr><td class="py-2 pr-4 font-bold">What it does</td><td class="py-2 pr-4">Blocks the substrate from fitting</td><td class="py-2">Changes the enzyme's shape, distorting the active site</td></tr>
+                <tr><td class="py-2 pr-4 font-bold">Does more substrate help?</td><td class="py-2 pr-4 text-emerald-700 font-bold">Yes. Enough substrate can outcompete it.</td><td class="py-2 text-[#c5221f] font-bold">No. More substrate does not overcome it.</td></tr>
+                <tr><td class="py-2 pr-4 font-bold">Diagram key</td><td class="py-2 pr-4">Pink teardrop blocking the active site</td><td class="py-2">Small triangle warping the top active site</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p class="text-sm text-[#5f6368]">Allosteric <b>activation</b> works the same way in reverse: an effector binds the allosteric site and makes the active site better at binding substrate. It lets cells switch enzymes on and off.</p>
+    </div>
+
+    <!-- ATP -->
+    <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white border border-[#dadce0] shadow-sm rounded-xl p-6 space-y-3">
+            <h3 class="text-lg font-bold text-[#202124]">ATP structure</h3>
+            <ul class="list-disc list-inside text-sm space-y-1">
+                <li><b>Adenine</b> (base)</li>
+                <li><b>Ribose</b> (5-carbon sugar)</li>
+                <li><b>Three phosphate groups</b> (the energy part)</li>
+            </ul>
+            <p class="text-sm">Adenine + ribose = adenosine. "Tri" = three phosphates. The three negative charges repel each other, which makes ATP unstable and ready to release energy.</p>
+        </div>
+        <div class="bg-white border border-[#dadce0] shadow-sm rounded-xl p-6 space-y-3">
+            <h3 class="text-lg font-bold text-[#202124]">Hydrolysis, phosphorylation, and the cycle</h3>
+            <ul class="list-decimal list-inside text-sm space-y-2">
+                <li><b>Hydrolysis:</b> water removes the third phosphate. ATP → ADP + Pᵢ, releasing usable energy.</li>
+                <li><b>Phosphorylation:</b> the phosphate is moved onto another molecule, changing its shape or activity.</li>
+                <li><b>Recycling:</b> energy from food breakdown adds a phosphate back to ADP to reform ATP.</li>
+            </ul>
+            <p class="text-xs text-[#5f6368]">ATP is a rechargeable carrier, not long-term storage. Fats and glycogen store energy long-term.</p>
+        </div>
+    </div>
+
+    <!-- Quick reference -->
+    <div class="bg-[#e8f0fe] border border-[#1a73e8] rounded-2xl p-6 md:p-8 space-y-3 text-sm text-[#202124]">
+        <h3 class="text-lg font-bold">Exam quick reference</h3>
+        <p>• Enzymes lower <b>Eₐ</b>. They do <b>not</b> change ΔG, and they are not used up.</p>
+        <p>• Rate plateaus when enzymes are <b>saturated</b>. Only more enzyme raises the maximum rate.</p>
+        <p>• Heat or extreme pH <b>denatures</b> the enzyme, so the active site no longer fits the substrate.</p>
+        <p>• Competitive inhibition can be overcome with more substrate. Noncompetitive inhibition cannot.</p>
+        <p>• ATP + H₂O → ADP + Pᵢ + energy. ADP is re-phosphorylated using energy from food breakdown.</p>
+    </div>
+</section>
+
+<!-- ===================== EXPERT ===================== -->
+<section id="expert" class="scroll-mt-28 space-y-8">
+    <div>
+        <span class="inline-block px-3 py-1 rounded-full bg-pink-100 text-pink-800 text-xs font-extrabold uppercase tracking-wider">Level 3 · Expert</span>
+        <h2 class="text-3xl md:text-4xl font-black text-[#202124] mt-3">Read the graph, predict the answer</h2>
+        <p class="text-[#5f6368] mt-2">Most MCQs give you a graph or a table. Find the variable on each axis, the shape of the curve, and what limits the rate at each point.</p>
+    </div>
+
+    <details open class="bg-white border border-[#dadce0] shadow-sm rounded-2xl p-6">
+        <summary class="cursor-pointer text-xl font-bold text-[#202124] flex justify-between items-center">1 · Three limiting factors <span class="text-pink-700 text-sm">▼</span></summary>
+        <div class="mt-4 overflow-x-auto">
+        <table class="w-full text-sm text-left">
+            <thead class="text-xs uppercase text-[#5f6368] border-b border-[#dadce0]"><tr><th class="py-2 pr-3">What limits the rate?</th><th class="py-2 pr-3">Signal on the graph</th><th class="py-2">Fix</th></tr></thead>
+            <tbody class="divide-y divide-[#dadce0] align-top">
+                <tr><td class="py-2 pr-3 font-bold">Substrate (too little)</td><td class="py-2 pr-3">Rate rises steeply with more substrate</td><td class="py-2">Add substrate</td></tr>
+                <tr><td class="py-2 pr-3 font-bold">Enzyme (all active sites full)</td><td class="py-2 pr-3">Flat plateau, adding substrate does nothing</td><td class="py-2">Add more enzyme</td></tr>
+                <tr><td class="py-2 pr-3 font-bold">Shape loss (denaturation)</td><td class="py-2 pr-3">Rate falls sharply after the optimum</td><td class="py-2">Nothing: the enzyme is damaged</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p class="mt-4 text-sm text-[#3c4043]"><b>Trap:</b> a falling rate on a temperature or pH graph means denaturation, not "running out of substrate."</p>
+    </details>
+
+    <details class="bg-white border border-[#dadce0] shadow-sm rounded-2xl p-6">
+        <summary class="cursor-pointer text-xl font-bold text-[#202124] flex justify-between items-center">2 · Why more substrate beats competitive inhibition <span class="text-pink-700 text-sm">▼</span></summary>
+        <div class="mt-4 text-sm text-[#3c4043] space-y-3">
+            <p>Both inhibitors compete for or disturb the same enzyme. The question is whether the substrate can out-compete the inhibitor for the active site.</p>
+            <ul class="list-disc list-inside space-y-1">
+                <li><b>Competitive:</b> the inhibitor sits in the active site, so more substrate can push it out (the rate can still reach its maximum).</li>
+                <li><b>Noncompetitive:</b> the inhibitor changes the enzyme's shape, so the active site is distorted even when substrate is plentiful. The maximum rate drops.</li>
+            </ul>
+            <p class="text-xs text-[#5f6368]">Extension (beyond the teacher's slides): on a substrate-rate graph, competitive inhibition shifts the curve to the right with the same maximum, and noncompetitive inhibition lowers the maximum.</p>
+        </div>
+    </details>
+
+    <details class="bg-white border border-[#dadce0] shadow-sm rounded-2xl p-6">
+        <summary class="cursor-pointer text-xl font-bold text-[#202124] flex justify-between items-center">3 · Station 1 answers, explained <span class="text-pink-700 text-sm">▼</span></summary>
+        <div class="mt-4 text-sm text-[#3c4043] space-y-3">
+            <p><b>Diagram 1 (substrate → products):</b> catabolic. One larger substrate becomes two smaller products. The enzyme is unchanged.</p>
+            <p><b>pH graph:</b> pepsin works in acid (stomach), trypsin in base (small intestine). Salivary amylase is near neutral, so at pH 2 its activity is about zero. Its bonds are disrupted and it denatures.</p>
+            <p><b>Temperature graph (B):</b> peak near 37–40 °C, then denaturation after the optimum. Once the active site is distorted, the enzyme-substrate complex can't form.</p>
+            <p><b>Saturation graph (C):</b> rate rises quickly from a to b, levels off at c because every active site is occupied.</p>
+        </div>
+    </details>
+
+    <details class="bg-white border border-[#dadce0] shadow-sm rounded-2xl p-6">
+        <summary class="cursor-pointer text-xl font-bold text-[#202124] flex justify-between items-center">4 · Energy coupling: why cells use ATP <span class="text-pink-700 text-sm">▼</span></summary>
+        <div class="mt-4 text-sm text-[#3c4043] space-y-3">
+            <p>Cells couple an exergonic reaction (ATP hydrolysis, or glucose breakdown) to an endergonic one (building a molecule or moving a substance). The energy released by one drives the other.</p>
+            <p>Why not release all the energy from glucose at once? The teacher's slide 25 answer: most of it would be lost as heat. Small steps let the cell capture part of it in ATP.</p>
+        </div>
+    </details>
+</section>
+
+<!-- ===================== QUIZ ===================== -->
+<section id="quiz" class="scroll-mt-28 space-y-6">
+    <div>
+        <span class="inline-block px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-extrabold uppercase tracking-wider">Exam practice · MCQ</span>
+        <h2 class="text-3xl md:text-4xl font-black text-[#202124] mt-3">Score quiz (12 questions)</h2>
+        <p class="text-[#5f6368] mt-2">Answer everything, then press <b>Check score</b>. Each explanation tells you why the wrong options are wrong. Target: <b class="text-[#1e8e3e]">10 / 12 or better</b> before Friday.</p>
+    </div>
+    <form id="quiz-form" class="space-y-5"></form>
+    <div class="flex flex-wrap gap-3 items-center">
+        <button id="check-btn" type="button" class="px-5 py-3 rounded-xl bg-[#1a73e8] text-white font-extrabold hover:bg-[#1765cc]">Check score</button>
+        <button id="reset-btn" type="button" class="px-5 py-3 rounded-xl bg-white border border-[#dadce0] font-bold hover:bg-[#f1f3f4]">Reset</button>
+        <div id="score-box" class="px-4 py-3 rounded-xl bg-white border border-[#dadce0] text-sm font-bold" aria-live="polite">Not scored yet.</div>
+    </div>
+</section>
+
+<!-- ===================== SHORT ANSWER ===================== -->
+<section id="short-answer" class="scroll-mt-28 space-y-6">
+    <div>
+        <span class="inline-block px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-extrabold uppercase tracking-wider">Exam practice · Short answer</span>
+        <h2 class="text-3xl md:text-4xl font-black text-[#202124] mt-3">Short-answer practice</h2>
+        <p class="text-[#5f6368] mt-2">Write your answer on paper first, then open the model. Use <b>Claim → Evidence → Reasoning</b>.</p>
+    </div>
+
+    <details class="bg-white border border-[#dadce0] shadow-sm rounded-2xl p-6">
+        <summary class="cursor-pointer text-lg font-bold text-[#202124]">Q1 · Explain how an enzyme speeds up a reaction without changing ΔG. (4 pts)</summary>
+        <div class="mt-4 text-sm text-[#3c4043] space-y-2">
+            <p><b class="text-[#137333]">Model:</b> An enzyme provides an active site where the substrate binds, forming an enzyme-substrate complex. Binding strains the substrate's bonds and orients the molecules, so the reaction needs less energy to start (lower activation energy). The enzyme is not consumed and is released unchanged. Because the enzyme only changes the pathway, the free energy difference between reactants and products (ΔG) stays the same.</p>
+            <p class="text-xs text-[#5f6368]">Scoring: active site binds substrate (1) · lowers activation energy (1) · enzyme is unchanged and reusable (1) · ΔG unchanged (1).</p>
+        </div>
+    </details>
+
+    <details class="bg-white border border-[#dadce0] shadow-sm rounded-2xl p-6">
+        <summary class="cursor-pointer text-lg font-bold text-[#202124]">Q2 · Compare competitive and noncompetitive inhibition. Which can more substrate overcome? (4 pts)</summary>
+        <div class="mt-4 text-sm text-[#3c4043] space-y-2">
+            <p><b class="text-[#137333]">Model:</b> A competitive inhibitor binds directly in the active site and blocks the substrate. A noncompetitive inhibitor binds an allosteric site, changes the enzyme's shape, and distorts the active site. Adding more substrate can overcome <b>competitive</b> inhibition because substrate molecules outnumber the inhibitor at the active site. It cannot overcome <b>noncompetitive</b> inhibition, because the shape change is not a competition.</p>
+            <p class="text-xs text-[#5f6368]">Scoring: competitive binds active site (1) · noncompetitive binds allosteric site and changes shape (1) · more substrate overcomes competitive (1) · not noncompetitive (1).</p>
+        </div>
+    </details>
+
+    <details class="bg-white border border-[#dadce0] shadow-sm rounded-2xl p-6">
+        <summary class="cursor-pointer text-lg font-bold text-[#202124]">Q3 · Explain why a pH of 2 would stop salivary amylase from working. (3 pts)</summary>
+        <div class="mt-4 text-sm text-[#3c4043] space-y-2">
+            <p><b class="text-[#137333]">Model:</b> Salivary amylase works best near neutral pH (about 6.8–7.0). At pH 2 the high H⁺ concentration disrupts the ionic and hydrogen bonds that hold its 3D shape. The active site loses its shape, so the substrate can no longer bind, and activity drops to about zero (denaturation).</p>
+            <p class="text-xs text-[#5f6368]">Scoring: optimum is near neutral (1) · H⁺ disrupts bonds / shape (1) · active site no longer binds substrate (1).</p>
+        </div>
+    </details>
+
+    <details class="bg-white border border-[#dadce0] shadow-sm rounded-2xl p-6">
+        <summary class="cursor-pointer text-lg font-bold text-[#202124]">Q4 · Explain why ATP is a good energy carrier but not a long-term energy store. (3 pts)</summary>
+        <div class="mt-4 text-sm text-[#3c4043] space-y-2">
+            <p><b class="text-[#137333]">Model:</b> ATP's phosphate bonds are unstable because the three negative charges repel each other, so hydrolysis releases usable energy quickly. Cells regenerate ATP continuously from ADP using energy from food breakdown, which makes it a rechargeable carrier. Long-term storage needs large, stable molecules like fats or glycogen, not a molecule that is constantly broken down and rebuilt.</p>
+            <p class="text-xs text-[#5f6368]">Scoring: unstable phosphate bonds release energy (1) · ATP is recycled from ADP (1) · long-term storage needs stable molecules (1).</p>
+        </div>
+    </details>
+</section>
+
+</main>
+
+<footer class="border-t border-[#dadce0] mt-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4 py-8 text-xs text-[#5f6368] space-y-2">
+        <p>Study guide built from Dr. Irwin's Unit 3A materials (Enzymes and ATP scripts, slides 1–27), Review Stations Station 1–2 key, and the Unit 3 summative practice. Diagrams are drawn for this guide.</p>
+        <p>Progress and quiz scores are saved only in your browser.</p>
+    </div>
+</footer>
+
+<script>
+(function () {
+    // ----- Theme (saved as a plain value; reads older quoted value too) -----
+    window.toggleTheme = function () {
+        const isDark = document.documentElement.classList.toggle('dark');
+        try { localStorage.setItem('bio_theme', isDark ? 'dark' : 'light'); } catch (e) {}
+        updateThemeBtn();
+    };
+    function updateThemeBtn() {
+        const btn = document.getElementById('themeToggleBtn');
+        if (!btn) return;
+        const isDark = document.documentElement.classList.contains('dark');
+        btn.innerHTML = isDark ? '☀️ Google Clean' : '🌙 Dark Mode';
+    }
+    updateThemeBtn();
+
+    // ----- Storage helpers (never throw) -----
+    function load(key, fallback) {
+        try { return JSON.parse(localStorage.getItem(key)) ?? fallback; } catch (e) { return fallback; }
+    }
+    function save(key, value) {
+        try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) {}
+    }
+
+    // ----- Mastery checklist + progress bar -----
+    const goals = document.querySelectorAll('.goal');
+    const bar = document.getElementById('progress-bar');
+    const saved = load('bio-enz-goals', {});
+    function updateBar() {
+        const done = [...goals].filter(g => g.checked).length;
+        bar.style.width = Math.round((done / goals.length) * 100) + '%';
+    }
+    goals.forEach(g => {
+        g.checked = !!saved[g.dataset.key];
+        g.addEventListener('change', () => {
+            saved[g.dataset.key] = g.checked;
+            save('bio-enz-goals', saved);
+            updateBar();
+        });
+    });
+    updateBar();
+
+    // ----- MCQ quiz -----
+    const questions = [
+        {
+            q: 'A reaction releases energy to its surroundings. Which statement describes it?',
+            opts: ['Products have more free energy than reactants (endergonic)', 'Products have less free energy than reactants (exergonic)', 'It needs an enzyme to release energy', 'Activation energy is zero'],
+            ans: 1,
+            exp: 'Exergonic means products have less free energy, so energy is released. Endergonic is the opposite. An enzyme does not decide the direction of energy flow.'
+        },
+        {
+            q: 'What does an enzyme do to the overall energy change (ΔG) of a reaction?',
+            opts: ['Makes ΔG more negative', 'Makes ΔG less negative', 'Lowers activation energy and leaves ΔG unchanged', 'Raises activation energy'],
+            ans: 2,
+            exp: 'Enzymes lower activation energy so the reaction runs faster. They do not change ΔG, the net energy difference between reactants and products.'
+        },
+        {
+            q: 'Where does the substrate bind to the enzyme?',
+            opts: ['Allosteric site', 'Active site', 'Phosphate group of ATP', 'Cell membrane'],
+            ans: 1,
+            exp: 'The substrate binds the active site, a 3D pocket with the right shape and chemistry. The allosteric site is a separate location used for regulation.'
+        },
+        {
+            q: 'An effector binds the allosteric site and makes the active site work better. This is called:',
+            opts: ['Denaturation', 'Allosteric activation', 'Competitive inhibition', 'Saturation'],
+            ans: 1,
+            exp: 'Allosteric activation changes the enzyme shape so the active site binds substrate better. It is a way cells regulate enzymes.'
+        },
+        {
+            q: 'A noncompetitive inhibitor is added. Which statement is true?',
+            opts: ['Adding more substrate fully overcomes it', 'It binds the active site and blocks the substrate', 'It binds an allosteric site, changes shape, and more substrate does not overcome it', 'It has no effect on the enzyme'],
+            ans: 2,
+            exp: 'Noncompetitive inhibitors bind an allosteric site, change the enzyme shape, and distort the active site. Adding substrate does not overcome this.'
+        },
+        {
+            q: 'A competitive inhibitor is added. What happens when substrate concentration is increased a lot?',
+            opts: ['The inhibition is permanent', 'Substrate can outcompete the inhibitor for the active site', 'The enzyme denatures', 'The rate drops to zero'],
+            ans: 1,
+            exp: 'Competitive inhibitors compete for the active site, so high substrate concentration can push them out. Noncompetitive inhibition cannot be overcome this way.'
+        },
+        {
+            q: 'Pepsin works best in the stomach. What is its approximate optimum pH?',
+            opts: ['About 1.5–2.0', 'About 6.8–7.0', 'About 8.0–8.5', 'About 11'],
+            ans: 0,
+            exp: 'Pepsin works in very acidic conditions (about pH 1.5–2.0). Salivary amylase is near 7 and trypsin near 8–8.5.'
+        },
+        {
+            q: 'Salivary amylase is placed in a solution at pH 2. What is most likely?',
+            opts: ['It works faster than at pH 7', 'It denatures and its activity drops to about zero', 'Its active site changes into an allosteric site', 'It becomes a competitive inhibitor'],
+            ans: 1,
+            exp: 'Salivary amylase is near neutral. At pH 2, excess H⁺ disrupts the bonds holding its shape, so it denatures.'
+        },
+        {
+            q: 'On a temperature graph, the rate falls sharply above the optimum. What is the most likely cause?',
+            opts: ['Substrate has run out', 'Denaturation of the enzyme', 'Too many products', 'Allosteric activation'],
+            ans: 1,
+            exp: 'Above the optimum the protein unfolds (denatures) and the active site loses its shape. This is different from substrate running out, which causes a plateau.'
+        },
+        {
+            q: 'On a substrate-concentration graph, the rate levels off. Why?',
+            opts: ['The enzyme is consumed', 'All active sites are occupied (saturated)', 'Temperature is too high', 'The products are inhibitors'],
+            ans: 1,
+            exp: 'At saturation every active site is working. Adding substrate cannot speed things up unless more enzyme is added.'
+        },
+        {
+            q: 'Which equation shows ATP hydrolysis?',
+            opts: ['ADP + Pᵢ + energy → ATP + H₂O', 'ATP + H₂O → ADP + Pᵢ + energy', 'ATP → AMP + energy', 'ADP → ATP + Pᵢ'],
+            ans: 1,
+            exp: 'Hydrolysis uses water to remove the third phosphate from ATP, forming ADP and inorganic phosphate and releasing energy.'
+        },
+        {
+            q: 'Which best describes ATP?',
+            opts: ['A long-term energy storage molecule like fat', 'A rechargeable energy carrier made of adenine, ribose, and three phosphates', 'An enzyme with an active site', 'A product that never gets broken down'],
+            ans: 1,
+            exp: 'ATP is adenine, ribose, and three phosphate groups. It is recycled from ADP, so it is a carrier, not a long-term store.'
+        }
+    ];
+
+    const form = document.getElementById('quiz-form');
+    const choiceLetters = ['A', 'B', 'C', 'D'];
+    questions.forEach((item, i) => {
+        const card = document.createElement('fieldset');
+        card.className = 'bg-white border border-[#dadce0] shadow-sm rounded-2xl p-5';
+        card.dataset.index = i;
+        const legend = document.createElement('legend');
+        legend.className = 'font-bold text-[#202124] mb-3';
+        legend.textContent = (i + 1) + '. ' + item.q;
+        card.appendChild(legend);
+        item.opts.forEach((opt, j) => {
+            const label = document.createElement('label');
+            label.className = 'flex gap-3 items-start p-3 mb-2 rounded-lg bg-[#f8f9fa] border border-[#dadce0] cursor-pointer hover:bg-[#f1f3f4]';
+            const input = document.createElement('input');
+            input.type = 'radio';
+            input.name = 'q' + i;
+            input.value = j;
+            input.className = 'mt-1 accent-[#1a73e8]';
+            const text = document.createElement('span');
+            text.textContent = choiceLetters[j] + '. ' + opt;
+            label.append(input, text);
+            card.appendChild(label);
+        });
+        const exp = document.createElement('p');
+        exp.className = 'hidden text-sm mt-3 p-3 rounded-lg';
+        exp.dataset.exp = i;
+        card.appendChild(exp);
+        form.appendChild(card);
+    });
+
+    const scoreBox = document.getElementById('score-box');
+    const savedQuiz = load('bio-enz-quiz', null);
+
+    function showResults() {
+        let correct = 0;
+        questions.forEach((item, i) => {
+            const picked = form.querySelector('input[name="q' + i + '"]:checked');
+            const card = form.querySelector('fieldset[data-index="' + i + '"]');
+            const exp = card.querySelector('[data-exp="' + i + '"]');
+            const ok = picked && Number(picked.value) === item.ans;
+            if (ok) correct++;
+            exp.classList.remove('hidden');
+            exp.className = 'text-sm mt-3 p-3 rounded-lg ' + (ok ? 'bg-[#e6f4ea] text-[#137333]' : 'bg-[#fce8e6] text-[#c5221f]');
+            exp.textContent = (ok ? '✅ Correct. ' : (picked ? '❌ Not quite. ' : '⏭️ Skipped. ')) + item.exp;
+        });
+        const pct = Math.round((correct / questions.length) * 100);
+        const verdict = correct >= 10 ? 'Exam-ready. Keep it sharp.' : 'Review the Core section, then retry.';
+        scoreBox.textContent = 'Score: ' + correct + ' / ' + questions.length + ' (' + pct + '%). ' + verdict;
+        scoreBox.className = 'px-4 py-3 rounded-xl border text-sm font-bold ' + (correct >= 10 ? 'bg-[#e6f4ea] border-[#137333] text-[#137333]' : 'bg-[#fef7e0] border-[#f9ab00] text-[#703800]');
+        save('bio-enz-quiz', { correct: correct, total: questions.length, when: new Date().toISOString() });
+    }
+
+    document.getElementById('check-btn').addEventListener('click', showResults);
+    document.getElementById('reset-btn').addEventListener('click', () => {
+        form.reset();
+        form.querySelectorAll('[data-exp]').forEach(e => { e.classList.add('hidden'); e.textContent = ''; });
+        scoreBox.textContent = 'Not scored yet.';
+        scoreBox.className = 'px-4 py-3 rounded-xl bg-white border border-[#dadce0] text-sm font-bold';
+    });
+
+    if (savedQuiz) {
+        scoreBox.textContent = 'Last score: ' + savedQuiz.correct + ' / ' + savedQuiz.total + '. Retake to improve it.';
+    }
+})();
+</script>
+</body>
+</html>
