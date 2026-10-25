@@ -20,7 +20,14 @@
 <!-- Sticky navigation + progress -->
 <header class="sticky top-0 z-40 bg-slate-950/90 backdrop-blur border-b border-slate-800">
     <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center gap-3 justify-between">
-        <a href="#top" class="font-extrabold text-white tracking-tight">🔥 Cellular Respiration</a>
+        <div class="flex items-center gap-3">
+            <a href="#top" class="font-extrabold text-white tracking-tight">🔥 Cellular Respiration</a>
+            <button id="how-to-study-btn" onclick="toggleHowToStudy()" aria-expanded="true" aria-controls="how-to-study-panel" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-black bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 shadow-md shadow-amber-500/20 transition cursor-pointer">
+                <span>🧭</span>
+                <span id="how-to-study-btn-text">Hide: How to Study Guide</span>
+                <span id="how-to-study-arrow">▲</span>
+            </button>
+        </div>
         <nav class="flex flex-wrap gap-2 text-xs font-bold">
             <a href="#big-picture" class="px-2 py-1 rounded bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500/30">1 · Beginner</a>
             <a href="#stages" class="px-2 py-1 rounded bg-sky-500/20 text-sky-300 hover:bg-sky-500/30">2 · Core</a>
@@ -28,6 +35,7 @@
             <a href="#expert" class="px-2 py-1 rounded bg-pink-500/20 text-pink-300 hover:bg-pink-500/30">4 · Expert</a>
             <a href="#quiz" class="px-2 py-1 rounded bg-amber-500/20 text-amber-300 hover:bg-amber-500/30">5 · Score Quiz</a>
             <a href="#short-answer" class="px-2 py-1 rounded bg-amber-500/20 text-amber-300 hover:bg-amber-500/30">6 · Short Answer</a>
+            <a href="../Unit 3 Summative-10-30/index.html" class="px-2 py-1 rounded bg-indigo-500/20 text-indigo-300 hover:bg-indigo-500/30">⚡ Portal</a>
         </nav>
     </div>
     <div class="h-1 bg-slate-800">
@@ -76,6 +84,147 @@
             <b>1</b> Outer membrane · <b>2</b> Intermembrane space (H⁺ builds up here) · <b>3</b> Inner membrane with cristae (ETC + ATP synthase) · <b>4</b> Matrix (Pyruvate oxidation + Krebs cycle). Diagram drawn for this guide.
         </figcaption>
     </figure>
+</section>
+
+<!-- COLLAPSIBLE "HOW TO STUDY & EXACT SEQUENCE FOR 100%" PANEL -->
+<section id="how-to-study-panel" class="p-6 md:p-8 rounded-3xl bg-gradient-to-br from-slate-900 via-sky-950/40 to-slate-900 border-2 border-sky-500/40 shadow-2xl space-y-6">
+    <div class="flex flex-wrap items-start justify-between gap-4 border-b border-slate-800/90 pb-4">
+        <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider bg-sky-500/20 text-sky-300 border border-sky-500/30">
+                🧭 Step-by-Step 100% Mastery Blueprint · GSE SB1.e
+            </div>
+            <h2 class="text-xl sm:text-2xl font-black text-white mt-2">
+                How to Use This Live Page &amp; Exact Study Order for 100%
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-300 mt-1 max-w-3xl">
+                Master Cellular Respiration for Dr. Irwin's upcoming <strong>Unit 3 MCQ Summative (Fri Oct 30)</strong> and <strong>Short Answer Exam (Mon Nov 2)</strong>. Follow these 5 steps in order to master all 3 stages, the exact 36–38 ATP accounting, and the poison toxicology cases:
+            </p>
+        </div>
+        <button onclick="toggleHowToStudy()" class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs font-extrabold text-slate-200 flex items-center gap-1.5 transition shrink-0 cursor-pointer">
+            <span class="text-amber-400">✕</span> Hide Guide
+        </button>
+    </div>
+
+    <!-- 5-Step Study Sequence Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-3.5">
+        <!-- Step 1 -->
+        <div class="p-4 rounded-2xl bg-slate-950/85 border border-slate-800 flex flex-col justify-between space-y-3">
+            <div class="space-y-1.5">
+                <div class="flex items-center justify-between">
+                    <span class="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Step 1 · Basics</span>
+                    <span class="text-xs font-mono text-slate-400">~15 mins</span>
+                </div>
+                <h3 class="font-extrabold text-sm text-white">🔥 The Big Idea &amp; Equation</h3>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                    Memorize: $\text{C}_6\text{H}_{12}\text{O}_6 + 6\text{O}_2 \to 6\text{CO}_2 + 6\text{H}_2\text{O} + 36\text{--}38\text{ ATP}$. Catabolic &amp; exergonic. Understand why $\text{O}_2$ is the final electron acceptor forming water, and contrast aerobic respiration with anaerobic fermentation (lactic acid vs alcoholic).
+                </p>
+            </div>
+            <a href="#big-picture" class="w-full text-center py-2 px-3 rounded-xl bg-emerald-600/25 hover:bg-emerald-600/40 border border-emerald-500/40 text-emerald-200 font-extrabold text-xs transition">
+                Jump to Beginner →
+            </a>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="p-4 rounded-2xl bg-slate-950/85 border border-slate-800 flex flex-col justify-between space-y-3">
+            <div class="space-y-1.5">
+                <div class="flex items-center justify-between">
+                    <span class="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase bg-sky-500/20 text-sky-300 border border-sky-500/30">Step 2 · Stages</span>
+                    <span class="text-xs font-mono text-slate-400">~25 mins</span>
+                </div>
+                <h3 class="font-extrabold text-sm text-white">⚡ The 3 Stages &amp; Locations</h3>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                    1) <strong>Glycolysis</strong> (Cytosol: glucose $\to$ 2 pyruvate, net 2 ATP, 2 NADH), 2) <strong>Pyruvate Oxidation &amp; Krebs Cycle</strong> (Mitochondrial Matrix: releases $6\text{CO}_2$, 2 ATP, 8 NADH, 2 $\text{FADH}_2$), 3) <strong>ETC &amp; Chemiosmosis</strong> (Cristae/Inner Membrane: pumps $\text{H}^+$ into intermembrane space).
+                </p>
+            </div>
+            <a href="#stages" class="w-full text-center py-2 px-3 rounded-xl bg-sky-600/25 hover:bg-sky-600/40 border border-sky-500/40 text-sky-200 font-extrabold text-xs transition">
+                Jump to Core Stages →
+            </a>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="p-4 rounded-2xl bg-slate-950/85 border border-slate-800 flex flex-col justify-between space-y-3">
+            <div class="space-y-1.5">
+                <div class="flex items-center justify-between">
+                    <span class="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase bg-sky-500/20 text-sky-300 border border-sky-500/30">Step 3 · ATP Math</span>
+                    <span class="text-xs font-mono text-slate-400">~15 mins</span>
+                </div>
+                <h3 class="font-extrabold text-sm text-white">🔢 36–38 ATP Accounting</h3>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                    Lock in Dr. Irwin's exact numbers: <strong>2 ATP</strong> from Glycolysis (substrate-level) + <strong>2 ATP</strong> from Krebs (substrate-level) + <strong>32–34 ATP</strong> from ETC / Oxidative Phosphorylation = <strong>36–38 ATP total per glucose</strong>. Each NADH yields $\sim 3$ ATP; each $\text{FADH}_2$ yields $\sim 2$ ATP.
+                </p>
+            </div>
+            <a href="#atp" class="w-full text-center py-2 px-3 rounded-xl bg-sky-600/25 hover:bg-sky-600/40 border border-sky-500/40 text-sky-200 font-extrabold text-xs transition">
+                Jump to ATP Accounting →
+            </a>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="p-4 rounded-2xl bg-slate-950/85 border border-slate-800 flex flex-col justify-between space-y-3">
+            <div class="space-y-1.5">
+                <div class="flex items-center justify-between">
+                    <span class="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase bg-pink-500/20 text-pink-300 border border-pink-500/30">Step 4 · Poisons</span>
+                    <span class="text-xs font-mono text-slate-400">~20 mins</span>
+                </div>
+                <h3 class="font-extrabold text-sm text-white">☠️ Poison Case Study (The 4 Blockers)</h3>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                    Memorize all 4 metabolic poisons: <strong>2-DG</strong> (blocks Glycolysis $\to$ pyruvate falls), <strong>Arsenic</strong> (blocks Krebs $\to$ pyruvate builds up), <strong>Cyanide</strong> (blocks Complex IV $\to$ NADH piles up, $\text{H}^+$ gradient collapses), and <strong>Oligomycin</strong> (blocks ATP Synthase $\to \text{H}^+$ builds up super high in IMS). Review DNP uncoupling!
+                </p>
+            </div>
+            <a href="#expert" class="w-full text-center py-2 px-3 rounded-xl bg-pink-600/25 hover:bg-pink-600/40 border border-pink-500/40 text-pink-200 font-extrabold text-xs transition">
+                Jump to Expert Poisons →
+            </a>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="p-4 rounded-2xl bg-slate-950/85 border border-amber-500/40 flex flex-col justify-between space-y-3">
+            <div class="space-y-1.5">
+                <div class="flex items-center justify-between">
+                    <span class="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase bg-amber-500/20 text-amber-300 border border-amber-500/30">Step 5 · Exam Test</span>
+                    <span class="text-xs font-mono text-slate-400">MCQ &amp; SA</span>
+                </div>
+                <h3 class="font-extrabold text-sm text-white">✍️ Scored Quiz &amp; Short Answers</h3>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                    Take the <strong>12-Question MCQ Scored Quiz</strong> (target $\ge 10/12$) with instant rationale. Then rehearse the <strong>5 Short Answer prompts</strong> on paper using Claim-Evidence-Reasoning before revealing the official rubrics!
+                </p>
+            </div>
+            <div class="grid grid-cols-2 gap-1.5">
+                <a href="#quiz" class="text-center py-2 px-2 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-200 font-bold text-xs transition">
+                    MCQ Quiz →
+                </a>
+                <a href="#short-answer" class="text-center py-2 px-2 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-200 font-bold text-xs transition">
+                    Short Answer →
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Reference Cheat-Sheet & Interactive Tool Guide -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 pt-1">
+        <div class="lg:col-span-7 p-4 rounded-2xl bg-slate-950/90 border border-slate-800 space-y-2">
+            <div class="text-xs font-extrabold uppercase tracking-wider text-sky-300">
+                💡 High-Yield Exam Rules &amp; Trap Alerts (Direct from Dr. Irwin's Keys)
+            </div>
+            <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside leading-relaxed">
+                <li><strong>Role of $\text{O}_2$:</strong> $\text{O}_2$ is a <strong>reactant</strong> that serves as the final electron acceptor at Complex IV, combining with electrons and $\text{H}^+$ to form $\text{H}_2\text{O}$. Without $\text{O}_2$, the entire ETC halts.</li>
+                <li><strong>Proton Gradient Orientation:</strong> $\text{H}^+$ is pumped from the <strong>matrix OUT into the intermembrane space (IMS)</strong>. IMS is acidic (low pH); matrix is alkaline (high pH).</li>
+                <li><strong>Substrate vs. Oxidative Phosphorylation:</strong> Glycolysis and Krebs use <strong>substrate-level phosphorylation</strong> (direct enzyme transfer, 4 ATP total). The ETC uses <strong>oxidative phosphorylation</strong> (chemiosmosis via ATP synthase, 32–34 ATP).</li>
+                <li><strong>Glycolysis Universality:</strong> Occurs in the cytosol, requires NO oxygen, and is shared by all living organisms (evolutionary evidence).</li>
+                <li><strong>Cyanide vs. Oligomycin:</strong> Cyanide stops $\text{H}^+$ pumping ($\text{H}^+$ gradient disappears, NADH high). Oligomycin only blocks ATP synthase ($\text{H}^+$ gradient gets stuck at maximum high in IMS).</li>
+            </ul>
+        </div>
+
+        <div class="lg:col-span-5 p-4 rounded-2xl bg-slate-950/90 border border-slate-800 space-y-2">
+            <div class="text-xs font-extrabold uppercase tracking-wider text-emerald-300">
+                🛠️ How to Use the Interactive Features on This Page
+            </div>
+            <ul class="text-xs text-slate-300 space-y-1.5 leading-relaxed">
+                <li><span class="font-bold text-white">✅ Checklist Tracker:</span> Ticking the 6 mastery goals updates your live progress bar and automatically saves in your browser.</li>
+                <li><span class="font-bold text-amber-300">🎯 12-Question Quiz:</span> Immediate grading with color-coded feedback explaining why each answer is correct or incorrect.</li>
+                <li><span class="font-bold text-pink-300">🧠 Collapsible Expert Drawers:</span> Open/close each poison scenario and fermentation pathway to test your predictive recall.</li>
+                <li><span class="font-bold text-sky-300">📝 Short Answer Rubrics:</span> Write your answer first, then expand each question to check point-by-point criteria against Dr. Irwin's model keys.</li>
+            </ul>
+        </div>
+    </div>
 </section>
 
 <!-- LEARNING GOALS + CHECKLIST -->
@@ -481,6 +630,36 @@
     }
     function save(key, value) {
         try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) { /* private window: ignore */ }
+    }
+
+    // ----- How to study panel toggle -----
+    window.toggleHowToStudy = function() {
+        const panel = document.getElementById('how-to-study-panel');
+        const btnText = document.getElementById('how-to-study-btn-text');
+        const arrow = document.getElementById('how-to-study-arrow');
+        const btn = document.getElementById('how-to-study-btn');
+        if (!panel) return;
+        const isHidden = panel.classList.toggle('hidden');
+        if (btn) btn.setAttribute('aria-expanded', String(!isHidden));
+        if (btnText) btnText.textContent = isHidden ? 'How to Study (Show Guide)' : 'Hide: How to Study Guide';
+        if (arrow) arrow.textContent = isHidden ? '▼' : '▲';
+        save('bio-resp-study-guide-open', !isHidden);
+        if (!isHidden) {
+            panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    };
+
+    // Restore saved state (default open)
+    const guideOpen = load('bio-resp-study-guide-open', true);
+    if (!guideOpen) {
+        const panel = document.getElementById('how-to-study-panel');
+        const btnText = document.getElementById('how-to-study-btn-text');
+        const arrow = document.getElementById('how-to-study-arrow');
+        const btn = document.getElementById('how-to-study-btn');
+        if (panel) panel.classList.add('hidden');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+        if (btnText) btnText.textContent = 'How to Study (Show Guide)';
+        if (arrow) arrow.textContent = '▼';
     }
 
     // ----- Mastery checklist + progress bar -----
