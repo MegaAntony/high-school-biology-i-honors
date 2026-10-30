@@ -442,6 +442,8 @@ All 21 official Unit 3 PDFs from Canvas (`S1W8`, `S1W9`, `S1W10`, and `Unit 3: C
 9. **What type of molecule is ATP Synthase? What is its role?** It is a **membrane protein / enzyme** embedded in the thylakoid membrane that uses the flow of $\text{H}^+$ ions down their gradient (chemiosmosis) to synthesize **ATP** from $\text{ADP} + \text{P}_i$.
 10. **As electrons are moved through the electron transport chain, where is the higher concentration of $\text{H}^+$, inside or outside of the thylakoid?** **Inside the thylakoid** (in the **thylakoid lumen / interior**).
 11. **Which of the following is *false* about PSI?** **`a. PSI splits water to get electrons.`** *(False! **PSII** splits water to get electrons; PSI receives electrons from PSII via the ETC).*
+> **Note:** The scanned Lab Packet jumps from question 11 (end of page 14) to question 14 (top of page 15), so questions 12 and 13 below do not appear in the printed packet. Their source is not confirmed, so treat them as extra review. The two facts are still correct biology.
+
 12. **How many carbon atoms are found in 1 molecule of glucose?** **$6$ carbon atoms** ($\text{C}_6\text{H}_{12}\text{O}_6$).
 13. **Where does carbon dioxide enter in a plant?** Through the **stomata** (pores on the underside of leaves).
 14. **What is Rubisco? What is its role?** An **enzyme** in the stroma that catalyzes **carbon fixation** (attaching $\text{CO}_2$ to RuBP in the first step of the Calvin Cycle).
