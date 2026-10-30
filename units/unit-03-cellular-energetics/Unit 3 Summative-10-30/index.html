@@ -428,7 +428,7 @@
                 <li><strong>Live Top Resource Bar:</strong> Click the direct buttons above for instant access to the <a href="./Unit_03_Summative_Master_Study_Guide_and_Keys.html" style="color: var(--accent-blue); font-weight: 700;">HTML Master Keys</a>, <a href="./materials/Cellular_Energy_Review_Stations_Student_Handout.pdf" target="_blank" style="color: var(--accent-amber); font-weight: 700;">Review Stations Handout PDF</a>, <a href="./materials/Honors_Biology_Cellular_Respiration_Outline.pdf" target="_blank" style="color: var(--accent-purple); font-weight: 700;">Dr. Irwin's Respiration Outline</a>, and all lecture slide scripts.</li>
                 <li><strong>Interactive Mastery Checklist:</strong> Check off each of the 8 core competencies right below as you finish them to track your completion percentage in real time.</li>
                 <li><strong>Collapsible Accordion Keys:</strong> Click any of the accordions in Section 3 to expand complete worked answers for Stations 1–8, Labs 1–5, and Short Answer blueprints.</li>
-                <li><strong>37-Question Interactive MCQ Simulator:</strong> Scroll to Section 4 to test yourself under exam conditions. Click any option for instant green/red feedback, full rationale explanations, and live score tracking.</li>
+                <li><strong><span class="sim-count">37</span>-Question Interactive MCQ Simulator:</strong> Scroll to Section 4 to test yourself under exam conditions. Click any option for instant green/red feedback, full rationale explanations, and live score tracking.</li>
             </ul>
         </div>
 
@@ -469,10 +469,10 @@
             </div>
 
             <div class="step-card">
-                <div class="step-title"><span class="step-num">5</span> Drill the 37-Q MCQ Exam Simulator</div>
+                <div class="step-title"><span class="step-num">5</span> Drill the <span class="sim-count">37</span>-Q MCQ Exam Simulator</div>
                 <div class="step-desc">
                     <strong>Target: Friday, Oct 30 (Summative Part 1).</strong><br>
-                    Scroll to Section 4. Take all 37 practice questions without looking at notes. Read the detailed explanations for any question you miss. Repeat until you score <strong>100%</strong>.
+                    Scroll to Section 4. Take all <span class="sim-count">37</span> practice questions without looking at notes. Read the detailed explanations for any question you miss. Repeat until you score <strong>100%</strong>.
                 </div>
             </div>
 
@@ -889,11 +889,11 @@
         </div>
     </div>
 
-    <!-- SECTION 4: 37-QUESTION SUMMATIVE PRACTICE SIMULATOR -->
-    <div class="section-title">🎯 4. Unit 3 Summative MCQ Simulator (37 Exam-Level Questions)</div>
+    <!-- SECTION 4: 44-QUESTION SUMMATIVE PRACTICE SIMULATOR -->
+    <div class="section-title">🎯 4. Unit 3 Summative MCQ Simulator (<span class="sim-count">37</span> Exam-Level Questions)</div>
     <div class="progress-card" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
         <div>
-            <strong>Live Practice Score:</strong> <span id="sim-score" style="color: var(--accent-green); font-weight: 800;">0</span> / <span id="sim-total">37</span>
+            <strong>Live Practice Score:</strong> <span id="sim-score" style="color: var(--accent-green); font-weight: 800;">0</span> / <span id="sim-total">44</span>
             (<span id="sim-pct" style="color: var(--accent-blue); font-weight: 700;">0%</span>)
         </div>
         <button class="btn btn-secondary" onclick="resetSim()">↺ Reset Simulator</button>
@@ -1224,64 +1224,123 @@
             exp: "Binding away from the active site and distorting the enzyme's shape is non-competitive (allosteric) inhibition (Enzymes slides 15–16). Always decide by WHERE the inhibitor binds in the picture."
         },
         {
-            q: "A graph shows the activity of the enzyme lactase rising to a peak near body temperature, then falling steeply to almost zero at a much higher temperature. What is true at that high temperature?",
-            opts: ["The enzyme is denatured and its active site has lost its shape", "The enzyme is saturated with substrate", "The enzyme has been consumed in the reaction", "The enzyme is working at its optimum"],
+            tag: "Item #1",
+            q: "The illustration below represents what process? (A diagram of an enzyme, its substrate, and a molecule labeled E.) <a href=\"ocr/quiz_photos/Image%2010-29-26%20at%206.57%E2%80%AFPM.png\" target=\"_blank\" style=\"color:#38bdf8;text-decoration:underline;\">Open the original picture from the quiz</a>",
+            opts: ["Competitive inhibition", "Non-competitive inhibition", "Allosteric Activation", "Denaturation"],
+            ans: 1,
+            exp: "In the picture, E binds at a spot away from the active site, the enzyme changes shape, and the substrate can no longer fit. That is non-competitive (allosteric) inhibition (Enzymes slides 15–16). Checked against the diagram."
+        },
+        {
+            tag: "Item #2",
+            q: "Which statement below accurately represents the difference between aerobic respiration and fermentation?",
+            opts: ["Much less ATP is generated during fermentation than during aerobic respiration", "CO2 is only produced during fermentation", "Glucose is split into 2 molecules of pyruvate only during aerobic respiration", "Oxygen is required for both processes"],
             ans: 0,
-            exp: "Too much heat changes the enzyme's shape, so it denatures and activity drops to near zero (Enzymes script slides 1–16). Read the graph: denatured means activity has crashed, not the peak."
+            exp: "Fermentation relies on glycolysis alone (2 net ATP), while aerobic respiration yields about 36–38 ATP in this course. Both start with glycolysis, and fermentation does not need oxygen."
         },
         {
-            q: "Four tubes contain starch. Tube 1: no amylase, 25°C. Tube 2: no amylase, 37°C. Tube 3: amylase, 25°C. Tube 4: amylase, 37°C. In which tube does starch digestion occur MOST quickly?",
-            opts: ["Tube 1", "Tube 2", "Tube 3", "Tube 4"],
-            ans: 3,
-            exp: "Digestion needs the enzyme (amylase), and human enzymes work fastest near body temperature (37°C). Mirrors U3Q1 Item 4."
-        },
-        {
-            q: "Lab results: cytoplasmic pyruvate is HIGH (0.25 mM, ref 0.09–0.15), intermembrane H⁺ is LOW (0.20 mM), and NADH is LOW (0.17 mM). Which step was most likely interrupted by the poison?",
-            opts: ["Glycolysis", "Krebs cycle (pyruvate cannot be processed)", "Electron transport chain", "ATP synthase"],
+            tag: "Item #3",
+            q: "Consider the energy diagram for a chemical reaction in the figure below and pick the terms that best fill in the blanks: In the reaction energy is being ______ because this demonstrates a ______ reaction. (The diagram shows the reactants at high energy and the products at lower energy.)",
+            opts: ["released; anabolic", "released; catabolic", "absorbed; anabolic", "absorbed; catabolic"],
             ans: 1,
-            exp: "Pyruvate piles up because it is not being used by the Krebs cycle, so less NADH is made and fewer H⁺ get pumped. These are Tim Braxton's results in the case study (arsenic); mirrors U3Q1 Item 10."
+            exp: "Products with less free energy than the reactants means energy is released (exergonic, ΔG < 0). Reactions that break molecules down are catabolic (Enzymes script, slides 5–6)."
         },
         {
-            q: "If you suddenly exercise very hard after being inactive, your muscles tire quickly. Which statement BEST explains this?",
-            opts: ["Too much oxygen causes ATP overproduction", "Not enough oxygen, so muscle cells use lactic acid fermentation, causing lactate buildup and little ATP", "Not enough oxygen, so muscle cells use alcoholic fermentation and CO₂ builds up", "Too much oxygen causes pyruvate to build up"],
-            ans: 1,
-            exp: "Without enough O₂, cells use lactic acid fermentation (pyruvate → lactate, 2 ATP from glycolysis) (Cellular Respiration slides, lactic acid fermentation). Mirrors U3Q1 Item 15."
+            tag: "Item #4",
+            q: "Which of the following processes is used by all living organisms?",
+            opts: ["Glycolysis", "Oxidative phosphorylation", "Lactic acid fermentation", "Alcohol Fermentation"],
+            ans: 0,
+            exp: "All cells use glycolysis (Cellular Respiration slides). It happens in the cytosol and needs neither oxygen nor mitochondria."
         },
         {
-            q: "Which statement BEST describes how ATP is renewed in the body?",
-            opts: ["Energy from an anabolic reaction powers the phosphorylation of ADP", "Energy from a catabolic reaction powers the phosphorylation of ADP", "ATP is absorbed directly from food", "ATP is only made by photosynthesis"],
-            ans: 1,
-            exp: "ATP is renewable: energy released by catabolic reactions such as breaking down glucose is used to add a phosphate to ADP (Enzymes & ATP slides). Mirrors U3Q1 Item 19."
-        },
-        {
-            q: "What molecule is formed as a byproduct of oxidative phosphorylation (the ETC)?",
-            opts: ["Carbon dioxide", "Lactic acid", "Water", "NADH"],
+            tag: "Item #7",
+            q: "If you have been inactive for a long period of time and you suddenly start to exercise at a high intensity, your muscles will likely become fatigued (tired) quickly. Which of the following statements BEST describes why this is the case?",
+            opts: ["Your body has too much oxygen and the rate of cellular respiration is too great, causing overproduction of ATP.", "Your body has too much oxygen and the rate of cellular respiration is too low, causing pyruvate to build up.", "Your body is not getting enough oxygen and is going through lactic acid fermentation, causing lactate buildup and lack of ATP.", "Your body is not getting enough oxygen and is going through alcoholic fermentation, causing carbon dioxide to build up."],
             ans: 2,
-            exp: "Oxygen is the final electron acceptor and combines with electrons and H⁺ to form water (Dr. Irwin's Respiration Outline). Mirrors U3Q1 Item 21."
+            exp: "Without enough O₂, muscle cells use lactic acid fermentation (pyruvate → lactate), which yields only the 2 ATP from glycolysis (Cellular Respiration slides, lactic acid fermentation). Animals do not use alcoholic fermentation."
         },
         {
-            q: "Which statement best describes the importance of the Krebs cycle?",
-            opts: ["It splits glucose so the mitochondria can use it", "It makes ATP without oxygen", "It builds the proton gradient that runs ATP synthase", "It generates many electron carriers (NADH and FADH₂) for the ETC"],
+            tag: "Item #8",
+            q: "Which of the following best describes the purpose of fermentation?",
+            opts: ["To convert pyruvate to acetyl CoA so it can enter the Krebs cycle in the presence of oxygen.", "To make more NADH to be used in the ETC in the presence of oxygen.", "To make more NADH to be used in glycolysis to make more ADP and NAD+ in the absence of oxygen.", "To make more NAD+ to be reused in glycolysis to make more ATP and NADH in the absence of oxygen."],
             ans: 3,
-            exp: "Per glucose the Krebs cycle makes 6 NADH and 2 FADH₂ (plus 2 ATP) and these carry electrons to the ETC (Pyruvate Oxidation & Krebs script). Mirrors U3Q1 Item 20."
+            exp: "Fermentation oxidizes NADH back to NAD⁺ so glycolysis can keep running and keep making its 2 net ATP when there is no oxygen (Cellular Respiration slides, NAD⁺ regeneration). Fermentation itself makes no new ATP."
         },
         {
-            q: "An energy diagram shows reactants at HIGH energy dropping to products at LOW energy. Fill in the blanks: In the reaction energy is being ______ because this demonstrates a ______ reaction.",
-            opts: ["absorbed; anabolic", "absorbed; catabolic", "released; anabolic", "released; catabolic"],
+            tag: "Item #9",
+            q: "A scientist sets up 4 tubes for an experiment. Tube 1 contains only water. Tube 2 contains a live snail. Tube 3 contains a live aquatic plant. Tube 4 both a live aquatic plant and a live snail. Which tubes contain at least one organism carrying out cellular respiration?",
+            opts: ["Tubes 2 and 3 only", "Tubes 3 and 4 only", "Tubes 2, 3, and 4 only", "Tubes 2 and 4 only"],
+            ans: 2,
+            exp: "Plants have mitochondria and carry out cellular respiration as well as photosynthesis, and so do animals. Only the water-only tube has no living organism."
+        },
+        {
+            tag: "Item #10",
+            q: "Refer to the lab results below taken from one of the patients from the case study we completed in class. Cytoplasmic Pyruvate = 0.25 mM (reference 0.09–0.15 mM). Mitochondrial Intermembrane H⁺ = 0.20 mM (reference 0.25–0.35 mM). Mitochondrial NADH = 0.17 mM (reference 0.25–0.40 mM). Which step of cellular respiration was MOST LIKELY being interrupted by the poison?",
+            opts: ["Glycolysis", "Krebs Cycle", "Electron Transport Chain", "Oxidative Phosphorylation"],
+            ans: 1,
+            exp: "Pyruvate piles up because it is not being used by the Krebs cycle, so less NADH is made and fewer H⁺ get pumped. These are Tim Braxton's results in the case study (arsenic)."
+        },
+        {
+            tag: "Item #11",
+            q: "Which of the following statements BEST describes how ATP is renewed in the body?",
+            opts: ["ATP is regenerated when the energy from a catabolic reaction in the cell powers the phosphorylation of a molecule of ADP.", "ATP is regenerated when the energy from an anabolic reaction in the cell powers the phosphorylation of a molecule of ADP.", "ATP is renewed through the process of photosynthesis, where sunlight energy is converted into chemical energy.", "ATP is constantly renewed through the consumption of high-energy foods and drinks, providing an immediate energy boost."],
+            ans: 0,
+            exp: "ATP is renewable: energy released by catabolic reactions such as breaking down glucose is used to add a phosphate to ADP (Enzymes & ATP slides)."
+        },
+        {
+            tag: "Item #12",
+            q: "How does an enzyme catalyze a biological reaction?",
+            opts: ["It increases the net energy difference between reactants and products.", "It increases the kinetic energy of reactants, thereby increasing their tendency to collide.", "It decreases the kinetic energy of reactants, enabling them to undergo chemical change more easily.", "It decreases the activation energy necessary to initiate (start) the chemical change."],
             ans: 3,
-            exp: "Products with less free energy than the reactants means energy is released (exergonic, ΔG < 0), the pattern of catabolic reactions such as breaking down glucose (Enzymes script, slides 5–6). Mirrors U3Q1 Item 11."
+            exp: "Enzymes lower the activation energy barrier. They do not change the energy difference between reactants and products (Enzymes slides)."
         },
         {
-            q: "Which of the following processes is used by ALL living organisms?",
-            opts: ["Glycolysis", "Oxidative phosphorylation", "Lactic acid fermentation", "Alcohol fermentation"],
-            ans: 0,
-            exp: "All cells use glycolysis (Cellular Respiration slides). It happens in the cytosol and needs neither oxygen nor mitochondria. Mirrors U3Q1 Item 12."
+            tag: "Item #13",
+            q: "Which of the following best describes the importance of the krebs cycle?",
+            opts: ["To split glucose in order to be processed by the mitochondria.", "To create ATP in the absence of oxygen.", "To create a gradient of protons (H+) to flow through ATP synthase.", "To generate many electron carriers to be used in the ETC."],
+            ans: 3,
+            exp: "Per glucose the Krebs cycle makes 6 NADH and 2 FADH₂ (plus 2 ATP), and these carry electrons to the ETC (Pyruvate Oxidation & Krebs script)."
         },
         {
-            q: "Which statement accurately describes the difference between aerobic respiration and fermentation?",
-            opts: ["Fermentation makes much less ATP than aerobic respiration", "CO₂ is only produced during fermentation", "Glucose is split into pyruvate only in aerobic respiration", "Oxygen is required for both"],
+            tag: "Item #14",
+            q: "What molecule is created as a byproduct of oxidative phosphorylation?",
+            opts: ["Carbon Dioxide", "Water", "Lactic Acid", "NADH"],
+            ans: 1,
+            exp: "Oxygen is the final electron acceptor and combines with electrons and H⁺ to form water (Dr. Irwin's Respiration Outline)."
+        },
+        {
+            tag: "Item #15",
+            q: "All of the following are true about enzymes EXCEPT:",
+            opts: ["All living cells have enzymes that can be reused in reactions", "Enzymes are biological catalysts that increase the rate of chemical reactions", "Enzymes are consumed (used up) in the reactions that they catalyze", "Enzymes are highly specific in their substrate binding"],
+            ans: 2,
+            exp: "Enzymes are catalysts: they come out of the reaction unchanged and are reused. The substrate is the thing that is used up."
+        },
+        {
+            tag: "Item #16",
+            q: "Carbonic anhydrase assists in the rapid conversion of carbon dioxide and water into carbonic acid, protons, and bicarbonate ions. If phenol is added to this chemical reaction, the amount of product produced is decreased because phenol binds to the active site of carbonic anhydrase, decreasing the likelihood that carbon dioxide will bind. What is the role of phenol?",
+            opts: ["Enzyme", "Substrate", "Competitive inhibitor", "Noncompetitive inhibitor"],
+            ans: 2,
+            exp: "Phenol binds the active site and competes with CO₂ for it, so it is a competitive inhibitor (Enzymes slides 15–16). A non-competitive inhibitor would bind elsewhere."
+        },
+        {
+            tag: "Item #17",
+            q: "A student set up four test tubes containing a starch solution for an experiment to model digestion. The supplies included amylase and an incubator for temperature control. Amylase is an enzyme that digests starch and is found in human saliva and the pancreas. In which test tube would starch digestion occur MOST quickly?",
+            opts: ["Tube 1: No amylase, room temperature (25°C)", "Tube 2: No amylase, body temperature (37°C)", "Tube 3: Amylase present, room temperature (25°C)", "Tube 4: Amylase present, body temperature (37°C)"],
+            ans: 3,
+            exp: "Starch digestion needs the enzyme (amylase), and human enzymes work fastest near body temperature (37°C)."
+        },
+        {
+            tag: "Item #18",
+            q: "The graph below shows the reactivity of lactase at different temperatures. At which temperature would lactase be considered denatured? (Activity rises to a peak, then falls steeply toward zero at the highest temperatures.) <a href=\"ocr/quiz_photos/Image%2010-29-26%20at%207.00%E2%80%AFPM%20%281%29.png\" target=\"_blank\" style=\"color:#38bdf8;text-decoration:underline;\">Open the original graph from the quiz</a>",
+            opts: ["50 degrees C", "35 degrees C", "40 degrees C", "30 degrees C"],
             ans: 0,
-            exp: "Fermentation relies on glycolysis alone (2 net ATP), while aerobic respiration yields about 36–38 ATP in this course. Both start with glycolysis. Mirrors U3Q1 Item 10."
+            exp: "Too much heat changes the enzyme's shape, so it denatures and its activity falls off. Of the choices, only 50°C is on the steeply falling side of the curve, after the peak (Enzymes script slides 1–16)."
+        },
+        {
+            tag: "Item #22",
+            q: "What is the final electron acceptor in the electron transport chain?",
+            opts: ["Oxygen", "Carbon Dioxide", "Water", "NADH"],
+            ans: 0,
+            exp: "Oxygen is the final electron acceptor. It combines with electrons and H⁺ to form water (Dr. Irwin's Respiration Outline)."
         }
     ];
 
@@ -1302,6 +1361,7 @@
         const container = document.getElementById('sim-container');
         container.innerHTML = '';
         document.getElementById('sim-total').innerText = simQuestions.length;
+        document.querySelectorAll('.sim-count').forEach(e => { e.innerText = simQuestions.length; });
         simQuestions.forEach((item, idx) => {
             const card = document.createElement('div');
             card.className = 'quiz-card';
@@ -1310,7 +1370,7 @@
             const title = document.createElement('div');
             title.style.fontWeight = '700';
             title.style.marginBottom = '10px';
-            title.innerHTML = `<span style="color: var(--accent-green); margin-right: 6px;">Q${idx + 1}.</span> ${item.q}`;
+            title.innerHTML = `<span style="color: var(--accent-green); margin-right: 6px;">Q${idx + 1}.</span>${item.tag ? `<span style="background:#334155;color:#e2e8f0;font-size:0.72rem;padding:1px 7px;border-radius:9px;margin-right:6px;">U3Q1 ${item.tag}</span>` : ''}${item.q}`;
             card.appendChild(title);
 
             item.opts.forEach((opt, oIdx) => {
