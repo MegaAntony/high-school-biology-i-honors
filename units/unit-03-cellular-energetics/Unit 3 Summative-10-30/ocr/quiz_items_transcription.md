@@ -26,8 +26,9 @@
 - **B. Non-competitive inhibition**
 - **C. Allosteric Activation**
 - **D. Denaturation**
-- **Key**: **A. Competitive inhibition**
-- *Rationale*: Competitive inhibitors bind directly into the enzyme's active site, competing with the substrate.
+- **Student circled**: **B. Non-competitive inhibition** (visible on the photo)
+- **Key**: **B. Non-competitive inhibition** (corrected; an earlier version of this file said A). Checked on a zoomed photo of the diagram: `E` is bound at the bottom-left of the enzyme, away from the active site at the top, the active site has changed shape, and the substrate is shown bouncing off. No graded mark is visible on the photo, so this is based on the diagram, not on Dr. Irwin's key.
+- *Rationale*: Competitive inhibitors bind in the active site; non-competitive (allosteric) inhibitors bind elsewhere and distort the enzyme. Decide by where `E` binds in the picture.
 
 ### Item 2 (ID: `HbioU3Q1 Item 10`)
 - **Question**: *Which statement below accurately represents the difference between aerobic respiration and fermentation?*

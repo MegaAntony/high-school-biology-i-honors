@@ -58,6 +58,7 @@ All 21 official Unit 3 PDFs from Canvas (`S1W8`, `S1W9`, `S1W10`, and `Unit 3: C
   - *Mechanism*: The inhibitor binds to a separate **allosteric site** (away from the active site), causing a **conformational (3D shape) change** in the enzyme that distorts the active site so the substrate can no longer fit or react properly. It **cannot be overcome** by adding more substrate.
 
 #### 3. Graph A Questions (pH vs. Enzyme Activity: Pepsin, Salivary Amylase, Trypsin)
+> **Check your graph:** the Notes Packet p. 15 graph labels the alkaline enzyme **Arginase**, not Trypsin. Use whichever name is on your graph; the answer is the enzyme at the basic end.
 1. **Which enzyme works best under acidic conditions?**
    - **Pepsin** (optimum $\text{pH} \approx 1.5\text{–}2.0$ in the stomach).
 2. **Which enzyme works best under alkaline (basic) conditions?**
@@ -447,6 +448,7 @@ All 21 official Unit 3 PDFs from Canvas (`S1W8`, `S1W9`, `S1W10`, and `Unit 3: C
 15. **Which of the following is true about the Calvin Cycle?** **`b. Both ATP and NADPH are needed to make sugars.`**
 
 #### STEM Case Review Predictions (Page 15 — HIGH-YIELD EXAM TABLE!):
+> **Note:** Lab Packet p. 15 asks these three questions but leaves the answer lines blank, so this table is study-guide reasoning, not Dr. Irwin's official key. The "PSI stopped: ATP stays the same, NADPH and sugars decrease" row is also given by a Pearson study-help answer (PSII still builds the H⁺ gradient, so ATP synthase keeps working), so it is the most likely expected answer. Other sources say ATP would eventually fall, so if your class notes say otherwise, follow your notes.
 
 | Condition / Inhibition | Effect on **[ATP]** | Effect on **[NADPH]** | Effect on **[Sugars / Glucose]** | Why? (Biochemical Mechanism) |
 | :--- | :---: | :---: | :---: | :--- |
